@@ -9,6 +9,7 @@ Lee primero [`CONTEXTO_PROYECTO.md`](CONTEXTO_PROYECTO.md): define el problema, 
 - `data/external`: festivos de Colombia (generados), y scripts/plantillas para ISE (DANE) y pronósticos de temperatura (pendientes de descarga).
 - `data/processed`: panel horario *as-of* (`panel_horario.parquet`), registro de variables con su clase de disponibilidad, informe de calidad y cobertura de titulares.
 - `src/demanda`: calendario, consolidación, particiones, ventanas por origen, titulares por escenario, ISE, pronósticos y climatología (todo ajustado solo con entrenamiento).
+- `scripts/entrenar_modelos_base.py`: búsqueda, piloto y corrida final de los tres modelos base en PyTorch (ARX lineal ridge/lasso, MLP, LSTM), con GPU automática y opciones de hiperparámetros (ver `CONTEXTO_PROYECTO.md` §9).
 - `tests`: pruebas de fuga (ventanas, rezagos, escalas, particiones, pronósticos, ISE, titulares) y de calendario.
 
 ## Uso rápido
@@ -22,4 +23,4 @@ pytest -q tests
 Cada columna `x_*` ya trae su rezago de publicación y solo se lee antes del origen; el futuro solo expone calendario (`cal_*`) y pronósticos con emisión previa; las escalas se ajustan con entrenamiento; la partición purga el horizonte y la prueba está congelada.
 
 ## Estado
-Panel y pruebas listos. Pendientes: descargar ISE y pronósticos de temperatura (scripts sin probar con las fuentes reales), decidir el bloque de prueba (se recomienda uno prospectivo desde 2026) y preregistrar.
+Panel, pruebas y script de entrenamiento listos (aún no se ha entrenado con los datos reales). Pendientes: descargar ISE y pronósticos de temperatura (scripts sin probar con las fuentes reales), decidir el bloque de prueba (se recomienda uno prospectivo desde 2026) y preregistrar.

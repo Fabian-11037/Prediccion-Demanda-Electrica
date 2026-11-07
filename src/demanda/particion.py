@@ -31,7 +31,12 @@ def origenes(indice: pd.DatetimeIndex, split: str, horizonte: int = C.HORIZONTE,
     ok = (indice >= ini) & (indice + pd.Timedelta(hours=horizonte - 1) <= fin)
     ok &= pos >= ventana
     ok &= pos + horizonte <= len(indice)
-    ok &= indice.hour == hora_origen
+    if paso_h <= 0 or (paso_h < 24 and 24 % paso_h != 0) or (paso_h > 24 and paso_h % 24 != 0):
+        raise ValueError("paso_h debe dividir a 24 o ser múltiplo de 24")
+    if paso_h < 24:
+        ok &= (indice.hour % paso_h) == (hora_origen % paso_h)
+    else:
+        ok &= indice.hour == hora_origen
     sel = pos[ok]
     if paso_h > 24:  # submuestreo adicional (múltiplos de 24 h)
         sel = sel[:: paso_h // 24]

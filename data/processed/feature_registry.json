@@ -187,6 +187,30 @@
     "rezago_h": 1,
     "supuesto": true
   },
+  "x_obs_temperature_2m_c_ponderada": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true,
+    "nota": "promedio de las 8 ciudades ponderado por habitantes (censo 2018 ajustado)"
+  },
+  "x_obs_relative_humidity_2m_pct_ponderada": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true,
+    "nota": "promedio de las 8 ciudades ponderado por habitantes (censo 2018 ajustado)"
+  },
+  "x_obs_precipitation_preceding_hour_mm_ponderada": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true,
+    "nota": "promedio de las 8 ciudades ponderado por habitantes (censo 2018 ajustado)"
+  },
   "x_hid_llenado_valor_original": {
     "clase": "past_only",
     "rol": "entrada_pasada",
@@ -374,6 +398,16 @@
       "hidrologia": 24
     },
     "ise_rezago_dias": 60,
-    "zona_horaria": "America/Bogota"
+    "zona_horaria": "America/Bogota",
+    "pesos_ciudades": {
+      "bogota": 0.4630881284003095,
+      "medellin": 0.1516309771806571,
+      "cali": 0.13916834798178151,
+      "barranquilla": 0.07536283764134213,
+      "cartagena": 0.06078942000641602,
+      "bucaramanga": 0.0363051612703714,
+      "pereira": 0.029191878584215535,
+      "cucuta": 0.04446324893490679
+    }
   }
 }

@@ -21,6 +21,8 @@ Las pautas oficiales están en el proyecto de claude.ai «DL Project» (`Entrega
 - **Propuesta por confirmar:** frecuencia horaria, ámbito nacional (SIN), horizonte H = 24 horas, historia L = 168 horas (una semana). Origen `t0` en hora entera; el pronóstico cubre los intervalos que empiezan en `t0, …, t0+23h`. Origen diario a las 00:00 por defecto (`paso_h=24`).
 - **Métrica primaria sugerida:** MASE con escala del ingenuo estacional (24 h o 168 h) calculada solo con entrenamiento; secundarias RMSE, MAE y sMAPE por horizonte y tipo de día. Hay tendencia creciente de la demanda (demanda horaria media de ≈4.6 GWh en 2000 a ≈9.5 GWh en 2025), por lo que la escala absoluta de entrenamiento infla el error en periodos tardíos: comparar modelos solo dentro de una misma partición o usar una escala relativa al nivel.
 - **Tipo de problema:** series de tiempo (usa rezagos del objetivo).
+- **Modelos base (E1), decididos:** (1) regresión lineal ARX con penalización L2 (ridge) o L1 (lasso) sobre rezagos de demanda, resúmenes de covariables y calendario del horizonte, tipo LEAR; (2) MLP; (3) LSTM. **Todos se entrenan en PyTorch** (GPU si está disponible). Inicialmente se había elegido LightGBM como segundo modelo, pero no se entrena con PyTorch; queda como opción en CPU (`--modelos lightgbm`) y **debe confirmarse con el autor si el MLP lo reemplaza definitivamente**. Los modelos base deben justificarse con la revisión de literatura (el ingenuo estacional y la persistencia se reportan como referencia aparte). Nota: el L1 del ARX se optimiza por descenso de gradiente con penalización (no coordenadas cíclicas), por lo que no produce ceros exactos; declararlo.
+- **Pronóstico directo multi-salida** (una salida por hora del horizonte). Normalización por defecto: demanda dividida por su media en la ventana (`--normalizacion nivel`), que absorbe la tendencia de largo plazo; el resto de entradas se estandariza con estadísticas de entrenamiento.
 
 ## 3. Datos (carpeta `data/`)
 Inventario y detalle en `data/raw/README.md` y `data/external/README.md`.
@@ -29,6 +31,7 @@ Inventario y detalle en `data/raw/README.md` y `data/external/README.md`.
 |---|---|---|
 | Demanda real, demanda comercial, precio de bolsa (XM) | horario 2000-01-01 → 2025-12-31 23:00, 227 928 filas, sin huecos ni NaN | incluido (`data/raw/numeric/hourly`) |
 | Clima observado: temperatura, humedad, precipitación en 8 ciudades (ERA5 vía Open-Meteo) | igual | incluido; **reanálisis, no pronóstico** |
+| Habitantes por ciudad (censo 2018 del DANE ajustado por omisión censal) | estático | incluido en `data/raw/numeric/ciudades.csv`; cifras de **fuente secundaria** (Portafolio, 17-oct-2019, citando al DANE); sustituir por el archivo oficial |
 | Hidrología diaria (llenado, reserva útil, capacidad útil, aportes) | 2000-01-01 → 2025-12-31 | incluido |
 | Titulares de prensa (7 medios) y boletines IDEAM | 568 295 titulares, 2004-2025 | incluido (`data/raw/noticias/titulares.parquet`) |
 | Festivos de Colombia | 2000-2035 | generado (`data/external/festivos_colombia.csv`) |
@@ -42,7 +45,7 @@ Los datos de 2026 (hasta la fecha) **no están incluidos**; ver §6.
 
 Prefijos de columnas:
 - `y_demanda_real_kwh`: objetivo; solo se lee como etiqueta del horizonte.
-- `x_*`: entradas **as-of** (solo pasado, con rezago de publicación ya aplicado): demanda real rezagada, precio de bolsa, clima observado, hidrología.
+- `x_*`: entradas **as-of** (solo pasado, con rezago de publicación ya aplicado): demanda real rezagada, precio de bolsa, clima observado por ciudad, clima ponderado por habitantes (`x_obs_*_ponderada`, promedio de las 8 ciudades con pesos del censo 2018; pesos estáticos, declarar que el censo es posterior a parte del periodo), hidrología.
 - `cal_*`: calendario conocido a futuro (hora, día de la semana, festivos, víspera, puentes, Semana Santa, temporada navideña, codificaciones cíclicas).
 - `aux_*`: solo auditoría; no usar como entrada.
 
@@ -65,14 +68,33 @@ Train 2000-2017, validación 2018-2021, prueba 2022-2025 (`PARTICION` en `config
 - La disponibilidad de texto es muy desigual entre particiones (ver §7). Para experimentos con texto conviene fijar a priori el periodo y las fuentes.
 
 ## 6. Pendientes y decisiones abiertas
+
+### Datos que faltan
+| Dato | Por qué falta | Qué hacer |
+|---|---|---|
+| ISE (DANE), actividad económica | El entorno de desarrollo no alcanza el DANE | Descargar el anexo del ISE y correr `scripts/adquisicion/importar_ise.py` (**sin probar con el archivo real**; revisar el orden de columnas) |
+| Pronósticos de temperatura con emisión previa | El entorno no alcanza Open-Meteo | Correr `scripts/adquisicion/descargar_pronosticos_temperatura.py` (**sin probar**); comprobar que `previous_dayN` entrega corridas distintas y revisar huecos. Cobertura: GFS desde 2021-03, resto desde 2024-01 |
+| Datos de 2026 (demanda, precio, hidrología, clima, titulares) | El conjunto termina el 2025-12-31 | Necesarios si se adopta el bloque de prueba prospectivo (§5) |
+| Habitantes oficiales (DANE) y proyecciones anuales | Solo se obtuvo el censo 2018 ajustado por una fuente secundaria | Descargar las proyecciones municipales del DANE y decidir si la población es estática o anual |
+| Pronóstico oficial de demanda de XM | No se verificó que exista un archivo histórico con fecha de emisión | Verificar antes de usarlo como covariable o comparador (hoy está fuera) |
+| Horas reales de publicación (demanda, precio, hidrología) | La fuente no las certifica | Los rezagos de `config.py` son supuestos; documentarlos o medirlos |
+| `PREREGISTRO.md` | Aún no se ha escrito | **Obligatorio antes de la etapa `final`**: el script lo exige |
+
+### Decisiones abiertas
 1. Confirmar frecuencia (horaria), horizonte (24 h) y ámbito (SIN).
-2. Elegir el bloque de prueba (¿prospectivo 2026?) y preregistrar.
-3. Descargar e importar el ISE (DANE) y los pronósticos de temperatura (scripts en `scripts/adquisicion/`, **sin probar** porque el entorno de desarrollo no alcanza esas fuentes). Verificar que `previous_dayN` entrega corridas distintas y revisar huecos.
-4. Descargar 2026 (XM, Open-Meteo, titulares) si se adopta el bloque prospectivo.
-5. Definir el tratamiento de valores anómalos de demanda (p. ej. 2007-04-26 10:00-12:00 cae a 6-39 % de lo esperable; ver `data/processed/calidad_datos.json`). Los datos **no se corrigieron**.
-6. Decidir si los titulares (metadato con derechos del editor) se mantienen en un repositorio público; ahora solo se incluye el titular (sin cuerpo) y la URL únicamente de registros con versión archivada verificada.
-7. E1: EDA, extracción de 3 modelos base de la literatura, piloto, ≥5 semillas, baseline e inferencia, Jupyter Book. Completar la revisión de literatura (cadenas booleanas con fecha, bases de datos, exclusiones, tabla de síntesis con DOI).
-8. E2/E3: Top-10, paper guía, auditoría de fuga del texto, búsqueda de 1000 arquitecturas, modelo original (ideas candidatas: compuerta de utilidad del texto guiada por incertidumbre con propiedad de «no empeorar»; pérdida de texto placebo; núcleo de respuesta al impulso de noticias; pronóstico conformal condicionado por texto — confirmar novedad con búsqueda dirigida).
+2. Confirmar que el MLP reemplaza a LightGBM como segundo modelo base (§2) y justificar los tres con la literatura.
+3. Elegir el bloque de prueba (¿prospectivo 2026?) y preregistrar, incluyendo el delta relativo de interés (el script usa 3 % por defecto solo como valor de partida).
+4. Definir el tratamiento de valores anómalos de demanda (p. ej. 2007-04-26 10:00-12:00 cae a 6-39 % de lo esperable; ver `data/processed/calidad_datos.json`). Los datos **no se corrigieron**.
+5. Decidir si los titulares (metadato con derechos del editor) se mantienen en un repositorio público; solo se incluye el titular y la URL únicamente de registros con versión archivada verificada.
+
+### Trabajo por hacer
+- E1: EDA, extracción de 3 modelos base de la literatura, piloto, ≥5 semillas, baseline e inferencia, Jupyter Book; completar la revisión de literatura (cadenas booleanas con fecha, bases de datos, exclusiones, tabla de síntesis con DOI).
+- E2/E3: Top-10, paper guía, auditoría de fuga del texto, búsqueda de 1000 arquitecturas, modelo original (ideas candidatas: compuerta de utilidad del texto guiada por incertidumbre con propiedad de «no empeorar»; pérdida de texto placebo; núcleo de respuesta al impulso de noticias; pronóstico conformal condicionado por texto — confirmar novedad con búsqueda dirigida).
+
+### Estado del código de entrenamiento
+- **No se ha entrenado ningún modelo con los datos reales** ni se ha usado la prueba. Solo se ejecutaron pruebas unitarias y una prueba de humo en CPU (muestras pequeñas, pocas épocas) para verificar que el flujo corre; sus cifras no son resultados.
+- **La ruta de GPU no se ha probado** (el entorno de desarrollo no tiene GPU). Con CUDA, el determinismo estricto exige `CUBLAS_WORKSPACE_CONFIG` (el código lo define); los resultados de CPU y GPU no coinciden bit a bit: declarar el dispositivo en cada corrida (`entorno_*.json` lo registra).
+- El tiempo de la búsqueda no se midió con datos completos; el LSTM es el más costoso.
 
 ## 7. Limitaciones de datos conocidas (declararlas en los artículos)
 - **Cobertura de texto desigual:** 2008-2019 es casi solo El Colombiano (sitemap, fecha declarada sin hora); desde 2020 hay otras fuentes con volúmenes muy distintos por año (Semana: ≈17.6 mil en 2022 y ≈0.1 mil en 2025); los boletines IDEAM suben en 2024-2025. El cambio de composición de fuentes entre entrenamiento y prueba es un riesgo de sesgo de distribución, no de fuga.
@@ -88,9 +110,12 @@ data/raw/               numeric/{hourly,hydrology,ciudades.csv}, noticias/titula
 data/external/          festivos_colombia.csv, actividad_economica/, pronosticos_temperatura/, README.md
 data/processed/         panel_horario.parquet, feature_registry.json, calidad_datos.json, cobertura_titulares_*.csv
 src/demanda/            config, calendario, consolidar, particion, ventanas, noticias, actividad_economica,
-                        pronosticos, climatologia
-scripts/                construir_panel.py, generar_festivos.py, adquisicion/{descargar_pronosticos_temperatura,importar_ise}.py
-tests/                  calendario, fuga del panel y las ventanas, particiones, externos, adquisición, higiene de redacción
+                        pronosticos, climatologia, metricas, modelos_base
+scripts/                construir_panel.py, generar_festivos.py, entrenar_modelos_base.py,
+                        adquisicion/{descargar_pronosticos_temperatura,importar_ise}.py
+results/base/           (se crea al entrenar) busqueda.csv, mejor_config.json, piloto*.csv/json, final_runs.csv,
+                        resumen_final.csv, hist/, preds/, entorno_*.json
+tests/                  calendario, fuga del panel y las ventanas, particiones, externos, adquisición, modelos base, higiene de redacción
 ```
 
 ## 9. Cómo ejecutar
@@ -98,7 +123,7 @@ tests/                  calendario, fuga del panel y las ventanas, particiones, 
 pip install -r requirements.txt
 python scripts/generar_festivos.py        # festivos
 python scripts/construir_panel.py         # panel as-of + registro + cobertura
-pytest -q tests                           # 22+ pruebas de fuga/calendario
+pytest -q tests                           # pruebas de fuga, calendario y pipeline de entrenamiento
 ```
 Ejemplo de ventanas sin fuga:
 ```python
@@ -111,6 +136,24 @@ x, k = columnas_por_clase(reg, "past_only"), columnas_por_clase(reg, "known_futu
 esc = AjustadorEscala().ajustar(panel, x + ["y_demanda_real_kwh"])
 w = construir_ventanas(panel, origenes(panel.index, "train"), x, k, escala=esc)
 ```
+
+### Entrenamiento de los modelos base (`scripts/entrenar_modelos_base.py`)
+Etapas, en orden: `listar` (espacios y opciones) → `buscar` → `piloto` → `final`.
+```bash
+python scripts/entrenar_modelos_base.py listar
+python scripts/entrenar_modelos_base.py buscar --n-config 12 --covariables calendario      # validación; 1 semilla; mismo presupuesto para los 3
+python scripts/entrenar_modelos_base.py piloto                                              # 5 semillas (100-104) sobre validación; estima n de semillas
+python scripts/entrenar_modelos_base.py final --allow-test --prereg PREREGISTRO.md          # PRUEBA: una sola vez, tras preregistrar
+```
+Opciones principales (todas con `--help`):
+- **Hiperparámetros buscados** (búsqueda aleatoria; `--n-config` igual para todos): ARX lineal: penalización (ridge/lasso), lambda (rango según penalización), rezagos de demanda {24, 48, 96, 168}, batch size. MLP y LSTM: capas {1,2,3}, unidades, dropout [0, 0.5], weight decay (log), batch size.
+- **Fijar o ampliar:** `--fijar modelo.param=valor` (repetible) saca un parámetro de la búsqueda; `--espacio ruta.json` reemplaza espacios.
+- **Entrenamiento (no se buscan):** `--max-epocas`, `--paciencia` (parada temprana sobre la pérdida de validación), `--lr`, `--perdida {mse,mae,huber}`, `--clip`, `--max-arboles` (LightGBM).
+- **Datos:** `--covariables {serie,calendario,completo}`, `--clima-por-ciudad`, `--ventana`, `--horizonte`, `--paso-h`, `--hora-origen`, `--normalizacion {nivel,global}`, `--escala-mase-lag {24,168}`.
+- **Dispositivo:** `--dispositivo {auto,cpu,cuda,cuda:N}` (auto usa GPU si existe), `--determinismo {estricto,rapido}`, `--amp` (bfloat16 en GPU), `--max-gb-gpu`, `--hilos`.
+- **Semillas:** búsqueda 1; piloto 100-104; final 1000+ (n = máximo entre 5 y lo que estime el piloto con `--delta`, `--alfa`, `--potencia`). La búsqueda es reanudable (`busqueda.csv`).
+- **Referencias** (ingenuo 24 h y 168 h con la misma disponibilidad de datos que los modelos) se reportan aparte en `referencias_{val,test}.json`.
+- **GPU:** instalar PyTorch con CUDA (en la web oficial de PyTorch, elegir la versión de CUDA que corresponda al controlador) y comprobar `python -c "import torch; print(torch.cuda.is_available())"`.
 
 ## 10. Git y accesos
 Repositorio: `github.com/Fabian-11037/prediccion-demanda-electrica` (rama `main`). Los commits de Claude llevan el trailer `Co-Authored-By`. El código y los textos se producen con asistencia de IA y deben ser revisados por el autor.

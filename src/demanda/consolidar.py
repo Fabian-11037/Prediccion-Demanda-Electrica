@@ -83,6 +83,11 @@ def construir_panel() -> tuple[pd.DataFrame, dict]:
         for c in C.CIUDADES:
             panel[f"x_obs_{v}_{c}"] = h[f"{v}_{c}"].astype("float32").shift(C.REZAGO_H["clima_obs"])
 
+    # clima nacional ponderado por habitantes (pesos estáticos; ver config.pesos_ciudades)
+    w = C.pesos_ciudades()
+    for v in C.VARIABLES_CLIMA:
+        panel[f"x_obs_{v}_ponderada"] = sum(w[c] * panel[f"x_obs_{v}_{c}"].astype("float64") for c in C.CIUDADES).astype("float32")
+
     hid = leer_hidrologia()
     hh = _as_of_diario(idx, hid, C.REZAGO_H["hidrologia"], "x_hid_")
     panel = panel.join(hh.drop(columns=["x_hid_fecha_dato"]))
@@ -112,6 +117,8 @@ def construir_registro(panel: pd.DataFrame) -> dict:
             reg[c] = dict(clase="past_only", rol="entrada_pasada", fuente="XM", rezago_h=C.REZAGO_H["precio_bolsa"], supuesto=True)
         elif c.startswith("x_obs_"):
             reg[c] = dict(clase="past_only", rol="entrada_pasada", fuente="ERA5 vía Open-Meteo (reanálisis)", rezago_h=C.REZAGO_H["clima_obs"], supuesto=True)
+            if c.endswith("_ponderada"):
+                reg[c]["nota"] = "promedio de las 8 ciudades ponderado por habitantes (censo 2018 ajustado)"
         elif c.startswith("x_hid_"):
             reg[c] = dict(clase="past_only", rol="entrada_pasada", fuente="XM (diario)", rezago_h=C.REZAGO_H["hidrologia"], supuesto=True)
         else:
@@ -127,6 +134,7 @@ def construir_registro(panel: pd.DataFrame) -> dict:
         "rezagos_h": C.REZAGO_H,
         "ise_rezago_dias": C.ISE_REZAGO_DIAS,
         "zona_horaria": C.TZ,
+        "pesos_ciudades": C.pesos_ciudades(),
     }
     return reg
 

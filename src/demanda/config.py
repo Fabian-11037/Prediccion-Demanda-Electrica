@@ -57,3 +57,18 @@ PRONOSTICO_MARGEN_H = 6
 
 CIUDADES = ["bogota", "medellin", "cali", "barranquilla", "cartagena", "bucaramanga", "pereira", "cucuta"]
 VARIABLES_CLIMA = ["temperature_2m_c", "relative_humidity_2m_pct", "precipitation_preceding_hour_mm"]
+
+# Habitantes por ciudad (censo 2018 del DANE ajustado por omisión censal, cifras citadas por Portafolio,
+# 17-oct-2019; fuente secundaria: sustituir por el archivo oficial del DANE cuando se descargue).
+# Son pesos estáticos: el censo se publicó después de 2018, pero no depende de la demanda; declararlo.
+RUTA_CIUDADES = RAW / "numeric" / "ciudades.csv"
+COLUMNA_HABITANTES = "habitantes_censo_2018_ajustado"
+
+
+def pesos_ciudades() -> "dict[str, float]":
+    """Pesos normalizados (suman 1) proporcionales a los habitantes de cada ciudad de ``CIUDADES``."""
+    import pandas as pd
+
+    t = pd.read_csv(RUTA_CIUDADES).set_index("ciudad")[COLUMNA_HABITANTES]
+    t = t.loc[CIUDADES].astype("float64")
+    return (t / t.sum()).to_dict()
