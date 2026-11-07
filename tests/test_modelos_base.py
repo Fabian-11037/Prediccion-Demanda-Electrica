@@ -96,3 +96,47 @@ def test_metricas_y_potencia():
     assert m["MASE"] == pytest.approx(0.5) and m["MAE"] == pytest.approx(1.0) and m["MASE_h2"] == pytest.approx(0.5)
     assert n_semillas_requerido(0.0, 1.0, 0.03) == 1
     assert n_semillas_requerido(0.02, 1.0, 0.03) > n_semillas_requerido(0.01, 1.0, 0.03)
+
+
+def test_espacio_v2_incluye_hiperparametros_de_optimizacion_en_los_tres_modelos():
+    for nombre in M.MODELOS_PYTORCH:
+        esp = M.ESPACIOS[nombre]
+        assert {"lr", "scheduler", "perdida", "paciencia"} <= set(esp)
+        rng = np.random.default_rng(3)
+        for _ in range(30):
+            p = M.muestrear(esp, rng)
+            assert 1e-4 <= p["lr"] <= 1e-2
+            assert p["scheduler"] in ("none", "cosine", "plateau")
+            assert p["perdida"] in ("mse", "mae", "huber")
+            assert p["paciencia"] in (8, 15, 25)
+
+
+@pytest.mark.parametrize("scheduler,perdida", [("none", "mse"), ("cosine", "mae"), ("plateau", "huber")])
+def test_humo_scheduler_y_perdida_corren_sin_error(datos, scheduler, perdida):
+    """Humo mínimo (2 épocas, 200 orígenes): verifica que el código corre; sus cifras no se usan para decidir nada."""
+    pytest.importorskip("torch")
+    tr, va = datos.conjunto("train"), datos.conjunto("val")
+    n = 40
+    sub = M.Conjunto(**{f: getattr(va, f)[:n] for f in M.Conjunto.__dataclass_fields__}) if hasattr(M, "Conjunto") else va
+    op = M.Opciones(max_epocas=2, dispositivo="cpu")
+    p = {"capas": 1, "unidades": 8, "dropout": 0.0, "weight_decay": 1e-5, "batch_size": 64,
+         "lr": 1e-3, "scheduler": scheduler, "perdida": perdida, "paciencia": 8}
+    r = M.entrenar_y_evaluar("mlp", p, 1, datos, op, tr, sub, sub)
+    assert np.isfinite(r["MASE"])
+
+
+def test_semillas_multiples_promedian_y_reportan_sd(monkeypatch):
+    llamadas = []
+
+    def falso(nombre, params, semilla, datos, op, folds):
+        llamadas.append(semilla)
+        v = 1.0 + 0.1 * semilla
+        return {"modelo": nombre, "semilla": semilla, "params": params, "segundos": 1.0, "n_parametros": 5,
+                "MASE": v, "RMSE": v, "MAE": v, "sMAPE": v, "MAPE": v, "MASE_sd_pliegues": 0.0, "MASE_2018": v, "_historia": {}}
+
+    monkeypatch.setattr(M, "validacion_cruzada", falso)
+    r = M.validacion_cruzada_semillas("mlp", {"a": 1}, [10, 11, 12], None, None, [])
+    assert llamadas == [10, 11, 12]
+    assert r["MASE"] == pytest.approx(2.1) and r["MASE_sd_semillas"] == pytest.approx(0.1)
+    r1 = M.validacion_cruzada_semillas("mlp", {"a": 1}, [10], None, None, [])
+    assert r1["MASE_sd_semillas"] == 0.0

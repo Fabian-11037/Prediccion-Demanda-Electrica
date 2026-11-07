@@ -200,26 +200,37 @@ def _int(a, b, log=False):
     return {"tipo": "int", "min": a, "max": b, "log": log}
 
 
+# Hiperparámetros de optimización comunes a los tres modelos PyTorch (versión 2 del preregistro)
+_OPT = {
+    "lr": _fl(1e-4, 1e-2, True),
+    "scheduler": _cat("none", "cosine", "plateau"),
+    "perdida": _cat("mse", "mae", "huber"),
+    "paciencia": _cat(8, 15, 25),
+}
+
 ESPACIOS = {
-    "arx_lineal": {  # 4 hiperparámetros: regresión lineal con penalización L2 (ridge) o L1 (lasso) sobre rezagos
+    "arx_lineal": {  # 8 hiperparámetros (4 propios + 4 de optimización): regresión lineal con penalización L2 (ridge) o L1 (lasso) sobre rezagos
         "penalizacion": _cat("ridge", "lasso"),
         "lambda": {"condicional_en": "penalizacion", "ridge": _fl(1e-6, 1e-1, True), "lasso": _fl(1e-7, 1e-2, True)},
         "lags": _cat(24, 48, 96, 168),
         "batch_size": _cat(32, 64, 128, 256),
+        **_OPT,
     },
-    "mlp": {  # 5 hiperparámetros
+    "mlp": {  # 9 hiperparámetros (5 propios + 4 de optimización)
         "capas": _cat(1, 2, 3),
         "unidades": _cat(64, 128, 256, 512),
         "dropout": _fl(0.0, 0.5),
         "weight_decay": _fl(1e-6, 1e-2, True),
         "batch_size": _cat(32, 64, 128, 256),
+        **_OPT,
     },
-    "lstm": {  # 5 hiperparámetros
+    "lstm": {  # 9 hiperparámetros (5 propios + 4 de optimización)
         "capas": _cat(1, 2, 3),
         "unidades": _cat(32, 64, 128, 256),
         "dropout": _fl(0.0, 0.5),
         "weight_decay": _fl(1e-6, 1e-2, True),
         "batch_size": _cat(32, 64, 128, 256),
+        **_OPT,
     },
     "lightgbm": {  # opcional (CPU, no usa PyTorch); n_estimators máximo y paciencia: opciones de línea de comandos
         "num_leaves": _int(8, 128, True),
@@ -265,9 +276,11 @@ class Opciones:
     max_epocas: int = 200  # modelos PyTorch (tope alto: la parada temprana decide cuándo termina)
     paciencia: int = 8  # épocas (PyTorch) o rondas (LightGBM) sin mejora en validación
     max_arboles: int = 1500  # LightGBM
-    lr: float = 1e-3  # modelos PyTorch (AdamW)
+    lr: float = 1e-3  # modelos PyTorch (AdamW); valor por defecto si 'lr' no está en los parámetros
+    min_delta: float = 1e-6  # mejora mínima de la pérdida de validación para reiniciar la paciencia
+    huber_delta: float | None = None  # None: 0.05 con normalización 'nivel' y 0.5 con 'global' (unidades de la pérdida normalizada)
     lr_arboles: float = 0.05  # LightGBM
-    perdida: str = "mse"
+    perdida: str = "mse"  # valor por defecto si 'perdida' no está en los parámetros
     clip: float = 1.0  # recorte de norma del gradiente
     hilos: int = 1  # hilos de CPU
     dispositivo: str = "auto"  # auto | cpu | cuda | cuda:N
@@ -443,8 +456,18 @@ class ModeloTorch:
         else:  # datos grandes en CPU: estadísticas con una submuestra uniforme de entrenamiento
             sel = torch.randperm(len(xt), generator=gen)[:16384]
             red.preparar(xt[sel].to(dev), ct[sel].to(dev))
-        lossf = {"mse": nn.MSELoss(), "mae": nn.L1Loss(), "huber": nn.HuberLoss(delta=1.0)}[op.perdida]
-        opt = torch.optim.AdamW(red.parameters(), lr=op.lr, weight_decay=float(p.get("weight_decay", 0.0)))
+        delta_h = op.huber_delta if op.huber_delta is not None else (0.05 if datos.cfg.normalizacion == "nivel" else 0.5)
+        perdida = p.get("perdida", op.perdida)
+        lossf = {"mse": nn.MSELoss(), "mae": nn.L1Loss(), "huber": nn.HuberLoss(delta=delta_h)}[perdida]
+        opt = torch.optim.AdamW(red.parameters(), lr=float(p.get("lr", op.lr)), weight_decay=float(p.get("weight_decay", 0.0)))
+        paciencia = int(p.get("paciencia", op.paciencia))
+        sched_nombre = p.get("scheduler", "none")
+        if sched_nombre == "cosine":
+            sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=op.max_epocas)
+        elif sched_nombre == "plateau":
+            sched = torch.optim.lr_scheduler.ReduceLROnPlateau(opt, mode="min", factor=0.5, patience=max(2, paciencia // 3))
+        else:
+            sched = None
         bs = int(p["batch_size"])
         usar_amp = op.amp and dev.type == "cuda"
         mejor, estado, malas, hist = np.inf, None, 0, []
@@ -470,12 +493,14 @@ class ModeloTorch:
             with torch.no_grad(), ac():
                 vl = float(sum(lossf(red(xv[i:i + 4096], cv[i:i + 4096]).float(), yv[i:i + 4096]) * len(yv[i:i + 4096]) for i in range(0, len(xv), 4096)) / len(xv))
             hist.append({"epoca": ep, "train_loss": tot / len(xt), "val_loss": vl})
-            if vl < mejor - 1e-8:
+            if sched is not None:
+                sched.step(vl) if sched_nombre == "plateau" else sched.step()
+            if vl < mejor - op.min_delta:
                 mejor, malas = vl, 0
                 estado = {k: v.detach().clone() for k, v in red.state_dict().items()}
             else:
                 malas += 1
-                if malas >= op.paciencia:
+                if malas >= paciencia:
                     break
         red.load_state_dict(estado)
         n_par = int(sum(q.numel() for q in red.parameters()))
@@ -547,6 +572,23 @@ def entrenar_y_evaluar(nombre: str, params: dict, semilla: int, datos: Datos, op
     if guardar_pred:
         out["_yhat"] = yhat
     out["_historia"] = info["historia"]
+    return out
+
+
+def validacion_cruzada_semillas(nombre: str, params: dict, semillas: list[int], datos: Datos, op: Opciones, folds: list[dict]) -> dict:
+    """Promedia la validación cruzada sobre varias semillas (reduce el ruido de la selección)."""
+    rs = [validacion_cruzada(nombre, params, s, datos, op, folds) for s in semillas]
+    if len(rs) == 1:
+        rs[0]["MASE_sd_semillas"] = 0.0
+        return rs[0]
+    out = {"modelo": nombre, "semilla": ",".join(str(s) for s in semillas), "params": params, "n_parametros": rs[0]["n_parametros"],
+           "segundos": round(sum(r["segundos"] for r in rs), 2)}
+    for k in rs[0]:
+        if k.startswith("_") or k in out or k in ("modelo", "semilla", "params"):
+            continue
+        out[k] = float(np.mean([r[k] for r in rs]))
+    out["MASE_sd_semillas"] = float(np.std([r["MASE"] for r in rs], ddof=1))
+    out["_historia"] = rs[0]["_historia"]
     return out
 
 

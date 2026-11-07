@@ -37,7 +37,7 @@ Presupuesto: 12 configuraciones por modelo, igual para los tres. Épocas máxima
 Semillas fijadas (random, numpy, torch). Determinismo estricto de PyTorch por defecto. El dispositivo, versiones y commit de cada corrida quedan en `results/base/entorno_*.json`. Los resultados de CPU y GPU no coinciden bit a bit.
 
 ## 7. Lo que NO está decidido
-Si el MLP reemplaza definitivamente a LightGBM como segundo modelo base; el δ de interés; la justificación de los tres modelos con la revisión de literatura; el tratamiento de valores anómalos de demanda (2007-04-26); el bloque de prueba prospectivo (2026).
+Si el MLP reemplaza definitivamente a LightGBM como segundo modelo base; la justificación de los tres modelos con la revisión de literatura; el tratamiento de valores anómalos de demanda (2007-04-26); el bloque de prueba prospectivo (2026).
 
 ---
 
@@ -46,11 +46,25 @@ Si el MLP reemplaza definitivamente a LightGBM como segundo modelo base; el δ d
 Esta versión **no modifica** la versión 1 ni sus resultados (`results/base/`, 60 épocas máximas), que se conservan y se reportan como «v1».
 
 ## Cambios decididos
-1. **Épocas máximas: 200** (antes 60) para los tres modelos, manteniendo la parada temprana sobre la pérdida de validación (paciencia 8, a confirmar en la v2 final). Motivo: en la v1 dos semillas del ARX lineal terminaron en el tope de 60 épocas con la mejor época en el límite (posible falta de convergencia). El motivo se observó en las curvas de entrenamiento, pero la decisión se toma después de haber leído la prueba de la v1 para ARX lineal y MLP; se declara como posible contaminación leve.
+1. **Épocas máximas: 200** (antes 60) para los tres modelos, manteniendo la parada temprana sobre la pérdida de validación (paciencia 8, sustituida por el hiperparámetro `paciencia` en la ampliación de más abajo). Motivo: en la v1 dos semillas del ARX lineal terminaron en el tope de 60 épocas con la mejor época en el límite (posible falta de convergencia). El motivo se observó en las curvas de entrenamiento, pero la decisión se toma después de haber leído la prueba de la v1 para ARX lineal y MLP; se declara como posible contaminación leve.
 2. Las corridas de la v2 escribirán en un directorio distinto (`--salida results/base_v2`) para no sobrescribir la v1.
 3. Si se amplía el espacio de hiperparámetros (ver `CONTEXTO_PROYECTO.md`, «Opciones de hiperparametrización sugeridas»), el cambio se aplicará a los tres modelos con el mismo presupuesto y se anotará aquí **antes** de ejecutar.
 4. La prueba se volverá a leer en la v2 para ARX lineal, MLP y LSTM. Los resultados de la v2 no reemplazan a los de la v1: se reportan ambos y se declara que la v2 se diseñó después de ver la prueba de la v1.
 
+## Ampliación de la v2 (2026-11-07, antes de ejecutar la v2; sigue a la lectura de la prueba de la v1 para ARX lineal y MLP)
+Decisiones del autor y su implementación en el código (commit que acompaña a este texto). Se aplican **a los tres modelos con el mismo presupuesto**:
+1. **Hiperparámetros de optimización añadidos al espacio** (ARX lineal, MLP y LSTM; se suman a los de la v1):
+   - tasa de aprendizaje `lr`: log-uniforme 1e-4..1e-2 (en la v1 fija en 1e-3);
+   - planificador `scheduler`: {ninguno, coseno (T_max = épocas máximas), reducción en meseta (factor 0.5, paciencia = max(2, paciencia/3))};
+   - pérdida `perdida`: {MSE, MAE, Huber}; delta de Huber = 0.05 con normalización «nivel» y 0.5 con «global» (unidades de la pérdida normalizada; regla fijada antes de ver resultados);
+   - paciencia de la parada temprana `paciencia`: {8, 15, 25}.
+   Tamaño del espacio: ARX lineal 8 hiperparámetros, MLP 9, LSTM 9. El optimizador (AdamW), el recorte de gradiente (1.0), la activación y la arquitectura no se buscan.
+2. **Parada temprana:** mejora mínima `min_delta` = 1e-6 sobre la pérdida de validación (en la v1: 1e-8); épocas máximas 200.
+3. **Presupuesto:** **20 configuraciones por modelo** (v1: 12) y **3 semillas por configuración** en la búsqueda (semillas de búsqueda 1, 2, 3; se promedia el MASE de validación cruzada; v1: 1 semilla). Mismo presupuesto para los tres modelos. Criterio de selección: MASE medio entre pliegues y semillas.
+4. **δ = 3 %** (diferencia relativa de interés) **confirmado por el autor** para el margen de equivalencia (TOST/ROPE) y la estimación de potencia (α = 0.05, potencia 0.80).
+5. Resultados de la v2 en `results/base_v2` (no se sobrescribe `results/base`). Las pruebas se ejecutan en la GPU del autor; en este entorno **no** se entrenó nada con estos cambios, solo pruebas unitarias y un humo de 2 épocas con 40 orígenes (sus cifras no se usaron).
+6. Como la v2 se diseñó después de ver la prueba de la v1 (ARX lineal y MLP), la comparación v1–v2 no es una validación independiente.
+
 ## Pendiente de preregistrar antes de ejecutar
-- Pruebas estadísticas entre modelos (ver `CONTEXTO_PROYECTO.md`, «Preregistro de las pruebas estadísticas»).
-- Piloto de 5 semillas y número de ejecuciones finales por potencia, con el δ que fije el autor.
+- Pruebas estadísticas entre modelos (ver `CONTEXTO_PROYECTO.md`, «Preregistro de las pruebas estadísticas»), usando δ = 3 %.
+- Piloto de 5 semillas y número de ejecuciones finales por potencia (con δ = 3 %).

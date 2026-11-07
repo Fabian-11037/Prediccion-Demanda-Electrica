@@ -18,7 +18,7 @@ Etapas (en este orden, cada una con su subcomando):
 
 Ejemplos:
   python scripts/entrenar_modelos_base.py listar
-  python scripts/entrenar_modelos_base.py buscar --n-config 12 --covariables calendario
+  python scripts/entrenar_modelos_base.py buscar --n-config 20 --semillas-por-config 3 --salida results/base_v2
   python scripts/entrenar_modelos_base.py buscar --modelos lstm --fijar lstm.unidades=64 --max-epocas 40
   python scripts/entrenar_modelos_base.py buscar --dispositivo cuda --amp --determinismo rapido
   python scripts/entrenar_modelos_base.py piloto
@@ -73,7 +73,8 @@ def parser() -> argparse.ArgumentParser:
 
     b = ap.add_argument_group("búsqueda y modelos")
     b.add_argument("--modelos", nargs="+", choices=list(M.CLASES), default=list(M.MODELOS_PYTORCH))
-    b.add_argument("--n-config", type=int, default=12, help="configuraciones por modelo (mismo presupuesto para todos)")
+    b.add_argument("--n-config", type=int, default=20, help="configuraciones por modelo (mismo presupuesto para todos; 20 desde la v2 por el espacio ampliado)")
+    b.add_argument("--semillas-por-config", type=int, default=3, help="semillas por configuración en la búsqueda (se promedian; 3 desde la v2, 1 en la v1)")
     b.add_argument("--semilla-busqueda", type=int, default=1, help="semilla del muestreo de configuraciones y del entrenamiento en la búsqueda")
     b.add_argument("--fijar", action="append", default=[], metavar="modelo.param=valor",
                    help="fija un hiperparámetro (sale de la búsqueda); repetible. Ej.: lstm.unidades=64")
@@ -81,11 +82,13 @@ def parser() -> argparse.ArgumentParser:
 
     t = ap.add_argument_group("entrenamiento (no se buscan)")
     t.add_argument("--max-epocas", type=int, default=200, help="modelos PyTorch: épocas máximas (la parada temprana con --paciencia decide cuándo termina)")
-    t.add_argument("--paciencia", type=int, default=8, help="LSTM: épocas / LightGBM: rondas sin mejora en validación")
+    t.add_argument("--paciencia", type=int, default=8, help="épocas (PyTorch, si no se busca) o rondas (LightGBM) sin mejora en validación; en la v2 la paciencia de los modelos PyTorch es hiperparámetro")
     t.add_argument("--max-arboles", type=int, default=1500, help="LightGBM: árboles máximos (parada temprana)")
-    t.add_argument("--lr", type=float, default=1e-3, help="LSTM: tasa de aprendizaje")
+    t.add_argument("--lr", type=float, default=1e-3, help="tasa de aprendizaje por defecto si no se busca (en la v2 es hiperparámetro)")
     t.add_argument("--lr-arboles", type=float, default=0.05, help="LightGBM: tasa de aprendizaje")
-    t.add_argument("--perdida", choices=M.PERDIDAS, default="mse", help="LSTM: función de pérdida")
+    t.add_argument("--perdida", choices=M.PERDIDAS, default="mse", help="pérdida por defecto si no se busca (en la v2 es hiperparámetro: mse/mae/huber)")
+    t.add_argument("--huber-delta", type=float, default=None, help="delta de Huber en unidades normalizadas (por defecto 0.05 con normalización nivel, 0.5 con global)")
+    t.add_argument("--min-delta", type=float, default=1e-6, help="mejora mínima de la pérdida de validación para reiniciar la paciencia")
     t.add_argument("--clip", type=float, default=1.0, help="recorte de la norma del gradiente")
     t.add_argument("--hilos", type=int, default=1, help="hilos de CPU (1 = determinismo más estricto)")
     d = ap.add_argument_group("dispositivo")
@@ -135,8 +138,8 @@ def fijos(a) -> dict[str, dict]:
 
 
 def opciones(a) -> M.Opciones:
-    return M.Opciones(a.max_epocas, a.paciencia, a.max_arboles, a.lr, a.lr_arboles, a.perdida, a.clip, a.hilos,
-                      a.dispositivo, a.determinismo, a.amp, a.max_gb_gpu)
+    return M.Opciones(a.max_epocas, a.paciencia, a.max_arboles, a.lr, a.min_delta, a.huber_delta, a.lr_arboles, a.perdida, a.clip,
+                      a.hilos, a.dispositivo, a.determinismo, a.amp, a.max_gb_gpu)
 
 
 def cfg_datos(a) -> M.ConfigDatos:
@@ -177,7 +180,7 @@ def registrar_entorno(a, datos: M.Datos, etapa: str):
            "versiones": {"numpy": np.__version__, "pandas": pd.__version__, "torch": torch.__version__,
                          "lightgbm": lgb_v},
            "commit": commit, "datos": asdict(datos.cfg), "opciones": asdict(opciones(a)), "n_config": a.n_config,
-           "semilla_busqueda": a.semilla_busqueda, "cv": {"tipo": "forward chaining (ventana expansiva)", "anios_validacion": a.cv_anios, "purga_h": datos.cfg.horizonte, "frac_parada_temprana": a.frac_es}, "columnas_x": datos.cols_x, "columnas_cal": datos.cols_cal,
+           "semilla_busqueda": a.semilla_busqueda, "semillas_por_config": a.semillas_por_config, "cv": {"tipo": "forward chaining (ventana expansiva)", "anios_validacion": a.cv_anios, "purga_h": datos.cfg.horizonte, "frac_parada_temprana": a.frac_es}, "columnas_x": datos.cols_x, "columnas_cal": datos.cols_cal,
            "escala_mase": datos.escala_mase, "determinismo": a.determinismo,
            "particion": C.PARTICION}
     (a.salida / f"entorno_{etapa}.json").write_text(json.dumps(env, indent=2, ensure_ascii=False, default=str))
@@ -215,7 +218,8 @@ def etapa_buscar(a):
         for i, p in enumerate(configs):
             if any(f["modelo"] == nombre and f["config"] == i and json.loads(f["params"]) == p for f in filas):
                 continue
-            r = M.validacion_cruzada(nombre, p, a.semilla_busqueda, datos, op, folds)
+            semillas = [a.semilla_busqueda + k for k in range(a.semillas_por_config)]
+            r = M.validacion_cruzada_semillas(nombre, p, semillas, datos, op, folds)
             filas.append({"config": i, **fila(r)})
             guardar_hist(a, "busqueda", f"{nombre}_c{i}", a.semilla_busqueda, {str(k): v for k, v in r["_historia"].items()})
             pd.DataFrame(filas).to_csv(ruta, index=False)

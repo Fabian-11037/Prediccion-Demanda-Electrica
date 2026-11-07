@@ -83,7 +83,7 @@ Train 2000-2017, validación 2018-2021, prueba 2022-2025 (`PARTICION` en `config
 ### Decisiones abiertas
 1. Confirmar frecuencia (horaria), horizonte (24 h) y ámbito (SIN).
 2. Confirmar que el MLP reemplaza a LightGBM como segundo modelo base (§2) y justificar los tres con la literatura.
-3. Elegir el bloque de prueba (¿prospectivo 2026?) y preregistrar, incluyendo el delta relativo de interés (el script usa 3 % por defecto solo como valor de partida).
+3. Elegir el bloque de prueba (¿prospectivo 2026?) y preregistrar. El delta relativo de interés quedó fijado en **δ = 3 %** (confirmado por el autor, 2026-11-07).
 4. Definir el tratamiento de valores anómalos de demanda (p. ej. 2007-04-26 10:00-12:00 cae a 6-39 % de lo esperable; ver `data/processed/calidad_datos.json`). Los datos **no se corrigieron**.
 5. Decidir si los titulares (metadato con derechos del editor) se mantienen en un repositorio público; solo se incluye el titular y la URL únicamente de registros con versión archivada verificada.
 
@@ -96,8 +96,8 @@ Hay que escribirlo, fecharlo y versionarlo antes de calcular cualquier prueba en
 - **Qué datos:** solo la prueba, una vez, con las predicciones guardadas en `results/*/preds/test.npz`; sin repetir la prueba para ajustar.
 - **Para E2/E3:** Friedman con post hoc sobre semillas, Model Confidence Set y las exigencias de la pauta (≥3 pruebas por contraste, |Cliff δ| ≥ 0.147 en E3); incluirlas cuando corresponda.
 
-### Opciones de hiperparametrización sugeridas (no implementadas)
-Cualquier opción nueva se aplica a los tres modelos con el mismo presupuesto y se anota en el preregistro antes de ejecutar. Por prioridad:
+### Opciones de hiperparametrización sugeridas
+**Implementadas en la v2 (2026-11-07, sin ejecutar):** 1 (tasa de aprendizaje y planificador: log-uniforme 1e-4..1e-2; ninguno/coseno/meseta; sin calentamiento), 2 (paciencia {8, 15, 25} y `min_delta` = 1e-6), 4 (pérdida MSE/MAE/Huber con delta 0.05 «nivel» / 0.5 «global») y la parte de semillas de 9 (20 configuraciones y 3 semillas por configuración). **No implementadas:** 3, 5, 6, 7, 8 y el successive halving. Detalle en `PREREGISTRO.md`, «Ampliación de la v2». Cualquier opción nueva se aplica a los tres modelos con el mismo presupuesto y se anota en el preregistro antes de ejecutar. Por prioridad:
 1. **Tasa de aprendizaje y planificador** (log-uniforme 1e-4..1e-2; coseno, reducción en meseta o calentamiento): hoy `lr = 1e-3` es fijo y es el parámetro que más afecta la convergencia del ARX y del LSTM.
 2. **Parada temprana:** paciencia {8, 15, 25} y `min_delta`; con 200 épocas conviene evaluar paciencia mayor.
 3. **Optimizador:** AdamW / Adam / SGD con momento (y `betas`); recorte de gradiente {0.5, 1, 5}.
@@ -191,17 +191,17 @@ w = construir_ventanas(panel, origenes(panel.index, "train"), x, k, escala=esc)
 Etapas, en orden: `listar` (espacios y opciones) → `buscar` → `piloto` → `final`.
 ```bash
 python scripts/entrenar_modelos_base.py listar
-python scripts/entrenar_modelos_base.py buscar --n-config 12 --covariables calendario      # validación; 1 semilla; mismo presupuesto para los 3
+python scripts/entrenar_modelos_base.py buscar --n-config 20 --semillas-por-config 3 --salida results/base_v2   # v2: validación; mismo presupuesto para los 3
 python scripts/entrenar_modelos_base.py piloto                                              # 5 semillas (100-104) sobre validación; estima n de semillas
 python scripts/entrenar_modelos_base.py final --allow-test --prereg PREREGISTRO.md          # PRUEBA: una sola vez, tras preregistrar
 ```
 Opciones principales (todas con `--help`):
-- **Hiperparámetros buscados** (búsqueda aleatoria; `--n-config` igual para todos): ARX lineal: penalización (ridge/lasso), lambda (rango según penalización), rezagos de demanda {24, 48, 96, 168}, batch size. MLP y LSTM: capas {1,2,3}, unidades, dropout [0, 0.5], weight decay (log), batch size.
+- **Hiperparámetros buscados** (búsqueda aleatoria; `--n-config` igual para todos): ARX lineal: penalización (ridge/lasso), lambda (rango según penalización), rezagos de demanda {24, 48, 96, 168}, batch size. MLP y LSTM: capas {1,2,3}, unidades, dropout [0, 0.5], weight decay (log), batch size. **Desde la v2, los tres** añaden `lr` (log 1e-4..1e-2), `scheduler` {none, cosine, plateau}, `perdida` {mse, mae, huber} y `paciencia` {8, 15, 25}.
 - **Fijar o ampliar:** `--fijar modelo.param=valor` (repetible) saca un parámetro de la búsqueda; `--espacio ruta.json` reemplaza espacios.
-- **Entrenamiento (no se buscan):** `--max-epocas` (por defecto 200 desde la v2; la v1 usó 60), `--paciencia` (parada temprana sobre la pérdida de validación), `--lr`, `--perdida {mse,mae,huber}`, `--clip`, `--max-arboles` (LightGBM).
+- **Entrenamiento (valores por defecto; en la v2 `lr`, `perdida` y `paciencia` de los modelos PyTorch se buscan y estas opciones solo actúan si se fijan con `--fijar`/espacio propio):** `--max-epocas` (200 desde la v2; la v1 usó 60), `--min-delta` (1e-6), `--paciencia`, `--lr`, `--perdida {mse,mae,huber}`, `--huber-delta`, `--clip`, `--max-arboles` (LightGBM).
 - **Datos:** `--covariables {serie,calendario,completo}`, `--clima-por-ciudad`, `--ventana`, `--horizonte`, `--paso-h`, `--hora-origen`, `--normalizacion {nivel,global}`, `--escala-mase-lag {24,168}`.
 - **Dispositivo:** `--dispositivo {auto,cpu,cuda,cuda:N}` (auto usa GPU si existe), `--determinismo {estricto,rapido}`, `--amp` (bfloat16 en GPU), `--max-gb-gpu`, `--hilos`.
-- **Semillas:** búsqueda 1; piloto 100-104; final 1000+ (n = máximo entre 5 y lo que estime el piloto con `--delta`, `--alfa`, `--potencia`). La búsqueda es reanudable (`busqueda.csv`).
+- **Semillas:** búsqueda: `--semillas-por-config` (3 desde la v2: semillas 1, 2, 3, promediadas; v1: 1); piloto 100-104; final 1000+ (n = máximo entre 5 y lo que estime el piloto con `--delta`, `--alfa`, `--potencia`). La búsqueda es reanudable (`busqueda.csv`).
 - **Referencias** (ingenuo 24 h y 168 h con la misma disponibilidad de datos que los modelos) se reportan aparte en `referencias_{val,test}.json`.
 - **GPU:** instalar PyTorch con CUDA (en la web oficial de PyTorch, elegir la versión de CUDA que corresponda al controlador) y comprobar `python -c "import torch; print(torch.cuda.is_available())"`.
 
