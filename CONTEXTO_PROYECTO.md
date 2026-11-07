@@ -91,8 +91,9 @@ Train 2000-2017, validación 2018-2021, prueba 2022-2025 (`PARTICION` en `config
 - E1: EDA, extracción de 3 modelos base de la literatura, piloto, ≥5 semillas, baseline e inferencia, Jupyter Book; completar la revisión de literatura (cadenas booleanas con fecha, bases de datos, exclusiones, tabla de síntesis con DOI).
 - E2/E3: Top-10, paper guía, auditoría de fuga del texto, búsqueda de 1000 arquitecturas, modelo original (ideas candidatas: compuerta de utilidad del texto guiada por incertidumbre con propiedad de «no empeorar»; pérdida de texto placebo; núcleo de respuesta al impulso de noticias; pronóstico conformal condicionado por texto — confirmar novedad con búsqueda dirigida).
 
-### Estado del código de entrenamiento
-- **No se ha entrenado ningún modelo con los datos reales** ni se ha usado la prueba. Solo se ejecutaron pruebas unitarias y una prueba de humo en CPU (muestras pequeñas, pocas épocas) para verificar que el flujo corre; sus cifras no son resultados.
+### Estado del código de entrenamiento y resultados
+- **Ejecutado (2026-11-07, CPU):** búsqueda con validación cruzada forward chaining (pliegues anuales 2018-2021) y etapa final sobre la prueba para **ARX lineal y MLP** (12 configuraciones, 5 semillas finales, sin piloto previo: desviación declarada en `PREREGISTRO.md`). Resultados en `results/base/`. **El LSTM no se ha ejecutado** (más de 80 s por época en CPU): debe correrse en GPU con las mismas opciones y sin cambiar su espacio ni su presupuesto. La prueba ya fue leída para ARX lineal y MLP.
+- La validación cruzada **no** usa el paquete `timeseries-cv` (`tsxv`): su forward chaining es univariado, produce una ventana de validación por pliegue y no admite purga ni covariables; se implementó el mismo esquema en `src/demanda/particion.py`.
 - **La ruta de GPU no se ha probado** (el entorno de desarrollo no tiene GPU). Con CUDA, el determinismo estricto exige `CUBLAS_WORKSPACE_CONFIG` (el código lo define); los resultados de CPU y GPU no coinciden bit a bit: declarar el dispositivo en cada corrida (`entorno_*.json` lo registra).
 - El tiempo de la búsqueda no se midió con datos completos; el LSTM es el más costoso.
 
