@@ -34,6 +34,10 @@ PARTICION = {
     "val": ("2018-01-01", "2021-12-31"),
     "test": ("2022-01-01", "2025-12-31"),
 }
+# Validación cruzada de selección: forward chaining (ventana expansiva). Cada pliegue valida en un año
+# calendario y entrena con todo lo anterior (con purga = HORIZONTE). Nunca toca la prueba.
+CV_ANIOS = [2018, 2019, 2020, 2021]
+FRACCION_PARADA_TEMPRANA = 0.10  # últimos orígenes (cronológicos) del entrenamiento reservados para la parada temprana
 PRUEBA_CONGELADA = True  # `test` solo con allow_test=True (una sola corrida final)
 
 # ---- Rezagos de disponibilidad ---------------------------------------------

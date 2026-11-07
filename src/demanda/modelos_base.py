@@ -90,12 +90,22 @@ class Datos:
         self._cache: dict[str, Conjunto] = {}
 
     def conjunto(self, split: str, allow_test: bool = False) -> Conjunto:
+        """Conjunto de una partición fija (train, val o test)."""
         if split in self._cache:
             return self._cache[split]
         cfg = self.cfg
         pos = origenes(self.panel.index, split, cfg.horizonte, cfg.ventana, cfg.paso_h, cfg.hora_origen, allow_test=allow_test)
         if split == "train" and cfg.max_origenes_train and len(pos) > cfg.max_origenes_train:
             pos = pos[np.linspace(0, len(pos) - 1, cfg.max_origenes_train).astype(int)]
+        out = self.conjunto_pos(pos)
+        self._cache[split] = out
+        return out
+
+    def conjunto_pos(self, pos: np.ndarray, clave: str | None = None) -> Conjunto:
+        """Ventanas normalizadas para posiciones de origen arbitrarias (p. ej. pliegues de validación cruzada)."""
+        if clave is not None and clave in self._cache:
+            return self._cache[clave]
+        cfg = self.cfg
         w = construir_ventanas(self.panel, pos, self.cols_x, self.cols_cal, cfg.ventana, cfg.horizonte)
         x = w["x_pasado"].astype("float64")
         nivel = x[:, :, 0].mean(axis=1)
@@ -109,7 +119,8 @@ class Datos:
         cs = (w["cal_pasado"] - d.media_[self.cols_cal].to_numpy()) / d.std_[self.cols_cal].to_numpy() if self.cols_cal else w["cal_pasado"]
         cf = (w["cal_futuro"] - d.media_[self.cols_cal].to_numpy()) / d.std_[self.cols_cal].to_numpy() if self.cols_cal else w["cal_futuro"]
         out = Conjunto(x.astype("float32"), cs.astype("float32"), cf.astype("float32"), w["y"], w["origen"], nivel)
-        self._cache[split] = out
+        if clave is not None:
+            self._cache[clave] = out
         return out
 
     def objetivo_norm(self, c: Conjunto) -> np.ndarray:
@@ -125,15 +136,18 @@ class Datos:
         return yhat_norm * self.escala.std_[k] + self.escala.media_[k]
 
     def referencias(self, split: str, allow_test: bool = False) -> dict[str, np.ndarray]:
+        """Ingenuos de una partición fija (kWh); ver ``referencias_pos``."""
+        cfg = self.cfg
+        pos = origenes(self.panel.index, split, cfg.horizonte, cfg.ventana, cfg.paso_h, cfg.hora_origen, allow_test=allow_test)
+        return self.referencias_pos(pos, self.conjunto(split, allow_test))
+
+    def referencias_pos(self, pos: np.ndarray, c: Conjunto) -> dict[str, np.ndarray]:
         """Ingenuos con la misma disponibilidad que los modelos (kWh).
 
         ``y[p+h-24k]`` con k mínimo tal que el dato ya exista en t0 (rezago de demanda incluido).
         """
         cfg = self.cfg
-        pos = origenes(self.panel.index, split, cfg.horizonte, cfg.ventana, cfg.paso_h, cfg.hora_origen, allow_test=allow_test)
-        c = self.conjunto(split, allow_test)
-        # los orígenes con NaN pueden haberse descartado; alinear por tiempo
-        pos = pos[np.isin(self.panel.index[pos], c.origen)]
+        pos = pos[np.isin(self.panel.index[pos], c.origen)]  # alinear con orígenes no descartados
         y = self.panel["y_" + C.OBJETIVO].to_numpy()
         lag = C.REZAGO_H["demanda_real"]
         out = {}
@@ -141,8 +155,7 @@ class Datos:
             pred = np.zeros((len(pos), cfg.horizonte))
             for h in range(cfg.horizonte):
                 k = int(np.ceil((h + 1 + lag) / base)) if base == 24 else 1
-                k = max(k, 1)
-                pred[:, h] = y[pos + h - base * k]
+                pred[:, h] = y[pos + h - base * max(k, 1)]
             out[nombre] = pred
         return out
 
@@ -519,21 +532,40 @@ CLASES = {"arx_lineal": lambda: ModeloTorch("arx_lineal"), "mlp": lambda: Modelo
           "lstm": lambda: ModeloTorch("lstm"), "lightgbm": LightGBM}
 
 
-def entrenar_y_evaluar(nombre: str, params: dict, semilla: int, datos: Datos, op: Opciones, split_eval: str = "val",
-                       allow_test: bool = False, guardar_pred: bool = False) -> dict:
-    """Entrena con train (parada temprana con val) y evalúa en ``split_eval``."""
+def entrenar_y_evaluar(nombre: str, params: dict, semilla: int, datos: Datos, op: Opciones, tr: Conjunto, es: Conjunto,
+                       ev: Conjunto, guardar_pred: bool = False) -> dict:
+    """Entrena con ``tr`` (parada temprana con ``es``) y evalúa en ``ev``."""
     from .metricas import evaluar
 
-    tr, va = datos.conjunto("train"), datos.conjunto("val")
     m = CLASES[nombre]()
     t0 = time.perf_counter()
-    info = m.ajustar(tr, va, datos, params, semilla, op)
+    info = m.ajustar(tr, es, datos, params, semilla, op)
     seg = time.perf_counter() - t0
-    ev = datos.conjunto(split_eval, allow_test)
     yhat = datos.invertir(m.predecir(ev), ev)
-    out = {"modelo": nombre, "semilla": semilla, "split": split_eval, "segundos": round(seg, 2), "params": params,
+    out = {"modelo": nombre, "semilla": semilla, "segundos": round(seg, 2), "params": params,
            **{k: v for k, v in info.items() if k != "historia"}, **evaluar(ev.y, yhat, datos.escala_mase)}
     if guardar_pred:
         out["_yhat"] = yhat
     out["_historia"] = info["historia"]
+    return out
+
+
+def validacion_cruzada(nombre: str, params: dict, semilla: int, datos: Datos, op: Opciones, folds: list[dict]) -> dict:
+    """Forward chaining: entrena en cada pliegue y promedia las métricas de validación.
+
+    Devuelve las métricas medias (criterio de selección: ``MASE``), por pliegue (``MASE_<año>``) y las curvas."""
+    filas, hist = [], {}
+    for f in folds:
+        tr, es, va = (datos.conjunto_pos(f[k]) for k in ("tr", "es", "val"))
+        r = entrenar_y_evaluar(nombre, params, semilla, datos, op, tr, es, va)
+        filas.append(r)
+        hist[f["anio"]] = r["_historia"]
+    out = {"modelo": nombre, "semilla": semilla, "params": params,
+           "segundos": round(sum(r["segundos"] for r in filas), 2), "n_parametros": filas[0]["n_parametros"]}
+    for k in ("MASE", "RMSE", "MAE", "sMAPE", "MAPE"):
+        out[k] = float(np.mean([r[k] for r in filas]))
+    out["MASE_sd_pliegues"] = float(np.std([r["MASE"] for r in filas], ddof=1)) if len(filas) > 1 else 0.0
+    for f, r in zip(folds, filas):
+        out[f"MASE_{f['anio']}"] = r["MASE"]
+    out["_historia"] = hist
     return out

@@ -6,11 +6,15 @@ Etapas (en este orden, cada una con su subcomando):
 
   listar    muestra los espacios de búsqueda y las opciones
   buscar    búsqueda aleatoria, misma estrategia y mismo presupuesto (--n-config) para los tres
-            modelos, 1 semilla, evaluada en VALIDACIÓN
-  piloto    mejor configuración de cada modelo x semillas del piloto (validación); estima
+            modelos, 1 semilla. Cada configuración se evalúa con VALIDACIÓN CRUZADA FORWARD
+            CHAINING (ventana expansiva; un pliegue por año de --cv-anios; purga = horizonte;
+            parada temprana con los últimos --frac-es del entrenamiento de cada pliegue).
+            Criterio de selección: MASE medio entre pliegues.
+  piloto    mejor configuración de cada modelo x semillas del piloto (mismos pliegues); estima
             el número de semillas del benchmark (potencia, delta relativo)
-  final     mejor configuración x n semillas, evaluada en PRUEBA. Exige --allow-test y que
-            exista el preregistro. Úsala una sola vez.
+  final     mejor configuración x n semillas: reajusta con todo lo anterior a la prueba (parada
+            temprana con el último tramo) y evalúa en PRUEBA. Exige --allow-test y que exista el
+            preregistro. Úsala una sola vez.
 
 Ejemplos:
   python scripts/entrenar_modelos_base.py listar
@@ -61,7 +65,11 @@ def parser() -> argparse.ArgumentParser:
     g.add_argument("--normalizacion", choices=M.NORMALIZACIONES, default="nivel",
                    help="nivel: demanda dividida por su media en la ventana | global: estandarizada con entrenamiento")
     g.add_argument("--escala-mase-lag", type=int, choices=[24, 168], default=168, help="rezago del ingenuo para la escala de MASE")
-    g.add_argument("--max-origenes-train", type=int, default=None, help="submuestreo de orígenes de entrenamiento (pruebas rápidas)")
+    g.add_argument("--max-origenes-train", type=int, default=None, help="(sin efecto en validación cruzada) submuestreo de la partición fija de entrenamiento")
+    g.add_argument("--cv-anios", type=int, nargs="+", default=C.CV_ANIOS,
+                   help="años de validación del forward chaining (entre 2018 y 2021); por defecto %(default)s")
+    g.add_argument("--frac-es", type=float, default=C.FRACCION_PARADA_TEMPRANA,
+                   help="fracción final (cronológica) del entrenamiento reservada para la parada temprana")
 
     b = ap.add_argument_group("búsqueda y modelos")
     b.add_argument("--modelos", nargs="+", choices=list(M.CLASES), default=list(M.MODELOS_PYTORCH))
@@ -88,6 +96,7 @@ def parser() -> argparse.ArgumentParser:
     d.add_argument("--max-gb-gpu", type=float, default=2.0, help="si los datos de entrenamiento superan este tamaño se mantienen en CPU y se envían por lotes")
 
     s = ap.add_argument_group("piloto y final")
+    s.add_argument("--piloto-ultimo-pliegue", action="store_true", help="el piloto usa solo el último pliegue (más rápido)")
     s.add_argument("--semillas-piloto", type=int, nargs="+", default=SEMILLAS_PILOTO)
     s.add_argument("--delta", type=float, default=0.03, help="diferencia relativa mínima de interés para la potencia (definir en el preregistro)")
     s.add_argument("--alfa", type=float, default=0.05)
@@ -141,6 +150,13 @@ def cargar_datos(a) -> M.Datos:
     return M.Datos(panel, reg, cfg_datos(a))
 
 
+def hacer_folds(a, datos: M.Datos):
+    from demanda.particion import folds_forward_chaining
+
+    c = datos.cfg
+    return folds_forward_chaining(datos.panel.index, a.cv_anios, c.horizonte, c.ventana, c.paso_h, c.hora_origen, a.frac_es)
+
+
 def registrar_entorno(a, datos: M.Datos, etapa: str):
     a.salida.mkdir(parents=True, exist_ok=True)
     try:
@@ -161,7 +177,7 @@ def registrar_entorno(a, datos: M.Datos, etapa: str):
            "versiones": {"numpy": np.__version__, "pandas": pd.__version__, "torch": torch.__version__,
                          "lightgbm": lgb_v},
            "commit": commit, "datos": asdict(datos.cfg), "opciones": asdict(opciones(a)), "n_config": a.n_config,
-           "semilla_busqueda": a.semilla_busqueda, "columnas_x": datos.cols_x, "columnas_cal": datos.cols_cal,
+           "semilla_busqueda": a.semilla_busqueda, "cv": {"tipo": "forward chaining (ventana expansiva)", "anios_validacion": a.cv_anios, "purga_h": datos.cfg.horizonte, "frac_parada_temprana": a.frac_es}, "columnas_x": datos.cols_x, "columnas_cal": datos.cols_cal,
            "escala_mase": datos.escala_mase, "determinismo": a.determinismo,
            "particion": C.PARTICION}
     (a.salida / f"entorno_{etapa}.json").write_text(json.dumps(env, indent=2, ensure_ascii=False, default=str))
@@ -189,31 +205,37 @@ def etapa_buscar(a):
     datos = cargar_datos(a)
     registrar_entorno(a, datos, "buscar")
     esp, fj, op = espacios(a), fijos(a), opciones(a)
+    folds = hacer_folds(a, datos)
+    print("Pliegues (forward chaining):", [(f["anio"], len(f["tr"]), len(f["es"]), len(f["val"])) for f in folds], flush=True)
     ruta = a.salida / "busqueda.csv"
-    hechos = pd.read_csv(ruta) if ruta.exists() else pd.DataFrame()
-    filas = hechos.to_dict("records") if len(hechos) else []
+    filas = pd.read_csv(ruta).to_dict("records") if ruta.exists() else []
     for nombre in a.modelos:
         rng = np.random.default_rng(a.semilla_busqueda)
         configs = [M.muestrear(esp[nombre], rng, fj.get(nombre)) for _ in range(a.n_config)]
         for i, p in enumerate(configs):
             if any(f["modelo"] == nombre and f["config"] == i and json.loads(f["params"]) == p for f in filas):
                 continue
-            r = M.entrenar_y_evaluar(nombre, p, a.semilla_busqueda, datos, op, "val")
-            f = {"config": i, **fila(r)}
-            filas.append(f)
-            guardar_hist(a, "busqueda", f"{nombre}_c{i}", a.semilla_busqueda, r["_historia"])
+            r = M.validacion_cruzada(nombre, p, a.semilla_busqueda, datos, op, folds)
+            filas.append({"config": i, **fila(r)})
+            guardar_hist(a, "busqueda", f"{nombre}_c{i}", a.semilla_busqueda, {str(k): v for k, v in r["_historia"].items()})
             pd.DataFrame(filas).to_csv(ruta, index=False)
-            print(f"[{nombre} {i + 1}/{a.n_config}] MASE_val={r['MASE']:.4f} ({r['segundos']}s) {p}", flush=True)
+            por_fold = {k: round(v, 3) for k, v in r.items() if k.startswith("MASE_2")}
+            print(f"[{nombre} {i + 1}/{a.n_config}] MASE_cv={r['MASE']:.4f} {por_fold} ({r['segundos']}s) {p}", flush=True)
     df = pd.DataFrame(filas)
     mejores = {}
     for nombre in a.modelos:
         d = df[df.modelo == nombre].sort_values("MASE")
-        mejores[nombre] = {"params": json.loads(d.iloc[0]["params"]), "MASE_val": float(d.iloc[0]["MASE"]), "n_config_evaluadas": int(len(d))}
+        mejores[nombre] = {"params": json.loads(d.iloc[0]["params"]), "MASE_cv": float(d.iloc[0]["MASE"]), "n_config_evaluadas": int(len(d))}
     (a.salida / "mejor_config.json").write_text(json.dumps(mejores, indent=2))
-    ref = {k: evaluar(datos.conjunto("val").y, v, datos.escala_mase) for k, v in datos.referencias("val").items()}
-    (a.salida / "referencias_val.json").write_text(json.dumps(ref, indent=2))
+    ref = {}
+    for f in folds:
+        ev = datos.conjunto_pos(f["val"])
+        for k, v in datos.referencias_pos(f["val"], ev).items():
+            ref.setdefault(k, []).append(evaluar(ev.y, v, datos.escala_mase)["MASE"])
+    ref = {k: {"MASE_cv": float(np.mean(v)), "por_pliegue": dict(zip([f["anio"] for f in folds], map(float, v)))} for k, v in ref.items()}
+    (a.salida / "referencias_cv.json").write_text(json.dumps(ref, indent=2))
     print("Mejores:", json.dumps(mejores, indent=1))
-    print("Referencias (val):", {k: round(v["MASE"], 4) for k, v in ref.items()})
+    print("Referencias (MASE medio en los pliegues):", {k: round(v["MASE_cv"], 4) for k, v in ref.items()})
 
 
 def _mejores(a) -> dict:
@@ -227,13 +249,16 @@ def etapa_piloto(a):
     datos = cargar_datos(a)
     registrar_entorno(a, datos, "piloto")
     mej, op = _mejores(a), opciones(a)
+    folds = hacer_folds(a, datos)
+    if a.piloto_ultimo_pliegue:
+        folds = folds[-1:]
     filas = []
     for nombre in a.modelos:
         for s in a.semillas_piloto:
-            r = M.entrenar_y_evaluar(nombre, mej[nombre]["params"], s, datos, op, "val")
+            r = M.validacion_cruzada(nombre, mej[nombre]["params"], s, datos, op, folds)
             filas.append({"etapa": "piloto", **fila(r)})
-            guardar_hist(a, "piloto", nombre, s, r["_historia"])
-            print(f"[piloto {nombre} semilla={s}] MASE_val={r['MASE']:.4f}", flush=True)
+            guardar_hist(a, "piloto", nombre, s, {str(k): v for k, v in r["_historia"].items()})
+            print(f"[piloto {nombre} semilla={s}] MASE_cv={r['MASE']:.4f}", flush=True)
             pd.DataFrame(filas).to_csv(a.salida / "piloto.csv", index=False)
     df = pd.DataFrame(filas)
     res = {}
@@ -243,13 +268,15 @@ def etapa_piloto(a):
                        "n_requerido": n_semillas_requerido(float(v.std(ddof=1)), float(v.mean()), a.delta, a.alfa, a.potencia),
                        "determinista": False}
     n_final = max(5, max(r["n_requerido"] for r in res.values()))
-    out = {"delta_rel": a.delta, "alfa": a.alfa, "potencia": a.potencia, "n_final": n_final, "por_modelo": res,
-           "nota": "Estimación del piloto (normal, dos muestras); no es definitiva. Mínimo 5; 6 si se usan pruebas por rangos."}
+    out = {"delta_rel": a.delta, "alfa": a.alfa, "potencia": a.potencia, "n_final": n_final, "pliegues": [f["anio"] for f in folds],
+           "por_modelo": res, "nota": "Estimación del piloto (normal, dos muestras); no es definitiva. Mínimo 5; 6 si se usan pruebas por rangos."}
     (a.salida / "piloto_resumen.json").write_text(json.dumps(out, indent=2))
     print(json.dumps(out, indent=1))
 
 
 def etapa_final(a):
+    from demanda.particion import pretest
+
     if not a.allow_test:
         sys.exit("La etapa final lee la PRUEBA: requiere --allow-test (úsala una sola vez, tras el preregistro)")
     if not a.prereg.exists():
@@ -262,12 +289,15 @@ def etapa_final(a):
         p = a.salida / "piloto_resumen.json"
         n = json.loads(p.read_text())["n_final"] if p.exists() else 5
     n = max(n, 5)
+    c = datos.cfg
+    pos_tr, pos_es = pretest(datos.panel.index, c.horizonte, c.ventana, c.paso_h, c.hora_origen, a.frac_es)
+    tr, es, te = datos.conjunto_pos(pos_tr), datos.conjunto_pos(pos_es), datos.conjunto("test", True)
+    print(f"Ajuste final: {len(tr)} orígenes de entrenamiento, {len(es)} de parada temprana, {len(te)} de prueba; n semillas = {n}", flush=True)
     filas, preds = [], {}
-    te, va = datos.conjunto("test", True), datos.conjunto("val")
     for nombre in a.modelos:
         for i in range(n):
             s = SEMILLA_FINAL_BASE + i
-            r = M.entrenar_y_evaluar(nombre, mej[nombre]["params"], s, datos, op, "test", allow_test=True, guardar_pred=True)
+            r = M.entrenar_y_evaluar(nombre, mej[nombre]["params"], s, datos, op, tr, es, te, guardar_pred=True)
             filas.append({"etapa": "final", **fila(r)})
             preds[f"{nombre}_{s}"] = r["_yhat"].astype("float32")
             guardar_hist(a, "final", nombre, s, r["_historia"])
@@ -283,13 +313,16 @@ def etapa_final(a):
     df = pd.DataFrame(filas)
     resumen = []
     for nombre in a.modelos:
-        v = df[df.modelo == nombre]["MASE"].to_numpy()
+        d = df[df.modelo == nombre]
+        v = d["MASE"].to_numpy()
         h = stats.t.ppf(0.975, len(v) - 1) * v.std(ddof=1) / np.sqrt(len(v)) if len(v) > 1 else float("nan")
-        resumen.append({"modelo": nombre, "n": len(v), "MASE_media": v.mean(), "MASE_sd": v.std(ddof=1) if len(v) > 1 else 0.0,
-                        "IC95_inf": v.mean() - h, "IC95_sup": v.mean() + h,
-                        "RMSE_media": df[df.modelo == nombre]["RMSE"].mean(), "MAE_media": df[df.modelo == nombre]["MAE"].mean()})
+        fila_r = {"modelo": nombre, "n": len(v), "MASE_media": v.mean(), "MASE_sd": v.std(ddof=1) if len(v) > 1 else 0.0,
+                  "IC95_inf": v.mean() - h, "IC95_sup": v.mean() + h}
+        for k in ("RMSE", "MAE", "sMAPE", "MAPE", "MASE_h1", "MASE_h12", "MASE_h24"):
+            fila_r[k + "_media"] = d[k].mean()
+        resumen.append(fila_r)
     for k, v in refs.items():
-        resumen.append({"modelo": k, "n": 1, "MASE_media": v["MASE"], "RMSE_media": v["RMSE"], "MAE_media": v["MAE"]})
+        resumen.append({"modelo": k, "n": 1, "MASE_media": v["MASE"], **{kk + "_media": v[kk] for kk in ("RMSE", "MAE", "sMAPE", "MAPE", "MASE_h1", "MASE_h12", "MASE_h24")}})
     pd.DataFrame(resumen).to_csv(a.salida / "resumen_final.csv", index=False)
     print(pd.DataFrame(resumen).to_string(index=False))
 
