@@ -80,7 +80,7 @@ def parser() -> argparse.ArgumentParser:
     b.add_argument("--espacio", type=Path, default=None, help="JSON que reemplaza espacios de búsqueda: {modelo: {param: spec}}")
 
     t = ap.add_argument_group("entrenamiento (no se buscan)")
-    t.add_argument("--max-epocas", type=int, default=60, help="LSTM: épocas máximas")
+    t.add_argument("--max-epocas", type=int, default=200, help="modelos PyTorch: épocas máximas (la parada temprana con --paciencia decide cuándo termina)")
     t.add_argument("--paciencia", type=int, default=8, help="LSTM: épocas / LightGBM: rondas sin mejora en validación")
     t.add_argument("--max-arboles", type=int, default=1500, help="LightGBM: árboles máximos (parada temprana)")
     t.add_argument("--lr", type=float, default=1e-3, help="LSTM: tasa de aprendizaje")

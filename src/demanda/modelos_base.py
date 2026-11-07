@@ -262,7 +262,7 @@ def muestrear(espacio: dict, rng: np.random.Generator, fijos: dict | None = None
 @dataclass
 class Opciones:
     """Opciones de entrenamiento que NO se buscan (iguales para todos los modelos que las usan)."""
-    max_epocas: int = 60  # modelos PyTorch
+    max_epocas: int = 200  # modelos PyTorch (tope alto: la parada temprana decide cuándo termina)
     paciencia: int = 8  # épocas (PyTorch) o rondas (LightGBM) sin mejora en validación
     max_arboles: int = 1500  # LightGBM
     lr: float = 1e-3  # modelos PyTorch (AdamW)

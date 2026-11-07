@@ -87,6 +87,27 @@ Train 2000-2017, validación 2018-2021, prueba 2022-2025 (`PARTICION` en `config
 4. Definir el tratamiento de valores anómalos de demanda (p. ej. 2007-04-26 10:00-12:00 cae a 6-39 % de lo esperable; ver `data/processed/calidad_datos.json`). Los datos **no se corrigieron**.
 5. Decidir si los titulares (metadato con derechos del editor) se mantienen en un repositorio público; solo se incluye el titular y la URL únicamente de registros con versión archivada verificada.
 
+### Preregistro de las pruebas estadísticas (pendiente, obligatorio antes de aplicarlas)
+Hay que escribirlo, fecharlo y versionarlo antes de calcular cualquier prueba entre modelos. Debe fijar como mínimo:
+- **Comparaciones:** los 3 contrastes pareados entre modelos base (ARX–MLP, ARX–LSTM, MLP–LSTM) y cada modelo frente al ingenuo de 168 h; familia de hipótesis para la corrección.
+- **Unidad de independencia y apareamiento:** origen de pronóstico (cada día a las 00:00) para las pruebas sobre errores; semillas apareadas por índice para las pruebas sobre el MASE por semilla; declarar la dependencia serial entre orígenes consecutivos (bootstrap por bloques o errores estándar robustos).
+- **Pruebas:** Diebold-Mariano con corrección de Harvey-Leybourne-Newbold por horizonte (h = 1, 12, 24 y media); prueba sobre semillas (t pareada o Wilcoxon, justificar); corrección de Holm; equivalencia con TOST o ROPE usando el margen δ (diferencia relativa de interés) que fije el autor — «no significativo» no es equivalencia.
+- **Reporte:** p exactos, ajustados y sin ajustar, IC (bootstrap por bloques), tamaño de efecto (p. ej. delta de Cliff o diferencia relativa de MASE) y potencia α = 0.05, 0.80.
+- **Qué datos:** solo la prueba, una vez, con las predicciones guardadas en `results/*/preds/test.npz`; sin repetir la prueba para ajustar.
+- **Para E2/E3:** Friedman con post hoc sobre semillas, Model Confidence Set y las exigencias de la pauta (≥3 pruebas por contraste, |Cliff δ| ≥ 0.147 en E3); incluirlas cuando corresponda.
+
+### Opciones de hiperparametrización sugeridas (no implementadas)
+Cualquier opción nueva se aplica a los tres modelos con el mismo presupuesto y se anota en el preregistro antes de ejecutar. Por prioridad:
+1. **Tasa de aprendizaje y planificador** (log-uniforme 1e-4..1e-2; coseno, reducción en meseta o calentamiento): hoy `lr = 1e-3` es fijo y es el parámetro que más afecta la convergencia del ARX y del LSTM.
+2. **Parada temprana:** paciencia {8, 15, 25} y `min_delta`; con 200 épocas conviene evaluar paciencia mayor.
+3. **Optimizador:** AdamW / Adam / SGD con momento (y `betas`); recorte de gradiente {0.5, 1, 5}.
+4. **Función de pérdida:** MSE / MAE / Huber (con `delta`); con demanda, Huber o MAE suelen ser más robustos a valores anómalos.
+5. **Arquitectura MLP:** activación {ReLU, GELU, SiLU}, normalización (LayerNorm/BatchNorm), conexiones residuales, ancho decreciente.
+6. **Arquitectura LSTM:** bidireccional en la historia, agregación por atención sobre todos los pasos (en vez del último estado), dropout recurrente, tamaño de la rama de calendario.
+7. **ARX:** elastic net (`l1_ratio`), rezagos selectivos (24, 48, 72, 168, 336) en vez de ventana contigua, interacciones calendario × hora.
+8. **Datos:** longitud de ventana `L` {72, 168, 336}, conjunto de covariables (`serie`, `calendario`, `completo`), modo de normalización (`nivel`, `global`), paso entre orígenes de entrenamiento (24 h o 6 h para aumentar muestras).
+9. **Búsqueda:** subir `--n-config` a 20-30 o usar reducción sucesiva (successive halving) con presupuesto igual por modelo; promediar 2-3 semillas por configuración en los candidatos finales para reducir el ruido de selección (hoy la selección usa 1 semilla y la varianza entre semillas, sd ≈ 0.045-0.050, es comparable a las diferencias entre modelos).
+
 ### Trabajo por hacer
 - E1: EDA, extracción de 3 modelos base de la literatura, piloto, ≥5 semillas, baseline e inferencia, Jupyter Book; completar la revisión de literatura (cadenas booleanas con fecha, bases de datos, exclusiones, tabla de síntesis con DOI).
 - E2/E3: Top-10, paper guía, auditoría de fuga del texto, búsqueda de 1000 arquitecturas, modelo original (ideas candidatas: compuerta de utilidad del texto guiada por incertidumbre con propiedad de «no empeorar»; pérdida de texto placebo; núcleo de respuesta al impulso de noticias; pronóstico conformal condicionado por texto — confirmar novedad con búsqueda dirigida).
@@ -116,7 +137,7 @@ Lectura permitida con la evidencia actual: ambos modelos superan con claridad a 
 
 #### Limitaciones de estas corridas
 - Sin piloto previo: 5 semillas son el mínimo, no un tamaño sustentado por potencia.
-- Dos semillas del ARX (1001 y 1002) llegaron al tope de 60 épocas con la mejor época en el límite: el ARX puede estar sin converger por usar AdamW; subir `--max-epocas` es una decisión que debe preregistrarse (cambiaría los tres modelos).
+- Dos semillas del ARX (1001 y 1002) llegaron al tope de 60 épocas con la mejor época en el límite: el ARX puede estar sin converger. **Decisión del autor (2026-11-07): mantener la parada temprana y subir las épocas máximas a 200** para los tres modelos (ya es el valor por defecto del script; está anotado como versión 2 en `PREREGISTRO.md`). La v2 debe ejecutarse en `--salida results/base_v2` para conservar los resultados v1 (60 épocas), y se reportan ambos.
 - La varianza entre semillas del ARX y del MLP es alta (sd ≈ 0.045-0.050) frente a la diferencia entre ellos.
 - 2020 (pandemia) es un pliegue de selección; el ARX lasso tiene su peor pliegue en 2020.
 - Los valores de 2022-2025 ya se habían visto en exploraciones descriptivas antes del preregistro.
@@ -177,7 +198,7 @@ python scripts/entrenar_modelos_base.py final --allow-test --prereg PREREGISTRO.
 Opciones principales (todas con `--help`):
 - **Hiperparámetros buscados** (búsqueda aleatoria; `--n-config` igual para todos): ARX lineal: penalización (ridge/lasso), lambda (rango según penalización), rezagos de demanda {24, 48, 96, 168}, batch size. MLP y LSTM: capas {1,2,3}, unidades, dropout [0, 0.5], weight decay (log), batch size.
 - **Fijar o ampliar:** `--fijar modelo.param=valor` (repetible) saca un parámetro de la búsqueda; `--espacio ruta.json` reemplaza espacios.
-- **Entrenamiento (no se buscan):** `--max-epocas`, `--paciencia` (parada temprana sobre la pérdida de validación), `--lr`, `--perdida {mse,mae,huber}`, `--clip`, `--max-arboles` (LightGBM).
+- **Entrenamiento (no se buscan):** `--max-epocas` (por defecto 200 desde la v2; la v1 usó 60), `--paciencia` (parada temprana sobre la pérdida de validación), `--lr`, `--perdida {mse,mae,huber}`, `--clip`, `--max-arboles` (LightGBM).
 - **Datos:** `--covariables {serie,calendario,completo}`, `--clima-por-ciudad`, `--ventana`, `--horizonte`, `--paso-h`, `--hora-origen`, `--normalizacion {nivel,global}`, `--escala-mase-lag {24,168}`.
 - **Dispositivo:** `--dispositivo {auto,cpu,cuda,cuda:N}` (auto usa GPU si existe), `--determinismo {estricto,rapido}`, `--amp` (bfloat16 en GPU), `--max-gb-gpu`, `--hilos`.
 - **Semillas:** búsqueda 1; piloto 100-104; final 1000+ (n = máximo entre 5 y lo que estime el piloto con `--delta`, `--alfa`, `--potencia`). La búsqueda es reanudable (`busqueda.csv`).

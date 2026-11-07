@@ -38,3 +38,19 @@ Semillas fijadas (random, numpy, torch). Determinismo estricto de PyTorch por de
 
 ## 7. Lo que NO está decidido
 Si el MLP reemplaza definitivamente a LightGBM como segundo modelo base; el δ de interés; la justificación de los tres modelos con la revisión de literatura; el tratamiento de valores anómalos de demanda (2007-04-26); el bloque de prueba prospectivo (2026).
+
+---
+
+# Versión 2 (2026-11-07, redactada antes de cualquier nueva ejecución)
+
+Esta versión **no modifica** la versión 1 ni sus resultados (`results/base/`, 60 épocas máximas), que se conservan y se reportan como «v1».
+
+## Cambios decididos
+1. **Épocas máximas: 200** (antes 60) para los tres modelos, manteniendo la parada temprana sobre la pérdida de validación (paciencia 8, a confirmar en la v2 final). Motivo: en la v1 dos semillas del ARX lineal terminaron en el tope de 60 épocas con la mejor época en el límite (posible falta de convergencia). El motivo se observó en las curvas de entrenamiento, pero la decisión se toma después de haber leído la prueba de la v1 para ARX lineal y MLP; se declara como posible contaminación leve.
+2. Las corridas de la v2 escribirán en un directorio distinto (`--salida results/base_v2`) para no sobrescribir la v1.
+3. Si se amplía el espacio de hiperparámetros (ver `CONTEXTO_PROYECTO.md`, «Opciones de hiperparametrización sugeridas»), el cambio se aplicará a los tres modelos con el mismo presupuesto y se anotará aquí **antes** de ejecutar.
+4. La prueba se volverá a leer en la v2 para ARX lineal, MLP y LSTM. Los resultados de la v2 no reemplazan a los de la v1: se reportan ambos y se declara que la v2 se diseñó después de ver la prueba de la v1.
+
+## Pendiente de preregistrar antes de ejecutar
+- Pruebas estadísticas entre modelos (ver `CONTEXTO_PROYECTO.md`, «Preregistro de las pruebas estadísticas»).
+- Piloto de 5 semillas y número de ejecuciones finales por potencia, con el δ que fije el autor.
