@@ -1,0 +1,23 @@
+{
+  "arx_lineal": {
+    "params": {
+      "penalizacion": "lasso",
+      "lags": 168,
+      "batch_size": 256,
+      "lambda": 4.453060365976872e-06
+    },
+    "MASE_cv": 0.7239557192763937,
+    "n_config_evaluadas": 12
+  },
+  "mlp": {
+    "params": {
+      "capas": 2,
+      "unidades": 128,
+      "dropout": 0.3206640845696875,
+      "weight_decay": 0.002573542554816827,
+      "batch_size": 32
+    },
+    "MASE_cv": 0.6840654458195182,
+    "n_config_evaluadas": 12
+  }
+}
