@@ -1,0 +1,14 @@
+{
+  "filas": 227928,
+  "inicio": "2000-01-01 00:00:00-05:00",
+  "fin": "2025-12-31 23:00:00-05:00",
+  "nan_por_columna_y": 0,
+  "horas_demanda_menor_50pct_de_su_referencia_semanal": {
+    "2002-03-16 23:00:00-05:00": 0.494,
+    "2002-03-17 00:00:00-05:00": 0.486,
+    "2007-04-26 10:00:00-05:00": 0.061,
+    "2007-04-26 11:00:00-05:00": 0.124,
+    "2007-04-26 12:00:00-05:00": 0.391
+  },
+  "nota": "Valores no corregidos ni imputados; decidir tratamiento en el preregistro."
+}

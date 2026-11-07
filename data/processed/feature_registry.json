@@ -1,0 +1,379 @@
+{
+  "y_demanda_real_kwh": {
+    "clase": "target",
+    "rol": "objetivo",
+    "fuente": "XM",
+    "rezago_h": null
+  },
+  "x_demanda_real_kwh": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "XM",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_precio_bolsa_cop_kwh": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "XM",
+    "rezago_h": 24,
+    "supuesto": true
+  },
+  "x_obs_temperature_2m_c_bogota": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_temperature_2m_c_medellin": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_temperature_2m_c_cali": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_temperature_2m_c_barranquilla": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_temperature_2m_c_cartagena": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_temperature_2m_c_bucaramanga": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_temperature_2m_c_pereira": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_temperature_2m_c_cucuta": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_relative_humidity_2m_pct_bogota": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_relative_humidity_2m_pct_medellin": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_relative_humidity_2m_pct_cali": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_relative_humidity_2m_pct_barranquilla": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_relative_humidity_2m_pct_cartagena": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_relative_humidity_2m_pct_bucaramanga": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_relative_humidity_2m_pct_pereira": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_relative_humidity_2m_pct_cucuta": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_precipitation_preceding_hour_mm_bogota": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_precipitation_preceding_hour_mm_medellin": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_precipitation_preceding_hour_mm_cali": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_precipitation_preceding_hour_mm_barranquilla": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_precipitation_preceding_hour_mm_cartagena": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_precipitation_preceding_hour_mm_bucaramanga": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_precipitation_preceding_hour_mm_pereira": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_obs_precipitation_preceding_hour_mm_cucuta": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "ERA5 vía Open-Meteo (reanálisis)",
+    "rezago_h": 1,
+    "supuesto": true
+  },
+  "x_hid_llenado_valor_original": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "XM (diario)",
+    "rezago_h": 24,
+    "supuesto": true
+  },
+  "x_hid_reserva_util_kwh": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "XM (diario)",
+    "rezago_h": 24,
+    "supuesto": true
+  },
+  "x_hid_capacidad_util_kwh": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "XM (diario)",
+    "rezago_h": 24,
+    "supuesto": true
+  },
+  "x_hid_aportes_kwh_dia": {
+    "clase": "past_only",
+    "rol": "entrada_pasada",
+    "fuente": "XM (diario)",
+    "rezago_h": 24,
+    "supuesto": true
+  },
+  "aux_hid_fecha_dato": {
+    "clase": "auditoria",
+    "rol": "no_usar_como_entrada",
+    "fuente": "XM",
+    "rezago_h": null
+  },
+  "cal_dow": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_mes": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_dia_anio": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_es_festivo": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_es_domingo": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_es_sabado": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_es_no_laboral": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_tipo_dia": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_dias_al_siguiente_festivo": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_dias_desde_festivo_previo": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_es_vispera_festivo": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_es_dia_post_festivo": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_es_fin_semana_largo": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_es_semana_santa": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_es_temporada_navidena": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_es_fin_de_anio": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_hora": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_hora_sin": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_hora_cos": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_dow_sin": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_dow_cos": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_doy_sin": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "cal_doy_cos": {
+    "clase": "known_future",
+    "rol": "entrada_y_futuro",
+    "fuente": "calendario legal (Ley 51/1983 y posteriores)",
+    "rezago_h": 0
+  },
+  "_excluidas": {
+    "demanda_comercial_kwh": "excluded_input: derivada de la demanda real más pérdidas, liquidada con posterioridad; redundante y con riesgo de fuga",
+    "clima_misma_hora_objetivo": "oracle_only: ERA5 es reanálisis observado; en producción solo existiría un pronóstico (ver pronosticos.py)",
+    "precio_bolsa_hora_objetivo": "no disponible en el origen (solo rezagado)"
+  },
+  "_supuestos": {
+    "origen": "t0 en hora entera; horizonte = intervalos que empiezan en t0..t0+(H-1)h",
+    "as_of": "la fila t de x_* contiene información disponible en t+1h; rezagos ya aplicados",
+    "rezagos_h": {
+      "demanda_real": 1,
+      "precio_bolsa": 24,
+      "clima_obs": 1,
+      "hidrologia": 24
+    },
+    "ise_rezago_dias": 60,
+    "zona_horaria": "America/Bogota"
+  }
+}
