@@ -10,3 +10,5 @@ Reglas clave:
 5. El clima de `data/raw` es reanálisis: no es una entrada válida para el futuro.
 6. No inventar referencias ni cifras; las cifras de los textos salen de celdas ejecutadas.
 7. Antes de commit: `pytest -q tests`.
+8. La prueba ya fue leída para ARX lineal y MLP (`results/base/`). No cambiar espacios, presupuesto ni opciones de entrenamiento después de ver esos resultados; el LSTM se corre en GPU con las mismas opciones.
+9. La validación cruzada es forward chaining propio (`src/demanda/particion.py`); no se usa el paquete `timeseries-cv`.

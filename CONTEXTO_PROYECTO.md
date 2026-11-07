@@ -92,10 +92,38 @@ Train 2000-2017, validación 2018-2021, prueba 2022-2025 (`PARTICION` en `config
 - E2/E3: Top-10, paper guía, auditoría de fuga del texto, búsqueda de 1000 arquitecturas, modelo original (ideas candidatas: compuerta de utilidad del texto guiada por incertidumbre con propiedad de «no empeorar»; pérdida de texto placebo; núcleo de respuesta al impulso de noticias; pronóstico conformal condicionado por texto — confirmar novedad con búsqueda dirigida).
 
 ### Estado del código de entrenamiento y resultados
-- **Ejecutado (2026-11-07, CPU):** búsqueda con validación cruzada forward chaining (pliegues anuales 2018-2021) y etapa final sobre la prueba para **ARX lineal y MLP** (12 configuraciones, 5 semillas finales, sin piloto previo: desviación declarada en `PREREGISTRO.md`). Resultados en `results/base/`. **El LSTM no se ha ejecutado** (más de 80 s por época en CPU): debe correrse en GPU con las mismas opciones y sin cambiar su espacio ni su presupuesto. La prueba ya fue leída para ARX lineal y MLP.
+- **Ejecutado (2026-11-07, CPU):** búsqueda con validación cruzada forward chaining (pliegues anuales 2018-2021, ventana expansiva, purga de 24 h, parada temprana con el último 10 % del entrenamiento) y etapa final sobre la prueba para **ARX lineal y MLP** (12 configuraciones cada uno, 5 semillas finales 1000-1004). No hubo piloto previo: desviación declarada en `PREREGISTRO.md`. Todo en `results/base/`.
+- **El LSTM no se ha ejecutado** (más de 80 s por época en CPU): debe correrse en GPU con las mismas opciones, sin cambiar su espacio ni su presupuesto (`buscar --modelos lstm` y luego `final --modelos lstm --allow-test`). **La prueba ya fue leída para ARX lineal y MLP**: no ajustar nada del LSTM en función de esos resultados.
 - La validación cruzada **no** usa el paquete `timeseries-cv` (`tsxv`): su forward chaining es univariado, produce una ventana de validación por pliegue y no admite purga ni covariables; se implementó el mismo esquema en `src/demanda/particion.py`.
+
+#### Configuraciones elegidas (MASE medio en los 4 pliegues)
+| Modelo | Configuración | MASE CV | Por pliegue 2018 / 2019 / 2020 / 2021 |
+|---|---|---|---|
+| ARX lineal | lasso, lambda 4.45e-6, rezagos 168, batch 256 | 0.724 | 0.624 / 0.601 / 0.904 / 0.767 |
+| MLP | 2 capas, 128 unidades, dropout 0.32, weight decay 2.6e-3, batch 32 | 0.684 | ver `results/base/busqueda.csv` |
+| Ingenuo 168 h (referencia) | — | 1.142 | 1.079 / 1.113 / 1.157 / 1.218 |
+| Ingenuo 24 h (referencia) | — | 1.836 | 1.874 / 1.902 / 1.737 / 1.830 |
+
+#### Métricas en la prueba 2022-2025 (5 semillas; media, desviación estándar, IC 95 % t)
+| Modelo | MASE | IC 95 % | RMSE (kWh) | MAE (kWh) | sMAPE % | MASE h=1 | h=12 | h=24 |
+|---|---|---|---|---|---|---|---|---|
+| ARX lineal (lasso) | 0.878 (sd 0.045) | 0.822-0.933 | 248 656 | 189 230 | 2.07 | 0.566 | 1.161 | 0.820 |
+| MLP | 0.867 (sd 0.050) | 0.805-0.930 | 239 011 | 186 952 | 2.05 | 0.779 | 1.115 | 1.051 |
+| Ingenuo 168 h | 1.355 | — | 444 632 | 292 142 | 3.21 | 1.080 | 1.597 | 1.148 |
+| Ingenuo 24 h | 2.077 | — | 659 593 | 447 779 | 4.98 | 1.024 | 2.841 | 1.665 |
+
+Lectura permitida con la evidencia actual: ambos modelos superan con claridad a los ingenuos; ARX lineal y MLP **no se distinguen** con 5 semillas (IC 95 % solapados; no se ha aplicado ninguna prueba de hipótesis ni de equivalencia). A h=1 y h=24 el ARX es mejor en MASE medio; a h=12 y en RMSE el MLP es algo mejor. El MASE de prueba no es comparable con el de validación (escala en kWh de 2000-2017 y demanda creciente: el ingenuo de 168 h pasa de 1.14 en CV a 1.35 en la prueba).
+
+#### Limitaciones de estas corridas
+- Sin piloto previo: 5 semillas son el mínimo, no un tamaño sustentado por potencia.
+- Dos semillas del ARX (1001 y 1002) llegaron al tope de 60 épocas con la mejor época en el límite: el ARX puede estar sin converger por usar AdamW; subir `--max-epocas` es una decisión que debe preregistrarse (cambiaría los tres modelos).
+- La varianza entre semillas del ARX y del MLP es alta (sd ≈ 0.045-0.050) frente a la diferencia entre ellos.
+- 2020 (pandemia) es un pliegue de selección; el ARX lasso tiene su peor pliegue en 2020.
+- Los valores de 2022-2025 ya se habían visto en exploraciones descriptivas antes del preregistro.
+- Solo calendario y demanda como covariables; clima, precio, hidrología, ISE y texto no se han probado.
+- Sin pruebas estadísticas entre modelos (Holm, Diebold-Mariano, TOST): pendientes y deben preregistrarse.
 - **La ruta de GPU no se ha probado** (el entorno de desarrollo no tiene GPU). Con CUDA, el determinismo estricto exige `CUBLAS_WORKSPACE_CONFIG` (el código lo define); los resultados de CPU y GPU no coinciden bit a bit: declarar el dispositivo en cada corrida (`entorno_*.json` lo registra).
-- El tiempo de la búsqueda no se midió con datos completos; el LSTM es el más costoso.
+- Tiempos medidos en CPU de 2 núcleos: búsqueda de 12 configuraciones con 4 pliegues ≈ 14 min para ARX lineal + MLP; ajuste final ≈ 4 s (ARX) y ≈ 17 s (MLP) por semilla; LSTM > 80 s por época.
 
 ## 7. Limitaciones de datos conocidas (declararlas en los artículos)
 - **Cobertura de texto desigual:** 2008-2019 es casi solo El Colombiano (sitemap, fecha declarada sin hora); desde 2020 hay otras fuentes con volúmenes muy distintos por año (Semana: ≈17.6 mil en 2022 y ≈0.1 mil en 2025); los boletines IDEAM suben en 2024-2025. El cambio de composición de fuentes entre entrenamiento y prueba es un riesgo de sesgo de distribución, no de fuga.

@@ -23,4 +23,4 @@ pytest -q tests
 Cada columna `x_*` ya trae su rezago de publicación y solo se lee antes del origen; el futuro solo expone calendario (`cal_*`) y pronósticos con emisión previa; las escalas se ajustan con entrenamiento; la partición purga el horizonte y la prueba está congelada.
 
 ## Estado
-Panel, pruebas y script de entrenamiento listos (aún no se ha entrenado con los datos reales). Pendientes: descargar ISE y pronósticos de temperatura (scripts sin probar con las fuentes reales), decidir el bloque de prueba (se recomienda uno prospectivo desde 2026) y preregistrar.
+Panel, pruebas y script de entrenamiento listos. Ejecutados con validación cruzada forward chaining y evaluados en la prueba: ARX lineal (MASE 0.878) y MLP (MASE 0.867), frente a 1.355 del ingenuo de 168 h (ver `CONTEXTO_PROYECTO.md` §6 y `results/base/`). El LSTM está pendiente de ejecutar en GPU. Pendientes: descargar ISE y pronósticos de temperatura (scripts sin probar con las fuentes reales), decidir el bloque de prueba (se recomienda uno prospectivo desde 2026) y preregistrar.
