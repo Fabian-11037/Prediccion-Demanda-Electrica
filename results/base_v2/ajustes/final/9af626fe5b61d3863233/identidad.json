@@ -1,0 +1,21 @@
+{
+  "etapa": "final",
+  "modelo": "mlp",
+  "params": {
+    "capas": 2,
+    "unidades": 128,
+    "dropout": 0.0035459143015831307,
+    "weight_decay": 0.0003827221364333344,
+    "batch_size": 64,
+    "lr": 0.004689628419943547,
+    "scheduler": "plateau",
+    "perdida": "huber",
+    "paciencia": 8
+  },
+  "semilla": 1108,
+  "inicio_evaluacion": "2022-01-01 00:00:00-05:00",
+  "fin_evaluacion": "2025-12-31 00:00:00-05:00",
+  "n_train": 7225,
+  "n_es": 803,
+  "n_eval": 1461
+}

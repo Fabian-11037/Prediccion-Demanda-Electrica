@@ -1,0 +1,28 @@
+{
+  "modelo": "mlp",
+  "semilla": 3,
+  "segundos": 2.73,
+  "params": {
+    "capas": 1,
+    "unidades": 64,
+    "dropout": 0.4098133595596385,
+    "weight_decay": 0.0005409381656964712,
+    "batch_size": 256,
+    "lr": 0.00024167544004889205,
+    "scheduler": "plateau",
+    "perdida": "mae",
+    "paciencia": 25
+  },
+  "n_parametros": 47704,
+  "epocas": 81,
+  "mejor_epoca": 56,
+  "dispositivo": "cuda",
+  "MASE": 1.2803461619283152,
+  "RMSE": 357024.937589485,
+  "MAE": 276065.5553376343,
+  "sMAPE": 3.3898001142589074,
+  "MAPE": 3.392719063998198,
+  "MASE_h1": 1.366042990419539,
+  "MASE_h12": 1.016862072745747,
+  "MASE_h24": 1.2404363547969686
+}

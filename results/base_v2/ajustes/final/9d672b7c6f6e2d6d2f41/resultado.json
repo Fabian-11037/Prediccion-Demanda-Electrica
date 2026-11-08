@@ -1,0 +1,28 @@
+{
+  "modelo": "lstm",
+  "semilla": 1079,
+  "segundos": 245.43,
+  "params": {
+    "capas": 1,
+    "unidades": 256,
+    "dropout": 0.20459956818458064,
+    "weight_decay": 0.0001578973170644469,
+    "batch_size": 32,
+    "lr": 0.0032138545457220135,
+    "scheduler": "none",
+    "perdida": "huber",
+    "paciencia": 15
+  },
+  "n_parametros": 567832,
+  "epocas": 89,
+  "mejor_epoca": 74,
+  "dispositivo": "cuda",
+  "MASE": 0.9201707692901363,
+  "RMSE": 249507.51405835713,
+  "MAE": 198405.29224296007,
+  "sMAPE": 2.2154825983188076,
+  "MAPE": 2.202291213658453,
+  "MASE_h1": 1.3000725418325108,
+  "MASE_h12": 0.9599771101334557,
+  "MASE_h24": 1.2356502085075942
+}

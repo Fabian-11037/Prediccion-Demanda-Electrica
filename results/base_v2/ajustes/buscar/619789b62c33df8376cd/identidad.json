@@ -1,0 +1,21 @@
+{
+  "etapa": "buscar",
+  "modelo": "mlp",
+  "params": {
+    "capas": 3,
+    "unidades": 512,
+    "dropout": 0.4427601333549734,
+    "weight_decay": 0.00043794696609032496,
+    "batch_size": 64,
+    "lr": 0.003443768884987694,
+    "scheduler": "none",
+    "perdida": "huber",
+    "paciencia": 8
+  },
+  "semilla": 2,
+  "inicio_evaluacion": "2019-01-01 00:00:00-05:00",
+  "fin_evaluacion": "2019-12-31 00:00:00-05:00",
+  "n_train": 6239,
+  "n_es": 693,
+  "n_eval": 365
+}

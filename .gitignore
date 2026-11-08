@@ -11,10 +11,11 @@ results/base_v2/servicios_locales.json
 results/base_v2/gpu.lock
 
 # Artefactos voluminosos conservados localmente
-results/base_v2/ajustes/
 results/base_v2/preds/
-results/base_v2/hist/
 results/base_v2/historiales.zip
 results/base_v2/*.lock
 results/base_v2/apagado_automatico.json
 results/base_v2/transicion_lstm.json
+
+# Historial provisional redundante e incompletos interrumpidos
+results/base_v2/ajustes/**/historia_en_curso.json

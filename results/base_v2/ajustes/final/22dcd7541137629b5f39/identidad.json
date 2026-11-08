@@ -1,0 +1,22 @@
+{
+  "etapa": "final",
+  "modelo": "cnn1d",
+  "params": {
+    "capas": 1,
+    "filtros": 32,
+    "kernel": 7,
+    "dropout": 0.14020437899301996,
+    "weight_decay": 8.724969103465263e-05,
+    "batch_size": 32,
+    "lr": 0.008381357920683294,
+    "scheduler": "plateau",
+    "perdida": "mse",
+    "paciencia": 25
+  },
+  "semilla": 1034,
+  "inicio_evaluacion": "2022-01-01 00:00:00-05:00",
+  "fin_evaluacion": "2025-12-31 00:00:00-05:00",
+  "n_train": 7225,
+  "n_es": 803,
+  "n_eval": 1461
+}

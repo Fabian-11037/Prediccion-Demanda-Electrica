@@ -1,0 +1,21 @@
+{
+  "etapa": "piloto",
+  "modelo": "lstm",
+  "params": {
+    "capas": 1,
+    "unidades": 256,
+    "dropout": 0.20459956818458064,
+    "weight_decay": 0.0001578973170644469,
+    "batch_size": 32,
+    "lr": 0.0032138545457220135,
+    "scheduler": "none",
+    "perdida": "huber",
+    "paciencia": 15
+  },
+  "semilla": 103,
+  "inicio_evaluacion": "2018-01-01 00:00:00-05:00",
+  "fin_evaluacion": "2018-12-31 00:00:00-05:00",
+  "n_train": 5910,
+  "n_es": 657,
+  "n_eval": 365
+}

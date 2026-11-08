@@ -1,0 +1,21 @@
+{
+  "etapa": "buscar",
+  "modelo": "lstm",
+  "params": {
+    "capas": 3,
+    "unidades": 64,
+    "dropout": 0.39421435171420216,
+    "weight_decay": 1.632222338037622e-05,
+    "batch_size": 32,
+    "lr": 0.00018538875781431313,
+    "scheduler": "cosine",
+    "perdida": "mae",
+    "paciencia": 15
+  },
+  "semilla": 3,
+  "inicio_evaluacion": "2018-01-01 00:00:00-05:00",
+  "fin_evaluacion": "2018-12-31 00:00:00-05:00",
+  "n_train": 5910,
+  "n_es": 657,
+  "n_eval": 365
+}

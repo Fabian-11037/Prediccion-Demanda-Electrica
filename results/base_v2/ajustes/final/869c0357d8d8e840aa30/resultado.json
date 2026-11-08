@@ -1,0 +1,29 @@
+{
+  "modelo": "cnn1d",
+  "semilla": 1108,
+  "segundos": 21.36,
+  "params": {
+    "capas": 1,
+    "filtros": 32,
+    "kernel": 7,
+    "dropout": 0.14020437899301996,
+    "weight_decay": 8.724969103465263e-05,
+    "batch_size": 32,
+    "lr": 0.008381357920683294,
+    "scheduler": "plateau",
+    "perdida": "mse",
+    "paciencia": 25
+  },
+  "n_parametros": 33176,
+  "epocas": 42,
+  "mejor_epoca": 17,
+  "dispositivo": "cuda",
+  "MASE": 2.108977594428429,
+  "RMSE": 561126.827854173,
+  "MAE": 454733.327683541,
+  "sMAPE": 5.080186932587483,
+  "MAPE": 5.024911869563552,
+  "MASE_h1": 3.2963867514391416,
+  "MASE_h12": 1.163629176953713,
+  "MASE_h24": 3.079061465924453
+}

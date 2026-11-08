@@ -12,7 +12,16 @@ Ejecución completada el 8 de noviembre de 2026. Demanda horaria del SIN; histor
 - `referencias_cv.json`, `referencias_test.json`: baselines estacionales.
 - Planes, entornos y registros de modificación: trazabilidad del entrenamiento.
 
-Los pesos, predicciones por origen e historiales completos permanecen en el almacenamiento local, en `ajustes/`, `preds/` e `hist/`. No se incluyen en Git por su volumen; los hashes de pesos y predicciones figuran en `resultados_guardados.json`. Los archivos publicados permiten consultar resultados y configuración, pero no sustituyen esos artefactos para reproducir las predicciones exactas.
+Los artefactos completos se incluyen en `ajustes/{etapa}/{id}/`: `modelo.pt` (pesos, escaladores y configuración), `escaladores.json`, `predicciones.npz`, `historia.json`, `identidad.json` y `resultado.json`. `indice_artefactos.csv` identifica etapa, modelo, semilla, periodo, dimensiones y SHA-256 de cada archivo. Los historiales agregados originales están en `hist/`. La carpeta local `preds/` contiene copias redundantes y no se publica.
+
+Las predicciones NPZ contienen `y`, `yhat` (orígenes × 24 horas) y `origen` (nanosegundos UTC). El horizonte 1 corresponde al propio origen, con intervalos horarios posteriores hasta horizonte 24. Para obtener fechas en hora de Colombia y semilla en cada fila:
+
+```bash
+python scripts/exportar_predicciones.py results/base_v2/ajustes/final/ID salida.csv
+```
+
+Los escaladores se ajustaron con los datos de entrenamiento correspondientes. Además de las medias y desviaciones, el checkpoint conserva columnas de entrada, configuración de ventanas y escala MASE. La normalización por nivel utiliza la media de demanda de cada ventana histórica al pronosticar. Los `.pt` son checkpoints PyTorch producidos localmente; para leer sus metadatos completos se utiliza `torch.load(..., map_location="cpu", weights_only=False)` con estos archivos de confianza.
+
 
 ## Interpretación y limitaciones
 

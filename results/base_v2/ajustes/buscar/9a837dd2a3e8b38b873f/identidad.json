@@ -1,0 +1,20 @@
+{
+  "etapa": "buscar",
+  "modelo": "arx_lineal",
+  "params": {
+    "penalizacion": "lasso",
+    "lags": 48,
+    "batch_size": 64,
+    "lr": 0.0006582612236208865,
+    "scheduler": "plateau",
+    "perdida": "mae",
+    "paciencia": 15,
+    "lambda": 1.3733953296838922e-07
+  },
+  "semilla": 3,
+  "inicio_evaluacion": "2019-01-01 00:00:00-05:00",
+  "fin_evaluacion": "2019-12-31 00:00:00-05:00",
+  "n_train": 6239,
+  "n_es": 693,
+  "n_eval": 365
+}

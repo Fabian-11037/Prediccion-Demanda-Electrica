@@ -1,0 +1,22 @@
+{
+  "etapa": "buscar",
+  "modelo": "cnn1d",
+  "params": {
+    "capas": 3,
+    "filtros": 32,
+    "kernel": 5,
+    "dropout": 0.3196656900332939,
+    "weight_decay": 0.001660425263495579,
+    "batch_size": 32,
+    "lr": 0.008459442556129659,
+    "scheduler": "plateau",
+    "perdida": "mse",
+    "paciencia": 8
+  },
+  "semilla": 3,
+  "inicio_evaluacion": "2020-01-01 00:00:00-05:00",
+  "fin_evaluacion": "2020-12-31 00:00:00-05:00",
+  "n_train": 6567,
+  "n_es": 730,
+  "n_eval": 366
+}

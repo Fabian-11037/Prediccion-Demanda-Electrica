@@ -1,0 +1,20 @@
+{
+  "etapa": "final",
+  "modelo": "arx_lineal",
+  "params": {
+    "penalizacion": "lasso",
+    "lags": 168,
+    "batch_size": 256,
+    "lr": 0.00045652380990309643,
+    "scheduler": "cosine",
+    "perdida": "mae",
+    "paciencia": 25,
+    "lambda": 3.2807576218826044e-06
+  },
+  "semilla": 1083,
+  "inicio_evaluacion": "2022-01-01 00:00:00-05:00",
+  "fin_evaluacion": "2025-12-31 00:00:00-05:00",
+  "n_train": 7225,
+  "n_es": 803,
+  "n_eval": 1461
+}

@@ -1,0 +1,28 @@
+{
+  "modelo": "arx_lineal",
+  "semilla": 3,
+  "segundos": 3.28,
+  "params": {
+    "penalizacion": "lasso",
+    "lags": 48,
+    "batch_size": 64,
+    "lr": 0.001899602620998457,
+    "scheduler": "none",
+    "perdida": "huber",
+    "paciencia": 25,
+    "lambda": 0.006581946747423
+  },
+  "n_parametros": 14424,
+  "epocas": 32,
+  "mejor_epoca": 7,
+  "dispositivo": "cuda",
+  "n_no_nulos": 14366,
+  "MASE": 2.126306994256773,
+  "RMSE": 599050.9688849096,
+  "MAE": 458469.85654545005,
+  "sMAPE": 5.895295506141676,
+  "MAPE": 5.970798778346725,
+  "MASE_h1": 2.5746537648031933,
+  "MASE_h12": 1.9537758173009196,
+  "MASE_h24": 2.454952988634316
+}
