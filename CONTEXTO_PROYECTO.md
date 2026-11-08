@@ -240,3 +240,12 @@ Ejecución finalizada el 8 de noviembre de 2026:780ajustes de búsqueda,80de pil
 ## 16. Publicación de artefactos completos
 
 Se incorporan los artefactos de los 1.640 ajustes completos: predicciones NPZ con origen temporal, etiquetas y pronósticos; historiales por época; checkpoints PyTorch con pesos y escaladores; y exportaciones independientes de escaladores JSON. `results/base_v2/indice_artefactos.csv` documenta 9.840 archivos con modelo, semilla, etapa, periodo y SHA-256. También se incluyen los historiales agregados originales. Esta ampliación sustituye la restricción de publicación de artefactos descrita en §15. `scripts/exportar_predicciones.py` genera CSV con fechas de origen y objetivo en hora de Colombia; se verificó un ejemplo. Un ajuste interrumpido e incompleto permanece local, fuera del índice. Las 45 pruebas pasaron.
+
+
+## 16. Jupyter Book y continuidad del análisis
+
+El 8 de noviembre de 2026 el autor solicita publicar el libro construido en GitHub Pages: https://fabian-11037.github.io/Prediccion-Demanda-Electrica/.
+
+El libro incluye EDA numérico y documental, literatura, diseño, benchmark y diagnósticos de MLP, LSTM y CNN1D, con ARX como referencia de contexto. Las fuentes están en book y scripts; el sitio construido, en docs. La continuidad específica del libro, sus resultados y límites metodológicos está en [continuidad/CONTEXTO_PROYECTO.md](continuidad/CONTEXTO_PROYECTO.md). Ese archivo documenta la instantánea y los análisis secundarios, sin cambiar los entrenamientos.
+
+La publicación utiliza el HTML existente y no repite entrenamiento ni evaluación de redes. Las actualizaciones posteriores del contenido requieren solicitud del autor; no publicar automáticamente por el solo hecho de modificar análisis.

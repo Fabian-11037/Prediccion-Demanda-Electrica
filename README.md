@@ -28,3 +28,12 @@ Panel, pruebas y script de entrenamiento listos. Ejecutados con validación cruz
 ## Ampliación CNN1D
 
 La ejecuciónGPUv2 incorporaCNN1D como cuarto modelo:20configuraciones,3semillas y4pliegues por modelo (960ajustes de búsqueda),seguida de piloto y etapa final preregistrada. El espacio y la arquitectura se documentan en `PREREGISTRO_CNN1D.md`;se conservan las opciones y los ajustes completos deARX,MLP,LSTM. Estado y barra local en `results/base_v2/estado_gpu.json` y `progreso.html`. Los datos futuros sólo exponen calendario conocido;laCNN no incorpora clima futuro realizado.
+
+
+## Jupyter Book
+
+[Consultar el libro](https://fabian-11037.github.io/Prediccion-Demanda-Electrica/intro.html).
+
+Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez. El libro integra datos, EDA, literatura, diseño, benchmark, curvas y diagnósticos con código visible e interpretaciones. El código completo de entrenamiento y prueba se conserva en el apéndice.
+
+Las fuentes del libro están en book y scripts; docs contiene el HTML de publicación. La reproducción documental y la continuidad se describen en [el contexto del libro](continuidad/CONTEXTO_PROYECTO.md).
