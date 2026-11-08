@@ -1,0 +1,43 @@
+{
+  "delta_rel": 0.03,
+  "alfa": 0.05,
+  "potencia": 0.8,
+  "n_final": 195,
+  "pliegues": [
+    2018,
+    2019,
+    2020,
+    2021
+  ],
+  "por_modelo": {
+    "arx_lineal": {
+      "media": 0.6278519435471742,
+      "sd": 0.008469721121449095,
+      "n_piloto": 5,
+      "n_requerido": 4,
+      "determinista": false
+    },
+    "mlp": {
+      "media": 0.5210750298563275,
+      "sd": 0.010388080632977628,
+      "n_piloto": 5,
+      "n_requerido": 7,
+      "determinista": false
+    },
+    "lstm": {
+      "media": 1.5134051620373739,
+      "sd": 0.1599602056633236,
+      "n_piloto": 5,
+      "n_requerido": 195,
+      "determinista": false
+    },
+    "cnn1d": {
+      "media": 1.6040832293906973,
+      "sd": 0.03360638366432491,
+      "n_piloto": 5,
+      "n_requerido": 8,
+      "determinista": false
+    }
+  },
+  "nota": "Estimaci\u00f3n del piloto (normal, dos muestras); no es definitiva. M\u00ednimo 5; 6 si se usan pruebas por rangos."
+}

@@ -232,6 +232,15 @@ ESPACIOS = {
         "batch_size": _cat(32, 64, 128, 256),
         **_OPT,
     },
+    "cnn1d": {
+        "capas": _cat(1, 2, 3),
+        "filtros": _cat(32, 64, 128),
+        "kernel": _cat(3, 5, 7),
+        "dropout": _fl(0.0, 0.5),
+        "weight_decay": _fl(1e-6, 1e-2, True),
+        "batch_size": _cat(32, 64, 128, 256),
+        **_OPT,
+    },
     "lightgbm": {  # opcional (CPU, no usa PyTorch); n_estimators máximo y paciencia: opciones de línea de comandos
         "num_leaves": _int(8, 128, True),
         "max_depth": _cat(-1, 4, 6, 8),
@@ -239,7 +248,7 @@ ESPACIOS = {
         "reg_lambda": _fl(1e-3, 100.0, True),
     },
 }
-MODELOS_PYTORCH = ("arx_lineal", "mlp", "lstm")
+MODELOS_PYTORCH = ("arx_lineal", "mlp", "lstm", "cnn1d")
 
 
 def _muestra(spec: dict, rng: np.random.Generator):
@@ -403,10 +412,57 @@ def _definir_redes():
     return Tabular, ARXLineal, MLP, LSTMNet
 
 
+def _red_cnn1d(f_in, H, kc, capas, filtros, kernel, dropout):
+    """Convoluciones sobre historia y rama separada para calendario futuro conocido."""
+    import torch
+    from torch import nn
+
+    class PromedioSiete(nn.Module):
+        def forward(self, x):
+            # L=168 es divisible entre siete: bloques disjuntos de 24 horas.
+            # Equivale a AdaptiveAvgPool1d(7), con backward determinista.
+            if x.shape[-1] % 7:
+                raise ValueError("La historia CNN debe ser divisible entre siete")
+            return x.reshape(x.shape[0], x.shape[1], 7, x.shape[-1] // 7).mean(dim=-1)
+
+    class CNN1DNet(nn.Module):
+        def __init__(self):
+            super().__init__()
+            blocks = []
+            channels = f_in
+            for _ in range(capas):
+                blocks.extend([nn.Conv1d(channels, filtros, kernel, padding=kernel // 2),
+                               nn.ReLU(), nn.Dropout1d(dropout)])
+                channels = filtros
+            self.convs = nn.Sequential(*blocks)
+            self.historia = nn.Sequential(PromedioSiete(), nn.Flatten(),
+                                          nn.Linear(7 * filtros, filtros), nn.ReLU(), nn.Dropout(dropout))
+            self.cal = nn.Linear(H * kc, filtros) if kc else None
+            self.head = nn.Sequential(nn.Linear(filtros * (2 if kc else 1), filtros), nn.ReLU(),
+                                      nn.Dropout(dropout), nn.Linear(filtros, H))
+
+        def forward(self, xp, cf):
+            z = self.historia(self.convs(xp.transpose(1, 2)))
+            if self.cal is not None:
+                z = torch.cat([z, torch.relu(self.cal(cf.flatten(1)))], dim=1)
+            return self.head(z)
+
+        def preparar(self, xp, cf):
+            pass
+
+        def penalizacion(self):
+            return 0.0
+
+    return CNN1DNet()
+
+
 def construir_red(nombre: str, p: dict, tr: Conjunto):
     _, ARX, MLP, LSTMNet = _definir_redes()
     n_x, L = tr.x.shape[2], tr.x.shape[1]
     H, kc = tr.cal_f.shape[1], tr.cal_f.shape[2]
+    if nombre == "cnn1d":
+        return _red_cnn1d(n_x + tr.cal_p.shape[2], H, kc, int(p["capas"]), int(p["filtros"]),
+                          int(p["kernel"]), float(p["dropout"]))
     if nombre == "arx_lineal":
         return ARX(n_x, min(int(p["lags"]), L), H, kc, p["penalizacion"], float(p["lambda"]))
     if nombre == "mlp":
@@ -493,6 +549,9 @@ class ModeloTorch:
             with torch.no_grad(), ac():
                 vl = float(sum(lossf(red(xv[i:i + 4096], cv[i:i + 4096]).float(), yv[i:i + 4096]) * len(yv[i:i + 4096]) for i in range(0, len(xv), 4096)) / len(xv))
             hist.append({"epoca": ep, "train_loss": tot / len(xt), "val_loss": vl})
+            observador = globals().get("PROGRESO_ENTRENAMIENTO")
+            if observador is not None:
+                observador(hist[-1])
             if sched is not None:
                 sched.step(vl) if sched_nombre == "plateau" else sched.step()
             if vl < mejor - op.min_delta:
@@ -554,7 +613,7 @@ class LightGBM:
 
 
 CLASES = {"arx_lineal": lambda: ModeloTorch("arx_lineal"), "mlp": lambda: ModeloTorch("mlp"),
-          "lstm": lambda: ModeloTorch("lstm"), "lightgbm": LightGBM}
+          "lstm": lambda: ModeloTorch("lstm"), "cnn1d": lambda: ModeloTorch("cnn1d"), "lightgbm": LightGBM}
 
 
 def entrenar_y_evaluar(nombre: str, params: dict, semilla: int, datos: Datos, op: Opciones, tr: Conjunto, es: Conjunto,

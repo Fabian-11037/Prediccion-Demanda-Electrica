@@ -140,3 +140,38 @@ def test_semillas_multiples_promedian_y_reportan_sd(monkeypatch):
     assert r["MASE"] == pytest.approx(2.1) and r["MASE_sd_semillas"] == pytest.approx(0.1)
     r1 = M.validacion_cruzada_semillas("mlp", {"a": 1}, [10], None, None, [])
     assert r1["MASE_sd_semillas"] == 0.0
+
+@pytest.mark.parametrize('capas,kernel',[(1,3),(2,5),(3,7)])
+def test_cnn1d_formas_gradientes_y_calendario(datos,capas,kernel):
+    torch=pytest.importorskip('torch')
+    tr=datos.conjunto('train')
+    params={'capas':capas,'filtros':32,'kernel':kernel,'dropout':0.2}
+    red=M.construir_red('cnn1d',params,tr)
+    xp=torch.from_numpy(np.concatenate([tr.x[:4],tr.cal_p[:4]],axis=2))
+    cf=torch.from_numpy(tr.cal_f[:4])
+    pred=red(xp,cf)
+    assert pred.shape==(4,24) and torch.isfinite(pred).all()
+    pred.square().mean().backward()
+    assert all(p.grad is not None and torch.isfinite(p.grad).all() for p in red.parameters())
+    assert float(torch.as_tensor(red.penalizacion()))==0
+
+
+def test_cnn1d_espacio_confirmado_y_presupuesto():
+    esp=M.ESPACIOS['cnn1d']
+    assert esp['capas']==M._cat(1,2,3)
+    assert esp['filtros']==M._cat(32,64,128)
+    assert esp['kernel']==M._cat(3,5,7)
+    for parametro in M._OPT:
+        assert esp[parametro]==M._OPT[parametro]
+
+
+def test_cnn_pooling_equivalente_valores_y_gradientes():
+    torch=pytest.importorskip('torch')
+    red=M._red_cnn1d(2,24,1,1,32,3,0.)
+    x=torch.randn(3,32,168,requires_grad=True)
+    reference=x.detach().clone().requires_grad_(True)
+    actual=red.historia[0](x)
+    expected=torch.nn.functional.adaptive_avg_pool1d(reference,7)
+    torch.testing.assert_close(actual,expected)
+    actual.square().sum().backward();expected.square().sum().backward()
+    torch.testing.assert_close(x.grad,reference.grad)

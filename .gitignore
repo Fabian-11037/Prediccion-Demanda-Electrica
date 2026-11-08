@@ -4,3 +4,17 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 data/external/pronosticos_temperatura/crudo/
+
+# Estado local de los servicios de entrenamiento
+*.log
+results/base_v2/servicios_locales.json
+results/base_v2/gpu.lock
+
+# Artefactos voluminosos conservados localmente
+results/base_v2/ajustes/
+results/base_v2/preds/
+results/base_v2/hist/
+results/base_v2/historiales.zip
+results/base_v2/*.lock
+results/base_v2/apagado_automatico.json
+results/base_v2/transicion_lstm.json

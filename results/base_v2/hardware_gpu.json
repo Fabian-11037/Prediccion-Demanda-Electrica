@@ -1,0 +1,7 @@
+{
+  "torch": "2.9.1+rocm6.4",
+  "hip": "6.4.43484-123eb5128",
+  "gpu": "AMD Radeon Graphics",
+  "memoria": 12868124672,
+  "compatibilidad": "10.3.0"
+}

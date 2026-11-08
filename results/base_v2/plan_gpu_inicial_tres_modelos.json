@@ -1,0 +1,24 @@
+{
+  "sha256": {
+    "PREREGISTRO.md": "73f6082032575fa8673055defbb4b20741c9beb5d1e746ae8ccc49fadc5d2d37",
+    "src/demanda/modelos_base.py": "e7053d00fd2c4f6017fc9d18acbbee387b3220714951e92a9553f51e5ab6d923",
+    "src/demanda/particion.py": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466",
+    "src/demanda/ventanas.py": "5bd385f21384adf4c5d9f5962efa34359f4a7457950b96af157fa82a2e4524cd",
+    "scripts/entrenar_modelos_base.py": "1b8ca58a792a872790a4bc784ab0d8f1767eb45e6e0d419e80ab7ed32cd7c29a",
+    "scripts/ejecutar_gpu.py": "b587cb4cdd3a6fb3d6bf16b429805022c899fe5e854ee9f63e6ff296726bdfe0",
+    "data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+    "data/processed/feature_registry.json": "91f016c804162bd65ad101e3f9f0cd995498b3ca356c3e528926cc86a30ab4b0"
+  },
+  "dispositivo": "cuda",
+  "determinismo": "estricto",
+  "n_config": 20,
+  "semillas_por_config": 3,
+  "max_epocas": 200,
+  "modelos": [
+    "arx_lineal",
+    "mlp",
+    "lstm"
+  ],
+  "delta": 0.03,
+  "amp": false
+}

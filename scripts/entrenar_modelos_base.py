@@ -215,7 +215,12 @@ def etapa_buscar(a):
     for nombre in a.modelos:
         rng = np.random.default_rng(a.semilla_busqueda)
         configs = [M.muestrear(esp[nombre], rng, fj.get(nombre)) for _ in range(a.n_config)]
-        for i, p in enumerate(configs):
+        limites_path = a.salida / "limites_busqueda.json"
+        limites = json.loads(limites_path.read_text()) if limites_path.exists() else {}
+        limite = limites.get(nombre, a.n_config)
+        if not isinstance(limite, int) or not 1 <= limite <= a.n_config:
+            raise ValueError(f"Límite inválido para {nombre}: {limite}")
+        for i, p in enumerate(configs[:limite]):
             if any(f["modelo"] == nombre and f["config"] == i and json.loads(f["params"]) == p for f in filas):
                 continue
             semillas = [a.semilla_busqueda + k for k in range(a.semillas_por_config)]

@@ -1,0 +1,62 @@
+{
+  "arx_lineal": {
+    "params": {
+      "penalizacion": "lasso",
+      "lags": 168,
+      "batch_size": 256,
+      "lr": 0.00045652380990309643,
+      "scheduler": "cosine",
+      "perdida": "mae",
+      "paciencia": 25,
+      "lambda": 3.2807576218826044e-06
+    },
+    "MASE_cv": 0.6304938261122107,
+    "n_config_evaluadas": 20
+  },
+  "mlp": {
+    "params": {
+      "capas": 2,
+      "unidades": 128,
+      "dropout": 0.0035459143015831307,
+      "weight_decay": 0.0003827221364333344,
+      "batch_size": 64,
+      "lr": 0.004689628419943547,
+      "scheduler": "plateau",
+      "perdida": "huber",
+      "paciencia": 8
+    },
+    "MASE_cv": 0.5126649686601762,
+    "n_config_evaluadas": 20
+  },
+  "lstm": {
+    "params": {
+      "capas": 1,
+      "unidades": 256,
+      "dropout": 0.20459956818458064,
+      "weight_decay": 0.0001578973170644469,
+      "batch_size": 32,
+      "lr": 0.0032138545457220135,
+      "scheduler": "none",
+      "perdida": "huber",
+      "paciencia": 15
+    },
+    "MASE_cv": 1.4363071396064413,
+    "n_config_evaluadas": 5
+  },
+  "cnn1d": {
+    "params": {
+      "capas": 1,
+      "filtros": 32,
+      "kernel": 7,
+      "dropout": 0.14020437899301996,
+      "weight_decay": 8.724969103465263e-05,
+      "batch_size": 32,
+      "lr": 0.008381357920683294,
+      "scheduler": "plateau",
+      "perdida": "mse",
+      "paciencia": 25
+    },
+    "MASE_cv": 1.5928484067065423,
+    "n_config_evaluadas": 20
+  }
+}

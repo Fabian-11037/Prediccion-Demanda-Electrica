@@ -1,0 +1,26 @@
+{
+  "sha256": {
+    "PREREGISTRO.md": "73f6082032575fa8673055defbb4b20741c9beb5d1e746ae8ccc49fadc5d2d37",
+    "src/demanda/modelos_base.py": "a261efe4c40951aecd8f6076b077a9439179ec9a742bfb3e9be29f843c004f16",
+    "src/demanda/particion.py": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466",
+    "src/demanda/ventanas.py": "5bd385f21384adf4c5d9f5962efa34359f4a7457950b96af157fa82a2e4524cd",
+    "scripts/entrenar_modelos_base.py": "6d132e3197a8de10b9e08f4e1cb98160e8258cd2242de274b0f238013fa8b4be",
+    "scripts/ejecutar_gpu.py": "b426d40ac4d209ce7139fb7664873772dba684f7e11b7a2378bbceef30895d05",
+    "PREREGISTRO_CNN1D.md": "81eaddbd0c62fcf0b8f38718498b9fd6266dbbe6e72298e9b275232e5c0517eb",
+    "data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+    "data/processed/feature_registry.json": "91f016c804162bd65ad101e3f9f0cd995498b3ca356c3e528926cc86a30ab4b0"
+  },
+  "dispositivo": "cuda",
+  "determinismo": "estricto",
+  "n_config": 20,
+  "semillas_por_config": 3,
+  "max_epocas": 200,
+  "modelos": [
+    "arx_lineal",
+    "mlp",
+    "lstm",
+    "cnn1d"
+  ],
+  "delta": 0.03,
+  "amp": false
+}

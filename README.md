@@ -24,3 +24,7 @@ Cada columna `x_*` ya trae su rezago de publicación y solo se lee antes del ori
 
 ## Estado
 Panel, pruebas y script de entrenamiento listos. Ejecutados con validación cruzada forward chaining y evaluados en la prueba: ARX lineal (MASE 0.878) y MLP (MASE 0.867), frente a 1.355 del ingenuo de 168 h (ver `CONTEXTO_PROYECTO.md` §6 y `results/base/`). El LSTM está pendiente de ejecutar en GPU. Pendientes: descargar ISE y pronósticos de temperatura (scripts sin probar con las fuentes reales), decidir el bloque de prueba (se recomienda uno prospectivo desde 2026) y preregistrar.
+
+## Ampliación CNN1D
+
+La ejecuciónGPUv2 incorporaCNN1D como cuarto modelo:20configuraciones,3semillas y4pliegues por modelo (960ajustes de búsqueda),seguida de piloto y etapa final preregistrada. El espacio y la arquitectura se documentan en `PREREGISTRO_CNN1D.md`;se conservan las opciones y los ajustes completos deARX,MLP,LSTM. Estado y barra local en `results/base_v2/estado_gpu.json` y `progreso.html`. Los datos futuros sólo exponen calendario conocido;laCNN no incorpora clima futuro realizado.

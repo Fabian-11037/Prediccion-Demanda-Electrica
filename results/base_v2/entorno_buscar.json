@@ -1,0 +1,107 @@
+{
+  "etapa": "buscar",
+  "fecha": "2026-11-07T19:40:49.554829-05:00",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "plataforma": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+  "cpu": "x86_64",
+  "nucleos": 16,
+  "hilos": 1,
+  "gpu": {
+    "dispositivo": "cuda",
+    "nombre": "AMD Radeon Graphics",
+    "cuda": null,
+    "cuda_disponible": true
+  },
+  "versiones": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "torch": "2.9.1+rocm6.4",
+    "lightgbm": null
+  },
+  "commit": "30fc967a31703e2d1cbd22202fdf09ddb0e21ed6",
+  "datos": {
+    "covariables": "calendario",
+    "ventana": 168,
+    "horizonte": 24,
+    "paso_h": 24,
+    "hora_origen": 0,
+    "normalizacion": "nivel",
+    "clima_por_ciudad": false,
+    "max_origenes_train": null,
+    "escala_mase_lag": 168
+  },
+  "opciones": {
+    "max_epocas": 200,
+    "paciencia": 8,
+    "max_arboles": 1500,
+    "lr": 0.001,
+    "min_delta": 1e-06,
+    "huber_delta": null,
+    "lr_arboles": 0.05,
+    "perdida": "mse",
+    "clip": 1.0,
+    "hilos": 1,
+    "dispositivo": "cuda",
+    "determinismo": "estricto",
+    "amp": false,
+    "max_gb_gpu": 2.0
+  },
+  "n_config": 20,
+  "semilla_busqueda": 1,
+  "semillas_por_config": 3,
+  "cv": {
+    "tipo": "forward chaining (ventana expansiva)",
+    "anios_validacion": [
+      2018,
+      2019,
+      2020,
+      2021
+    ],
+    "purga_h": 24,
+    "frac_parada_temprana": 0.1
+  },
+  "columnas_x": [
+    "x_demanda_real_kwh"
+  ],
+  "columnas_cal": [
+    "cal_dow",
+    "cal_mes",
+    "cal_dia_anio",
+    "cal_es_festivo",
+    "cal_es_domingo",
+    "cal_es_sabado",
+    "cal_es_no_laboral",
+    "cal_tipo_dia",
+    "cal_dias_al_siguiente_festivo",
+    "cal_dias_desde_festivo_previo",
+    "cal_es_vispera_festivo",
+    "cal_es_dia_post_festivo",
+    "cal_es_fin_semana_largo",
+    "cal_es_semana_santa",
+    "cal_es_temporada_navidena",
+    "cal_es_fin_de_anio",
+    "cal_hora",
+    "cal_hora_sin",
+    "cal_hora_cos",
+    "cal_dow_sin",
+    "cal_dow_cos",
+    "cal_doy_sin",
+    "cal_doy_cos"
+  ],
+  "escala_mase": 215617.90361589016,
+  "determinismo": "estricto",
+  "particion": {
+    "train": [
+      "2000-01-01",
+      "2017-12-31"
+    ],
+    "val": [
+      "2018-01-01",
+      "2021-12-31"
+    ],
+    "test": [
+      "2022-01-01",
+      "2025-12-31"
+    ]
+  }
+}
