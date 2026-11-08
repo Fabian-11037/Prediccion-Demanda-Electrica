@@ -1,0 +1,9 @@
+jupyter-book==1.0.4
+nbformat
+ipython
+matplotlib
+pandas
+pyarrow
+scipy
+statsmodels
+scikit-learn

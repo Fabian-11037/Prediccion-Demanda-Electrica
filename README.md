@@ -38,3 +38,13 @@ Las ejecuciones GPU v2, v3 y v4 están completas. La consolidación de métricas
 La prueba 2022–2025 ya fue observada: son resultados exploratorios, sin confirmación independiente ni pruebas de significancia. La selección entre ejecuciones es retrospectiva. Las versiones v3/v4 corrigen el ajuste del escalador para excluir la parada temprana; v2 se conserva como antecedente, con su salvedad documentada. No se deben mezclar sus presupuestos ni interpretar sus diferencias como efectos causales aislados.
 
 Se conservan los artefactos completos en `results/base_v2/`, `results/base_v3/` y `results/base_v4/`: pesos, escaladores, predicciones con fecha y semilla e historiales por época. Los planes de cada fase documentan arquitectura, presupuesto y particiones. Pendientes de datos: ISE y pronósticos meteorológicos con emisión verificable; no se incorporaron como entradas a estas ejecuciones.
+
+## Jupyter Book
+
+[Consultar el libro](https://fabian-11037.github.io/Prediccion-Demanda-Electrica/intro.html).
+
+Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez. El libro integra datos, EDA, literatura, diseño, benchmark, curvas y diagnósticos con código visible e interpretaciones. El código completo de entrenamiento y prueba se conserva en el apéndice.
+
+Las fuentes del libro están en book y scripts; docs contiene el HTML de publicación. La reproducción documental y la continuidad se describen en [el contexto del libro](continuidad/CONTEXTO_PROYECTO.md).
+
+La publicación del libro se conserva sin reconstruir. Las nuevas ejecuciones y sus artefactos se consultan en [la consolidación](results/consolidado/README.md).

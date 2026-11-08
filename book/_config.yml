@@ -1,0 +1,14 @@
+title: "Pronóstico de la demanda eléctrica del SIN colombiano"
+author: "Fabian José Manrique Morelos y Gloria Bastidas Rodriguez"
+copyright: "2026"
+language: es
+execute:
+  execute_notebooks: "off"
+html:
+  extra_footer: "Maestría en Estadística Aplicada · Universidad del Norte"
+parse:
+  myst_enable_extensions: [dollarmath, amsmath]
+sphinx:
+  config:
+    language: es
+    suppress_warnings: ["myst.header"]

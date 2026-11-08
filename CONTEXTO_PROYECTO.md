@@ -253,3 +253,11 @@ Se autoriza entrenar seis variantes CNN1D y cuatro LSTM, seleccionar en validaci
 ## 19. Consolidación de ejecuciones completas
 
 V4 completó sus108ajustes. LSTM1capa48unidades obtuvo MASEprueba1.000502;CNN2capas16filtros,kernel3,0.962367. La selección retrospectiva por menorMASEde confirmación de validación entrev3/v4conservaMLP/ARX/CNNdev3yLSTMdev4. `results/consolidado/` reúne las métricas de diez resultados agregados,registro de cuatro familias con cinco checkpoints cada una eíndiceSHA-256de2304artefactos nuevos,correspondientes a384ajustesv3/v4. Se conservan todos los modelos alternativos yla ejecuciónv2. `scripts/consolidar_resultados.py` reproduce las tablas eíndices sin reentrenar. Las comparaciones son exploratorias por exposición previa aprueba yno se afirma significancia.
+
+## 20. Jupyter Book y continuidad del análisis
+
+El 8 de noviembre de 2026 el autor solicita publicar el libro construido en GitHub Pages: https://fabian-11037.github.io/Prediccion-Demanda-Electrica/.
+
+El libro incluye EDA numérico y documental, literatura, diseño, benchmark y diagnósticos de MLP, LSTM y CNN1D, con ARX como referencia de contexto. Las fuentes están en book y scripts; el sitio construido, en docs. La continuidad específica del libro, sus resultados y límites metodológicos está en [continuidad/CONTEXTO_PROYECTO.md](continuidad/CONTEXTO_PROYECTO.md). Ese archivo documenta la instantánea y los análisis secundarios, sin cambiar los entrenamientos.
+
+La publicación utiliza el HTML existente y no repite entrenamiento ni evaluación de redes. Las actualizaciones posteriores del contenido requieren solicitud del autor; no publicar automáticamente por el solo hecho de modificar análisis.

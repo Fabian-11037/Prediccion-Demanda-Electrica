@@ -1,0 +1,21 @@
+format: jb-book
+root: intro
+chapters:
+  - file: 01_datos
+    sections:
+      - file: diccionario
+  - file: 02_calidad
+  - file: 03_demanda
+  - file: 04_estacionalidad
+  - file: 05_dependencia
+  - file: 06_covariables
+  - file: 07_texto
+  - file: 08_literatura
+  - file: 08_validacion
+  - file: 09_modelos
+    sections:
+      - file: 10_evaluacion
+      - file: 10_pipeline
+  - file: 11_sintesis
+  - file: 12_reproducibilidad
+  - file: fuentes

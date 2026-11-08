@@ -1,0 +1,47 @@
+{
+  "fecha": "2026-11-08T15:06:03.078465+00:00",
+  "tipo": "Análisis secundario retrospectivo de resultados publicados",
+  "commit": "e9b70ed0a80002a324eaf6f09923498df6a3c64e",
+  "modelos_neuronales": [
+    "mlp",
+    "lstm",
+    "cnn1d"
+  ],
+  "referencia_lineal": "arx_lineal",
+  "semilla_analisis": 11037,
+  "bootstrap_replicas": 10000,
+  "permutaciones_friedman": 19999,
+  "alfa": 0.05,
+  "delta_rel": 0.03,
+  "potencia_objetivo": 0.8,
+  "unidad": "Semilla final apareada; inferencia condicional al mismo conjunto de prueba",
+  "familia_principal": "Tres contrastes neuronales; corrección de Holm",
+  "familia_contexto": "Tres contrastes frente a ARX; corrección de Holm separada",
+  "contrastes": [
+    "t pareada de medias",
+    "Wilcoxon bilateral como sensibilidad",
+    "Friedman con permutación de etiquetas dentro de semilla",
+    "Nemenyi aproximado"
+  ],
+  "intervalos": "Bootstrap pareado por semillas, percentiles 2.5 y 97.5; t para medias individuales",
+  "efectos": [
+    "Cohen dz pareado",
+    "reducción relativa de medias",
+    "probabilidad empírica de victoria por semilla"
+  ],
+  "dimensionamiento": "Conservar n_final=195 del piloto original; cálculo pareado adicional sobre piloto, sin cambiar ejecuciones",
+  "limites": [
+    "No es preregistro anterior a entrenar ni a consultar resultados publicados",
+    "Semillas comparten prueba; no estiman incertidumbre temporal ni sustituyen DM por horizonte",
+    "No se ejecuta entrenamiento ni se generan nuevas predicciones",
+    "Sin predicciones v2 no se reconstruyen residuos, R2, segmentos ni errores de todos los horizontes",
+    "Sin historiales completos v2 no se reconstruyen curvas por época"
+  ],
+  "sha256": {
+    "final_runs.csv": "98988469b68720c327ee4f953d5e9121c783389b419c5a79933105fd6c60caa5",
+    "piloto.csv": "9dd6e85a817a84ecde18c9804b4ca8fb754a2907737ea818666e476fa9f96766",
+    "busqueda.csv": "02677f1198f3462cd9c382856e792034bb37fa11c1bc812860967aec9a079e1b",
+    "resumen_ajustes.csv": "6157e15584cfcde8339e2677a06a27366eb63637489ab41d627352a2be18d998",
+    "resumen_final.csv": "30897a1a1aa791970b72f7e6c511d223696e3d65d03837a04e4365186f3f981b"
+  }
+}

@@ -31,3 +31,6 @@ results/base_v3/ajustes/**/historia_en_curso.json
 results/base_v4/*.lock
 results/base_v4/servicios_locales.json
 results/base_v4/ajustes/**/historia_en_curso.json
+
+.bookenv/
+book/_build/

@@ -1,0 +1,11 @@
+{
+  "fecha": "2026-11-08T15:37:46.146208+00:00",
+  "motivo": "Reconstrucción de referencias deterministas exigidas por E1",
+  "fuentes": "Observaciones guardadas de 2021 y prueba v2",
+  "lag_publicacion_h": 1,
+  "ultimo_intervalo_horas_antes": 2,
+  "contrastes_globales": "MLP frente a ingenuo diario, semanal y persistencia; Holm sobre 3",
+  "contrastes_horarios": "24 horizontes por cada una de las 3 referencias; Holm sobre 72",
+  "predicciones_neuronales_nuevas": false,
+  "entrenamiento": false
+}
