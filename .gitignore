@@ -19,3 +19,5 @@ results/base_v2/transicion_lstm.json
 
 # Historial provisional redundante e incompletos interrumpidos
 results/base_v2/ajustes/**/historia_en_curso.json
+# Ajuste interrumpido sin resultado completo
+results/base_v2/ajustes/buscar/b9dd03329c287868ff39/

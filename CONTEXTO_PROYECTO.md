@@ -236,3 +236,7 @@ Se solicitó completar la configuración LSTM activa (quinta, índice4) y proced
 ## 15. Resultados completos y publicación
 
 Ejecución finalizada el 8 de noviembre de 2026:780ajustes de búsqueda,80de piloto y780finales (195semillas por familia). Los resultados y limitaciones se resumen en `results/base_v2/README.md`. Se publican métricas,configuraciones,metadatos yresumen de pérdidas;los pesos,predicciones ehistoriales completos permanecen localmente por volumen. La comparación de validación yprueba se conserva en esa carpeta. No se ejecutaron nuevas evaluaciones sobre prueba.
+
+## 16. Publicación de artefactos completos
+
+Se incorporan los artefactos de los 1.640 ajustes completos: predicciones NPZ con origen temporal, etiquetas y pronósticos; historiales por época; checkpoints PyTorch con pesos y escaladores; y exportaciones independientes de escaladores JSON. `results/base_v2/indice_artefactos.csv` documenta 9.840 archivos con modelo, semilla, etapa, periodo y SHA-256. También se incluyen los historiales agregados originales. Esta ampliación sustituye la restricción de publicación de artefactos descrita en §15. `scripts/exportar_predicciones.py` genera CSV con fechas de origen y objetivo en hora de Colombia; se verificó un ejemplo. Un ajuste interrumpido e incompleto permanece local, fuera del índice. Las 45 pruebas pasaron.
