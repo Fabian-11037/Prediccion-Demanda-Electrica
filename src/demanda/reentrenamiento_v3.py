@@ -25,7 +25,7 @@ class DatosFold(M.Datos):
         self.sigma_demanda=max(float(train.x[:,:,0].std()),1e-6)
         self.secuencial=secuencial
         self.auditoria=dict(inicio_ajuste=str(inicio),fin_ajuste=str(fin),filas=len(filas),sigma_demanda=self.sigma_demanda,secuencial=secuencial,
-            escala_mase='Fija 2000–2017, como denominador de referencia de la ejecución original; no participa en optimización')
+            descripcion_escala_mase='Fija 2000–2017, como denominador de referencia de la ejecución original; no participa en optimización')
     def conjunto_pos(self,pos,clave=None):
         c=super().conjunto_pos(pos,clave)
         if self.secuencial:

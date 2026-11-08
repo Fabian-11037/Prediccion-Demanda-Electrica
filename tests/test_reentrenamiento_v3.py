@@ -16,6 +16,7 @@ def test_es_y_validacion_no_cambian_escaladores_v3(panel,registro):
     otro=DatosFold(futuro,registro,cfg,f['tr'],True)
     pd.testing.assert_series_equal(d.escala.media_,otro.escala.media_)
     pd.testing.assert_series_equal(d.escala.std_,otro.escala.std_)
+    assert d.escaladores()['escala_mase']>0
     assert d.sigma_demanda==otro.sigma_demanda
     assert pd.Timestamp(d.auditoria['fin_ajuste'])<corte
     c=d.conjunto_pos(f['tr'][-16:]);assert abs(c.x[:,:,0].mean())<2
