@@ -240,3 +240,11 @@ Ejecución finalizada el 8 de noviembre de 2026:780ajustes de búsqueda,80de pil
 ## 16. Publicación de artefactos completos
 
 Se incorporan los artefactos de los 1.640 ajustes completos: predicciones NPZ con origen temporal, etiquetas y pronósticos; historiales por época; checkpoints PyTorch con pesos y escaladores; y exportaciones independientes de escaladores JSON. `results/base_v2/indice_artefactos.csv` documenta 9.840 archivos con modelo, semilla, etapa, periodo y SHA-256. También se incluyen los historiales agregados originales. Esta ampliación sustituye la restricción de publicación de artefactos descrita en §15. `scripts/exportar_predicciones.py` genera CSV con fechas de origen y objetivo en hora de Colombia; se verificó un ejemplo. Un ajuste interrumpido e incompleto permanece local, fuera del índice. Las 45 pruebas pasaron.
+
+## 17. Reevaluación corregida v3 completada
+
+`PLAN_REENTRENAMIENTO_V3.md` y `results/base_v3/` documentan la corrección: escaladores por fold sin ES, redes secuenciales pequeñas y regularizadas, 276 ajustes y cinco semillas finales por familia. Se completó la reevaluación exploratoria de prueba 2022–2025. No es confirmación independiente ni se afirma potencia estadística. El resumen y los artefactos están en esa carpeta; la ejecución anterior se conserva. MASE de prueba: ARX0.851675,MLP0.752022,LSTM1.092962,CNN1D0.857347.
+
+## 18. Ampliación de capacidad v4 autorizada
+
+Se autoriza entrenar seis variantes CNN1D y cuatro LSTM, seleccionar en validación y reevaluar prueba. `PLAN_VARIANTES_V4.md` fija 108 ajustes y el mismo preprocesamiento corregido y regularización de v3. Resultados separados en `results/base_v4`; comparación descriptiva con v3 y modelos ingenuos. Código: `scripts/entrenar_variantes_v4.py` y `src/demanda/variantes_v4.py`; reutiliza el entrenador corregido sin modificar sus fuentes. El usuario solicita ejecución en segundo plano y espera sin seguimiento periódico hasta que avise. No se configura apagado en esta fase.
