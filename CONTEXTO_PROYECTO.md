@@ -207,3 +207,32 @@ Opciones principales (todas con `--help`):
 
 ## 10. Git y accesos
 Repositorio: `github.com/Fabian-11037/prediccion-demanda-electrica` (rama `main`). Los commits de Claude llevan el trailer `Co-Authored-By`. El código y los textos se producen con asistencia de IA y deben ser revisados por el autor.
+
+## 11. Ejecución GPU iniciada el 7 de noviembre de 2026
+
+Se descargó este repositorio en una carpeta independiente y se preparó la ejecución v2 conforme al preregistro existente:ARX lineal,MLP,LSTM;20configuraciones por modelo,3semillas y4pliegues (720ajustes de búsqueda);piloto de5semillas por modelo en4pliegues (60ajustes);etapa final preregistrada con el número de semillas estimado por el piloto,mínimo5. Datos y espacios sin cambios,normalización nivel,calendario,168horas de historia y24de horizonte,máximo200épocas,determinismo estricto,sinAMP. Los resultados se guardan en `results/base_v2`,conservando `results/base`. La etapa final utiliza el acceso a prueba ya previsto en la versión2;no se aplican pruebas estadísticas nuevas.
+
+Entorno local `mlenv`,Python3.12.3,PyTorch2.9.1+rocm6.4,GPUAMD Radeon RX6700XT12GB;ajuste de compatibilidad del proceso `HSA_OVERRIDE_GFX_VERSION=10.3.0`. Se verificó forward/backward deLSTM con determinismo estricto. Las dependencias faltantes de pruebas (`pytest` y `holidays`) se instalaron en una carpeta aislada fuera del repositorio,sin cambiar los paquetes demlenv. Las40pruebas pasaron antes y después de añadir observación por época.
+
+Orquestación: `scripts/ejecutar_gpu.py`;observación opcional en `src/demanda/modelos_base.py` (sin alterar pérdida,optimizador,muestreo ni parada). Persiste pesos,escaladores,curvas,predicciones y métricas de cada ajuste en `results/base_v2/ajustes`;permite recuperar ajustes completos. Estado vivo `estado_gpu.json`,barra `progreso.html`,plan con huellas `plan_gpu.json`,hardware y logs dentro de esa carpeta. PID yURL del servidor local en `servicios_locales.json`. No se configura apagado automático ni reinicio al encender. Una ejecución completa exige `ejecucion_completa.json`;hasta entonces consultar el estado. Las métricas/resultados se guardan localmente en el repositorio;no se suben automáticamente aGitHub.
+
+## 12. CNN1D incorporada con espacio confirmado, 7 de noviembre de 2026
+
+Se confirmó añadirCNN1D con1–3capas,32/64/128filtros ykernel3/5/7,Dropout uniforme[0,0.5] yweight_decay log-uniforme[1e-6,1e-2]. La adenda `PREREGISTRO_CNN1D.md` especifica la rama de historia convolucional,pooling a7bloques y rama separada de calendario futuro conocido. Comparte pérdida,tasa de aprendizaje,planificador,paciencia,lotes,normalización,datos y particiones con los demás modelos. Se conservan los20candidatos,3semillas y4pliegues por modelo:960ajustes de búsqueda y80de piloto. Las semillas finales se dimensionan con el máximo requerido por los pilotos de los cuatro modelos,mínimo5por modelo.
+
+La ampliación no cambia las60configuraciones muestreadas deARX,MLP,LSTM:se comprobó igualdad exacta frente a las fuentes archivadas. Se interrumpió de forma controlada el proceso inicial con51ajustes completos,que se conservan y se recuperan por caché. El plan y fuentes originales quedan archivados. La migración explícita `--incorporar-cnn` admite únicamente la nueva familia y cambios de implementación asociados;verifica que los datos y opciones comunes se mantengan. El entrenamiento continúa en `results/base_v2` y el mismo panel local,con el nuevoPID en `servicios_locales.json`.
+
+La pruebaGPU detectó queAdaptiveAvgPool1d no dispone debackward determinista. ParaL=168se implementa su equivalente exacto porreshape a7bloques de24horas y media;se verificaron valores y gradientes frente al pooling adaptativo. Forward/backward de laCNN completa pasaron enGPU con determinismo estricto,sinAMP. Las45pruebas del repositorio pasaron antes de registrar el cambio e iniciarCNN1D. La adenda y las fuentes se versionan antes de su primer ajuste. No se modificó el preregistro original ni se consultó prueba para diseñarCNN1D.
+
+## 13. Apagado al finalizar autorizado
+
+Por solicitud del usuario, se activó `scripts/apagar_al_completar.py`. Comprueba cada30segundos los marcadores de búsqueda,piloto yfinal,`ejecucion_completa.json` yestadoCompletado;sincroniza los archivos antes de solicitar el apagado mediante logind. Si el entrenamiento informaError,cancela el apagado. Registro en `results/base_v2/apagado_automatico.json`;log en `apagado_automatico.log`. Sustituye la indicación anterior de ausencia de apagado automático. La sesión confirmó permiso de apagado sin contraseña.
+
+## 14. Límite de búsqueda LSTM autorizado durante la ejecución
+
+Se solicitó completar la configuración LSTM activa (quinta, índice4) y proceder aCNN1D. `ADENDA_LIMITE_LSTM.md` registra la desviación del presupuesto original:5configuraciones LSTM y20para las otras familias,780ajustes de búsqueda. El controlador `scripts/transicion_lstm_cnn.py` espera la fila completa enbusqueda.csv,detiene el proceso anterior yreanuda desde caché con `limites_busqueda.json`. Conserva12ajustes por configuración yno modifica piloto nifinal. Archiva fuentes previas yregistra la migración delplan. El apagado automático permanece activo. Las45pruebas pasaron tras el cambio.
+
+
+## 15. Resultados completos y publicación
+
+Ejecución finalizada el 8 de noviembre de 2026:780ajustes de búsqueda,80de piloto y780finales (195semillas por familia). Los resultados y limitaciones se resumen en `results/base_v2/README.md`. Se publican métricas,configuraciones,metadatos yresumen de pérdidas;los pesos,predicciones ehistoriales completos permanecen localmente por volumen. La comparación de validación yprueba se conserva en esa carpeta. No se ejecutaron nuevas evaluaciones sobre prueba.
