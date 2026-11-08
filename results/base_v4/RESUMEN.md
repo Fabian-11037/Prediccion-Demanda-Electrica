@@ -1,0 +1,10 @@
+# Resultados exploratorios v4
+
+Escalado por fold exclusivamente con entrenamiento. Validación 2018–2021; reevaluación de prueba 2022–2025 previamente observada. Cinco semillas finales por familia; sin afirmación de potencia estadística ni confirmación independiente.
+
+| modelo   |   n_final |   MASE_cv_seleccion |   MASE_validacion_piloto |   MASE_prueba |   MASE_sd_prueba |   MAE_prueba |   sMAPE_prueba |   MASE_prueba_v3 |   MAE_train_normalizado_eval |   MAE_es_normalizado_eval |   MASE_demanda_permutada_validacion |   mejora_MASE_vs_v3_pct |   mejora_vs_referencia_semanal_pct |
+|:---------|----------:|--------------------:|-------------------------:|--------------:|-----------------:|-------------:|---------------:|-----------------:|-----------------------------:|--------------------------:|------------------------------------:|------------------------:|-----------------------------------:|
+| cnn1d    |         5 |            0.706925 |                 0.757137 |      0.962367 |        0.0987399 |       207503 |        2.29658 |         0.857347 |                    0.0154843 |                 0.0212612 |                             1.07776 |               -12.2494  |                            28.9717 |
+| lstm     |         5 |            0.727271 |                 0.771218 |      1.0005   |        0.0522911 |       215726 |        2.41719 |         1.09296  |                    0.0149428 |                 0.0204254 |                             1.33203 |                 8.45954 |                            26.1571 |
+
+La comparación con v3 amplía capacidad con el mismo escalado y optimización; no permite atribuir la diferencia a un único factor. Los errores train/ES se calculan con dropout desactivado. Predicciones, historiales, pesos y escaladores se conservan por ajuste en ajustes/.

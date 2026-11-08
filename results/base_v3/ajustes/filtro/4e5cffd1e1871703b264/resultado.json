@@ -1,0 +1,31 @@
+{
+  "etapa": "filtro",
+  "modelo": "arx_lineal",
+  "configuracion": "arx_lineal_10",
+  "semilla": 42,
+  "fold": 2019,
+  "ventana": 168,
+  "params": {
+    "penalizacion": "lasso",
+    "lags": 96,
+    "batch_size": 128,
+    "lr": 0.0032067153848169155,
+    "scheduler": "cosine",
+    "perdida": "mse",
+    "paciencia": 8,
+    "lambda": 0.001253526719547227
+  },
+  "segundos": 0.5719320774078369,
+  "MASE": 1.1090803294985143,
+  "RMSE": 309316.3586293047,
+  "MAE": 239137.57558809032,
+  "sMAPE": 3.027918383882456,
+  "MAPE": 3.016727983933977,
+  "MASE_h1": 0.8943166097296921,
+  "MASE_h12": 0.8603396759043876,
+  "MASE_h24": 1.252659952770638,
+  "n_parametros": 15576,
+  "epocas": 11,
+  "mejor_epoca": 5,
+  "dispositivo": "cuda"
+}

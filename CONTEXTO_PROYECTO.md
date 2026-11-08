@@ -248,3 +248,8 @@ Se incorporan los artefactos de los 1.640 ajustes completos: predicciones NPZ co
 ## 18. Ampliación de capacidad v4 autorizada
 
 Se autoriza entrenar seis variantes CNN1D y cuatro LSTM, seleccionar en validación y reevaluar prueba. `PLAN_VARIANTES_V4.md` fija 108 ajustes y el mismo preprocesamiento corregido y regularización de v3. Resultados separados en `results/base_v4`; comparación descriptiva con v3 y modelos ingenuos. Código: `scripts/entrenar_variantes_v4.py` y `src/demanda/variantes_v4.py`; reutiliza el entrenador corregido sin modificar sus fuentes. El usuario solicita ejecución en segundo plano y espera sin seguimiento periódico hasta que avise. No se configura apagado en esta fase.
+
+
+## 19. Consolidación de ejecuciones completas
+
+V4 completó sus108ajustes. LSTM1capa48unidades obtuvo MASEprueba1.000502;CNN2capas16filtros,kernel3,0.962367. La selección retrospectiva por menorMASEde confirmación de validación entrev3/v4conservaMLP/ARX/CNNdev3yLSTMdev4. `results/consolidado/` reúne las métricas de diez resultados agregados,registro de cuatro familias con cinco checkpoints cada una eíndiceSHA-256de2304artefactos nuevos,correspondientes a384ajustesv3/v4. Se conservan todos los modelos alternativos yla ejecuciónv2. `scripts/consolidar_resultados.py` reproduce las tablas eíndices sin reentrenar. Las comparaciones son exploratorias por exposición previa aprueba yno se afirma significancia.

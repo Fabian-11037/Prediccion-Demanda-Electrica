@@ -1,0 +1,21 @@
+{
+  "etapa": "confirmacion",
+  "modelo": "arx_lineal",
+  "configuracion": {
+    "id": "arx_lineal_03",
+    "ventana": 168,
+    "params": {
+      "penalizacion": "lasso",
+      "lags": 168,
+      "batch_size": 256,
+      "lr": 0.00045652380990309643,
+      "scheduler": "cosine",
+      "perdida": "mae",
+      "paciencia": 25,
+      "lambda": 3.2807576218826044e-06
+    }
+  },
+  "semilla": 43,
+  "fold": 2019,
+  "max_epocas": 60
+}

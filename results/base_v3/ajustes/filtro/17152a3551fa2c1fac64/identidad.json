@@ -1,0 +1,23 @@
+{
+  "etapa": "filtro",
+  "modelo": "cnn1d",
+  "configuracion": {
+    "id": "cnn1d_11",
+    "ventana": 72,
+    "params": {
+      "capas": 1,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 256,
+      "lr": 0.001,
+      "scheduler": "plateau",
+      "perdida": "huber",
+      "paciencia": 6,
+      "filtros": 16,
+      "kernel": 3
+    }
+  },
+  "semilla": 42,
+  "fold": 2019,
+  "max_epocas": 30
+}

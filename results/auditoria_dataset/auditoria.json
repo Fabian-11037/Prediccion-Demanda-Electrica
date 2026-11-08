@@ -1,0 +1,104 @@
+{
+  "filas_hasta_2021": 192864,
+  "canales_demanda": [
+    "x_demanda_real_kwh"
+  ],
+  "canales_calendario": [
+    "cal_dow",
+    "cal_mes",
+    "cal_dia_anio",
+    "cal_es_festivo",
+    "cal_es_domingo",
+    "cal_es_sabado",
+    "cal_es_no_laboral",
+    "cal_tipo_dia",
+    "cal_dias_al_siguiente_festivo",
+    "cal_dias_desde_festivo_previo",
+    "cal_es_vispera_festivo",
+    "cal_es_dia_post_festivo",
+    "cal_es_fin_semana_largo",
+    "cal_es_semana_santa",
+    "cal_es_temporada_navidena",
+    "cal_es_fin_de_anio",
+    "cal_hora",
+    "cal_hora_sin",
+    "cal_hora_cos",
+    "cal_dow_sin",
+    "cal_dow_cos",
+    "cal_doy_sin",
+    "cal_doy_cos"
+  ],
+  "comprobaciones": {
+    "indice_unico_ordenado_horario": true,
+    "rezago_demanda_1h_exacto": true,
+    "clases_disponibilidad": true,
+    "futuro_x_no_modifica_entrada": true
+  },
+  "folds": [
+    {
+      "anio": 2018,
+      "origenes_train": 5911,
+      "origenes_es": 657,
+      "origenes_val": 365,
+      "inicio_es": "2016-03-15 00:00:00-05:00",
+      "descartados_nan_tr": 1,
+      "forma_entrada_secuencial": [
+        5910,
+        168,
+        24
+      ],
+      "descartados_nan_es": 0,
+      "descartados_nan_val": 0,
+      "filas_es_incluidas_en_escala_fija": 15768
+    },
+    {
+      "anio": 2019,
+      "origenes_train": 6240,
+      "origenes_es": 693,
+      "origenes_val": 365,
+      "inicio_es": "2017-02-07 00:00:00-05:00",
+      "descartados_nan_tr": 1,
+      "forma_entrada_secuencial": [
+        6239,
+        168,
+        24
+      ],
+      "descartados_nan_es": 0,
+      "descartados_nan_val": 0,
+      "filas_es_incluidas_en_escala_fija": 7872
+    },
+    {
+      "anio": 2020,
+      "origenes_train": 6568,
+      "origenes_es": 730,
+      "origenes_val": 366,
+      "inicio_es": "2018-01-01 00:00:00-05:00",
+      "descartados_nan_tr": 1,
+      "forma_entrada_secuencial": [
+        6567,
+        168,
+        24
+      ],
+      "descartados_nan_es": 0,
+      "descartados_nan_val": 0,
+      "filas_es_incluidas_en_escala_fija": 0
+    },
+    {
+      "anio": 2021,
+      "origenes_train": 6898,
+      "origenes_es": 766,
+      "origenes_val": 365,
+      "inicio_es": "2018-11-27 00:00:00-05:00",
+      "descartados_nan_tr": 1,
+      "forma_entrada_secuencial": [
+        6897,
+        168,
+        24
+      ],
+      "descartados_nan_es": 0,
+      "descartados_nan_val": 0,
+      "filas_es_incluidas_en_escala_fija": 0
+    }
+  ],
+  "conclusion": "Alineación, formas y valores correctos. Corrección metodológica pendiente: ajustar escaladores dentro de cada fold excluyendo ES; el ajuste fijo de 2000–2017 incluye ES de folds tempranos."
+}

@@ -1,0 +1,23 @@
+{
+  "etapa": "confirmacion",
+  "modelo": "cnn1d",
+  "configuracion": {
+    "id": "cnn1d_18",
+    "ventana": 168,
+    "params": {
+      "capas": 1,
+      "dropout": 0.2,
+      "weight_decay": 0.001,
+      "batch_size": 256,
+      "lr": 0.001,
+      "scheduler": "plateau",
+      "perdida": "huber",
+      "paciencia": 6,
+      "filtros": 16,
+      "kernel": 3
+    }
+  },
+  "semilla": 43,
+  "fold": 2018,
+  "max_epocas": 60
+}

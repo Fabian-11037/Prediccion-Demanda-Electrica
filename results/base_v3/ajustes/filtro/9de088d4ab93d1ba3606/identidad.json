@@ -1,0 +1,21 @@
+{
+  "etapa": "filtro",
+  "modelo": "arx_lineal",
+  "configuracion": {
+    "id": "arx_lineal_16",
+    "ventana": 168,
+    "params": {
+      "penalizacion": "lasso",
+      "lags": 24,
+      "batch_size": 64,
+      "lr": 0.006889333985531085,
+      "scheduler": "plateau",
+      "perdida": "huber",
+      "paciencia": 25,
+      "lambda": 0.002676710074750651
+    }
+  },
+  "semilla": 42,
+  "fold": 2019,
+  "max_epocas": 30
+}

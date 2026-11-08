@@ -1,0 +1,32 @@
+{
+  "etapa": "filtro",
+  "modelo": "lstm",
+  "configuracion": "lstm_08",
+  "semilla": 42,
+  "fold": 2019,
+  "ventana": 168,
+  "params": {
+    "capas": 1,
+    "dropout": 0.2,
+    "weight_decay": 0.001,
+    "batch_size": 256,
+    "lr": 0.001,
+    "scheduler": "plateau",
+    "perdida": "huber",
+    "paciencia": 6,
+    "unidades": 16
+  },
+  "segundos": 2.109388828277588,
+  "MASE": 1.6273383911700627,
+  "RMSE": 464732.3945196322,
+  "MAE": 350883.29237774434,
+  "sMAPE": 4.29793821852495,
+  "MAPE": 4.3147473575441335,
+  "MASE_h1": 1.8121055265634385,
+  "MASE_h12": 1.0791290365387833,
+  "MASE_h24": 1.4254646290585513,
+  "n_parametros": 16344,
+  "epocas": 10,
+  "mejor_epoca": 7,
+  "dispositivo": "cuda"
+}

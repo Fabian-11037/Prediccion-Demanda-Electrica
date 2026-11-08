@@ -1,0 +1,296 @@
+{
+  "dispositivo": "AMD Radeon Graphics",
+  "fold_validacion": 2018,
+  "semilla_checkpoint": 100,
+  "semilla_diagnostico": 42,
+  "n_tiny": 16,
+  "pasos_tiny": 400,
+  "resultados": {
+    "mlp": {
+      "checkpoint": "results/base_v2/ajustes/piloto/b67cfff76aa27e9921a3",
+      "params": {
+        "capas": 2,
+        "unidades": 128,
+        "dropout": 0.0035459143015831307,
+        "weight_decay": 0.0003827221364333344,
+        "batch_size": 64,
+        "lr": 0.004689628419943547,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 8
+      },
+      "reproduccion_error_max_kwh": 0.0,
+      "MASE_original": 0.40458536148255037,
+      "MASE_reconstruido": 0.4045853614825503,
+      "ablaciones": {
+        "demanda_constante": {
+          "MASE": 3.033684310837388,
+          "cambio_rms_normalizado": 0.10564415901899338
+        },
+        "demanda_permutada": {
+          "MASE": 1.4773305018350238,
+          "cambio_rms_normalizado": 0.0505179688334465
+        },
+        "calendario_cero": {
+          "MASE": 2091478.4685609904,
+          "cambio_rms_normalizado": 58822.69140625
+        }
+      },
+      "gradiente_demanda": 0.0010559119982644916,
+      "gradiente_calendario_promedio": 0.0,
+      "tiny": {
+        "original": {
+          "historia": [
+            {
+              "paso": 0,
+              "MAE_normalizado": 1.0140588283538818,
+              "loss": 0.04945294186472893
+            },
+            {
+              "paso": 100,
+              "MAE_normalizado": 0.029995648190379143,
+              "loss": 0.000643647916149348
+            },
+            {
+              "paso": 200,
+              "MAE_normalizado": 0.04058731347322464,
+              "loss": 0.0010131823364645243
+            },
+            {
+              "paso": 300,
+              "MAE_normalizado": 0.024270029738545418,
+              "loss": 0.00042806044803000987
+            },
+            {
+              "paso": 400,
+              "MAE_normalizado": 0.03921516612172127,
+              "loss": 0.0009373635402880609
+            }
+          ],
+          "segundos": 0.6506848335266113
+        },
+        "control_sin_dropout_lr_1e3": {
+          "historia": [
+            {
+              "paso": 0,
+              "MAE_normalizado": 1.0140588283538818,
+              "loss": 0.04945294186472893
+            },
+            {
+              "paso": 100,
+              "MAE_normalizado": 0.00124586361926049,
+              "loss": 1.2471434729377506e-06
+            },
+            {
+              "paso": 200,
+              "MAE_normalizado": 7.757710591249634e-06,
+              "loss": 4.5453196761968684e-11
+            },
+            {
+              "paso": 300,
+              "MAE_normalizado": 2.034836370512494e-07,
+              "loss": 3.2216206969932354e-14
+            },
+            {
+              "paso": 400,
+              "MAE_normalizado": 0.014191588386893272,
+              "loss": 0.00016968786076176912
+            }
+          ],
+          "segundos": 0.5090165138244629
+        }
+      }
+    },
+    "lstm": {
+      "checkpoint": "results/base_v2/ajustes/piloto/6c103d69fc323ce92cfd",
+      "params": {
+        "capas": 1,
+        "unidades": 256,
+        "dropout": 0.20459956818458064,
+        "weight_decay": 0.0001578973170644469,
+        "batch_size": 32,
+        "lr": 0.0032138545457220135,
+        "scheduler": "none",
+        "perdida": "huber",
+        "paciencia": 15
+      },
+      "reproduccion_error_max_kwh": 0.0,
+      "MASE_original": 1.3472506789115686,
+      "MASE_reconstruido": 1.3472506789115686,
+      "ablaciones": {
+        "demanda_constante": {
+          "MASE": 1.3422102269456748,
+          "cambio_rms_normalizado": 0.0037610717117786407
+        },
+        "demanda_permutada": {
+          "MASE": 1.3498764448137155,
+          "cambio_rms_normalizado": 0.0035048439167439938
+        },
+        "calendario_cero": {
+          "MASE": 2.2592079800231315,
+          "cambio_rms_normalizado": 0.07886544615030289
+        }
+      },
+      "gradiente_demanda": 1.8791308320942335e-05,
+      "gradiente_calendario_promedio": 4.602277385856723e-06,
+      "tiny": {
+        "original": {
+          "historia": [
+            {
+              "paso": 0,
+              "MAE_normalizado": 1.0138863325119019,
+              "loss": 0.049444325268268585
+            },
+            {
+              "paso": 100,
+              "MAE_normalizado": 0.061230242252349854,
+              "loss": 0.0020155382808297873
+            },
+            {
+              "paso": 200,
+              "MAE_normalizado": 0.05658053606748581,
+              "loss": 0.0017829736461862922
+            },
+            {
+              "paso": 300,
+              "MAE_normalizado": 0.03820793330669403,
+              "loss": 0.0009545154171064496
+            },
+            {
+              "paso": 400,
+              "MAE_normalizado": 0.11315958201885223,
+              "loss": 0.004411304369568825
+            }
+          ],
+          "segundos": 4.046956539154053
+        },
+        "control_sin_dropout_lr_1e3": {
+          "historia": [
+            {
+              "paso": 0,
+              "MAE_normalizado": 1.0138863325119019,
+              "loss": 0.049444325268268585
+            },
+            {
+              "paso": 100,
+              "MAE_normalizado": 0.0009885469917207956,
+              "loss": 7.740165415270894e-07
+            },
+            {
+              "paso": 200,
+              "MAE_normalizado": 5.813274128740886e-06,
+              "loss": 2.5300922815163496e-11
+            },
+            {
+              "paso": 300,
+              "MAE_normalizado": 1.5497208494252845e-07,
+              "loss": 2.0763638814498726e-14
+            },
+            {
+              "paso": 400,
+              "MAE_normalizado": 0.03749902546405792,
+              "loss": 0.0008630926022306085
+            }
+          ],
+          "segundos": 3.506381034851074
+        }
+      }
+    },
+    "cnn1d": {
+      "checkpoint": "results/base_v2/ajustes/piloto/0e98d349badbc73b7e84",
+      "params": {
+        "capas": 1,
+        "filtros": 32,
+        "kernel": 7,
+        "dropout": 0.14020437899301996,
+        "weight_decay": 8.724969103465263e-05,
+        "batch_size": 32,
+        "lr": 0.008381357920683294,
+        "scheduler": "plateau",
+        "perdida": "mse",
+        "paciencia": 25
+      },
+      "reproduccion_error_max_kwh": 0.0,
+      "MASE_original": 1.3584006090812961,
+      "MASE_reconstruido": 1.3584006090812961,
+      "ablaciones": {
+        "demanda_constante": {
+          "MASE": 1.3593139170402686,
+          "cambio_rms_normalizado": 0.0004659396654460579
+        },
+        "demanda_permutada": {
+          "MASE": 1.359200977895014,
+          "cambio_rms_normalizado": 0.0005385851836763322
+        },
+        "calendario_cero": {
+          "MASE": 2.428339226714835,
+          "cambio_rms_normalizado": 0.07924554497003555
+        }
+      },
+      "gradiente_demanda": 3.910392933903495e-06,
+      "gradiente_calendario_promedio": 1.0422163541079499e-06,
+      "tiny": {
+        "original": {
+          "historia": [
+            {
+              "paso": 0,
+              "MAE_normalizado": 1.0254428386688232,
+              "loss": 1.0843223333358765
+            },
+            {
+              "paso": 100,
+              "MAE_normalizado": 0.09759049117565155,
+              "loss": 0.013632732443511486
+            },
+            {
+              "paso": 200,
+              "MAE_normalizado": 0.03952157124876976,
+              "loss": 0.0027816067449748516
+            },
+            {
+              "paso": 300,
+              "MAE_normalizado": 0.026888251304626465,
+              "loss": 0.0013196640647947788
+            },
+            {
+              "paso": 400,
+              "MAE_normalizado": 0.030698487535119057,
+              "loss": 0.0015603789361193776
+            }
+          ],
+          "segundos": 0.843705415725708
+        },
+        "control_sin_dropout_lr_1e3": {
+          "historia": [
+            {
+              "paso": 0,
+              "MAE_normalizado": 1.0254428386688232,
+              "loss": 1.0843223333358765
+            },
+            {
+              "paso": 100,
+              "MAE_normalizado": 0.03183605521917343,
+              "loss": 0.001701190834864974
+            },
+            {
+              "paso": 200,
+              "MAE_normalizado": 0.025822410359978676,
+              "loss": 0.0011639159638434649
+            },
+            {
+              "paso": 300,
+              "MAE_normalizado": 0.023520344868302345,
+              "loss": 0.0009637262555770576
+            },
+            {
+              "paso": 400,
+              "MAE_normalizado": 0.020948095247149467,
+              "loss": 0.0007466920651495457
+            }
+          ],
+          "segundos": 0.7139413356781006
+        }
+      }
+    }
+  }
+}

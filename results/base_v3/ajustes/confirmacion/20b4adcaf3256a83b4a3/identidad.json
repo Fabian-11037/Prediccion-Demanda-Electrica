@@ -1,0 +1,22 @@
+{
+  "etapa": "confirmacion",
+  "modelo": "lstm",
+  "configuracion": {
+    "id": "lstm_20",
+    "ventana": 168,
+    "params": {
+      "capas": 1,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 256,
+      "lr": 0.001,
+      "scheduler": "plateau",
+      "perdida": "huber",
+      "paciencia": 6,
+      "unidades": 32
+    }
+  },
+  "semilla": 44,
+  "fold": 2018,
+  "max_epocas": 60
+}

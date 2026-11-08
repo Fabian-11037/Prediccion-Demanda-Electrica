@@ -1,6 +1,6 @@
 # Predicción de demanda eléctrica (SIN, Colombia) con series de tiempo y texto
 
-Datos consolidados y libres de fuga de información para entrenar modelos que combinen series de tiempo y NLP en el pronóstico de la **demanda real horaria** del Sistema Interconectado Nacional.
+Datos consolidados con reglas explícitas de disponibilidad temporal para entrenar modelos que combinen series de tiempo y NLP en el pronóstico de la **demanda real horaria** del Sistema Interconectado Nacional.
 
 Lee primero [`CONTEXTO_PROYECTO.md`](CONTEXTO_PROYECTO.md): define el problema, las reglas anti-fuga, las decisiones abiertas y las limitaciones de los datos.
 
@@ -22,9 +22,19 @@ pytest -q tests
 ## Diseño anti-fuga en una línea
 Cada columna `x_*` ya trae su rezago de publicación y solo se lee antes del origen; el futuro solo expone calendario (`cal_*`) y pronósticos con emisión previa; las escalas se ajustan con entrenamiento; la partición purga el horizonte y la prueba está congelada.
 
-## Estado
-Panel, pruebas y script de entrenamiento listos. Ejecutados con validación cruzada forward chaining y evaluados en la prueba: ARX lineal (MASE 0.878) y MLP (MASE 0.867), frente a 1.355 del ingenuo de 168 h (ver `CONTEXTO_PROYECTO.md` §6 y `results/base/`). El LSTM está pendiente de ejecutar en GPU. Pendientes: descargar ISE y pronósticos de temperatura (scripts sin probar con las fuentes reales), decidir el bloque de prueba (se recomienda uno prospectivo desde 2026) y preregistrar.
+## Resultados consolidados
 
-## Ampliación CNN1D
+Las ejecuciones GPU v2, v3 y v4 están completas. La consolidación de métricas, limitaciones y modelos se encuentra en [`results/consolidado/README.md`](results/consolidado/README.md). El registro [`modelos.json`](results/consolidado/modelos.json) referencia los pesos, escaladores, predicciones y curvas de las cinco semillas de cada configuración seleccionada por validación entre las versiones corregidas.
 
-La ejecuciónGPUv2 incorporaCNN1D como cuarto modelo:20configuraciones,3semillas y4pliegues por modelo (960ajustes de búsqueda),seguida de piloto y etapa final preregistrada. El espacio y la arquitectura se documentan en `PREREGISTRO_CNN1D.md`;se conservan las opciones y los ajustes completos deARX,MLP,LSTM. Estado y barra local en `results/base_v2/estado_gpu.json` y `progreso.html`. Los datos futuros sólo exponen calendario conocido;laCNN no incorpora clima futuro realizado.
+| Familia | Ejecución | MASE de prueba ↓ |
+|---|---|---:|
+| MLP | v3 | 0,752 |
+| ARX | v3 | 0,852 |
+| CNN1D | v3 | 0,857 |
+| LSTM | v4 | 1,001 |
+| Ingenuo semanal | Referencia | 1,355 |
+| Ingenuo diario | Referencia | 2,077 |
+
+La prueba 2022–2025 ya fue observada: son resultados exploratorios, sin confirmación independiente ni pruebas de significancia. La selección entre ejecuciones es retrospectiva. Las versiones v3/v4 corrigen el ajuste del escalador para excluir la parada temprana; v2 se conserva como antecedente, con su salvedad documentada. No se deben mezclar sus presupuestos ni interpretar sus diferencias como efectos causales aislados.
+
+Se conservan los artefactos completos en `results/base_v2/`, `results/base_v3/` y `results/base_v4/`: pesos, escaladores, predicciones con fecha y semilla e historiales por época. Los planes de cada fase documentan arquitectura, presupuesto y particiones. Pendientes de datos: ISE y pronósticos meteorológicos con emisión verificable; no se incorporaron como entradas a estas ejecuciones.

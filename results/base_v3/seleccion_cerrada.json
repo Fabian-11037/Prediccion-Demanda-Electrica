@@ -1,0 +1,78 @@
+{
+  "mejores": {
+    "arx_lineal": {
+      "configuracion": {
+        "id": "arx_lineal_02",
+        "ventana": 168,
+        "params": {
+          "penalizacion": "lasso",
+          "lags": 48,
+          "batch_size": 64,
+          "lr": 0.0006582612236208865,
+          "scheduler": "plateau",
+          "perdida": "mae",
+          "paciencia": 15,
+          "lambda": 1.3733953296838922e-07
+        }
+      },
+      "MASE_cv": 0.68378800483045
+    },
+    "mlp": {
+      "configuracion": {
+        "id": "mlp_11",
+        "ventana": 168,
+        "params": {
+          "capas": 2,
+          "unidades": 128,
+          "dropout": 0.0035459143015831307,
+          "weight_decay": 0.0003827221364333344,
+          "batch_size": 64,
+          "lr": 0.004689628419943547,
+          "scheduler": "plateau",
+          "perdida": "huber",
+          "paciencia": 8
+        }
+      },
+      "MASE_cv": 0.5335211229998847
+    },
+    "lstm": {
+      "configuracion": {
+        "id": "lstm_16",
+        "ventana": 168,
+        "params": {
+          "capas": 1,
+          "dropout": 0.1,
+          "weight_decay": 0.0001,
+          "batch_size": 256,
+          "lr": 0.001,
+          "scheduler": "plateau",
+          "perdida": "huber",
+          "paciencia": 6,
+          "unidades": 32
+        }
+      },
+      "MASE_cv": 0.7945341381599853
+    },
+    "cnn1d": {
+      "configuracion": {
+        "id": "cnn1d_17",
+        "ventana": 168,
+        "params": {
+          "capas": 1,
+          "dropout": 0.1,
+          "weight_decay": 0.0001,
+          "batch_size": 256,
+          "lr": 0.0003,
+          "scheduler": "plateau",
+          "perdida": "huber",
+          "paciencia": 6,
+          "filtros": 16,
+          "kernel": 5
+        }
+      },
+      "MASE_cv": 0.659116656380739
+    }
+  },
+  "fecha": "2026-11-08T12:00:08.061476-05:00",
+  "nota": "Selección y piloto completos antes de acceder a prueba en v3"
+}

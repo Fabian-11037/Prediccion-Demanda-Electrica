@@ -1,0 +1,32 @@
+{
+  "etapa": "filtro",
+  "modelo": "mlp",
+  "configuracion": "mlp_04",
+  "semilla": 42,
+  "fold": 2019,
+  "ventana": 168,
+  "params": {
+    "capas": 3,
+    "unidades": 64,
+    "dropout": 0.13115667022092475,
+    "weight_decay": 0.0010033644059987772,
+    "batch_size": 32,
+    "lr": 0.0009340754307584189,
+    "scheduler": "none",
+    "perdida": "mse",
+    "paciencia": 25
+  },
+  "segundos": 10.868807077407837,
+  "MASE": 0.7089462859904115,
+  "RMSE": 195891.97810448977,
+  "MAE": 152861.51196152385,
+  "sMAPE": 1.8996639435808886,
+  "MAPE": 1.9024506371438055,
+  "MASE_h1": 0.6788110287687411,
+  "MASE_h12": 0.6198367310607579,
+  "MASE_h24": 0.784459957481357,
+  "n_parametros": 56024,
+  "epocas": 30,
+  "mejor_epoca": 28,
+  "dispositivo": "cuda"
+}

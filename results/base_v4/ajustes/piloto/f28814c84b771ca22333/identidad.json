@@ -1,0 +1,27 @@
+{
+  "etapa": "piloto",
+  "modelo": "cnn1d",
+  "configuracion": {
+    "id": "cnn1d_v4_01",
+    "ventana": 168,
+    "params": {
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 256,
+      "scheduler": "plateau",
+      "perdida": "huber",
+      "paciencia": 6,
+      "capas": 2,
+      "filtros": 16,
+      "kernel": 3,
+      "dilataciones": [
+        1,
+        1
+      ],
+      "lr": 0.0003
+    }
+  },
+  "semilla": 102,
+  "fold": 2020,
+  "max_epocas": 60
+}

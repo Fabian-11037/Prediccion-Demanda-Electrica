@@ -1,0 +1,22 @@
+{
+  "etapa": "filtro",
+  "modelo": "mlp",
+  "configuracion": {
+    "id": "mlp_19",
+    "ventana": 168,
+    "params": {
+      "capas": 3,
+      "unidades": 512,
+      "dropout": 0.12160773215316356,
+      "weight_decay": 1.0652949515765605e-05,
+      "batch_size": 64,
+      "lr": 0.00032779795359585517,
+      "scheduler": "none",
+      "perdida": "huber",
+      "paciencia": 25
+    }
+  },
+  "semilla": 42,
+  "fold": 2019,
+  "max_epocas": 30
+}

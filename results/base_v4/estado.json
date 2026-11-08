@@ -1,0 +1,15 @@
+{
+  "estado": "Completado",
+  "completados": 108,
+  "total": 108,
+  "actualizado": "2026-11-08T12:32:15.673127-05:00",
+  "pid": 12214,
+  "etapa": "final",
+  "modelo": "lstm",
+  "configuracion": "lstm_v4_01",
+  "semilla": 1004,
+  "fold": "final",
+  "epoca": 0,
+  "loss_train": 0.00019645619336040336,
+  "loss_es": 0.00035066426766295207
+}
