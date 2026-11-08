@@ -66,7 +66,7 @@
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
     <link rel="next" title="12. Reproducibilidad y procedencia" href="12_reproducibilidad.html" />
-    <link rel="prev" title="Código completo del pipeline de entrenamiento y prueba" href="10_pipeline.html" />
+    <link rel="prev" title="10.10. Pipeline de entrenamiento y evaluación" href="10_pipeline.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   <meta name="docsearch:version" content="" />
@@ -225,11 +225,11 @@
 <li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_covariables.html">6. Covariables y disponibilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Exploración de titulares</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamentos del diseño</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_validacion.html">9. Diseño de evaluación</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="09_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">Evaluación temporal y diagnósticos de los modelos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">Código completo del pipeline de entrenamiento y prueba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Síntesis del análisis exploratorio</a></li>
@@ -475,11 +475,11 @@
 <h2>Alcance y amenazas a la validez<a class="headerlink" href="#alcance-y-amenazas-a-la-validez" title="Link to this heading">#</a></h2>
 <p>La demanda es nacional, mientras el clima resume ocho puntos urbanos; esa diferencia espacial limita la atribución de asociaciones a usos concretos. Los pesos de población de 2018 son estáticos y proceden de una fuente secundaria. El reanálisis meteorológico caracteriza retrospectivamente el tiempo observado, sin reconstruir por sí solo lo disponible en operación.</p>
 <p>Las series administrativas y los titulares pueden contener revisiones. La disponibilidad declarada de noticias no acredita una versión histórica exacta; el escenario estricto ofrece mayor trazabilidad con menor cobertura. La ausencia de titulares recuperados no debe convertirse en una señal de ausencia de eventos.</p>
-<p>La validación 2018–2021 combina regímenes distintos y participa en selección. Las limitaciones de independencia de la prueba retrospectiva permanecen en el preregistro. El EDA no demuestra todavía superioridad predictiva, causalidad ni una ganancia atribuible al texto. Los resultados predictivos y sus diagnósticos se presentan en el capítulo de modelos.</p>
+<p>La validación 2018–2021 combina regímenes distintos y participa en selección. Las limitaciones de independencia de la prueba retrospectiva permanecen en el preregistro. El EDA caracteriza asociaciones y cobertura, sin establecer causalidad ni una ganancia atribuible al texto. Los resultados predictivos y sus diagnósticos se presentan en el capítulo de modelos.</p>
 </section>
 <section id="resultado-del-benchmark">
 <h2>Resultado del benchmark<a class="headerlink" href="#resultado-del-benchmark" title="Link to this heading">#</a></h2>
-<p>La ejecución v2 completa la comparación de MLP, LSTM y CNN1D, con ARX y referencias estacionales. El capítulo 10 reconstruye el ranking y la variación entre 195 semillas a partir de resultados publicados. MLP obtiene el menor MASE; la desigualdad del presupuesto LSTM y el diseño retrospectivo limitan la interpretación confirmatoria. La nueva instantánea contiene predicciones y curvas completas, utilizadas en los diagnósticos temporales. El análisis por semillas no sustituye la evaluación por días.</p>
+<p>La MLP presenta el menor MASE medio del periodo de prueba; ARX y CNN1D quedan próximos y LSTM obtiene mayor error. Las cuatro familias superan las referencias estacionales en el agregado. La evaluación conserva cinco semillas por configuración y separa variabilidad algorítmica de incertidumbre temporal. Las diferencias se describen junto con perfiles horarios, segmentos, curvas de aprendizaje y costo de ajuste, sin afirmar superioridad confirmatoria.</p>
 </section>
 </section>
 
@@ -519,7 +519,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Código completo del pipeline de entrenamiento y prueba</p>
+        <p class="prev-next-title">10.10. Pipeline de entrenamiento y evaluación</p>
       </div>
     </a>
     <a class="right-next"

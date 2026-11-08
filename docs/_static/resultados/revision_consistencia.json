@@ -1,0 +1,40 @@
+{
+  "fecha": "2026-11-08",
+  "cuadernos_revisados": [
+    "01_datos.ipynb",
+    "02_calidad.ipynb",
+    "03_demanda.ipynb",
+    "04_estacionalidad.ipynb",
+    "05_dependencia.ipynb",
+    "06_covariables.ipynb",
+    "07_texto.ipynb",
+    "08_literatura.ipynb",
+    "09_validacion.ipynb",
+    "10_evaluacion.ipynb",
+    "10_modelos.ipynb",
+    "11_sintesis.ipynb",
+    "12_reproducibilidad.ipynb"
+  ],
+  "paginas_md_revisadas": [
+    "intro.md",
+    "fuentes.md",
+    "diccionario.md",
+    "10_pipeline.md"
+  ],
+  "celdas_analiticas": 75,
+  "figuras": 42,
+  "errores_ejecucion": 0,
+  "advertencias_libro": 0,
+  "enlaces_locales_rotos": 0,
+  "margen_relativo": 0.03,
+  "semillas_por_familia": 5,
+  "nuevos_entrenamientos": false,
+  "publicado": false,
+  "pendientes_E1": [
+    "Potencia no acreditada para 3 % con cinco semillas",
+    "Presupuesto desigual y selección adaptativa",
+    "Prueba retrospectiva ya expuesta",
+    "Cadenas originales y fechas Scopus/WoS no recuperadas",
+    "PRISMA interbases y segundo revisor independiente no completados"
+  ]
+}

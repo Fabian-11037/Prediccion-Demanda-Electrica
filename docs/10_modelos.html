@@ -1,0 +1,1240 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10. Modelos y benchmark de demanda &#8212; Pronóstico de la demanda eléctrica del SIN colombiano</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '10_modelos';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="10.9. Evaluación temporal y diagnósticos" href="10_evaluacion.html" />
+    <link rel="prev" title="9. Diseño de evaluación" href="09_validacion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Pronóstico de la demanda eléctrica del SIN colombiano</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Pronóstico de la demanda eléctrica del SIN colombiano
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="01_datos.html">1. Problema y datos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="diccionario.html">Diccionario de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="02_calidad.html">2. Calidad e integridad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_demanda.html">3. Distribución y evolución de la demanda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_estacionalidad.html">4. Calendario y estacionalidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_covariables.html">6. Covariables y disponibilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Exploración de titulares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">10. Modelos y benchmark de demanda</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fuentes.html">Fuentes y fundamento metodológico</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/10_modelos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>10. Modelos y benchmark de demanda</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entradas-escalado-y-particion">10.1. Entradas, escalado y partición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitecturas-y-configuraciones">10.2. Arquitecturas y configuraciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-confirmacion-y-piloto">10.3. Búsqueda, confirmación y piloto</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#piloto-y-dimensionamiento">Piloto y dimensionamiento</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-aprendizaje">10.4. Curvas de aprendizaje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-de-prueba">10.5. Benchmark de prueba</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validacion-y-generalizacion">10.6. Validación y generalización</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trayectorias-observadas-y-predichas">10.7. Trayectorias observadas y predichas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discusion-critica-alcance-y-margen-disponible">10.8. Discusión crítica, alcance y margen disponible</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolo-de-medicion-de-inferencia">Protocolo de medición de inferencia</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modelos-y-benchmark-de-demanda">
+<h1>10. Modelos y benchmark de demanda<a class="headerlink" href="#modelos-y-benchmark-de-demanda" title="Link to this heading">#</a></h1>
+<p>Se comparan MLP, LSTM y CNN1D como familias de aprendizaje profundo, con ARX regularizado y referencias estacionales como controles. Cada configuración se evalúa con cinco inicializaciones sobre los mismos 1.461 orígenes diarios de 2022–2025. La selección utiliza el MASE de validación; el análisis presenta resultados descriptivos y su variabilidad por inicialización y por fecha.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="nn">hashlib</span><span class="o">,</span><span class="nn">itertools</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'Agg'</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.multitest</span><span class="w"> </span><span class="kn">import</span> <span class="n">multipletests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+<span class="n">ROOT</span><span class="o">=</span><span class="nb">next</span><span class="p">(</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span><span class="o">*</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">parents</span><span class="p">]</span> <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">/</span><span class="s1">'results/jbook/modelos_actualizados.json'</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+<span class="n">procedencia</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'results/jbook/modelos_actualizados.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
+<span class="n">SHA</span><span class="o">=</span><span class="n">procedencia</span><span class="p">[</span><span class="s1">'commit'</span><span class="p">];</span><span class="n">SNAP</span><span class="o">=</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'results/repositorio'</span><span class="o">/</span><span class="n">SHA</span>
+<span class="n">C</span><span class="o">=</span><span class="n">SNAP</span><span class="o">/</span><span class="s1">'results/consolidado'</span><span class="p">;</span><span class="n">OUT</span><span class="o">=</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'results/jbook/modelos_actuales'</span><span class="p">;</span><span class="n">OUT</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">registro</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">C</span><span class="o">/</span><span class="s1">'modelos.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
+<span class="n">modelos</span><span class="o">=</span><span class="p">[</span><span class="s1">'mlp'</span><span class="p">,</span><span class="s1">'arx_lineal'</span><span class="p">,</span><span class="s1">'cnn1d'</span><span class="p">,</span><span class="s1">'lstm'</span><span class="p">];</span><span class="n">neuronales</span><span class="o">=</span><span class="p">[</span><span class="s1">'mlp'</span><span class="p">,</span><span class="s1">'cnn1d'</span><span class="p">,</span><span class="s1">'lstm'</span><span class="p">]</span>
+<span class="n">etiquetas</span><span class="o">=</span><span class="p">{</span><span class="s1">'mlp'</span><span class="p">:</span><span class="s1">'MLP'</span><span class="p">,</span><span class="s1">'arx_lineal'</span><span class="p">:</span><span class="s1">'ARX'</span><span class="p">,</span><span class="s1">'cnn1d'</span><span class="p">:</span><span class="s1">'CNN1D'</span><span class="p">,</span><span class="s1">'lstm'</span><span class="p">:</span><span class="s1">'LSTM'</span><span class="p">,</span><span class="s1">'ingenuo_24h'</span><span class="p">:</span><span class="s1">'Ingenuo diario'</span><span class="p">,</span><span class="s1">'ingenuo_168h'</span><span class="p">:</span><span class="s1">'Ingenuo semanal'</span><span class="p">}</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'figure.figsize'</span><span class="p">:(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="s1">'axes.spines.top'</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s1">'axes.spines.right'</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s1">'axes.grid'</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s1">'grid.alpha'</span><span class="p">:</span><span class="mf">.15</span><span class="p">})</span>
+<span class="n">importacion</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">SNAP</span><span class="o">/</span><span class="s1">'IMPORTACION.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
+<span class="n">huellas</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">[</span><span class="s1">'archivo'</span><span class="p">]:</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">importacion</span><span class="p">[</span><span class="s1">'archivos'</span><span class="p">]}</span>
+<span class="n">indice</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">C</span><span class="o">/</span><span class="s1">'indice_artefactos_v3_v4.csv'</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">indice</span><span class="p">)</span><span class="o">==</span><span class="mi">2304</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">indice</span><span class="o">.</span><span class="n">archivo</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">fila</span> <span class="ow">in</span> <span class="n">indice</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+    <span class="n">p</span><span class="o">=</span><span class="n">SNAP</span><span class="o">/</span><span class="n">fila</span><span class="o">.</span><span class="n">archivo</span>
+    <span class="k">assert</span> <span class="n">p</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span><span class="o">==</span><span class="n">fila</span><span class="o">.</span><span class="n">bytes</span>
+    <span class="k">assert</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span><span class="o">==</span><span class="n">fila</span><span class="o">.</span><span class="n">sha256</span><span class="o">==</span><span class="n">huellas</span><span class="p">[</span><span class="n">fila</span><span class="o">.</span><span class="n">archivo</span><span class="p">][</span><span class="s1">'sha256'</span><span class="p">]</span>
+<span class="n">runs</span><span class="o">=</span><span class="p">[];</span><span class="n">pilotos</span><span class="o">=</span><span class="p">[];</span><span class="n">confirmaciones</span><span class="o">=</span><span class="p">[];</span><span class="n">filtros</span><span class="o">=</span><span class="p">[];</span><span class="n">pred</span><span class="o">=</span><span class="p">{};</span><span class="n">carpetas</span><span class="o">=</span><span class="p">{};</span><span class="n">escaladores</span><span class="o">=</span><span class="p">{};</span><span class="n">historias</span><span class="o">=</span><span class="p">{};</span><span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">;</span><span class="n">origen</span><span class="o">=</span><span class="kc">None</span>
+<span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">:</span>
+    <span class="n">r</span><span class="o">=</span><span class="n">registro</span><span class="p">[</span><span class="n">nombre</span><span class="p">];</span><span class="n">carpeta</span><span class="o">=</span><span class="n">SNAP</span><span class="o">/</span><span class="s1">'results'</span><span class="o">/</span><span class="n">r</span><span class="p">[</span><span class="s1">'ejecucion'</span><span class="p">]</span>
+    <span class="n">seleccion</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">'configuracion'</span><span class="p">][</span><span class="s1">'id'</span><span class="p">]</span>
+    <span class="n">pp</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">carpeta</span><span class="o">/</span><span class="s1">'piloto.csv'</span><span class="p">);</span><span class="n">pp</span><span class="o">=</span><span class="n">pp</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">pp</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">nombre</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">pp</span><span class="o">.</span><span class="n">configuracion</span><span class="o">==</span><span class="n">seleccion</span><span class="p">)]</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">pp</span><span class="p">)</span><span class="o">==</span><span class="mi">20</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pp</span><span class="o">.</span><span class="n">duplicated</span><span class="p">([</span><span class="s1">'semilla'</span><span class="p">,</span><span class="s1">'fold'</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+    <span class="n">pilotos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pp</span><span class="p">)</span>
+    <span class="n">pila</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">'artefactos'</span><span class="p">],</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span><span class="n">a</span><span class="p">[</span><span class="s1">'semilla'</span><span class="p">]):</span>
+        <span class="n">met</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">SNAP</span><span class="o">/</span><span class="n">a</span><span class="p">[</span><span class="s1">'metricas'</span><span class="p">])</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
+        <span class="n">esc</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">SNAP</span><span class="o">/</span><span class="n">a</span><span class="p">[</span><span class="s1">'escaladores'</span><span class="p">])</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
+        <span class="n">historia</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">SNAP</span><span class="o">/</span><span class="n">a</span><span class="p">[</span><span class="s1">'historial'</span><span class="p">])</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)))</span>
+        <span class="k">assert</span> <span class="n">met</span><span class="p">[</span><span class="s1">'semilla'</span><span class="p">]</span><span class="o">==</span><span class="n">a</span><span class="p">[</span><span class="s1">'semilla'</span><span class="p">]</span> <span class="ow">and</span> <span class="n">met</span><span class="p">[</span><span class="s1">'params'</span><span class="p">]</span><span class="o">==</span><span class="n">r</span><span class="p">[</span><span class="s1">'configuracion'</span><span class="p">][</span><span class="s1">'params'</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">met</span><span class="p">[</span><span class="s1">'configuracion'</span><span class="p">]</span><span class="o">==</span><span class="n">seleccion</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">historia</span><span class="p">)</span><span class="o">==</span><span class="n">met</span><span class="p">[</span><span class="s1">'epocas'</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">historia</span><span class="o">.</span><span class="n">epoca</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="o">==</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">historia</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="n">met</span><span class="p">[</span><span class="s1">'mejor_epoca'</span><span class="p">]</span><span class="o">==</span><span class="nb">int</span><span class="p">(</span><span class="n">historia</span><span class="o">.</span><span class="n">val_loss</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">esc</span><span class="p">[</span><span class="s1">'fin_ajuste'</span><span class="p">])</span><span class="o">&lt;</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">'2022-01-01'</span><span class="p">,</span><span class="n">tz</span><span class="o">=</span><span class="s1">'America/Bogota'</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">SNAP</span><span class="o">/</span><span class="n">a</span><span class="p">[</span><span class="s1">'predicciones'</span><span class="p">],</span><span class="n">allow_pickle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span><span class="n">y</span><span class="o">=</span><span class="n">z</span><span class="p">[</span><span class="s1">'y'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">);</span><span class="n">origen</span><span class="o">=</span><span class="n">z</span><span class="p">[</span><span class="s1">'origen'</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">[</span><span class="s1">'y'</span><span class="p">])</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">origen</span><span class="p">,</span><span class="n">z</span><span class="p">[</span><span class="s1">'origen'</span><span class="p">])</span>
+            <span class="k">assert</span> <span class="n">z</span><span class="p">[</span><span class="s1">'yhat'</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="o">==</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="s1">'yhat'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+            <span class="n">pila</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="s1">'yhat'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+        <span class="n">runs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">met</span><span class="p">);</span><span class="n">historias</span><span class="p">[(</span><span class="n">nombre</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="s1">'semilla'</span><span class="p">])]</span><span class="o">=</span><span class="n">historia</span>
+        <span class="n">carpetas</span><span class="p">[(</span><span class="n">nombre</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="s1">'semilla'</span><span class="p">])]</span><span class="o">=</span><span class="n">SNAP</span><span class="o">/</span><span class="n">a</span><span class="p">[</span><span class="s1">'pesos'</span><span class="p">]</span>
+        <span class="n">escaladores</span><span class="p">[(</span><span class="n">nombre</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="s1">'semilla'</span><span class="p">])]</span><span class="o">=</span><span class="n">esc</span>
+    <span class="n">pred</span><span class="p">[</span><span class="n">nombre</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">pila</span><span class="p">)</span>
+<span class="n">piloto</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">pilotos</span><span class="p">,</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span><span class="n">runs</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">runs</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">runs</span><span class="p">)</span><span class="o">==</span><span class="mi">20</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">runs</span><span class="o">.</span><span class="n">duplicated</span><span class="p">([</span><span class="s1">'modelo'</span><span class="p">,</span><span class="s1">'semilla'</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">semilla</span><span class="p">)</span><span class="o">==</span><span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1005</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">runs</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'modelo'</span><span class="p">))</span>
+<span class="n">fechas</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">origen</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="s1">'ns'</span><span class="p">,</span><span class="n">utc</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="s1">'America/Bogota'</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">fechas</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">'2022-01-01'</span><span class="p">,</span><span class="s1">'2025-12-31'</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">'D'</span><span class="p">,</span><span class="n">tz</span><span class="o">=</span><span class="s1">'America/Bogota'</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="o">==</span><span class="p">(</span><span class="mi">1461</span><span class="p">,</span><span class="mi">24</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">escala</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">escaladores</span><span class="p">[(</span><span class="s1">'mlp'</span><span class="p">,</span><span class="mi">1000</span><span class="p">)][</span><span class="s1">'escala_mase'</span><span class="p">])</span>
+<span class="n">loss_h</span><span class="o">=</span><span class="p">{};</span><span class="n">loss_d</span><span class="o">=</span><span class="p">{};</span><span class="n">residuos</span><span class="o">=</span><span class="p">{};</span><span class="n">calculadas</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">:</span>
+    <span class="n">errores</span><span class="o">=</span><span class="n">pred</span><span class="p">[</span><span class="n">nombre</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="kc">None</span><span class="p">,:,:]</span>
+    <span class="n">loss_h</span><span class="p">[</span><span class="n">nombre</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">errores</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">escala</span>
+    <span class="n">loss_d</span><span class="p">[</span><span class="n">nombre</span><span class="p">]</span><span class="o">=</span><span class="n">loss_h</span><span class="p">[</span><span class="n">nombre</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">residuos</span><span class="p">[</span><span class="n">nombre</span><span class="p">]</span><span class="o">=</span><span class="n">errores</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">semilla</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1005</span><span class="p">)):</span>
+        <span class="n">e</span><span class="o">=</span><span class="n">errores</span><span class="p">[</span><span class="n">j</span><span class="p">];</span><span class="n">mae</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">();</span><span class="n">rmse</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">m</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">modelo</span><span class="o">=</span><span class="n">nombre</span><span class="p">,</span><span class="n">semilla</span><span class="o">=</span><span class="n">semilla</span><span class="p">,</span><span class="n">MASE</span><span class="o">=</span><span class="n">mae</span><span class="o">/</span><span class="n">escala</span><span class="p">,</span><span class="n">MAE</span><span class="o">=</span><span class="n">mae</span><span class="p">,</span><span class="n">RMSE</span><span class="o">=</span><span class="n">rmse</span><span class="p">,</span><span class="n">R2</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">sesgo</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">sMAPE</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pred</span><span class="p">[</span><span class="n">nombre</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+        <span class="n">original</span><span class="o">=</span><span class="n">runs</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">runs</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">nombre</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">runs</span><span class="o">.</span><span class="n">semilla</span><span class="o">==</span><span class="n">semilla</span><span class="p">)]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">([</span><span class="n">m</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'MASE'</span><span class="p">,</span><span class="s1">'MAE'</span><span class="p">,</span><span class="s1">'RMSE'</span><span class="p">,</span><span class="s1">'sMAPE'</span><span class="p">]],[</span><span class="n">original</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'MASE'</span><span class="p">,</span><span class="s1">'MAE'</span><span class="p">,</span><span class="s1">'RMSE'</span><span class="p">,</span><span class="s1">'sMAPE'</span><span class="p">]],</span><span class="n">rtol</span><span class="o">=</span><span class="mf">2e-6</span><span class="p">)</span>
+        <span class="n">calculadas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">calculadas</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">calculadas</span><span class="p">)</span>
+<span class="n">seleccion_publicada</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">C</span><span class="o">/</span><span class="s1">'modelos_seleccionados.csv'</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'modelo'</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">calculadas</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'modelo'</span><span class="p">)</span><span class="o">.</span><span class="n">MASE</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(),</span><span class="n">seleccion_publicada</span><span class="o">.</span><span class="n">MASE_prueba</span><span class="o">.</span><span class="n">sort_index</span><span class="p">())</span>
+<span class="n">referencias</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">C</span><span class="o">/</span><span class="s1">'referencias_test.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
+<span class="n">filas</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">:</span>
+    <span class="n">d</span><span class="o">=</span><span class="n">calculadas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">calculadas</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">nombre</span><span class="p">];</span><span class="n">media</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">MASE</span><span class="o">.</span><span class="n">mean</span><span class="p">();</span><span class="n">sd</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">MASE</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span><span class="n">ancho</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">.975</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">sd</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">filas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">familia</span><span class="o">=</span><span class="n">nombre</span><span class="p">,</span><span class="n">Modelo</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">nombre</span><span class="p">],</span><span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="n">MASE</span><span class="o">=</span><span class="n">media</span><span class="p">,</span><span class="n">DE</span><span class="o">=</span><span class="n">sd</span><span class="p">,</span><span class="n">IC95_inf</span><span class="o">=</span><span class="n">media</span><span class="o">-</span><span class="n">ancho</span><span class="p">,</span><span class="n">IC95_sup</span><span class="o">=</span><span class="n">media</span><span class="o">+</span><span class="n">ancho</span><span class="p">,</span><span class="n">MAE_kWh</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">MAE</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">RMSE_kWh</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">RMSE</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">sMAPE_pct</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">sMAPE</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">R2</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">R2</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">sesgo_kWh</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">sesgo</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">parametros</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">runs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">runs</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">nombre</span><span class="p">,</span><span class="s1">'n_parametros'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">ajuste_s</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">runs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">runs</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">nombre</span><span class="p">,</span><span class="s1">'segundos'</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())))</span>
+<span class="k">for</span> <span class="n">nombre</span><span class="p">,</span><span class="n">m</span> <span class="ow">in</span> <span class="n">referencias</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">filas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">familia</span><span class="o">=</span><span class="n">nombre</span><span class="p">,</span><span class="n">Modelo</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">nombre</span><span class="p">],</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">MASE</span><span class="o">=</span><span class="n">m</span><span class="p">[</span><span class="s1">'MASE'</span><span class="p">],</span><span class="n">DE</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">IC95_inf</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">IC95_sup</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">MAE_kWh</span><span class="o">=</span><span class="n">m</span><span class="p">[</span><span class="s1">'MAE'</span><span class="p">],</span><span class="n">RMSE_kWh</span><span class="o">=</span><span class="n">m</span><span class="p">[</span><span class="s1">'RMSE'</span><span class="p">],</span><span class="n">sMAPE_pct</span><span class="o">=</span><span class="n">m</span><span class="p">[</span><span class="s1">'sMAPE'</span><span class="p">],</span><span class="n">R2</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">m</span><span class="p">[</span><span class="s1">'RMSE'</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">sesgo_kWh</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">parametros</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">ajuste_s</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">))</span>
+<span class="n">benchmark</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">filas</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'MASE'</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span><span class="n">benchmark</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">'rango'</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">benchmark</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">benchmark</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">OUT</span><span class="o">/</span><span class="s1">'benchmark.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span><span class="n">benchmark</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'book/benchmark_modelos.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">calculadas</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">OUT</span><span class="o">/</span><span class="s1">'metricas_desde_predicciones.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">fase</span><span class="p">,</span><span class="n">destino</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">'filtro'</span><span class="p">,</span><span class="n">filtros</span><span class="p">),(</span><span class="s1">'confirmacion'</span><span class="p">,</span><span class="n">confirmaciones</span><span class="p">)]:</span>
+    <span class="k">for</span> <span class="n">ruta</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">'ejecucion'</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">registro</span><span class="o">.</span><span class="n">values</span><span class="p">())):</span>
+        <span class="n">destino</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">SNAP</span><span class="o">/</span><span class="s1">'results'</span><span class="o">/</span><span class="n">ruta</span><span class="o">/</span><span class="p">(</span><span class="n">fase</span><span class="o">+</span><span class="s1">'.csv'</span><span class="p">)))</span>
+<span class="n">filtro</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">filtros</span><span class="p">,</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span><span class="n">confirmacion</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">confirmaciones</span><span class="p">,</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtro</span><span class="p">)</span><span class="o">==</span><span class="mi">90</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">confirmacion</span><span class="p">)</span><span class="o">==</span><span class="mi">144</span>
+<span class="n">mejor</span><span class="o">=</span><span class="n">benchmark</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">benchmark</span><span class="o">.</span><span class="n">familia</span><span class="o">==</span><span class="s1">'mlp'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">reduccion_semanal</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">mejor</span><span class="o">.</span><span class="n">MASE</span><span class="o">/</span><span class="n">referencias</span><span class="p">[</span><span class="s1">'ingenuo_168h'</span><span class="p">][</span><span class="s1">'MASE'</span><span class="p">])</span>
+<span class="n">mae_mlp</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">mejor</span><span class="o">.</span><span class="n">MAE_kWh</span><span class="p">);</span><span class="n">mase_mlp</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">mejor</span><span class="o">.</span><span class="n">MASE</span><span class="p">)</span>
+
+<span class="n">formato_p</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">"&lt;1e-300"</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">"</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las predicciones reconstruyen las métricas registradas para las 20 realizaciones seleccionadas. La escala fija de MASE es 215,617.90 kWh, calculada con diferencias semanales de 2000–2017. Se verifican las huellas de 2.304 artefactos, incluidas las alternativas de búsqueda; las 20 realizaciones del benchmark corresponden a las cuatro configuraciones seleccionadas.</p>
+<section id="entradas-escalado-y-particion">
+<h2>10.1. Entradas, escalado y partición<a class="headerlink" href="#entradas-escalado-y-particion" title="Link to this heading">#</a></h2>
+<p>El origen diario de las 00:00 genera 24 pronósticos horarios. La historia contiene 168 horas de demanda disponible y 23 variables de calendario. MLP utiliza demanda histórica y calendario futuro aplanados; ARX conserva 48 rezagos; LSTM y CNN1D concatenan calendario histórico a la demanda y calendario futuro a la representación temporal. Las condiciones meteorológicas, hidrología y noticias caracterizadas en el EDA no forman parte de estas entradas.</p>
+<p>Las etiquetas y la demanda histórica se normalizan por el nivel medio conocido en la ventana. En las redes secuenciales, la demanda normalizada se centra en uno y se divide por su desviación estimada en entrenamiento. Los escaladores del calendario y las representaciones tabulares se ajustan con el tramo de optimización de cada pliegue; la parada interna y el año externo quedan separados. Las salidas se restituyen a kWh mediante el nivel del origen.</p>
+<p>La validación expansiva comprende 2018–2021. El último 10 % del historial previo se reserva para parada temprana y se comprueba la separación de las 24 etiquetas entre tramos. El ajuste final utiliza el historial anterior a 2022 con la misma reserva interna. MASE conserva un denominador fijo de referencia para hacer comparables los errores entre pliegues; ese denominador no se utiliza para optimizar las redes.</p>
+</section>
+<section id="arquitecturas-y-configuraciones">
+<h2>10.2. Arquitecturas y configuraciones<a class="headerlink" href="#arquitecturas-y-configuraciones" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Representación seleccionada</p></th>
+<th class="head"><p>Tasa de aprendizaje</p></th>
+<th class="head"><p>Dropout</p></th>
+<th class="head"><p>Regularización</p></th>
+<th class="head"><p>Lote</p></th>
+<th class="head"><p>Pérdida</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MLP</p></td>
+<td><p>2 capas de 128 unidades</p></td>
+<td><p>0.0046896</p></td>
+<td><p>0.0035459</p></td>
+<td><p>0.00038272</p></td>
+<td><p>64</p></td>
+<td><p>huber</p></td>
+</tr>
+<tr class="row-odd"><td><p>LSTM</p></td>
+<td><p>1 capa de 48 unidades</p></td>
+<td><p>0.001</p></td>
+<td><p>0.1</p></td>
+<td><p>0.0001</p></td>
+<td><p>256</p></td>
+<td><p>huber</p></td>
+</tr>
+<tr class="row-even"><td><p>CNN1D</p></td>
+<td><p>1 convolución, 16 filtros, kernel 5</p></td>
+<td><p>0.0003</p></td>
+<td><p>0.1</p></td>
+<td><p>0.0001</p></td>
+<td><p>256</p></td>
+<td><p>huber</p></td>
+</tr>
+<tr class="row-odd"><td><p>ARX</p></td>
+<td><p>lasso, 48 rezagos</p></td>
+<td><p>0.00065826</p></td>
+<td><p>0</p></td>
+<td><p>1.3734e-07</p></td>
+<td><p>64</p></td>
+<td><p>mae</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La MLP aplica dos transformaciones densas ReLU y una salida directa de 24 valores. La LSTM utiliza el último estado oculto; la CNN1D aplica convolución, ReLU, Dropout1d, promedio local de factor dos y aplanamiento. Las dos redes secuenciales concatenan el calendario futuro antes de la salida lineal y aprenden una desviación alrededor de uno en la escala del nivel. ARX penaliza los coeficientes mediante lasso.</p>
+<p>Para MLP, con z como vector de entrada, la predicción es g(z)=W₃ ReLU(W₂ ReLU(W₁z+b₁)+b₂)+b₃. Para LSTM, hₜ,cₜ=LSTM([xₜ,kₜ],hₜ₋₁,cₜ₋₁), y la salida normalizada es 1+W[hₗ,k_f]+b. En CNN1D, z=flatten(pool₂(ReLU(Convₖ([x,k_p])))) y la salida es 1+W[z,k_f]+b. El Dropout se activa durante el ajuste y se desactiva al evaluar.</p>
+<p>Con L=168, H=24, K=23 y f=24, el costo dominante por ejemplo es O(du+u²+uH) para MLP, O(Lu(f+u)+(u+HK)H) para LSTM y O(Lkfc+(Lc/2+HK)H) para CNN1D. Los parámetros se verifican frente a los metadatos guardados; capacidad, tiempo de ajuste y latencia de inferencia son magnitudes distintas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">f</span><span class="o">=</span><span class="mi">168</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">;</span><span class="n">d</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">H</span><span class="o">*</span><span class="n">K</span><span class="p">;</span><span class="n">u</span><span class="o">=</span><span class="mi">128</span>
+<span class="n">conteos</span><span class="o">=</span><span class="p">{</span><span class="s1">'mlp'</span><span class="p">:(</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">+</span><span class="p">(</span><span class="n">u</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">+</span><span class="p">(</span><span class="n">u</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">H</span><span class="p">,</span><span class="s1">'lstm'</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="mi">48</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="o">+</span><span class="mi">48</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mi">48</span><span class="o">+</span><span class="n">H</span><span class="o">*</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">H</span><span class="p">,</span><span class="s1">'cnn1d'</span><span class="p">:(</span><span class="mi">5</span><span class="o">*</span><span class="n">f</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">+</span><span class="p">((</span><span class="n">L</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">+</span><span class="n">H</span><span class="o">*</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">H</span><span class="p">,</span><span class="s1">'arx_lineal'</span><span class="p">:(</span><span class="mi">48</span><span class="o">+</span><span class="n">H</span><span class="o">*</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">H</span><span class="p">}</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">runs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">runs</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">m</span><span class="p">,</span><span class="s1">'n_parametros'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">==</span><span class="n">n</span> <span class="k">for</span> <span class="n">m</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="n">conteos</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La MLP concentra la mayor cantidad de parámetros y la LSTM requiere más tiempo de ajuste en el dispositivo registrado. La CNN1D posee una cabeza densa sobre posiciones temporales agrupadas; menos filtros no implica necesariamente menos parámetros que una LSTM con último estado. Estos costos describen el ajuste completo, incluida la evaluación registrada, y no miden latencia de inferencia.</p>
+</section>
+<section id="busqueda-confirmacion-y-piloto">
+<h2>10.3. Búsqueda, confirmación y piloto<a class="headerlink" href="#busqueda-confirmacion-y-piloto" title="Link to this heading">#</a></h2>
+<p>Se examinaron 20 candidatos de MLP, 20 de ARX, 24 de LSTM y 26 de CNN1D. El filtro empleó el año 2019, semilla 42 y un máximo de 30 épocas; los finalistas se compararon en 2018–2021 con semillas 43 y 44 y un máximo de 60 épocas. La configuración de cada familia se eligió por el MASE medio de confirmación. El piloto conserva cinco semillas, 100–104, por año externo; prueba conserva 1000–1004. El número de candidatos es desigual y debe considerarse al comparar familias.</p>
+<p>El optimizador es AdamW, con recorte de gradiente a uno y precisión completa. La parada exige al menos diez épocas, paciencia de seis y mejora mayor que max(10⁻⁶, 0,002 × pérdida de referencia). La paciencia y la restauración cumplen funciones distintas: se guarda el mínimo absoluto de pérdida, aunque sólo una mejora suficiente reinicia la paciencia. El planificador plateau reduce la tasa a la mitad tras dos épocas sin mejora. Huber utiliza κ=0,05 en la escala normalizada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">:</span>
+    <span class="n">p</span><span class="o">=</span><span class="n">piloto</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">piloto</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">m</span><span class="p">];</span><span class="n">grupo</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'fold'</span><span class="p">)</span><span class="o">.</span><span class="n">MASE</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">grupo</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">grupo</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">yerr</span><span class="o">=</span><span class="n">grupo</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">m</span><span class="p">])</span>
+    <span class="n">q</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'fold'</span><span class="p">)[[</span><span class="s1">'MASE'</span><span class="p">,</span><span class="s1">'MASE_demanda_permutada'</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">q</span><span class="o">.</span><span class="n">MASE_demanda_permutada</span><span class="o">/</span><span class="n">q</span><span class="o">.</span><span class="n">MASE</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">m</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="mi">2018</span><span class="p">,</span><span class="mi">2019</span><span class="p">,</span><span class="mi">2020</span><span class="p">,</span><span class="mi">2021</span><span class="p">],</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Año de validación'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'MASE medio ± DE de cinco semillas'</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'grey'</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">'--'</span><span class="p">);</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="mi">2018</span><span class="p">,</span><span class="mi">2019</span><span class="p">,</span><span class="mi">2020</span><span class="p">,</span><span class="mi">2021</span><span class="p">],</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Año de validación'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'MASE con demanda permutada / MASE original'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span><span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">peor_piloto</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">piloto</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'modelo'</span><span class="p">)</span><span class="o">.</span><span class="n">MASE</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span>
+<span class="n">razon_permutacion</span><span class="o">=</span><span class="n">piloto</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'modelo'</span><span class="p">)[[</span><span class="s1">'MASE'</span><span class="p">,</span><span class="s1">'MASE_demanda_permutada'</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s1">'MASE_demanda_permutada/MASE'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9581146c885fed8f21e7c2573a11c2f3ddbda0d7fa83fd3abccdce73d93e8aeb.png" src="_images/9581146c885fed8f21e7c2573a11c2f3ddbda0d7fa83fd3abccdce73d93e8aeb.png" />
+</div>
+</div>
+<p>La validación muestra diferencias entre años y sitúa a LSTM como la familia de mayor MASE medio del piloto. La permutación intercambia la trayectoria de demanda entre orígenes y conserva el nivel y calendario del ejemplo: el aumento de error mide sensibilidad condicional a esa trayectoria, no el aporte total de la demanda ni una ablación causal.</p>
+<section id="piloto-y-dimensionamiento">
+<h3>Piloto y dimensionamiento<a class="headerlink" href="#piloto-y-dimensionamiento" title="Link to this heading">#</a></h3>
+<p>La media por semilla agrega los cuatro años externos antes de estimar dispersión. Los 20 resultados semilla–año no se consideran 20 inicializaciones independientes. Se conserva δ relativo=0,03. Las diferencias de MASE y su DE se expresan respecto al MASE medio piloto de MLP; esta conversión usa únicamente validación y no fija un margen absoluto adicional. Para cada diferencia pareada se calcula R≈[(z₀,₉₇₅+z₀,₈)σ̂d/δ]², δ/σ̂d y la diferencia mínima detectable con cinco semillas. Se añade planificación conservadora con Bonferroni para tres comparaciones.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Una realización piloto es la media de sus cuatro años externos.</span>
+<span class="n">piloto_semillas</span><span class="o">=</span><span class="n">piloto</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'modelo'</span><span class="p">,</span><span class="s1">'semilla'</span><span class="p">])</span><span class="o">.</span><span class="n">MASE</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s1">'modelo'</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">modelos</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">piloto_semillas</span><span class="o">.</span><span class="n">shape</span><span class="o">==</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">resumen_piloto</span><span class="o">=</span><span class="n">piloto_semillas</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">'mean'</span><span class="p">,</span><span class="s1">'std'</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'mean'</span><span class="p">:</span><span class="s1">'MASE_media'</span><span class="p">,</span><span class="s1">'std'</span><span class="p">:</span><span class="s1">'DE'</span><span class="p">})</span>
+<span class="n">resumen_piloto</span><span class="p">[</span><span class="s1">'CV_pct'</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">resumen_piloto</span><span class="o">.</span><span class="n">DE</span><span class="o">/</span><span class="n">resumen_piloto</span><span class="o">.</span><span class="n">MASE_media</span>
+<span class="n">resumen_piloto</span><span class="p">[</span><span class="s1">'n_semillas'</span><span class="p">]</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">display</span><span class="p">(</span><span class="n">resumen_piloto</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">resumen_piloto</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">OUT</span><span class="o">/</span><span class="s1">'piloto_resumen.csv'</span><span class="p">)</span>
+<span class="n">piloto</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'modelo'</span><span class="p">,</span><span class="s1">'fold'</span><span class="p">])</span><span class="o">.</span><span class="n">MASE</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">'mean'</span><span class="p">,</span><span class="s1">'std'</span><span class="p">,</span><span class="s1">'count'</span><span class="p">])</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">OUT</span><span class="o">/</span><span class="s1">'piloto_por_fold.csv'</span><span class="p">)</span>
+<span class="n">delta_rel</span><span class="o">=</span><span class="mf">.03</span><span class="p">;</span><span class="n">referencia_piloto</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">resumen_piloto</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'mlp'</span><span class="p">,</span><span class="s1">'MASE_media'</span><span class="p">])</span>
+<span class="n">z</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">.975</span><span class="p">)</span><span class="o">+</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">.8</span><span class="p">)</span>
+<span class="n">z_familia</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">.05</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span><span class="o">+</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">.8</span><span class="p">)</span>
+<span class="n">dimension</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">neuronales</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">d</span><span class="o">=</span><span class="p">(</span><span class="n">piloto_semillas</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">-</span><span class="n">piloto_semillas</span><span class="p">[</span><span class="n">b</span><span class="p">])</span><span class="o">/</span><span class="n">referencia_piloto</span><span class="p">;</span><span class="n">sd</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">dimension</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">comparacion</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">+</span><span class="s1">' − '</span><span class="o">+</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">b</span><span class="p">],</span><span class="n">sigma_d_rel</span><span class="o">=</span><span class="n">sd</span><span class="p">,</span><span class="n">delta_rel</span><span class="o">=</span><span class="n">delta_rel</span><span class="p">,</span><span class="n">delta_sobre_sigma</span><span class="o">=</span><span class="n">delta_rel</span><span class="o">/</span><span class="n">sd</span><span class="p">,</span>
+        <span class="n">R_normal</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">z</span><span class="o">*</span><span class="n">sd</span><span class="o">/</span><span class="n">delta_rel</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))),</span><span class="n">R_Bonferroni</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">z_familia</span><span class="o">*</span><span class="n">sd</span><span class="o">/</span><span class="n">delta_rel</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))),</span>
+        <span class="n">MDD_5_rel</span><span class="o">=</span><span class="n">z</span><span class="o">*</span><span class="n">sd</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="n">MDD_5_pct_MLP</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="n">sd</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<span class="n">dimension</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dimension</span><span class="p">);</span><span class="n">display</span><span class="p">(</span><span class="n">dimension</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span><span class="n">dimension</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">OUT</span><span class="o">/</span><span class="s1">'dimensionamiento_piloto.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">R_max</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">dimension</span><span class="o">.</span><span class="n">R_normal</span><span class="o">.</span><span class="n">max</span><span class="p">());</span><span class="n">R_familia</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">dimension</span><span class="o">.</span><span class="n">R_Bonferroni</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MASE_media</th>
+      <th>DE</th>
+      <th>CV_pct</th>
+      <th>n_semillas</th>
+    </tr>
+    <tr>
+      <th>modelo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MLP</th>
+      <td>0.54156</td>
+      <td>0.01664</td>
+      <td>3.07261</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>ARX</th>
+      <td>0.68109</td>
+      <td>0.01652</td>
+      <td>2.42527</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>CNN1D</th>
+      <td>0.68130</td>
+      <td>0.03233</td>
+      <td>4.74531</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>LSTM</th>
+      <td>0.77122</td>
+      <td>0.01833</td>
+      <td>2.37696</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>comparacion</th>
+      <th>sigma_d_rel</th>
+      <th>delta_rel</th>
+      <th>delta_sobre_sigma</th>
+      <th>R_normal</th>
+      <th>R_Bonferroni</th>
+      <th>MDD_5_rel</th>
+      <th>MDD_5_pct_MLP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MLP − CNN1D</td>
+      <td>0.07154</td>
+      <td>0.03</td>
+      <td>0.41937</td>
+      <td>45</td>
+      <td>60</td>
+      <td>0.08963</td>
+      <td>8.96270</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MLP − LSTM</td>
+      <td>0.05334</td>
+      <td>0.03</td>
+      <td>0.56238</td>
+      <td>25</td>
+      <td>34</td>
+      <td>0.06684</td>
+      <td>6.68362</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CNN1D − LSTM</td>
+      <td>0.06744</td>
+      <td>0.03</td>
+      <td>0.44483</td>
+      <td>40</td>
+      <td>53</td>
+      <td>0.08450</td>
+      <td>8.44976</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El máximo requerido para el margen relativo del 3 % por la aproximación normal individual es 45 semillas y asciende a 60 con Bonferroni. Son estimaciones sensibles a cinco diferencias piloto y no una garantía de potencia. Si R supera las cinco realizaciones ejecutadas, el diseño no acredita potencia del 80 % para ese contraste. <a class="reference download internal" download="" href="_downloads/62d49c3aba8398e6a34fc61f4c21371f/piloto_resumen.csv"><span class="xref download myst">Resumen piloto</span></a>, <a class="reference download internal" download="" href="_downloads/7e3af857ab59d404cc639b7374d066ef/piloto_por_fold.csv"><span class="xref download myst">detalle por año</span></a> y <a class="reference download internal" download="" href="_downloads/42e05d94f41f34eed75d23fffc6e24ec/dimensionamiento_piloto.csv"><span class="xref download myst">dimensionamiento</span></a>.</p>
+</section>
+</section>
+<section id="curvas-de-aprendizaje">
+<h2>10.4. Curvas de aprendizaje<a class="headerlink" href="#curvas-de-aprendizaje" title="Link to this heading">#</a></h2>
+<p>Se presentan pérdidas de ajuste y parada interna para la semilla 1000. Las funciones MAE y Huber se interpretan dentro de cada panel; su magnitud no constituye un ranking entre familias. El Dropout activo durante el ajuste también influye en la separación visual entre curvas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">));</span><span class="n">curvas</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">m</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span><span class="n">modelos</span><span class="p">):</span>
+    <span class="n">h</span><span class="o">=</span><span class="n">historias</span><span class="p">[(</span><span class="n">m</span><span class="p">,</span><span class="mi">1000</span><span class="p">)];</span><span class="n">r</span><span class="o">=</span><span class="n">runs</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">runs</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">m</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">runs</span><span class="o">.</span><span class="n">semilla</span><span class="o">==</span><span class="mi">1000</span><span class="p">)]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">epoca</span><span class="p">,</span><span class="n">h</span><span class="o">.</span><span class="n">train_loss</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Entrenamiento'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">epoca</span><span class="p">,</span><span class="n">h</span><span class="o">.</span><span class="n">val_loss</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Parada interna'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">mejor_epoca</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'grey'</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Mínimo restaurado'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">m</span><span class="p">],</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Época'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'Pérdida '</span><span class="o">+</span><span class="n">r</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">'perdida'</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span><span class="n">yscale</span><span class="o">=</span><span class="s1">'log'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">curvas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">modelo</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="n">semilla</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span><span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">curvas</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">OUT</span><span class="o">/</span><span class="s1">'curvas_aprendizaje_1000.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">epocas_min</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">runs</span><span class="o">.</span><span class="n">epocas</span><span class="o">.</span><span class="n">min</span><span class="p">());</span><span class="n">epocas_max</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">runs</span><span class="o">.</span><span class="n">epocas</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/907c24880b15a45682bcd56b8322aed4e3b80d816260db73d3499b492ba067da.png" src="_images/907c24880b15a45682bcd56b8322aed4e3b80d816260db73d3499b492ba067da.png" />
+</div>
+</div>
+<p>El descenso más pronunciado se concentra en las primeras épocas y después aparecen mejoras más pequeñas. Las realizaciones finales se detienen entre 19 y 48 épocas. La línea vertical identifica el mínimo restaurado, que puede preceder a la última época. La separación entre pérdidas no equivale por sí sola a una medida de sobreajuste; el error de evaluación se calcula con Dropout desactivado.</p>
+</section>
+<section id="benchmark-de-prueba">
+<h2>10.5. Benchmark de prueba<a class="headerlink" href="#benchmark-de-prueba" title="Link to this heading">#</a></h2>
+<p>El ranking ordena el MASE medio de cinco realizaciones, no la mejor semilla. Los intervalos t del 95 % describen variación de inicialización condicionada a las fechas evaluadas; no representan incertidumbre temporal. Los dos ingenuos utilizan la misma disponibilidad histórica que los modelos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mf">4.8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">modelos</span><span class="p">):</span>
+    <span class="n">v</span><span class="o">=</span><span class="n">calculadas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">calculadas</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">m</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'semilla'</span><span class="p">)</span><span class="o">.</span><span class="n">MASE</span><span class="p">;</span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">.1</span><span class="p">,</span><span class="mf">.1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">m</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'ingenuo_168h'</span><span class="p">,</span><span class="s1">'ingenuo_24h'</span><span class="p">]:</span><span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">referencias</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="s1">'MASE'</span><span class="p">],</span><span class="n">ls</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">yticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="n">yticklabels</span><span class="o">=</span><span class="p">[</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">],</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'MASE de cada inicialización; menor es mejor'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">();</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">);</span><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span><span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cc3cf3f7a9f2a7802218327814d62d6215affbda41e3d5773b2b7238bdcd6fef.png" src="_images/cc3cf3f7a9f2a7802218327814d62d6215affbda41e3d5773b2b7238bdcd6fef.png" />
+</div>
+</div>
+<p>La MLP presenta el menor error medio: MASE 0.752, equivalente a MAE 162,149 kWh y una reducción del 44.5 % frente al ingenuo semanal. ARX y CNN1D quedan próximos; LSTM presenta mayor error. Las cuatro familias mejoran las dos referencias estacionales en el agregado. La escala MASE fija explica que el ingenuo semanal de prueba no tenga necesariamente valor uno.</p>
+<p>La figura muestra las cinco realizaciones individuales; la tabla presenta sus agregados, intervalos t95 % y métricas complementarias. <a class="reference download internal" download="" href="_downloads/fb39da77d97ecbc31ca45d3184f2bf74/benchmark_modelos.csv"><span class="xref download myst">Benchmark completo</span></a>. El costo se resume para el mismo equipo de ajuste; la latencia se mide por separado en CPU, con un origen y 24 salidas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">benchmark</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'Modelo'</span><span class="p">)[[</span><span class="s1">'MASE'</span><span class="p">,</span><span class="s1">'DE'</span><span class="p">,</span><span class="s1">'IC95_inf'</span><span class="p">,</span><span class="s1">'IC95_sup'</span><span class="p">,</span><span class="s1">'MAE_kWh'</span><span class="p">,</span><span class="s1">'RMSE_kWh'</span><span class="p">,</span><span class="s1">'sMAPE_pct'</span><span class="p">,</span><span class="s1">'R2'</span><span class="p">]]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">latencias</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">OUT</span><span class="o">/</span><span class="s1">'latencia_inferencia.csv'</span><span class="p">);</span><span class="n">costo</span><span class="o">=</span><span class="n">benchmark</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">benchmark</span><span class="o">.</span><span class="n">familia</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">modelos</span><span class="p">),[</span><span class="s1">'familia'</span><span class="p">,</span><span class="s1">'Modelo'</span><span class="p">,</span><span class="s1">'parametros'</span><span class="p">,</span><span class="s1">'ajuste_s'</span><span class="p">]]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'familia'</span><span class="p">);</span><span class="n">costo</span><span class="o">=</span><span class="n">costo</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">latencias</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'modelo'</span><span class="p">)[[</span><span class="s1">'mediana_ms'</span><span class="p">,</span><span class="s1">'p95_ms'</span><span class="p">]]</span><span class="o">.</span><span class="n">median</span><span class="p">());</span><span class="n">display</span><span class="p">(</span><span class="n">costo</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'Modelo'</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span><span class="n">costo</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">OUT</span><span class="o">/</span><span class="s1">'costo_modelos.csv'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MASE</th>
+      <th>DE</th>
+      <th>IC95_inf</th>
+      <th>IC95_sup</th>
+      <th>MAE_kWh</th>
+      <th>RMSE_kWh</th>
+      <th>sMAPE_pct</th>
+      <th>R2</th>
+    </tr>
+    <tr>
+      <th>Modelo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MLP</th>
+      <td>0.75202</td>
+      <td>0.04378</td>
+      <td>0.69767</td>
+      <td>0.80638</td>
+      <td>162149.39329</td>
+      <td>209153.20808</td>
+      <td>1.76192</td>
+      <td>0.96713</td>
+    </tr>
+    <tr>
+      <th>ARX</th>
+      <td>0.85168</td>
+      <td>0.01444</td>
+      <td>0.83375</td>
+      <td>0.86960</td>
+      <td>183636.40615</td>
+      <td>245952.61178</td>
+      <td>2.00417</td>
+      <td>0.95462</td>
+    </tr>
+    <tr>
+      <th>CNN1D</th>
+      <td>0.85735</td>
+      <td>0.06543</td>
+      <td>0.77610</td>
+      <td>0.93859</td>
+      <td>184859.30629</td>
+      <td>238815.14519</td>
+      <td>2.03186</td>
+      <td>0.95706</td>
+    </tr>
+    <tr>
+      <th>LSTM</th>
+      <td>1.00050</td>
+      <td>0.05229</td>
+      <td>0.93557</td>
+      <td>1.06543</td>
+      <td>215726.18776</td>
+      <td>270164.35923</td>
+      <td>2.41719</td>
+      <td>0.94516</td>
+    </tr>
+    <tr>
+      <th>Ingenuo semanal</th>
+      <td>1.35491</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>292142.08711</td>
+      <td>444631.86974</td>
+      <td>3.21397</td>
+      <td>0.85174</td>
+    </tr>
+    <tr>
+      <th>Ingenuo diario</th>
+      <td>2.07672</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>447778.99357</td>
+      <td>659593.46159</td>
+      <td>4.97667</td>
+      <td>0.67372</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>parametros</th>
+      <th>ajuste_s</th>
+      <th>mediana_ms</th>
+      <th>p95_ms</th>
+    </tr>
+    <tr>
+      <th>Modelo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MLP</th>
+      <td>111896</td>
+      <td>4.4547</td>
+      <td>0.0482</td>
+      <td>0.0608</td>
+    </tr>
+    <tr>
+      <th>ARX</th>
+      <td>14424</td>
+      <td>3.5340</td>
+      <td>0.0209</td>
+      <td>0.0265</td>
+    </tr>
+    <tr>
+      <th>CNN1D</th>
+      <td>47464</td>
+      <td>3.1139</td>
+      <td>0.0656</td>
+      <td>0.0905</td>
+    </tr>
+    <tr>
+      <th>LSTM</th>
+      <td>28632</td>
+      <td>14.3724</td>
+      <td>0.2858</td>
+      <td>0.6576</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>RMSE supera MAE al dar mayor peso a errores grandes; R² compara el error cuadrático con la dispersión del objetivo en todo el periodo. El sesgo firmado permite distinguir tendencia a sobreestimar o subestimar. La DE resume diferencias entre inicializaciones y no la variación diaria.</p>
+</section>
+<section id="validacion-y-generalizacion">
+<h2>10.6. Validación y generalización<a class="headerlink" href="#validacion-y-generalizacion" title="Link to this heading">#</a></h2>
+<p>Se comparan el MASE de confirmación, el piloto de cinco semillas y el periodo de prueba con el mismo denominador. La confirmación participa en selección; el piloto describe estabilidad de la configuración elegida. Los periodos tienen años y regímenes diferentes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">generalizacion</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">'modelo'</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="s1">'Confirmación'</span><span class="p">:</span><span class="n">registro</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="s1">'MASE_cv'</span><span class="p">],</span><span class="s1">'Piloto'</span><span class="p">:</span><span class="n">piloto</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">piloto</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">m</span><span class="p">,</span><span class="s1">'MASE'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="s1">'Prueba'</span><span class="p">:</span><span class="n">calculadas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">calculadas</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">m</span><span class="p">,</span><span class="s1">'MASE'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()}</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'modelo'</span><span class="p">)</span>
+<span class="n">generalizacion</span><span class="o">.</span><span class="n">index</span><span class="o">=</span><span class="n">generalizacion</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">etiquetas</span><span class="p">);</span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span><span class="n">generalizacion</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'MASE'</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">modelos</span><span class="p">):</span>
+    <span class="n">d</span><span class="o">=</span><span class="n">runs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">runs</span><span class="o">.</span><span class="n">modelo</span><span class="o">==</span><span class="n">m</span><span class="p">];</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="mf">.08</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">MAE_train_normalizado_eval</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Ajuste'</span> <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'#247ba0'</span><span class="p">);</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="mf">.08</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">MAE_es_normalizado_eval</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Parada interna'</span> <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'#d18a2d'</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">],</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'MAE normalizado; modo evaluación'</span><span class="p">);</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span><span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">brecha_mlp</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">generalizacion</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'MLP'</span><span class="p">,</span><span class="s1">'Prueba'</span><span class="p">]</span><span class="o">/</span><span class="n">generalizacion</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'MLP'</span><span class="p">,</span><span class="s1">'Piloto'</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/039c9ffa099fb765dad6ce63e43f1698a9709ac509f56cbdec9107c555018739.png" src="_images/039c9ffa099fb765dad6ce63e43f1698a9709ac509f56cbdec9107c555018739.png" />
+</div>
+</div>
+<p>El MASE de prueba de MLP supera al piloto un 38.9 %. El aumento es compatible con una generalización más difícil en un periodo posterior y no se interpreta como un efecto causal de una variable aislada. El panel derecho confirma mayor error en la reserva interna que en ajuste con Dropout desactivado; evita atribuir esa diferencia a modos de evaluación distintos.</p>
+</section>
+<section id="trayectorias-observadas-y-predichas">
+<h2>10.7. Trayectorias observadas y predichas<a class="headerlink" href="#trayectorias-observadas-y-predichas" title="Link to this heading">#</a></h2>
+<p>La ventana del 1 al 7 de julio de 2023 ilustra el perfil horario. Se muestra la media de cinco pronósticos y el rango p10–p90 entre inicializaciones. La banda describe dispersión algorítmica; las métricas del benchmark promedian errores de las cinco realizaciones individuales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sel</span><span class="o">=</span><span class="p">(</span><span class="n">fechas</span><span class="o">&gt;=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">'2023-07-01'</span><span class="p">,</span><span class="n">tz</span><span class="o">=</span><span class="s1">'America/Bogota'</span><span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">fechas</span><span class="o">&lt;</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">'2023-07-08'</span><span class="p">,</span><span class="n">tz</span><span class="o">=</span><span class="s1">'America/Bogota'</span><span class="p">));</span><span class="n">tiempo</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">([</span><span class="n">d</span><span class="o">+</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="n">h</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">fechas</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">24</span><span class="p">)])</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span><span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">m</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span><span class="n">modelos</span><span class="p">):</span>
+    <span class="n">v</span><span class="o">=</span><span class="n">pred</span><span class="p">[</span><span class="n">m</span><span class="p">][:,</span><span class="n">sel</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1e6</span><span class="p">;</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tiempo</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Observado'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tiempo</span><span class="p">,</span><span class="n">v</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">'Media de cinco semillas'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">tiempo</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="mf">.1</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="mf">.9</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">m</span><span class="p">],</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'Demanda (GWh por intervalo)'</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'x'</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="mi">25</span><span class="p">);</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span><span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">ventana_mae</span><span class="o">=</span><span class="p">{</span><span class="n">m</span><span class="p">:</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pred</span><span class="p">[</span><span class="n">m</span><span class="p">][:,</span><span class="n">sel</span><span class="p">,:]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span><span class="n">sel</span><span class="p">,:])</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">};</span><span class="n">mejor_ventana</span><span class="o">=</span><span class="n">etiquetas</span><span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">ventana_mae</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="n">ventana_mae</span><span class="o">.</span><span class="n">get</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/083f7817c8787aa9e0da01f2587e4f6c670d534b348234d27065d2801504bf6e.png" src="_images/083f7817c8787aa9e0da01f2587e4f6c670d534b348234d27065d2801504bf6e.png" />
+</div>
+</div>
+<p>MLP registra el menor MAE en la ventana ilustrada. Las discrepancias en picos, valles y amplitud muestran errores que la media global comprime. Una banda estrecha indica acuerdo entre inicializaciones, sin garantizar proximidad al observado ni cobertura predictiva calibrada; la valoración global utiliza todo 2022–2025.</p>
+</section>
+<section id="discusion-critica-alcance-y-margen-disponible">
+<h2>10.8. Discusión crítica, alcance y margen disponible<a class="headerlink" href="#discusion-critica-alcance-y-margen-disponible" title="Link to this heading">#</a></h2>
+<p>La MLP establece el baseline empírico de estas configuraciones y obtiene el menor error agregado. Las t pareadas con Holm y los contrastes temporales detectan diferencias entre las tres redes en los datos evaluados; los contrastes por rangos no distinguen todas las parejas. ARX y CNN1D presentan medias próximas, sin una diferencia temporal significativa ni equivalencia demostrada por TOST. Los <a class="reference internal" href="10_evaluacion.html"><span class="std std-doc">resultados por método</span></a> delimitan estas conclusiones.</p>
+<p>La representación directa de rezagos y calendario de la MLP es coherente con los ciclos observados. La recurrencia de LSTM y los filtros compartidos de CNN1D no garantizan menor error: arquitectura, regularización, escalado y presupuesto intervienen conjuntamente. La generalización se evalúa por años, horas y tipos de día, además de las curvas de aprendizaje. El presupuesto desigual impide atribuir diferencias únicamente a la familia.</p>
+<p>El margen de relevancia práctica es relativo: δ=3 %. La planificación aproximada exige más de cinco semillas para detectar ese margen con potencia del 80 %. Detectar diferencias observadas mayores no contradice esa limitación. La cronología de selección y la exposición al conjunto de prueba, documentadas en el capítulo 9, limitan la interpretación confirmatoria; los resultados son exploratorios.</p>
+<p>La MLP contiene más parámetros que las otras redes, mientras LSTM requiere más tiempo en las condiciones registradas. El ajuste se ejecutó con PyTorch 2.9.1, ROCm 6.4 y GPU AMD de aproximadamente 12 GB. La latencia de inferencia se midió por separado en CPU; ambos tiempos describen procedimientos y dispositivos distintos. Los checkpoints, escaladores, historiales y predicciones se identifican mediante SHA-256 y el <a class="reference internal" href="10_pipeline.html"><span class="std std-doc">pipeline completo</span></a>.</p>
+<p>El ingenuo semanal constituye una referencia operativa, no una cota de ruido irreducible. Sin mediciones replicadas ni un modelo validado de error instrumental, esa cota no se identifica a partir de esta única serie; tampoco la determina el residuo del mejor modelo. Las mejoras publicadas en otros sistemas no son transferibles numéricamente al SIN. La siguiente etapa debe evaluar covariables y documentos disponibles al origen mediante ablaciones, presupuesto comparable y un protocolo prospectivo.</p>
+<section id="protocolo-de-medicion-de-inferencia">
+<h3>Protocolo de medición de inferencia<a class="headerlink" href="#protocolo-de-medicion-de-inferencia" title="Link to this heading">#</a></h3>
+<p>Se cargan los 20 checkpoints sin modificar sus pesos. CPU, un hilo, batch uno, 20 pasadas de calentamiento y 200 mediciones por checkpoint. Se cronometra sólo forward con entradas sintéticas finitas de dimensiones operativas y 24 salidas; se excluyen carga, preparación, transferencia y escritura. Las medianas y p95 por familia agregan los valores de sus cinco checkpoints. <a class="reference download internal" download="" href="_downloads/381e76a879da5bc181146e19f3511c32/entorno_inferencia.json"><span class="xref download myst">Entorno medido</span></a> y <a class="reference download internal" download="" href="_downloads/7ee4f2b1d9f5790954d240d2e9585991/latencia_inferencia.csv"><span class="xref download myst">mediciones por checkpoint</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""Latencia CPU de checkpoints congelados, sin ajuste ni lectura de etiquetas."""</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="nn">sys</span><span class="o">,</span><span class="nn">time</span><span class="o">,</span><span class="nn">platform</span><span class="o">,</span><span class="nn">hashlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="n">ROOT</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">sha</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'results/jbook/modelos_actualizados.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())[</span><span class="s1">'commit'</span><span class="p">]</span>
+<span class="n">snapshot</span><span class="o">=</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'results/repositorio'</span><span class="o">/</span><span class="n">sha</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">snapshot</span><span class="o">/</span><span class="s1">'src'</span><span class="p">))</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">demanda</span><span class="w"> </span><span class="kn">import</span> <span class="n">modelos_base</span> <span class="k">as</span> <span class="n">M</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">demanda.reentrenamiento_v3</span><span class="w"> </span><span class="kn">import</span> <span class="n">Secuencial</span> <span class="k">as</span> <span class="n">Convolucional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">demanda.variantes_v4</span><span class="w"> </span><span class="kn">import</span> <span class="n">Secuencial</span> <span class="k">as</span> <span class="n">Recurrente</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">medir</span><span class="p">():</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">set_num_threads</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="n">torch</span><span class="o">.</span><span class="n">set_num_interop_threads</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">11037</span><span class="p">)</span>
+    <span class="n">registro</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">snapshot</span><span class="o">/</span><span class="s1">'results/consolidado/modelos.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+    <span class="n">entradas</span><span class="o">=</span><span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
+        <span class="n">cal_p</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">23</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span><span class="n">cal_f</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">23</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">24</span><span class="p">);</span><span class="n">c</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">23</span><span class="p">)</span>
+    <span class="n">resultados</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'mlp'</span><span class="p">,</span><span class="s1">'arx_lineal'</span><span class="p">,</span><span class="s1">'cnn1d'</span><span class="p">,</span><span class="s1">'lstm'</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">artefacto</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">registro</span><span class="p">[</span><span class="n">nombre</span><span class="p">][</span><span class="s1">'artefactos'</span><span class="p">],</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span><span class="n">a</span><span class="p">[</span><span class="s1">'semilla'</span><span class="p">]):</span>
+                <span class="n">path</span><span class="o">=</span><span class="n">snapshot</span><span class="o">/</span><span class="n">artefacto</span><span class="p">[</span><span class="s1">'pesos'</span><span class="p">]</span>
+                <span class="n">checkpoint</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">map_location</span><span class="o">=</span><span class="s1">'cpu'</span><span class="p">,</span><span class="n">weights_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">p</span><span class="o">=</span><span class="n">registro</span><span class="p">[</span><span class="n">nombre</span><span class="p">][</span><span class="s1">'configuracion'</span><span class="p">][</span><span class="s1">'params'</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">nombre</span><span class="o">==</span><span class="s1">'lstm'</span><span class="p">:</span><span class="n">red</span><span class="o">=</span><span class="n">Recurrente</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">entradas</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">nombre</span><span class="o">==</span><span class="s1">'cnn1d'</span><span class="p">:</span><span class="n">red</span><span class="o">=</span><span class="n">Convolucional</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">entradas</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span><span class="n">red</span><span class="o">=</span><span class="n">M</span><span class="o">.</span><span class="n">construir_red</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">entradas</span><span class="p">)</span>
+                <span class="n">red</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">[</span><span class="s1">'state_dict'</span><span class="p">],</span><span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span><span class="n">red</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span><span class="n">red</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+                <span class="n">tiempos</span><span class="o">=</span><span class="p">[]</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
+                    <span class="n">inicio</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter_ns</span><span class="p">();</span><span class="n">salida</span><span class="o">=</span><span class="n">red</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">);</span><span class="n">tiempos</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter_ns</span><span class="p">()</span><span class="o">-</span><span class="n">inicio</span><span class="p">)</span><span class="o">/</span><span class="mf">1e6</span><span class="p">)</span>
+                <span class="k">assert</span> <span class="n">salida</span><span class="o">.</span><span class="n">shape</span><span class="o">==</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">24</span><span class="p">)</span> <span class="ow">and</span> <span class="n">torch</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">salida</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+                <span class="n">resultados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">modelo</span><span class="o">=</span><span class="n">nombre</span><span class="p">,</span><span class="n">semilla</span><span class="o">=</span><span class="n">artefacto</span><span class="p">[</span><span class="s1">'semilla'</span><span class="p">],</span><span class="n">mediana_ms</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">tiempos</span><span class="p">)),</span><span class="n">p95_ms</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">tiempos</span><span class="p">,</span><span class="mf">.95</span><span class="p">)),</span>
+                    <span class="n">media_ms</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">tiempos</span><span class="p">)),</span><span class="n">repeticiones</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">calentamiento</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">dispositivo</span><span class="o">=</span><span class="s1">'cpu'</span><span class="p">,</span><span class="n">hilos</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">checkpoint_sha256</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()))</span>
+    <span class="n">out</span><span class="o">=</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'results/jbook/modelos_actuales'</span><span class="p">;</span><span class="n">out</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resultados</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">out</span><span class="o">/</span><span class="s1">'latencia_inferencia.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">entorno</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">fecha</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="s1">'America/Bogota'</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span><span class="n">python</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">,</span><span class="n">torch</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span><span class="n">numpy</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span><span class="n">pandas</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span>
+        <span class="n">sistema</span><span class="o">=</span><span class="n">platform</span><span class="o">.</span><span class="n">platform</span><span class="p">(),</span><span class="n">procesador</span><span class="o">=</span><span class="n">platform</span><span class="o">.</span><span class="n">processor</span><span class="p">(),</span><span class="n">dispositivo</span><span class="o">=</span><span class="s1">'cpu'</span><span class="p">,</span><span class="n">hilos</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">commit</span><span class="o">=</span><span class="n">sha</span><span class="p">,</span>
+        <span class="n">alcance</span><span class="o">=</span><span class="s1">'Sólo forward de un origen con 24 salidas; entradas sintéticas finitas; sin carga de pesos, preparación, transferencia ni escritura en el intervalo medido'</span><span class="p">,</span>
+        <span class="n">semillas</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1005</span><span class="p">)),</span><span class="n">calentamiento</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">repeticiones</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">nuevo_entrenamiento</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">etiquetas_leidas</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">out</span><span class="o">/</span><span class="s1">'entorno_inferencia.json'</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">entorno</span><span class="p">,</span><span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resultados</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'modelo'</span><span class="p">)[[</span><span class="s1">'mediana_ms'</span><span class="p">,</span><span class="s1">'p95_ms'</span><span class="p">]]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">'__main__'</span><span class="p">:</span><span class="n">medir</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="09_validacion.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">9. Diseño de evaluación</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="10_evaluacion.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">10.9. Evaluación temporal y diagnósticos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entradas-escalado-y-particion">10.1. Entradas, escalado y partición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitecturas-y-configuraciones">10.2. Arquitecturas y configuraciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-confirmacion-y-piloto">10.3. Búsqueda, confirmación y piloto</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#piloto-y-dimensionamiento">Piloto y dimensionamiento</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-aprendizaje">10.4. Curvas de aprendizaje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-de-prueba">10.5. Benchmark de prueba</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validacion-y-generalizacion">10.6. Validación y generalización</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trayectorias-observadas-y-predichas">10.7. Trayectorias observadas y predichas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discusion-critica-alcance-y-margen-disponible">10.8. Discusión crítica, alcance y margen disponible</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolo-de-medicion-de-inferencia">Protocolo de medición de inferencia</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Fabian José Manrique Morelos y Gloria Bastidas Rodriguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Maestría en Estadística Aplicada · Universidad del Norte
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

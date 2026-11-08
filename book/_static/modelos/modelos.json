@@ -1,0 +1,270 @@
+{
+  "arx_lineal": {
+    "ejecucion": "base_v3",
+    "configuracion": {
+      "id": "arx_lineal_02",
+      "ventana": 168,
+      "params": {
+        "penalizacion": "lasso",
+        "lags": 48,
+        "batch_size": 64,
+        "lr": 0.0006582612236208865,
+        "scheduler": "plateau",
+        "perdida": "mae",
+        "paciencia": 15,
+        "lambda": 1.3733953296838922e-07
+      }
+    },
+    "MASE_cv": 0.68378800483045,
+    "criterio": "Menor MASE de confirmación en validación entre v3 y v4; comparación exploratoria posterior",
+    "artefactos": [
+      {
+        "semilla": 1001,
+        "pesos": "results/base_v3/ajustes/final/0204f2cff71a752f3ba8/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/0204f2cff71a752f3ba8/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/0204f2cff71a752f3ba8/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/0204f2cff71a752f3ba8/historia.json",
+        "identidad": "results/base_v3/ajustes/final/0204f2cff71a752f3ba8/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/0204f2cff71a752f3ba8/resultado.json"
+      },
+      {
+        "semilla": 1000,
+        "pesos": "results/base_v3/ajustes/final/9f34de44b965461b8e77/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/9f34de44b965461b8e77/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/9f34de44b965461b8e77/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/9f34de44b965461b8e77/historia.json",
+        "identidad": "results/base_v3/ajustes/final/9f34de44b965461b8e77/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/9f34de44b965461b8e77/resultado.json"
+      },
+      {
+        "semilla": 1004,
+        "pesos": "results/base_v3/ajustes/final/b256a469239e07418df9/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/b256a469239e07418df9/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/b256a469239e07418df9/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/b256a469239e07418df9/historia.json",
+        "identidad": "results/base_v3/ajustes/final/b256a469239e07418df9/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/b256a469239e07418df9/resultado.json"
+      },
+      {
+        "semilla": 1003,
+        "pesos": "results/base_v3/ajustes/final/d7894c8e8a0b0aae25aa/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/d7894c8e8a0b0aae25aa/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/d7894c8e8a0b0aae25aa/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/d7894c8e8a0b0aae25aa/historia.json",
+        "identidad": "results/base_v3/ajustes/final/d7894c8e8a0b0aae25aa/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/d7894c8e8a0b0aae25aa/resultado.json"
+      },
+      {
+        "semilla": 1002,
+        "pesos": "results/base_v3/ajustes/final/f283684cb75908df33ad/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/f283684cb75908df33ad/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/f283684cb75908df33ad/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/f283684cb75908df33ad/historia.json",
+        "identidad": "results/base_v3/ajustes/final/f283684cb75908df33ad/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/f283684cb75908df33ad/resultado.json"
+      }
+    ]
+  },
+  "cnn1d": {
+    "ejecucion": "base_v3",
+    "configuracion": {
+      "id": "cnn1d_17",
+      "ventana": 168,
+      "params": {
+        "capas": 1,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 256,
+        "lr": 0.0003,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 6,
+        "filtros": 16,
+        "kernel": 5
+      }
+    },
+    "MASE_cv": 0.659116656380739,
+    "criterio": "Menor MASE de confirmación en validación entre v3 y v4; comparación exploratoria posterior",
+    "artefactos": [
+      {
+        "semilla": 1004,
+        "pesos": "results/base_v3/ajustes/final/1d696f270c97e386dee2/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/1d696f270c97e386dee2/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/1d696f270c97e386dee2/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/1d696f270c97e386dee2/historia.json",
+        "identidad": "results/base_v3/ajustes/final/1d696f270c97e386dee2/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/1d696f270c97e386dee2/resultado.json"
+      },
+      {
+        "semilla": 1002,
+        "pesos": "results/base_v3/ajustes/final/7e43682956490acd276e/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/7e43682956490acd276e/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/7e43682956490acd276e/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/7e43682956490acd276e/historia.json",
+        "identidad": "results/base_v3/ajustes/final/7e43682956490acd276e/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/7e43682956490acd276e/resultado.json"
+      },
+      {
+        "semilla": 1001,
+        "pesos": "results/base_v3/ajustes/final/90c0c9e547298fc0fe0b/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/90c0c9e547298fc0fe0b/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/90c0c9e547298fc0fe0b/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/90c0c9e547298fc0fe0b/historia.json",
+        "identidad": "results/base_v3/ajustes/final/90c0c9e547298fc0fe0b/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/90c0c9e547298fc0fe0b/resultado.json"
+      },
+      {
+        "semilla": 1003,
+        "pesos": "results/base_v3/ajustes/final/e99d7842a9e1b63af0f1/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/e99d7842a9e1b63af0f1/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/e99d7842a9e1b63af0f1/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/e99d7842a9e1b63af0f1/historia.json",
+        "identidad": "results/base_v3/ajustes/final/e99d7842a9e1b63af0f1/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/e99d7842a9e1b63af0f1/resultado.json"
+      },
+      {
+        "semilla": 1000,
+        "pesos": "results/base_v3/ajustes/final/f7829e72b4a095f8b7eb/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/f7829e72b4a095f8b7eb/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/f7829e72b4a095f8b7eb/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/f7829e72b4a095f8b7eb/historia.json",
+        "identidad": "results/base_v3/ajustes/final/f7829e72b4a095f8b7eb/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/f7829e72b4a095f8b7eb/resultado.json"
+      }
+    ]
+  },
+  "lstm": {
+    "ejecucion": "base_v4",
+    "configuracion": {
+      "id": "lstm_v4_01",
+      "ventana": 168,
+      "params": {
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 256,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 6,
+        "capas": 1,
+        "unidades": 48,
+        "lr": 0.001
+      }
+    },
+    "MASE_cv": 0.7272714794299258,
+    "criterio": "Menor MASE de confirmación en validación entre v3 y v4; comparación exploratoria posterior",
+    "artefactos": [
+      {
+        "semilla": 1000,
+        "pesos": "results/base_v4/ajustes/final/2a9f14375425e6c35175/modelo.pt",
+        "escaladores": "results/base_v4/ajustes/final/2a9f14375425e6c35175/escaladores.json",
+        "predicciones": "results/base_v4/ajustes/final/2a9f14375425e6c35175/predicciones.npz",
+        "historial": "results/base_v4/ajustes/final/2a9f14375425e6c35175/historia.json",
+        "identidad": "results/base_v4/ajustes/final/2a9f14375425e6c35175/identidad.json",
+        "metricas": "results/base_v4/ajustes/final/2a9f14375425e6c35175/resultado.json"
+      },
+      {
+        "semilla": 1003,
+        "pesos": "results/base_v4/ajustes/final/32ed7f5eca90b7d6c723/modelo.pt",
+        "escaladores": "results/base_v4/ajustes/final/32ed7f5eca90b7d6c723/escaladores.json",
+        "predicciones": "results/base_v4/ajustes/final/32ed7f5eca90b7d6c723/predicciones.npz",
+        "historial": "results/base_v4/ajustes/final/32ed7f5eca90b7d6c723/historia.json",
+        "identidad": "results/base_v4/ajustes/final/32ed7f5eca90b7d6c723/identidad.json",
+        "metricas": "results/base_v4/ajustes/final/32ed7f5eca90b7d6c723/resultado.json"
+      },
+      {
+        "semilla": 1001,
+        "pesos": "results/base_v4/ajustes/final/588072de086a6d85699f/modelo.pt",
+        "escaladores": "results/base_v4/ajustes/final/588072de086a6d85699f/escaladores.json",
+        "predicciones": "results/base_v4/ajustes/final/588072de086a6d85699f/predicciones.npz",
+        "historial": "results/base_v4/ajustes/final/588072de086a6d85699f/historia.json",
+        "identidad": "results/base_v4/ajustes/final/588072de086a6d85699f/identidad.json",
+        "metricas": "results/base_v4/ajustes/final/588072de086a6d85699f/resultado.json"
+      },
+      {
+        "semilla": 1002,
+        "pesos": "results/base_v4/ajustes/final/dc5fb8f12122497ec82a/modelo.pt",
+        "escaladores": "results/base_v4/ajustes/final/dc5fb8f12122497ec82a/escaladores.json",
+        "predicciones": "results/base_v4/ajustes/final/dc5fb8f12122497ec82a/predicciones.npz",
+        "historial": "results/base_v4/ajustes/final/dc5fb8f12122497ec82a/historia.json",
+        "identidad": "results/base_v4/ajustes/final/dc5fb8f12122497ec82a/identidad.json",
+        "metricas": "results/base_v4/ajustes/final/dc5fb8f12122497ec82a/resultado.json"
+      },
+      {
+        "semilla": 1004,
+        "pesos": "results/base_v4/ajustes/final/f3e300d9b654f26798ec/modelo.pt",
+        "escaladores": "results/base_v4/ajustes/final/f3e300d9b654f26798ec/escaladores.json",
+        "predicciones": "results/base_v4/ajustes/final/f3e300d9b654f26798ec/predicciones.npz",
+        "historial": "results/base_v4/ajustes/final/f3e300d9b654f26798ec/historia.json",
+        "identidad": "results/base_v4/ajustes/final/f3e300d9b654f26798ec/identidad.json",
+        "metricas": "results/base_v4/ajustes/final/f3e300d9b654f26798ec/resultado.json"
+      }
+    ]
+  },
+  "mlp": {
+    "ejecucion": "base_v3",
+    "configuracion": {
+      "id": "mlp_11",
+      "ventana": 168,
+      "params": {
+        "capas": 2,
+        "unidades": 128,
+        "dropout": 0.0035459143015831307,
+        "weight_decay": 0.0003827221364333344,
+        "batch_size": 64,
+        "lr": 0.004689628419943547,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 8
+      }
+    },
+    "MASE_cv": 0.5335211229998847,
+    "criterio": "Menor MASE de confirmación en validación entre v3 y v4; comparación exploratoria posterior",
+    "artefactos": [
+      {
+        "semilla": 1004,
+        "pesos": "results/base_v3/ajustes/final/731754b62b6e8c41c5e5/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/731754b62b6e8c41c5e5/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/731754b62b6e8c41c5e5/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/731754b62b6e8c41c5e5/historia.json",
+        "identidad": "results/base_v3/ajustes/final/731754b62b6e8c41c5e5/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/731754b62b6e8c41c5e5/resultado.json"
+      },
+      {
+        "semilla": 1000,
+        "pesos": "results/base_v3/ajustes/final/7b30fa7d82b68cddf823/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/7b30fa7d82b68cddf823/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/7b30fa7d82b68cddf823/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/7b30fa7d82b68cddf823/historia.json",
+        "identidad": "results/base_v3/ajustes/final/7b30fa7d82b68cddf823/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/7b30fa7d82b68cddf823/resultado.json"
+      },
+      {
+        "semilla": 1003,
+        "pesos": "results/base_v3/ajustes/final/b38e64ad8121854931bc/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/b38e64ad8121854931bc/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/b38e64ad8121854931bc/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/b38e64ad8121854931bc/historia.json",
+        "identidad": "results/base_v3/ajustes/final/b38e64ad8121854931bc/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/b38e64ad8121854931bc/resultado.json"
+      },
+      {
+        "semilla": 1001,
+        "pesos": "results/base_v3/ajustes/final/c493e431d2c9b286e9bd/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/c493e431d2c9b286e9bd/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/c493e431d2c9b286e9bd/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/c493e431d2c9b286e9bd/historia.json",
+        "identidad": "results/base_v3/ajustes/final/c493e431d2c9b286e9bd/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/c493e431d2c9b286e9bd/resultado.json"
+      },
+      {
+        "semilla": 1002,
+        "pesos": "results/base_v3/ajustes/final/f8fdd91410e3e5a68e77/modelo.pt",
+        "escaladores": "results/base_v3/ajustes/final/f8fdd91410e3e5a68e77/escaladores.json",
+        "predicciones": "results/base_v3/ajustes/final/f8fdd91410e3e5a68e77/predicciones.npz",
+        "historial": "results/base_v3/ajustes/final/f8fdd91410e3e5a68e77/historia.json",
+        "identidad": "results/base_v3/ajustes/final/f8fdd91410e3e5a68e77/identidad.json",
+        "metricas": "results/base_v3/ajustes/final/f8fdd91410e3e5a68e77/resultado.json"
+      }
+    ]
+  }
+}

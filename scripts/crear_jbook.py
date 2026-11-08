@@ -37,7 +37,7 @@ def chapter(title,intro,cells):return [md('# '+title),md(intro),code(SETUP),*cel
 def main():
     BOOK.mkdir(exist_ok=True);(ROOT/'results/jbook').mkdir(parents=True,exist_ok=True)
     books={}
-    books['01_datos']=chapter('1. Problema y datos','El objetivo es pronosticar la demanda real horaria de energía eléctrica del Sistema Interconectado Nacional de Colombia. Se formula una regresión temporal multivariada con salida directa de 24 intervalos y 168 horas de historia. El origen es diario a las 00:00 de Colombia. El estudio contempla la integración posterior de información documental.',[
+    books['01_datos']=chapter('1. Problema y datos','El objetivo es pronosticar la demanda real horaria de energía eléctrica del Sistema Interconectado Nacional de Colombia. Se formula un pronóstico de series de tiempo multivariado con salida directa de 24 intervalos y 168 horas de historia. El origen es diario a las 00:00 de Colombia. El estudio contempla la integración posterior de información documental.',[
         md('El conjunto numérico abarca 2000–2025. El análisis exploratorio caracteriza desarrollo 2000–2021; las etiquetas de prueba quedan excluidas. La demanda se expresa en kWh por intervalo horario; las figuras utilizan GWh para facilitar su lectura. Las entradas observadas se alinean según disponibilidad y el calendario puede conocerse para el horizonte.'),
         code("inventario=pd.DataFrame([{'bloque':'Panel de desarrollo','filas':len(panel),'columnas':len(panel.columns),'inicio':str(panel.index.min()),'fin':str(panel.index.max())}]); display(inventario)\nvariables=pd.DataFrame.from_dict(registro,orient='index'); display(variables.groupby('clase').size().rename('variables')); display(variables)"),
         md('Las demandas comercial y real no se consideran intercambiables: la comercial queda excluida como entrada. Temperatura, humedad y precipitación proceden de reanálisis ERA5; sus observaciones pasadas complementan el panel, pero no representan pronósticos meteorológicos del horizonte. La hidrología es diaria. Los promedios urbanos ponderados utilizan población estática del censo 2018, documentada mediante una fuente secundaria.'),
@@ -100,6 +100,16 @@ def main():
     completar_referencias(books,md,code,note,ROOT)
     from conciliar_modelos_jbook import conciliar
     conciliar(books,md)
+    from graficos_modelos_jbook import integrar_graficos
+    integrar_graficos(books,md,code,note)
+    from literatura_integral_jbook import integrar_literatura
+    integrar_literatura(books,md,code,note,ROOT)
+    from modelos_actualizados_jbook import integrar_actualizacion
+    integrar_actualizacion(books,md,code,note,ROOT)
+    from correcciones_e1_jbook import corregir,exportar
+    corregir(books,md,code,note,ROOT)
+    from consistencia_jbook import armonizar,armonizar_archivos
+    armonizar(books,md,ROOT)
     seleccion=set(sys.argv[1:])
     if seleccion-set(books):raise ValueError('Capítulos desconocidos: '+str(seleccion-set(books)))
     for stem,cells in books.items():
@@ -120,7 +130,8 @@ def main():
             if captured.stderr:cell.outputs.append(nb.v4.new_output('stream',name='stderr',text=captured.stderr))
             for output in captured.outputs:cell.outputs.append(nb.v4.new_output('display_data',data=output.data,metadata=output.metadata))
         nb.write(notebook,path); print('Ejecutado '+stem,flush=True)
-    (BOOK/'intro.md').write_text('# Pronóstico de la demanda eléctrica del SIN colombiano\n\n**Fabian José Manrique Morelos y Gloria Bastidas Rodriguez**  \nMaestría en Estadística Aplicada · Universidad del Norte\n\nEl estudio caracteriza la demanda real horaria y su relación con el calendario, las condiciones ambientales y la información documental disponible. El análisis exploratorio fundamenta la representación temporal y el diseño de evaluación de pronósticos diarios de 24 horas.\n\nEl libro presenta los datos, su calidad, distribución, estacionalidad, dependencia, covariables, titulares y protocolo temporal. Cada sección incluye el código analítico y las implicaciones de los resultados. El análisis integra calidad de medición, cambios de régimen, transferencia del vocabulario y estabilidad de tópicos, junto con una síntesis metodológica y una guía de reproducción. El análisis integra calidad de medición, cambios de régimen, transferencia del vocabulario y estabilidad de tópicos, junto con una síntesis metodológica y una guía de reproducción.\n',encoding='utf-8')
+    exportar(ROOT)
+    (BOOK/'intro.md').write_text('# Pronóstico de la demanda eléctrica del SIN colombiano\n\n**Fabian José Manrique Morelos y Gloria Bastidas Rodriguez**  \nMaestría en Estadística Aplicada · Universidad del Norte\n\nEl estudio caracteriza la demanda real horaria y su relación con el calendario, las condiciones ambientales y la información documental disponible. El análisis exploratorio fundamenta la representación temporal y el diseño de evaluación de pronósticos diarios de 24 horas.\n\nEl libro presenta los datos, su calidad, distribución, estacionalidad, dependencia, covariables, titulares y protocolo temporal. Cada sección incluye el código analítico y las implicaciones de los resultados. El análisis integra calidad de medición, cambios de régimen, transferencia del vocabulario y estabilidad de tópicos, junto con una síntesis metodológica y una guía de reproducción.\n',encoding='utf-8')
     (BOOK/'fuentes.md').write_text('# Fuentes y fundamento metodológico\n\n| Fuente | Uso en el estudio | Alcance |\n|---|---|---|\n| XM, archivos numéricos y registro de variables | Demanda e información del SIN | Series retrospectivas con rezagos de disponibilidad supuestos |\n| ERA5 vía Open-Meteo | Condiciones meteorológicas observadas | Reanálisis; no equivale a un pronóstico con emisión previa |\n| Censo 2018 citado en el inventario de ciudades | Ponderación de observaciones urbanas | Pesos estáticos y fuente secundaria |\n| Archivos de titulares y cobertura | Diagnóstico documental | Disponibilidad declarada o versión archivada verificada |\n| Preregistro y configuración del repositorio | Horizonte, partición, métricas y control temporal | Versiones experimentales conservadas |\n\n[Hyndman y Athanasopoulos, *Forecasting: Principles and Practice*, capítulo 5](https://otexts.com/fpp3/toolbox.html) fundamentan las referencias estacionales, los errores escalados y la validación temporal. MASE divide el error absoluto del pronóstico por la escala de una referencia estacional calculada en entrenamiento. La comparación entre particiones requiere considerar el cambio del nivel de demanda. La validación temporal evalúa observaciones posteriores a la historia de ajuste.\n\nLa síntesis de textos completos sobre demanda y noticias se presenta en el capítulo de literatura. Los enlaces identifican las versiones consultadas; las cifras reproducidas se atribuyen a sus tablas originales.\n',encoding='utf-8')
     (BOOK/'_config.yml').write_text('''title: "Pronóstico de la demanda eléctrica del SIN colombiano"
 author: "Fabian José Manrique Morelos y Gloria Bastidas Rodriguez"
@@ -137,7 +148,8 @@ sphinx:
     language: es
     suppress_warnings: ["myst.header"]
 ''',encoding='utf-8')
-    (BOOK/'_toc.yml').write_text('format: jb-book\nroot: intro\nchapters:\n'+''.join('  - file: '+stem+'\n'+('    sections:\n      - file: diccionario\n' if stem=='01_datos' else '    sections:\n      - file: 10_evaluacion\n      - file: 10_pipeline\n' if stem=='09_modelos' else '') for stem in books if stem!='10_evaluacion')+'  - file: fuentes\n',encoding='utf-8')
+    (BOOK/'_toc.yml').write_text('format: jb-book\nroot: intro\nchapters:\n'+''.join('  - file: '+stem+'\n'+('    sections:\n      - file: diccionario\n' if stem=='01_datos' else '    sections:\n      - file: 10_evaluacion\n      - file: 10_pipeline\n' if stem=='10_modelos' else '') for stem in books if stem!='10_evaluacion')+'  - file: fuentes\n',encoding='utf-8')
+    armonizar_archivos(ROOT)
     audit=dict(development_start='2000-01-01',development_end_exclusive='2022-01-01',
         test_values_read=False,model_results_read=True,training_executed=False,model_chapter_empty=False,
         authors=['Fabian José Manrique Morelos','Gloria Bastidas Rodriguez'],notebooks=len(books))

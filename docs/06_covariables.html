@@ -225,9 +225,13 @@
 <li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Covariables y disponibilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Exploración de titulares</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamentos del diseño</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_validacion.html">9. Diseño de evaluación</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_modelos.html">10. Modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fuentes.html">Fuentes y fundamento metodológico</a></li>
@@ -379,6 +383,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asociaciones-disponibles-al-inicio-del-dia">Asociaciones disponibles al inicio del día</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#respuesta-meteorologica-y-calendario">Respuesta meteorológica y calendario</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estabilidad-entre-entrenamiento-y-validacion">Estabilidad entre entrenamiento y validación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-desplazamiento-entre-particiones">Prueba de desplazamiento entre particiones</a></li>
 </ul>
             </nav>
         </div>
@@ -532,6 +537,124 @@
 <p><strong>Impacto.</strong> Permite evaluar ampliaciones con una regla de disponibilidad explícita.</p>
 <p><strong>Riesgo.</strong> Reanálisis, población estática y revisiones de fuente pueden introducir sesgos retrospectivos.</p>
 </section>
+<section id="prueba-de-desplazamiento-entre-particiones">
+<h2>Prueba de desplazamiento entre particiones<a class="headerlink" href="#prueba-de-desplazamiento-entre-particiones" title="Link to this heading">#</a></h2>
+<p>Se contrasta igualdad de distribuciones mediante la máxima diferencia de CDF evaluada en 19 cuantiles del desarrollo agrupado, invariantes al intercambio de etiquetas de partición. Se permutan bloques completos de 28 días, con 1.999 permutaciones y Holm entre variables. Los bloques incompletos finales se excluyen del contraste. El procedimiento conserva dependencia dentro del bloque y supone intercambiabilidad aproximada entre bloques bajo la hipótesis nula; no utiliza horas como observaciones independientes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Contraste de CDF sobre 19 cuantiles, con permutación de bloques completos.</span>
+<span class="n">pruebas_drift</span><span class="o">=</span><span class="p">[];</span><span class="n">rng</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">11039</span><span class="p">);</span><span class="n">bloque</span><span class="o">=</span><span class="mi">28</span><span class="p">;</span><span class="n">B</span><span class="o">=</span><span class="mi">1999</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'demanda'</span><span class="p">,</span><span class="o">*</span><span class="n">covars</span><span class="p">]:</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">ent</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">();</span><span class="n">b</span><span class="o">=</span><span class="n">val</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">();</span><span class="n">na</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">//</span><span class="n">bloque</span><span class="p">;</span><span class="n">nb</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">//</span><span class="n">bloque</span>
+    <span class="n">cortes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">a</span><span class="p">[:</span><span class="n">na</span><span class="o">*</span><span class="n">bloque</span><span class="p">],</span><span class="n">b</span><span class="p">[:</span><span class="n">nb</span><span class="o">*</span><span class="n">bloque</span><span class="p">]],</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">.05</span><span class="p">,</span><span class="mf">.95</span><span class="p">,</span><span class="mi">19</span><span class="p">));</span><span class="n">aa</span><span class="o">=</span><span class="n">a</span><span class="p">[:</span><span class="n">na</span><span class="o">*</span><span class="n">bloque</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">na</span><span class="p">,</span><span class="n">bloque</span><span class="p">);</span><span class="n">bb</span><span class="o">=</span><span class="n">b</span><span class="p">[:</span><span class="n">nb</span><span class="o">*</span><span class="n">bloque</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nb</span><span class="p">,</span><span class="n">bloque</span><span class="p">)</span>
+    <span class="n">cdf</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([(</span><span class="n">aa</span><span class="p">[:,:,</span><span class="kc">None</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">cortes</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),(</span><span class="n">bb</span><span class="p">[:,:,</span><span class="kc">None</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">cortes</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)])</span>
+    <span class="n">estadistico</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">cdf</span><span class="p">[:</span><span class="n">na</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">-</span><span class="n">cdf</span><span class="p">[</span><span class="n">na</span><span class="p">:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)));</span><span class="n">superan</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
+        <span class="n">ix</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">na</span><span class="o">+</span><span class="n">nb</span><span class="p">);</span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">cdf</span><span class="p">[</span><span class="n">ix</span><span class="p">[:</span><span class="n">na</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">-</span><span class="n">cdf</span><span class="p">[</span><span class="n">ix</span><span class="p">[</span><span class="n">na</span><span class="p">:]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)));</span><span class="n">superan</span><span class="o">+=</span><span class="n">t</span><span class="o">&gt;=</span><span class="n">estadistico</span><span class="o">-</span><span class="mf">1e-12</span>
+    <span class="n">pruebas_drift</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'variable'</span><span class="p">:</span><span class="n">etiquetas</span><span class="p">[</span><span class="n">col</span><span class="p">],</span><span class="s1">'dias_entrenamiento'</span><span class="p">:</span><span class="n">na</span><span class="o">*</span><span class="n">bloque</span><span class="p">,</span><span class="s1">'dias_validacion'</span><span class="p">:</span><span class="n">nb</span><span class="o">*</span><span class="n">bloque</span><span class="p">,</span><span class="s1">'D_CDF19'</span><span class="p">:</span><span class="n">estadistico</span><span class="p">,</span><span class="s1">'p_permutacion'</span><span class="p">:(</span><span class="n">superan</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">B</span><span class="o">+</span><span class="mi">1</span><span class="p">)})</span>
+<span class="n">pruebas_drift</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pruebas_drift</span><span class="p">);</span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.multitest</span><span class="w"> </span><span class="kn">import</span> <span class="n">multipletests</span>
+<span class="n">pruebas_drift</span><span class="p">[</span><span class="s1">'p_Holm'</span><span class="p">]</span><span class="o">=</span><span class="n">multipletests</span><span class="p">(</span><span class="n">pruebas_drift</span><span class="o">.</span><span class="n">p_permutacion</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">'holm'</span><span class="p">)[</span><span class="mi">1</span><span class="p">];</span><span class="n">display</span><span class="p">(</span><span class="n">pruebas_drift</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">pruebas_drift</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'results/jbook/desplazamiento_formal.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>dias_entrenamiento</th>
+      <th>dias_validacion</th>
+      <th>D_CDF19</th>
+      <th>p_permutacion</th>
+      <th>p_Holm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Demanda</td>
+      <td>6552</td>
+      <td>1456</td>
+      <td>0.70292</td>
+      <td>0.0005</td>
+      <td>0.0035</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Precio de bolsa</td>
+      <td>6552</td>
+      <td>1456</td>
+      <td>0.42140</td>
+      <td>0.0005</td>
+      <td>0.0035</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Temperatura urbana</td>
+      <td>6552</td>
+      <td>1456</td>
+      <td>0.17575</td>
+      <td>0.0005</td>
+      <td>0.0035</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Humedad urbana</td>
+      <td>6552</td>
+      <td>1456</td>
+      <td>0.09737</td>
+      <td>0.0455</td>
+      <td>0.1365</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Precipitación urbana</td>
+      <td>6552</td>
+      <td>1456</td>
+      <td>0.02564</td>
+      <td>0.5800</td>
+      <td>0.7070</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Llenado</td>
+      <td>6552</td>
+      <td>1456</td>
+      <td>0.10607</td>
+      <td>0.3535</td>
+      <td>0.7070</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Aportes hídricos</td>
+      <td>6552</td>
+      <td>1456</td>
+      <td>0.15812</td>
+      <td>0.0105</td>
+      <td>0.0420</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Los valores p ajustados complementan las distancias de Wasserstein: una distancia cuantifica magnitud y el contraste evalúa compatibilidad con igualdad bajo el esquema de permutación. La tendencia y los cambios de régimen pueden explicar un rechazo. No se deduce causalidad ni pérdida de precisión predictiva a partir de ese resultado. <a class="reference download internal" download="" href="_downloads/7438d95f4af311240dffd6c89e32feba/desplazamiento_formal.csv"><span class="xref download myst">Descargar resultados</span></a>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -603,6 +726,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asociaciones-disponibles-al-inicio-del-dia">Asociaciones disponibles al inicio del día</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#respuesta-meteorologica-y-calendario">Respuesta meteorológica y calendario</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estabilidad-entre-entrenamiento-y-validacion">Estabilidad entre entrenamiento y validación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-desplazamiento-entre-particiones">Prueba de desplazamiento entre particiones</a></li>
 </ul>
   </nav></div>
 

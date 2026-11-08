@@ -1,0 +1,34 @@
+{
+  "fecha": "2026-11-08",
+  "tipo": "Búsqueda pública dirigida; no ejecución de Scopus o WoS",
+  "periodo_elegible": [
+    "2018-01-01",
+    "2026-11-08"
+  ],
+  "consultas_ejecutadas": [
+    "short term load forecasting CNN LSTM MLP comparative benchmark convolutional neural network electricity demand full text",
+    "day ahead load forecasting deep learning CNN benchmark comparison MLP LSTM hourly demand paper",
+    "load forecasting CNN LSTM MLP comparison single convolution 2020 benchmark full text doi",
+    "(load forecasting OR electricity demand forecasting) AND (CNN OR convolutional OR LSTM OR MLP) AND (comparison OR benchmark)"
+  ],
+  "textos_completos_incorporados": [
+    "10.1049/tje2.12132",
+    "10.3390/math11132912"
+  ],
+  "cadenas_originales_scopus_wos_recuperadas": false,
+  "doble_revisor_independiente": false,
+  "candidatos_pendientes": [
+    {
+      "id": "arXiv:1907.09207",
+      "estado": "Lectura parcial; extracción de resultados pendiente, fuera del nuevo recuento"
+    },
+    {
+      "id": "10.1002/cpe.5595",
+      "estado": "Texto completo no recuperado; acceso denegado"
+    },
+    {
+      "id": "10.3390/math14050827",
+      "estado": "Texto completo no recuperado; servidor limitó acceso"
+    }
+  ]
+}

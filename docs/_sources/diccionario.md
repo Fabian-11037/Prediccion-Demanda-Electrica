@@ -85,10 +85,10 @@ Las columnas `x_*` incorporan los rezagos del panel y se consultan únicamente e
 | cal_hora | Hora local de inicio del intervalo horario en America/Bogota. | hora 0–23 |
 | cal_hora_sin | Codificación cíclica de la hora local: seno(2π × hora / 24). | adimensional [−1, 1] |
 | cal_hora_cos | Codificación cíclica de la hora local: coseno(2π × hora / 24). | adimensional [−1, 1] |
-| cal_dow_sin | Codificación cíclica de el día de la semana: seno(2π × dow / 7). | adimensional [−1, 1] |
-| cal_dow_cos | Codificación cíclica de el día de la semana: coseno(2π × dow / 7). | adimensional [−1, 1] |
-| cal_doy_sin | Codificación cíclica de el día del año: seno(2π × dia_anio / 366). | adimensional [−1, 1] |
-| cal_doy_cos | Codificación cíclica de el día del año: coseno(2π × dia_anio / 366). | adimensional [−1, 1] |
+| cal_dow_sin | Codificación cíclica del día de la semana: seno(2π × dow / 7). | adimensional [−1, 1] |
+| cal_dow_cos | Codificación cíclica del día de la semana: coseno(2π × dow / 7). | adimensional [−1, 1] |
+| cal_doy_sin | Codificación cíclica del día del año: seno(2π × dia_anio / 366). | adimensional [−1, 1] |
+| cal_doy_cos | Codificación cíclica del día del año: coseno(2π × dia_anio / 366). | adimensional [−1, 1] |
 
 ## Disponibilidad y fuentes
 

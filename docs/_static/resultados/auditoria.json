@@ -1,0 +1,30 @@
+{
+  "development_start": "2000-01-01",
+  "development_end_exclusive": "2022-01-01",
+  "test_values_read": true,
+  "model_results_read": true,
+  "training_executed": false,
+  "model_chapter_empty": false,
+  "published_test_metrics_read": true,
+  "saved_test_predictions_read": true,
+  "results_commit": "d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3",
+  "authors": [
+    "Fabian José Manrique Morelos",
+    "Gloria Bastidas Rodriguez"
+  ],
+  "notebooks": 13,
+  "analytic_code_cells": 75,
+  "figures": 42,
+  "execution_errors": 0,
+  "broken_local_links": 0,
+  "dictionary_fields": 84,
+  "dictionary_by_scope": {
+    "panel": 59,
+    "titulares": 18,
+    "ciudades": 7
+  },
+  "dictionary_schema_coverage_verified": true,
+  "duplicate_plot_tables_removed": true,
+  "published": false,
+  "warnings": []
+}

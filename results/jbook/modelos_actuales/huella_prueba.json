@@ -1,0 +1,10 @@
+{
+  "sha256": "595f00dd186280542cfd7fed9a580ebe1b19c8cc4e0e742ef12e2e6d2eb0f49a",
+  "commit": "d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3",
+  "origenes": 1461,
+  "horizonte": 24,
+  "inicio": "2022-01-01 00:00:00-05:00",
+  "fin": "2025-12-31 00:00:00-05:00",
+  "serializacion": "cabecera UTF-8 SIN-demand-test-v1 y LF; orígenes UTC int64 little-endian; etiquetas float64 little-endian, orden C",
+  "fecha_calculo": "2026-11-08T16:19:06.226354-05:00"
+}

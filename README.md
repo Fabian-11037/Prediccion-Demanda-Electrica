@@ -47,4 +47,4 @@ Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez. El libro int
 
 Las fuentes del libro están en book y scripts; docs contiene el HTML de publicación. La reproducción documental y la continuidad se describen en [el contexto del libro](continuidad/CONTEXTO_PROYECTO.md).
 
-La publicación del libro se conserva sin reconstruir. Las nuevas ejecuciones y sus artefactos se consultan en [la consolidación](results/consolidado/README.md).
+El libro publicado presenta el análisis y benchmark documentados en los cuadernos actuales. Los artefactos de los modelos se consultan en [la consolidación](results/consolidado/README.md).

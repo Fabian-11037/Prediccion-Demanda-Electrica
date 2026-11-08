@@ -225,11 +225,11 @@
 <li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_covariables.html">6. Covariables y disponibilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Exploración de titulares</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamentos del diseño</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_validacion.html">9. Diseño de evaluación</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="09_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">Evaluación temporal y diagnósticos de los modelos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">Código completo del pipeline de entrenamiento y prueba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -380,14 +380,15 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-archivos">Identificación de los archivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifiesto-de-entradas-del-analisis">Manifiesto de entradas del análisis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecucion-en-windows-y-linux">Ejecución en Windows y Linux</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservacion-y-reconstruccion-de-la-entrega">Conservación y reconstrucción de la entrega</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-importados-y-reproduccion-del-benchmark">Resultados importados y reproducción del benchmark</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedencia-de-modelos-y-reconstruccion">Procedencia de modelos y reconstrucción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruccion-y-revision-de-consistencia">Reconstrucción y revisión de consistencia</a></li>
 </ul>
             </nav>
         </div>
@@ -433,9 +434,9 @@ Name: versión documental, dtype: str
 </div>
 </div>
 </div>
-<section id="identificacion-de-los-archivos">
-<h2>Identificación de los archivos<a class="headerlink" href="#identificacion-de-los-archivos" title="Link to this heading">#</a></h2>
-<p>Las huellas SHA-256 identifican el contenido binario exacto. Se incluyen fuentes numéricas, titulares, archivos externos y el panel consolidado; se excluyen resultados de entrenamiento. Calcular una huella no deserializa ni evalúa etiquetas de prueba.</p>
+<section id="manifiesto-de-entradas-del-analisis">
+<h2>Manifiesto de entradas del análisis<a class="headerlink" href="#manifiesto-de-entradas-del-analisis" title="Link to this heading">#</a></h2>
+<p>Las huellas SHA-256 identifican el contenido binario exacto. Se incluyen fuentes numéricas, titulares, archivos externos y el panel consolidado; los resultados de modelos se identifican por separado mediante su registro de artefactos. Calcular una huella no deserializa ni evalúa etiquetas de prueba.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sha256_archivo</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
@@ -481,17 +482,21 @@ Name: versión documental, dtype: str
 .bookenv/bin/python<span class="w"> </span>scripts/verificar_jbook.py
 </pre></div>
 </div>
-<p>Los análisis se ejecutan por CPU. El entrenamiento conserva sus dependencias en requirements.txt y permite seleccionar dispositivo mediante la interfaz del repositorio: –dispositivo auto, cpu o cuda. Una instalación de PyTorch compatible con CUDA y el controlador es necesaria para GPU; el entorno documental no la exige. La compatibilidad de rutas no equivale a una ejecución verificada en ambos sistemas: el entorno efectivamente utilizado queda registrado en entorno.json.</p>
+<p>Los análisis se ejecutan por CPU. El entrenamiento conserva sus dependencias en requirements.txt y permite seleccionar dispositivo mediante la interfaz del repositorio: –dispositivo auto, cpu o cuda. La GPU requiere PyTorch compatible con CUDA o ROCm y con su controlador; el entorno documental no lo exige. La compatibilidad de rutas no equivale a una ejecución verificada en ambos sistemas: el entorno efectivamente utilizado queda registrado en entorno.json.</p>
 </section>
 </section>
 <section id="conservacion-y-reconstruccion-de-la-entrega">
 <h2>Conservación y reconstrucción de la entrega<a class="headerlink" href="#conservacion-y-reconstruccion-de-la-entrega" title="Link to this heading">#</a></h2>
 <p>El verificador comprueba estructura de cuadernos, celdas ejecutadas, ausencia de errores, interpretaciones junto a las figuras, cobertura del diccionario y enlaces HTML locales. Después copia el HTML construido a docs. No publica ni inicia entrenamiento. Los archivos del libro y sus evidencias se conservan en book, docs y results/jbook; una actualización del sitio requiere una solicitud expresa.</p>
 </section>
-<section id="resultados-importados-y-reproduccion-del-benchmark">
-<h2>Resultados importados y reproducción del benchmark<a class="headerlink" href="#resultados-importados-y-reproduccion-del-benchmark" title="Link to this heading">#</a></h2>
-<p>La instantánea 02ff447d94fa78e1cde323fa2382da5bce24fb6e se conserva en results/repositorio y su IMPORTACION.json identifica cada archivo. El índice remoto permite verificar pesos, escaladores, curvas, predicciones e identidades de los 1.640 ajustes completados. El código analítico y los planes secundarios están en scripts y results/jbook/modelos.</p>
-<p>La reconstrucción del libro usa esos artefactos sin entrenar ni invocar redes. El apéndice reproduce las fuentes congeladas de entrenamiento y prueba; una nueva ejecución del pipeline exige un directorio distinto y conserva sus opciones explícitas de acceso a prueba. La latencia requiere una medición específica y no se estima desde tiempos de ajuste.</p>
+<section id="procedencia-de-modelos-y-reconstruccion">
+<h2>Procedencia de modelos y reconstrucción<a class="headerlink" href="#procedencia-de-modelos-y-reconstruccion" title="Link to this heading">#</a></h2>
+<p>Los modelos se identifican mediante el commit d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3 y el <a class="reference download internal" download="" href="_downloads/bbf8bbb7448964f9a4f6565b48907556/modelos.json"><span class="xref download myst">registro de artefactos</span></a>. El <a class="reference download internal" download="" href="_downloads/8908f8125ee42330f01d4992525e735c/indice_artefactos_v3_v4.csv"><span class="xref download myst">índice SHA-256</span></a> registra 2.304 archivos y la selección conserva cinco checkpoints por familia. Las métricas se reconstruyen desde etiquetas y predicciones con idénticos orígenes. El código está en scripts/modelos_actualizados_jbook.py; el informe usa results/jbook/modelos_actuales.</p>
+<p>Para reconstruir las secciones: python scripts/crear_jbook.py 08_literatura 09_validacion 10_modelos 10_evaluacion 11_sintesis 12_reproducibilidad; después, jupyter-book build book –warningiserror –keep-going y python scripts/verificar_jbook.py. Este procedimiento analiza artefactos guardados. El pipeline reproducible admite un dispositivo explícito y rutas con pathlib; la ejecución GPU registrada utiliza ROCm. La reproducción en Linux y Windows requiere instalar PyTorch compatible con el dispositivo elegido.</p>
+</section>
+<section id="reconstruccion-y-revision-de-consistencia">
+<h2>Reconstrucción y revisión de consistencia<a class="headerlink" href="#reconstruccion-y-revision-de-consistencia" title="Link to this heading">#</a></h2>
+<p>El generador integra modelos_actualizados_jbook.py, correcciones_e1_jbook.py y consistencia_jbook.py. La construcción del informe utiliza artefactos guardados; la medición de CPU se conserva en latencia_inferencia.csv y entorno_inferencia.json. Para repetir esa medición se utiliza un entorno separado con requirements-inferencia.lock.txt y scripts/medir_inferencia.py. No se ajustan pesos durante el análisis. La revisión global contrasta terminología, unidades, particiones, margen, cifras, inferencia, referencias y enlaces con los archivos fuente; sus resultados se registran en REVISION_CONSISTENCIA_JBOOK.md.</p>
 </section>
 </section>
 
@@ -561,14 +566,15 @@ Name: versión documental, dtype: str
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-de-los-archivos">Identificación de los archivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifiesto-de-entradas-del-analisis">Manifiesto de entradas del análisis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecucion-en-windows-y-linux">Ejecución en Windows y Linux</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservacion-y-reconstruccion-de-la-entrega">Conservación y reconstrucción de la entrega</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-importados-y-reproduccion-del-benchmark">Resultados importados y reproducción del benchmark</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedencia-de-modelos-y-reconstruccion">Procedencia de modelos y reconstrucción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruccion-y-revision-de-consistencia">Reconstrucción y revisión de consistencia</a></li>
 </ul>
   </nav></div>
 

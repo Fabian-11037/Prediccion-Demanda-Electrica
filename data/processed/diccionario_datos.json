@@ -650,7 +650,7 @@
   {
     "bloque": "panel",
     "variable": "cal_dow_sin",
-    "descripcion": "Codificación cíclica de el día de la semana: seno(2π × dow / 7).",
+    "descripcion": "Codificación cíclica del día de la semana: seno(2π × dow / 7).",
     "unidad": "adimensional [−1, 1]",
     "tipo": "float",
     "clase": "known_future",
@@ -662,7 +662,7 @@
   {
     "bloque": "panel",
     "variable": "cal_dow_cos",
-    "descripcion": "Codificación cíclica de el día de la semana: coseno(2π × dow / 7).",
+    "descripcion": "Codificación cíclica del día de la semana: coseno(2π × dow / 7).",
     "unidad": "adimensional [−1, 1]",
     "tipo": "float",
     "clase": "known_future",
@@ -674,7 +674,7 @@
   {
     "bloque": "panel",
     "variable": "cal_doy_sin",
-    "descripcion": "Codificación cíclica de el día del año: seno(2π × dia_anio / 366).",
+    "descripcion": "Codificación cíclica del día del año: seno(2π × dia_anio / 366).",
     "unidad": "adimensional [−1, 1]",
     "tipo": "float",
     "clase": "known_future",
@@ -686,7 +686,7 @@
   {
     "bloque": "panel",
     "variable": "cal_doy_cos",
-    "descripcion": "Codificación cíclica de el día del año: coseno(2π × dia_anio / 366).",
+    "descripcion": "Codificación cíclica del día del año: coseno(2π × dia_anio / 366).",
     "unidad": "adimensional [−1, 1]",
     "tipo": "float",
     "clase": "known_future",

@@ -225,9 +225,13 @@
 <li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_covariables.html">6. Covariables y disponibilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Exploración de titulares</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamentos del diseño</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_validacion.html">9. Diseño de evaluación</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_modelos.html">10. Modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fuentes.html">Fuentes y fundamento metodológico</a></li>
@@ -378,6 +382,7 @@
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rangos-y-coherencia-de-las-mediciones">Rangos y coherencia de las mediciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representatividad-geografica-y-poblacional">Representatividad geográfica y poblacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensibilidad-descriptiva-a-observaciones-extremas">Sensibilidad descriptiva a observaciones extremas</a></li>
 </ul>
             </nav>
         </div>
@@ -530,21 +535,79 @@ dtype: int64
 <span class="n">geo</span><span class="p">[</span><span class="s1">'distancia_km'</span><span class="p">]</span><span class="o">=</span><span class="mi">6371</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
 <span class="n">geo</span><span class="p">[</span><span class="s1">'peso'</span><span class="p">]</span><span class="o">=</span><span class="n">geo</span><span class="o">.</span><span class="n">habitantes_censo_2018_ajustado</span><span class="o">/</span><span class="n">geo</span><span class="o">.</span><span class="n">habitantes_censo_2018_ajustado</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">geo</span><span class="o">.</span><span class="n">ciudad</span><span class="p">,</span><span class="n">geo</span><span class="o">.</span><span class="n">distancia_km</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Distancia al punto de malla (km)'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">geo</span><span class="o">.</span><span class="n">ciudad</span><span class="p">,</span><span class="mi">100</span><span class="o">*</span><span class="n">geo</span><span class="o">.</span><span class="n">peso</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Peso poblacional estático (%)'</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">geo</span><span class="o">.</span><span class="n">ciudad</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">'Bogota'</span><span class="p">:</span><span class="s1">'Bogotá'</span><span class="p">,</span><span class="s1">'Medellin'</span><span class="p">:</span><span class="s1">'Medellín'</span><span class="p">,</span><span class="s1">'Cucuta'</span><span class="p">:</span><span class="s1">'Cúcuta'</span><span class="p">}),</span><span class="n">geo</span><span class="o">.</span><span class="n">distancia_km</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Distancia al punto de malla (km)'</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">geo</span><span class="o">.</span><span class="n">ciudad</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">'Bogota'</span><span class="p">:</span><span class="s1">'Bogotá'</span><span class="p">,</span><span class="s1">'Medellin'</span><span class="p">:</span><span class="s1">'Medellín'</span><span class="p">,</span><span class="s1">'Cucuta'</span><span class="p">:</span><span class="s1">'Cúcuta'</span><span class="p">}),</span><span class="mi">100</span><span class="o">*</span><span class="n">geo</span><span class="o">.</span><span class="n">peso</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Peso poblacional estático (%)'</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 <span class="n">distancia_max</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">geo</span><span class="o">.</span><span class="n">distancia_km</span><span class="o">.</span><span class="n">max</span><span class="p">());</span> <span class="n">ciudad_peso</span><span class="o">=</span><span class="n">geo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">geo</span><span class="o">.</span><span class="n">peso</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(),</span><span class="s1">'ciudad'</span><span class="p">];</span> <span class="n">peso_max</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">geo</span><span class="o">.</span><span class="n">peso</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+<span class="n">ciudad_peso</span><span class="o">=</span><span class="p">{</span><span class="s1">'bogota'</span><span class="p">:</span><span class="s1">'Bogotá'</span><span class="p">,</span><span class="s1">'medellin'</span><span class="p">:</span><span class="s1">'Medellín'</span><span class="p">,</span><span class="s1">'cucuta'</span><span class="p">:</span><span class="s1">'Cúcuta'</span><span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ciudad_peso</span><span class="p">,</span><span class="n">ciudad_peso</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5ece00abd85b0958ce6fcce2c199d6285e2b178c0f3b1486c16ee0cb562b0390.png" src="_images/5ece00abd85b0958ce6fcce2c199d6285e2b178c0f3b1486c16ee0cb562b0390.png" />
+<img alt="_images/1dee613ba0fcb11b06d9d32c112703965ce45cff595773acd58f811871e6ecbe.png" src="_images/1dee613ba0fcb11b06d9d32c112703965ce45cff595773acd58f811871e6ecbe.png" />
 </div>
 </div>
-<p>La separación máxima entre coordenada solicitada y malla es 24.54 km. bogota concentra el 46.3 % del promedio ponderado, por lo que esa representación puede atenuar condiciones de ciudades con menor peso. Validar el error meteorológico requiere estaciones emparejadas; la proximidad geográfica no basta para estimarlo.</p>
+<p>La separación máxima entre coordenada solicitada y malla es 24.54 km. Bogotá concentra el 46.3 % del promedio ponderado, por lo que esa representación puede atenuar condiciones de ciudades con menor peso. Validar el error meteorológico requiere estaciones emparejadas; la proximidad geográfica no basta para estimarlo.</p>
 <p><strong>Decisión.</strong> Mantener los extremos y documentar los nulos introducidos por rezagos.</p>
 <p><strong>Impacto.</strong> Evita confundir indisponibilidad inicial con huecos de la fuente.</p>
 <p><strong>Riesgo.</strong> Eliminar observaciones atípicas sin evidencia puede suprimir eventos reales.</p>
+</section>
+<section id="sensibilidad-descriptiva-a-observaciones-extremas">
+<h2>Sensibilidad descriptiva a observaciones extremas<a class="headerlink" href="#sensibilidad-descriptiva-a-observaciones-extremas" title="Link to this heading">#</a></h2>
+<p>Se utiliza el criterio exploratorio ya definido: demanda inferior a la mitad de la registrada 168 horas antes. Se cuantifica su influencia sin modificar los datos originales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mascara</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">y</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">168</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">.5</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="kc">False</span><span class="p">);</span><span class="n">sin_extremos</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">mascara</span><span class="p">];</span><span class="n">dif</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="mi">168</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">();</span><span class="n">sensibilidad</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">'escenario'</span><span class="p">:</span><span class="s1">'Original'</span><span class="p">,</span><span class="s1">'media_kWh'</span><span class="p">:</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="s1">'DE_kWh'</span><span class="p">:</span><span class="n">y</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="s1">'diferencia_semanal_absoluta_kWh'</span><span class="p">:</span><span class="n">dif</span><span class="o">.</span><span class="n">mean</span><span class="p">()},{</span><span class="s1">'escenario'</span><span class="p">:</span><span class="s1">'Sin horas marcadas'</span><span class="p">,</span><span class="s1">'media_kWh'</span><span class="p">:</span><span class="n">sin_extremos</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="s1">'DE_kWh'</span><span class="p">:</span><span class="n">sin_extremos</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="s1">'diferencia_semanal_absoluta_kWh'</span><span class="p">:</span><span class="n">dif</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">mascara</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()}]);</span><span class="n">display</span><span class="p">(</span><span class="n">sensibilidad</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span><span class="n">sensibilidad</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'results/jbook/sensibilidad_atipicos_desarrollo.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">n_marcadas</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">mascara</span><span class="o">.</span><span class="n">sum</span><span class="p">());</span><span class="n">cambio_dispersion</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">sin_extremos</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">y</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>escenario</th>
+      <th>media_kWh</th>
+      <th>DE_kWh</th>
+      <th>diferencia_semanal_absoluta_kWh</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Original</td>
+      <td>6527542.04</td>
+      <td>1526443.81</td>
+      <td>221187.13</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sin horas marcadas</td>
+      <td>6527670.74</td>
+      <td>1526248.83</td>
+      <td>221086.86</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El criterio marca 5 horas de desarrollo y excluirlas cambiaría la desviación estándar un -0.01 %. El efecto sobre diferencias semanales caracteriza sensibilidad descriptiva, sin identificar corrupción de medición. El capítulo de evaluación cuantifica por separado su relación con el error de las predicciones congeladas.</p>
 </section>
 </section>
 
@@ -616,6 +679,7 @@ dtype: int64
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rangos-y-coherencia-de-las-mediciones">Rangos y coherencia de las mediciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representatividad-geografica-y-poblacional">Representatividad geográfica y poblacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensibilidad-descriptiva-a-observaciones-extremas">Sensibilidad descriptiva a observaciones extremas</a></li>
 </ul>
   </nav></div>
 

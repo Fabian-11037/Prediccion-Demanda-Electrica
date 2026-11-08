@@ -1,0 +1,73 @@
+{
+  "fecha_consolidacion": "2026-11-08",
+  "archivos": [
+    {
+      "archivo": "auditoria_exportaciones.json",
+      "bytes": 472,
+      "sha256": "9885e3697875e4a19a69913f2911dfc7409bac99186e6987957b05445aa6572f"
+    },
+    {
+      "archivo": "busqueda_dirigida.json",
+      "bytes": 701,
+      "sha256": "cbf3afda4ef351c4283b3be02709685a123fb43027ce4ffa15b847eaa5a48f56"
+    },
+    {
+      "archivo": "cribado_83.csv",
+      "bytes": 29330,
+      "sha256": "cc6985ffd459ce93e1cf05ec44f3b910ef54e00c9aff26c432a78fb1d57759b8"
+    },
+    {
+      "archivo": "estudios_comparadores.csv",
+      "bytes": 15573,
+      "sha256": "9f95a149ae86c52e84f8656cbff13799de17b3c755b7b102cb6ce84c8dc81317"
+    },
+    {
+      "archivo": "estudios_destacados.csv",
+      "bytes": 14434,
+      "sha256": "8b957fad0c5c4879ac083141746234ca168429055293ab8a506313e405600112"
+    },
+    {
+      "archivo": "extracciones_modelos.csv",
+      "bytes": 43456,
+      "sha256": "7c8574c124b9153df42e3e0f7947d4672f4f7372010e0a906e3201ff767abc2e"
+    },
+    {
+      "archivo": "frecuencias_verificadas.csv",
+      "bytes": 2736,
+      "sha256": "cd936131a91265ef8350da718571de53c9743cd12bef66a062d9813ce6ceed72"
+    },
+    {
+      "archivo": "ieee_cribado.csv",
+      "bytes": 131096,
+      "sha256": "38ec816b77fa934154d81b9067aef4236244475225b59ec83b0108fb1e89beb7"
+    },
+    {
+      "archivo": "ieee_exportaciones.json",
+      "bytes": 1354,
+      "sha256": "9c59ec009fa50cbd1d243810b86a232f8157d1f10a3daaba687123b7172448c7"
+    },
+    {
+      "archivo": "ieee_registros.csv",
+      "bytes": 265443,
+      "sha256": "f6a1ab59505d2d9023b45d35065884bd05d0b0c18487d02d9f1156b01ec55b2d"
+    },
+    {
+      "archivo": "ieee_seleccion.csv",
+      "bytes": 16567,
+      "sha256": "c45b32208cc590bdeb69a422ee121d4efc7a0958453c2bb5aadcbd64c13db501"
+    },
+    {
+      "archivo": "recuperacion.csv",
+      "bytes": 6999,
+      "sha256": "d2e82568bd113ee3f9f6904adee1b9e5ee80661d4d58144ddf729ea37de2d091"
+    }
+  ],
+  "ajustes_semanticos": [
+    {
+      "study_id": "G10",
+      "campo": "other_electricity_variable",
+      "valor": 0,
+      "motivo": "La irradiancia solar es meteorológica; no es demanda ni otra variable eléctrica."
+    }
+  ]
+}

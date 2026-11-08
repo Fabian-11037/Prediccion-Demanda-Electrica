@@ -11,8 +11,8 @@ chapters:
   - file: 06_covariables
   - file: 07_texto
   - file: 08_literatura
-  - file: 08_validacion
-  - file: 09_modelos
+  - file: 09_validacion
+  - file: 10_modelos
     sections:
       - file: 10_evaluacion
       - file: 10_pipeline

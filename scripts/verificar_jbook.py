@@ -29,7 +29,7 @@ def main():
                     figuras+=1
                     assert i+1<len(n.cells) and n.cells[i+1].cell_type=='markdown',(nombre,i)
                     assert len(n.cells[i+1].source.strip())>35,(nombre,i)
-    modelo=notebooks['09_modelos']
+    modelo=notebooks['10_modelos']
     assert len(modelo.cells)>10 and any(c.cell_type=='code' for c in modelo.cells)
     assert (book/'10_pipeline.md').exists()
     dic=json.loads((ROOT/'data/processed/diccionario_datos.json').read_text(encoding='utf-8'))
@@ -56,8 +56,8 @@ def main():
     (ROOT/'docs/.nojekyll').touch()
     audit=dict(development_start='2000-01-01',development_end_exclusive='2022-01-01',
         test_values_read=True,model_results_read=True,training_executed=False,model_chapter_empty=False,
-        published_test_metrics_read=True,test_predictions_v2_read=True,
-        results_commit='02ff447d94fa78e1cde323fa2382da5bce24fb6e',
+        published_test_metrics_read=True,saved_test_predictions_read=True,
+        results_commit=json.loads((ROOT/'results/jbook/modelos_actualizados.json').read_text(encoding='utf-8'))['commit'],
         authors=['Fabian José Manrique Morelos','Gloria Bastidas Rodriguez'],
         notebooks=len(notebooks),analytic_code_cells=celdas,figures=figuras,
         execution_errors=0,broken_local_links=0,dictionary_fields=len(dic),

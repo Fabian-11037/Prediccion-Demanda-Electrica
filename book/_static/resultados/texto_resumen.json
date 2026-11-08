@@ -1,0 +1,11 @@
+{
+  "documentos": 484289,
+  "oov_train_pct": 30.900327892423316,
+  "oov_val_pct": 33.85279411302242,
+  "jensen_shannon": 0.06031426813424116,
+  "similitud_media": 0.9999999006089725,
+  "similitud_minima": 0.9999994317832996,
+  "repeticion_exacta_pct": 2.876588152941735,
+  "repeticion_normalizada_pct": 3.079153150288361,
+  "representados_pct": 96.95471092674003
+}

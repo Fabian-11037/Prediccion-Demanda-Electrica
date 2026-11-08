@@ -1,0 +1,34 @@
+{
+  "commit": "6e6ef9face73a479a46c7ae4ca34d54cd7951775",
+  "archivos": 300,
+  "branch": "main",
+  "pages_path": "/docs",
+  "tests_passed": 36,
+  "tests_skipped": 9,
+  "publicado": true,
+  "url": "https://fabian-11037.github.io/Prediccion-Demanda-Electrica/intro.html",
+  "workflow_run": 42498928306,
+  "estado": "success",
+  "html_verificado": [
+    {
+      "pagina": "intro.html",
+      "status": 200,
+      "coincide_html": true
+    },
+    {
+      "pagina": "09_modelos.html",
+      "status": 200,
+      "coincide_html": true
+    },
+    {
+      "pagina": "10_evaluacion.html",
+      "status": 200,
+      "coincide_html": true
+    },
+    {
+      "pagina": "10_pipeline.html",
+      "status": 200,
+      "coincide_html": true
+    }
+  ]
+}

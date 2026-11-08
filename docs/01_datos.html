@@ -221,11 +221,11 @@
 <li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_covariables.html">6. Covariables y disponibilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Exploración de titulares</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamentos del diseño</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_validacion.html">9. Diseño de evaluación</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="09_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">Evaluación temporal y diagnósticos de los modelos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">Código completo del pipeline de entrenamiento y prueba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -380,7 +380,8 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="problema-y-datos">
 <h1>1. Problema y datos<a class="headerlink" href="#problema-y-datos" title="Link to this heading">#</a></h1>
-<p>El objetivo es pronosticar la demanda real horaria de energía eléctrica del Sistema Interconectado Nacional de Colombia. Se formula una regresión temporal multivariada con salida directa de 24 intervalos y 168 horas de historia. El origen es diario a las 00:00 de Colombia. El estudio contempla la integración posterior de información documental.</p>
+<p>El objetivo es pronosticar la demanda real horaria de energía eléctrica del Sistema Interconectado Nacional de Colombia. Se formula un pronóstico de una serie objetivo con covariables, salida directa de 24 intervalos y 168 horas de historia. El origen es diario a las 00:00 de Colombia. El estudio contempla la integración posterior de información documental.</p>
+<p><strong>Tipo de problema:</strong> series de tiempo, con pronóstico directo de 24 pasos, covariables y rezagos del objetivo. <strong>Pregunta de investigación:</strong> ¿qué desempeño y estabilidad presentan MLP, LSTM y CNN1D para anticipar la demanda horaria del SIN colombiano durante las siguientes 24 horas, utilizando demanda histórica y calendario conocido? La etapa documental estudia la disponibilidad y representación de titulares para contrastar posteriormente su contribución incremental.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>

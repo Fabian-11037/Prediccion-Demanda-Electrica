@@ -11,7 +11,7 @@ def ampliar_modelos(books,md,code,note,root):
     assert snapshot.exists()
     c=[
         md('# 10. Modelos y benchmark de demanda'),
-        md('El benchmark compara MLP, LSTM y CNN1D como tres familias de Deep Learning, acompañadas por una regresión ARX penalizada y dos referencias estacionales. Las configuraciones se seleccionaron por MASE de validación; la evaluación final conserva 195 inicializaciones por familia sobre los mismos días de prueba. El análisis procede de la ejecución GPU v2 publicada el 8 de noviembre de 2026.'),
+        md('El benchmark compara MLP, LSTM y CNN1D como tres familias de Deep Learning, acompañadas por una regresión ARX penalizada y dos referencias estacionales. Las configuraciones se seleccionaron por MASE de validación; la evaluación final conserva 195 inicializaciones por familia sobre los mismos días de prueba.'),
         code("""from pathlib import Path
 import json,hashlib,itertools
 import numpy as np
