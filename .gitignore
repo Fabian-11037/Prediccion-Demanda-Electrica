@@ -21,3 +21,8 @@ results/base_v2/transicion_lstm.json
 results/base_v2/ajustes/**/historia_en_curso.json
 # Ajuste interrumpido sin resultado completo
 results/base_v2/ajustes/buscar/b9dd03329c287868ff39/
+
+# Estado transitorio de la ejecución v3
+results/base_v3/*.lock
+results/base_v3/servicios_locales.json
+results/base_v3/ajustes/**/historia_en_curso.json
