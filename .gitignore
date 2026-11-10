@@ -34,3 +34,8 @@ results/base_v4/ajustes/**/historia_en_curso.json
 
 .bookenv/
 book/_build/
+
+# Estado transitorio de PatchTST numérico
+results/patchtst_numerico_r1/*.lock
+results/patchtst_numerico_r1/servicios_locales.json
+results/patchtst_numerico_r1/ajustes/**/historia_en_curso.json
