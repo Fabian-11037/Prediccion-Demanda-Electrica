@@ -1,0 +1,15 @@
+{
+  "url": "https://servapibi.xm.com.co/daily",
+  "params": null,
+  "body": {
+    "MetricId": "AporEner",
+    "Entity": "Sistema",
+    "StartDate": "2026-10-01",
+    "EndDate": "2026-10-31",
+    "Filter": []
+  },
+  "recuperado_utc": "2026-11-10T19:02:18.355214+00:00",
+  "sha256_respuesta": "31f44554b14a5e8887474ba4c790ca4614bd0ec9530082629a832e63df895467",
+  "sha256_archivo": "10edbc2e1f57a87a31ab184b3f80ff77530f64f5d8cbcc8b59121be06502e53c",
+  "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202610.json.gz"
+}

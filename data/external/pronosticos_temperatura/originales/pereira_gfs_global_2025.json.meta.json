@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=4.8133&longitude=-75.6961&hourly=temperature_2m_previous_day1%2Ctemperature_2m_previous_day2%2Ctemperature_2m_previous_day3%2Crelative_humidity_2m_previous_day1%2Crelative_humidity_2m_previous_day2%2Crelative_humidity_2m_previous_day3%2Cprecipitation_previous_day1%2Cprecipitation_previous_day2%2Cprecipitation_previous_day3&models=gfs_global&start_date=2025-01-01&end_date=2025-12-31&timezone=America%2FBogota",
+  "params": {
+    "latitude": 4.8133,
+    "longitude": -75.6961,
+    "hourly": "temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3,relative_humidity_2m_previous_day1,relative_humidity_2m_previous_day2,relative_humidity_2m_previous_day3,precipitation_previous_day1,precipitation_previous_day2,precipitation_previous_day3",
+    "models": "gfs_global",
+    "start_date": "2025-01-01",
+    "end_date": "2025-12-31",
+    "timezone": "America/Bogota"
+  },
+  "recuperado_utc": "2026-11-10T18:54:05.252918+00:00",
+  "sha256_respuesta": "6728df00d3b833f3827e8340ee8ff768df7edfec7e0a5c5e0770b9e2efa4c05e",
+  "bytes_respuesta": 509396,
+  "sha256_archivo": "87a99be775055afe08379b6afea7ff6a52373f082f48380844a507dabd1b61f0",
+  "archivo": "data/external/pronosticos_temperatura/originales/pereira_gfs_global_2025.json.gz",
+  "lat_malla": 4.861702,
+  "lon_malla": -75.703125,
+  "elevacion_m": 1410.0
+}

@@ -1,4 +1,5 @@
 # Contexto del proyecto (para cualquier agente o persona que continúe el trabajo)
+Estado vigente de los datos y decisiones para futuras corridas: §22 y [contexto de continuidad](continuidad/CONTEXTO_PROYECTO.md). Los apartados de ejecuciones conservan su cronología.
 
 Idioma de trabajo: **español**. Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez (Maestría en Estadística Aplicada, Universidad del Norte).
 
@@ -35,10 +36,10 @@ Inventario y detalle en `data/raw/README.md` y `data/external/README.md`.
 | Hidrología diaria (llenado, reserva útil, capacidad útil, aportes) | 2000-01-01 → 2025-12-31 | incluido |
 | Titulares de prensa (7 medios) y boletines IDEAM | 568 295 titulares, 2004-2025 | incluido (`data/raw/noticias/titulares.parquet`) |
 | Festivos de Colombia | 2000-2035 | generado (`data/external/festivos_colombia.csv`) |
-| ISE (DANE), actividad económica | mensual | **pendiente de descarga** (script de importación listo, sin probar con el archivo real) |
-| Pronósticos de temperatura con emisión previa | GFS desde 2021-03; resto desde 2024-01 | **pendiente de descarga** (script listo, sin probar) |
+| ISE (DANE), actividad económica | Base2015:2005–2026-08; ediciones antiguas desde2000 | Descargado,168anexos y102ediciones normalizadas; ver§22 |
+| Pronósticos meteorológicos | JMA2018 y GFS2021, ocho ciudades, hasta2026-11-09 | Descargado; temperatura/humedad/precipitación y disponibilidad estimada; ver§22 |
 
-Los datos de 2026 (hasta la fecha) **no están incluidos**; ver §6.
+La extensión numérica2026 se descarga por separado y no modifica el panel congelado; ver§22.
 
 ### Tabla consolidada
 `python scripts/construir_panel.py` genera en `data/processed/`: `panel_horario.parquet` (índice = inicio del intervalo, hora de Colombia), `feature_registry.json` (rol, clase de disponibilidad, rezago y fuente de cada columna), `calidad_datos.json` y `cobertura_titulares_{estricto,declarado}.csv`.
@@ -289,3 +290,38 @@ El bloque2022–2025 ya fue examinado en el análisis numérico; las nuevas comp
 El capítulo `book/07_texto.ipynb` se titula «Corpus documental y procesamiento del texto». Describe variantes, disponibilidad, canales, relevancia aprendida, controles y código de preparación por origen; conserva el EDA léxico de titulares con su alcance identificado. `scripts/diseno_texto_jbook.py` integra estos contenidos al generador `scripts/crear_jbook.py` para evitar perderlos en reconstrucciones. Los inventarios anuales por escenario y la recencia por partición/fuente se enlazan en el capítulo desde `_static/resultados/texto_oficial/`.
 
 Actualización documental autorizada para publicar en GitHub Pages. Sin nuevos entrenamientos, embeddings ajustados, métricas predictivas ni cambios de datos o modelos. La continuidad específica del libro se mantiene en `continuidad/CONTEXTO_PROYECTO.md` al publicar; el contexto raíz remoto conserva además sus antecedentes técnicos.
+
+## 22. Datos adicionales y diseño recibido · 10 de noviembre de 2026
+
+### Descargas verificadas e incorporación
+
+Manifiesto: `data/processed/dataset_ampliado_20261110.json`. Informe reproducible: `results/datos_adicionales_20261110/INFORME_DESCARGAS.md`. Validación:572 originales con SHA-256, sin claves duplicadas; panel numérico, feature_registry y titulares originales conservan sus hashes. No se ajustan modelos, escaladores ni embeddings y no se publica el JBook por esta actualización.
+
+- Pronósticos JMA GSM y GFS Global:3.061.440 filas, ocho ciudades, adelantos 1/2/3 días, temperatura/humedad/precipitación hasta 9 nov 2026. JMA permite cubrir todos los orígenes 2018–2025 con 24 h y ocho ciudades bajo el proxy de disponibilidad y respaldo a un adelanto anterior; GFS tiene cobertura menor. No promediar proveedores.186 precipitaciones negativas del proveedor quedan NaN con bandera, conservando originales y CSV de anomalías. No imputar con ERA 5 futuro.
+- ISE:168 anexos descargados y sus boletines;102 ediciones normalizadas en `ise_vintages.parquet`,66 conservadas aún solo como Excel y12 sin fecha de publicación identificada. El archivo `ise_dane.csv` contiene 260 meses de la base 2015 (enero 2005–agosto 2026), edición 19 oct 2026. Las ediciones antiguas incluyen 2000, con otras bases/metodologías; no empalmarlas de forma automática ni sustituir vintages desconocidos por el final. La primera publicación identificada entre las ediciones normalizadas es 21 sep 2018; la existencia de valores anteriores no prueba su disponibilidad histórica.
+- Población DANE:216 filas, ocho ciudades×27 años,2000–2026; total=cabecera+rural y pesos anuales suman 1. Son proyecciones/retroproyecciones revisadas con publicaciones 2023/2025. `ciudades.csv` y los pesos congelados no se reemplazan.
+- Extensión XM 2026: demanda real/comercial y precio válidos hasta 7 nov 23:00; hidrología hasta 9 nov. Las 48 horas pendientes se conservan nulas. ERA 5 de las ocho ciudades tiene datos efectivos hasta 4 nov 18:00; la malla posterior queda nula. Archivos separados en `data/external/actualizacion_2026/`; no se modifica el panel 2000–2025.
+- Pronóstico oficial XM SIMEM:762.480 filas,18 subáreas, enero 2022–octubre 2026. Todas las publicaciones SIMEM descargadas son posteriores a la hora objetivo. `FechaPublicacion` no es emisión original; conservar para auditoría, sin habilitarlo como entrada ni referencia operativa. La antigua URL UUID fue sustituida por el identificador público de conjunto 63 d90 d del catálogo oficial.
+- El corpus declarado se conserva en `data/processed/corpus_texto.parquet`; el repositorio debe incluirlo junto con diccionario y manifiesto para continuar sin reconstruir los 7 GBde originales documentales. Los binarios originales permanecen locales y la procedencia queda registrada.
+
+### Reglas para futuros entrenamientos
+
+Mantener congelados resultados, arquitecturas y particiones actuales. En la nueva comparación, fijar un conjunto numérico común para todas las variantes antes de buscar: demanda, calendario y las covariables que se adopten (clima pasado, hidrología y precio), con disponibilidad definida. La ausencia actual de esas covariables de los modelos no constituye evidencia de falta de utilidad.
+
+No hay pronósticos meteorológicos para el entrenamiento de referencia 2000–2017. La rama de pronósticos debe evaluarse en un subperiodo con historia real de ajuste y un protocolo específico; no introducirla en los pliegues originales como si estuviera completa. La climatología del horizonte puede ajustarse solo con entrenamiento; no sustituir pronósticos ausentes por el ERA 5 de la hora objetivo.
+
+Previous Runs no identifica el ciclo exacto. `emision_estimada=valido−lead×24h` y `disponible_estimado=emision_estimada+12h` son proxies. `src/demanda/datos_adicionales.py` exige aceptación explícita de esta suposición, proveedor identificado, conserva máscara y selecciona el último adelanto completo permitido. La publicación real no queda certificada. No confundir esta suposición meteorológica con la aceptación del escenario declarado de texto.
+
+La latencia de 1 h del clima ERA 5 en la configuración existente no queda certificada por estos archivos: la descarga 2026 muestra varios días de retraso. Para una evaluación operativa nueva, definir una latencia compatible con el producto, usar observaciones publicadas oportunamente o declarar el análisis retrospectivo. No cambiar silenciosamente los parámetros del benchmark congelado. Las horas originales de publicación de demanda/precio/hidrología también siguen siendo supuestos pendientes de verificación.
+
+ISE por origen: seleccionar edición ya publicada (día siguiente si solo tiene fecha) y mes con rezago conservador 60 días; excluir fechas desconocidas y bases distintas. El nuevo selector no utiliza la revisión final para todos los años. Las poblaciones actuales revisadas requieren igual tratamiento de vintage si se usan para ponderar covariables.
+
+El nuevo periodo 2026 es retrospectivo y no un test prospectivo. La cobertura de texto 2026 aún no está consolidada exhaustivamente. Un bloque prospectivo real empieza después de congelar protocolo/modelo y registrar entradas y pronósticos. No se autoriza entrenamiento mediante la incorporación de estos datos.
+
+### Archivo de diseño y revisión
+
+Se conserva sin modificar `literature/Diseño de entrenamiento pronóstico de demanda eléctrica con texto.md`. Es una propuesta recibida, no un preregistro adoptado. Su revisión está en `literature/REVISION_DISENO_ENTRENAMIENTO_20261110.md`. Mantener las decisiones confirmadas de §21 y del contexto de continuidad: declarado principal; tres variantes; canales oficial/prensa y relevancia aprendida, sin filtrado por palabras clave.
+
+Antes de implementar: corregir que una cota de corrección garantiza deterioro acotado, no «no empeorar»; revisar la proposición de pérdida placebo cuando la base no es óptima; fijar campo receptivo real de TCN; mantener la base congelada en eval; no aplicar Clark–West directamente a MAE; conservar MASE fijo y selección por menor valor; reconocer exposición de prueba y conciliar presupuestos y fuente de entrenador con los artefactos v3/v4. No copiar automáticamente fórmulas de memoria, exenciones de búsqueda ni la fecha prospectivaenero 2026 al preregistro.
+
+Reproducción y paquetes: `requirements-datos.txt` y `requirements-datos.lock.txt`. Nuevos scripts de descarga en `scripts/adquisicion/`; `scripts/validar_datos_adicionales.py` verifica cobertura y hashes. Las reglas as-of se prueban en `tests/test_datos_adicionales.py`. No sustituir los controles de texto por un placebo que pueda introducir documentos posteriores al origen aunque estén en la misma partición.

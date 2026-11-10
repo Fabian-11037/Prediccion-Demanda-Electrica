@@ -1,0 +1,38 @@
+{
+  "filas": 216,
+  "ciudades": 8,
+  "inicio": 2000,
+  "fin": 2026,
+  "versiones_actuales_revisadas": true,
+  "originales": [
+    {
+      "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/DCD-area-proypoblacion-Mun-1995-2004.xlsx",
+      "recuperado_utc": "2026-11-10T18:49:46.826794386+00:00",
+      "bytes": 1184823,
+      "sha256": "b5c06b667c0e165c8dd93374972836fa30b6c1302f0f2fa7ad9b507c409008ed",
+      "archivo": "data/external/poblacion_dane/originales/DCD-area-proypoblacion-Mun-1995-2004.xlsx",
+      "procedencia": "Descarga HTTP 200 previa de esta sesion; XLSX validado",
+      "columna_codigo_original": "dpmp"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/DCD-area-proypoblacion-Mun-2005-2017_VP.xlsx",
+      "recuperado_utc": "2026-11-10T18:49:45.442576170+00:00",
+      "bytes": 1600037,
+      "sha256": "0d7e6b896955f37e030e1d4d07389b8db96dc2731fe04095639e036d0ebf579b",
+      "archivo": "data/external/poblacion_dane/originales/DCD-area-proypoblacion-Mun-2005-2017_VP.xlsx",
+      "procedencia": "Descarga HTTP 200 previa de esta sesion; XLSX validado",
+      "columna_codigo_original": "mpio"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/PPED-AreaMun-2018-2042_VP.xlsx",
+      "recuperado_utc": "2026-11-10T18:49:43.686162472+00:00",
+      "bytes": 3948350,
+      "sha256": "1ea83594ad308becff39934a3977c102919c25740f60439be95d797396d11283",
+      "archivo": "data/external/poblacion_dane/originales/PPED-AreaMun-2018-2042_VP.xlsx",
+      "procedencia": "Descarga HTTP 200 previa de esta sesion; XLSX validado",
+      "columna_codigo_original": "mpio"
+    }
+  ],
+  "pagina": "https://www.dane.gov.co/index.php/estadisticas-por-tema/demografia-y-poblacion/proyecciones-de-poblacion",
+  "nota": "No sustituye automáticamente pesos congelados. Las retroproyecciones usan censos/revisiones posteriores; respetar su vintage en experimentos históricos."
+}

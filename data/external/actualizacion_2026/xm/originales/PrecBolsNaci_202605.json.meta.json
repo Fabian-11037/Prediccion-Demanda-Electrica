@@ -1,0 +1,15 @@
+{
+  "url": "https://servapibi.xm.com.co/hourly",
+  "params": null,
+  "body": {
+    "MetricId": "PrecBolsNaci",
+    "Entity": "Sistema",
+    "StartDate": "2026-05-01",
+    "EndDate": "2026-05-31",
+    "Filter": []
+  },
+  "recuperado_utc": "2026-11-10T19:01:42.104321+00:00",
+  "sha256_respuesta": "4a6549f84cea7746181652b5af85b18a27232ba4f0db7d2c5ebb2c7045e861ed",
+  "sha256_archivo": "b8b88ff2fd60cbbe8e170b6c12d4d796df1f7a434445adb3f59719f71ccdc9be",
+  "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202605.json.gz"
+}

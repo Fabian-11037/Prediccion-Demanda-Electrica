@@ -1,0 +1,152 @@
+{
+  "filas": 60096,
+  "originales": [
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=4.711&longitude=-74.0721&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+      "params": {
+        "latitude": 4.711,
+        "longitude": -74.0721,
+        "models": "era5",
+        "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+        "start_date": "2026-01-01",
+        "end_date": "2026-11-09",
+        "timezone": "America/Bogota"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:08:47.001078+00:00",
+      "sha256_respuesta": "633e80211d307e45699d273aa581536319c88fee81643fe314902f8ddb3984c6",
+      "sha256_archivo": "9665b1d405ebd6a4fe921cff1a372bf7ddd2e3649a5fca93243f91e854835ea2",
+      "archivo": "data/external/actualizacion_2026/clima/originales/bogota_era5_2026.json.gz"
+    },
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=6.2442&longitude=-75.5812&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+      "params": {
+        "latitude": 6.2442,
+        "longitude": -75.5812,
+        "models": "era5",
+        "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+        "start_date": "2026-01-01",
+        "end_date": "2026-11-09",
+        "timezone": "America/Bogota"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:08:48.945961+00:00",
+      "sha256_respuesta": "11ff1c561187642ec83214e2b40bd4943a488786c97dadd750873c752e97babf",
+      "sha256_archivo": "c61d0092233a9c691b0cb014a6fa5ef690241d70aa481829cc576cdac60449a5",
+      "archivo": "data/external/actualizacion_2026/clima/originales/medellin_era5_2026.json.gz"
+    },
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=3.4516&longitude=-76.532&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+      "params": {
+        "latitude": 3.4516,
+        "longitude": -76.532,
+        "models": "era5",
+        "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+        "start_date": "2026-01-01",
+        "end_date": "2026-11-09",
+        "timezone": "America/Bogota"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:08:50.953196+00:00",
+      "sha256_respuesta": "6597779b59a30370d2fd6e4ead2235597e91ec8da9fcae93108b6a2f25c48c0c",
+      "sha256_archivo": "c8ffeccb90a2a9ed616718563374ff0e6db2feb11010abe7ba4bfc092e2bd8b2",
+      "archivo": "data/external/actualizacion_2026/clima/originales/cali_era5_2026.json.gz"
+    },
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=10.9685&longitude=-74.7813&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+      "params": {
+        "latitude": 10.9685,
+        "longitude": -74.7813,
+        "models": "era5",
+        "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+        "start_date": "2026-01-01",
+        "end_date": "2026-11-09",
+        "timezone": "America/Bogota"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:08:52.935530+00:00",
+      "sha256_respuesta": "b1a13446535ba336f2886bda55dc654c56f101f3fb0f9f4488d2e15685f94465",
+      "sha256_archivo": "60bab64bee8bb3e2bdc8d50d39dc3fb6817776c072d09b02a5e3da631fe4e4be",
+      "archivo": "data/external/actualizacion_2026/clima/originales/barranquilla_era5_2026.json.gz"
+    },
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=10.391&longitude=-75.4794&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+      "params": {
+        "latitude": 10.391,
+        "longitude": -75.4794,
+        "models": "era5",
+        "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+        "start_date": "2026-01-01",
+        "end_date": "2026-11-09",
+        "timezone": "America/Bogota"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:08:54.880129+00:00",
+      "sha256_respuesta": "f6739faa040814fe39c1ed376631cd8412848f27a6c958a2abac4c129049f015",
+      "sha256_archivo": "b62983fe5ce932a881b2fc7c79bfca1dc6801ca5c788cebf5e9086f9da43a892",
+      "archivo": "data/external/actualizacion_2026/clima/originales/cartagena_era5_2026.json.gz"
+    },
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=7.1193&longitude=-73.1227&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+      "params": {
+        "latitude": 7.1193,
+        "longitude": -73.1227,
+        "models": "era5",
+        "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+        "start_date": "2026-01-01",
+        "end_date": "2026-11-09",
+        "timezone": "America/Bogota"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:08:56.821273+00:00",
+      "sha256_respuesta": "5c4a2587e4bb19fe6cce37b19e240918b22cdc229abd30b95a98007eefc4ba5e",
+      "sha256_archivo": "832b231cf850a6aaf2e6da6b015978a7f942de86949fb22be2f466fdcfe8e84e",
+      "archivo": "data/external/actualizacion_2026/clima/originales/bucaramanga_era5_2026.json.gz"
+    },
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=4.8133&longitude=-75.6961&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+      "params": {
+        "latitude": 4.8133,
+        "longitude": -75.6961,
+        "models": "era5",
+        "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+        "start_date": "2026-01-01",
+        "end_date": "2026-11-09",
+        "timezone": "America/Bogota"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:08:58.799231+00:00",
+      "sha256_respuesta": "1fda898e97072d7cee940d4097872f38e57224469d2762f4e2cbc69b73aadeea",
+      "sha256_archivo": "edfdc17cb049cafdcc25c9c13ccb97f87b9acaadb9dbc12a21e6094ee3fb0c62",
+      "archivo": "data/external/actualizacion_2026/clima/originales/pereira_era5_2026.json.gz"
+    },
+    {
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=7.8891&longitude=-72.4967&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+      "params": {
+        "latitude": 7.8891,
+        "longitude": -72.4967,
+        "models": "era5",
+        "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+        "start_date": "2026-01-01",
+        "end_date": "2026-11-09",
+        "timezone": "America/Bogota"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:09:00.760271+00:00",
+      "sha256_respuesta": "82e1493822c056936fa6db1ad20ff15129da037a078c4c226c57b6bafac90bc6",
+      "sha256_archivo": "8b3c8d0936c85a311fe04e9bbbb24c9abb38c6b3d9b00db1611318a650d2b4ad",
+      "archivo": "data/external/actualizacion_2026/clima/originales/cucuta_era5_2026.json.gz"
+    }
+  ],
+  "ultimos_validos": {
+    "bogota": "2026-11-04 18:00:00-05:00",
+    "medellin": "2026-11-04 18:00:00-05:00",
+    "cali": "2026-11-04 18:00:00-05:00",
+    "barranquilla": "2026-11-04 18:00:00-05:00",
+    "cartagena": "2026-11-04 18:00:00-05:00",
+    "bucaramanga": "2026-11-04 18:00:00-05:00",
+    "pereira": "2026-11-04 18:00:00-05:00",
+    "cucuta": "2026-11-04 18:00:00-05:00"
+  },
+  "advertencia": "Reanálisis ERA5; las horas recientes aún no publicadas permanecen nulas. No usar como pronóstico futuro."
+}

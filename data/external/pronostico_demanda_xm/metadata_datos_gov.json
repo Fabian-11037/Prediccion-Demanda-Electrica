@@ -1,0 +1,124 @@
+{
+  "id" : "nfm2-tfgb",
+  "name" : "Pronóstico oficial de demanda por subárea operativa",
+  "assetType" : "federated_href",
+  "averageRating" : 0,
+  "createdAt" : 1724353316,
+  "description" : "Pronósticos oficiales de energía horaria realizados por el agente agregados por Subárea operativa",
+  "diciBackend" : false,
+  "displayType" : "federated",
+  "downloadCount" : 0,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "locked" : false,
+  "newBackend" : false,
+  "numberOfComments" : 0,
+  "oid" : 40828161,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1724353316,
+  "publicationGroup" : 19634386,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1724353316,
+  "tableId" : 19634386,
+  "totalTimesRated" : 0,
+  "viewCount" : 484,
+  "viewLastModified" : 1772478265,
+  "viewType" : "href",
+  "approvals" : [ {
+    "reviewedAt" : 1724353316,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 6523511,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1724353316,
+    "targetAudience" : "public",
+    "workflowId" : 2188,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1724353316,
+      "failureCount" : 0,
+      "startedAt" : 1724353316,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "r4qn-dwdd",
+      "displayName" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ ],
+  "federatedCatalogEntry" : {
+    "id" : 360373,
+    "name" : "Pronóstico oficial de demanda por subárea operativa",
+    "createdAt" : 1724353316,
+    "description" : "Pronósticos oficiales de energía horaria realizados por el agente agregados por Subárea operativa",
+    "federatedCatalogSelectionExternalId" : "https://www.simem.co/datadetail/63d90dcf-bc52-420b-8c1a-e95b9e46956f",
+    "federatedCatalogSelectionId" : 377336,
+    "federatedCatalogSource" : "https://www.simem.co/backend-datos/Dcat/data.json",
+    "federatedCatalogSourceId" : 19683,
+    "federatedCatalogSourceType" : "open_data_metadata_v1_1",
+    "tags" : "pronósticos de demanda",
+    "viewId" : 40828161,
+    "viewUid" : "nfm2-tfgb"
+  },
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "metadata" : {
+    "additionalAccessPoints" : [ {
+      "urls" : {
+        "text/html" : "https://www.simem.co/datadetail/63d90dcf-bc52-420b-8c1a-e95b9e46956f"
+      },
+      "title" : "Dataset"
+    } ],
+    "custom_fields" : {
+      "Common Core" : {
+        "Contact Email" : "mailto:info@XM.com.co",
+        "Homepage" : "https://www.simem.co/datadetail/63d90dcf-bc52-420b-8c1a-e95b9e46956f",
+        "Contact Name" : "Equipo SIMEM",
+        "License" : "",
+        "Last Update" : "2026-03-01",
+        "Theme" : "Minas y Energía",
+        "Unique Identifier" : "https://www.simem.co/datadetail/63d90dcf-bc52-420b-8c1a-e95b9e46956f",
+        "Publisher" : "XM Compañía de Expertos en Mercados S.A. E.S.P.",
+        "Public Access Level" : "public"
+      }
+    },
+    "accessPoints" : {
+      "text/html" : "https://www.simem.co/datadetail/63d90dcf-bc52-420b-8c1a-e95b9e46956f"
+    }
+  },
+  "owner" : {
+    "id" : "r4qn-dwdd",
+    "displayName" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos",
+    "profileImageUrlLarge" : "/api/users/r4qn-dwdd/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/r4qn-dwdd/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/r4qn-dwdd/profile_images/TINY",
+    "screenName" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "r4qn-dwdd",
+    "displayName" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos",
+    "profileImageUrlLarge" : "/api/users/r4qn-dwdd/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/r4qn-dwdd/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/r4qn-dwdd/profile_images/TINY",
+    "screenName" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "pronósticos de demanda" ],
+  "flags" : [ "default", "ownerMayBeContacted" ]
+}

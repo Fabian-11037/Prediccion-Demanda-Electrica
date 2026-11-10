@@ -1,0 +1,20 @@
+{
+  "correcto": true,
+  "originales_con_sha256_verificado": 572,
+  "datos_congelados_intactos": [
+    "data/raw/noticias/titulares.parquet",
+    "data/processed/panel_horario.parquet",
+    "data/processed/feature_registry.json"
+  ],
+  "filas_pronosticos": 3061440,
+  "versiones_ise": 102,
+  "anexos_ise": 168,
+  "anexos_ise_solo_original": 66,
+  "meses_ise_base2015": 260,
+  "inicio_ise_versiones": "2000-01",
+  "filas_poblacion": 216,
+  "filas_pronostico_demanda": 762480,
+  "claves_duplicadas": 0,
+  "entrenamiento": false,
+  "publicacion_jbook": false
+}

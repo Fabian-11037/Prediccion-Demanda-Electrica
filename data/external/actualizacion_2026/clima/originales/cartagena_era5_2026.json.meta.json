@@ -1,0 +1,17 @@
+{
+  "url": "https://archive-api.open-meteo.com/v1/archive?latitude=10.391&longitude=-75.4794&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+  "params": {
+    "latitude": 10.391,
+    "longitude": -75.4794,
+    "models": "era5",
+    "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+    "start_date": "2026-01-01",
+    "end_date": "2026-11-09",
+    "timezone": "America/Bogota"
+  },
+  "body": null,
+  "recuperado_utc": "2026-11-10T19:08:54.880129+00:00",
+  "sha256_respuesta": "f6739faa040814fe39c1ed376631cd8412848f27a6c958a2abac4c129049f015",
+  "sha256_archivo": "b62983fe5ce932a881b2fc7c79bfca1dc6801ca5c788cebf5e9086f9da43a892",
+  "archivo": "data/external/actualizacion_2026/clima/originales/cartagena_era5_2026.json.gz"
+}

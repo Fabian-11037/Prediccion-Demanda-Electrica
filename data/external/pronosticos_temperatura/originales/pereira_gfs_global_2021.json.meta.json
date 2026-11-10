@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=4.8133&longitude=-75.6961&hourly=temperature_2m_previous_day1%2Ctemperature_2m_previous_day2%2Ctemperature_2m_previous_day3%2Crelative_humidity_2m_previous_day1%2Crelative_humidity_2m_previous_day2%2Crelative_humidity_2m_previous_day3%2Cprecipitation_previous_day1%2Cprecipitation_previous_day2%2Cprecipitation_previous_day3&models=gfs_global&start_date=2021-03-01&end_date=2021-12-31&timezone=America%2FBogota",
+  "params": {
+    "latitude": 4.8133,
+    "longitude": -75.6961,
+    "hourly": "temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3,relative_humidity_2m_previous_day1,relative_humidity_2m_previous_day2,relative_humidity_2m_previous_day3,precipitation_previous_day1,precipitation_previous_day2,precipitation_previous_day3",
+    "models": "gfs_global",
+    "start_date": "2021-03-01",
+    "end_date": "2021-12-31",
+    "timezone": "America/Bogota"
+  },
+  "recuperado_utc": "2026-11-10T18:53:23.111875+00:00",
+  "sha256_respuesta": "1a0cafb9ced4ff8f9fe3b04f3ebcfb4a88322d6c70e5ba4393a76fb84d3cfe3a",
+  "bytes_respuesta": 470910,
+  "sha256_archivo": "98362c50e5a806138144fbb7549bad888ab86d3c6cb3a1188e7eb719cbacb9ce",
+  "archivo": "data/external/pronosticos_temperatura/originales/pereira_gfs_global_2021.json.gz",
+  "lat_malla": 4.861702,
+  "lon_malla": -75.703125,
+  "elevacion_m": 1410.0
+}

@@ -1,0 +1,15 @@
+{
+  "url": "https://servapibi.xm.com.co/hourly",
+  "params": null,
+  "body": {
+    "MetricId": "DemaReal",
+    "Entity": "Sistema",
+    "StartDate": "2026-02-01",
+    "EndDate": "2026-02-28",
+    "Filter": []
+  },
+  "recuperado_utc": "2026-11-10T19:01:04.924149+00:00",
+  "sha256_respuesta": "13b1674b2714cf21e3e5bb12d3a84b5a3e6dbf7f33dce1d2d4e520da25605301",
+  "sha256_archivo": "a0e7d7b300f3727588b09eeb0829c7c10d68f38a5d9d8fcac69bb1272415f7d8",
+  "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202602.json.gz"
+}

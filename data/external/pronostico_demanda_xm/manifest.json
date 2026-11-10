@@ -1,0 +1,779 @@
+{
+  "filas": 762480,
+  "duplicados": 0,
+  "inicio": "2022-01-01 00:00:00-05:00",
+  "fin": "2026-10-31 23:00:00-05:00",
+  "subareas": 18,
+  "fecha_emision_original_identificada": false,
+  "publicaciones_no_posteriores_al_objetivo": 0,
+  "advertencia": "FechaPublicacion es la publicación en SIMEM, no la emisión del pronóstico. No habilitar como entrada o comparador operativo sin verificar emisión y versiones anteriores al origen.",
+  "originales": [
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-01-01&endDate=2022-01-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-01-01",
+        "endDate": "2022-01-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:02:24.694511+00:00",
+      "sha256_respuesta": "720e1b4897e4d37a6dfd98f79efb622189e58975fc1e29a83f9b4d48290bfbd1",
+      "sha256_archivo": "6783eb640f5b5b6a579dd4dc1e91df028f5677974e3d4ff74aad01ad4207a7a0",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202201.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-02-01&endDate=2022-02-28",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-02-01",
+        "endDate": "2022-02-28"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:02:30.212344+00:00",
+      "sha256_respuesta": "f29ae9759dce6a28c235ef1d90051d02c3c9c8d001a18921c0bb177ea4db02f8",
+      "sha256_archivo": "562f46904d6044717281fcd5322879d96c0a8c470f13125d5d8b5e732f1e5042",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202202.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-03-01&endDate=2022-03-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-03-01",
+        "endDate": "2022-03-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:02:36.369510+00:00",
+      "sha256_respuesta": "d93864cb43923683ab134a1adcf37c41ffc387a83fb1fc2c5e414a14d7e18fcb",
+      "sha256_archivo": "4b06179e2f9cab6ad95977b4f8690f35a938e1617624b1dc84eaa13b0b4dcf44",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202203.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-04-01&endDate=2022-04-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-04-01",
+        "endDate": "2022-04-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:02:41.845259+00:00",
+      "sha256_respuesta": "df829027c18dbe65c7e531e5499bc4825b3eafaad2a3dbda7a2a114628f598d1",
+      "sha256_archivo": "72cb9ae4c2c7b552bdcd986892cff0bfd7d32df344b3276304889396c9ee2d6a",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202204.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-05-01&endDate=2022-05-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-05-01",
+        "endDate": "2022-05-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:02:46.872111+00:00",
+      "sha256_respuesta": "3b9425c02f59c951822c16e3738a91bf29702b56d466ca00bc2638dc78f02e1b",
+      "sha256_archivo": "d29147d0e56b74a5f2a625df80b7b9ea4d3a3b5a18cf0a8a0bf02951017933c8",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202205.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-06-01&endDate=2022-06-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-06-01",
+        "endDate": "2022-06-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:02:52.091682+00:00",
+      "sha256_respuesta": "fd3ff8e8584ff2fb985d7fb088e180a9dfff2d5fca881397a8d87d7b6775ccbc",
+      "sha256_archivo": "a97261ca7c215405036b75a4b616f499c29ae7061f80d28d91d1bab41a2a4b37",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202206.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-07-01&endDate=2022-07-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-07-01",
+        "endDate": "2022-07-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:02:57.747315+00:00",
+      "sha256_respuesta": "6e00810449e9892d8b99d0fb1549dac045f7f1b2fe1f1f6f9a4a6441f422dc91",
+      "sha256_archivo": "36ad8f6a0929792d62ff1355d2be2ddd2a1666b81f7a6011c4fee6266d462feb",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202207.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-08-01&endDate=2022-08-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-08-01",
+        "endDate": "2022-08-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:03:03.724801+00:00",
+      "sha256_respuesta": "2d54254d21b34425977fbd3538f53c91f8abdbe0d863eaaef661572821c23769",
+      "sha256_archivo": "11a9242c8203f2021a49bc974cc825e94d7ca26c406d24844d0e8e91106ac639",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202208.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-09-01&endDate=2022-09-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-09-01",
+        "endDate": "2022-09-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:03:09.034338+00:00",
+      "sha256_respuesta": "e2b330c6a4ed0ca2b0f10de6fc4310f831d5efe9e93b3b0f32d09f7ecc4783a6",
+      "sha256_archivo": "ee5f2721c4cc3c113b1d48d87e3f9dcb2f87a18a3b77bd6681c92b2cde9a1276",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202209.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-10-01&endDate=2022-10-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-10-01",
+        "endDate": "2022-10-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:03:14.382844+00:00",
+      "sha256_respuesta": "278588026608b8844a14f6c8863ad907b2aafac018dd369893abab4373ad8f8a",
+      "sha256_archivo": "cbd4c878987c21d62e6bc445a7320ea63b8015210f04dfb52a3243e9278269d3",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202210.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-11-01&endDate=2022-11-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-11-01",
+        "endDate": "2022-11-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:03:19.797943+00:00",
+      "sha256_respuesta": "55fd23043379243ce219a2173c07a72178de64955e9f11acfe4878669a80cf0c",
+      "sha256_archivo": "e47e76274db4e80ac80f2bfedc98bb48a0c197cc80b0fcbc4fa4b2028decd69a",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202211.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2022-12-01&endDate=2022-12-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2022-12-01",
+        "endDate": "2022-12-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:03:24.974589+00:00",
+      "sha256_respuesta": "63e956cce1b0bdeda799e087f73b51deebe1cf9b88a299daa26269af45f73816",
+      "sha256_archivo": "96d37c4f341c96dcc698ca460a818335c652faad82c12a1e24fa2a74774af302",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202212.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-01-01&endDate=2023-01-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-01-01",
+        "endDate": "2023-01-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:03:30.306069+00:00",
+      "sha256_respuesta": "a8b460d5de7f8b9aef4292abe73cb9520bcf9db8932a41ed19eb5e806ca75c2b",
+      "sha256_archivo": "90277b525e289fe77c8c9ced95285f5e0acad01bcbc7b607e76c649bb6a2678c",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202301.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-02-01&endDate=2023-02-28",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-02-01",
+        "endDate": "2023-02-28"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:03:36.460035+00:00",
+      "sha256_respuesta": "5ec49dd1a11b68b5151348edf83705d533c26baaa8b7fd445bf6e7843756d194",
+      "sha256_archivo": "f145b721279dd6a1367b163779f1597f5c7e6cf59ae6918957f749674d23ea86",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202302.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-03-01&endDate=2023-03-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-03-01",
+        "endDate": "2023-03-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:03:41.539145+00:00",
+      "sha256_respuesta": "5382669b571aca3efa126e8e29bc4d04e79055130d704f984ee6d0d6638e2899",
+      "sha256_archivo": "0b3f8b8957713a6ef3e23b4e5944234a81e572cddc10464870047ae5b7b3ffcd",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202303.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-04-01&endDate=2023-04-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-04-01",
+        "endDate": "2023-04-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:03:46.668060+00:00",
+      "sha256_respuesta": "e5d30da9029ee2cb214e4623ecc1615a8882e02363b0c7f6b0026a1593f04644",
+      "sha256_archivo": "7f57352d0f9bf9692b6e3c84406daf0e44329036686ea93f52d4192803227cb2",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202304.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-05-01&endDate=2023-05-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-05-01",
+        "endDate": "2023-05-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:03:52.069135+00:00",
+      "sha256_respuesta": "94ca1c1be68e75db880ba536b4c66ca27abc0d224a4b161ec5aeeab859b6cc33",
+      "sha256_archivo": "70fa148ea88b67c42de2680f7df3be27ff648c0b085a9550e13df9ea1bb2a86b",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202305.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-06-01&endDate=2023-06-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-06-01",
+        "endDate": "2023-06-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:03:57.203484+00:00",
+      "sha256_respuesta": "39c6408a6b755fee5d6bceed54b3a6bf9916b48737b49507ca90f054210e8859",
+      "sha256_archivo": "8cd060d71522cb9eba60c2ca65d7e9b40c50da83bb49e444c58827d271ace0df",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202306.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-07-01&endDate=2023-07-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-07-01",
+        "endDate": "2023-07-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:02.700163+00:00",
+      "sha256_respuesta": "9ba67a5fe6a0cd293d056b6b96b50d9f5f37a344b43d34a2369dfc3113a0e224",
+      "sha256_archivo": "7300aefa0a029114fafdbc34148f8dcc3f0d0781b62069b7e8600e405e166560",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202307.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-08-01&endDate=2023-08-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-08-01",
+        "endDate": "2023-08-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:07.983712+00:00",
+      "sha256_respuesta": "093a401bdb1ab544a0455cf81eda58fb0f1790471b1d85545861ab285971290e",
+      "sha256_archivo": "6b4cdc46f25da6a62fef7a8c2dfa88bb182c3d37de3f978ea7db933c3937c7b3",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202308.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-09-01&endDate=2023-09-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-09-01",
+        "endDate": "2023-09-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:13.267147+00:00",
+      "sha256_respuesta": "f2fdbf3ad1910533614cb8dc38886384f43441e13c6478e4e337967b59719eb8",
+      "sha256_archivo": "e45d90409e84d87f379840b55f4fb0032a153f2a1ddbe738de79fca10e95efdc",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202309.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-10-01&endDate=2023-10-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-10-01",
+        "endDate": "2023-10-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:18.336634+00:00",
+      "sha256_respuesta": "6f4a0340f09b79813a96a2699cb243a6f9e16af9cbd5d2dafc5bc5d65c4b4c6b",
+      "sha256_archivo": "601d6ba349a7fbbf4a7786c2e0d46404f241ffe15918f6e47340cca48d02c79b",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202310.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-11-01&endDate=2023-11-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-11-01",
+        "endDate": "2023-11-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:23.168167+00:00",
+      "sha256_respuesta": "51ad0cceb8c5be00d7a717ea2446a8bba328d4ec4f38a3ce382d5b7b914babe7",
+      "sha256_archivo": "5984837ac599ea344e210785df285fdeaa51f34924940437e4bb3cef611e8e89",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202311.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-12-01&endDate=2023-12-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2023-12-01",
+        "endDate": "2023-12-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:29.357516+00:00",
+      "sha256_respuesta": "cf192f1bd5577fc2f8fc7cc456acc612cf10f0d215c9c5d77539dac76ac23cea",
+      "sha256_archivo": "5a9edd44bcf4126b941a54fb8eb92bf0e3c1418bbb85f8dbbc906a538f5a055f",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202312.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-01-01&endDate=2024-01-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-01-01",
+        "endDate": "2024-01-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:34.344888+00:00",
+      "sha256_respuesta": "b8b4eefbf8f047e52eb1e55c75fb585a82859d5fbe2a470ed88d4bcb4e4f5ead",
+      "sha256_archivo": "214d0797fac3633f4286227d6fcc7c561ddaf66ba4abf7cc8bfa3198141d9607",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202401.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-02-01&endDate=2024-02-29",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-02-01",
+        "endDate": "2024-02-29"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:39.129366+00:00",
+      "sha256_respuesta": "ebc2c83a3154370e3b1b3f8265531912396f3f35e16412f3d46354a8b2d6f246",
+      "sha256_archivo": "f6b0c09f92dcf29e9db5a8ff9a39258b59cb6eadcdb1520abafb19174814d2a5",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202402.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-03-01&endDate=2024-03-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-03-01",
+        "endDate": "2024-03-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:44.380927+00:00",
+      "sha256_respuesta": "b0b05f527aec94d2b5f7d0a84413ebb6ef2fb958b8217d18a805eba6bb80744c",
+      "sha256_archivo": "a45491557fe91449a058bfd1312cd122250564c50e517454fcb672fcbe786dc5",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202403.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-04-01&endDate=2024-04-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-04-01",
+        "endDate": "2024-04-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:49.056002+00:00",
+      "sha256_respuesta": "a1610496511d1894df9d20f206173942dbd59377c839eea91c1f30d75b57f558",
+      "sha256_archivo": "ad63e373cf868074875490cbd1101b2b7cc78041bf6ba83960683c6958de8e5c",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202404.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-05-01&endDate=2024-05-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-05-01",
+        "endDate": "2024-05-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:53.972197+00:00",
+      "sha256_respuesta": "119ecda6655d5740334baffa4a2838002a345cffa86e2058adf194d2fb541a0c",
+      "sha256_archivo": "82500f5d0187a860e54704f742a353aef42a570e041f651987fed80ef6a3d0de",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202405.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-06-01&endDate=2024-06-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-06-01",
+        "endDate": "2024-06-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:04:58.840168+00:00",
+      "sha256_respuesta": "3625e6e46edeaddd03a482321e0aedd3d168e3fe9e0b94220c4a5bed79f4ee8f",
+      "sha256_archivo": "713240ce4cab6b072ff78bfa7f4073b82f8105fb0d7ecd0db620f6c12765ca66",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202406.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-07-01&endDate=2024-07-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-07-01",
+        "endDate": "2024-07-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:05:03.788251+00:00",
+      "sha256_respuesta": "889b9a576bef5bb7de96a704ec4a2e9458bcdb63b0e6dc4a1c89166ce08271ad",
+      "sha256_archivo": "618e24a47e0f48e301a6b418a0230663e99e67c7198a3461991e243d435b7969",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202407.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-08-01&endDate=2024-08-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-08-01",
+        "endDate": "2024-08-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:05:08.578597+00:00",
+      "sha256_respuesta": "9d08569e561ceb45718224864652c399d7dc803c3ee5058cbb5ab2ebc670382a",
+      "sha256_archivo": "692417e5c2bda3c4dc1fc881e8352edb3fbe5f3773dccee5177ee2f404221f76",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202408.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-09-01&endDate=2024-09-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-09-01",
+        "endDate": "2024-09-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:05:13.539615+00:00",
+      "sha256_respuesta": "d60e47e31124fa68bc63aa8853b3126550ecadf9128f0245f3365833d85974f6",
+      "sha256_archivo": "f42df39284bc7d706b64ce8784a1ca136468189f119280fefbe17f13e202717f",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202409.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-10-01&endDate=2024-10-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-10-01",
+        "endDate": "2024-10-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:05:18.208494+00:00",
+      "sha256_respuesta": "09f44819807a00e0608a7d9f5ac944a5da72c233637487f6baf1fe22dfb24dcb",
+      "sha256_archivo": "557fbeeb9fb763caf14537582ed2df9bbc9aa6d5643f22d33a470286c6b8cddf",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202410.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-11-01&endDate=2024-11-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-11-01",
+        "endDate": "2024-11-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:05:24.360745+00:00",
+      "sha256_respuesta": "dc41976da7089f258ed32a053cb6a4520c0ae9f351d44142bdce05b8cc4006c4",
+      "sha256_archivo": "07a30a651bbba172f1dedc36de24382df8198acbc4fb7a9f687d690ad5d3efe7",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202411.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2024-12-01&endDate=2024-12-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2024-12-01",
+        "endDate": "2024-12-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:05:29.573453+00:00",
+      "sha256_respuesta": "c8bb00147c799463e313171e9755b5165ffd87859582c826abed3509f3526c22",
+      "sha256_archivo": "6da698dfd19814c0827d7a6b4186d7a6084eb0e3a6d80b94727a88ad0b533e87",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202412.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-01-01&endDate=2025-01-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-01-01",
+        "endDate": "2025-01-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:05:36.733864+00:00",
+      "sha256_respuesta": "4a243514af1bb85acd8881f8bd65c476a32fe3d38cc2e0e151b529605ea5d4f4",
+      "sha256_archivo": "e4630d80ee72f0ecf6a6aa57b2975e947482e948958c83784bd9cdb1d0c37b0f",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202501.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-02-01&endDate=2025-02-28",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-02-01",
+        "endDate": "2025-02-28"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:05:41.487166+00:00",
+      "sha256_respuesta": "eced9d8cfb512c127ced130dc7d9103855175f60d91dbe8ff2852c100aa41293",
+      "sha256_archivo": "76182cbe6a61060964f94ac3bb58bf23b898bab742360ca930a043f6f6fddf6c",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202502.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-03-01&endDate=2025-03-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-03-01",
+        "endDate": "2025-03-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:05:46.445245+00:00",
+      "sha256_respuesta": "b2ccfd20e56e7ae679b4465973e418a3dca9786cf720639812e2ae50ea34cbdd",
+      "sha256_archivo": "95b2f5d20635ad1bb8023dfaf60ad95ea8406f42969dee7170da866021ad9bec",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202503.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-04-01&endDate=2025-04-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-04-01",
+        "endDate": "2025-04-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:05:51.232558+00:00",
+      "sha256_respuesta": "995a5df26b620b471ee621f5b3bad5aa9d05e8974ca2b68be0456a41830d860d",
+      "sha256_archivo": "c51ed4e47aeffba43a359083617ec631e8fcb69ab9d6bebff94af5c1fe01e8c7",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202504.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-05-01&endDate=2025-05-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-05-01",
+        "endDate": "2025-05-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:05:56.115673+00:00",
+      "sha256_respuesta": "d4dbed2a0e8b66199587dbdc441e57c88896c3af885462bf73841d7c6579124c",
+      "sha256_archivo": "824e8ab23a376bc746731219de9f4fef6069e265b75a14ab0ce871882b2da5c4",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202505.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-06-01&endDate=2025-06-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-06-01",
+        "endDate": "2025-06-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:01.106908+00:00",
+      "sha256_respuesta": "b1f406222445ff5be756eec524f0f509263e667dcb059b3c7cd3904a4e78c71c",
+      "sha256_archivo": "4cadf96a5cc33a899bf8402d35341adc195fc06f463b0788760b8c2035ba328c",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202506.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-07-01&endDate=2025-07-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-07-01",
+        "endDate": "2025-07-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:06.077870+00:00",
+      "sha256_respuesta": "540e3ba18d55a445b69e397fca896ea1497f5f56e29c5f4c66a7e05ce53eed68",
+      "sha256_archivo": "2eebf3859f6f39d04dc1fbb58d82241c53f9fe1f65c5ef8cbd1a7b0a12c374f6",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202507.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-08-01&endDate=2025-08-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-08-01",
+        "endDate": "2025-08-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:10.930057+00:00",
+      "sha256_respuesta": "fee0550f0e3e4912556ba0e75ed4ee69dc23c931e7fcb9ff95380eda2bb784d5",
+      "sha256_archivo": "4224d30ff6e61f12bf94c46a2a0cd9a8c3e7d1cde6c17d90cd296b58016966fc",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202508.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-09-01&endDate=2025-09-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-09-01",
+        "endDate": "2025-09-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:16.611363+00:00",
+      "sha256_respuesta": "092e887ceb870e160edf7876a61a6b5c34b917d12b9bb5dda4a616f1a6ecbe81",
+      "sha256_archivo": "8e2334c3cfb326dc056ac79a2f2663822232a866be7e5b39fd94848278fa0ba8",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202509.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-10-01&endDate=2025-10-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-10-01",
+        "endDate": "2025-10-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:21.520785+00:00",
+      "sha256_respuesta": "8af2a887d7c636ba1be46937a1610ac636f19abda146039d40ebab0b22256b54",
+      "sha256_archivo": "3532712f0ec2f62936488c6842e2ebbb58d17a0d1c03638f28fb0213bb70ce51",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202510.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-11-01&endDate=2025-11-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-11-01",
+        "endDate": "2025-11-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:26.379317+00:00",
+      "sha256_respuesta": "33d08e79b66a1187dc118dec48936be8cf6d5784ab69e420e7a7d258bdaa1af7",
+      "sha256_archivo": "c3fc601a8303140760fabd4c586ba4cd74861f4bc6da4a2b4d209ef4539f9a00",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202511.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2025-12-01&endDate=2025-12-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2025-12-01",
+        "endDate": "2025-12-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:31.025604+00:00",
+      "sha256_respuesta": "bdb272cdb7a771d87a45587ee5d9e6510672fd8ffe31a5e663d68fa75136de36",
+      "sha256_archivo": "59528491da187aa13280ae6ed30eb1be28e42c8568f21fc927149c483b93a2b1",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202512.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2026-01-01&endDate=2026-01-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2026-01-01",
+        "endDate": "2026-01-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:35.727831+00:00",
+      "sha256_respuesta": "31c02ffec88bd0dae7b0a035638dde6a2d76b5ed3d570984a2d34a1706b592cb",
+      "sha256_archivo": "0fed6d80b8ab3952b2b10010ec1d5c5d735252c8144514598c653ef9eaae7b97",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202601.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2026-02-01&endDate=2026-02-28",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2026-02-01",
+        "endDate": "2026-02-28"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:40.545767+00:00",
+      "sha256_respuesta": "31e7b43dcd4cf47896f6d13c279945cf5999fc664768efe2ba60a7b9124cbb39",
+      "sha256_archivo": "2e9a58279adb3c03f6add935148de36e8f08ffe7c2d3f28250792c37adde08d0",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202602.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2026-03-01&endDate=2026-03-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2026-03-01",
+        "endDate": "2026-03-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:45.261592+00:00",
+      "sha256_respuesta": "30cdbad41d2ffb9f55b88242508c41d5115a1b73dbb00642223fa572d489b0d4",
+      "sha256_archivo": "95849188b65e06be1db736f7b54e13a67f4b1c9f5a28ba35c9e1e5c4cc5a2164",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202603.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2026-04-01&endDate=2026-04-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2026-04-01",
+        "endDate": "2026-04-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:52.541104+00:00",
+      "sha256_respuesta": "b4d623eeca52f9ce9b51e1a3571edd452469146c1edda3d6d103008f9ffc2b94",
+      "sha256_archivo": "bc4c00785caccb7ab976294790d92c89bf50729fb139528f388b8bcea877bd90",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202604.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2026-05-01&endDate=2026-05-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2026-05-01",
+        "endDate": "2026-05-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:06:58.918141+00:00",
+      "sha256_respuesta": "9e8b21fbba7d8a1f3d091480d338837f46bcd014fd3ca06d060c9689cdfcce4c",
+      "sha256_archivo": "2fa579891adac771d69868b937197ae12eab5ca52457a58cdc110d2f546b77cb",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202605.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2026-06-01&endDate=2026-06-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2026-06-01",
+        "endDate": "2026-06-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:07:04.071357+00:00",
+      "sha256_respuesta": "93342e347b13bb6a8db7f6a4504666d49bdc59e93524a6055e7c31eed712b49c",
+      "sha256_archivo": "7a4ef8f0b37e7e9522efec91f502202b081066c7de1bbbb304731035dadb3977",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202606.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2026-07-01&endDate=2026-07-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2026-07-01",
+        "endDate": "2026-07-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:07:10.258132+00:00",
+      "sha256_respuesta": "c98994c2f3dca77fa4abc99348158aad92dcd1141e7c838d5ba6c5fb40c67bf7",
+      "sha256_archivo": "0d526b80aa259327f29d54dc9e7cd762818949512c4bca8184780f9b16a53cf8",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202607.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2026-08-01&endDate=2026-08-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2026-08-01",
+        "endDate": "2026-08-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:07:15.894024+00:00",
+      "sha256_respuesta": "273967e0ede58e5f45da76508698822b7a855c6d430b3a3f3af5c6d3894c4b90",
+      "sha256_archivo": "a43cb725cef7b6218c5398be68fca18511f510feba5deb686ad2d3bf088185f0",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202608.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2026-09-01&endDate=2026-09-30",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2026-09-01",
+        "endDate": "2026-09-30"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:07:20.623431+00:00",
+      "sha256_respuesta": "f9ce80b5d09965d558a117d5b44b90526d7b79d837c9650f6c7d7048602d6a81",
+      "sha256_archivo": "d9781bf2f1f500179fd774d2758907aee7dc361b4411778b4063d635d477bf92",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202609.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2026-10-01&endDate=2026-10-31",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-31"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:07:27.483870+00:00",
+      "sha256_respuesta": "c83a6980efee6f9448ce6c589ed9ae632a59998da6f4767466ccf2d98d28e611",
+      "sha256_archivo": "b0e57c1cd5460d97ad34b2fa74f942fcc8f1041c8963531b6c4f6f8833653e32",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202610.json.gz"
+    },
+    {
+      "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2026-11-01&endDate=2026-11-09",
+      "params": {
+        "datasetId": "63d90d",
+        "startDate": "2026-11-01",
+        "endDate": "2026-11-09"
+      },
+      "body": null,
+      "recuperado_utc": "2026-11-10T19:07:31.733915+00:00",
+      "sha256_respuesta": "5e1302766a3fbe8d8231c7e2a5eedd05397d90d6370d5fae4cc37fbcc93bb242",
+      "sha256_archivo": "304587870665f169a85dcd9b637df7aefa966fd42bbff328cc350957f27f1598",
+      "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202611.json.gz"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=4.8133&longitude=-75.6961&hourly=temperature_2m_previous_day1%2Ctemperature_2m_previous_day2%2Ctemperature_2m_previous_day3%2Crelative_humidity_2m_previous_day1%2Crelative_humidity_2m_previous_day2%2Crelative_humidity_2m_previous_day3%2Cprecipitation_previous_day1%2Cprecipitation_previous_day2%2Cprecipitation_previous_day3&models=jma_gsm&start_date=2024-01-01&end_date=2024-12-31&timezone=America%2FBogota",
+  "params": {
+    "latitude": 4.8133,
+    "longitude": -75.6961,
+    "hourly": "temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3,relative_humidity_2m_previous_day1,relative_humidity_2m_previous_day2,relative_humidity_2m_previous_day3,precipitation_previous_day1,precipitation_previous_day2,precipitation_previous_day3",
+    "models": "jma_gsm",
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "timezone": "America/Bogota"
+  },
+  "recuperado_utc": "2026-11-10T19:02:59.216333+00:00",
+  "sha256_respuesta": "6b67143ada7a51d1b6d33c8bf2ddffd3f11df765c1d0383dc41bbdc270cd6c73",
+  "bytes_respuesta": 512601,
+  "sha256_archivo": "fef8fc0fdf945d28b4dda4c85f56a5bfc89b85adab0cb6ff90c90e6d2f2af614",
+  "archivo": "data/external/pronosticos_temperatura/originales/pereira_jma_gsm_2024.json.gz",
+  "lat_malla": 5.0,
+  "lon_malla": -75.5,
+  "elevacion_m": 1410.0
+}

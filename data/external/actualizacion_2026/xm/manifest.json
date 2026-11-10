@@ -1,0 +1,1013 @@
+{
+  "filas_horarias": 7512,
+  "filas_diarias": 313,
+  "nulos_horarios": {
+    "demanda_real_kwh": 48,
+    "demanda_comercial_kwh": 48,
+    "precio_bolsa_cop_kwh": 48
+  },
+  "nulos_diarios": {
+    "reserva_util_kwh": 0,
+    "capacidad_util_kwh": 0,
+    "aportes_kwh_dia": 0,
+    "llenado_pct": 0
+  },
+  "ultimos_validos": {
+    "demanda_real_kwh": "2026-11-07 23:00:00-05:00",
+    "demanda_comercial_kwh": "2026-11-07 23:00:00-05:00",
+    "precio_bolsa_cop_kwh": "2026-11-07 23:00:00-05:00"
+  },
+  "originales": [
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaReal",
+        "Entity": "Sistema",
+        "StartDate": "2026-01-01",
+        "EndDate": "2026-01-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:02.219864+00:00",
+      "sha256_respuesta": "541d1617a8cbb8df3e0bd23adcd469530f5e1c4ec807ee906b187425079a32f4",
+      "sha256_archivo": "3c291e85b5d604a0a7b1804ff17f9cbbd11eaa11e2f6e6f21b8b2275e511a6c7",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202601.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaReal",
+        "Entity": "Sistema",
+        "StartDate": "2026-02-01",
+        "EndDate": "2026-02-28",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:04.924149+00:00",
+      "sha256_respuesta": "13b1674b2714cf21e3e5bb12d3a84b5a3e6dbf7f33dce1d2d4e520da25605301",
+      "sha256_archivo": "a0e7d7b300f3727588b09eeb0829c7c10d68f38a5d9d8fcac69bb1272415f7d8",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202602.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaReal",
+        "Entity": "Sistema",
+        "StartDate": "2026-03-01",
+        "EndDate": "2026-03-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:06.948825+00:00",
+      "sha256_respuesta": "74c46bfbbae890e834a8b3b31723720fe4586286d30f555431d7eff509f7a074",
+      "sha256_archivo": "c2e0b6b13468d0f31dd3addf3a26ed4ba35080368144dbfc1fd5e8b5bf043535",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202603.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaReal",
+        "Entity": "Sistema",
+        "StartDate": "2026-04-01",
+        "EndDate": "2026-04-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:09.490312+00:00",
+      "sha256_respuesta": "5ff04eea43d30c9549275971ef6582957b159a42accbf84b4b4a6180527d2458",
+      "sha256_archivo": "c407d3fa5ac7fdbbc00b0db52fc1ff7a70f0840bc4882b5fe540c36ff3e1dc90",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202604.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaReal",
+        "Entity": "Sistema",
+        "StartDate": "2026-05-01",
+        "EndDate": "2026-05-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:11.446424+00:00",
+      "sha256_respuesta": "5c100beb1122e6f02cdee838db1cd8766d75c15edea9384e0e23906d83bd26e7",
+      "sha256_archivo": "c55f3fd87367cc409b6753c9dde4cfd5f77dd2eb818c172cb127ec35524aadd5",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202605.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaReal",
+        "Entity": "Sistema",
+        "StartDate": "2026-06-01",
+        "EndDate": "2026-06-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:13.907136+00:00",
+      "sha256_respuesta": "7fb6dffcc5e2d9fa37dbc42cc211e2081f22834b3108918c6480e09db7daa514",
+      "sha256_archivo": "d4625722367987ba0665d9e85accbf53d61b9779eed27b5898ae32663a43ed1a",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202606.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaReal",
+        "Entity": "Sistema",
+        "StartDate": "2026-07-01",
+        "EndDate": "2026-07-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:15.671692+00:00",
+      "sha256_respuesta": "89e018cacdfcebaa5d6e1194e384eaf2c18fde6778f5b98fc368e2b427205005",
+      "sha256_archivo": "4075e6c064cc7cf7c09ec1238d394537ab31460021a10cd8f272e62878711c76",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202607.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaReal",
+        "Entity": "Sistema",
+        "StartDate": "2026-08-01",
+        "EndDate": "2026-08-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:17.562775+00:00",
+      "sha256_respuesta": "2a3961d79804eb0228379e2217ff55a03277352eb5a4b7a6e3677b11f091cf7c",
+      "sha256_archivo": "8aa79b5aa1f941273e6ecacea72aea7286c374abe82fec856839f47942132d11",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202608.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaReal",
+        "Entity": "Sistema",
+        "StartDate": "2026-09-01",
+        "EndDate": "2026-09-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:20.413065+00:00",
+      "sha256_respuesta": "be317f32eb4590d9623a22cbb541ee6a07d7720ed600f8a4a932dcabbdbffb70",
+      "sha256_archivo": "76cdaf362a67f71a7284a0a9ab9a45955e3369437578ee5a7287e032ab2760e1",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202609.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaReal",
+        "Entity": "Sistema",
+        "StartDate": "2026-10-01",
+        "EndDate": "2026-10-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:23.722515+00:00",
+      "sha256_respuesta": "cfe2c8146c1ee0cf49f419b4121aa44f2e4efad28346404ee545c80f10337363",
+      "sha256_archivo": "30794e8a7d19802c8d4422fd8fba2eb40642db0fcdddb1063a247309af9e01b3",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202610.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaReal",
+        "Entity": "Sistema",
+        "StartDate": "2026-11-01",
+        "EndDate": "2026-11-09",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:24.825452+00:00",
+      "sha256_respuesta": "425823b535ee79e25f19533844ad63b66fcf730a87429af73c6f89a3123fac75",
+      "sha256_archivo": "4cf784b50eb201a1fe8fcd20331b3b7468dd8d5009ca462b9ba989cc20188e0d",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaReal_202611.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaCome",
+        "Entity": "Sistema",
+        "StartDate": "2026-01-01",
+        "EndDate": "2026-01-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:25.890381+00:00",
+      "sha256_respuesta": "70fd7c12bb1351d810f092d44c851acc9f8a4326b24ff29df186b003bdf0d85d",
+      "sha256_archivo": "d9c870cc4af0949e13de0720511d84bb07ba8fe85314400de605edf571668cc9",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202601.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaCome",
+        "Entity": "Sistema",
+        "StartDate": "2026-02-01",
+        "EndDate": "2026-02-28",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:26.860662+00:00",
+      "sha256_respuesta": "87007f157f625e8c2e0df6e542a69b2276537dab15601c55c9a5df142e857719",
+      "sha256_archivo": "7551bd65616fea2ca3d46699091471a5e7e7b4ed25dac0d4f0fff15ad3ac7f12",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202602.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaCome",
+        "Entity": "Sistema",
+        "StartDate": "2026-03-01",
+        "EndDate": "2026-03-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:28.154867+00:00",
+      "sha256_respuesta": "1f41975bb792fba97f502cfab4ddca9bc70bb7ddfb952235d200f698ea1e5791",
+      "sha256_archivo": "71e54ec9370f5526ec240414e9bcd5476248ae61ce184f295e7e79ea52f2813b",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202603.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaCome",
+        "Entity": "Sistema",
+        "StartDate": "2026-04-01",
+        "EndDate": "2026-04-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:29.144607+00:00",
+      "sha256_respuesta": "da8fd1bf11f691db6bbbc9303d3598e5220e35bff4b4614d1cefdbe0ceb629bc",
+      "sha256_archivo": "8ae35a60c3b9845bb7fae408bf7bf4c2cac4dfe1601b661d637de178cc44c4c2",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202604.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaCome",
+        "Entity": "Sistema",
+        "StartDate": "2026-05-01",
+        "EndDate": "2026-05-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:30.136899+00:00",
+      "sha256_respuesta": "098d52a0ef7370818226844e63c3709c029c640a6a745f3d59dbe5e02e3c1a40",
+      "sha256_archivo": "510f8c9dccd5caf3f560a1ce8b476b5d73b2d7ff539d7b717703ca82f7164029",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202605.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaCome",
+        "Entity": "Sistema",
+        "StartDate": "2026-06-01",
+        "EndDate": "2026-06-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:31.150643+00:00",
+      "sha256_respuesta": "9479b86a1ed3c2f0a7cc4c227124a847069dea3ceb4f4034ede1d397ae3926fd",
+      "sha256_archivo": "6abd8eed8da87aab398cd82ba9661a9380b3c29fb57f683b946e806db1483d47",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202606.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaCome",
+        "Entity": "Sistema",
+        "StartDate": "2026-07-01",
+        "EndDate": "2026-07-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:32.130911+00:00",
+      "sha256_respuesta": "8770bb7dd5ec616f8b18a60c8f7cbe3e656f0df8d142916558020bfe1eb9b7c5",
+      "sha256_archivo": "8d140074e01de91cdc7c79fc73a1cc5eb3d8501e84adacafb46e102d5f810ca6",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202607.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaCome",
+        "Entity": "Sistema",
+        "StartDate": "2026-08-01",
+        "EndDate": "2026-08-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:33.446634+00:00",
+      "sha256_respuesta": "da16f415350d77d3373bc9f517c6e7c89ca12bc682119132d2fa8c859c0abeeb",
+      "sha256_archivo": "635755210f9d0079b6a2980b5f9ef2cde7ededede55d6f02a6d3f0499318b05a",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202608.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaCome",
+        "Entity": "Sistema",
+        "StartDate": "2026-09-01",
+        "EndDate": "2026-09-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:34.420660+00:00",
+      "sha256_respuesta": "6747becd52a198b9055242e730b36399e41664df5a5cee47d77f337229e29eea",
+      "sha256_archivo": "f50b7c1ac8cb77b70314cdcdbf44cd036663174bd32bf64c6ee9fd7122f9bb08",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202609.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaCome",
+        "Entity": "Sistema",
+        "StartDate": "2026-10-01",
+        "EndDate": "2026-10-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:35.437770+00:00",
+      "sha256_respuesta": "5399aff19f99642a3a916d895f2dc5c0d88eef0e264e00542a4b1a9b75e8e9b2",
+      "sha256_archivo": "ac5a90f917dc8e2ad4a00b39fd6f54e6103bde5173347e5147a67ca01a4f4f17",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202610.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "DemaCome",
+        "Entity": "Sistema",
+        "StartDate": "2026-11-01",
+        "EndDate": "2026-11-09",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:36.398043+00:00",
+      "sha256_respuesta": "918e7850148d4c521854e9ba0bd9c73bea48f6b338c6a51f52ef9ac45c49ca1d",
+      "sha256_archivo": "3303c53371e68555e04fb70f9218d160221b53114cfe8f7200b8719078e7cf87",
+      "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202611.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "PrecBolsNaci",
+        "Entity": "Sistema",
+        "StartDate": "2026-01-01",
+        "EndDate": "2026-01-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:37.826445+00:00",
+      "sha256_respuesta": "13906a3fad063d69e4c5dd236f98ce6963066e348d1c42645c74f70e9618d0d8",
+      "sha256_archivo": "17b11cebcc71e59d935544dc18ef6f86386644e7af6e677c711f4593286ab0e6",
+      "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202601.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "PrecBolsNaci",
+        "Entity": "Sistema",
+        "StartDate": "2026-02-01",
+        "EndDate": "2026-02-28",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:38.767612+00:00",
+      "sha256_respuesta": "583995a925b94b6a5b37fcb32ed68792863cc00b7a09a1e4b9dab795e64bf39e",
+      "sha256_archivo": "9b0238aaba5494ac5d6a45da1d58de3d52d85c29c668b233681dd6218438f20b",
+      "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202602.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "PrecBolsNaci",
+        "Entity": "Sistema",
+        "StartDate": "2026-03-01",
+        "EndDate": "2026-03-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:39.795373+00:00",
+      "sha256_respuesta": "c1c0bc8f6277ee0aae26d2b182df255f0903cb9aa9c9b3caf8906f51bf25ed43",
+      "sha256_archivo": "7b43b467ad3b6fe2db38bdac72efd77a2d0a8293ce1edb2c0adba5163f9daa75",
+      "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202603.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "PrecBolsNaci",
+        "Entity": "Sistema",
+        "StartDate": "2026-04-01",
+        "EndDate": "2026-04-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:41.080141+00:00",
+      "sha256_respuesta": "bc64309e653e83e858267f23cf62721f52fd2e1924cad3fe4c53ef190b10975a",
+      "sha256_archivo": "02cf1e204ebecb513a01f3cb78ca9ce8e39553ad166c8280290f0c06083e01e7",
+      "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202604.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "PrecBolsNaci",
+        "Entity": "Sistema",
+        "StartDate": "2026-05-01",
+        "EndDate": "2026-05-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:42.104321+00:00",
+      "sha256_respuesta": "4a6549f84cea7746181652b5af85b18a27232ba4f0db7d2c5ebb2c7045e861ed",
+      "sha256_archivo": "b8b88ff2fd60cbbe8e170b6c12d4d796df1f7a434445adb3f59719f71ccdc9be",
+      "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202605.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "PrecBolsNaci",
+        "Entity": "Sistema",
+        "StartDate": "2026-06-01",
+        "EndDate": "2026-06-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:43.029123+00:00",
+      "sha256_respuesta": "90566cd682ea5dde93f03ac6ada1adbafa8cde145c98b40b48d46f4101504c1f",
+      "sha256_archivo": "1bcb9c209f3236936587b4b08627ae4ae73eb50ea84aea48f9254deaf753b5fe",
+      "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202606.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "PrecBolsNaci",
+        "Entity": "Sistema",
+        "StartDate": "2026-07-01",
+        "EndDate": "2026-07-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:43.950998+00:00",
+      "sha256_respuesta": "fe100ec0615d5bedb3dd9ceda226d4af57ae8e7b892295494c8a702c010e6fe2",
+      "sha256_archivo": "2c71dc8dd7b2a3eb3603b1122a0514b8ec4c118479f84ac361a24ede69be0d0b",
+      "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202607.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "PrecBolsNaci",
+        "Entity": "Sistema",
+        "StartDate": "2026-08-01",
+        "EndDate": "2026-08-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:45.041086+00:00",
+      "sha256_respuesta": "f9374941fe0e638b40056ad7bcc56a1c4c1266acc66c0525bcb9c953017864c0",
+      "sha256_archivo": "69f91670a36271ddf18f89ace561847675860391ad777e098978092f78351967",
+      "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202608.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "PrecBolsNaci",
+        "Entity": "Sistema",
+        "StartDate": "2026-09-01",
+        "EndDate": "2026-09-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:45.948701+00:00",
+      "sha256_respuesta": "779286ffdf512d87cbc676697a405d5401129f95ebf8b666291384de0f5ddd3a",
+      "sha256_archivo": "7aa37332ad37c6dbe38081ee75ab8ad2036d04a90d0867961f6232f3a264b225",
+      "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202609.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "PrecBolsNaci",
+        "Entity": "Sistema",
+        "StartDate": "2026-10-01",
+        "EndDate": "2026-10-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:47.280991+00:00",
+      "sha256_respuesta": "3c1bd894a4c0cc2fcbbf3743ae3ba7e198c7347364b7d83c7988600eeedf6191",
+      "sha256_archivo": "047e63fb094153d356f0a1c4c503d17e76f2516a372618669ae387b4fdf5a802",
+      "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202610.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/hourly",
+      "params": null,
+      "body": {
+        "MetricId": "PrecBolsNaci",
+        "Entity": "Sistema",
+        "StartDate": "2026-11-01",
+        "EndDate": "2026-11-09",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:48.202154+00:00",
+      "sha256_respuesta": "9ba4910927b46a4c77afdb9012d3c7bac031b1726e648f67c6c09c566be60feb",
+      "sha256_archivo": "ca289e4f80391d89a0121f2c4f301aa537cd888ed13ae896f542506a7fe60d3c",
+      "archivo": "data/external/actualizacion_2026/xm/originales/PrecBolsNaci_202611.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "VoluUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-01-01",
+        "EndDate": "2026-01-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:49.161511+00:00",
+      "sha256_respuesta": "11b75cd6739171903720e202fb0fefdba711460a4640f019de1d64fd5b57a91a",
+      "sha256_archivo": "2741d241b19227eaa76a1542cd202add6de6acd419a99a5935b6ccf69c89235d",
+      "archivo": "data/external/actualizacion_2026/xm/originales/VoluUtilDiarEner_202601.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "VoluUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-02-01",
+        "EndDate": "2026-02-28",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:50.104433+00:00",
+      "sha256_respuesta": "c0e9e16c0558f8bd084df211d1510964cdfb6b6d9b15dcb3cb6945a3cc69ade4",
+      "sha256_archivo": "601f8d8a43afa9258c54b193a16cadd8445292d8242d73cd4ef96abc3473b5ee",
+      "archivo": "data/external/actualizacion_2026/xm/originales/VoluUtilDiarEner_202602.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "VoluUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-03-01",
+        "EndDate": "2026-03-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:51.109711+00:00",
+      "sha256_respuesta": "eefe31395e96d2e76288fd521348c0bc2a5b90f09c85c8c00cec90ac6b78a866",
+      "sha256_archivo": "ca7161cb58ae2846f876fdcdc90a56ad802ae0d9f75c81c9b951dee50076f569",
+      "archivo": "data/external/actualizacion_2026/xm/originales/VoluUtilDiarEner_202603.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "VoluUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-04-01",
+        "EndDate": "2026-04-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:52.410838+00:00",
+      "sha256_respuesta": "2d91c0cd0ecd9f105619c342bf65c2b848dbec0bc5e818c75615196b5a4ceee6",
+      "sha256_archivo": "11257dfd326a1bf28385c3767a291fede9bd71bc7050418861fdd3f3e2338efd",
+      "archivo": "data/external/actualizacion_2026/xm/originales/VoluUtilDiarEner_202604.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "VoluUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-05-01",
+        "EndDate": "2026-05-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:53.526368+00:00",
+      "sha256_respuesta": "56558011c34ea23e6a52c5fcc65afaef6a2c6d0f775cd2c7be3551643ff3cf5d",
+      "sha256_archivo": "614efed72a939df0841292aca8a0052b74cf94bb21a1f1af59bcb0a12e844c57",
+      "archivo": "data/external/actualizacion_2026/xm/originales/VoluUtilDiarEner_202605.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "VoluUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-06-01",
+        "EndDate": "2026-06-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:54.431882+00:00",
+      "sha256_respuesta": "4ed266d51066f0dd524050b089aae7edf15a4d0b06548a39907c79884648b686",
+      "sha256_archivo": "6cf12a6e5d4c524f306d3d0e30acd51062e2870ba5d0d50e9a4491203326ecb5",
+      "archivo": "data/external/actualizacion_2026/xm/originales/VoluUtilDiarEner_202606.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "VoluUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-07-01",
+        "EndDate": "2026-07-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:55.328341+00:00",
+      "sha256_respuesta": "4bbbd39983b2267bd7aee6da97238cf896a484e54d2e1c1f33e0f07837e22474",
+      "sha256_archivo": "78aa719b6390381f1f5f0c06b93ac0a62214a7c4e73e07b72f6a30e6eea32e5d",
+      "archivo": "data/external/actualizacion_2026/xm/originales/VoluUtilDiarEner_202607.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "VoluUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-08-01",
+        "EndDate": "2026-08-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:56.166473+00:00",
+      "sha256_respuesta": "e136988c3f3eb8dfae7938c2afc7c6d1dfbf0bc3ca001a7ae0389795ba297cb0",
+      "sha256_archivo": "961bf2fe9d06160d8f34d3f37c678c0df27880892d4c1d225fba0754ccb4cf1b",
+      "archivo": "data/external/actualizacion_2026/xm/originales/VoluUtilDiarEner_202608.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "VoluUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-09-01",
+        "EndDate": "2026-09-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:56.977811+00:00",
+      "sha256_respuesta": "61be607ec72bd25aa4b8f68296c7fc4536f663c4755738aec86f217021120b7c",
+      "sha256_archivo": "06e344255dbc92460e49eab23c51abd0f44d6603365da5b02881488f75c93b0f",
+      "archivo": "data/external/actualizacion_2026/xm/originales/VoluUtilDiarEner_202609.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "VoluUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-10-01",
+        "EndDate": "2026-10-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:57.818037+00:00",
+      "sha256_respuesta": "9cce26fb501ea2e400866a31440749547564caf5a63f6435f30b88fada0d0dd8",
+      "sha256_archivo": "e7f9a8ddb1576dbeb11f095922f886f2bbfef70b4df799cc0e13eee5f9d81dfc",
+      "archivo": "data/external/actualizacion_2026/xm/originales/VoluUtilDiarEner_202610.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "VoluUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-11-01",
+        "EndDate": "2026-11-09",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:58.617716+00:00",
+      "sha256_respuesta": "895dac40bc13ae42c5172cd515c6fe247d25bc4808ef5b51468d45b160208ac9",
+      "sha256_archivo": "a547efdcb7f083a88804fe33da3ec030730a5cb4be77e05d9e6c6f032b9a499c",
+      "archivo": "data/external/actualizacion_2026/xm/originales/VoluUtilDiarEner_202611.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "CapaUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-01-01",
+        "EndDate": "2026-01-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:01:59.440816+00:00",
+      "sha256_respuesta": "8545daa75b98b9a6cef51480e86b27ac1aee1f349949546a89db5d33f54e40fd",
+      "sha256_archivo": "f0e5f9914689a776e138a72f84e90de1e5a782f7ded7c0ec9ed7f796d4498805",
+      "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202601.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "CapaUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-02-01",
+        "EndDate": "2026-02-28",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:00.462482+00:00",
+      "sha256_respuesta": "10e740efff0f19ef1afdbe49a381c3c03dad9da8510ba5ecd8c6de7217227114",
+      "sha256_archivo": "a15ba2a8bb16e73e29c83dd2df5d231da72be00f72b70dbb265bba9f7bf885ac",
+      "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202602.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "CapaUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-03-01",
+        "EndDate": "2026-03-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:01.284788+00:00",
+      "sha256_respuesta": "461a82ad4091b573cddcf4bfd89e6cd507c48df7d2d9432470a876c3ea4c6b16",
+      "sha256_archivo": "2455cfcba0f5031aa8ab3f281dfb128672c480012a2ff29691c2a1ca64162579",
+      "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202603.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "CapaUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-04-01",
+        "EndDate": "2026-04-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:02.149058+00:00",
+      "sha256_respuesta": "dfe7d8018d2a4e8f60055dc393890c63f991ef53c9f62791037b8bd59b676d9b",
+      "sha256_archivo": "3a0154889a17a09daf2ab7d6eabd3dd40f4430c9854b0e41548a8fdc3446e296",
+      "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202604.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "CapaUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-05-01",
+        "EndDate": "2026-05-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:02.974175+00:00",
+      "sha256_respuesta": "bf52195d6a9d61e30c1d0e85e5d172837257a1b27cf002ad905c6b8a4ad7332b",
+      "sha256_archivo": "bba3750bf6761569e74b9b0fcb16682240e8e752adbd3ce042b6de3e01f135da",
+      "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202605.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "CapaUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-06-01",
+        "EndDate": "2026-06-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:03.842862+00:00",
+      "sha256_respuesta": "d4633ab46590047b2428f1abc9cbb1857a9d99b9d7204e12cdd65f26269627e3",
+      "sha256_archivo": "4ea27b8b12e8adb0e3f8f8a8e01b05a21a7f23ee951f76d93f47310e9561f3f5",
+      "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202606.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "CapaUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-07-01",
+        "EndDate": "2026-07-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:04.893950+00:00",
+      "sha256_respuesta": "618566e88b2d0355bd996012d1ba5d4a6fbc3c4471ffff8d05ca35c49fba23df",
+      "sha256_archivo": "4d884ca329c94131d87e710aa5a327bd823ac4c0b7ea25657134c0c90ac65c61",
+      "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202607.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "CapaUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-08-01",
+        "EndDate": "2026-08-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:05.750919+00:00",
+      "sha256_respuesta": "46aeac39ef16f6ee223cd30775e09bb5b4a7b45d7aa9ca3689249412e06022e3",
+      "sha256_archivo": "9f59f77d606afb8604ab4f188693ae3a4cccef598323dbab197c13152b292e16",
+      "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202608.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "CapaUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-09-01",
+        "EndDate": "2026-09-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:06.735593+00:00",
+      "sha256_respuesta": "8fc7cef11fce005a2af14b991fea0d577e281fdbadd402fee19b3f429d6908dd",
+      "sha256_archivo": "be6073b144f8e2b434627cad856dc7d423fbae6d7ffffb6eafe98cb0a6c9784d",
+      "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202609.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "CapaUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-10-01",
+        "EndDate": "2026-10-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:07.782853+00:00",
+      "sha256_respuesta": "2796a4c72ceb69bb1462254a1fa00356e58087b7ccee3dd9188b91869e722f3f",
+      "sha256_archivo": "5eb2900f32dcffbd29d1973ed5790eaa8fa7f286c42f1a9bf250ef26d99c1640",
+      "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202610.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "CapaUtilDiarEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-11-01",
+        "EndDate": "2026-11-09",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:08.613181+00:00",
+      "sha256_respuesta": "da8cc0d8caf0bf29e986f9b3e928a230bc7a1d8eb542b17f0cc3d3f74214f268",
+      "sha256_archivo": "85839ea3eafeac78956fe7a1a5d294331bd0b2361afafd3600a43791d4f178a3",
+      "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202611.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "AporEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-01-01",
+        "EndDate": "2026-01-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:09.540180+00:00",
+      "sha256_respuesta": "578c35862f885e74a262aa970c4d08565e646fe2adbb6e8dd8e130155c76e551",
+      "sha256_archivo": "55c466e314048c3a11a153dbf20031aa9efb2be008971e96a4cd90f9946de588",
+      "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202601.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "AporEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-02-01",
+        "EndDate": "2026-02-28",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:10.408790+00:00",
+      "sha256_respuesta": "905ab4d1382b6acb039cf68b986488e53e717c1c63b1ae9d4c8aa5e6dd75a1d4",
+      "sha256_archivo": "783cbe7ec858a799a2c57ddbbe130c058a01dfdee5b1f2585c9215cf3f53834b",
+      "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202602.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "AporEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-03-01",
+        "EndDate": "2026-03-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:11.423020+00:00",
+      "sha256_respuesta": "3819fe863dfaed6b73ab09a3b9005f3ca72b29c6085604f606280b860592499c",
+      "sha256_archivo": "30f6072ebb15c5157f2cc4ce750542e9c9b2dd3d8a5107961edf9c87a6bf42b5",
+      "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202603.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "AporEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-04-01",
+        "EndDate": "2026-04-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:12.334284+00:00",
+      "sha256_respuesta": "22206fea7186c1a6ef670f00cf1122ca9a5fe05df2a86839bef2f6a837d50378",
+      "sha256_archivo": "57428e46cdce69bf7ce1aebb205537a61488759d7f0c420d6f9488a285a3c1eb",
+      "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202604.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "AporEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-05-01",
+        "EndDate": "2026-05-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:13.549607+00:00",
+      "sha256_respuesta": "32feb480bbf84fedc1c29f8ce3613bc7a685cb49a5e2f02102d4f843a1abe697",
+      "sha256_archivo": "b377738ec9ae713c7477dc053731f4696b87a2c2115b59389a05bf6d4361092a",
+      "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202605.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "AporEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-06-01",
+        "EndDate": "2026-06-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:14.484135+00:00",
+      "sha256_respuesta": "d3cd4865b996ab5f97030694f15ccff76a107247eff9603f53f0f39bebc19ca9",
+      "sha256_archivo": "b990619f574effc11c17c561753741b01dbbfe5bebb44b39306deb9c113db482",
+      "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202606.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "AporEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-07-01",
+        "EndDate": "2026-07-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:15.340026+00:00",
+      "sha256_respuesta": "bb67b4edd7a09d016005ef2d9a50201f8fd13bef9f0a84659331331f1b827a0d",
+      "sha256_archivo": "615595b53b9c17aea9710313270ee583ded1aa81a6c5fdd685409ff4692482ae",
+      "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202607.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "AporEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-08-01",
+        "EndDate": "2026-08-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:16.574469+00:00",
+      "sha256_respuesta": "f64f4f8b75eb34d22e13cb9f1795dc06b160e192d002c380c507906b9e9ebb90",
+      "sha256_archivo": "be89c90b7af2569413b68345040719e9e660c3d0652027993aeea2b8cafda25a",
+      "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202608.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "AporEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-09-01",
+        "EndDate": "2026-09-30",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:17.482213+00:00",
+      "sha256_respuesta": "b6bb191d065fc000ab323d31600be8d2474f892c55a4dad293e42899b135e445",
+      "sha256_archivo": "b9d66d85133e5f013208e709bb873b1fde18850eaea698103cc55abac11488e1",
+      "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202609.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "AporEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-10-01",
+        "EndDate": "2026-10-31",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:18.355214+00:00",
+      "sha256_respuesta": "31f44554b14a5e8887474ba4c790ca4614bd0ec9530082629a832e63df895467",
+      "sha256_archivo": "10edbc2e1f57a87a31ab184b3f80ff77530f64f5d8cbcc8b59121be06502e53c",
+      "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202610.json.gz"
+    },
+    {
+      "url": "https://servapibi.xm.com.co/daily",
+      "params": null,
+      "body": {
+        "MetricId": "AporEner",
+        "Entity": "Sistema",
+        "StartDate": "2026-11-01",
+        "EndDate": "2026-11-09",
+        "Filter": []
+      },
+      "recuperado_utc": "2026-11-10T19:02:19.177155+00:00",
+      "sha256_respuesta": "22cc86068de824cfc3777fb59e42838d5cb05b6a344ff07f2d39d1b5ea209e49",
+      "sha256_archivo": "1708a2308521571db4126e32f7a90e37efdaf17ab01d03d060def14c16659334",
+      "archivo": "data/external/actualizacion_2026/xm/originales/AporEner_202611.json.gz"
+    }
+  ],
+  "nota": "Extensión recuperada el10nov2026, retrospectiva. No reemplaza el panel congelado; cifras revisables y horas de publicación no certificadas."
+}

@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=3.4516&longitude=-76.532&hourly=temperature_2m_previous_day1%2Ctemperature_2m_previous_day2%2Ctemperature_2m_previous_day3%2Crelative_humidity_2m_previous_day1%2Crelative_humidity_2m_previous_day2%2Crelative_humidity_2m_previous_day3%2Cprecipitation_previous_day1%2Cprecipitation_previous_day2%2Cprecipitation_previous_day3&models=gfs_global&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+  "params": {
+    "latitude": 3.4516,
+    "longitude": -76.532,
+    "hourly": "temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3,relative_humidity_2m_previous_day1,relative_humidity_2m_previous_day2,relative_humidity_2m_previous_day3,precipitation_previous_day1,precipitation_previous_day2,precipitation_previous_day3",
+    "models": "gfs_global",
+    "start_date": "2026-01-01",
+    "end_date": "2026-11-09",
+    "timezone": "America/Bogota"
+  },
+  "recuperado_utc": "2026-11-10T18:50:16.841058+00:00",
+  "sha256_respuesta": "11190d0df663a3b82f1a75333bc7205df5cffb5413c19b7cac9b85d306890a29",
+  "bytes_respuesta": 436623,
+  "sha256_archivo": "47754281cf65da61234ca842f74c76fa524f25ee947dbde38fd7f03759186075",
+  "archivo": "data/external/pronosticos_temperatura/originales/cali_gfs_global_2026.json.gz",
+  "lat_malla": 3.4559097,
+  "lon_malla": -76.52344,
+  "elevacion_m": 1009.0
+}

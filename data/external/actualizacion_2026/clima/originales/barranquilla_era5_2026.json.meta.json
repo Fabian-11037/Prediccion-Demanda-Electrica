@@ -1,0 +1,17 @@
+{
+  "url": "https://archive-api.open-meteo.com/v1/archive?latitude=10.9685&longitude=-74.7813&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+  "params": {
+    "latitude": 10.9685,
+    "longitude": -74.7813,
+    "models": "era5",
+    "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+    "start_date": "2026-01-01",
+    "end_date": "2026-11-09",
+    "timezone": "America/Bogota"
+  },
+  "body": null,
+  "recuperado_utc": "2026-11-10T19:08:52.935530+00:00",
+  "sha256_respuesta": "b1a13446535ba336f2886bda55dc654c56f101f3fb0f9f4488d2e15685f94465",
+  "sha256_archivo": "60bab64bee8bb3e2bdc8d50d39dc3fb6817776c072d09b02a5e3da631fe4e4be",
+  "archivo": "data/external/actualizacion_2026/clima/originales/barranquilla_era5_2026.json.gz"
+}

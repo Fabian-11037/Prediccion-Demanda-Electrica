@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=10.391&longitude=-75.4794&hourly=temperature_2m_previous_day1%2Ctemperature_2m_previous_day2%2Ctemperature_2m_previous_day3%2Crelative_humidity_2m_previous_day1%2Crelative_humidity_2m_previous_day2%2Crelative_humidity_2m_previous_day3%2Cprecipitation_previous_day1%2Cprecipitation_previous_day2%2Cprecipitation_previous_day3&models=gfs_global&start_date=2022-01-01&end_date=2022-12-31&timezone=America%2FBogota",
+  "params": {
+    "latitude": 10.391,
+    "longitude": -75.4794,
+    "hourly": "temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3,relative_humidity_2m_previous_day1,relative_humidity_2m_previous_day2,relative_humidity_2m_previous_day3,precipitation_previous_day1,precipitation_previous_day2,precipitation_previous_day3",
+    "models": "gfs_global",
+    "start_date": "2022-01-01",
+    "end_date": "2022-12-31",
+    "timezone": "America/Bogota"
+  },
+  "recuperado_utc": "2026-11-10T18:51:32.455533+00:00",
+  "sha256_respuesta": "66147408a2f8cb528d60221ece03348f3d078a7b59713967e7c739942f6ea12c",
+  "bytes_respuesta": 561533,
+  "sha256_archivo": "b7a2d3511e020c2f115a979170599d9cdf1fb0ac5aa7bfe9c3a25bb865457876",
+  "archivo": "data/external/pronosticos_temperatura/originales/cartagena_gfs_global_2022.json.gz",
+  "lat_malla": 10.250572,
+  "lon_malla": -75.46875,
+  "elevacion_m": 13.0
+}

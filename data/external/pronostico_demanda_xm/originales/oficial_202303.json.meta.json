@@ -1,0 +1,13 @@
+{
+  "url": "https://www.simem.co/backend-files/api/PublicData?datasetId=63d90d&startDate=2023-03-01&endDate=2023-03-31",
+  "params": {
+    "datasetId": "63d90d",
+    "startDate": "2023-03-01",
+    "endDate": "2023-03-31"
+  },
+  "body": null,
+  "recuperado_utc": "2026-11-10T19:03:41.539145+00:00",
+  "sha256_respuesta": "5382669b571aca3efa126e8e29bc4d04e79055130d704f984ee6d0d6638e2899",
+  "sha256_archivo": "0b3f8b8957713a6ef3e23b4e5944234a81e572cddc10464870047ae5b7b3ffcd",
+  "archivo": "data/external/pronostico_demanda_xm/originales/oficial_202303.json.gz"
+}

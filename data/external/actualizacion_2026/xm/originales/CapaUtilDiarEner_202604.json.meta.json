@@ -1,0 +1,15 @@
+{
+  "url": "https://servapibi.xm.com.co/daily",
+  "params": null,
+  "body": {
+    "MetricId": "CapaUtilDiarEner",
+    "Entity": "Sistema",
+    "StartDate": "2026-04-01",
+    "EndDate": "2026-04-30",
+    "Filter": []
+  },
+  "recuperado_utc": "2026-11-10T19:02:02.149058+00:00",
+  "sha256_respuesta": "dfe7d8018d2a4e8f60055dc393890c63f991ef53c9f62791037b8bd59b676d9b",
+  "sha256_archivo": "3a0154889a17a09daf2ab7d6eabd3dd40f4430c9854b0e41548a8fdc3446e296",
+  "archivo": "data/external/actualizacion_2026/xm/originales/CapaUtilDiarEner_202604.json.gz"
+}

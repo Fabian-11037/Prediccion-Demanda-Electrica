@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=6.2442&longitude=-75.5812&hourly=temperature_2m_previous_day1%2Ctemperature_2m_previous_day2%2Ctemperature_2m_previous_day3%2Crelative_humidity_2m_previous_day1%2Crelative_humidity_2m_previous_day2%2Crelative_humidity_2m_previous_day3%2Cprecipitation_previous_day1%2Cprecipitation_previous_day2%2Cprecipitation_previous_day3&models=jma_gsm&start_date=2021-01-01&end_date=2021-12-31&timezone=America%2FBogota",
+  "params": {
+    "latitude": 6.2442,
+    "longitude": -75.5812,
+    "hourly": "temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3,relative_humidity_2m_previous_day1,relative_humidity_2m_previous_day2,relative_humidity_2m_previous_day3,precipitation_previous_day1,precipitation_previous_day2,precipitation_previous_day3",
+    "models": "jma_gsm",
+    "start_date": "2021-01-01",
+    "end_date": "2021-12-31",
+    "timezone": "America/Bogota"
+  },
+  "recuperado_utc": "2026-11-10T18:57:16.213617+00:00",
+  "sha256_respuesta": "4bd6786ceb6e20a1d1e9ea25a6097899f86d5c6a421d69e91d7c7ca40a1b8ff5",
+  "bytes_respuesta": 511447,
+  "sha256_archivo": "e928034881d27bbf561c719d0e71638e382bcf172e5654d90dd5497fddbf880c",
+  "archivo": "data/external/pronosticos_temperatura/originales/medellin_jma_gsm_2021.json.gz",
+  "lat_malla": 6.0,
+  "lon_malla": -75.5,
+  "elevacion_m": 1476.0
+}

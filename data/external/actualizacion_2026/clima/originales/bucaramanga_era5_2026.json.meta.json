@@ -1,0 +1,17 @@
+{
+  "url": "https://archive-api.open-meteo.com/v1/archive?latitude=7.1193&longitude=-73.1227&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+  "params": {
+    "latitude": 7.1193,
+    "longitude": -73.1227,
+    "models": "era5",
+    "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+    "start_date": "2026-01-01",
+    "end_date": "2026-11-09",
+    "timezone": "America/Bogota"
+  },
+  "body": null,
+  "recuperado_utc": "2026-11-10T19:08:56.821273+00:00",
+  "sha256_respuesta": "5c4a2587e4bb19fe6cce37b19e240918b22cdc229abd30b95a98007eefc4ba5e",
+  "sha256_archivo": "832b231cf850a6aaf2e6da6b015978a7f942de86949fb22be2f466fdcfe8e84e",
+  "archivo": "data/external/actualizacion_2026/clima/originales/bucaramanga_era5_2026.json.gz"
+}

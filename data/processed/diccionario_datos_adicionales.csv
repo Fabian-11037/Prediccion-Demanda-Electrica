@@ -1,0 +1,32 @@
+tabla,variable,significado,unidad,rol,disponibilidad
+pronosticos_meteorologicos,temperature_2m_c,Temperatura pronosticada a2m,°C,entrada_condicionada,"Disponible estimado<=origen; mismo proveedor, máscara de ausencia"
+pronosticos_meteorologicos,relative_humidity_2m_pct,Humedad relativa pronosticada a2m,%,entrada_condicionada,"Disponible estimado<=origen; mismo proveedor, máscara de ausencia"
+pronosticos_meteorologicos,precipitation_mm,Precipitación pronosticada de la hora,mm,entrada_condicionada,"Disponible estimado<=origen; mismo proveedor, máscara de ausencia"
+pronosticos_meteorologicos,valido,Hora objetivo del pronóstico,según campo,auditoria,No concatenar metadatos al vector de valores
+pronosticos_meteorologicos,emision_estimada,Validez menos adelanto en días; no es inicialización certificada,según campo,auditoria,No concatenar metadatos al vector de valores
+pronosticos_meteorologicos,disponible_estimado,Emisión estimada más12h; proxy conservador,según campo,auditoria,No concatenar metadatos al vector de valores
+pronosticos_meteorologicos,ciudad,Punto urbano solicitado,según campo,auditoria,No concatenar metadatos al vector de valores
+pronosticos_meteorologicos,modelo,Proveedor meteorológico explícito,según campo,auditoria,No concatenar metadatos al vector de valores
+pronosticos_meteorologicos,lead_dias,Adelanto fijo1/2/3días,según campo,auditoria,No concatenar metadatos al vector de valores
+pronosticos_meteorologicos,flag_precipitation_negativa,Valor negativo del proveedor conservado solo en originales,según campo,auditoria,No concatenar metadatos al vector de valores
+ise_vintages,ise_original,Nivel del índice sin ajuste estacional,índice; base según edición,entrada_condicionada,Mes+60días y edición declarada publicada; no mezclar bases
+ise_vintages,ise_desestacionalizado,Nivel ajustado por efecto estacional y calendario,índice; base según edición,entrada_condicionada,Mes+60días y edición declarada publicada; no mezclar bases
+ise_vintages,ise_tendencia_ciclo,Componente tendencia-ciclo,índice; base según edición,entrada_condicionada,Mes+60días y edición declarada publicada; no mezclar bases
+ise_vintages,vintage_publicacion,vintage publicacion,metadato,auditoria,La edición final no acredita disponibilidad histórica
+ise_vintages,vintage_recuperacion,vintage recuperacion,metadato,auditoria,La edición final no acredita disponibilidad histórica
+ise_vintages,base_indice,base indice,metadato,auditoria,La edición final no acredita disponibilidad histórica
+ise_vintages,archivo_fuente,archivo fuente,metadato,auditoria,La edición final no acredita disponibilidad histórica
+ise_vintages,version_historica_no_verificada,version historica no verificada,metadato,auditoria,La edición final no acredita disponibilidad histórica
+poblacion_ciudades,total,Población municipal total,habitantes,ponderacion_condicionada,Edición2023/2025; no sustituye pesos congelados
+poblacion_ciudades,cabecera,Población de cabecera municipal,habitantes,ponderacion_condicionada,Edición2023/2025; no sustituye pesos congelados
+poblacion_ciudades,rural,Centros poblados y rural disperso,habitantes,ponderacion_condicionada,Edición2023/2025; no sustituye pesos congelados
+poblacion_ciudades,peso_total_8_ciudades,Fracción del total de las ocho ciudades en ese año,proporción,ponderacion_condicionada,Edición2023/2025; no sustituye pesos congelados
+poblacion_ciudades,codigo_divipola,Código oficial municipal DANE,identificador,ponderacion_condicionada,Edición2023/2025; no sustituye pesos congelados
+xm2026_horario,demanda_real_kwh,Demanda real del SIN por intervalo horario,kWh,serie_retrospectiva,Publicación original no certificada; fuente revisable
+xm2026_horario,demanda_comercial_kwh,Demanda comercial liquidada; no entrada del modelo,kWh,serie_retrospectiva,Publicación original no certificada; fuente revisable
+xm2026_horario,precio_bolsa_cop_kwh,Precio de bolsa nacional por intervalo,COP/kWh,serie_retrospectiva,Publicación original no certificada; fuente revisable
+xm2026_hidrologia,reserva_util_kwh,Volumen útil diario expresado como energía,kWh,entrada_pasada_condicionada,Aplicar rezago desde fin del día y verificar publicación
+xm2026_hidrologia,capacidad_util_kwh,Capacidad útil energética del sistema,kWh,entrada_pasada_condicionada,Aplicar rezago desde fin del día y verificar publicación
+xm2026_hidrologia,aportes_kwh_dia,Aportes hídricos energéticos del día,kWh/día,entrada_pasada_condicionada,Aplicar rezago desde fin del día y verificar publicación
+xm2026_hidrologia,llenado_pct,100por reserva útil/capacidad útil,%,entrada_pasada_condicionada,Aplicar rezago desde fin del día y verificar publicación
+pronostico_oficial_xm,PronDem,"Pronóstico oficial por subárea, conservado en SIMEM",kWh,solo_auditoria,FechaPublicacion es posterior al objetivo; emisión original desconocida

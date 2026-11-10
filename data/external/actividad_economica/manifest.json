@@ -1,0 +1,2867 @@
+{
+  "anexos_identificados": 168,
+  "anexos_descargados": 168,
+  "versiones_interpretadas": 102,
+  "versiones_sin_parser": 66,
+  "fechas_publicacion_identificadas": 156,
+  "errores": [],
+  "originales": [
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-ago2026.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:14.300333+00:00",
+      "bytes": 489566,
+      "sha256": "9acd7222f136d24557bdfa770c8e91b69a435003cd184d66a0b069b79acaccf2",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-ago2026.xlsx",
+      "publicacion_declarada": "2026-10-19",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-ago2026.pdf",
+        "recuperado_utc": "2026-11-10T18:53:14.742449+00:00",
+        "bytes": 433808,
+        "sha256": "af82e90ac4575e6b544ad5929be1aa31747516419a8e973970b0453d3e03f819",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-ago2026.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 260
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-jul2026.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:16.025266+00:00",
+      "bytes": 487882,
+      "sha256": "4e333c97b6558eb7e1b82d17fb8a0aa966f9113c87f099fa000f2390a3d7a199",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-jul2026.xlsx",
+      "publicacion_declarada": "2026-09-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jul2026.pdf",
+        "recuperado_utc": "2026-11-10T18:53:16.742104+00:00",
+        "bytes": 443334,
+        "sha256": "903ab8a932d05f67782c55515280fbfb1942702aa4ec887a82e8ef47a8ecb145",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jul2026.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 259
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-jun2026.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:17.460352+00:00",
+      "bytes": 489515,
+      "sha256": "65de099625f7f811de84fce8530956860c765342960203e6266671c34aa04561",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-jun2026.xlsx",
+      "publicacion_declarada": "2026-08-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jun2026.pdf",
+        "recuperado_utc": "2026-11-10T18:53:17.949996+00:00",
+        "bytes": 479009,
+        "sha256": "760ac6c91093e5f431daec87d018b74ac7214cf97da5e9e19e282d88424a674c",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jun2026.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 258
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-jun2026.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:19.063676+00:00",
+      "bytes": 766015,
+      "sha256": "68df89502109b12f5d9a9123c4c7926f8f987848eb98fd5b60303680749cf434",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-jun2026.xlsx",
+      "publicacion_declarada": "2026-08-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jun2026.pdf",
+        "recuperado_utc": "2026-11-10T18:53:17.949996+00:00",
+        "bytes": 479009,
+        "sha256": "760ac6c91093e5f431daec87d018b74ac7214cf97da5e9e19e282d88424a674c",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jun2026.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-may2026.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:20.085009+00:00",
+      "bytes": 484354,
+      "sha256": "694c6f106f0f448cecb89747d4317afa076a22f91a1f3d9a74832e8a8c19ac4b",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-may2026.xlsx",
+      "publicacion_declarada": "2026-07-21",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-may2026.pdf",
+        "recuperado_utc": "2026-11-10T18:53:20.976372+00:00",
+        "bytes": 445386,
+        "sha256": "f8b8273781ea207062a24db6aee02f4637a09f10362d980b6f2ac524b98f517f",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-may2026.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 257
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-abr2026.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:21.930922+00:00",
+      "bytes": 483032,
+      "sha256": "787ede15cb35ba7772d1a82156341861b5cc7c3aad6ed604be939f1d0a96f87d",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-abr2026.xlsx",
+      "publicacion_declarada": "2026-06-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-abr2026.pdf",
+        "recuperado_utc": "2026-11-10T18:53:22.528728+00:00",
+        "bytes": 434832,
+        "sha256": "2a42e4c27411db68a252cd8715ec8fc6fba38f16d71f5dee2ba4cc52d4eb1c80",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-abr2026.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 256
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-mar2026.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:23.486211+00:00",
+      "bytes": 480177,
+      "sha256": "59465fab13e36b35857021b35ec1514b1b20ba05ae86b79ca9c3bb9cb6240759",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-mar2026.xlsx",
+      "publicacion_declarada": "2026-05-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-mar2026.pdf",
+        "recuperado_utc": "2026-11-10T18:53:24.109456+00:00",
+        "bytes": 434343,
+        "sha256": "0ff5fd74f19d822139253bd82e66a713c6db486961cafb60f4576e017b987874",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-mar2026.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 255
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-mar2026.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:25.088886+00:00",
+      "bytes": 610153,
+      "sha256": "1e5a3ea052ef56d207e20946937c4a59c13a59a5572b35b3a87680439339115b",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-mar2026.xlsx",
+      "publicacion_declarada": "2026-05-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-mar2026.pdf",
+        "recuperado_utc": "2026-11-10T18:53:24.109456+00:00",
+        "bytes": 434343,
+        "sha256": "0ff5fd74f19d822139253bd82e66a713c6db486961cafb60f4576e017b987874",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-mar2026.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-feb2026.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:26.001265+00:00",
+      "bytes": 479299,
+      "sha256": "d2ed6ef24f7176c519f3ec666ebed9bae605a26f0a37647e8167ce3ae78e1d8e",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-feb2026.xlsx",
+      "publicacion_declarada": "2026-04-20",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-feb2026.pdf",
+        "recuperado_utc": "2026-11-10T18:53:26.638717+00:00",
+        "bytes": 434166,
+        "sha256": "48b6ba7f024de4c6ff3884e4459fa64d97d8ea712b7d38a0a443e5954b28beb7",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-feb2026.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 254
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-ene2026.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:27.519038+00:00",
+      "bytes": 474529,
+      "sha256": "20700be79fd922e3dc71ace59bed6f134b6766dc09d6158a1873bb0cbf0eec29",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-ene2026.xlsx",
+      "publicacion_declarada": "2026-03-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-ene2026.pdf",
+        "recuperado_utc": "2026-11-10T18:53:28.130612+00:00",
+        "bytes": 499838,
+        "sha256": "cee81ee516c0e84a9c007b28e47906c3f7c2c11f43141c64b86d9dd0bf36433e",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-ene2026.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 253
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-dic2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:29.350109+00:00",
+      "bytes": 473068,
+      "sha256": "3b4484b87c8d09efded38dcb10e19534d22049126f334ba1f3a1de36d2bf60e5",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-dic2025.xlsx",
+      "publicacion_declarada": "2026-02-16",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-dic2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:30.075053+00:00",
+        "bytes": 437652,
+        "sha256": "a993e0d4c529fe3bde4bbeb8a140da39b153c30879acf52f558de13e5efb55d3",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-dic2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 252
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-dic2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:31.006492+00:00",
+      "bytes": 602857,
+      "sha256": "318d1ec1f777bdafc6090062048cce4971a18c26deb1dc80923aa2dbacbd1c9a",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-dic2025.xlsx",
+      "publicacion_declarada": "2026-02-16",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-dic2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:30.075053+00:00",
+        "bytes": 437652,
+        "sha256": "a993e0d4c529fe3bde4bbeb8a140da39b153c30879acf52f558de13e5efb55d3",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-dic2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-nov2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:31.977960+00:00",
+      "bytes": 472771,
+      "sha256": "a16493e54f0f84a986c0e532c956748f9503a5b3da109ad32e3dc688190e1578",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-nov2025.xlsx",
+      "publicacion_declarada": "2026-01-23",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-nov2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:32.702095+00:00",
+        "bytes": 493674,
+        "sha256": "a96adbe29570e60ae7cfdca6f8f9e27cca69c36120fabb74e3dbc691490dc768",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-nov2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 251
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-oct2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:33.591663+00:00",
+      "bytes": 471150,
+      "sha256": "30495de139ae35c766da4c15610428195c19f883ef5761e0170800b1f3217c7a",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-oct2025.xlsx",
+      "publicacion_declarada": "2025-12-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-oct2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:34.522819+00:00",
+        "bytes": 504667,
+        "sha256": "6a1a3e2635831d39c711a45bc324d969626d6e86064eb75982540280a875736b",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-oct2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 250
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-sep2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:35.513711+00:00",
+      "bytes": 472108,
+      "sha256": "6e7a9553566d8ce548970418cce198a23cd785b7ce5cf7947542d588dff1df2a",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-sep2025.xlsx",
+      "publicacion_declarada": "2025-11-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-sep2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:36.236765+00:00",
+        "bytes": 402897,
+        "sha256": "b037923c81a052e07a79cf9963b567b4151ace0a4c29c5d53326ae4335627a97",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-sep2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 249
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-sep2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:37.144132+00:00",
+      "bytes": 595863,
+      "sha256": "4bb28698aeb48b2c8f08d552e5ad1c704f382d4a88a1c43690ab7784f5063214",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-sep2025.xlsx",
+      "publicacion_declarada": "2025-11-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-sep2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:36.236765+00:00",
+        "bytes": 402897,
+        "sha256": "b037923c81a052e07a79cf9963b567b4151ace0a4c29c5d53326ae4335627a97",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-sep2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-ago2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:38.010923+00:00",
+      "bytes": 468191,
+      "sha256": "d613641eef23d6ef8b9d4614314276dc10df890900a2ce38ee9623a476cac398",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-ago2025.xlsx",
+      "publicacion_declarada": "2025-10-20",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-ago2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:38.616884+00:00",
+        "bytes": 424566,
+        "sha256": "aefda74db8e0928653b4864d218e005edb6dfced2c9010d74c2bb2b19d9ec530",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-ago2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 248
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-jul2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:39.586400+00:00",
+      "bytes": 464917,
+      "sha256": "e2affefef16e7bff37cc58b35af864802647c4918caa53fc5b900fe732707f03",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-jul2025.xlsx",
+      "publicacion_declarada": "2025-09-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jul2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:40.263258+00:00",
+        "bytes": 400609,
+        "sha256": "94e9a2644a8fbf41605fcb602d75953f4e7024582188a70a060932276bdd2dc2",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jul2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 247
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-jun2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:41.320423+00:00",
+      "bytes": 463394,
+      "sha256": "a29bde383282e22858e16a2219e5d263606a393a42b3c8b39ae189f00e28e62e",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-jun2025.xlsx",
+      "publicacion_declarada": "2025-08-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jun2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:42.218114+00:00",
+        "bytes": 446626,
+        "sha256": "c0f4566b4fddb3df507df3b3b15936a277f6e85e07f85fc1fdfe353763473148",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jun2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 246
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-jun2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:43.539064+00:00",
+      "bytes": 589895,
+      "sha256": "92071b600a14eb1c42252fc92c9253b00016bc43003053259dc9b02c740b479b",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-jun2025.xlsx",
+      "publicacion_declarada": "2025-08-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jun2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:42.218114+00:00",
+        "bytes": 446626,
+        "sha256": "c0f4566b4fddb3df507df3b3b15936a277f6e85e07f85fc1fdfe353763473148",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jun2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-9actividades-may2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:44.617118+00:00",
+      "bytes": 463553,
+      "sha256": "e4ed89b4bab73a61b0d91f0193f4759aa4eb50dc272f189a1386aa7792c27eaa",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-9actividades-may2025.xlsx",
+      "publicacion_declarada": "2025-07-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-may2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:45.279367+00:00",
+        "bytes": 346447,
+        "sha256": "ff8837e2db5474859935fae70f2cb3e4eb789f3bebcab62dc8f175cbfc465e77",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-may2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 245
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-abr2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:46.236854+00:00",
+      "bytes": 462363,
+      "sha256": "22bb6304e256ef23f5e54175565ed49219f83ee3bb769b69f407fb22a8db62a5",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-abr2025.xlsx",
+      "publicacion_declarada": "2025-06-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-abr2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:46.904691+00:00",
+        "bytes": 401689,
+        "sha256": "da90d7a3a06286b4ce93211da28cb4da45f3bc1db0e55dbe07f865a734c20ab1",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-abr2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 244
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-mar2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:47.805648+00:00",
+      "bytes": 460746,
+      "sha256": "327f7d6b0e994080fa1c2bfb489390792cce430e3c9148b9eba28492807fc32c",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-mar2025.xlsx",
+      "publicacion_declarada": "2025-05-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-mar2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:48.398943+00:00",
+        "bytes": 357983,
+        "sha256": "7cde642547bff87461602beacac4a3ce41a5df5845e68ebe9cd245798b1a3612",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-mar2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 243
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-mar2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:49.455265+00:00",
+      "bytes": 584007,
+      "sha256": "d3126761f02b1540538c8192b0c4f004079b04983523cab0f3bd35c9c74524c1",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-mar2025.xlsx",
+      "publicacion_declarada": "2025-05-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-mar2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:48.398943+00:00",
+        "bytes": 357983,
+        "sha256": "7cde642547bff87461602beacac4a3ce41a5df5845e68ebe9cd245798b1a3612",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-mar2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-feb2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:50.401278+00:00",
+      "bytes": 459009,
+      "sha256": "85945612afb976ce5dd005c506bd52c2db6612d1dc26eca5a3d2df1299f28a02",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-feb2025.xlsx",
+      "publicacion_declarada": "2025-04-21",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-feb2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:51.144447+00:00",
+        "bytes": 485151,
+        "sha256": "52f3521d7c3ae5aa7e4efbd13b8bdf64a5b43774ca6766bffb284b9b0529335d",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-feb2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 242
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-ene2025.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:52.097382+00:00",
+      "bytes": 487733,
+      "sha256": "b9d1d1fc3fa92f04d580ea760fc66a9e21176545ca9cb12fc1f35e5964426024",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-ene2025.xlsx",
+      "publicacion_declarada": "2025-03-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-ene2025.pdf",
+        "recuperado_utc": "2026-11-10T18:53:52.880908+00:00",
+        "bytes": 344959,
+        "sha256": "429e543aec156451e744551c08924c8a47e3e7f552b50c3f569b1e848912013b",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-ene2025.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 241
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-dic2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:54.035145+00:00",
+      "bytes": 486248,
+      "sha256": "15deb90b1eea0516c56b9d48af966a10349ee8e6b5422e3af5ca642e0473c4af",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-dic2024.xlsx",
+      "publicacion_declarada": "2025-02-17",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-dic2024.pdf",
+        "recuperado_utc": "2026-11-10T18:53:54.726390+00:00",
+        "bytes": 353724,
+        "sha256": "ae1eb890647e911e9e23e717f28c0aabd7fba8401343be08107e027d8c504646",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-dic2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 240
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-dic2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:55.736565+00:00",
+      "bytes": 591936,
+      "sha256": "dc7af19b8f1284628de0ff972b67410807252f30376f89e372e10dfde6d1770c",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-dic2024.xlsx",
+      "publicacion_declarada": "2025-02-17",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-dic2024.pdf",
+        "recuperado_utc": "2026-11-10T18:53:54.726390+00:00",
+        "bytes": 353724,
+        "sha256": "ae1eb890647e911e9e23e717f28c0aabd7fba8401343be08107e027d8c504646",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-dic2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-nov2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:56.867903+00:00",
+      "bytes": 484782,
+      "sha256": "8564010ec6557dc3b6d5f37c32cd38e7a07db1602871815b75884dfaaf03f436",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-nov2024.xlsx",
+      "publicacion_declarada": "2025-01-21",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-nov2024.pdf",
+        "recuperado_utc": "2026-11-10T18:53:57.698662+00:00",
+        "bytes": 404588,
+        "sha256": "eb18f4fe45798faf7b763359ff319d33543bd0dba42203e01dedc8b5a4794edb",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-nov2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 239
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-oct2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:53:58.643752+00:00",
+      "bytes": 482891,
+      "sha256": "197128f49c43a7477eadcb07cb3f055f14cc99189be5be6710946cc80714835f",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-oct2024.xlsx",
+      "publicacion_declarada": "2024-12-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-oct2024.pdf",
+        "recuperado_utc": "2026-11-10T18:53:59.469696+00:00",
+        "bytes": 352480,
+        "sha256": "c058831aceb73e38155c64e1baf31f8ddae6dd85590fb881d400a2e877b72701",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-oct2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 238
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-sep2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:00.606628+00:00",
+      "bytes": 481392,
+      "sha256": "31b3bed69c1fe819b00d90b718e921aa044a96e7f261af8996a5012e6f40df4d",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-sep2024.xlsx",
+      "publicacion_declarada": "2024-11-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-sep2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:01.225080+00:00",
+        "bytes": 400306,
+        "sha256": "262ed65dc8042e8af1239725f33549c2720705768978634451917cf0adebeff4",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-sep2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 237
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-sep2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:02.489384+00:00",
+      "bytes": 585545,
+      "sha256": "7c0e54ea7fe4ae71a401c838e20edf8cf0a76cbb09d5cd103bf420d617265041",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-sep2024.xlsx",
+      "publicacion_declarada": "2024-11-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-sep2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:01.225080+00:00",
+        "bytes": 400306,
+        "sha256": "262ed65dc8042e8af1239725f33549c2720705768978634451917cf0adebeff4",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-sep2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-ago2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:03.659478+00:00",
+      "bytes": 479922,
+      "sha256": "0666ef07795a68a02f96f4d89d89fbc070ec34a51d5c546d1ec4c398804f59d4",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-ago2024.xlsx",
+      "publicacion_declarada": "2024-10-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-ago2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:04.329992+00:00",
+        "bytes": 351733,
+        "sha256": "36d77e64e4a71723e3fa3b499a1f29cd2a549a66afe2720ee4bb28c0c3036449",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-ago2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 236
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-jul2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:05.365554+00:00",
+      "bytes": 478162,
+      "sha256": "9f78d59971a2f80789e8bd1a13e5ecbf6ee104e92e780df2d885170ce7be432d",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-jul2024.xlsx",
+      "publicacion_declarada": "2024-09-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jul2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:06.005193+00:00",
+        "bytes": 349317,
+        "sha256": "327ca198095abf09f35d2a6e8a8b9fa4aec9b2f57a7485d682ab1ca4857d09ef",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jul2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 235
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-jul2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:07.045724+00:00",
+      "bytes": 580408,
+      "sha256": "f3575e5199b72f716c8e03eaecfbe038b15ab23755e1b4d782a82f2bc7e304fd",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-jul2024.xlsx",
+      "publicacion_declarada": "2024-09-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jul2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:06.005193+00:00",
+        "bytes": 349317,
+        "sha256": "327ca198095abf09f35d2a6e8a8b9fa4aec9b2f57a7485d682ab1ca4857d09ef",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jul2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-jun2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:08.207588+00:00",
+      "bytes": 476472,
+      "sha256": "4514881688ca1c31f369b53926cbb9dce54f2c1966f747e01ee69f0fbaa1dc8a",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-jun2024.xlsx",
+      "publicacion_declarada": "2024-08-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jun2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:08.774734+00:00",
+        "bytes": 349614,
+        "sha256": "f22dc037bbdbcd8d95069ea5541667e383b56d83242fe9592896a9cbba0137e8",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jun2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 234
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-jun2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:09.871342+00:00",
+      "bytes": 578977,
+      "sha256": "37f2e1aeded1eb12961ee4e11624e090d6c34a1688ed19c94e964c7c2aaf75dc",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-jun2024.xlsx",
+      "publicacion_declarada": "2024-08-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jun2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:08.774734+00:00",
+        "bytes": 349614,
+        "sha256": "f22dc037bbdbcd8d95069ea5541667e383b56d83242fe9592896a9cbba0137e8",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jun2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-may2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:10.753632+00:00",
+      "bytes": 471552,
+      "sha256": "07e1e651b3701d24d2fda4e6c5a464190cd0171058eacb6a39206320a36e624f",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-may2024.xlsx",
+      "publicacion_declarada": "2024-07-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-may2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:11.296011+00:00",
+        "bytes": 347909,
+        "sha256": "c3a04753e7ede4f7bd391d0b09c52429a05686e5e393ede5db111fb4f344e5fd",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-may2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 233
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-abr2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:12.217288+00:00",
+      "bytes": 511668,
+      "sha256": "c4e5b6447aaf408ad85f14b22eba6ca230367a46cf72ae1fdf6dca67eaabfb63",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-abr2024.xlsx",
+      "publicacion_declarada": "2024-06-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-abr2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:12.772652+00:00",
+        "bytes": 358424,
+        "sha256": "b47968a85f3b604fd2981daa23eca3103052abe441f2547a255012d901c0a1dd",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-abr2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 232
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-mar2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:13.630124+00:00",
+      "bytes": 510601,
+      "sha256": "1cd4e326d66c92ff158f6e9f1c6a001a87b3f6f3cd862eb9eb2c7e5dacea1b39",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-mar2024.xlsx",
+      "publicacion_declarada": "2024-05-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-mar2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:14.200589+00:00",
+        "bytes": 353369,
+        "sha256": "3c6c8621d6942c624fda3e8d5eb79319641784820545d8d3d7a301bbf9936f16",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-mar2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 231
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-mar2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:15.217487+00:00",
+      "bytes": 645881,
+      "sha256": "ddc2750419b86c2f6f3a062d9b501a25f597bc0424c0f69198d2a0b815fd7dfb",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-mar2024.xlsx",
+      "publicacion_declarada": "2024-05-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-mar2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:14.200589+00:00",
+        "bytes": 353369,
+        "sha256": "3c6c8621d6942c624fda3e8d5eb79319641784820545d8d3d7a301bbf9936f16",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-mar2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-feb2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:16.141275+00:00",
+      "bytes": 509487,
+      "sha256": "b548c3099d0901c40ce8c0863b237474e87c828d8b971155684b859f13997d35",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-feb2024.xlsx",
+      "publicacion_declarada": "2024-04-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-feb2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:16.663430+00:00",
+        "bytes": 285792,
+        "sha256": "264ca48ad50e3aeea1a07ae9003dd5487522a16811a0c18c4f0a31a62a79442b",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-feb2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 230
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-ene2024.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:17.648166+00:00",
+      "bytes": 507783,
+      "sha256": "0121881b94b11ca299dff15b760b67c97ac8f58a210f1670182ffb02c2e0f1ec",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-ene2024.xlsx",
+      "publicacion_declarada": "2024-03-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-ene2024.pdf",
+        "recuperado_utc": "2026-11-10T18:54:18.222148+00:00",
+        "bytes": 282172,
+        "sha256": "566e4a36bfcc4e9be30fb15dc90826d99f133667ba2ed3eab0d99861e61ea4d6",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-ene2024.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 229
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-dic2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:18.955676+00:00",
+      "bytes": 380072,
+      "sha256": "4a79ba87dcc92d5b89bb578bdba9b23550032b9ba0bc7c9467367c0da0aacb8c",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-dic2023.xlsx",
+      "publicacion_declarada": "2024-02-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-dic2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:19.786681+00:00",
+        "bytes": 418811,
+        "sha256": "f51c726ab67441efe5f2022cd6e6ed1adb3759583b789d3ab39c3dd189820e64",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-dic2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 228
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-dic2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:20.620999+00:00",
+      "bytes": 466500,
+      "sha256": "6f2d779f00a34b46862c01bc2683706cd4239a5ac91201798dc1ae9202665e87",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-dic2023.xlsx",
+      "publicacion_declarada": "2024-02-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-dic2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:19.786681+00:00",
+        "bytes": 418811,
+        "sha256": "f51c726ab67441efe5f2022cd6e6ed1adb3759583b789d3ab39c3dd189820e64",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-dic2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-nov2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:21.507913+00:00",
+      "bytes": 379626,
+      "sha256": "4675ffc122ffd8b2f809e4c8394657abe6d281c63d3742f4e25bedfb4adcd89d",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-nov2023.xlsx",
+      "publicacion_declarada": "2024-01-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-nov2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:22.163738+00:00",
+        "bytes": 349231,
+        "sha256": "262337ea686da927da9001b87cfc511bab4e2741593d9a7623800dcf15e98b42",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-nov2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 227
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-oct2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:22.976603+00:00",
+      "bytes": 378534,
+      "sha256": "c76cf38f5125f9e2f8895012778bb32e3a60f5274da89fb3a355164545e7f944",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-oct2023.xlsx",
+      "publicacion_declarada": "2023-12-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-oct2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:23.633067+00:00",
+        "bytes": 344639,
+        "sha256": "0d081433b65395505a8f1f92f79a72b370a76cc535c8791ca7ee6829fd2db6d2",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-oct2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 226
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-sep2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:24.332751+00:00",
+      "bytes": 377259,
+      "sha256": "ce915d05bf670f9c627e130762fffa2c62efd2d5bdf57b011ef192805d326fe0",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-sep2023.xlsx",
+      "publicacion_declarada": "2023-11-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-sep2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:24.975639+00:00",
+        "bytes": 350396,
+        "sha256": "12484fb6ff14781909050cb0bdac53842e6df6d27fe54d445f7bed7005221012",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-sep2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 225
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-sep2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:25.756606+00:00",
+      "bytes": 462539,
+      "sha256": "3b0e9df8d0082a50f7f1d5818049db064021ae1d4a85c32417d7335ce4ff763e",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-sep2023.xlsx",
+      "publicacion_declarada": "2023-11-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-sep2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:24.975639+00:00",
+        "bytes": 350396,
+        "sha256": "12484fb6ff14781909050cb0bdac53842e6df6d27fe54d445f7bed7005221012",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-sep2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-ago2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:26.531719+00:00",
+      "bytes": 376090,
+      "sha256": "b504fcb15a43040f7d03215e9781ce6f3f62f9ffd28098e6fc2dddcf6e71e867",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-ago2023.xlsx",
+      "publicacion_declarada": "2023-10-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-ago2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:27.117598+00:00",
+        "bytes": 348327,
+        "sha256": "b42a2633a9af28583ea4eb84b88d059476525805fe0c6b76a338e24c52d0c8f1",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-ago2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 224
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-jul2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:27.942004+00:00",
+      "bytes": 375198,
+      "sha256": "94a1767147520cf4cdf74c0b850ab43c2925ecc3e39cd04b5ec3733b4bdfb1aa",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-jul2023.xlsx",
+      "publicacion_declarada": "2023-09-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jul2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:28.484917+00:00",
+        "bytes": 351132,
+        "sha256": "3bb4d0676ca9c36fcf3c8bd783ad394467e11af48e896898bc0148ae1cf73edd",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jul2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 223
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-jun2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:29.167527+00:00",
+      "bytes": 338408,
+      "sha256": "67f2f3f1476c0c25c5f126722d66f903513e71f30522847d0d34d02ee071ef9c",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-jun2023.xlsx",
+      "publicacion_declarada": "2023-08-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jun2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:29.773122+00:00",
+        "bytes": 330746,
+        "sha256": "499a35f85ba21b8d9316667bb4abefceaa8673984e70f3e0798a0a77772429b8",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jun2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 222
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-12actividades-jun2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:30.537894+00:00",
+      "bytes": 422797,
+      "sha256": "7f6171bea8d186c8fc97e212b95f988594ec4c35fadf63c31bb97fd7e26b2e9e",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-12actividades-jun2023.xlsx",
+      "publicacion_declarada": "2023-08-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-jun2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:29.773122+00:00",
+        "bytes": 330746,
+        "sha256": "499a35f85ba21b8d9316667bb4abefceaa8673984e70f3e0798a0a77772429b8",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-jun2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-may2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:31.354263+00:00",
+      "bytes": 337566,
+      "sha256": "a5ee30137e3203de4f48b69220bbbdc2170083e430b550368c5ae6e1eeecacbc",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-may2023.xlsx",
+      "publicacion_declarada": "2023-07-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-may2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:31.979246+00:00",
+        "bytes": 333730,
+        "sha256": "cffdc89f1cb5223c5a194e8d836889fb89b08d035c9ee07dd9a7763ec307a26e",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-may2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 221
+    },
+    {
+      "url": "https://www.dane.gov.co/files/operaciones/ISE/anex-ISE-09actividades-abr2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:32.790116+00:00",
+      "bytes": 336792,
+      "sha256": "8ddb5c8a6ecf3bdf15eb70570b63b56070789b8d133157f031b4aa98138a7617",
+      "archivo": "data/external/actividad_economica/originales/anex-ISE-09actividades-abr2023.xlsx",
+      "publicacion_declarada": "2023-06-20",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/operaciones/ISE/bol-ISE-abr2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:33.358031+00:00",
+        "bytes": 318932,
+        "sha256": "e3d72ceb6b177b2b5ec8b1f7bc899126fadbfa0559b4ae3b53dd16a151de8476",
+        "archivo": "data/external/actividad_economica/boletines/bol-ISE-abr2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 220
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_mar_2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:34.033915+00:00",
+      "bytes": 301663,
+      "sha256": "65b503863176b46ba86ef9e6f609f8d96c616e3af78551267165d996482cad23",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_mar_2023.xlsx",
+      "publicacion_declarada": "2023-05-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_mar2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:34.656308+00:00",
+        "bytes": 326165,
+        "sha256": "a8ac700874f01a8077faf9d65ae9ac1290dc6963eee9d85fb72024ba3f34e8e3",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_mar2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 219
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_12actividades_mar_2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:35.441489+00:00",
+      "bytes": 387908,
+      "sha256": "8016de277cb3c91ec396ff0028c3d1537b3eca34ecda46e06cf19ec0199079ea",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_12actividades_mar_2023.xlsx",
+      "publicacion_declarada": "2023-05-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_mar2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:34.656308+00:00",
+        "bytes": 326165,
+        "sha256": "a8ac700874f01a8077faf9d65ae9ac1290dc6963eee9d85fb72024ba3f34e8e3",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_mar2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_feb_2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:36.206091+00:00",
+      "bytes": 300487,
+      "sha256": "e81a526c36ce9d4da989eeabaf850583efc88f494fe6afbde73358c9aab76ddb",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_feb_2023.xlsx",
+      "publicacion_declarada": "2023-04-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_feb2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:36.819613+00:00",
+        "bytes": 325931,
+        "sha256": "2a3d771e9a4f4d1f95e631201acf48a4b8e4e79e02d5414929950a8df7db9583",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_feb2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 218
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_ene_2023.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:37.463919+00:00",
+      "bytes": 288419,
+      "sha256": "28e34c8f1dd1dc97d8b8e1f76869c2250907a7657944fae17d6e11e451d0b733",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_ene_2023.xlsx",
+      "publicacion_declarada": "2023-03-17",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ene2023.pdf",
+        "recuperado_utc": "2026-11-10T18:54:38.025794+00:00",
+        "bytes": 311486,
+        "sha256": "3bc566d507207aaf259628738eca04149a88895c84a421df502e22b1c805251f",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ene2023.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 217
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_dic_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:38.827243+00:00",
+      "bytes": 314546,
+      "sha256": "3379bf7814594d9824594897371eddf1d39125ee5c6f984ea734993b45693eb9",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_dic_2022.xlsx",
+      "publicacion_declarada": "2023-02-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_dic2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:39.369265+00:00",
+        "bytes": 310986,
+        "sha256": "85ddca57c0aa7b8899210d29bf2dac30319876dd6a076dbd0ddb312f968708a8",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_dic2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 216
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_12actividades_dic_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:40.156425+00:00",
+      "bytes": 377805,
+      "sha256": "da1eb163c7a9403338531e0191c3020bdda5deb14c0a9d91fa57b6f252134df3",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_12actividades_dic_2022.xlsx",
+      "publicacion_declarada": "2023-02-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_dic2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:39.369265+00:00",
+        "bytes": 310986,
+        "sha256": "85ddca57c0aa7b8899210d29bf2dac30319876dd6a076dbd0ddb312f968708a8",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_dic2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_nov_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:41.332431+00:00",
+      "bytes": 313275,
+      "sha256": "d20b5cf582f89594ad9a7294e16614213f658f174da07a5923c260cb6e6192df",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_nov_2022.xlsx",
+      "publicacion_declarada": "2023-01-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_nov2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:41.986407+00:00",
+        "bytes": 305094,
+        "sha256": "c2619b70e96d6f7deb740cae056e1e2a6160bc470e67b3022848bf6715bd1f87",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_nov2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 215
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_12actividades_nov_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:42.863092+00:00",
+      "bytes": 373285,
+      "sha256": "55813c30b1acfd8045b3e3991a0e8f8698bf2d287c9755d68cdc887e5ddb9e27",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_12actividades_nov_2022.xlsx",
+      "publicacion_declarada": "2023-01-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_nov2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:41.986407+00:00",
+        "bytes": 305094,
+        "sha256": "c2619b70e96d6f7deb740cae056e1e2a6160bc470e67b3022848bf6715bd1f87",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_nov2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_oct_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:43.641834+00:00",
+      "bytes": 312339,
+      "sha256": "f88d906309fcd74163cab88237cab1c9987bf75160d9081eeadbe72a0aed7b6a",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_oct_2022.xlsx",
+      "publicacion_declarada": "2022-12-19",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_oct2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:44.266408+00:00",
+        "bytes": 302239,
+        "sha256": "c41ecae449df9bab06150aef6b1c81fec744ec50a3b9a62ff8b9af3478318044",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_oct2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 214
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_12actividades_oct_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:45.225951+00:00",
+      "bytes": 373285,
+      "sha256": "55813c30b1acfd8045b3e3991a0e8f8698bf2d287c9755d68cdc887e5ddb9e27",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_12actividades_oct_2022.xlsx",
+      "publicacion_declarada": "2022-12-19",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_oct2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:44.266408+00:00",
+        "bytes": 302239,
+        "sha256": "c41ecae449df9bab06150aef6b1c81fec744ec50a3b9a62ff8b9af3478318044",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_oct2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_sep_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:46.082731+00:00",
+      "bytes": 311183,
+      "sha256": "d17cd030b9498024b0d85e0c67517d1fe67405510554cb744fead6a0f00d61d9",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_sep_2022.xlsx",
+      "publicacion_declarada": "2022-11-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_sep2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:46.720194+00:00",
+        "bytes": 304018,
+        "sha256": "eb4e5e9caf3567fed622963382215514c556355d023838e0d4312afb14c427c6",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_sep2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 213
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_12actividades_sep_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:47.540119+00:00",
+      "bytes": 373297,
+      "sha256": "690f62aa43eb473eca0604a0d16a3f3af36ed41cde5c22ab0299b56a94ac769b",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_12actividades_sep_2022.xlsx",
+      "publicacion_declarada": "2022-11-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_sep2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:46.720194+00:00",
+        "bytes": 304018,
+        "sha256": "eb4e5e9caf3567fed622963382215514c556355d023838e0d4312afb14c427c6",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_sep2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_ago_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:48.385941+00:00",
+      "bytes": 300419,
+      "sha256": "47bc47863e6c13ef68680f7b0768cf9123da0dc3e757a327d6a7a95685ee33ae",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_ago_2022.xlsx",
+      "publicacion_declarada": "2022-10-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ago2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:49.075931+00:00",
+        "bytes": 302872,
+        "sha256": "31f4a39f1658bd40e7a08a0fd61f3e5214a041608ba1b7caf88c534edacdf564",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ago2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 212
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_jul_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:49.926299+00:00",
+      "bytes": 299780,
+      "sha256": "dc6857dc92ceb0ae33acf29dadf33cbd9a35bc9e92c4ea30c55e6242e02a5142",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_jul_2022.xlsx",
+      "publicacion_declarada": "2022-09-19",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jul2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:50.594435+00:00",
+        "bytes": 304893,
+        "sha256": "8b5c92067b3a67e64839313c2d06c07050a2c7d30cca719c1c716cd45ef948b5",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jul2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 211
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_jun_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:51.372139+00:00",
+      "bytes": 297876,
+      "sha256": "5d1e9fa32691c912b0e75b77eb966cb5613da141d7f84bc067d6b27c0bf2ee48",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_jun_2022.xlsx",
+      "publicacion_declarada": "2022-08-16",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jun2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:51.969766+00:00",
+        "bytes": 301932,
+        "sha256": "42310bbf37fcb8c421680fa34b817016324dad2e748d224e5573bb787f0bb173",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jun2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 210
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anexos_ISE_12_actividades_jun_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:52.811729+00:00",
+      "bytes": 383063,
+      "sha256": "b305ddefb884d068e78a6939c57172c6e75921226477c27da6e7bff049c6fb35",
+      "archivo": "data/external/actividad_economica/originales/Anexos_ISE_12_actividades_jun_2022.xlsx",
+      "publicacion_declarada": "2022-08-16",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jun2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:51.969766+00:00",
+        "bytes": 301932,
+        "sha256": "42310bbf37fcb8c421680fa34b817016324dad2e748d224e5573bb787f0bb173",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jun2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_may_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:53.623136+00:00",
+      "bytes": 301812,
+      "sha256": "441a894cfed811e5f404cee691d0fafb5ba0953d7dcb25dcbdccd949d89416fa",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_may_2022.xlsx",
+      "publicacion_declarada": "2022-07-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_may2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:54.221889+00:00",
+        "bytes": 321344,
+        "sha256": "ce96b10bfdbfe4818c58c908ec3a4a540ded83e3ff5703c1455df37e17bf9ec0",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_may2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 209
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_abr_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:55.032583+00:00",
+      "bytes": 315195,
+      "sha256": "c2ce41004fcb8fdfe6f5aefa89389e35d1e3b7a8e11873b48445fc9ea04bed12",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_abr_2022.xlsx",
+      "publicacion_declarada": "2022-06-17",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_abr2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:55.677339+00:00",
+        "bytes": 325422,
+        "sha256": "ca100b93f4b5b121ae8259611e2a79bbfc0aa8bfa503a407f519084fb5354fc8",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_abr2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 208
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_mar_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:56.596560+00:00",
+      "bytes": 301918,
+      "sha256": "214a7f8ac5b6079bc87ae5837c85a088f4ac41daf420ae4d975ac06ce74f753c",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_mar_2022.xlsx",
+      "publicacion_declarada": "2022-05-16",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_mar2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:57.278008+00:00",
+        "bytes": 323565,
+        "sha256": "703b0bcb56d00e2b2875470477638b77a9e0795b91b298f1a07b87cd99810bb0",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_mar2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 207
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_12_actividades_mar_2022.xlsx",
+      "recuperado_utc": "2026-11-10T18:54:58.240055+00:00",
+      "bytes": 384124,
+      "sha256": "edcc905b412bbd10544a349b61b0193e15dfa189ba0cc548807849628e214f17",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_12_actividades_mar_2022.xlsx",
+      "publicacion_declarada": "2022-05-16",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_mar2022.pdf",
+        "recuperado_utc": "2026-11-10T18:54:57.278008+00:00",
+        "bytes": 323565,
+        "sha256": "703b0bcb56d00e2b2875470477638b77a9e0795b91b298f1a07b87cd99810bb0",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_mar2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_feb_2022.xlsx",
+      "recuperado_utc": "2026-11-10T19:00:12.630191+00:00",
+      "bytes": 291370,
+      "sha256": "241e40aac3547ef2f89fe8f4cc3b27423105520e61a3aef2ed838829919287ed",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_feb_2022.xlsx",
+      "publicacion_declarada": "2022-04-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_feb2022.pdf",
+        "recuperado_utc": "2026-11-10T19:00:14.721129+00:00",
+        "bytes": 320401,
+        "sha256": "526e639d9e9640eddbd8ce7a3f0717f7a0fcada964d0d810583f6aa882213aa5",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_feb2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 206
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_ene_2022.xlsx",
+      "recuperado_utc": "2026-11-10T19:00:17.004807+00:00",
+      "bytes": 296732,
+      "sha256": "a261478d98c1669f42ce099f3f653fd753631025c57915a1ebb38dc00a03680c",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_ene_2022.xlsx",
+      "publicacion_declarada": "2022-03-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ene2022.pdf",
+        "recuperado_utc": "2026-11-10T19:00:19.157217+00:00",
+        "bytes": 314440,
+        "sha256": "2f9807b2b3bb017c4b2796ca0111d7b0528155a758033945c48a7383559e66a5",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ene2022.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 205
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_dic_2021.xlsx",
+      "recuperado_utc": "2026-11-10T19:00:21.517588+00:00",
+      "bytes": 289260,
+      "sha256": "1dd89ab770d7eb8565f47bfe21684dfa950f520094984dd55c5c07af0ce5b723",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_dic_2021.xlsx",
+      "publicacion_declarada": "2022-02-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_dic2021.pdf",
+        "recuperado_utc": "2026-11-10T19:00:23.669278+00:00",
+        "bytes": 354538,
+        "sha256": "d9859f678fc1a8b2ac345b3ca7e84257a54490838331db054b0ddd710b8eb643",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_dic2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 204
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_nov_2021.xlsx",
+      "recuperado_utc": "2026-11-10T19:00:25.941987+00:00",
+      "bytes": 288721,
+      "sha256": "06e0d443a56428cf99118c97de0c2ff329cc77d787d4b931f4d34d3a6adf1839",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_nov_2021.xlsx",
+      "publicacion_declarada": "2022-01-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_nov2021.pdf",
+        "recuperado_utc": "2026-11-10T19:00:28.121706+00:00",
+        "bytes": 338190,
+        "sha256": "d5bb47d7af85e6f5377ee22ca199801c1f2959dc857bbdc5d658eb3d3c760cac",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_nov2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 203
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_oct_2021.xlsx",
+      "recuperado_utc": "2026-11-10T19:00:30.475126+00:00",
+      "bytes": 287536,
+      "sha256": "aec4c61732d886657e859ae6dfe8de57182fd50bcde350e9aad1bf5a172da0dc",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_oct_2021.xlsx",
+      "publicacion_declarada": "2021-12-17",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_oct2021.pdf",
+        "recuperado_utc": "2026-11-10T19:00:33.052767+00:00",
+        "bytes": 813082,
+        "sha256": "bee2da28410ec5d5ae4ac83020ca81949814d0de786c3e41aa9c86677d6b68d6",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_oct2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 202
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_sep_21.xlsx",
+      "recuperado_utc": "2026-11-10T19:00:35.295234+00:00",
+      "bytes": 286478,
+      "sha256": "8c653faa402028f9820df1dae275d3b2e313e672039e51a17704572c26f3f23c",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_sep_21.xlsx",
+      "publicacion_declarada": "2021-11-16",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_sep2021.pdf",
+        "recuperado_utc": "2026-11-10T19:00:37.451685+00:00",
+        "bytes": 326586,
+        "sha256": "da63621ca862343dcbd0e183ca65bc97e8c272cee4ebaf7572e18b0b19b7504c",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_sep2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 201
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_ago_21.xlsx",
+      "recuperado_utc": "2026-11-10T19:00:39.827961+00:00",
+      "bytes": 284771,
+      "sha256": "11dd2a2cb2e4388884cd8ee16baf3d3e52869dd4a4507f0d46076ab8493fa386",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_ago_21.xlsx",
+      "publicacion_declarada": "2021-10-19",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ago2021.pdf",
+        "recuperado_utc": "2026-11-10T19:00:42.325432+00:00",
+        "bytes": 899336,
+        "sha256": "74cdaacbde7d6f764a2ee6bcfbc8e0167f4fbc736c5699c21a0f30d609d4aaa7",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ago2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 200
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_jul_21.xlsx",
+      "recuperado_utc": "2026-11-10T19:00:44.731980+00:00",
+      "bytes": 283796,
+      "sha256": "8a6d821e3d2640b51d9e729100deb5c84ba40e650a32700b78e95fdf794b398a",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_jul_21.xlsx",
+      "publicacion_declarada": "2021-09-17",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jul2021.pdf",
+        "recuperado_utc": "2026-11-10T19:00:47.480062+00:00",
+        "bytes": 892506,
+        "sha256": "6a2dec803df10cade1882bc0d86aa170c181e013fd64bc1559a32d7f1e32f6b2",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jul2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 199
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_jun_21.xlsx",
+      "recuperado_utc": "2026-11-10T19:00:49.999269+00:00",
+      "bytes": 282759,
+      "sha256": "d0efd5c45874a588929e81441f63015f46e89f80a9134646e2d8e3a7a85d5ca2",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_jun_21.xlsx",
+      "publicacion_declarada": "2021-08-17",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jun2021.pdf",
+        "recuperado_utc": "2026-11-10T19:00:52.422252+00:00",
+        "bytes": 876457,
+        "sha256": "18a703fff6110ac9cbfcb391c3c92939f83b313ccdff790f4732e76517489429",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jun2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 198
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_mayo_21.xlsx",
+      "recuperado_utc": "2026-11-10T19:00:54.763397+00:00",
+      "bytes": 281645,
+      "sha256": "6f29f3e0fc8483ad1c05181ff30457c2f259b1c101ab950c69fe1f36f65cba6d",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_mayo_21.xlsx",
+      "publicacion_declarada": "2021-07-19",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_may2021.pdf",
+        "recuperado_utc": "2026-11-10T19:00:56.943958+00:00",
+        "bytes": 423474,
+        "sha256": "343f0c0ecac35095cdea4ba8528db088525099fa7f478423498dcc77674e0dee",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_may2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 197
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_abril_21.xlsx",
+      "recuperado_utc": "2026-11-10T19:00:59.806489+00:00",
+      "bytes": 280247,
+      "sha256": "bb0435263ee0b02b15b635beb940ded385dbfc70f5c2aa47fd17fd20f29a6718",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_abril_21.xlsx",
+      "publicacion_declarada": "2021-06-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_abr2021.pdf",
+        "recuperado_utc": "2026-11-10T19:01:02.266579+00:00",
+        "bytes": 897731,
+        "sha256": "e8f02160efcc005451c32aa828d4cd185d363d3a99421f956a78a7a3de0abecd",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_abr2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 196
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_marzo_21.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:04.835967+00:00",
+      "bytes": 279320,
+      "sha256": "b8da6827bfcd9ad091b77f6c1d55111cf929dc7b242d3b5f1d74af626bb165c7",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_marzo_21.xlsx",
+      "publicacion_declarada": "2021-05-14",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_mar2021.pdf",
+        "recuperado_utc": "2026-11-10T19:01:07.526291+00:00",
+        "bytes": 959159,
+        "sha256": "c3f2e1194106b10e3e0618ecd8e5aabb0eff0be167386676dd98d38543e925da",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_mar2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 195
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_9actividades_febrero_21.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:09.787461+00:00",
+      "bytes": 284161,
+      "sha256": "9efc65bf8e86df9a1955abe9c9a319a18872ee7f19ff7acd60370e9ff02419f2",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_9actividades_febrero_21.xlsx",
+      "publicacion_declarada": "2021-04-19",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_feb2021.pdf",
+        "recuperado_utc": "2026-11-10T19:01:12.225874+00:00",
+        "bytes": 884976,
+        "sha256": "c3df711b8c83fb9a4ee1679ffb113af7baf7981648991b61861c6f9cd35a8b24",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_feb2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 194
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_enero_21.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:14.513175+00:00",
+      "bytes": 282571,
+      "sha256": "ddb169ee9f1230d7df84d5210f36dddacaea850dc3d1c3030015a804763aa38c",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_enero_21.xlsx",
+      "publicacion_declarada": "2021-03-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ene2021.pdf",
+        "recuperado_utc": "2026-11-10T19:01:17.117814+00:00",
+        "bytes": 904513,
+        "sha256": "e0540f72f1cb78e2ca835f16f8e4effab92a470656c5192ba3d5e56356129863",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ene2021.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 193
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_diciembre_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:19.360773+00:00",
+      "bytes": 281243,
+      "sha256": "9db57309f06b0402b042da78af6e56d9026dbd1c498c87aef8934ca05fe522df",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_diciembre_20.xlsx",
+      "publicacion_declarada": "2021-02-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_dic2020.pdf",
+        "recuperado_utc": "2026-11-10T19:01:21.692649+00:00",
+        "bytes": 635956,
+        "sha256": "e0d30583c4a9e7f35345ffeb478296dd659b81ff11296fcafc773d1585f22996",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_dic2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 192
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_noviembre_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:23.986919+00:00",
+      "bytes": 280359,
+      "sha256": "81ad9f54c7746888184debc28c918dcc7065b3bd36996cb0e93f817b8bab6396",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_noviembre_20.xlsx",
+      "publicacion_declarada": "2021-01-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_nov2020.pdf",
+        "recuperado_utc": "2026-11-10T19:01:26.266883+00:00",
+        "bytes": 473698,
+        "sha256": "decb1a1bc722e1dcfaa5e9dc3068efa9cbe0e6716477c7780275f53fdeb4df6e",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_nov2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 191
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_octubre_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:28.489250+00:00",
+      "bytes": 279504,
+      "sha256": "eac287f4c66204e7194f06f7c6e98c03339d46d00e979d6036a5e13c1cf5bf9c",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_octubre_20.xlsx",
+      "publicacion_declarada": "2020-12-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_oct2020.pdf",
+        "recuperado_utc": "2026-11-10T19:01:30.824971+00:00",
+        "bytes": 572855,
+        "sha256": "56c625f54d2fea5023735e4df6b8df44762476f1a923274f77ae10d1ba91f8bc",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_oct2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 190
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_septiembre_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:33.068389+00:00",
+      "bytes": 149620,
+      "sha256": "6699ea8fc9f23b37f619428fe95ecc01e8e33589fd6aead5f8069ce37f8963a9",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_septiembre_20.xlsx",
+      "publicacion_declarada": "2020-11-17",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_sep2020.pdf",
+        "recuperado_utc": "2026-11-10T19:01:35.391193+00:00",
+        "bytes": 564359,
+        "sha256": "b9d547bfcb3cc8ba65c3dded1562f507e4cf3586d685ce219ec4a180c768269d",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_sep2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 189
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_agosto_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:37.724361+00:00",
+      "bytes": 149066,
+      "sha256": "885ba0376dbbb460b1f4cabfcbc429641851f3cf59029641bacbddb05e75f3dc",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_agosto_20.xlsx",
+      "publicacion_declarada": "2020-10-19",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ago2020.pdf",
+        "recuperado_utc": "2026-11-10T19:01:40.067214+00:00",
+        "bytes": 531612,
+        "sha256": "52b50cccfa63cae7bb32198b86057f269dcbb31d67c990ee3ed525e4442a1d03",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ago2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 188
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_julio_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:42.141617+00:00",
+      "bytes": 148714,
+      "sha256": "a802025128482a6468303b18775f646be0c628687a5b42d7e53b695215471bd8",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_julio_20.xlsx",
+      "publicacion_declarada": "2020-09-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jul2020.pdf",
+        "recuperado_utc": "2026-11-10T19:01:44.462009+00:00",
+        "bytes": 563728,
+        "sha256": "c71a3bae6448ab0466fe1a1274e39966242cc55bf98d146a64cae5f58df4f539",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jul2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 187
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_junio_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:46.527895+00:00",
+      "bytes": 147540,
+      "sha256": "84b9b1574c2b37104e1162bdfe14259676754a24e74eeca6ae40f8787a088cb2",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_junio_20.xlsx",
+      "publicacion_declarada": "2020-08-14",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jun2020.pdf",
+        "recuperado_utc": "2026-11-10T19:01:48.855718+00:00",
+        "bytes": 558924,
+        "sha256": "d65d176a5d3c791eb2d9d2495d4a7abcd2c4bac3d7a9f83f0bf17b8418f713e5",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jun2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 186
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_mayo_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:50.985224+00:00",
+      "bytes": 156589,
+      "sha256": "4dd3985f26b121f5be4431c7e66a3d4a2a6c01ec1e449eb67f92ca2794021e81",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_mayo_20.xlsx",
+      "publicacion_declarada": "2020-07-17",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_may2020.pdf",
+        "recuperado_utc": "2026-11-10T19:01:53.346073+00:00",
+        "bytes": 570262,
+        "sha256": "191fbaa2b3a46ba0ca8bf798b1eccfc132cb22975966f580b0b5cae7fd577dff",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_may2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 185
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_abril_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:55.569955+00:00",
+      "bytes": 162217,
+      "sha256": "f70a969b170e79dac9324f6c03d63fa57955265febb2f6d9c35b87cc8ce095c7",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_abril_20.xlsx",
+      "publicacion_declarada": "2020-06-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_abr2020.pdf",
+        "recuperado_utc": "2026-11-10T19:01:57.842810+00:00",
+        "bytes": 569688,
+        "sha256": "ec35c0aac5a2198bb685e981f4acf2ea5ea76f3a5e60cfcc94f40b65b2195bc2",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_abr2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 184
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_marzo_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:01:59.937760+00:00",
+      "bytes": 161986,
+      "sha256": "d6fa62661203d2b27218e0210d4189d8d8250a4af3617d94de019deee2edaa1d",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_marzo_20.xlsx",
+      "publicacion_declarada": "2020-05-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_mar2020.pdf",
+        "recuperado_utc": "2026-11-10T19:02:02.410434+00:00",
+        "bytes": 484998,
+        "sha256": "568f60bc666e7c1db4d3bab86f58edcce8fc9785e120c9de8c6985e165121cdf",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_mar2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 183
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_febrero_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:04.555909+00:00",
+      "bytes": 185419,
+      "sha256": "f5c956773edf8516d05f252ff71f216cfc63f2dc5b7bb47fa9bd9551518411a7",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_febrero_20.xlsx",
+      "publicacion_declarada": "2020-04-17",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_feb2020.pdf",
+        "recuperado_utc": "2026-11-10T19:02:07.037325+00:00",
+        "bytes": 594561,
+        "sha256": "71f5bce3bb16ac6893ccbec1993d70bf9c6bd00035312438573e1f8cca381d4f",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_feb2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 182
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_ene_20.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:09.078595+00:00",
+      "bytes": 68359,
+      "sha256": "9af2ed69add24eafcdf27fbddb050a22d505742b5f07c81e071e72faa38f807c",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_ene_20.xlsx",
+      "publicacion_declarada": "2020-03-18",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ene2020.pdf",
+        "recuperado_utc": "2026-11-10T19:02:11.456016+00:00",
+        "bytes": 389853,
+        "sha256": "8e4fa47f5fe1300061bea6e4a91027d2639cd96ded199ee28f8a55be43aa4c0d",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ene2020.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 180
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_diciembre_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:13.695377+00:00",
+      "bytes": 73899,
+      "sha256": "4d62ddaa23dc389ba96e4f66dea950c52daec2c35a51399127f4e2a7b0da2999",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_diciembre_19.xlsx",
+      "publicacion_declarada": "2020-02-14",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_dic2019.pdf",
+        "recuperado_utc": "2026-11-10T19:02:15.898420+00:00",
+        "bytes": 386352,
+        "sha256": "f5d72b84ca89503727a7621880d1e7cea0634366c50c33e73b1b0de5d66fe325",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_dic2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 180
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_noviembre_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:17.998943+00:00",
+      "bytes": 68337,
+      "sha256": "05e892ab14fbfb0bae36a6985709f198bec0562464d04e85169e66dbca80b558",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_noviembre_19.xlsx",
+      "publicacion_declarada": "2020-01-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_nov2019.pdf",
+        "recuperado_utc": "2026-11-10T19:02:20.318856+00:00",
+        "bytes": 382335,
+        "sha256": "fb94d7464776101db65bccfb8c6fcc098c749b723a96b7ce9d1ca772eb92e048",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_nov2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 179
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_octubre_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:22.235181+00:00",
+      "bytes": 73796,
+      "sha256": "1f7a7a6f7e353ec06bae27592ee9e754c28de7e9ff5792943913b66ddc7c71b2",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_octubre_19.xlsx",
+      "publicacion_declarada": "2019-12-23",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_oct2019.pdf",
+        "recuperado_utc": "2026-11-10T19:02:24.411463+00:00",
+        "bytes": 386934,
+        "sha256": "865f9d001c5ffa5dc016a8d2e97d212541d135f92045f42a71f35b0f25685e90",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_oct2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 178
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_septiembre_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:26.594053+00:00",
+      "bytes": 73671,
+      "sha256": "fb70ac9ff7838ec5424ac06c9466b4efadec2b269dd62c306bb89ecffd84558d",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_septiembre_19.xlsx",
+      "publicacion_declarada": "2019-11-14",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_sep2019.pdf",
+        "recuperado_utc": "2026-11-10T19:02:28.705807+00:00",
+        "bytes": 354277,
+        "sha256": "ac8c39180506ead43929dc9acb6b3bcfd8a6c06ffd3099f06066d323878f381f",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_sep2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 177
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_agosto_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:30.646508+00:00",
+      "bytes": 73298,
+      "sha256": "26d0ea65ff0fec4832a7d7432a5a031cd7c3c637f4dde57fd5191b5e32b98c51",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_agosto_19.xlsx",
+      "publicacion_declarada": "2019-10-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ago2019.pdf",
+        "recuperado_utc": "2026-11-10T19:02:32.835455+00:00",
+        "bytes": 381469,
+        "sha256": "533768958cba85c858d70eb21b2d3dbc05bc17928510885f84b319a2de823719",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ago2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 176
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_julio_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:34.812837+00:00",
+      "bytes": 73250,
+      "sha256": "6677e3f779c1e1d32ac05cf342545acd1c5928f2a45a4d856621f3fc575e2b07",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_julio_19.xlsx",
+      "publicacion_declarada": "2019-09-23",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jul2019.pdf",
+        "recuperado_utc": "2026-11-10T19:02:37.055034+00:00",
+        "bytes": 387747,
+        "sha256": "9f346622192afc5e4599384f72a5c8039496ebb61df7f74dee6d958b77dad207",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jul2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 175
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_junio_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:39.033005+00:00",
+      "bytes": 72865,
+      "sha256": "85a552f2ebffeb8bdff31da1f17ff94f00b1f3249516050ac9ffe153a8b852f3",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_junio_19.xlsx",
+      "publicacion_declarada": "2019-08-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jun2019.pdf",
+        "recuperado_utc": "2026-11-10T19:02:41.448919+00:00",
+        "bytes": 374505,
+        "sha256": "5a6ae0e4943a95507243d8602aa98dac0bfb473a31e6fe68f3830095b458d839",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jun2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 174
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_mayo_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:43.461141+00:00",
+      "bytes": 72894,
+      "sha256": "19e7ce32aae2fe31dc189f767be26fc6a8851b2ad226e8ab9fe178a372fb1cf9",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_mayo_19.xlsx",
+      "publicacion_declarada": "2019-07-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_may2019.pdf",
+        "recuperado_utc": "2026-11-10T19:02:45.653743+00:00",
+        "bytes": 373180,
+        "sha256": "05fac634d1bcf10450c07fb57e655203d79d62e90b25f83a15ffb041b56c5dfa",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_may2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 173
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_abril_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:47.644966+00:00",
+      "bytes": 72417,
+      "sha256": "e02f166afacfa42485d05c1113be37195f72aadf62cad6ad5b804d1493ed11e1",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_abril_19.xlsx",
+      "publicacion_declarada": "2019-06-21",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_abr2019.pdf",
+        "recuperado_utc": "2026-11-10T19:02:49.829635+00:00",
+        "bytes": 379641,
+        "sha256": "30b0746f7aa34a6080ed6a251d96a42a0282078915bc78c6f7eb96621e64aa73",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_abr2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 172
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_mar_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:51.836081+00:00",
+      "bytes": 70006,
+      "sha256": "ce5bd13ed3fa887063eb0f44f0c9567677ba23fe4e8d9563904f4d88524208ef",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_mar_19.xlsx",
+      "publicacion_declarada": "2019-05-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_mar2019.pdf",
+        "recuperado_utc": "2026-11-10T19:02:53.993584+00:00",
+        "bytes": 323759,
+        "sha256": "90df834047e2738b471b880d38f2e665428c5642b0c3c91bf473a29235850260",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_mar2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 171
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_feb_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:02:56.013324+00:00",
+      "bytes": 94535,
+      "sha256": "0833826d5e5c0fe1fc9a880ecdeed8a6f35b7d52822951f24b133ac1d6419698",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_feb_19.xlsx",
+      "publicacion_declarada": "2019-04-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_feb2019.pdf",
+        "recuperado_utc": "2026-11-10T19:02:58.173348+00:00",
+        "bytes": 316220,
+        "sha256": "0cb6a59a9f0263622671e38a2c3fa306913bba6dd9a852e63c50815bf5c118d8",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_feb2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 170
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_ene_19.xlsx",
+      "recuperado_utc": "2026-11-10T19:03:00.126751+00:00",
+      "bytes": 69772,
+      "sha256": "2514e613809649937ad68c8819b0d285fedeaa471489bd42ee83c82aacdf1e4e",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_ene_19.xlsx",
+      "publicacion_declarada": "2019-03-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ene2019.pdf",
+        "recuperado_utc": "2026-11-10T19:03:02.400824+00:00",
+        "bytes": 336310,
+        "sha256": "0eedf1b9f3233e1d18b55243117389e6f5777151c6eb9361a6828870431f4610",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ene2019.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 169
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_dic_18.xlsx",
+      "recuperado_utc": "2026-11-10T19:03:04.461673+00:00",
+      "bytes": 68307,
+      "sha256": "f837383003dcddf7f7419908556761819f13a4ddfab92b1ebfc8ea38f0cee18c",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_dic_18.xlsx",
+      "publicacion_declarada": "2019-02-28",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_dic2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:06.751672+00:00",
+        "bytes": 365629,
+        "sha256": "04e8a73489b2283604a2bcda9830250d149ad65f7a14cd4168f06ff8c2d6a41b",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_dic2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 168
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_nov_18.xlsx",
+      "recuperado_utc": "2026-11-10T19:03:08.849196+00:00",
+      "bytes": 88599,
+      "sha256": "a958fefa7d55a054be977d39054b296149a0fdc32ec98fcc1c5d44515b084d8a",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_nov_18.xlsx",
+      "publicacion_declarada": "2019-01-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_nov2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:11.354642+00:00",
+        "bytes": 728692,
+        "sha256": "8d87d8f0c5153ae48dd0fe995ce991d02be6b2f51c0523b62dce3253b445010c",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_nov2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 167
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_oct_18.xlsx",
+      "recuperado_utc": "2026-11-10T19:03:13.341118+00:00",
+      "bytes": 86139,
+      "sha256": "0a5906fb44cbdef915cdc78d0dcb173287e6d7c69ff8ee64556ff0897f08b507",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_oct_18.xlsx",
+      "publicacion_declarada": "2018-12-21",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_oct2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:16.019819+00:00",
+        "bytes": 728179,
+        "sha256": "d17bda479bb1db365883e36ba5aa39b5c6bcda5f570205ece746884bd1277d22",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_oct2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 166
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_sep_18.xlsx",
+      "recuperado_utc": "2026-11-10T19:03:18.092011+00:00",
+      "bytes": 85137,
+      "sha256": "03b9e469bc4a6f687251c36b818e3c76bccbe278fdca4d65506de5b10af0a688",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_sep_18.xlsx",
+      "publicacion_declarada": "2018-11-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_sep2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:20.759215+00:00",
+        "bytes": 679453,
+        "sha256": "12f780fb82829288edaf86d6c7af25de3afac8b721709c56a0d1551fefdaa0c4",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_sep2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 165
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_ago_18.xlsx",
+      "recuperado_utc": "2026-11-10T19:03:22.714633+00:00",
+      "bytes": 85259,
+      "sha256": "357f479a36fa5690f323e242d6de6905b331667c667ed1345484c31f0c811e0f",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_ago_18.xlsx",
+      "publicacion_declarada": "2018-10-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ago2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:25.087802+00:00",
+        "bytes": 702859,
+        "sha256": "2a520b139cd27217f0596968415486f402bb16bea56a52f5825aba69ec2880f3",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ago2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 164
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_jul_18.xlsx",
+      "recuperado_utc": "2026-11-10T19:03:27.063923+00:00",
+      "bytes": 85234,
+      "sha256": "381a5c95f4aff8eb35a99fe14e68c6a17efbbdd7719869d1546ab04c11af5a33",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_jul_18.xlsx",
+      "publicacion_declarada": "2018-09-21",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jul2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:29.406583+00:00",
+        "bytes": 727152,
+        "sha256": "525a2cd5682f62ccdc440804e383508bd2722cfd5066d99f7c08692d9a80636d",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jul2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 163
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_jun_18.xlsx",
+      "recuperado_utc": "2026-11-10T19:03:31.417657+00:00",
+      "bytes": 73710,
+      "sha256": "094f17923f7409966cb1d8d240199e8d8c3c5c316c2b355c69c70eb7af9f870a",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_jun_18.xlsx",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jun2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:33.677600+00:00",
+        "bytes": 498183,
+        "sha256": "ffe3c197819a428e695a09ed4510ca8d116c9cdbdc0e226af3400231ad1d320e",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jun2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 162
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_may_18.xlsx",
+      "recuperado_utc": "2026-11-10T19:03:35.635415+00:00",
+      "bytes": 81623,
+      "sha256": "49ca86a69529e1d34d621986cee21b8bd9504ecd39c84f72d912af478bf0b06a",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_may_18.xlsx",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_may2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:38.198935+00:00",
+        "bytes": 667827,
+        "sha256": "6946d0207c056043a62c51c76d0952825d5096bc824dccfc4056c41b8196eea3",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_may2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 161
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_abr_18.xlsx",
+      "recuperado_utc": "2026-11-10T19:03:40.181339+00:00",
+      "bytes": 79881,
+      "sha256": "2f31ba6566e6d6922e678ede5801eea265b8a821245090c33d89e60d39354475",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_abr_18.xlsx",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_abr2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:42.906695+00:00",
+        "bytes": 634259,
+        "sha256": "1cc68f47b8feb7cd097525819d7e2cfb684e01ce19102f87a7043e501e43a3b3",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_abr2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 160
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_mar_18.xlsx",
+      "recuperado_utc": "2026-11-10T19:03:45.277019+00:00",
+      "bytes": 289650,
+      "sha256": "d08c4eeeafedc45f5e1a26488c865b31771699d051883a312cf251ef9465f54f",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_mar_18.xlsx",
+      "publicacion_declarada": "2018-05-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_mar2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:47.642657+00:00",
+        "bytes": 562806,
+        "sha256": "7981d73abbaba5c6e1a5e2bf03661bb1d4227f684c4871b3ad11cd3fc5d103fe",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_mar2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "No se identificó la serie original de índices: []"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_feb_18.xls",
+      "recuperado_utc": "2026-11-10T19:03:49.942042+00:00",
+      "bytes": 224768,
+      "sha256": "127dfd523dcfff277cd891104685aa3de5869f2b62b92499c213e9cc4c474ab3",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_feb_18.xls",
+      "publicacion_declarada": "2018-04-20",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_feb2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:52.449695+00:00",
+        "bytes": 747261,
+        "sha256": "cd41cad798819f87f3507b785d5556f944f9d7494a48eda46ff69b67f3b79994",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_feb2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_ene_18.xls",
+      "recuperado_utc": "2026-11-10T19:03:55.004104+00:00",
+      "bytes": 234496,
+      "sha256": "d279bf6b6b3c30d3f785a16b425b32004f91b98fa78c6a94fd793c4dae8a85b4",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_ene_18.xls",
+      "publicacion_declarada": "2018-03-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ene2018.pdf",
+        "recuperado_utc": "2026-11-10T19:03:57.471488+00:00",
+        "bytes": 671568,
+        "sha256": "2374c8c4a2e7a931df751e7f7be3a9d2728bbe3f7cc2452f02cf77cb58de2828",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ene2018.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_dic_17.xls",
+      "recuperado_utc": "2026-11-10T19:03:59.822306+00:00",
+      "bytes": 229376,
+      "sha256": "a01e6e712b569de73b5b90bfa2ac44454e2d61deb4a24cceba4f69290139e70d",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_dic_17.xls",
+      "publicacion_declarada": "2018-02-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_dic2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:02.518631+00:00",
+        "bytes": 760115,
+        "sha256": "8819fb0ef4b4cb24a580baebc96b27f235715eb01cf2335218bf83a49e827aaf",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_dic2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_nov_17.xls",
+      "recuperado_utc": "2026-11-10T19:04:04.784095+00:00",
+      "bytes": 230400,
+      "sha256": "e31ab4cd768a43cd629152f3e9eaf456f9482730fc12ab31406c7f1949521a5c",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_nov_17.xls",
+      "publicacion_declarada": "2018-01-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_nov2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:07.210405+00:00",
+        "bytes": 782004,
+        "sha256": "739ce92d028e91f660206b4b93412954f9fcbb2942ecf681fc56b662745f91fc",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_nov2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_oct_17.xls",
+      "recuperado_utc": "2026-11-10T19:04:09.480798+00:00",
+      "bytes": 230400,
+      "sha256": "0a39de14a7408547dbb561e2963cef298439978837df72a26910be1ef516528d",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_oct_17.xls",
+      "publicacion_declarada": "2017-12-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_oct2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:11.881618+00:00",
+        "bytes": 790100,
+        "sha256": "f17708621db1c9d341ddac40f2208f874863589b261a410cbb9f6351ab27554a",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_oct2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_sep_17.xls",
+      "recuperado_utc": "2026-11-10T19:04:14.168520+00:00",
+      "bytes": 251904,
+      "sha256": "f6562d91ed1d532c81853ee2b47810d14a3bccddb7f6236de2efac5ec4637113",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_sep_17.xls",
+      "publicacion_declarada": "2017-11-15",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_sep2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:16.865925+00:00",
+        "bytes": 1030852,
+        "sha256": "e47776c3804821c90b744163a9e04ddeca5f0efb5f0f2a0bbf4d5d36e3221317",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_sep2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_ago_17.xls",
+      "recuperado_utc": "2026-11-10T19:04:19.108051+00:00",
+      "bytes": 251392,
+      "sha256": "5e5fc89e9cf14722f06446835f9b153b037689f1477531823341ccad40af8b91",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_ago_17.xls",
+      "publicacion_declarada": "2017-10-23",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ago2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:21.625065+00:00",
+        "bytes": 951004,
+        "sha256": "8d6906436a74c89c22020b9f9cd4e06de5414e444e6c67249178bf394db65aec",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ago2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_jul_17.xls",
+      "recuperado_utc": "2026-11-10T19:04:23.835451+00:00",
+      "bytes": 285184,
+      "sha256": "907d3a02a542fe33c7a0b940b423471285946eaffd7b065c3f675e8f78ef078b",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_jul_17.xls",
+      "publicacion_declarada": "2017-09-22",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jul2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:26.486098+00:00",
+        "bytes": 1069535,
+        "sha256": "4cf7931c029277430297368bd96279a3a97d0c1bd55773c9a014a4b5fd4c97d0",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jul2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_jun_17.xls",
+      "recuperado_utc": "2026-11-10T19:04:28.600962+00:00",
+      "bytes": 178688,
+      "sha256": "a86dd6a5ebf12f13697fd961a02e89af28c955c6157aed86828b47dc83205451",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_jun_17.xls",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jun2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:31.411754+00:00",
+        "bytes": 885204,
+        "sha256": "468b8be76947a268602014dd45a2bb69c16c2509e623e3633776ff64a8c5b865",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jun2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_may_17.xls",
+      "recuperado_utc": "2026-11-10T19:04:33.592794+00:00",
+      "bytes": 195584,
+      "sha256": "c3a95fb04506f1b555441d65d5c0445d964d2b1e151718636491fae4a91103cc",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_may_17.xls",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_may2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:36.378691+00:00",
+        "bytes": 884541,
+        "sha256": "449fb4868ab33ff4b71c86f53e60dbc4a04134a3c484efe597ec1e29f6249ae4",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_may2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_abr_17.xls",
+      "recuperado_utc": "2026-11-10T19:04:38.513740+00:00",
+      "bytes": 177664,
+      "sha256": "e26c6cf9754f1688c279014d063d55a2a35effeb509fd480f075e9e9565a3a1b",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_abr_17.xls",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_abr2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:40.823409+00:00",
+        "bytes": 521987,
+        "sha256": "9287790b83c9867c55f46f1206731f3dd4bb2d6ea621de5d69380c4333f50eae",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_abr2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_mar_17.xls",
+      "recuperado_utc": "2026-11-10T19:04:42.945083+00:00",
+      "bytes": 154624,
+      "sha256": "943631160a17bf22d382e1ea108ae3aa6af975f33b8dba0d6f6556c7ce54a9ab",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_mar_17.xls",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_mar2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:45.621376+00:00",
+        "bytes": 827609,
+        "sha256": "49be350ecee68de975cbd7a36cb5ae8f4eb85060d0d75ba1e8e6dd1967efb1b0",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_mar2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_feb_17.xls",
+      "recuperado_utc": "2026-11-10T19:04:47.719013+00:00",
+      "bytes": 158720,
+      "sha256": "7e2f7b65520b29ba26dc5a4784c8095fcf1d839147aa55a7a9b4ae958b0e0cfd",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_feb_17.xls",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_feb2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:50.264734+00:00",
+        "bytes": 979358,
+        "sha256": "108e3b673eb02cfae767c9dcc3df984644354a9a1d4c9313b8848d10f8fd5e0e",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_feb2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_ene_17.xls",
+      "recuperado_utc": "2026-11-10T19:04:52.473173+00:00",
+      "bytes": 153600,
+      "sha256": "3c9c9958876f938486488ce8b9a556b9aab206cc9542d7ba04b80e45b0bac7a4",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_ene_17.xls",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ene2017.pdf",
+        "recuperado_utc": "2026-11-10T19:04:54.978703+00:00",
+        "bytes": 945530,
+        "sha256": "b25d89ad666a903354bdaad45f96c544f6d3aaf40b0d930069802f21316a54e0",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ene2017.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_dic_16.xls",
+      "recuperado_utc": "2026-11-10T19:04:57.086840+00:00",
+      "bytes": 158720,
+      "sha256": "95d911d6dff0a40128ae14262181478704cd8a9be8b096877de2d56d707f2e54",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_dic_16.xls",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_dic2016.pdf",
+        "recuperado_utc": "2026-11-10T19:04:59.543098+00:00",
+        "bytes": 615024,
+        "sha256": "28326efbe4554224b4719000018a5f326e8cda89974e4ad96c2bddcb1c2a471a",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_dic2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_nov_16.xls",
+      "recuperado_utc": "2026-11-10T19:05:01.681293+00:00",
+      "bytes": 161792,
+      "sha256": "7061387129bacaa14f95ca547fb6a59bd062b4ba9dd2110b275e879e31d82947",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_nov_16.xls",
+      "publicacion_declarada": "2017-01-20",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_nov2016.pdf",
+        "recuperado_utc": "2026-11-10T19:05:04.196330+00:00",
+        "bytes": 987825,
+        "sha256": "485cd53f23ccbf6e5172562f299301a4ebcdf4cad4501c5e8cc2741beed5ab01",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_nov2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_oct_16.xls",
+      "recuperado_utc": "2026-11-10T19:05:06.295902+00:00",
+      "bytes": 164864,
+      "sha256": "380252be22508ddf858c97dc6318dfc8cc131303a0638b1b7b082d79b9a874b6",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_oct_16.xls",
+      "publicacion_declarada": "2016-12-30",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_oct2016.pdf",
+        "recuperado_utc": "2026-11-10T19:05:08.981762+00:00",
+        "bytes": 905817,
+        "sha256": "41275983a26691b8b40e6c15ebc1968e011083a562e64597cde3451ae0e868c4",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_oct2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_sep_16.xls",
+      "recuperado_utc": "2026-11-10T19:05:11.116645+00:00",
+      "bytes": 158208,
+      "sha256": "a683793f5ff13a5ad18ed79bb4a30858b15bba90df42a599bbc72d17d6c9cd3d",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_sep_16.xls",
+      "publicacion_declarada": "2016-11-25",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_sep2016.pdf",
+        "recuperado_utc": "2026-11-10T19:05:13.797836+00:00",
+        "bytes": 527244,
+        "sha256": "b45fdd11de1da5c0126bc33773ebad27d03658185a39b9d6280f1f16d1e6c548",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_sep2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_ago_16.xls",
+      "recuperado_utc": "2026-11-10T19:05:15.964421+00:00",
+      "bytes": 176640,
+      "sha256": "edbc61f51f7f55a162ee61ee0b7a570d5e1681497534002e8ed46216dbe71caa",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_ago_16.xls",
+      "publicacion_declarada": "2016-11-02",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ago2016.pdf",
+        "recuperado_utc": "2026-11-10T19:05:18.398003+00:00",
+        "bytes": 904106,
+        "sha256": "118dcfb16d7f0f4a11397dcabc315a4577c9eb27fb21d877ee3413af50347ab4",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ago2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_jul_16.xls",
+      "recuperado_utc": "2026-11-10T19:05:20.708407+00:00",
+      "bytes": 158208,
+      "sha256": "e617e51d06cb1e94e1e083ef47a2abf914909aadcda2a9a6fc72701638e15b83",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_jul_16.xls",
+      "publicacion_declarada": "2016-10-03",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jul2016.pdf",
+        "recuperado_utc": "2026-11-10T19:05:23.111067+00:00",
+        "bytes": 827247,
+        "sha256": "dc7149ded5323579a3f581e53ac03ec64788da345ab69545f632b7d3af98f3ec",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jul2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_jun_16.xls",
+      "recuperado_utc": "2026-11-10T19:05:25.348798+00:00",
+      "bytes": 157184,
+      "sha256": "03ee5abc077fe382706e0f14d05587bf3a1ddf707ada281ec2ea62ca319f53f5",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_jun_16.xls",
+      "publicacion_declarada": "2016-08-29",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jun2016.pdf",
+        "recuperado_utc": "2026-11-10T19:05:27.813881+00:00",
+        "bytes": 899867,
+        "sha256": "ed8595f4299e11332286851d86478bfee4872c87a6d52efaf50346182e35cd0e",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jun2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_may_16.xls",
+      "recuperado_utc": "2026-11-10T19:05:30.121038+00:00",
+      "bytes": 157184,
+      "sha256": "81f8c1ac933ed28c33bc4cb990b21d76f79507216acc7d72887c1a71ee1a36f1",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_may_16.xls",
+      "publicacion_declarada": "2016-08-02",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_may2016.pdf",
+        "recuperado_utc": "2026-11-10T19:05:32.491537+00:00",
+        "bytes": 484388,
+        "sha256": "03f07f73eb68445a0eae5d1598af9addc7e071850cbc6f53d23ec1a4f1cbf14e",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_may2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_abr_16.xls",
+      "recuperado_utc": "2026-11-10T19:05:34.669610+00:00",
+      "bytes": 153088,
+      "sha256": "f2b7853d682e254ef4e95cfde88bb8c9f3082cb39fa34bb92b51a753856435f3",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_abr_16.xls",
+      "publicacion_declarada": "2016-07-01",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_abr2016.pdf",
+        "recuperado_utc": "2026-11-10T19:05:36.967996+00:00",
+        "bytes": 485512,
+        "sha256": "407cfe8be033d4c9481cbfa8273b038b1ff25dfb5d9b2e08b31ea9c28a0800ad",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_abr2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_mar_16.xls",
+      "recuperado_utc": "2026-11-10T19:05:39.136246+00:00",
+      "bytes": 156672,
+      "sha256": "8ac02ddfec1c1ae7d33022eaa6cbc390abe2155a8238e864d79e3c895fcf570a",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_mar_16.xls",
+      "publicacion_declarada": "2016-06-03",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_mar2016.pdf",
+        "recuperado_utc": "2026-11-10T19:05:41.433524+00:00",
+        "bytes": 627209,
+        "sha256": "67c2b78b1a62ba7225ee6355e47073b7955b166a6b1643484ca12e7fcaa6e3ea",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_mar2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_feb_16.xls",
+      "recuperado_utc": "2026-11-10T19:05:43.866544+00:00",
+      "bytes": 160768,
+      "sha256": "6b5d4579b941200898c0d10317a50ba11c342c5e31f55b2e21701f7d03492be7",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_feb_16.xls",
+      "publicacion_declarada": "2016-05-02",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_feb2016.pdf",
+        "recuperado_utc": "2026-11-10T19:05:46.315528+00:00",
+        "bytes": 572353,
+        "sha256": "0a694f6f27c1ec81f5eb8d23bb7c02825548d28b4237c0ee6836ed17a76fd040",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_feb2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_ene_16.xls",
+      "recuperado_utc": "2026-11-10T19:05:48.529542+00:00",
+      "bytes": 156672,
+      "sha256": "26f0622c2282b3522edc7798cbc15f79a5ef66aa8ccb79feaaefa96c785016c4",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_ene_16.xls",
+      "publicacion_declarada": "2016-04-01",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ene2016.pdf",
+        "recuperado_utc": "2026-11-10T19:05:51.012161+00:00",
+        "bytes": 565263,
+        "sha256": "98787d0820310aa555cf61c8b883ee72d6937c51a2f3fbec898eb22baf3f193a",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ene2016.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_dic_15.xls",
+      "recuperado_utc": "2026-11-10T19:05:53.123758+00:00",
+      "bytes": 151552,
+      "sha256": "1082c656b944ba0425147ac1ef7f40372ea6d7fabedb5220a209567573c718a5",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_dic_15.xls",
+      "publicacion_declarada": "2016-03-10",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_dic2015.pdf",
+        "recuperado_utc": "2026-11-10T19:05:55.522433+00:00",
+        "bytes": 571753,
+        "sha256": "96f13123e87a4bba0aa2f6aea0a0bc83d21f59d4a924955962c44497a7103ddf",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_dic2015.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_nov_15.xls",
+      "recuperado_utc": "2026-11-10T19:05:57.569925+00:00",
+      "bytes": 122368,
+      "sha256": "6d3389c523a6ea945921e3e03963564518616558177e14ff390b1d377670ceb3",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_nov_15.xls",
+      "publicacion_declarada": "2016-02-05",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_nov2015.pdf",
+        "recuperado_utc": "2026-11-10T19:06:00.074933+00:00",
+        "bytes": 679027,
+        "sha256": "7cb22044ad0aaac2865d2cd0dcdbd33838426d7e4a861812bee3ae5aaa5e2ded",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_nov2015.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_oct_15.xls",
+      "recuperado_utc": "2026-11-10T19:06:02.068446+00:00",
+      "bytes": 120832,
+      "sha256": "5299d5cea46448c265a34fd59e83ea306f9bec5b188586e64c7a217f7600302c",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_oct_15.xls",
+      "publicacion_declarada": "2016-01-04",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_oct2015.pdf",
+        "recuperado_utc": "2026-11-10T19:06:04.443611+00:00",
+        "bytes": 763410,
+        "sha256": "fbdc51e2acc1660c3b16f4a46f38be9e95cea8f43fd779b0bececba0d3b78f1a",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_oct2015.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_sep_15.xls",
+      "recuperado_utc": "2026-11-10T19:06:06.505230+00:00",
+      "bytes": 155648,
+      "sha256": "58110444a912d698f334d03cc896c414ea6f38b8a7382232d75b5b654886cc15",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_sep_15.xls",
+      "publicacion_declarada": "2015-12-10",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_sep2015.pdf",
+        "recuperado_utc": "2026-11-10T19:06:09.052600+00:00",
+        "bytes": 762719,
+        "sha256": "886087ae97daa6a0eb4a90798aba127594971883547282e09bd566336efb2a15",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_sep2015.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_ago_15.xls",
+      "recuperado_utc": "2026-11-10T19:06:11.113186+00:00",
+      "bytes": 121856,
+      "sha256": "eb36103ad896c345ccc07dc2bf1c76094cbe92c60559d9292223795424d1f109",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_ago_15.xls",
+      "publicacion_declarada": "2015-11-03",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ago2015.pdf",
+        "recuperado_utc": "2026-11-10T19:06:13.424546+00:00",
+        "bytes": 406778,
+        "sha256": "7888fe8b41cbdd997f5043d53772760914a74f9da999f9cb07880f4e9105cf1e",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ago2015.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_jul_15.xls",
+      "recuperado_utc": "2026-11-10T19:06:15.457882+00:00",
+      "bytes": 121344,
+      "sha256": "e1c9f2997c4da930b4c0412e0117d0996161bf4c1391ea98a742630fe7eb4e24",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_jul_15.xls",
+      "publicacion_declarada": "2015-10-01",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jul2015.pdf",
+        "recuperado_utc": "2026-11-10T19:06:17.900068+00:00",
+        "bytes": 603862,
+        "sha256": "beadb817506f2a352ec3981374b57b5e7aa4e38ba27628c5cbf46b4aa0bd2195",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jul2015.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_may_15.xls",
+      "recuperado_utc": "2026-11-10T19:06:19.988490+00:00",
+      "bytes": 120832,
+      "sha256": "780f8316dc12eef06ce30761634e0afdafd9b2446ec9fc027e769b63483ce517",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_may_15.xls",
+      "publicacion_declarada": "2015-09-10",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jun2015.pdf",
+        "recuperado_utc": "2026-11-10T19:06:22.400139+00:00",
+        "bytes": 764151,
+        "sha256": "1595652ca9a92e2c6449a92ee6f6eae1123e4f906680b3773bce61c3b892d57f",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jun2015.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_abr_15.xls",
+      "recuperado_utc": "2026-11-10T19:06:24.470525+00:00",
+      "bytes": 120832,
+      "sha256": "6f2f381cdb24d69c265fa21a849da93e57cb2eb83ef200bd9af3d214c5737f32",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_abr_15.xls",
+      "publicacion_declarada": "2015-07-03",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_abr2015.pdf",
+        "recuperado_utc": "2026-11-10T19:06:26.889125+00:00",
+        "bytes": 769962,
+        "sha256": "757296f87ca97ddbda1b0cd887c6ca189d3f63ccb4f39e61d6c26f9357ed31f0",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_abr2015.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_mar_15.xls",
+      "recuperado_utc": "2026-11-10T19:06:28.990836+00:00",
+      "bytes": 162816,
+      "sha256": "f47c1cdf555e663c7c1724a881bf81ee115a78132cc1b5f25689b2e74274cd56",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_mar_15.xls",
+      "publicacion_declarada": "2015-06-12",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_mar2015.pdf",
+        "recuperado_utc": "2026-11-10T19:06:31.317563+00:00",
+        "bytes": 527381,
+        "sha256": "cd3727dd34ee5d522ed6f7c5a8775c397604c1bfeb98b1a3e570766186fc8cb0",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_mar2015.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_feb_15.xls",
+      "recuperado_utc": "2026-11-10T19:06:33.340909+00:00",
+      "bytes": 119808,
+      "sha256": "13d836a0a051350a95fe497938bc3a13c3230994e6e2d822aa7811a57bad9561",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_feb_15.xls",
+      "publicacion_declarada": "2015-05-05",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_feb2015.pdf",
+        "recuperado_utc": "2026-11-10T19:06:35.762888+00:00",
+        "bytes": 746109,
+        "sha256": "36d3023ca49799594e451bc06e676c54601846941285b64b401ba07508533faf",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_feb2015.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_ene_15.xls",
+      "recuperado_utc": "2026-11-10T19:06:37.795763+00:00",
+      "bytes": 110080,
+      "sha256": "1f0b016c3bd53aa85f3960c79f475f1086113d63cd99a6bc7da71fb07011f272",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_ene_15.xls",
+      "publicacion_declarada": "2015-04-07",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ene2015.pdf",
+        "recuperado_utc": "2026-11-10T19:06:40.150524+00:00",
+        "bytes": 536350,
+        "sha256": "e3f5b047a93ab67b161a74f379331ca2485d6155e24c395a058e4d5d652e1003",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ene2015.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_dic_14.xls",
+      "recuperado_utc": "2026-11-10T19:06:42.256690+00:00",
+      "bytes": 122880,
+      "sha256": "c5f27f2c3b9fda3f5b3872ec7ce1e7537c7daf91c376a2c819526b9b2ed9536b",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_dic_14.xls",
+      "publicacion_declarada": "2015-03-17",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_dic2014.pdf",
+        "recuperado_utc": "2026-11-10T19:06:44.652542+00:00",
+        "bytes": 708910,
+        "sha256": "9a6a2dbe27d1d5e7c954aa97b4635a62679eac7133eb9af983443deb3f5b5630",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_dic2014.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_nov_14.xls",
+      "recuperado_utc": "2026-11-10T19:06:47.410487+00:00",
+      "bytes": 122880,
+      "sha256": "39f716f58faf0e20ee976c8dfca1ddd56f46ded8465756b918be54f18a992a62",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_nov_14.xls",
+      "publicacion_declarada": "2015-02-03",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_nov2014.pdf",
+        "recuperado_utc": "2026-11-10T19:06:49.923764+00:00",
+        "bytes": 662297,
+        "sha256": "bf5b3cfaa6bfdf34330b3395f7288ef28215e60d144d3e8972485f73616978ff",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_nov2014.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_oct_14.xls",
+      "recuperado_utc": "2026-11-10T19:06:52.469666+00:00",
+      "bytes": 115712,
+      "sha256": "813b49c407b80f5c5d2b42a8fc10a2f6fb7eacdd0276eaea3510ea3bd01af0c0",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_oct_14.xls",
+      "publicacion_declarada": "2015-01-06",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_oct2014.pdf",
+        "recuperado_utc": "2026-11-10T19:06:54.881769+00:00",
+        "bytes": 779689,
+        "sha256": "33135154812488b35f705b726491e7e121461b4a842bedb8b21fc9b618ef51d0",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_oct2014.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_ago_14.xls",
+      "recuperado_utc": "2026-11-10T19:06:57.453938+00:00",
+      "bytes": 149504,
+      "sha256": "5537d1cc4c5d32804baf92c95565fd6cc82b99d4f081e196cb11a42179dc0972",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_ago_14.xls",
+      "publicacion_declarada": "2014-11-04",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_ago2014.pdf",
+        "recuperado_utc": "2026-11-10T19:06:59.824258+00:00",
+        "bytes": 734904,
+        "sha256": "fd048cdf008277060528e88654c0d01d5e69019e3e41ab5ad1d0123d2411b695",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_ago2014.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_jul_14.xls",
+      "recuperado_utc": "2026-11-10T19:07:02.521195+00:00",
+      "bytes": 155136,
+      "sha256": "3ff20f950329204ed7f74a1a5b37581eda19ef0dcbf792706028e18e2eda3cf5",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_jul_14.xls",
+      "publicacion_declarada": "2014-10-02",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jul2014.pdf",
+        "recuperado_utc": "2026-11-10T19:07:04.870256+00:00",
+        "bytes": 609440,
+        "sha256": "008d1021eb6c519e8d1cddea5e6f0b8a29ec35afcba6424e84d6fc5314838af0",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jul2014.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anex_ISE_total_jun_14.xls",
+      "recuperado_utc": "2026-11-10T19:07:08.080997+00:00",
+      "bytes": 863744,
+      "sha256": "6d208d9d53202e7b554e598e97e9e3bd97022424f27ebcc4c78062085eca53f4",
+      "archivo": "data/external/actividad_economica/originales/Anex_ISE_total_jun_14.xls",
+      "publicacion_declarada": "2014-09-16",
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_jun14.pdf",
+        "recuperado_utc": "2026-11-10T19:07:10.684759+00:00",
+        "bytes": 711352,
+        "sha256": "af02b53364731eee8ab82223e97d065e11d1cd933532830c7339895da8523c16",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_jun14.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anx_ISE_may_14.xls",
+      "recuperado_utc": "2026-11-10T19:07:13.972889+00:00",
+      "bytes": 867840,
+      "sha256": "549dff50384f3c38aaacbae3b44f1e14079b3be24b64b2850ea08996a32e6bd0",
+      "archivo": "data/external/actividad_economica/originales/Anx_ISE_may_14.xls",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_may14.pdf",
+        "recuperado_utc": "2026-11-10T19:07:16.547460+00:00",
+        "bytes": 784108,
+        "sha256": "d31498e20145389629952c920f7ec4b8c7359b9ee0ced1ed96f4f44cdd4221c1",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_may14.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "extraccion_pendiente": "Workbook is encrypted"
+    },
+    {
+      "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/Anx_ISE_abr_14.xls",
+      "recuperado_utc": "2026-11-10T19:07:19.661043+00:00",
+      "bytes": 820736,
+      "sha256": "0a643ac78fa7cc22ca22471429285f2a58eb79551d58f36661cf8b7d6bade6cc",
+      "archivo": "data/external/actividad_economica/originales/Anx_ISE_abr_14.xls",
+      "publicacion_declarada": null,
+      "boletin": {
+        "url": "https://www.dane.gov.co/files/investigaciones/boletines/pib/bol_ISE_abri14.pdf",
+        "recuperado_utc": "2026-11-10T19:07:22.093742+00:00",
+        "bytes": 925970,
+        "sha256": "2f20f265d70ea79e17ded32df7b42c415a06f58f3a06344865ffbbbe48bf09bd",
+        "archivo": "data/external/actividad_economica/boletines/bol_ISE_abri14.pdf"
+      },
+      "version_historica_no_verificada": true,
+      "meses_extraidos": 172
+    }
+  ],
+  "nota": "Las versiones se recuperaron hoy. Una fecha de boletín es declarada; no verifica por sí sola la versión histórica del Excel. No mezclar bases del índice ni usar el vintage final como si fuera original."
+}

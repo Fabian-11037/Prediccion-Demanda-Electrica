@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=4.8133&longitude=-75.6961&hourly=temperature_2m_previous_day1%2Ctemperature_2m_previous_day2%2Ctemperature_2m_previous_day3%2Crelative_humidity_2m_previous_day1%2Crelative_humidity_2m_previous_day2%2Crelative_humidity_2m_previous_day3%2Cprecipitation_previous_day1%2Cprecipitation_previous_day2%2Cprecipitation_previous_day3&models=jma_gsm&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+  "params": {
+    "latitude": 4.8133,
+    "longitude": -75.6961,
+    "hourly": "temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3,relative_humidity_2m_previous_day1,relative_humidity_2m_previous_day2,relative_humidity_2m_previous_day3,precipitation_previous_day1,precipitation_previous_day2,precipitation_previous_day3",
+    "models": "jma_gsm",
+    "start_date": "2026-01-01",
+    "end_date": "2026-11-09",
+    "timezone": "America/Bogota"
+  },
+  "recuperado_utc": "2026-11-10T19:03:08.068535+00:00",
+  "sha256_respuesta": "97621a6253f856ea2a1e97f6e9374c78eaed1d8dc39c9db5a742a1a0ea252f3f",
+  "bytes_respuesta": 439158,
+  "sha256_archivo": "eba910223cf3f9862810d70c26ec1d76eac8f2b70038c0a8c4968281f9015ff6",
+  "archivo": "data/external/pronosticos_temperatura/originales/pereira_jma_gsm_2026.json.gz",
+  "lat_malla": 5.0,
+  "lon_malla": -75.5,
+  "elevacion_m": 1410.0
+}

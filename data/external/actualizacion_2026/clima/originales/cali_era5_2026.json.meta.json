@@ -1,0 +1,17 @@
+{
+  "url": "https://archive-api.open-meteo.com/v1/archive?latitude=3.4516&longitude=-76.532&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+  "params": {
+    "latitude": 3.4516,
+    "longitude": -76.532,
+    "models": "era5",
+    "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+    "start_date": "2026-01-01",
+    "end_date": "2026-11-09",
+    "timezone": "America/Bogota"
+  },
+  "body": null,
+  "recuperado_utc": "2026-11-10T19:08:50.953196+00:00",
+  "sha256_respuesta": "6597779b59a30370d2fd6e4ead2235597e91ec8da9fcae93108b6a2f25c48c0c",
+  "sha256_archivo": "c8ffeccb90a2a9ed616718563374ff0e6db2feb11010abe7ba4bfc092e2bd8b2",
+  "archivo": "data/external/actualizacion_2026/clima/originales/cali_era5_2026.json.gz"
+}

@@ -1,0 +1,17 @@
+modelo,variables,particion,origenes,origenes_24h_8ciudades_completos,cobertura_pct,primer_origen_completo,ultimo_origen_completo,regla
+gfs_global,temperatura,entrenamiento_referencia,6575,0,0.0,,,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+gfs_global,temperatura,validacion_externa,1461,282,19.301848049281315,2021-03-25 00:00:00-05:00,2021-12-31 00:00:00-05:00,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+gfs_global,temperatura,prueba_retrospectiva,1461,1439,98.49418206707735,2022-01-01 00:00:00-05:00,2025-12-31 00:00:00-05:00,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+gfs_global,temperatura,extension_retrospectiva,313,313,100.0,2026-01-01 00:00:00-05:00,2026-11-09 00:00:00-05:00,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+gfs_global,temperatura_humedad_precipitacion,entrenamiento_referencia,6575,0,0.0,,,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+gfs_global,temperatura_humedad_precipitacion,validacion_externa,1461,0,0.0,,,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+gfs_global,temperatura_humedad_precipitacion,prueba_retrospectiva,1461,712,48.733744010951405,2024-01-20 00:00:00-05:00,2025-12-31 00:00:00-05:00,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+gfs_global,temperatura_humedad_precipitacion,extension_retrospectiva,313,313,100.0,2026-01-01 00:00:00-05:00,2026-11-09 00:00:00-05:00,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+jma_gsm,temperatura,entrenamiento_referencia,6575,0,0.0,,,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+jma_gsm,temperatura,validacion_externa,1461,1461,100.0,2018-01-01 00:00:00-05:00,2021-12-31 00:00:00-05:00,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+jma_gsm,temperatura,prueba_retrospectiva,1461,1461,100.0,2022-01-01 00:00:00-05:00,2025-12-31 00:00:00-05:00,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+jma_gsm,temperatura,extension_retrospectiva,313,313,100.0,2026-01-01 00:00:00-05:00,2026-11-09 00:00:00-05:00,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+jma_gsm,temperatura_humedad_precipitacion,entrenamiento_referencia,6575,0,0.0,,,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+jma_gsm,temperatura_humedad_precipitacion,validacion_externa,1461,1461,100.0,2018-01-01 00:00:00-05:00,2021-12-31 00:00:00-05:00,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+jma_gsm,temperatura_humedad_precipitacion,prueba_retrospectiva,1461,1461,100.0,2022-01-01 00:00:00-05:00,2025-12-31 00:00:00-05:00,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen
+jma_gsm,temperatura_humedad_precipitacion,extension_retrospectiva,313,299,95.52715654952077,2026-01-01 00:00:00-05:00,2026-11-09 00:00:00-05:00,Ultimo lead1..3 no nulo que cumple disponibilidad proxy=valido-lead*24h+12h<=origen

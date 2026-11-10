@@ -48,3 +48,10 @@ Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez. El libro int
 Las fuentes del libro están en book y scripts; docs contiene el HTML de publicación. La reproducción documental y la continuidad se describen en [el contexto del libro](continuidad/CONTEXTO_PROYECTO.md).
 
 El libro publicado presenta el análisis y benchmark documentados en los cuadernos actuales. Los artefactos de los modelos se consultan en [la consolidación](results/consolidado/README.md).
+
+
+## Datos adicionales · 10 de noviembre de 2026
+
+Se incorporan pronósticos meteorológicos de ocho ciudades (JMA/GFS), versiones ISE, población DANE, extensión numérica2026, pronóstico oficial XM para auditoría y el corpus textual integrado. Inventario, restricciones temporales y reproducción en [datos adicionales](data/external/README_DATOS_ADICIONALES_20261110.md); hashes en [manifiesto](data/processed/dataset_ampliado_20261110.json). El panel y los modelos congelados se conservan.
+
+El diseño recibido y su [revisión](literature/REVISION_DISENO_ENTRENAMIENTO_20261110.md) quedan como insumos para un protocolo futuro, sin ejecutar entrenamientos. Esta actualización no modifica el HTML publicado del JBook.

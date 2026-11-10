@@ -1,0 +1,17 @@
+{
+  "url": "https://archive-api.open-meteo.com/v1/archive?latitude=6.2442&longitude=-75.5812&models=era5&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+  "params": {
+    "latitude": 6.2442,
+    "longitude": -75.5812,
+    "models": "era5",
+    "hourly": "temperature_2m,relative_humidity_2m,precipitation",
+    "start_date": "2026-01-01",
+    "end_date": "2026-11-09",
+    "timezone": "America/Bogota"
+  },
+  "body": null,
+  "recuperado_utc": "2026-11-10T19:08:48.945961+00:00",
+  "sha256_respuesta": "11ff1c561187642ec83214e2b40bd4943a488786c97dadd750873c752e97babf",
+  "sha256_archivo": "c61d0092233a9c691b0cb014a6fa5ef690241d70aa481829cc576cdac60449a5",
+  "archivo": "data/external/actualizacion_2026/clima/originales/medellin_era5_2026.json.gz"
+}

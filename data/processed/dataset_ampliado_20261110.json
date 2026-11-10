@@ -1,0 +1,67 @@
+{
+  "version": "datos_adicionales_20261110",
+  "fecha": "2026-11-10",
+  "panel_numerico_congelado": "data/processed/panel_horario.parquet",
+  "archivos": [
+    {
+      "ruta": "data/external/pronosticos_temperatura/pronosticos_meteorologicos.parquet",
+      "bytes": 26836021,
+      "sha256": "4cb69265f6c2303c7e72994bd2383c5cb702cac06c393440aa80c43f34b6f840"
+    },
+    {
+      "ruta": "data/external/pronosticos_temperatura/pronosticos_temperatura.parquet",
+      "bytes": 24171166,
+      "sha256": "f08a74a8a656114b8861b660c5b929e960e96e8abf4d5919e3ae4d8457dc77fb"
+    },
+    {
+      "ruta": "data/external/actividad_economica/ise_dane.csv",
+      "bytes": 37082,
+      "sha256": "e463c3845d5306bb1c858f0872aea7e0d8904baa88030aff1cc17c0447c24dd6"
+    },
+    {
+      "ruta": "data/external/actividad_economica/ise_vintages.parquet",
+      "bytes": 499899,
+      "sha256": "0d0b0cf47d77a7286a06deda6715104114031d89fb461cc6b1bab58d207802c8"
+    },
+    {
+      "ruta": "data/external/poblacion_dane/poblacion_ciudades_2000_2026.csv",
+      "bytes": 24412,
+      "sha256": "94e1d2ead23f35587366bf5be56061881ec607c8ec1d1fe7749e36d19ca7c98c"
+    },
+    {
+      "ruta": "data/external/actualizacion_2026/xm/horario_2026.parquet",
+      "bytes": 205913,
+      "sha256": "da018f316c8fc63992c2e341bbc6ccb4e6fea728d8dd683f07a06ae8850286f3"
+    },
+    {
+      "ruta": "data/external/actualizacion_2026/xm/hidrologia_2026.parquet",
+      "bytes": 13190,
+      "sha256": "7743a18033cab13cdea1815d79af1b9e083260caf9a032f6a2d77794610b551f"
+    },
+    {
+      "ruta": "data/external/actualizacion_2026/clima/clima_observado_2026.parquet",
+      "bytes": 220816,
+      "sha256": "a97930e560cb67a2f19a37377c99215ff422655716faa8ebfa5f4737a88bd028"
+    },
+    {
+      "ruta": "data/external/pronostico_demanda_xm/pronostico_oficial_subareas_2022_2026.parquet",
+      "bytes": 4429545,
+      "sha256": "616e8110b89feef901e16ceb25e88326a5c010cd8a6230266bdb572ae2a97325"
+    },
+    {
+      "ruta": "data/processed/corpus_texto.parquet",
+      "bytes": 92218678,
+      "sha256": "2b6ee4071ae0806b236cd3cf9c0aa7335bc4dc02ac6241c556c95a45b7eb7cc7"
+    }
+  ],
+  "entrenamiento_ejecutado": false,
+  "configuracion_modelos_modificada": false,
+  "disponibilidad": {
+    "meteorologia": "proxy explicito; emision exacta no certificada",
+    "ise": "vintage declarado+dia siguiente y rezago60dias; no mezclar bases",
+    "poblacion": "proyecciones actuales revisadas; fechas2023/2025",
+    "pronostico_xm": "solo auditoria; publicacion posterior al objetivo, sin emision original",
+    "extension2026": "retrospectiva; no es bloque prospectivo"
+  },
+  "selectores": "src/demanda/datos_adicionales.py"
+}

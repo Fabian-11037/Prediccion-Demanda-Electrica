@@ -1,0 +1,15 @@
+{
+  "url": "https://servapibi.xm.com.co/hourly",
+  "params": null,
+  "body": {
+    "MetricId": "DemaCome",
+    "Entity": "Sistema",
+    "StartDate": "2026-06-01",
+    "EndDate": "2026-06-30",
+    "Filter": []
+  },
+  "recuperado_utc": "2026-11-10T19:01:31.150643+00:00",
+  "sha256_respuesta": "9479b86a1ed3c2f0a7cc4c227124a847069dea3ceb4f4034ede1d397ae3926fd",
+  "sha256_archivo": "6abd8eed8da87aab398cd82ba9661a9380b3c29fb57f683b946e806db1483d47",
+  "archivo": "data/external/actualizacion_2026/xm/originales/DemaCome_202606.json.gz"
+}

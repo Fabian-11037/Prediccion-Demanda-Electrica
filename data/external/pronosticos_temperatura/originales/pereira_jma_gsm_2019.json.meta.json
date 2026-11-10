@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=4.8133&longitude=-75.6961&hourly=temperature_2m_previous_day1%2Ctemperature_2m_previous_day2%2Ctemperature_2m_previous_day3%2Crelative_humidity_2m_previous_day1%2Crelative_humidity_2m_previous_day2%2Crelative_humidity_2m_previous_day3%2Cprecipitation_previous_day1%2Cprecipitation_previous_day2%2Cprecipitation_previous_day3&models=jma_gsm&start_date=2019-01-01&end_date=2019-12-31&timezone=America%2FBogota",
+  "params": {
+    "latitude": 4.8133,
+    "longitude": -75.6961,
+    "hourly": "temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3,relative_humidity_2m_previous_day1,relative_humidity_2m_previous_day2,relative_humidity_2m_previous_day3,precipitation_previous_day1,precipitation_previous_day2,precipitation_previous_day3",
+    "models": "jma_gsm",
+    "start_date": "2019-01-01",
+    "end_date": "2019-12-31",
+    "timezone": "America/Bogota"
+  },
+  "recuperado_utc": "2026-11-10T19:02:36.787929+00:00",
+  "sha256_respuesta": "d2470bfe675258b01da4db3c8628f08ce4a077fb5e108378a7b2e57a05f41afd",
+  "bytes_respuesta": 509178,
+  "sha256_archivo": "a61e0f1f68188386b1ec17de31c72d6d7b2f1c9b199ae446509ac3804d40a692",
+  "archivo": "data/external/pronosticos_temperatura/originales/pereira_jma_gsm_2019.json.gz",
+  "lat_malla": 5.0,
+  "lon_malla": -75.5,
+  "elevacion_m": 1410.0
+}

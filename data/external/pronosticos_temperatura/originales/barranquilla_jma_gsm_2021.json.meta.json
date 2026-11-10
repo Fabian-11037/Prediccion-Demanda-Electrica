@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=10.9685&longitude=-74.7813&hourly=temperature_2m_previous_day1%2Ctemperature_2m_previous_day2%2Ctemperature_2m_previous_day3%2Crelative_humidity_2m_previous_day1%2Crelative_humidity_2m_previous_day2%2Crelative_humidity_2m_previous_day3%2Cprecipitation_previous_day1%2Cprecipitation_previous_day2%2Cprecipitation_previous_day3&models=jma_gsm&start_date=2021-01-01&end_date=2021-12-31&timezone=America%2FBogota",
+  "params": {
+    "latitude": 10.9685,
+    "longitude": -74.7813,
+    "hourly": "temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3,relative_humidity_2m_previous_day1,relative_humidity_2m_previous_day2,relative_humidity_2m_previous_day3,precipitation_previous_day1,precipitation_previous_day2,precipitation_previous_day3",
+    "models": "jma_gsm",
+    "start_date": "2021-01-01",
+    "end_date": "2021-12-31",
+    "timezone": "America/Bogota"
+  },
+  "recuperado_utc": "2026-11-10T18:59:41.634753+00:00",
+  "sha256_respuesta": "6357193b760aaa2bc8d662d9c6e061ba25ba39e9ce53b679e22a79c74b72f11e",
+  "bytes_respuesta": 508964,
+  "sha256_archivo": "7157627fd056d98ff0f51129c6e74d7a617d8f0b22a93699ad28212da35a86cc",
+  "archivo": "data/external/pronosticos_temperatura/originales/barranquilla_jma_gsm_2021.json.gz",
+  "lat_malla": 11.0,
+  "lon_malla": -75.0,
+  "elevacion_m": 21.0
+}

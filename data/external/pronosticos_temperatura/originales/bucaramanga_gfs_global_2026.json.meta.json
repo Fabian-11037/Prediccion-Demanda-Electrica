@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=7.1193&longitude=-73.1227&hourly=temperature_2m_previous_day1%2Ctemperature_2m_previous_day2%2Ctemperature_2m_previous_day3%2Crelative_humidity_2m_previous_day1%2Crelative_humidity_2m_previous_day2%2Crelative_humidity_2m_previous_day3%2Cprecipitation_previous_day1%2Cprecipitation_previous_day2%2Cprecipitation_previous_day3&models=gfs_global&start_date=2026-01-01&end_date=2026-11-09&timezone=America%2FBogota",
+  "params": {
+    "latitude": 7.1193,
+    "longitude": -73.1227,
+    "hourly": "temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3,relative_humidity_2m_previous_day1,relative_humidity_2m_previous_day2,relative_humidity_2m_previous_day3,precipitation_previous_day1,precipitation_previous_day2,precipitation_previous_day3",
+    "models": "gfs_global",
+    "start_date": "2026-01-01",
+    "end_date": "2026-11-09",
+    "timezone": "America/Bogota"
+  },
+  "recuperado_utc": "2026-11-10T18:53:16.318462+00:00",
+  "sha256_respuesta": "f1e4d9e1a6bde809308e94c76bd6567e058f24e794a2491c67ac43c078a1ce72",
+  "bytes_respuesta": 436643,
+  "sha256_archivo": "e9e2dce39ab57ea50cd57eb8333acc0f5835418208b072ea146bafa9e91d5bf1",
+  "archivo": "data/external/pronosticos_temperatura/originales/bucaramanga_gfs_global_2026.json.gz",
+  "lat_malla": 7.0875397,
+  "lon_malla": -73.125,
+  "elevacion_m": 969.0
+}

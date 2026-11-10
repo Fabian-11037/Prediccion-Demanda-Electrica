@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=7.8891&longitude=-72.4967&hourly=temperature_2m_previous_day1%2Ctemperature_2m_previous_day2%2Ctemperature_2m_previous_day3%2Crelative_humidity_2m_previous_day1%2Crelative_humidity_2m_previous_day2%2Crelative_humidity_2m_previous_day3%2Cprecipitation_previous_day1%2Cprecipitation_previous_day2%2Cprecipitation_previous_day3&models=gfs_global&start_date=2024-01-01&end_date=2024-12-31&timezone=America%2FBogota",
+  "params": {
+    "latitude": 7.8891,
+    "longitude": -72.4967,
+    "hourly": "temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3,relative_humidity_2m_previous_day1,relative_humidity_2m_previous_day2,relative_humidity_2m_previous_day3,precipitation_previous_day1,precipitation_previous_day2,precipitation_previous_day3",
+    "models": "gfs_global",
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "timezone": "America/Bogota"
+  },
+  "recuperado_utc": "2026-11-10T18:54:51.044348+00:00",
+  "sha256_respuesta": "f75ea92cd84377d159d846e84a1aa2ae91178c78216aeca6297267104c09266b",
+  "bytes_respuesta": 513149,
+  "sha256_archivo": "926b7ce9e92e6ff663b96013549110581fa2708c16632061f0ef0e8c0984f78a",
+  "archivo": "data/external/pronosticos_temperatura/originales/cucuta_gfs_global_2024.json.gz",
+  "lat_malla": 7.907585,
+  "lon_malla": -72.53906,
+  "elevacion_m": 311.0
+}
