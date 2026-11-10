@@ -1,0 +1,156 @@
+{
+  "version": "diseno_texto_numericas_comunes_20261110",
+  "fecha": "2026-11-10",
+  "estado": "diseno_para_implementacion_sin_entrenamiento",
+  "panel": "data/processed/panel_horario.parquet",
+  "panel_sha256": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+  "corpus": "data/processed/corpus_texto.parquet",
+  "escenario_texto": "declarado",
+  "variantes": [
+    "N",
+    "N+O",
+    "N+O+P"
+  ],
+  "ventana_h": 168,
+  "horizonte_h": 24,
+  "zona": "America/Bogota",
+  "numericas": {
+    "historicas": [
+      "x_demanda_real_kwh",
+      "x_precio_bolsa_cop_kwh",
+      "x_hid_llenado_valor_original",
+      "x_hid_reserva_util_kwh",
+      "x_hid_capacidad_util_kwh",
+      "x_hid_aportes_kwh_dia",
+      "x_obs_temperature_2m_c_bogota",
+      "x_obs_temperature_2m_c_medellin",
+      "x_obs_temperature_2m_c_cali",
+      "x_obs_temperature_2m_c_barranquilla",
+      "x_obs_temperature_2m_c_cartagena",
+      "x_obs_temperature_2m_c_bucaramanga",
+      "x_obs_temperature_2m_c_pereira",
+      "x_obs_temperature_2m_c_cucuta",
+      "x_obs_relative_humidity_2m_pct_bogota",
+      "x_obs_relative_humidity_2m_pct_medellin",
+      "x_obs_relative_humidity_2m_pct_cali",
+      "x_obs_relative_humidity_2m_pct_barranquilla",
+      "x_obs_relative_humidity_2m_pct_cartagena",
+      "x_obs_relative_humidity_2m_pct_bucaramanga",
+      "x_obs_relative_humidity_2m_pct_pereira",
+      "x_obs_relative_humidity_2m_pct_cucuta",
+      "x_obs_precipitation_preceding_hour_mm_bogota",
+      "x_obs_precipitation_preceding_hour_mm_medellin",
+      "x_obs_precipitation_preceding_hour_mm_cali",
+      "x_obs_precipitation_preceding_hour_mm_barranquilla",
+      "x_obs_precipitation_preceding_hour_mm_cartagena",
+      "x_obs_precipitation_preceding_hour_mm_bucaramanga",
+      "x_obs_precipitation_preceding_hour_mm_pereira",
+      "x_obs_precipitation_preceding_hour_mm_cucuta"
+    ],
+    "calendario": [
+      "cal_dow",
+      "cal_mes",
+      "cal_dia_anio",
+      "cal_es_festivo",
+      "cal_es_domingo",
+      "cal_es_sabado",
+      "cal_es_no_laboral",
+      "cal_tipo_dia",
+      "cal_dias_al_siguiente_festivo",
+      "cal_dias_desde_festivo_previo",
+      "cal_es_vispera_festivo",
+      "cal_es_dia_post_festivo",
+      "cal_es_fin_semana_largo",
+      "cal_es_semana_santa",
+      "cal_es_temporada_navidena",
+      "cal_es_fin_de_anio",
+      "cal_hora",
+      "cal_hora_sin",
+      "cal_hora_cos",
+      "cal_dow_sin",
+      "cal_dow_cos",
+      "cal_doy_sin",
+      "cal_doy_cos"
+    ],
+    "rezago_clima_h": 168,
+    "sensibilidad_rezago_clima_h": 2160,
+    "disponibilidad_historica_certificada": false,
+    "imputacion": "mediana_solo_ajuste_y_mascara"
+  },
+  "texto": {
+    "ventana_h": 72,
+    "ventanas_sensibilidad_h": [
+      24,
+      168
+    ],
+    "max_documentos_canal": 64,
+    "max_fragmentos_documento": 8,
+    "tokens_max": 512,
+    "solapamiento_tokens": 64,
+    "encoder": "intfloat/multilingual-e5-base",
+    "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+    "prefijo": "query: ",
+    "pooling": "mean_attention_mask",
+    "normalizacion": "L2",
+    "agregacion": "relevancia_aprendida_por_canal",
+    "ausencia": "cero_y_mascara",
+    "filtro_palabras_clave": false
+  },
+  "metrica": {
+    "primaria": "MASE",
+    "direccion": "min",
+    "q168_kwh": 215617.90361589016,
+    "margen_relativo": 0.03
+  },
+  "validacion": {
+    "anios": [
+      2018,
+      2019,
+      2020,
+      2021
+    ],
+    "fraccion_parada": 0.1,
+    "purga_h": 24,
+    "prueba": [
+      "2022-01-01",
+      "2025-12-31"
+    ],
+    "alcance_prueba": "retrospectivo"
+  },
+  "presupuesto": {
+    "configuraciones_hiperparametros": 20,
+    "semillas_ajuste": [
+      43,
+      44,
+      45
+    ],
+    "max_epocas": 200,
+    "arquitecturas_sin_diseno_publicado": 1000,
+    "fase1_epocas": 50,
+    "fase1_semilla": 42,
+    "finalistas_minimos": 10,
+    "fase2_semillas": [
+      100,
+      101,
+      102,
+      103,
+      104
+    ],
+    "semillas_finales": "dimensionar_con_piloto"
+  },
+  "inferencia": {
+    "unidad": "origen_diario",
+    "alpha": 0.05,
+    "potencia_objetivo": 0.8,
+    "bloques_dias": 14,
+    "remuestreos": 10000,
+    "ajuste_multiple": "Holm",
+    "potencia_objetivo_E3": 0.9
+  },
+  "pendientes_antes_de_ejecutar": [
+    "fichas_de_configuracion_publicada_por_modelo",
+    "motor_versionado_y_adaptadores",
+    "piloto_y_numero_final_de_semillas",
+    "registro_fechado_y_hashes"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "training_executed": false,
+  "published": false,
+  "saved_predictions_only": true,
+  "benchmark_sha256_unchanged": "494b8460ab95b623c5d4f16cd50d709e500bb1ba59d30ceea1d053fad02cafbf",
+  "hours": 35064,
+  "seeds_per_family": 5,
+  "families": [
+    "mlp",
+    "arx_lineal",
+    "cnn1d",
+    "lstm"
+  ],
+  "new_figures": 1,
+  "updated_figures": 1,
+  "section": "10.7",
+  "artifacts_verified": 2304
+}

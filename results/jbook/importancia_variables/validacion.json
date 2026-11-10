@@ -1,0 +1,22 @@
+{
+  "completo": true,
+  "solo_verificacion": true,
+  "horas": 35064,
+  "origenes": 1461,
+  "modelos": 4,
+  "checkpoints": 20,
+  "repeticiones": 10,
+  "grupos": 13,
+  "filas": 0,
+  "entrenamiento": false,
+  "publicado": false,
+  "benchmark_intacto": true,
+  "max_diferencia_pred_kWh": 26.914692346006632,
+  "max_diferencia_MAE_kWh": 0.12703741196310148,
+  "duracion_segundos": 2.797730100020999,
+  "torch": "2.9.1+cpu",
+  "numpy": "2.5.4",
+  "pandas": "3.1.1",
+  "sistema": "Windows-11-10.0.26200-SP0",
+  "codigo_sha256": "cf38e9a699420eb81c747d22709bfccbdc7bc2a1c74009504d4f7c83cf36e2f1"
+}

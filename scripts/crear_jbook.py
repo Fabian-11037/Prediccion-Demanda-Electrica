@@ -112,6 +112,12 @@ def main():
     armonizar(books,md,ROOT)
     from diseno_texto_jbook import integrar_diseno
     integrar_diseno(books,md,code)
+    from observado_prediccion_jbook import integrar_observado
+    integrar_observado(books,md,code,note)
+    from importancia_jbook import integrar_importancia
+    integrar_importancia(books,md,code,note,ROOT)
+    from diseno_ampliado_jbook import integrar_ampliado,escribir_pagina
+    integrar_ampliado(books,md,code,ROOT)
     seleccion=set(sys.argv[1:])
     if seleccion-set(books):raise ValueError('Capítulos desconocidos: '+str(seleccion-set(books)))
     for stem,cells in books.items():
@@ -152,6 +158,7 @@ sphinx:
 ''',encoding='utf-8')
     (BOOK/'_toc.yml').write_text('format: jb-book\nroot: intro\nchapters:\n'+''.join('  - file: '+stem+'\n'+('    sections:\n      - file: diccionario\n' if stem=='01_datos' else '    sections:\n      - file: 10_evaluacion\n      - file: 10_pipeline\n' if stem=='10_modelos' else '') for stem in books if stem!='10_evaluacion')+'  - file: fuentes\n',encoding='utf-8')
     armonizar_archivos(ROOT)
+    escribir_pagina(ROOT)
     audit=dict(development_start='2000-01-01',development_end_exclusive='2022-01-01',
         test_values_read=False,model_results_read=True,training_executed=False,model_chapter_empty=False,
         authors=['Fabian José Manrique Morelos','Gloria Bastidas Rodriguez'],notebooks=len(books))

@@ -228,7 +228,10 @@
 <li class="toctree-l1"><a class="reference internal" href="06_covariables.html">6. Covariables y disponibilidad</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Corpus documental y procesamiento del texto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
@@ -396,6 +399,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-y-controles">Comparación y controles</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entradas-comunes-del-diseno-predictivo">Entradas comunes del diseño predictivo</a></li>
 </ul>
             </nav>
         </div>
@@ -448,7 +452,7 @@ z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
 \alpha_{c,t,j}=\operatorname{softmax}_{j}\!\left(s_{\theta_c}(e_{c,j},q_t)\right).
 \]</div>
 <p><span class="math notranslate nohighlight">\(D_{c,t}\)</span> contiene únicamente fragmentos de documentos disponibles al origen; <span class="math notranslate nohighlight">\(e_{c,j}\)</span> es su embedding y <span class="math notranslate nohighlight">\(q_t\)</span> resume la historia numérica conocida. La función de relevancia se aprende mediante el objetivo de pronóstico, sin clasificación temática manual ni selección por palabras clave. La fusión recibe las representaciones, sus indicadores de ausencia y la historia numérica. El canal de prensa puede recibir un peso pequeño cuando su información no resulta útil.</p>
-<p>La segmentación, la ventana temporal y los límites de documentos, fragmentos y tokens por canal se fijarán con desarrollo antes de la siguiente evaluación textual. La selección previa al límite será determinista y temporal; la relevancia se aprenderá entre los fragmentos admitidos. Se registrarán textos descartados por presupuesto, alcance de extracción y proporciones por fuente. Los documentos de cuerpo parcial y los titulares conservarán su identificación de alcance; no se tratarán como textos completos. Si se utiliza un encoder preentrenado, se documentarán su versión, fecha de corte conocida y política de ajuste. Su conocimiento previo puede limitar la interpretación histórica.</p>
+<p>Se fijan una ventana principal de 72 horas, hasta 64 documentos por canal y ocho fragmentos por documento; cada fragmento admite 512 tokens incluyendo prefijo y tokens especiales, con solapamiento de 64 tokens. Las sensibilidades de ventana son 24 y 168 horas. La selección previa al límite será determinista y temporal; la relevancia se aprenderá entre los fragmentos admitidos. Se registrarán textos descartados por presupuesto, alcance de extracción y proporciones por fuente. Los documentos de cuerpo parcial y los titulares conservarán su identificación de alcance; no se tratarán como textos completos. Si se utiliza un encoder preentrenado, se documentarán su versión, fecha de corte conocida y política de ajuste. Su conocimiento previo puede limitar la interpretación histórica.</p>
 <p>No se aplicará un filtro temático a la prensa. La comparación conservará las siete fuentes del corpus: El Colombiano, El Tiempo, El Espectador, La República, Portafolio, Semana y Dinero. Los boletines IDEAM pertenecen al canal oficial, aunque algunos registros solo dispongan de titular. Las URL, fechas de recuperación y pruebas de procedencia se reservan para auditoría y no se concatenan al texto.</p>
 </section>
 <section id="corpus-y-alcance-del-analisis-exploratorio">
@@ -898,6 +902,10 @@ z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
 <p>El protocolo textual se versionará antes de ejecutar las comparaciones. El bloque 2022–2025 ya fue examinado en el estudio numérico, por lo que una nueva comparación sobre ese bloque tendrá alcance retrospectivo. Una evaluación prospectiva requiere fechas posteriores a la congelación efectiva del protocolo y del modelo. La falta de mejora de la prensa se interpretará para el corpus y procedimiento evaluados.</p>
 </section>
 </section>
+<section id="entradas-comunes-del-diseno-predictivo">
+<h2>Entradas comunes del diseño predictivo<a class="headerlink" href="#entradas-comunes-del-diseno-predictivo" title="Link to this heading">#</a></h2>
+<p>La comparación con texto empleará el mismo conjunto numérico en todas sus variantes: demanda, calendario, clima de ocho ciudades, hidrología y precio. La especificación de disponibilidad, las máscaras y el presupuesto se presentan en el <a class="reference internal" href="09_diseno_ampliado.html#diseno-ampliado"><span class="std std-ref">diseño de entrenamiento ampliado</span></a>. La información realizada durante el horizonte queda excluida de las entradas.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -980,6 +988,7 @@ z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-y-controles">Comparación y controles</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entradas-comunes-del-diseno-predictivo">Entradas comunes del diseño predictivo</a></li>
 </ul>
   </nav></div>
 

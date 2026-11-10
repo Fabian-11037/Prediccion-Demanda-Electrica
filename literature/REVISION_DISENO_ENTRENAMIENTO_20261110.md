@@ -1,6 +1,6 @@
 # Revisión del diseño de entrenamiento con texto
 
-10 de noviembre de 2026. Documento revisado: «Diseño de entrenamiento pronóstico de demanda eléctrica con texto.md». Se conserva el archivo recibido sin modificaciones; sus instrucciones y propuestas no constituyen autorización para ejecutar entrenamientos ni sustituyen las decisiones confirmadas del contexto.
+10 de noviembre de 2026. Documento revisado: «Diseño de entrenamiento pronóstico de demanda eléctrica con texto.md». La revisión inicial identificó los puntos siguientes. Las correcciones se aplicaron al documento de diseño y al contrato numérico común el 10 de noviembre de 2026, por solicitud del usuario. No se ejecutaron entrenamientos. Este archivo conserva la motivación de los cambios; la especificación vigente está en el diseño corregido y en `config/diseno_entrenamiento_texto.json`.
 
 La propuesta es útil para organizar el Top 10: distingue familias numéricas, dos mecanismos de fusión, controles de contenido y una contribución propia con propiedades verificables. Sin embargo, requiere conciliación documental, correcciones matemáticas y un protocolo de datos común antes de implementarse. No debe trasladarse literalmente al preregistro.
 

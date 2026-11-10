@@ -1,0 +1,34 @@
+{
+  "fecha": "2026-11-10",
+  "training_executed": false,
+  "versiones": [
+    "datos_adicionales_20261110",
+    "diseno_texto_numericas_comunes_20261110"
+  ],
+  "historicas": 30,
+  "calendario": 23,
+  "variantes": [
+    "N",
+    "N+O",
+    "N+O+P"
+  ],
+  "pruebas_correctas": 59,
+  "pruebas_omitidas": 5,
+  "cuadernos": 13,
+  "celdas_analiticas": 80,
+  "figuras": 45,
+  "errores_construccion": 0,
+  "advertencias_construccion": 0,
+  "enlaces_rotos": 0,
+  "benchmark_sin_cambios": true,
+  "archivos_conservados": {
+    "data/raw/noticias/titulares.parquet": "c83b8baf0d5936718fc31000444f813f7400af08e2587fc7e3125a3b06ada077",
+    "data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+    "data/processed/feature_registry.json": "973b8c2083ec7ee89d1d7462b7c9cb559453d8ca5898750cd6f6cd40c9ce9e17"
+  },
+  "archivos_diseno": {
+    "config/diseno_entrenamiento_texto.json": "5d5b7d4d9b9fb34f4ce2895402a465d1479ce02eba11542d187c6f2d5c43ff3d",
+    "src/demanda/diseno_numerico.py": "632ac8df41a2841d4247757dbd26004e4caa85a5aff1118e697ffcfa12bc0777",
+    "literature/Diseño de entrenamiento pronóstico de demanda eléctrica con texto.md": "5778e141cc79faa37d49d558c5dfaf0cc4a2fddee51f692aba7a05cdc1568571"
+  }
+}

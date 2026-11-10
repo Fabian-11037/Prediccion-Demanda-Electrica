@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="7. Exploración de titulares" href="07_texto.html" />
+    <link rel="next" title="7. Corpus documental y procesamiento del texto" href="07_texto.html" />
     <link rel="prev" title="5. Dependencia temporal y estacionariedad" href="05_dependencia.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -224,9 +224,12 @@
 <li class="toctree-l1"><a class="reference internal" href="04_estacionalidad.html">4. Calendario y estacionalidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Covariables y disponibilidad</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Exploración de titulares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
@@ -384,6 +387,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#respuesta-meteorologica-y-calendario">Respuesta meteorológica y calendario</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estabilidad-entre-entrenamiento-y-validacion">Estabilidad entre entrenamiento y validación</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-desplazamiento-entre-particiones">Prueba de desplazamiento entre particiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entradas-comunes-del-diseno-predictivo">Entradas comunes del diseño predictivo</a></li>
 </ul>
             </nav>
         </div>
@@ -655,6 +659,10 @@
 </div>
 <p>Los valores p ajustados complementan las distancias de Wasserstein: una distancia cuantifica magnitud y el contraste evalúa compatibilidad con igualdad bajo el esquema de permutación. La tendencia y los cambios de régimen pueden explicar un rechazo. No se deduce causalidad ni pérdida de precisión predictiva a partir de ese resultado. <a class="reference download internal" download="" href="_downloads/7438d95f4af311240dffd6c89e32feba/desplazamiento_formal.csv"><span class="xref download myst">Descargar resultados</span></a>.</p>
 </section>
+<section id="entradas-comunes-del-diseno-predictivo">
+<h2>Entradas comunes del diseño predictivo<a class="headerlink" href="#entradas-comunes-del-diseno-predictivo" title="Link to this heading">#</a></h2>
+<p>La comparación con texto empleará el mismo conjunto numérico en todas sus variantes: demanda, calendario, clima de ocho ciudades, hidrología y precio. La especificación de disponibilidad, las máscaras y el presupuesto se presentan en el <a class="reference internal" href="09_diseno_ampliado.html#diseno-ampliado"><span class="std std-ref">diseño de entrenamiento ampliado</span></a>. La información realizada durante el horizonte queda excluida de las entradas.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -701,7 +709,7 @@
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">7. Exploración de titulares</p>
+        <p class="prev-next-title">7. Corpus documental y procesamiento del texto</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -727,6 +735,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#respuesta-meteorologica-y-calendario">Respuesta meteorológica y calendario</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estabilidad-entre-entrenamiento-y-validacion">Estabilidad entre entrenamiento y validación</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-desplazamiento-entre-particiones">Prueba de desplazamiento entre particiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entradas-comunes-del-diseno-predictivo">Entradas comunes del diseño predictivo</a></li>
 </ul>
   </nav></div>
 

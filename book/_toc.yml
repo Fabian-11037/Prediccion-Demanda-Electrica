@@ -12,6 +12,8 @@ chapters:
   - file: 07_texto
   - file: 08_literatura
   - file: 09_validacion
+    sections:
+      - file: 09_diseno_ampliado
   - file: 10_modelos
     sections:
       - file: 10_evaluacion

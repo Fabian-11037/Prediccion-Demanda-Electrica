@@ -55,3 +55,10 @@ El libro publicado presenta el análisis y benchmark documentados en los cuadern
 Se incorporan pronósticos meteorológicos de ocho ciudades (JMA/GFS), versiones ISE, población DANE, extensión numérica2026, pronóstico oficial XM para auditoría y el corpus textual integrado. Inventario, restricciones temporales y reproducción en [datos adicionales](data/external/README_DATOS_ADICIONALES_20261110.md); hashes en [manifiesto](data/processed/dataset_ampliado_20261110.json). El panel y los modelos congelados se conservan.
 
 El diseño recibido y su [revisión](literature/REVISION_DISENO_ENTRENAMIENTO_20261110.md) quedan como insumos para un protocolo futuro, sin ejecutar entrenamientos. Esta actualización no modifica el HTML publicado del JBook.
+
+
+## Diseño comparativo con texto
+
+El [diseño de entrenamiento](literature/Diseño%20de%20entrenamiento%20pronóstico%20de%20demanda%20eléctrica%20con%20texto.md) y el [contrato numérico](config/diseno_entrenamiento_texto.json) establecen tres variantes: numérica; numérica con documentos oficiales; y numérica con documentos oficiales y prensa. Comparten demanda, calendario, clima de ocho ciudades, hidrología y precio, con disponibilidad rezagada y máscaras. El escenario textual oficial es el declarado y la relevancia se aprende en canales separados.
+
+El [JBook](https://fabian-11037.github.io/Prediccion-Demanda-Electrica/09_diseno_ampliado.html) presenta la preparación numérica, el presupuesto y los controles del diseño. Los resultados conservados corresponden a las entradas efectivamente entrenadas; esta actualización no ejecuta entrenamientos adicionales.

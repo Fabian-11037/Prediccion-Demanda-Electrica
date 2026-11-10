@@ -1,0 +1,78 @@
+{
+  "registrado": "2026-11-10T13:13:30.361870-05:00",
+  "protocolo": {
+    "version": 1,
+    "escenario": "diagnostico_retrospectivo_prueba_2022_2025",
+    "modelos": [
+      "mlp",
+      "arx_lineal",
+      "cnn1d",
+      "lstm"
+    ],
+    "semillas": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004
+    ],
+    "repeticiones": 10,
+    "semilla_permutacion": 11037,
+    "grupos": [
+      "demanda_completa",
+      "perfil_demanda",
+      "nivel_ventana",
+      "calendario_completo",
+      "semanal_festivos",
+      "anual_temporadas",
+      "dia_1",
+      "dia_2",
+      "dia_3",
+      "dia_4",
+      "dia_5",
+      "dia_6",
+      "dia_7"
+    ],
+    "grupos_calendario": {
+      "semanal_festivos": [
+        "cal_dow",
+        "cal_es_festivo",
+        "cal_es_domingo",
+        "cal_es_sabado",
+        "cal_es_no_laboral",
+        "cal_tipo_dia",
+        "cal_dias_al_siguiente_festivo",
+        "cal_dias_desde_festivo_previo",
+        "cal_es_vispera_festivo",
+        "cal_es_dia_post_festivo",
+        "cal_es_fin_semana_largo",
+        "cal_dow_sin",
+        "cal_dow_cos"
+      ],
+      "anual_temporadas": [
+        "cal_mes",
+        "cal_dia_anio",
+        "cal_es_semana_santa",
+        "cal_es_temporada_navidena",
+        "cal_es_fin_de_anio",
+        "cal_doy_sin",
+        "cal_doy_cos"
+      ],
+      "hora": [
+        "cal_hora",
+        "cal_hora_sin",
+        "cal_hora_cos"
+      ]
+    },
+    "donantes": "desplazamiento_circular_por_anio",
+    "desplazamiento_minimo_dias": 28,
+    "denominador_mase": 215617.90361589016,
+    "dispositivo": "cpu",
+    "hilos": 1,
+    "batch": 256,
+    "entrenamiento": false,
+    "reajuste_escaladores": false,
+    "seleccion_con_resultados": false,
+    "hora": "invariante_entre_origenes_no_identificable_con_esta_permutacion"
+  }
+}

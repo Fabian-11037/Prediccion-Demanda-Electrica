@@ -67,7 +67,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="10. Modelos y benchmark de demanda" href="10_modelos.html" />
+    <link rel="next" title="9.1. Diseño de entrenamiento ampliado" href="09_diseno_ampliado.html" />
     <link rel="prev" title="8. Literatura y fundamento del diseño" href="08_literatura.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -226,9 +226,12 @@
 <li class="toctree-l1"><a class="reference internal" href="04_estacionalidad.html">4. Calendario y estacionalidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_covariables.html">6. Covariables y disponibilidad</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Exploración de titulares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Diseño de evaluación</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">9. Diseño de evaluación</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
@@ -393,6 +396,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecucion-y-alcance-estadistico">Ejecución y alcance estadístico</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registro-del-diseno-y-cierre-de-seleccion">Registro del diseño y cierre de selección</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identidad-del-conjunto-de-prueba">Identidad del conjunto de prueba</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrato-numerico-de-la-comparacion-con-texto">Contrato numérico de la comparación con texto</a></li>
 </ul>
             </nav>
         </div>
@@ -651,6 +655,89 @@ d_o=\ell_{A,o}-\ell_{B,o}.\]</div>
 <h2>Identidad del conjunto de prueba<a class="headerlink" href="#identidad-del-conjunto-de-prueba" title="Link to this heading">#</a></h2>
 <p>La huella visible en el capítulo de evaluación identifica 1.461 orígenes UTC y sus 24 etiquetas, mediante serialización canónica int64/float64 little-endian. Las etiquetas coinciden en las 20 realizaciones seleccionadas. La huella de contenido permite verificar identidad; por sí sola no acredita la fecha en que se congeló el conjunto. <a class="reference download internal" download="" href="_downloads/b1436e096ddbf8c422932bbf6bf16d50/huella_prueba.json"><span class="xref download myst">Especificación y SHA-256</span></a>.</p>
 </section>
+<section id="contrato-numerico-de-la-comparacion-con-texto">
+<h2>Contrato numérico de la comparación con texto<a class="headerlink" href="#contrato-numerico-de-la-comparacion-con-texto" title="Link to this heading">#</a></h2>
+<p>Las variantes numérica, numérica con documentos oficiales y numérica con documentos oficiales más prensa comparten demanda, calendario, clima de ocho ciudades, hidrología y precio. El contrato contiene 30 variables históricas y 23 de calendario. La relevancia documental se aprende en dos canales independientes, con sus indicadores de ausencia.</p>
+<p>El clima pasado se desplaza hasta un rezago efectivo de 168 horas; se fija una sensibilidad de 90 días. ERA5 es un reanálisis recuperado posteriormente: esta regla no verifica la disponibilidad histórica de cada versión. El precio tiene un rezago de 24 horas; la hidrología diaria se habilita 24 horas después de cerrar el día. Ninguna de estas variables se observa dentro del horizonte pronosticado. El calendario sí se conoce a futuro.</p>
+<p>El <a class="reference internal" href="09_diseno_ampliado.html#diseno-ampliado"><span class="std std-ref">diseño de entrenamiento ampliado</span></a> detalla entradas, presupuesto, controles, inferencia y garantías matemáticas. La siguiente preparación selecciona únicamente desarrollo, conserva ausencias y no estima imputaciones ni escalas. Los resultados del capítulo de modelos corresponden a sus entradas efectivamente entrenadas, demanda y calendario.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""Contrato numérico ampliado; no ajusta transformaciones ni entrena modelos."""</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">preparar_numericas_comunes</span><span class="p">(</span><span class="n">panel</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">registro</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">contrato</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Selecciona entradas y aplica solo el rezago adicional al clima ya desplazado.</span>
+
+<span class="sd">    El índice de cada fila representa el comienzo de la hora; su información</span>
+<span class="sd">    está habilitada al final. Las ventanas futuras solo pueden leer calendario.</span>
+<span class="sd">    Las versiones históricas de ERA5 siguen sin estar certificadas.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">)</span> <span class="ow">or</span> <span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tz</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Se requiere índice temporal con zona horaria"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_monotonic_increasing</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Índice duplicado o desordenado"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">panel</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"El panel debe tener una malla horaria completa"</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">contrato</span><span class="p">[</span><span class="s2">"numericas"</span><span class="p">][</span><span class="s2">"historicas"</span><span class="p">]</span>
+    <span class="n">cal</span> <span class="o">=</span> <span class="n">contrato</span><span class="p">[</span><span class="s2">"numericas"</span><span class="p">][</span><span class="s2">"calendario"</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">cal</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">cal</span><span class="p">))</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">cal</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Columnas duplicadas o roles incompatibles"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">registro</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="s2">"clase"</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"past_only"</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Entrada histórica inválida: </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cal</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">registro</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="s2">"clase"</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"known_future"</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Entrada futura inválida: </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">panel</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">cal</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">lag</span> <span class="o">=</span> <span class="n">contrato</span><span class="p">[</span><span class="s2">"numericas"</span><span class="p">][</span><span class="s2">"rezago_clima_h"</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"x_obs_"</span><span class="p">):</span>
+            <span class="n">original</span> <span class="o">=</span> <span class="n">registro</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="s2">"rezago_h"</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lag</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">lag</span> <span class="o">&lt;</span> <span class="n">original</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"No se puede adelantar la disponibilidad climática"</span><span class="p">)</span>
+            <span class="n">out</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">lag</span> <span class="o">-</span> <span class="n">original</span><span class="p">)</span>
+    <span class="c1"># Ninguna imputación o escala se estima usando este panel completo.</span>
+    <span class="n">mascara</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"uint8"</span><span class="p">)</span><span class="o">.</span><span class="n">add_prefix</span><span class="p">(</span><span class="s2">"ausente_"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">,</span> <span class="n">mascara</span>
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow.parquet</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pq</span>
+
+<span class="n">ROOT</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="o">*</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">parents</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">/</span><span class="s1">'config/diseno_entrenamiento_texto.json'</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+<span class="n">contrato_comun</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'config/diseno_entrenamiento_texto.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
+<span class="n">registro_comun</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'data/processed/feature_registry.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
+<span class="n">columnas_comunes</span> <span class="o">=</span> <span class="n">contrato_comun</span><span class="p">[</span><span class="s1">'numericas'</span><span class="p">][</span><span class="s1">'historicas'</span><span class="p">]</span> <span class="o">+</span> <span class="n">contrato_comun</span><span class="p">[</span><span class="s1">'numericas'</span><span class="p">][</span><span class="s1">'calendario'</span><span class="p">]</span>
+<span class="c1"># La preparación documental lee desarrollo; no necesita etiquetas de prueba.</span>
+<span class="n">panel_desarrollo</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span>
+    <span class="n">ROOT</span><span class="o">/</span><span class="n">contrato_comun</span><span class="p">[</span><span class="s1">'panel'</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'inicio'</span><span class="p">]</span><span class="o">+</span><span class="n">columnas_comunes</span><span class="p">,</span>
+    <span class="n">filters</span><span class="o">=</span><span class="p">[(</span><span class="s1">'inicio'</span><span class="p">,</span><span class="s1">'&lt;'</span><span class="p">,</span><span class="nb">__import__</span><span class="p">(</span><span class="s1">'pandas'</span><span class="p">)</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">'2022-01-01'</span><span class="p">,</span><span class="n">tz</span><span class="o">=</span><span class="s1">'America/Bogota'</span><span class="p">))]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<span class="n">numericas_comunes</span><span class="p">,</span> <span class="n">ausencia_comun</span> <span class="o">=</span> <span class="n">preparar_numericas_comunes</span><span class="p">(</span>
+    <span class="n">panel_desarrollo</span><span class="p">,</span> <span class="n">registro_comun</span><span class="p">,</span> <span class="n">contrato_comun</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Entradas históricas: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">contrato_comun</span><span class="p">[</span><span class="s1">'numericas'</span><span class="p">][</span><span class="s1">'historicas'</span><span class="p">])</span><span class="si">}</span><span class="s2">; calendario: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">contrato_comun</span><span class="p">[</span><span class="s1">'numericas'</span><span class="p">][</span><span class="s1">'calendario'</span><span class="p">])</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Filas de desarrollo: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">numericas_comunes</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">; columnas numéricas: </span><span class="si">{</span><span class="n">numericas_comunes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Máscara de ausencia: </span><span class="si">{</span><span class="n">ausencia_comun</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">; rezago climático: </span><span class="si">{</span><span class="n">contrato_comun</span><span class="p">[</span><span class="s1">'numericas'</span><span class="p">][</span><span class="s1">'rezago_clima_h'</span><span class="p">]</span><span class="si">}</span><span class="s2"> h"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entradas históricas: 30; calendario: 23
+Filas de desarrollo: 192,864; columnas numéricas: 53
+Máscara de ausencia: (192864, 53); rezago climático: 168 h
+</pre></div>
+</div>
+</div>
+</div>
+<p>La preparación conserva la malla horaria y una máscara para cada entrada ausente. Las tres variantes utilizarán las mismas columnas y fechas; las diferencias se limitarán a los canales textuales. Las medianas, escalas y ponderaciones de relevancia se estimarán dentro del tramo de ajuste de cada pliegue, excluyendo su reserva de parada y su validación externa.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -693,11 +780,11 @@ d_o=\ell_{A,o}-\ell_{B,o}.\]</div>
       </div>
     </a>
     <a class="right-next"
-       href="10_modelos.html"
+       href="09_diseno_ampliado.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">10. Modelos y benchmark de demanda</p>
+        <p class="prev-next-title">9.1. Diseño de entrenamiento ampliado</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -730,6 +817,7 @@ d_o=\ell_{A,o}-\ell_{B,o}.\]</div>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecucion-y-alcance-estadistico">Ejecución y alcance estadístico</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registro-del-diseno-y-cierre-de-seleccion">Registro del diseño y cierre de selección</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identidad-del-conjunto-de-prueba">Identidad del conjunto de prueba</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrato-numerico-de-la-comparacion-con-texto">Contrato numérico de la comparación con texto</a></li>
 </ul>
   </nav></div>
 

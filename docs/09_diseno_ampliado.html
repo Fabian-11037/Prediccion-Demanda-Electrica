@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9.1. Diseño de entrenamiento ampliado &#8212; Pronóstico de la demanda eléctrica del SIN colombiano</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '09_diseno_ampliado';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="10. Modelos y benchmark de demanda" href="10_modelos.html" />
+    <link rel="prev" title="9. Diseño de evaluación" href="09_validacion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Pronóstico de la demanda eléctrica del SIN colombiano</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Pronóstico de la demanda eléctrica del SIN colombiano
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="01_datos.html">1. Problema y datos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="diccionario.html">Diccionario de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="02_calidad.html">2. Calidad e integridad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_demanda.html">3. Distribución y evolución de la demanda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_estacionalidad.html">4. Calendario y estacionalidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_covariables.html">6. Covariables y disponibilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">9.1. Diseño de entrenamiento ampliado</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fuentes.html">Fuentes y fundamento metodológico</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/09_diseno_ampliado.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>9.1. Diseño de entrenamiento ampliado</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-y-comparacion-principal">1. Pregunta y comparación principal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrato-numerico-comun">2. Contrato numérico común</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disponibilidad-meteorologica">Disponibilidad meteorológica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ausencias-y-transformaciones">Ausencias y transformaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-versiones-y-particion">3. Datos, versiones y partición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-del-texto">4. Representación del texto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#familias-del-benchmark">5. Familias del benchmark</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrenamiento-seleccion-y-presupuesto">6. Entrenamiento, selección y presupuesto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-y-controles">7. Evaluación y controles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribucion-propia-fusion-residual-acotada">8. Contribución propia: fusión residual acotada</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perdida-placebo-y-otras-extensiones">Pérdida placebo y otras extensiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entregables-de-implementacion">9. Entregables de implementación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias-de-las-arquitecturas">Referencias de las arquitecturas</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="diseno-de-entrenamiento-ampliado">
+<span id="diseno-ampliado"></span><h1>9.1. Diseño de entrenamiento ampliado<a class="headerlink" href="#diseno-de-entrenamiento-ampliado" title="Link to this heading">#</a></h1>
+<p><strong>Fabian José Manrique Morelos y Gloria Bastidas Rodriguez</strong>
+Versión de diseño: 10 de noviembre de 2026.</p>
+<section id="pregunta-y-comparacion-principal">
+<h2>1. Pregunta y comparación principal<a class="headerlink" href="#pregunta-y-comparacion-principal" title="Link to this heading">#</a></h2>
+<p>¿La incorporación de documentos oficiales y, posteriormente, de prensa mejora el pronóstico horario de demanda eléctrica del SIN a 24 horas, con respecto a modelos que reciben la misma información numérica?</p>
+<p>El problema es de <strong>series de tiempo multivariadas con pronóstico multipaso directo</strong>. Cada origen diario, a las 00:00 de Bogotá, utiliza 168 horas de historia y genera los 24 intervalos siguientes. Se comparan tres variantes sobre los mismos orígenes y etiquetas:</p>
+<ol class="arabic simple">
+<li><p><strong>N:</strong> demanda, calendario, clima, hidrología y precio.</p></li>
+<li><p><strong>N+O:</strong> las mismas variables numéricas y documentos oficiales.</p></li>
+<li><p><strong>N+O+P:</strong> las mismas variables numéricas, documentos oficiales y prensa.</p></li>
+</ol>
+<p>El contraste N+O frente a N estima el aporte oficial; N+O+P frente a N+O estima el aporte adicional de prensa. Cada arquitectura textual tendrá su control sin texto con el mismo núcleo y un presupuesto comparable. Los ingenuos diario y semanal y ARX se conservan como referencias adicionales. Las métricas actuales de demanda y calendario no representan el rendimiento del conjunto ampliado.</p>
+</section>
+<section id="contrato-numerico-comun">
+<h2>2. Contrato numérico común<a class="headerlink" href="#contrato-numerico-comun" title="Link to this heading">#</a></h2>
+<p>El contrato ejecutable se conserva en <code class="docutils literal notranslate"><span class="pre">config/diseno_entrenamiento_texto.json</span></code>; <code class="docutils literal notranslate"><span class="pre">src/demanda/diseno_numerico.py</span></code> prepara sus columnas sin modificar el panel congelado. Todas las familias reciben <strong>30 variables históricas y 23 variables de calendario</strong>. Los indicadores de ausencia se añaden después, bajo una política común.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bloque</p></th>
+<th class="head"><p>Variables</p></th>
+<th class="head text-right"><p>Cantidad</p></th>
+<th class="head"><p>Uso temporal</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Demanda</p></td>
+<td><p>Demanda real horaria del SIN, kWh</p></td>
+<td class="text-right"><p>1</p></td>
+<td><p>Historia; rezago heredado de 1 h</p></td>
+</tr>
+<tr class="row-odd"><td><p>Clima urbano</p></td>
+<td><p>Temperatura a 2 m, humedad relativa a 2 m y precipitación de la hora precedente, para Bogotá, Medellín, Cali, Barranquilla, Cartagena, Bucaramanga, Pereira y Cúcuta</p></td>
+<td class="text-right"><p>24</p></td>
+<td><p>Solo historia; rezago de diseño de 168 h</p></td>
+</tr>
+<tr class="row-even"><td><p>Hidrología</p></td>
+<td><p>Llenado, reserva útil, capacidad útil y aportes diarios del SIN</p></td>
+<td class="text-right"><p>4</p></td>
+<td><p>Último día habilitado, 24 h después de terminar el día</p></td>
+</tr>
+<tr class="row-odd"><td><p>Precio</p></td>
+<td><p>Precio nacional de bolsa, COP/kWh</p></td>
+<td class="text-right"><p>1</p></td>
+<td><p>Solo historia; rezago de 24 h</p></td>
+</tr>
+<tr class="row-even"><td><p>Calendario</p></td>
+<td><p>Hora, semana, mes, ciclo anual, festivos, vísperas, días posteriores y temporadas</p></td>
+<td class="text-right"><p>23</p></td>
+<td><p>Historia y horizonte; conocidas en el origen</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La lista exacta de nombres está en el JSON y se verifica contra el registro de variables. No se seleccionan subconjuntos diferentes mediante la búsqueda de cada modelo. Los promedios climáticos ponderados no se añaden a la especificación principal porque duplican las observaciones urbanas y dependen de pesos poblacionales revisados. ISE y pronósticos meteorológicos emitidos se reservan para análisis separados con periodos y versiones compatibles.</p>
+<section id="disponibilidad-meteorologica">
+<h3>Disponibilidad meteorológica<a class="headerlink" href="#disponibilidad-meteorologica" title="Link to this heading">#</a></h3>
+<p>El panel conserva ERA5 retrospectivo. El nuevo preparador añade 167 h al desplazamiento climático de 1 h ya aplicado: el rezago efectivo es 168 h. Esta decisión permite estudiar clima pasado con una política uniforme; <strong>no acredita que la versión recuperada estuviera publicada históricamente</strong>. ECMWF distingue ERA5T, inicial y aproximadamente cinco días retrasado, de ERA5 final, publicado dos a tres meses después. ERA5T está disponible desde finales de 2019. El experimento 2000–2025 con el reanálisis recuperado se interpreta como retrospectivo, no como simulación operativa certificada.</p>
+<p>Se fija una sensibilidad de 90 días de rezago climático, manteniendo el mismo resto del contrato. Tampoco sustituye una auditoría de versiones históricas. Una aplicación operativa requiere observaciones o pronósticos cuya emisión y publicación se registren. No se entrega al modelo el clima, la hidrología o el precio realizados durante el horizonte.</p>
+<p>Fuente: <a class="reference external" href="https://www.ecmwf.int/en/about/media-centre/news/2026/era5t-reanalysis-data">ECMWF, disponibilidad de ERA5T y ERA5</a>.</p>
+</section>
+<section id="ausencias-y-transformaciones">
+<h3>Ausencias y transformaciones<a class="headerlink" href="#ausencias-y-transformaciones" title="Link to this heading">#</a></h3>
+<p>El preparador conserva los valores ausentes y produce una máscara por entrada. Dentro de cada pliegue, primero se separan ajuste, parada interna y validación externa; después se calculan medianas y escalas exclusivamente en ajuste. No se interpolan valores usando fechas posteriores. Una columna sin observaciones en ajuste se representa por cero con máscara activa y se registra como no estimable. Los días sin texto no se eliminan. La demanda necesaria para formar entradas, nivel y etiquetas debe estar completa; la elegibilidad se determina una sola vez para todas las variantes.</p>
+<p>La demanda se normaliza por el nivel de la ventana y por estadísticas de ajuste según el contrato del motor validado; las covariables se estandarizan con sus propias escalas, nunca con la escala de demanda. El nivel se conserva para invertir la predicción a kWh. Cualquier recorte o transformación se ajusta sin consultar parada externa ni prueba.</p>
+</section>
+</section>
+<section id="datos-versiones-y-particion">
+<h2>3. Datos, versiones y partición<a class="headerlink" href="#datos-versiones-y-particion" title="Link to this heading">#</a></h2>
+<p>El manifiesto <code class="docutils literal notranslate"><span class="pre">data/processed/dataset_ampliado_20261110.json</span></code> identifica archivos y SHA-256. La etiqueta Git <code class="docutils literal notranslate"><span class="pre">datos_adicionales_20261110</span></code> apunta a <code class="docutils literal notranslate"><span class="pre">08459773b00fbd8fec8765f09225e07aff9bdbba</span></code>. El corpus integrado contiene 575.473 registros, incluidos 7.907 versiones documentales oficiales; 729 titulares fueron enriquecidos. Son totales de inventario, no conteos de documentos elegibles en cada origen.</p>
+<p>Se utiliza el <strong>escenario declarado como dataset textual oficial</strong>. El escenario estricto es una sensibilidad de disponibilidad, cuya limitada cobertura debe acompañar los resultados. Las versiones históricas no verificadas mantienen su advertencia. Fecha sin hora: disponibilidad a las 00:00 del día siguiente en Bogotá. Una captura o recuperación posterior no demuestra publicación anterior de esa versión. Los documentos en cuarentena o sin fecha utilizable no entran al modelo.</p>
+<p>La referencia temporal es 2000–2017; los cuatro pliegues externos validan 2018, 2019, 2020 y 2021 con historia expansiva. El último 10 % cronológico de cada historia se reserva para parada interna, con purga de 24 h. Las escalas y las imputaciones se ajustan fuera de esa reserva. El ajuste final utiliza historia anterior a 2022 con la misma regla interna. El bloque 2022–2025 se conserva para evaluación retrospectiva: ya fue examinado. La unidad de evaluación es el origen diario; MASE es la métrica, no la unidad de independencia.</p>
+<p>Los datos 2026 descargados también son retrospectivos. Una evaluación prospectiva empieza después de congelar protocolo y modelo y registrar, en tiempo real, entradas y pronósticos. No se modifica ni se retrofecha el preregistro existente. Antes de ejecutar la comparación ampliada se registrarán configuración final, hipótesis, familias de contrastes, presupuesto, semillas, hashes y fecha efectiva.</p>
+</section>
+<section id="representacion-del-texto">
+<h2>4. Representación del texto<a class="headerlink" href="#representacion-del-texto" title="Link to this heading">#</a></h2>
+<p>Se conservan canales independientes: <strong>oficial</strong> (XM, IDEAM, CREG, UPME y MinEnergía) y <strong>prensa</strong> (El Colombiano, El Tiempo, El Espectador, La República, Portafolio, Semana y Dinero). La relevancia se aprende mediante la pérdida de pronóstico. No se filtra por términos, categorías ni tópicos manuales; las fuentes y el alcance de extracción se conservan para auditoría y análisis por segmento.</p>
+<p>La ventana principal es de 72 h, con sensibilidades de 24 y 168 h fijadas en desarrollo. Cada canal admite hasta 64 documentos por origen, seleccionados por disponibilidad más reciente y desempate por identificador; cada documento admite hasta ocho fragmentos, en orden de lectura. El presupuesto de prensa no desplaza al oficial. Se registran documentos y tokens descartados, porcentaje de truncación y alcance (titular, fragmento o cuerpo). Estos límites controlan memoria; no garantizan igual cantidad de información entre documentos.</p>
+<p>Se adopta <code class="docutils literal notranslate"><span class="pre">intfloat/multilingual-e5-base</span></code>, revisión <code class="docutils literal notranslate"><span class="pre">d128750597153bb5987e10b1c3493a34e5a4502a</span></code>, como extractor congelado de 768 dimensiones. Se fijan el mismo commit para modelo/tokenizer, prefijo <code class="docutils literal notranslate"><span class="pre">query:</span> </code> para esta tarea distinta de recuperación, promedio de tokens con máscara y normalización L2. El máximo de 512 tokens incluye prefijo y tokens especiales; el contenido se fragmenta con el espacio restante y solapamiento de 64 tokens. No se descargan ni ajustan pesos mediante esta actualización documental.</p>
+<p>El caché se identifica por SHA-256 del texto, revisión del encoder/tokenizer, prefijo, pooling y política de fragmentación; no solo por URL. Se conservan embeddings por fragmento/documento. Dentro de cada canal:</p>
+<div class="math notranslate nohighlight">
+\[z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
+\alpha_{c,t,j}=\operatorname{softmax}_j s_{\theta_c}(e_{c,j},q_t).\]</div>
+<p>La consulta <span class="math notranslate nohighlight">\(q_t\)</span> depende únicamente de la historia numérica habilitada. La ponderación se aprende en ajuste; después puede producir una secuencia diaria para TaTS o tokens para atención cruzada. Sin documentos, <span class="math notranslate nohighlight">\(z_{c,t}=0\)</span> y el indicador de ausencia del canal está activo. El promedio diario fijo no reemplaza esta selección aprendida.</p>
+<p>Las URL y fechas de recuperación no se concatenan al contenido. Se conservan magnitudes, horizontes y fechas anunciadas que puedan expresar anticipación legítima; mencionar un año futuro no demuestra fuga. La muestra de fechas sospechosas se audita usando desarrollo. Cualquier enmascarado se fija antes de evaluar y no se presenta como solución a revisiones editoriales o contaminación del preentrenamiento. El corte completo del corpus del encoder no está certificado para este problema.</p>
+<p>Fuente: <a class="reference external" href="https://huggingface.co/intfloat/multilingual-e5-base">ficha oficial de multilingual-E5-base</a>.</p>
+</section>
+<section id="familias-del-benchmark">
+<h2>5. Familias del benchmark<a class="headerlink" href="#familias-del-benchmark" title="Link to this heading">#</a></h2>
+<p>El Top 10 combina MLP, LSTM y CNN1D con siete familias adicionales. ARX e ingenuos son referencias externas al conteo. Todas las nuevas comparaciones usan el contrato numérico ampliado; los checkpoints existentes permanecen conservados.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Mecanismo y adaptación de interés</p></th>
+<th class="head"><p>Comparación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MLP</p></td>
+<td><p>Mapeo denso de ventana y calendario a 24 salidas</p></td>
+<td><p>Control numérico</p></td>
+</tr>
+<tr class="row-odd"><td><p>LSTM</p></td>
+<td><p>Estado recurrente de la historia multivariada</p></td>
+<td><p>Control numérico</p></td>
+</tr>
+<tr class="row-even"><td><p>CNN1D</p></td>
+<td><p>Filtros locales sobre la secuencia</p></td>
+<td><p>Control numérico</p></td>
+</tr>
+<tr class="row-odd"><td><p>PatchTST</p></td>
+<td><p>Tokens de parches temporales, atención y cabeza multipaso</p></td>
+<td><p>Numérico y núcleo candidato para fusión</p></td>
+</tr>
+<tr class="row-even"><td><p>N-HiTS</p></td>
+<td><p>Bloques residuales, agrupación e interpolación multiescala</p></td>
+<td><p>Numérico</p></td>
+</tr>
+<tr class="row-odd"><td><p>TFT</p></td>
+<td><p>Selección de variables, recurrencia y atención; separa conocidas a futuro</p></td>
+<td><p>Numérico</p></td>
+</tr>
+<tr class="row-even"><td><p>TCN</p></td>
+<td><p>Bloques causales dilatados, dos convoluciones por bloque</p></td>
+<td><p>Numérico</p></td>
+</tr>
+<tr class="row-odd"><td><p>iTransformer</p></td>
+<td><p>Tokens por variable y atención entre variables</p></td>
+<td><p>Numérico y núcleo candidato para fusión</p></td>
+</tr>
+<tr class="row-even"><td><p>TaTS adaptado</p></td>
+<td><p>Proyección de representaciones textuales como variables auxiliares</p></td>
+<td><p>N, N+O y N+O+P</p></td>
+</tr>
+<tr class="row-odd"><td><p>TGForecaster adaptado</p></td>
+<td><p>Relevancia de texto y fusión por atención cruzada</p></td>
+<td><p>N, N+O y N+O+P</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El núcleo de TaTS se elige entre PatchTST e iTransformer por menor MASE medio de validación, sin prueba; su coste de selección se contabiliza. TGForecaster se adapta a documentos exclusivamente habilitados antes del origen; no dispone de texto futuro alineado al horizonte. La agregación aprendida y los dos canales son adaptaciones del experimento. Estas descripciones no equivalen a reproducir literalmente los resultados de los artículos.</p>
+<p>Para TCN, con dos convoluciones causales de núcleo <span class="math notranslate nohighlight">\(k\)</span> en cada bloque y dilataciones <span class="math notranslate nohighlight">\((1,4,16)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[R=1+2(k-1)(1+4+16).\]</div>
+<p>Así, <span class="math notranslate nohighlight">\(R=169\)</span> para <span class="math notranslate nohighlight">\(k=5\)</span> y <span class="math notranslate nohighlight">\(R=253\)</span> para <span class="math notranslate nohighlight">\(k=7\)</span>, suficientes para 168 h. Una sola convolución por bloque daría 85 o 127; cada implementación debe probar el campo receptivo real y la ausencia de acceso futuro.</p>
+</section>
+<section id="entrenamiento-seleccion-y-presupuesto">
+<h2>6. Entrenamiento, selección y presupuesto<a class="headerlink" href="#entrenamiento-seleccion-y-presupuesto" title="Link to this heading">#</a></h2>
+<p>El entrenador futuro debe reproducir el contrato de escalado por pliegue, parada interna y restauración de pesos de las fuentes v3/v4 conservadas en <code class="docutils literal notranslate"><span class="pre">results/repositorio/</span></code>, commit de resultados <code class="docutils literal notranslate"><span class="pre">d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3</span></code>. El módulo activo antiguo no se considera una reproducción automática de esos checkpoints. La ampliación se implementará en un motor versionado separado y no sobrescribirá pesos ni resultados existentes.</p>
+<p>Se fija un presupuesto nuevo para los hiperparámetros no arquitectónicos: 20 configuraciones por familia, con tres semillas comunes y los cuatro pliegues externos; máximo 200 épocas, pérdida MAE normalizada, AdamW, recorte de gradiente 1 y parada interna. La tasa, lote y regularización se ajustan con ese presupuesto. En cada evaluación se restaura el mínimo absoluto de parada interna. La búsqueda arquitectónica posterior mantiene fijos esos parámetros y su criterio de parada; no vuelve a escogerlos por candidato. Las ejecuciones fallidas y sus costes se registran y se repiten solo bajo una regla técnica común.</p>
+<p>La pauta E2 §14 exime de la búsqueda de arquitecturas únicamente cuando el artículo define una configuración concreta que se adopta y documenta. Nombrar una familia publicada no basta. Antes de ejecutar, la ficha de cada modelo debe enlazar la configuración y su traducción a los datos; si no queda definida, se aplica el espacio obligatorio. TCN se declara sin diseño predefinido. Lo mismo se aplica al cabezal propio cuando no tenga configuración publicada; no se exime por utilizar un encoder preentrenado.</p>
+<p>El espacio obligatorio contiene tres bloques con anchos <span class="math notranslate nohighlight">\((w_1,w_2,w_3)\in\{16,32,64,128,256\}^3\)</span> y patrones de dropout <span class="math notranslate nohighlight">\((b_1,b_2,b_3)\in\{0,1\}^3\)</span>, tasa 0,2: <strong>1.000 arquitecturas por modelo sujeto a §14</strong>. En TCN cada ancho corresponde a un bloque con dos convoluciones y el dropout se aplica al final del bloque. Se enumeran todas las combinaciones sin poda previa.</p>
+<ul class="simple">
+<li><p><strong>Fase 1:</strong> 1.000 candidatos, semilla 42, máximo 50 épocas (25 % del presupuesto completo), mismo criterio de parada.</p></li>
+<li><p><strong>Fase 2:</strong> diez mejores por menor MASE externo y el control <span class="math notranslate nohighlight">\((64,64,64),(0,1,0)\)</span> si no está incluido; máximo 200 épocas, semillas 100–104. La regla de desempate favorece menor complejidad y después identificador.</p></li>
+<li><p><strong>Piloto de precisión:</strong> al menos cinco semillas, conservando diferencias pareadas por origen y semilla; dimensionar las ejecuciones definitivas según el margen del 3 %, la varianza observada y la dependencia temporal. Cinco semillas son un mínimo, no acreditan por sí mismas potencia 0,80.</p></li>
+<li><p><strong>Evaluación definitiva:</strong> semillas 1000 en adelante, en número fijado por el piloto antes de ejecutar. Si el presupuesto impide alcanzar la potencia objetivo, se declara la limitación y no se afirma equivalencia a partir de ausencia de significación.</p></li>
+</ul>
+<p>Los costes de ajuste del núcleo, fusión, arquitectura, controles y codificación se contabilizan por separado. Las tres variantes reciben el mismo número de oportunidades de selección aplicables y el mismo protocolo. Se informa además tiempo, memoria y número de parámetros; igualdad de oportunidades no implica igual tiempo de cómputo. Este presupuesto es una especificación nueva, no una descripción de la búsqueda ya realizada.</p>
+<p>La selección minimiza el <strong>MASE medio entre semillas y pliegues</strong>, con ponderaciones fijadas antes de la comparación. Se usan pliegues anuales con igual peso. No se escoge arquitectura por prueba, no se repite la búsqueda después de observarla y no se convierte una sensibilidad favorable en el resultado principal.</p>
+</section>
+<section id="evaluacion-y-controles">
+<h2>7. Evaluación y controles<a class="headerlink" href="#evaluacion-y-controles" title="Link to this heading">#</a></h2>
+<p>La escala se conserva fija, <span class="math notranslate nohighlight">\(q_{168}=215617,90361589016\)</span> kWh, calculada en entrenamiento de referencia. Para cada origen:</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{MASE}_t=\frac{1}{24q_{168}}\sum_{h=0}^{23}|y_{t+h}-\hat y_{t+h}|.\]</div>
+<p>Menor MASE es mejor. Se reportan MAE, RMSE, errores por horizonte, festivos, precio y condiciones hidrológicas, junto con cobertura de texto y ausencia numérica. El margen práctico es <strong>3 % relativo</strong>: para una referencia <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(\Delta_{rel}=100(MASE_A-MASE_B)/MASE_B\)</span>. El mismo denominador de referencia rige dimensionamiento, contraste de mejora y equivalencia de esa comparación; no se cambian márgenes entre etapas. La referencia primaria del aporte oficial es N y la del aporte de prensa es N+O. Las comparaciones globales con MLP se identifican por separado.</p>
+<p>Los errores horarios de un día no son 24 réplicas independientes. La inferencia primaria utiliza diferencias pareadas por origen, promediadas sobre semillas para el estimando principal, y bootstrap temporal por bloques de 14 días, 10.000 remuestreos, con sensibilidad de 7 y 28 días. La incertidumbre de inicialización se informa aparte; los IC temporales condicionan las semillas ejecutadas. Se aplica Holm a la familia preregistrada de contrastes principales. La potencia objetivo es 0,80 para el benchmark E2 y 0,90 para las afirmaciones de superioridad del modelo original E3; no se supone acreditada antes del piloto. Se dimensiona con diferencias en la misma escala y remuestreo que respete dependencia; no se usa una varianza horaria como si fueran días independientes.</p>
+<p>DM con corrección HAC sobre pérdida absoluta es un contraste secundario cuando sus supuestos sean defendibles. El anidamiento de una compuerta no habilita automáticamente Clark–West: su ajuste de errores cuadrados no es un contraste de MAE/MASE. TOST sobre el margen relativo se acompaña de un IC compatible con dependencia. Friedman y comparaciones por semillas/pliegues se presentan con sus unidades y limitaciones; no sustituyen la inferencia temporal. No se escoge la prueba primaria según Shapiro–Wilk con cinco semillas. Tampoco se calcula potencia conjunta como <span class="math notranslate nohighlight">\(0,9^{12}\)</span> sin independencia.</p>
+<p>Controles registrados: contenido real frente a placebo; indicadores de ausencia y conteo sin contenido; ablación de cada canal; ablación por fuente y balance de volumen; degradación de cobertura al 100 %, 50 % y 0 %. El placebo conserva máscara y volumen mediante ruido independiente o documentos donantes disponibles antes de cada origen, procedentes del tramo de ajuste; una permutación dentro de prueba no asegura causalidad temporal. Los sorteos no usan resultados ni textos posteriores al origen.</p>
+</section>
+<section id="contribucion-propia-fusion-residual-acotada">
+<h2>8. Contribución propia: fusión residual acotada<a class="headerlink" href="#contribucion-propia-fusion-residual-acotada" title="Link to this heading">#</a></h2>
+<p>La alternativa principal de investigación utiliza una base numérica congelada <span class="math notranslate nohighlight">\(b(X_t,F_t)\)</span> y una corrección con relevancia textual aprendida:</p>
+<div class="math notranslate nohighlight">
+\[\hat y_t=b(X_t,F_t)+m_t\,\rho\,\sigma(g(q_t,z_{O,t},z_{P,t}))\odot\tanh h(q_t,z_{O,t},z_{P,t}).\]</div>
+<p>Aquí <span class="math notranslate nohighlight">\(m_t\)</span> vale cero cuando faltan ambos canales; cada canal mantiene también su máscara propia. En escala normalizada, <span class="math notranslate nohighlight">\(|\hat y_{t,h}-b_{t,h}|\le\rho\)</span>. Por la desigualdad triangular inversa, <span class="math notranslate nohighlight">\(|MAE(\hat y)-MAE(b)|\le\rho\)</span>: es una <strong>cota de deterioro posible</strong>, no una garantía de mejora. En kWh la cota depende del nivel <span class="math notranslate nohighlight">\(\ell_t\)</span>, y en MASE queda acotada por <span class="math notranslate nohighlight">\(\rho\,\overline{\ell}/q_{168}\)</span>. El radio <span class="math notranslate nohighlight">\(\rho\)</span> no es el margen del 3 %. Sin texto la predicción coincide exactamente con la base.</p>
+<p>La base mantiene <code class="docutils literal notranslate"><span class="pre">requires_grad=False</span></code> y modo <code class="docutils literal notranslate"><span class="pre">eval</span></code> incluso cuando se activa <code class="docutils literal notranslate"><span class="pre">train</span></code> en la fusión. <code class="docutils literal notranslate"><span class="pre">no_grad</span></code> no desactiva dropout. La implementación debe sobrescribir <code class="docutils literal notranslate"><span class="pre">train</span></code> para restaurar <code class="docutils literal notranslate"><span class="pre">base.eval()</span></code> y probar identidad sin texto, cota, ausencia de gradientes y causalidad. Las afirmaciones de novedad requieren contrastar de cinco a diez métodos cercanos; añadir una compuerta por sí solo no demuestra originalidad.</p>
+<section id="perdida-placebo-y-otras-extensiones">
+<h3>Pérdida placebo y otras extensiones<a class="headerlink" href="#perdida-placebo-y-otras-extensiones" title="Link to this heading">#</a></h3>
+<p>Si la penalización cuadrática obliga a aproximarse a una base congelada <span class="math notranslate nohighlight">\(b(X)\)</span> y el texto es independiente de <span class="math notranslate nohighlight">\((X,Y)\)</span>, el óptimo no restringido es</p>
+<div class="math notranslate nohighlight">
+\[f^*(X)=\frac{E[Y\mid X]+\lambda b(X)}{1+\lambda}.\]</div>
+<p>Solo coincide con la media condicional si la base ya es óptima o <span class="math notranslate nohighlight">\(\lambda=0\)</span>. El radio y la capacidad de la red restringen adicionalmente el óptimo. Por tanto, la penalización es una hipótesis de regularización a evaluar, no una prueba de recuperación de la media condicional.</p>
+<p>Un núcleo temporal positivo puede ponderar documentos mediante mezclas de decaimiento exponencial, siempre sobre documentos elegibles. La suma se normaliza para evitar confundir volumen con contenido y su escala se fija con ajuste. La corrección exógena acotada es una ablación, no un modo de excluir clima, hidrología o precio del control numérico común.</p>
+<p>La mezcla convexa de perfiles diarios es una alternativa: <span class="math notranslate nohighlight">\(\hat y=\ell(x)a(x/\ell(x),X_{exo},F)\sum_k\pi_k P_k\)</span>, con <span class="math notranslate nohighlight">\(a&gt;0\)</span> y perfiles de media uno. Un factor <span class="math notranslate nohighlight">\(a\)</span> dependiente del perfil normalizado, covariables y calendario permite cambiar el nivel del día siguiente. Si <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(\pi\)</span> no dependen de la escala absoluta de demanda, se conserva <span class="math notranslate nohighlight">\(\hat y(cx,X_{exo},F)=c\hat y(x,X_{exo},F)\)</span> para <span class="math notranslate nohighlight">\(c&gt;0\)</span> manteniendo exógenas fijas. Sin <span class="math notranslate nohighlight">\(a\)</span>, la media pronosticada queda forzada a <span class="math notranslate nohighlight">\(\ell(x)\)</span> y puede impedir cambios asociados a festivos. Su utilidad y novedad requieren evaluación propia.</p>
+</section>
+</section>
+<section id="entregables-de-implementacion">
+<h2>9. Entregables de implementación<a class="headerlink" href="#entregables-de-implementacion" title="Link to this heading">#</a></h2>
+<p>Antes del siguiente entrenamiento se deben completar las fichas de configuración publicada, los adaptadores de covariables, el motor común, las pruebas de causalidad y el tamaño definitivo de semillas. La configuración JSON marca este estado como diseño para implementación: no es un registro de entrenamientos ejecutados. El cálculo de embeddings, la búsqueda y la prueba requieren una ejecución explícita posterior.</p>
+<p>El pipeline guardará, por pliegue, la lista de entradas, latencias, máscaras, filas de ajuste, escaladores, configuración, semillas, curva de pérdida, mejor época y predicciones con origen/horizonte. Las tres variantes deben producir exactamente el mismo índice de evaluación. Se guardan SHA-256 de datos, código, caché y checkpoints. CPU o GPU se seleccionan explícitamente; los resultados de precisión o latencia indican dispositivo, versiones y tamaño de lote. Las salidas se escriben en una carpeta nueva, sin reemplazar el benchmark conservado.</p>
+</section>
+<section id="referencias-de-las-arquitecturas">
+<h2>Referencias de las arquitecturas<a class="headerlink" href="#referencias-de-las-arquitecturas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/2211.14730">PatchTST, Nie et al., ICLR 2023</a>.</p></li>
+<li><p><a class="reference external" href="https://ojs.aaai.org/index.php/AAAI/article/view/25854">N-HiTS, Challu et al., AAAI 2023</a>.</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1912.09363">TFT, Lim et al., 2021</a>.</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1803.01271">TCN, Bai et al., 2018</a>.</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/2310.06625">iTransformer, Liu et al., ICLR 2024</a>.</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/html/2502.08942v3">TaTS, Li et al., versión 3 del 7 de marzo de 2026; primera prepublicación de 2025</a>.</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/html/2405.13522v2">TGForecaster, Xu et al., versión 2</a>.</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/2402.05672">Multilingual E5, Wang et al., 2024</a>.</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="_downloads/ae6911e3a5bbe4c0b0072a4471b5ab6e/diseno_entrenamiento_texto.json"><span class="xref download myst">Contrato ejecutable JSON</span></a> · <a class="reference download internal" download="" href="_downloads/eaefd00e52b54cdbf3190c9a868aa975/diseno_entrenamiento_texto.md"><code class="xref download docutils literal notranslate"><span class="pre">Documento</span> <span class="pre">de</span> <span class="pre">diseño</span></code></a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="09_validacion.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">9. Diseño de evaluación</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="10_modelos.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">10. Modelos y benchmark de demanda</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-y-comparacion-principal">1. Pregunta y comparación principal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrato-numerico-comun">2. Contrato numérico común</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disponibilidad-meteorologica">Disponibilidad meteorológica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ausencias-y-transformaciones">Ausencias y transformaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-versiones-y-particion">3. Datos, versiones y partición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-del-texto">4. Representación del texto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#familias-del-benchmark">5. Familias del benchmark</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrenamiento-seleccion-y-presupuesto">6. Entrenamiento, selección y presupuesto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-y-controles">7. Evaluación y controles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribucion-propia-fusion-residual-acotada">8. Contribución propia: fusión residual acotada</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perdida-placebo-y-otras-extensiones">Pérdida placebo y otras extensiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entregables-de-implementacion">9. Entregables de implementación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias-de-las-arquitecturas">Referencias de las arquitecturas</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Fabian José Manrique Morelos y Gloria Bastidas Rodriguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Maestría en Estadística Aplicada · Universidad del Norte
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
