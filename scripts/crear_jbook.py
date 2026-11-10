@@ -110,6 +110,8 @@ def main():
     corregir(books,md,code,note,ROOT)
     from consistencia_jbook import armonizar,armonizar_archivos
     armonizar(books,md,ROOT)
+    from diseno_texto_jbook import integrar_diseno
+    integrar_diseno(books,md,code)
     seleccion=set(sys.argv[1:])
     if seleccion-set(books):raise ValueError('Capítulos desconocidos: '+str(seleccion-set(books)))
     for stem,cells in books.items():

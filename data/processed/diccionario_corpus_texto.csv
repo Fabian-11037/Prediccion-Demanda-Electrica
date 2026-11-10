@@ -1,0 +1,30 @@
+variable,tipo,descripcion
+id,str,Identificador de versión. Conserva el id original al enriquecer un titular; para nuevos documentos deriva de fuente y SHA-256 binario.
+fuente,str,Entidad oficial o medio editor.
+tipo_fuente,str,Prensa u organismo oficial; metadato de procedencia.
+familia_documental,str,"Serie editorial o clase documental del repositorio, sin clasificación temática aprendida o manual."
+titulo,str,Título o nombre editorial declarado por el catálogo actual.
+texto,str,"Cuerpo extraído, texto de diapositivas, resumen oficial o fragmento OCR según texto_alcance."
+texto_alcance,str,"Alcance real de la extracción: titular, cuerpo, cuerpo parcial, OCR o texto de diapositivas."
+url,str,Enlace de procedencia; los fragmentos identifican miembros de ZIP. No se concatena como texto de entrada.
+fecha_declarada,str,"Fecha de publicación o edición declarada; puede tener precisión anual, mensual o diaria."
+precision_fecha,str,Precisión de la fecha; no añade una hora ficticia de publicación.
+base_fecha,str,Evidencia o supuesto que respalda la fecha declarada.
+disponible_declarado,"datetime64[us, UTC]","Disponibilidad supuesta en UTC; día sin hora pasa al siguiente día a las 00:00 de Bogotá, año sin mes al año siguiente. Puede adelantarse hasta una captura que pruebe esos mismos bytes."
+disponible_estricto,"datetime64[us, UTC]",Captura histórica con identidad de contenido corroborada o recuperación actual si no existe esa evidencia.
+primera_verificacion,"datetime64[us, UTC]",Primera captura corroborada de esta versión o recuperación actual.
+recuperado_en,"datetime64[ns, UTC]",Instante UTC de recuperación local del documento actual.
+prueba_disponibilidad,str,"Método de evidencia: captura archivada del titular, digest CDX idéntico al PDF o recuperación actual."
+sha256_original,str,SHA-256 de los bytes originales utilizados.
+sha256_texto,str,SHA-256 del cuerpo extraído en UTF-8.
+archivo_original,str,"Ruta del original descargado o PDF descomprimido, relativa al proyecto."
+archivo_texto,str,"Ruta del texto derivado, relativa al proyecto."
+cuarentena,bool,"Excluye registros cuya fecha, edición o formato no supera las verificaciones."
+motivo_cuarentena,str,Razón reproducible de exclusión; no es una etiqueta temática.
+alertas,str,"Advertencias sobre versión histórica, OCR, extracción o fechas."
+paginas,int64,Páginas PDF o diapositivas contabilizadas; cero para titulares y HTML.
+paginas_con_texto,int64,Páginas o diapositivas con texto extraído; permite detectar extracciones parciales.
+estado_extraccion,str,"Resultado de la extracción automática, incluido OCR pendiente o error."
+version,str,Versión de integración o conservación del titular.
+titulo_verificado,str,"En PDF corroborados por CDX, encabezado derivado del propio PDF; evita usar un título editorial actual como si estuviera archivado."
+grupo_titulo_fecha,str,"Huella de fuente, título normalizado y fecha para diagnosticar repetición, sin borrar automáticamente publicaciones de días distintos."

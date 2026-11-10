@@ -1,0 +1,34 @@
+{
+  "training_executed": false,
+  "new_predictive_evaluation": false,
+  "scenario": "declarado",
+  "variants": [
+    "numerico",
+    "numerico_oficial",
+    "numerico_oficial_prensa"
+  ],
+  "relevance": "aprendida_en_entrenamiento",
+  "channels": [
+    "oficial",
+    "prensa"
+  ],
+  "tests_active": {
+    "passed": 48,
+    "skipped": 5
+  },
+  "notebooks": 13,
+  "analytic_cells": 76,
+  "figures": 42,
+  "book_build_warnings": 0,
+  "broken_local_links": 0,
+  "chapter_sha256": "4edde7af65fc981fbd4cb337c7085504679b9fdc5cdd950412e766588117d725",
+  "tests_publicacion": {
+    "passed": 49,
+    "skipped": 9,
+    "excluded_modules": [
+      "test_reentrenamiento_v3.py",
+      "test_variantes_v4.py"
+    ],
+    "reason": "El entorno documental no incluye PyTorch; se excluyen los módulos que importan y ejercitan entrenamiento."
+  }
+}

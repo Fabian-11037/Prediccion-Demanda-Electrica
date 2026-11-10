@@ -1,6 +1,6 @@
 # Contexto del proyecto
 
-Actualizado el 8 de noviembre de 2026. Idioma: español. Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez. Maestría en Estadística Aplicada, Universidad del Norte.
+Actualizado el 9 de noviembre de 2026. Idioma: español. Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez. Maestría en Estadística Aplicada, Universidad del Norte.
 
 ## 0. Redacción y alcance
 
@@ -33,6 +33,7 @@ Inventario y detalle en `data/raw/README.md` y `data/external/README.md`.
 | Habitantes por ciudad (censo 2018 del DANE ajustado por omisión censal) | estático | incluido en `data/raw/numeric/ciudades.csv`; cifras de **fuente secundaria** (Portafolio, 17-oct-2019, citando al DANE); sustituir por el archivo oficial |
 | Hidrología diaria (llenado, reserva útil, capacidad útil, aportes) | 2000-01-01 → 2025-12-31 | incluido |
 | Titulares de prensa (7 medios) y boletines IDEAM | 568 295 titulares, 2004-2025 | incluido (`data/raw/noticias/titulares.parquet`) |
+| Corpus integrado de prensa y documentos oficiales | 575473 filas; 7907 documentos oficiales únicos | data/processed/corpus_texto.parquet; disponibilidad y alcance en §13 |
 | Festivos de Colombia | 2000-2035 | generado (`data/external/festivos_colombia.csv`) |
 | ISE (DANE), actividad económica | mensual | **pendiente de descarga** (script de importación listo, sin probar con el archivo real) |
 | Pronósticos de temperatura con emisión previa | GFS desde 2021-03; resto desde 2024-01 | **pendiente de descarga** (script listo, sin probar) |
@@ -54,7 +55,7 @@ Prefijos de columnas:
 3. **Ventanas por origen** (`src/demanda/ventanas.py`): las columnas `x_*` nunca se leen en filas `>= p`; solo `cal_*` y pronósticos con emisión previa se leen en el horizonte; `y_*` solo como etiqueta. Prueba que lo verifica corrompiendo el futuro.
 4. **Partición cronológica con purga** (`src/demanda/particion.py`): cada intervalo-objetivo queda completo dentro de una partición (purga = H). **El conjunto de prueba está congelado**: `origenes(..., 'test')` exige `allow_test=True` y solo debe invocarse en la corrida final.
 5. **Escalas, imputación, vocabulario y climatología se ajustan solo con entrenamiento** (`AjustadorEscala`, `ClimatologiaTemperatura`; hay pruebas que alteran validación/prueba y verifican que no cambia nada).
-6. **Texto:** solo titulares. Dos escenarios aplicados igual en todas las particiones: *estricto* (versión archivada verificada; disponibilidad = captura verificada; cubre desde 2021-04-25) y *declarado* (fecha declarada; sin hora → día siguiente 00:00 de Colombia; no certifica que la versión del titular sea la original). Nunca se usan como característica `url`, fechas declaradas, `availability_*`, `provenance_source`. Registros en cuarentena y sin fecha quedan fuera. Con el escenario *declarado* no se puede afirmar «libre de fuga»: declararlo como limitación.
+6. **Texto:** el **escenario declarado es la versión oficial del dataset textual** y se aplica a documentos institucionales y prensa en todas las particiones. Fecha diaria sin hora: día siguiente 00:00 de Colombia; año de publicación sin mes: año siguiente. Conservar advertencias de versión histórica no verificada y excluir cuarentena/fechas inutilizables. El escenario estricto queda para sensibilidad y auditoría de disponibilidad; no supone una alternativa predictiva equivalente cuando falta entrenamiento histórico. La relevancia se aprende dentro del modelo, sin filtro por términos ni categorías manuales. Nunca concatenar URL, fechas de recuperación ni pruebas de procedencia al texto. El diseño de canales y las tres variantes comparables se especifican en §14.
 7. **Clima:** el clima de `data/raw` es reanálisis. Como covariable del futuro solo valen pronósticos con emisión conocida (cobertura corta) o la climatología de entrenamiento. No interpolar pronósticos hacia atrás con ERA5.
 8. Los preregistros se escriben **antes** de buscar, hacer piloto o ejecutar, y se versionan.
 9. Mismo esfuerzo de búsqueda para todos los modelos. «No significativo» no es equivalencia (usar TOST/ROPE). Reportar p exactos, ajustados y sin ajustar, IC y tamaño de efecto.
@@ -127,7 +128,7 @@ Capítulos: problema/datos, calidad, demanda, estacionalidad, dependencia, covar
 
 EDA numérico: exclusivamente desarrollo2000–2021. Diccionario84 campos:59panel,18 titulares,7ciudades. Verifica rangos, finitud, coherencia hidráulica, distancia de malla ypesos poblacionales; no corrige fuentes. Rupturas retrospectivas ycentrado climático descriptivo no se usan como transformaciones de entrenamiento. Los diagnósticos de diferencias de entrenamiento no son residuos predictivos.
 
-Texto:484289 titulares elegibles de desarrollo; cobertura, duplicados, longitud, bigramas, diversidad léxica ytransferencia. TF-IDF máximo6000 términos yNMF6 componentes, ajustados en muestra determinista de30000 titulares anteriores a2018; proyección con representación congelada. Sensibilidad de inicialización con semilla 11038 yemparejamiento óptimo. No clasificar temas manualmente ni afirmar utilidad predictiva a partir del EDA. Literatura:27estudios destacados,15 textos completos y12 abstracts; ochoabstracts IEEEde contexto; registro complementario de20 textos completos con frecuencias por denominadores16/14/19, separado del corpus empírico de demanda de cinco estudios. Scripts/literatura_integral_jbook.py y literature/analisis contienen extracción, código yhuellas.
+Diagnóstico léxico del archivo original:484289 titulares elegibles de desarrollo; cobertura, duplicados, longitud, bigramas, diversidad léxica ytransferencia. TF-IDF máximo6000 términos yNMF6 componentes, ajustados en muestra determinista de30000 titulares anteriores a2018; proyección con representación congelada. Sensibilidad de inicialización con semilla 11038 yemparejamiento óptimo. No clasificar temas manualmente ni afirmar utilidad predictiva a partir del EDA. Literatura:27estudios destacados,15 textos completos y12 abstracts; ochoabstracts IEEEde contexto; registro complementario de20 textos completos con frecuencias por denominadores16/14/19, separado del corpus empírico de demanda de cinco estudios. Scripts/literatura_integral_jbook.py y literature/analisis contienen extracción, código yhuellas.
 
 Reconstrucción parcial: python scripts/crear_jbook.py 08_literatura 09_validacion 10_modelos 10_evaluacion 11_sintesis 12_reproducibilidad. Construir con jupyter-book build book --warningiserror --keep-going y verificar con python scripts/verificar_jbook.py. El verificador revisa celdas, figuras, diccionario, enlaces y copia HTML a docs; no publica. Entorno documental:.bookenv, requirements-book.lock.txt. Antes de cualquier commit ejecutar pytest -q tests. No publicar salvo solicitud expresa.
 
@@ -181,3 +182,65 @@ Cierre de la revisión global: trece cuadernos, introducción, fuentes, dicciona
 En ADF, el valor cero del software corresponde al límite de su aproximación de MacKinnon y se reporta como p<0,001; no se interpreta como probabilidad exactamente nula ni como una cota de 1e-300.
 
 Validación final: 43 pruebas correctas y 5 omitidas; las advertencias de pruebas corresponden a APIs de pandas de módulos existentes. El JBook tiene cero errores, advertencias de construcción y enlaces locales rotos. Se conservan cinco semillas por familia, sin entrenamiento ni publicación adicionales.
+
+## 13. Corpus oficial y disponibilidad temporal · 9 de noviembre de 2026
+
+Adquisición local, sin entrenamiento ni publicación. Fuente operativa: results/documentos_oficiales/INFORME_COBERTURA.md y auditoria_integracion.json. Se descargaron 7219 entradas de 7223 del inventario; 4 fallos HTTP permanecen documentados. Los 47 paquetes contienen 770 PDF individuales. El conjunto oficial conserva 7907 versiones únicas; 729 titulares se enriquecen y el corpus consolidado tiene 575473 filas, con ids únicos.
+
+| fuente | documentos | con_cuerpo | con_texto_parcial | cuarentena | habilitados_declarado_2000_2025 | habilitados_estricto_2000_2025 |
+|---|---|---|---|---|---|---|
+| CREG | 909 | 748 | 470 | 183 | 726 | 252 |
+| IDEAM | 1857 | 1855 | 22 | 47 | 1809 | 878 |
+| MinEnergia | 2722 | 2722 | 0 | 0 | 2721 | 0 |
+| UPME | 207 | 207 | 8 | 0 | 206 | 121 |
+| XM | 2212 | 2148 | 646 | 9 | 2203 | 4 |
+
+Tablas: data/processed/corpus_texto.parquet y data/raw/documentos_oficiales/documentos_oficiales.parquet. Manifiesto: data/processed/dataset_texto_oficial_manifest.json. Diccionario: data/processed/diccionario_corpus_texto.csv. Los originales numéricos y titulares, cuadernos, HTML y modelos del E1 no se modifican. El corpus ampliado se integra mediante src/demanda/corpus.py: cargar_corpus requiere un escenario explícito y documentos_en_origen selecciona origen−ventana <= disponibilidad <= origen, con zona de Colombia y ventanas auditadas de 24/72/168 horas.
+
+La disponibilidad estricta de un PDF solo se adelanta a una captura cuando su SHA-1 Base32 coincide exactamente con el digest de una respuesta 200 en CDX. Se conservan el índice completo, timestamp, URL y SHA-256 local. No se declara una recuperación del payload archivado cuando la reproducción no fue accesible. Son 1255 documentos oficiales históricos utilizables por esta regla; la primera captura utilizable es 2004-06-30 06:09:07+00:00. El título editorial actual no queda verificado por ese digest: el cargador estricto utiliza el encabezado derivado del propio PDF. Una captura de un titular no verifica un cuerpo recuperado después. Sin prueba histórica, disponible_estricto es la recuperación en 2026 y el registro no entra antes en los orígenes de 2000–2025.
+
+Antigüedad al verificar: 1016 documentos corroborados tienen un campo de fecha diaria y 11 presentan una captura en las primeras 72 horas desde su inicio; desfase mediano 1659.7 días. La auditoría editorial posterior excluye uno de esos 11 porque su fecha procede del repositorio XM y no de una edición verificable: quedan diez documentos oficiales recientes con disponibilidad estricta (nueve antes de 2022 y uno en prueba). Detalle: antiguedad_edicion_al_verificar.csv. Un boletín antiguo capturado después no constituye un pronóstico reciente para ese origen. Antes de evaluar señal anticipatoria, comprobar su vigencia y fecha de edición; las ventanas de captura por sí solas no acreditan frescura. No se aplicó un filtro temático ni se entrenó una compuerta.
+
+El escenario declarado mantiene la advertencia de versión histórica no verificada. Fecha diaria sin hora: día siguiente 00:00 de Bogotá; año de publicación sin mes: año siguiente. Un año de referencia del archivo no acredita publicación. XM conserva el supuesto de fecha de creación/modificación del repositorio como tal, sin llamarlo hora oficial de publicación. Los miembros de ZIP usan su encabezado de edición, no la fecha del contenedor. Fechas desconocidas o incompatibles quedan en cuarentena, salvo evidencia de disponibilidad de esa misma versión por captura.
+
+Cobertura de la ampliación oficial en ventana de 72 horas:
+- Entrenamiento 2000–2017, declarado: 41.1% de orígenes con texto oficial en 72 horas.
+- Validación 2018–2021, declarado: 98.1% de orígenes con texto oficial en 72 horas.
+- Prueba 2022–2025, declarado: 98.0% de orígenes con texto oficial en 72 horas.
+- Entrenamiento 2000–2017, estricto: 0.3% de orígenes con texto oficial en 72 horas.
+- Validación 2018–2021, estricto: 8.9% de orígenes con texto oficial en 72 horas.
+- Prueba 2022–2025, estricto: 30.2% de orígenes con texto oficial en 72 horas.
+
+La cobertura mensual incluye meses con cero documentos y se guarda por fuente y escenario. cobertura_particiones.csv conserva los cortes vigentes y continuidad_fuente.csv identifica días sin texto. Estos gaps no se rellenan ni se interpretan automáticamente como publicaciones perdidas: la periodicidad de las series es distinta. Los orígenes y métricas numéricas permanecen congelados.
+
+OCR local Windows.Media.Ocr, idioma es-MX, render máximo 1800 píxeles y hasta cuatro páginas por escaneo. El campo texto_alcance distingue cuerpo, fragmento, texto de diapositivas y titular; las páginas restantes de documentos largos permanecen en el PDF original. No se asignan temas ni se filtra por relevancia manual. Toda selección aprendida, vocabulario o ajuste posterior debe usar únicamente entrenamiento. La adquisición no inició entrenamiento, selección de arquitecturas ni evaluación predictiva. La posterior actualización documental y su publicación se registran en §14.
+
+Reproducción: comandos en data/raw/documentos_oficiales/README.md; scripts de adquisición, expansión segura de ZIP, extracción, verificación CDX e integración incluidos. requirements-oficiales.txt y requirements-ocr-windows.txt separan el procesamiento general del OCR. Los JSON OCR permiten reutilizar el texto sin el motor Windows. No confundir el corpus nuevo con el archivo original de titulares al continuar E2/E3; utilizar el manifiesto y el cargador por origen.
+
+## 14. Diseño de integración textual acordado · 9 de noviembre de 2026
+
+### Dataset de referencia y variantes
+
+El **escenario declarado es la versión oficial del dataset textual**. No confundir la versión oficial del dataset con el canal de documentos oficiales: el mismo escenario temporal rige también para la prensa. Mantener las advertencias históricas, reglas de precisión de fecha, cuarentena y trazabilidad de §13. El escenario estricto se reserva para análisis de sensibilidad y auditoría de disponibilidad, con su cobertura limitada explícita.
+
+Comparar tres variantes: **(1) variables numéricas sin texto; (2) las mismas variables numéricas y texto oficial; (3) las mismas variables numéricas, texto oficial y prensa**. La comparación principal estima el aporte del texto oficial frente a la referencia numérica; la tercera estima el aporte adicional de la prensa. Conservar orígenes, horizonte24, calendario y conjunto numérico comunes; no descartar días sin texto. Mantener particiones vigentes (referencia2000–2017, validación externa2018–2021, prueba2022–2025), semillas, MASE, margen relativo3 % y presupuesto de búsqueda comparable. El ajuste final conserva la historia anterior a2022 y su reserva interna. Las cinco semillas y artefactos numéricos actuales no se modifican.
+
+### Canales independientes y relevancia aprendida
+
+Separar por `tipo_fuente`: `official_report` para XM, IDEAM, CREG, UPME y MinEnergia; `news` para los siete medios conservados (El Colombiano, El Tiempo, El Espectador, La República, Portafolio, Semana y Dinero). Los boletines IDEAM previos siguen en el canal oficial aunque solo tengan titular; distinguir su alcance respecto de los nuevos cuerpos. Usar `data/processed/corpus_texto.parquet`, cargar con `cargar_corpus('declarado')` y seleccionar con `documentos_en_origen`.
+
+Cada canal produce su representación agregada y un indicador propio de ausencia. Sin documentos, su representación es cero con indicador activo; ausencia en el archivo no equivale a ausencia de eventos. La ponderación de fragmentos/documentos se aprende dentro del modelo mediante la pérdida de pronóstico, condicionada cuando corresponda a la historia numérica disponible. No filtrar prensa por términos ni asignar relevancia o temas manuales. Los tópicos NMF del EDA describen el archivo de titulares y no constituyen etiquetas ni embeddings predictivos del corpus ampliado. Los embeddings de cada canal se fusionan conservando su identidad y la posibilidad de reducir el peso de la prensa.
+
+Fijar con desarrollo y versionar antes de la siguiente comparación: ventana temporal, segmentación determinista, límites de documentos/fragmentos/tokens por canal, política de selección temporal previa al límite, encoder y política de ajuste, controles por fuente/volumen y tratamiento de cuerpos parciales. La ventana de72h del informe de recencia es descriptiva, no un hiperparámetro ya seleccionado. Conservar originales y alcance de extracción; registrar descartes por presupuesto. Un aumento de prensa no puede desplazar documentos del presupuesto oficial. Los identificadores, URL y pruebas de disponibilidad son auditoría, no contenido del encoder. Vocabulario, escalas, relevancia y cualquier ajuste se aprenden solo con el tramo permitido de cada pliegue; no optimizar filtros ni composición contra prueba.
+
+### Reporte y alcance
+
+Reportar diferencias apareadas sobre los mismos orígenes, cobertura, días sin texto, volumen por canal, composición por fuente, parámetros adicionales y coste de inferencia. Definir controles de volumen y ablaciones por fuente con desarrollo. Un resultado sin mejora de prensa queda circunscrito al corpus y al procedimiento. Documentar versión y corte temporal conocido de cualquier encoder preentrenado; no presumir que sea históricamente independiente.
+
+El bloque2022–2025 ya fue examinado en el análisis numérico; las nuevas comparaciones sobre ese bloque tendrán alcance retrospectivo. El protocolo textual se versionará antes de ejecutarse, sin presentarlo como previo a exposiciones ya ocurridas. Un bloque prospectivo genuino debe comenzar después de congelar protocolo/modelo y registrar entradas y pronósticos en tiempo real.
+
+### Documentación y publicación
+
+El capítulo `book/07_texto.ipynb` se titula «Corpus documental y procesamiento del texto». Describe variantes, disponibilidad, canales, relevancia aprendida, controles y código de preparación por origen; conserva el EDA léxico de titulares con su alcance identificado. `scripts/diseno_texto_jbook.py` integra estos contenidos al generador `scripts/crear_jbook.py` para evitar perderlos en reconstrucciones. Los inventarios anuales por escenario y la recencia por partición/fuente se enlazan en el capítulo desde `_static/resultados/texto_oficial/`.
+
+Actualización documental autorizada para publicar en GitHub Pages. Sin nuevos entrenamientos, embeddings ajustados, métricas predictivas ni cambios de datos o modelos. La continuidad específica del libro se mantiene en `continuidad/CONTEXTO_PROYECTO.md` al publicar; el contexto raíz remoto conserva además sus antecedentes técnicos.

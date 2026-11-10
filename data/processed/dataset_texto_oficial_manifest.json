@@ -1,0 +1,74 @@
+{
+  "version": "corpus_oficial_20261109",
+  "periodo": [
+    "2000-01-01",
+    "2025-12-31"
+  ],
+  "tabla_numerica": "data/processed/panel_horario.parquet",
+  "tabla_texto": "data/processed/corpus_texto.parquet",
+  "cargador": "demanda.corpus.cargar_corpus",
+  "alineacion": "demanda.corpus.documentos_en_origen",
+  "ventanas_horas_auditadas": [
+    24,
+    72,
+    168
+  ],
+  "regla_alineacion": "origen - ventana <= disponibilidad <= origen; zona America/Bogota",
+  "archivos": [
+    {
+      "archivo": "data/processed/panel_horario.parquet",
+      "bytes": 13255615,
+      "sha256": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15"
+    },
+    {
+      "archivo": "data/processed/corpus_texto.parquet",
+      "bytes": 92218678,
+      "sha256": "2b6ee4071ae0806b236cd3cf9c0aa7335bc4dc02ac6241c556c95a45b7eb7cc7"
+    },
+    {
+      "archivo": "data/raw/noticias/titulares.parquet",
+      "bytes": 34925898,
+      "sha256": "c83b8baf0d5936718fc31000444f813f7400af08e2587fc7e3125a3b06ada077"
+    },
+    {
+      "archivo": "data/raw/documentos_oficiales/documentos_oficiales.parquet",
+      "bytes": 17871116,
+      "sha256": "478ee682a1f1cc3838b943c4187f8d1b62a9fbfe089b2dffdcc8b24f02e6d2a1"
+    },
+    {
+      "archivo": "data/processed/diccionario_corpus_texto.csv",
+      "bytes": 3070,
+      "sha256": "e792292d1a254bd21088686916a20a3e8dc3f1b76a9b0c3a7c9b9a958ef56dfb"
+    },
+    {
+      "archivo": "scripts/adquisicion/descargar_documentos_oficiales.py",
+      "bytes": 24937,
+      "sha256": "fb9f0e3f195d4b52b8d04e2921605109000dcf08bc56ff2e252fffa3d0c7be1c"
+    },
+    {
+      "archivo": "scripts/adquisicion/ocr_documentos_oficiales.py",
+      "bytes": 4338,
+      "sha256": "6fb72b524df55e931338b1e3e2969dce47437a20102f3a7cff646925098e659a"
+    },
+    {
+      "archivo": "scripts/integrar_documentos_oficiales.py",
+      "bytes": 24701,
+      "sha256": "feb7ea398412731c0b88d99bdcdea93d0d7a9119e5764661bb5eeb9d9b89edfe"
+    },
+    {
+      "archivo": "scripts/verificar_disponibilidad_oficial.py",
+      "bytes": 4614,
+      "sha256": "60086d75ee8bb84a77098e9c588cf3434cce81c5eade556409f3d1322ded3ada"
+    },
+    {
+      "archivo": "scripts/finalizar_documentos_oficiales.py",
+      "bytes": 23732,
+      "sha256": "b6f92e9af70b147c85dd954f325f082b3ce14183326b6281422beeaa47fcc880"
+    },
+    {
+      "archivo": "src/demanda/corpus.py",
+      "bytes": 2846,
+      "sha256": "df90f6ffdc9f862975371ffffdd465791d681fb74e47cb8c3b51f71fd0665391"
+    }
+  ]
+}

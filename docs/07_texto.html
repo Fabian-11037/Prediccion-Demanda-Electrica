@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Exploración de titulares &#8212; Pronóstico de la demanda eléctrica del SIN colombiano</title>
+    <title>7. Corpus documental y procesamiento del texto &#8212; Pronóstico de la demanda eléctrica del SIN colombiano</title>
   
   
   
@@ -61,6 +61,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '07_texto';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Índice" href="genindex.html" />
@@ -224,7 +226,7 @@
 <li class="toctree-l1"><a class="reference internal" href="04_estacionalidad.html">4. Calendario y estacionalidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_covariables.html">6. Covariables y disponibilidad</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Exploración de titulares</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Corpus documental y procesamiento del texto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -370,7 +372,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>7. Exploración de titulares</h1>
+    <h1>7. Corpus documental y procesamiento del texto</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,11 +382,20 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-integracion-documental">Diseño de integración documental</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#canales-y-relevancia-aprendida">Canales y relevancia aprendida</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corpus-y-alcance-del-analisis-exploratorio">Corpus y alcance del análisis exploratorio</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cobertura-mensual-longitud-y-repeticion">Cobertura mensual, longitud y repetición</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bigramas-y-diversidad-lexica">Bigramas y diversidad léxica</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evolucion-de-topicos-y-composicion-por-fuente">Evolución de tópicos y composición por fuente</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transferencia-del-vocabulario-y-estabilidad-de-los-topicos">Transferencia del vocabulario y estabilidad de los tópicos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cobertura-del-historial-documental-por-pliegue">Cobertura del historial documental por pliegue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-los-canales-por-origen">Preparación de los canales por origen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-y-controles">Comparación y controles</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -396,9 +407,56 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exploracion-de-titulares">
-<h1>7. Exploración de titulares<a class="headerlink" href="#exploracion-de-titulares" title="Link to this heading">#</a></h1>
-<p>El corpus se analiza por disponibilidad, fuente y características léxicas. Los tópicos se aprenden automáticamente; no se asignan categorías temáticas manuales.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="corpus-documental-y-procesamiento-del-texto">
+<h1>7. Corpus documental y procesamiento del texto<a class="headerlink" href="#corpus-documental-y-procesamiento-del-texto" title="Link to this heading">#</a></h1>
+<p>El escenario declarado constituye la versión de referencia del dataset textual. La comparación distingue el aporte de los documentos oficiales y el de la prensa mediante canales separados, con relevancia aprendida dentro del modelo. El análisis de cobertura y las características léxicas permiten identificar limitaciones de representación y disponibilidad temporal.</p>
+<section id="diseno-de-integracion-documental">
+<h2>Diseño de integración documental<a class="headerlink" href="#diseno-de-integracion-documental" title="Link to this heading">#</a></h2>
+<p>Se compararán tres variantes sobre los mismos orígenes de pronóstico y las mismas variables numéricas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variante</p></th>
+<th class="head"><p>Entradas</p></th>
+<th class="head"><p>Comparación de interés</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sin texto</p></td>
+<td><p>Historia numérica y calendario</p></td>
+<td><p>Referencia numérica</p></td>
+</tr>
+<tr class="row-odd"><td><p>Texto oficial</p></td>
+<td><p>Entradas numéricas y documentos de XM, IDEAM, CREG, UPME y MinEnergía</p></td>
+<td><p>Aporte del corpus oficial frente a la referencia numérica</p></td>
+</tr>
+<tr class="row-even"><td><p>Texto oficial y prensa</p></td>
+<td><p>Entradas numéricas, documentos oficiales y titulares de prensa</p></td>
+<td><p>Aporte adicional de la prensa frente al texto oficial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El escenario <strong>declarado</strong> se aplica a ambos canales y a todas las particiones. La fecha declarada determina la disponibilidad, con las reglas conservadoras correspondientes a su precisión; los registros sin fecha utilizable o en cuarentena se excluyen. Una fecha diaria sin hora habilita el texto desde las 00:00 del día siguiente en Colombia. Se conserva la advertencia de versión histórica no verificada. El escenario estricto se reserva para sensibilidad y auditoría de disponibilidad; su escasez de texto histórico limita una comparación predictiva equivalente.</p>
+<p>Las variantes comparten el horizonte de 24 horas, los orígenes diarios y la partición vigente: entrenamiento de referencia 2000–2017, validación externa por encadenamiento hacia adelante en 2018–2021 y prueba 2022–2025. Cada pliegue ajusta las transformaciones y la relevancia con su historia permitida y su reserva interna de parada. Se mantienen semillas, métrica primaria MASE, margen relativo del 3 % y presupuesto de búsqueda comparables. Se reportarán las diferencias apareadas por origen y la cobertura de cada canal, sin eliminar fechas por ausencia de texto.</p>
+<section id="canales-y-relevancia-aprendida">
+<h3>Canales y relevancia aprendida<a class="headerlink" href="#canales-y-relevancia-aprendida" title="Link to this heading">#</a></h3>
+<p>Los documentos oficiales y la prensa producen representaciones agregadas independientes, <span class="math notranslate nohighlight">\(z_{\mathrm{oficial},t}\)</span> y <span class="math notranslate nohighlight">\(z_{\mathrm{prensa},t}\)</span>, con un indicador de ausencia para cada canal. La representación vacía se fija en cero y su indicador permite distinguirla de un embedding observado. La ausencia describe el corpus recuperado, sin implicar que no ocurrieran eventos.</p>
+<p>Dentro de cada canal, una ponderación aprendida agrega los fragmentos disponibles:</p>
+<div class="math notranslate nohighlight">
+\[
+z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
+\alpha_{c,t,j}=\operatorname{softmax}_{j}\!\left(s_{\theta_c}(e_{c,j},q_t)\right).
+\]</div>
+<p><span class="math notranslate nohighlight">\(D_{c,t}\)</span> contiene únicamente fragmentos de documentos disponibles al origen; <span class="math notranslate nohighlight">\(e_{c,j}\)</span> es su embedding y <span class="math notranslate nohighlight">\(q_t\)</span> resume la historia numérica conocida. La función de relevancia se aprende mediante el objetivo de pronóstico, sin clasificación temática manual ni selección por palabras clave. La fusión recibe las representaciones, sus indicadores de ausencia y la historia numérica. El canal de prensa puede recibir un peso pequeño cuando su información no resulta útil.</p>
+<p>La segmentación, la ventana temporal y los límites de documentos, fragmentos y tokens por canal se fijarán con desarrollo antes de la siguiente evaluación textual. La selección previa al límite será determinista y temporal; la relevancia se aprenderá entre los fragmentos admitidos. Se registrarán textos descartados por presupuesto, alcance de extracción y proporciones por fuente. Los documentos de cuerpo parcial y los titulares conservarán su identificación de alcance; no se tratarán como textos completos. Si se utiliza un encoder preentrenado, se documentarán su versión, fecha de corte conocida y política de ajuste. Su conocimiento previo puede limitar la interpretación histórica.</p>
+<p>No se aplicará un filtro temático a la prensa. La comparación conservará las siete fuentes del corpus: El Colombiano, El Tiempo, El Espectador, La República, Portafolio, Semana y Dinero. Los boletines IDEAM pertenecen al canal oficial, aunque algunos registros solo dispongan de titular. Las URL, fechas de recuperación y pruebas de procedencia se reservan para auditoría y no se concatenan al texto.</p>
+</section>
+<section id="corpus-y-alcance-del-analisis-exploratorio">
+<h3>Corpus y alcance del análisis exploratorio<a class="headerlink" href="#corpus-y-alcance-del-analisis-exploratorio" title="Link to this heading">#</a></h3>
+<p>La ampliación incorpora 7.907 versiones documentales oficiales y enriquece 729 titulares existentes; el corpus integrado contiene 575.473 registros con identificadores únicos. Estos totales describen el inventario recuperado: la elegibilidad depende del escenario y del origen. El archivo de referencia es <code class="docutils literal notranslate"><span class="pre">data/processed/corpus_texto.parquet</span></code>; su manifiesto conserva las huellas y las reglas temporales. La cobertura por fuente, año y escenario se proporciona en los archivos descargables del capítulo.</p>
+<p>La disponibilidad y la vigencia son dimensiones distintas: un informe antiguo recuperado posteriormente no constituye necesariamente información reciente para el pronóstico. La auditoría de recencia usa una ventana descriptiva de 72 horas y exige fecha editorial diaria identificable; no convierte fechas de creación de repositorio ni años sin mes en fechas editoriales precisas. Esta ventana descriptiva no fija el hiperparámetro del futuro modelo.</p>
+<p>El diagnóstico léxico siguiente corresponde al archivo de titulares y al periodo de desarrollo. Sus componentes NMF describen ese archivo; no son etiquetas de relevancia ni constituyen la representación predictiva de los nuevos documentos oficiales.</p>
+<p><a class="reference download internal" download="" href="_downloads/28bd3d0a7891c8bbb99cd2bcacd154d5/documentos_anio_fuente_declarado.csv"><span class="xref download myst">Inventario anual declarado</span></a> · <a class="reference download internal" download="" href="_downloads/beea0d5a4e9df6cad8069d1dfed22a08/documentos_anio_fuente_estricto.csv"><span class="xref download myst">Inventario anual estricto</span></a> · <a class="reference download internal" download="" href="_downloads/9f58a92b9e941b272a27ca0c32b9d256/texto_reciente_particiones_fuente.csv"><span class="xref download myst">Recencia por partición y fuente</span></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
@@ -438,7 +496,7 @@
 <img alt="_images/cc10bb3da09d15f3cd69aece37b88f08d6949d252d07155dc6830f18147283df.png" src="_images/cc10bb3da09d15f3cd69aece37b88f08d6949d252d07155dc6830f18147283df.png" />
 </div>
 </div>
-<p>Desarrollo contiene 484,289 registros en el escenario declarado y 5,272 en el estricto. Son escenarios alternativos, no conjuntos para sumar. Las diferencias de cobertura limitan comparaciones por fuente y tiempo; ausencia de registros recuperados no equivale a ausencia de publicación.</p>
+<p>Desarrollo contiene 484,289 registros en el escenario declarado y 5,272 en el estricto. El declarado es el escenario principal; el estricto se utiliza para sensibilidad de disponibilidad. Las diferencias de cobertura limitan comparaciones por fuente y tiempo; ausencia de registros recuperados no equivale a ausencia de publicación.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tit</span><span class="o">=</span><span class="n">pq</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'data/raw/noticias/titulares.parquet'</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'source'</span><span class="p">,</span><span class="s1">'titular'</span><span class="p">,</span><span class="s1">'available_at_assumed'</span><span class="p">,</span><span class="s1">'quarantined'</span><span class="p">],</span><span class="n">filters</span><span class="o">=</span><span class="p">[(</span><span class="s1">'available_at_assumed'</span><span class="p">,</span><span class="s1">'&lt;'</span><span class="p">,</span><span class="s1">'2018-01-01'</span><span class="p">),(</span><span class="s1">'available_at_assumed'</span><span class="p">,</span><span class="s1">'&gt;='</span><span class="p">,</span><span class="s1">'2000-01-01'</span><span class="p">),(</span><span class="s1">'quarantined'</span><span class="p">,</span><span class="s1">'=='</span><span class="p">,</span><span class="kc">False</span><span class="p">)])</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">();</span> <span class="n">tit</span><span class="o">=</span><span class="n">tit</span><span class="p">[</span><span class="n">tit</span><span class="o">.</span><span class="n">titular</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">tit</span><span class="o">.</span><span class="n">titular</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">ne</span><span class="p">(</span><span class="s1">''</span><span class="p">)];</span> <span class="n">muestra</span><span class="o">=</span><span class="n">tit</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">30000</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">tit</span><span class="p">)),</span><span class="n">random_state</span><span class="o">=</span><span class="mi">11037</span><span class="p">);</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
@@ -524,6 +582,8 @@
 <p><strong>Decisión.</strong> Ajustar vocabulario y tópicos sólo con entrenamiento y congelarlos para su proyección.</p>
 <p><strong>Impacto.</strong> Evita incorporar el vocabulario posterior al ajuste.</p>
 <p><strong>Riesgo.</strong> La disponibilidad declarada no certifica la versión histórica exacta del titular.</p>
+</section>
+</section>
 <section id="cobertura-mensual-longitud-y-repeticion">
 <h2>Cobertura mensual, longitud y repetición<a class="headerlink" href="#cobertura-mensual-longitud-y-repeticion" title="Link to this heading">#</a></h2>
 <p>El corpus de desarrollo incluye todos los titulares elegibles con disponibilidad declarada anterior a 2022; los registros en cuarentena y los encabezados vacíos quedan excluidos. El ajuste léxico inicial permanece limitado a 2000–2017. La normalización de duplicados aplica Unicode NFKC, minúsculas y eliminación de puntuación y espacios redundantes, conservando las letras acentuadas. Una repetición entre fuentes no se elimina automáticamente.</p>
@@ -793,6 +853,51 @@
 </div>
 <p>La tabla permite comprobar si cada año externo dispone de fuentes y días comparables con su historial. Las proyecciones exploratorias usan una representación común ajustada antes de 2018; un futuro entrenamiento textual deberá ajustar su representación dentro del tramo permitido de cada pliegue.</p>
 </section>
+<section id="preparacion-de-los-canales-por-origen">
+<h2>Preparación de los canales por origen<a class="headerlink" href="#preparacion-de-los-canales-por-origen" title="Link to this heading">#</a></h2>
+<p>El código recibe el corpus cargado con el escenario declarado y parámetros fijados en desarrollo. Conserva el orden temporal del cargador y no consulta las etiquetas futuras.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preparar_canales</span><span class="p">(</span><span class="n">documentos</span><span class="p">,</span> <span class="n">origen</span><span class="p">,</span> <span class="n">ventana_horas</span><span class="p">,</span> <span class="n">max_docs_por_canal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Prepara texto por canal; no ajusta embeddings ni relevancia."""</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">demanda.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">documentos_en_origen</span>
+
+    <span class="k">if</span> <span class="n">max_docs_por_canal</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"El presupuesto por canal debe ser positivo"</span><span class="p">)</span>
+    <span class="n">recientes</span> <span class="o">=</span> <span class="n">documentos_en_origen</span><span class="p">(</span><span class="n">documentos</span><span class="p">,</span> <span class="n">origen</span><span class="p">,</span> <span class="n">ventana_horas</span><span class="p">)</span>
+    <span class="n">canales</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">canal</span><span class="p">,</span> <span class="n">tipo</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">"oficial"</span><span class="p">,</span> <span class="s2">"official_report"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"prensa"</span><span class="p">,</span> <span class="s2">"news"</span><span class="p">)):</span>
+        <span class="n">candidatos</span> <span class="o">=</span> <span class="n">recientes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">recientes</span><span class="o">.</span><span class="n">tipo_fuente</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">tipo</span><span class="p">)]</span>
+        <span class="n">seleccion</span> <span class="o">=</span> <span class="n">candidatos</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">max_docs_por_canal</span><span class="p">)</span>
+        <span class="n">textos</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">fila</span> <span class="ow">in</span> <span class="n">seleccion</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+            <span class="n">titulo</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">fila</span><span class="o">.</span><span class="n">titulo</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">cuerpo</span> <span class="o">=</span> <span class="n">fila</span><span class="o">.</span><span class="n">texto</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fila</span><span class="o">.</span><span class="n">texto</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="s2">""</span>
+            <span class="n">textos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">titulo</span> <span class="o">+</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">cuerpo</span> <span class="k">if</span> <span class="n">cuerpo</span> <span class="k">else</span> <span class="s2">""</span><span class="p">))</span>
+        <span class="n">canales</span><span class="p">[</span><span class="n">canal</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"textos"</span><span class="p">:</span> <span class="n">textos</span><span class="p">,</span>
+            <span class="s2">"ausente"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">textos</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">"ids_auditoria"</span><span class="p">:</span> <span class="n">seleccion</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+            <span class="s2">"descartados_presupuesto"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">candidatos</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">seleccion</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="k">return</span> <span class="n">canales</span>
+
+<span class="c1"># El corpus se carga de forma explícita antes de preparar los orígenes:</span>
+<span class="c1"># from demanda.corpus import cargar_corpus</span>
+<span class="c1"># documentos = cargar_corpus("declarado")</span>
+<span class="c1"># Las variables numéricas, escalas y etiquetas siguen su pipeline temporal.</span>
+<span class="c1"># Solo `textos` se entrega al encoder; los ids son metadatos de auditoría.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La función separa los canales después de seleccionar por disponibilidad y conserva los identificadores para auditoría. El límite se aplica dentro de cada canal, de modo que un aumento de prensa no desplaza documentos oficiales. La segmentación y la ponderación aprendida se incorporarán al pipeline predictivo; este bloque únicamente prepara sus entradas.</p>
+<section id="comparacion-y-controles">
+<h3>Comparación y controles<a class="headerlink" href="#comparacion-y-controles" title="Link to this heading">#</a></h3>
+<p>La comparación principal será sin texto frente a texto oficial. La diferencia entre texto oficial y texto oficial más prensa estimará el aporte adicional de la prensa. Se conservarán los días sin documentos, las predicciones apareadas, el presupuesto de búsqueda y el protocolo de evaluación. Se reportarán el volumen recibido, los descartes, la cobertura por fuente, los parámetros adicionales y el coste de inferencia. Los controles de volumen y las ablaciones por fuente se especificarán con desarrollo.</p>
+<p>El protocolo textual se versionará antes de ejecutar las comparaciones. El bloque 2022–2025 ya fue examinado en el estudio numérico, por lo que una nueva comparación sobre ese bloque tendrá alcance retrospectivo. Una evaluación prospectiva requiere fechas posteriores a la congelación efectiva del protocolo y del modelo. La falta de mejora de la prensa se interpretará para el corpus y procedimiento evaluados.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -861,11 +966,20 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-integracion-documental">Diseño de integración documental</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#canales-y-relevancia-aprendida">Canales y relevancia aprendida</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corpus-y-alcance-del-analisis-exploratorio">Corpus y alcance del análisis exploratorio</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cobertura-mensual-longitud-y-repeticion">Cobertura mensual, longitud y repetición</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bigramas-y-diversidad-lexica">Bigramas y diversidad léxica</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evolucion-de-topicos-y-composicion-por-fuente">Evolución de tópicos y composición por fuente</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transferencia-del-vocabulario-y-estabilidad-de-los-topicos">Transferencia del vocabulario y estabilidad de los tópicos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cobertura-del-historial-documental-por-pliegue">Cobertura del historial documental por pliegue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-los-canales-por-origen">Preparación de los canales por origen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-y-controles">Comparación y controles</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
