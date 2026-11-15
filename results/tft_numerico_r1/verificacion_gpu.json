@@ -1,0 +1,10 @@
+{
+  "segundos": 1.4857468605041504,
+  "n_parametros": 281443,
+  "batch_size": 64,
+  "salida": [
+    64,
+    24
+  ],
+  "determinismo": true
+}

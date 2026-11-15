@@ -1,0 +1,15 @@
+{
+  "margen_relativo": 0.03,
+  "margen_absoluto": 0.03425805078502295,
+  "MASE_referencia": 1.1419350261674317,
+  "alpha": 0.05,
+  "potencia_objetivo": 0.8,
+  "replicas": 10000,
+  "bloque_dias": 14,
+  "semillas_piloto": 5,
+  "potencia_limite_temporal": 0.0843,
+  "alcance": "Estimación bootstrap exploratoria de precisión bajo alternativa mínima; cinco semillas no certifican potencia ni distribución de nuevas inicializaciones",
+  "n_final": null,
+  "estado": "precision_temporal_insuficiente",
+  "evaluaciones": []
+}

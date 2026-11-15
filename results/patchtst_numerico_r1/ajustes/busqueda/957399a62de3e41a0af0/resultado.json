@@ -1,0 +1,25 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "P01",
+    "lr": 0.0001,
+    "batch_size": 32,
+    "dropout": 0.3,
+    "weight_decay": 0.0001
+  },
+  "semilla": 45,
+  "fold": 2018,
+  "modelo": "PatchTST_adaptado",
+  "segundos": 425.97467041015625,
+  "n_parametros": 24982,
+  "epocas": 40,
+  "mejor_epoca": 33,
+  "MASE": 0.629981109028694,
+  "RMSE": 208870.76576087897,
+  "MAE": 135835.20604638048,
+  "sMAPE": 1.8482856880052272,
+  "MAPE": 1.8261713319962816,
+  "MASE_h1": 0.7012271508377008,
+  "MASE_h12": 0.5717419610913808,
+  "MASE_h24": 0.7000942906629306
+}

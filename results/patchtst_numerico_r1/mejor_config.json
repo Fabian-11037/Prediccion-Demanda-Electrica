@@ -1,0 +1,16 @@
+{
+  "configuracion": {
+    "id": "P20",
+    "lr": 0.0018710980016069898,
+    "batch_size": 32,
+    "dropout": 0.056011167807668114,
+    "weight_decay": 2.301803969922701e-06
+  },
+  "MASE_cv": 0.6216443814629534,
+  "anios_confirmacion": [
+    2019,
+    2020,
+    2021
+  ],
+  "filtro_2018": true
+}

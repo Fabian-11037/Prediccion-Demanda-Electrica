@@ -24,6 +24,8 @@ Cada columna `x_*` ya trae su rezago de publicación y solo se lee antes del ori
 
 ## Resultados consolidados
 
+Los resultados de **PatchTST, N-HiTS y TFT con información numérica ampliada** están en [la consolidación numérica](results/consolidado_numerico_ampliado/README.md), junto con predicciones por fecha y semilla, historiales completos, escaladores y 15 modelos finales. En prueba retrospectiva 2022–2025, el MASE medio de cinco semillas fue 0,7256, 1,0236 y 1,1469, respectivamente. La evaluación es exploratoria; TFT utilizó un presupuesto reducido y no se acredita potencia estadística. Las entradas ampliadas difieren de las usadas en los baselines anteriores.
+
 Las ejecuciones GPU v2, v3 y v4 están completas. La consolidación de métricas, limitaciones y modelos se encuentra en [`results/consolidado/README.md`](results/consolidado/README.md). El registro [`modelos.json`](results/consolidado/modelos.json) referencia los pesos, escaladores, predicciones y curvas de las cinco semillas de cada configuración seleccionada por validación entre las versiones corregidas.
 
 | Familia | Ejecución | MASE de prueba ↓ |

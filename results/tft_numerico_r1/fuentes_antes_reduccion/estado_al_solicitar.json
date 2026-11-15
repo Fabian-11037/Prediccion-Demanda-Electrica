@@ -1,0 +1,15 @@
+{
+  "estado": "Entrenando",
+  "etapa": "busqueda",
+  "detalle": "N-HiTS finalizado; TFT en ejecución.",
+  "completados": 48,
+  "total": 130,
+  "actualizado": "2026-11-14T19:10:33.168803-05:00",
+  "pid": 11571,
+  "configuracion": "T17",
+  "semilla": 43,
+  "fold": 2018,
+  "epoca": 30,
+  "loss_train": 0.018564544224799587,
+  "loss_es": 0.022026790348498245
+}

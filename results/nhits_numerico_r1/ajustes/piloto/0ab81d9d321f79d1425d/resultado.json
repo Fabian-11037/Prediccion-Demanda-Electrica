@@ -1,0 +1,26 @@
+{
+  "etapa": "piloto",
+  "configuracion": {
+    "id": "N14",
+    "lr": 0.00010335986527468987,
+    "batch_size": 64,
+    "dropout": 0.1956080336970198,
+    "weight_decay": 1.4416188128158413e-06
+  },
+  "semilla": 102,
+  "fold": 2020,
+  "modelo": "NHITS_adaptado",
+  "segundos": 48.6732394695282,
+  "n_parametros": 17489442,
+  "memoria_gpu_max_bytes": 416907776,
+  "epocas": 39,
+  "mejor_epoca": 29,
+  "MASE": 1.2052346768552171,
+  "RMSE": 352110.9637163124,
+  "MAE": 259870.17438869682,
+  "sMAPE": 3.2336464435340515,
+  "MAPE": 3.3134896110133356,
+  "MASE_h1": 0.5912461948349601,
+  "MASE_h12": 1.3721929902477241,
+  "MASE_h24": 0.7538644004257565
+}

@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T13",
+    "lr": 0.00030125048947331196,
+    "batch_size": 32,
+    "dropout": 0.17138291185670346,
+    "weight_decay": 1.7370773370762096e-06
+  },
+  "semilla": 44,
+  "fold": 2018,
+  "modelo": "TFT_adaptado",
+  "segundos": 911.6605226993561,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 463109120,
+  "epocas": 32,
+  "mejor_epoca": 31,
+  "MASE": 0.8193899786032417,
+  "RMSE": 231257.4972572694,
+  "MAE": 176675.14943030002,
+  "sMAPE": 2.281298335315904,
+  "MAPE": 2.2779887457824017,
+  "MASE_h1": 0.9634322856291098,
+  "MASE_h12": 0.5742976218563174,
+  "MASE_h24": 1.0421188389612894
+}

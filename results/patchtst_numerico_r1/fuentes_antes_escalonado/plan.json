@@ -1,0 +1,180 @@
+{
+  "sha256": {
+    "PLAN_PATCHTST_NUMERICO_R1.md": "332db6cbcdcf7e0b4341486a1839a53939572709cc651d50f920978d65615eb1",
+    "config/diseno_entrenamiento_texto.json": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf",
+    "src/demanda/patchtst_numerico.py": "5231acd66ffc76edd5fc583f8bc609dd6b6273f87ecc61fd60174e17cfbd804a",
+    "src/demanda/potencia_pareada.py": "dc51c45ea21aa3af8149d1b364a411c07bddd211a58b9b1f61d115ff6ec8d743",
+    "scripts/entrenar_patchtst_numerico.py": "2c9c6a82ff32511fc244757d8a6668aec79d5cf50a524b15664ee9d598943567",
+    "src/demanda/diseno_numerico.py": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04",
+    "src/demanda/particion.py": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466",
+    "src/demanda/modelos_base.py": "a261efe4c40951aecd8f6076b077a9439179ec9a742bfb3e9be29f843c004f16",
+    "data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+    "data/processed/feature_registry.json": "91f016c804162bd65ad101e3f9f0cd995498b3ca356c3e528926cc86a30ab4b0",
+    "src/demanda/vendor/patchtst/ORIGEN.json": "a98ca3d73d6b89bf7719825c8dc54044f2f0c0e515e9320357092cbdf742d7cc",
+    "src/demanda/vendor/patchtst/PatchTST_backbone.py": "ee21f3f7069e23870421d035bf68d0c22254a9ea94d684646c56bccb400f63b9",
+    "src/demanda/vendor/patchtst/etth1.sh": "556c87cd7dd795094ff6cb73465e84c90686017e1535e0ba23ed43683b9b0897",
+    "src/demanda/vendor/patchtst/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/demanda/vendor/patchtst/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "src/demanda/vendor/patchtst/NOTICE": "6e5b954738d7a008c81f8fe8b011ef3537748262979f4c0518c668780b91d2bf",
+    "src/demanda/vendor/patchtst/PatchTST_layers.py": "21c06c70a90c60ee2a269b5c600c702834dea22cdfd72915e6b0f8b4a28db3f6",
+    "src/demanda/vendor/patchtst/RevIN.py": "e64c0ccded9228b347134e7368420d3fb10f70c75145b5ff2d8bdd8c3af59df6"
+  },
+  "arquitectura": {
+    "origen": "yuqinie98/PatchTST",
+    "revision": "204c21efe0b39603ad6e2ca640ef5896646ab1a9",
+    "configuracion": "scripts/PatchTST/etth1.sh",
+    "capas": 3,
+    "d_model": 16,
+    "n_heads": 4,
+    "d_ff": 128,
+    "patch_len": 16,
+    "stride": 8,
+    "head": "flatten compartido original + lectura afín exógena fija",
+    "revin": true,
+    "affine": false,
+    "historia": 168,
+    "horizonte": 24
+  },
+  "configuraciones": [
+    {
+      "id": "P01",
+      "lr": 0.0001,
+      "batch_size": 32,
+      "dropout": 0.3,
+      "weight_decay": 0.0001
+    },
+    {
+      "id": "P02",
+      "lr": 0.0008409968537573761,
+      "batch_size": 64,
+      "dropout": 0.20943412128966493,
+      "weight_decay": 0.0001254741566399909
+    },
+    {
+      "id": "P03",
+      "lr": 0.0011107089441298192,
+      "batch_size": 16,
+      "dropout": 0.2028949128600861,
+      "weight_decay": 0.003377557615954371
+    },
+    {
+      "id": "P04",
+      "lr": 0.0002405080351398294,
+      "batch_size": 32,
+      "dropout": 0.09164142755576753,
+      "weight_decay": 7.3668940803473e-06
+    },
+    {
+      "id": "P05",
+      "lr": 0.00011208998451256693,
+      "batch_size": 64,
+      "dropout": 0.11769115385342145,
+      "weight_decay": 2.080881676730313e-05
+    },
+    {
+      "id": "P06",
+      "lr": 0.0008180806954093963,
+      "batch_size": 16,
+      "dropout": 0.27490749100212025,
+      "weight_decay": 1.1881038719805777e-06
+    },
+    {
+      "id": "P07",
+      "lr": 0.0016002301914950176,
+      "batch_size": 32,
+      "dropout": 0.2537035874361983,
+      "weight_decay": 3.394795712857483e-06
+    },
+    {
+      "id": "P08",
+      "lr": 0.0004465957431071029,
+      "batch_size": 32,
+      "dropout": 0.25534472203292713,
+      "weight_decay": 0.0018987847338676458
+    },
+    {
+      "id": "P09",
+      "lr": 0.00046822106397531073,
+      "batch_size": 16,
+      "dropout": 0.25612079938807475,
+      "weight_decay": 7.535219093586713e-05
+    },
+    {
+      "id": "P10",
+      "lr": 0.00014569084021119147,
+      "batch_size": 32,
+      "dropout": 0.08450568023864281,
+      "weight_decay": 0.009635727439298575
+    },
+    {
+      "id": "P11",
+      "lr": 0.0003530885405690171,
+      "batch_size": 64,
+      "dropout": 0.06499078864575204,
+      "weight_decay": 0.0007644085929867145
+    },
+    {
+      "id": "P12",
+      "lr": 0.00043604525063499386,
+      "batch_size": 64,
+      "dropout": 0.11243888726349387,
+      "weight_decay": 0.00011649184103343385
+    },
+    {
+      "id": "P13",
+      "lr": 0.00010795264838575406,
+      "batch_size": 64,
+      "dropout": 0.05674830630460993,
+      "weight_decay": 2.5179235075460532e-06
+    },
+    {
+      "id": "P14",
+      "lr": 0.0001271502325264797,
+      "batch_size": 32,
+      "dropout": 0.15868046207312675,
+      "weight_decay": 1.0754207759614288e-06
+    },
+    {
+      "id": "P15",
+      "lr": 0.001174480938905126,
+      "batch_size": 16,
+      "dropout": 0.2023083856764487,
+      "weight_decay": 4.219892767342976e-06
+    },
+    {
+      "id": "P16",
+      "lr": 0.00023537252798094956,
+      "batch_size": 64,
+      "dropout": 0.08900842534412627,
+      "weight_decay": 0.0005584418091315975
+    },
+    {
+      "id": "P17",
+      "lr": 0.0029121924281928922,
+      "batch_size": 64,
+      "dropout": 0.08150516852616398,
+      "weight_decay": 7.820074352787222e-06
+    },
+    {
+      "id": "P18",
+      "lr": 0.0010935284621659378,
+      "batch_size": 32,
+      "dropout": 0.1868358004542418,
+      "weight_decay": 7.265979233803009e-05
+    },
+    {
+      "id": "P19",
+      "lr": 0.0006946964295408268,
+      "batch_size": 64,
+      "dropout": 0.2921028104215827,
+      "weight_decay": 0.006047390612704621
+    },
+    {
+      "id": "P20",
+      "lr": 0.0018710980016069898,
+      "batch_size": 32,
+      "dropout": 0.056011167807668114,
+      "weight_decay": 2.301803969922701e-06
+    }
+  ]
+}

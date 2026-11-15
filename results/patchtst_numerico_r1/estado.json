@@ -1,0 +1,15 @@
+{
+  "estado": "Completado",
+  "etapa": "final",
+  "detalle": "Prueba exploratoria y artefactos guardados. Evaluación exploratoria retrospectiva autorizada con cinco semillas. El piloto no acreditó la potencia objetivo del 80 % para el margen del 3 %. Configuración y selección congeladas antes de evaluar 2022–2025.",
+  "completados": 130,
+  "total": 130,
+  "actualizado": "2026-11-11T11:01:00.228543-05:00",
+  "pid": 7657,
+  "configuracion": "P20",
+  "semilla": 1004,
+  "fold": "final",
+  "epoca": 39,
+  "loss_train": 0.013841983300591835,
+  "loss_es": 0.01639382943399668
+}

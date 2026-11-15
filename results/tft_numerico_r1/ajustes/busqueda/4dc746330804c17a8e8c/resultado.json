@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T06",
+    "lr": 0.0001141805201876289,
+    "batch_size": 16,
+    "dropout": 0.1191351057893174,
+    "weight_decay": 0.0003034453274192053
+  },
+  "semilla": 43,
+  "fold": 2018,
+  "modelo": "TFT_adaptado",
+  "segundos": 2033.4573769569397,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 264859136,
+  "epocas": 41,
+  "mejor_epoca": 31,
+  "MASE": 0.8108588335161905,
+  "RMSE": 228293.63323740134,
+  "MAE": 174835.6818111871,
+  "sMAPE": 2.2216461730083266,
+  "MAPE": 2.2275676925420744,
+  "MASE_h1": 0.6686946737704922,
+  "MASE_h12": 0.670863539127547,
+  "MASE_h24": 0.9154461891955541
+}

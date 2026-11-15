@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T14",
+    "lr": 0.0028195599669932833,
+    "batch_size": 64,
+    "dropout": 0.278396015826248,
+    "weight_decay": 0.00015724096294763456
+  },
+  "semilla": 43,
+  "fold": 2019,
+  "modelo": "TFT_adaptado",
+  "segundos": 631.7100081443787,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 851790336,
+  "epocas": 23,
+  "mejor_epoca": 13,
+  "MASE": 0.7462566223034631,
+  "RMSE": 201901.78734559062,
+  "MAE": 160906.28846054786,
+  "sMAPE": 2.022028948493847,
+  "MAPE": 2.0092825580629667,
+  "MASE_h1": 0.7200779488117027,
+  "MASE_h12": 0.6750117395994543,
+  "MASE_h24": 1.099627429448751
+}

@@ -1,0 +1,13 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "P18",
+    "lr": 0.0010935284621659378,
+    "batch_size": 32,
+    "dropout": 0.1868358004542418,
+    "weight_decay": 7.265979233803009e-05
+  },
+  "semilla": 44,
+  "fold": 2018,
+  "modelo": "PatchTST_adaptado"
+}

@@ -1,0 +1,15 @@
+{
+  "estado": "Completado",
+  "detalle": "Resultados y artefactos guardados.",
+  "completados": 62,
+  "total": 62,
+  "pid": 39835,
+  "actualizado": "2026-11-15T00:28:06.469264-05:00",
+  "etapa": "final",
+  "configuracion": "T02",
+  "semilla": 1004,
+  "fold": "final",
+  "epoca": 35,
+  "loss_train": 0.012683991332986363,
+  "loss_es": 0.023372465656469502
+}

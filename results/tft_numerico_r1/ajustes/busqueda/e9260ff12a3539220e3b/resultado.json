@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T08",
+    "lr": 0.00044233563064799186,
+    "batch_size": 16,
+    "dropout": 0.13709618038942833,
+    "weight_decay": 8.929173599819348e-06
+  },
+  "semilla": 43,
+  "fold": 2018,
+  "modelo": "TFT_adaptado",
+  "segundos": 1389.3104362487793,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 264859136,
+  "epocas": 28,
+  "mejor_epoca": 18,
+  "MASE": 0.7359438339202171,
+  "RMSE": 205090.1529757947,
+  "MAE": 158682.66664891804,
+  "sMAPE": 2.041996304560657,
+  "MAPE": 2.041169511085034,
+  "MASE_h1": 0.7437509144318613,
+  "MASE_h12": 0.5515740616151765,
+  "MASE_h24": 0.9734720259349655
+}

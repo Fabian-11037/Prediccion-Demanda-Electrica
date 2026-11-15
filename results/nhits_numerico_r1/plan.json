@@ -1,0 +1,230 @@
+{
+  "politica_busqueda": {
+    "filtro_anios": [
+      2018
+    ],
+    "finalistas": 5,
+    "confirmacion_anios": [
+      2019,
+      2020,
+      2021
+    ],
+    "total_preprueba": 125
+  },
+  "politica_prueba": {
+    "semilla_inicial": 1000,
+    "semillas_si_no_dimensionable": 5,
+    "exploratorio": true
+  },
+  "sha256": {
+    "PLAN_NHITS_NUMERICO_R1.md": "7b216860c7071774f2eb86d91c9410b5f1b1964b3e4777631fd2bb26e184a4c0",
+    "src/demanda/seleccion_escalonada.py": "edca9311e9f51e4ede216fed62cef33c73f4652dcb81c2e056509311982442f5",
+    "config/diseno_entrenamiento_texto.json": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf",
+    "src/demanda/nhits_numerico.py": "ab6f7b61dd34b6eb174e9c79017dd4b09c6dae1aafe954c19d66dcbe253a98b1",
+    "src/demanda/patchtst_numerico.py": "5231acd66ffc76edd5fc583f8bc609dd6b6273f87ecc61fd60174e17cfbd804a",
+    "src/demanda/potencia_pareada.py": "dc51c45ea21aa3af8149d1b364a411c07bddd211a58b9b1f61d115ff6ec8d743",
+    "scripts/entrenar_nhits_numerico.py": "840b2b68336d20acf3950fe8bdec8997175de243e61f99ff92e63d6d71faf7d9",
+    "src/demanda/diseno_numerico.py": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04",
+    "src/demanda/particion.py": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466",
+    "src/demanda/modelos_base.py": "a261efe4c40951aecd8f6076b077a9439179ec9a742bfb3e9be29f843c004f16",
+    "src/demanda/metricas.py": "8f859cb24a3e0f1ac374e5608772af057cb8a9b95d1e0d95223e51142f76892d",
+    "data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+    "data/processed/feature_registry.json": "91f016c804162bd65ad101e3f9f0cd995498b3ca356c3e528926cc86a30ab4b0",
+    "src/demanda/vendor/nhits/nhits_original.py": "a769bdef26155fe4b0872c45a13e467ea3ef53c914d41bbec535a5fb49d802ed",
+    "src/demanda/vendor/nhits/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/demanda/vendor/nhits/LICENSE": "de7890eb7276b802bdea8dcf60030010f3f97b37b1864fb1d1f8ba2251712c03",
+    "src/demanda/vendor/nhits/PROCEDENCIA.md": "214c1fe849eba401f25563eee05b4bd3be73fc6d26578f635d9bef6308c07f2c",
+    "src/demanda/vendor/nhits/core.py": "8ab9faac4d31221ee807aeb8290365210d2bd8e5b94a71736111bab86140a05b",
+    "src/demanda/vendor/patchtst/ORIGEN.json": "a98ca3d73d6b89bf7719825c8dc54044f2f0c0e515e9320357092cbdf742d7cc",
+    "src/demanda/vendor/patchtst/PatchTST_backbone.py": "ee21f3f7069e23870421d035bf68d0c22254a9ea94d684646c56bccb400f63b9",
+    "src/demanda/vendor/patchtst/etth1.sh": "556c87cd7dd795094ff6cb73465e84c90686017e1535e0ba23ed43683b9b0897",
+    "src/demanda/vendor/patchtst/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/demanda/vendor/patchtst/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "src/demanda/vendor/patchtst/NOTICE": "6e5b954738d7a008c81f8fe8b011ef3537748262979f4c0518c668780b91d2bf",
+    "src/demanda/vendor/patchtst/PatchTST_layers.py": "21c06c70a90c60ee2a269b5c600c702834dea22cdfd72915e6b0f8b4a28db3f6",
+    "src/demanda/vendor/patchtst/RevIN.py": "e64c0ccded9228b347134e7368420d3fb10f70c75145b5ff2d8bdd8c3af59df6"
+  },
+  "arquitectura": {
+    "origen": "Nixtla/neuralforecast",
+    "revision": "94b6ce131838be38a1fb5157349f02bbc8c89ef6",
+    "bloques": [
+      1,
+      1,
+      1
+    ],
+    "mlp_units": [
+      [
+        512,
+        512
+      ],
+      [
+        512,
+        512
+      ],
+      [
+        512,
+        512
+      ]
+    ],
+    "pooling": [
+      2,
+      2,
+      1
+    ],
+    "downsample": [
+      4,
+      2,
+      1
+    ],
+    "interpolacion": "linear",
+    "activacion": "ReLU",
+    "historia": 168,
+    "horizonte": 24,
+    "historicas_exogenas": 59,
+    "calendario": 23,
+    "salida": "suma residual oficial",
+    "interpolacion_implementacion": "matriz fija equivalente a interpolate lineal, align_corners=False"
+  },
+  "configuraciones": [
+    {
+      "id": "N01",
+      "lr": 0.001,
+      "batch_size": 32,
+      "dropout": 0.1,
+      "weight_decay": 0.0001
+    },
+    {
+      "id": "N02",
+      "lr": 0.0025295706098457335,
+      "batch_size": 64,
+      "dropout": 0.14838968381592726,
+      "weight_decay": 6.085706158245123e-06
+    },
+    {
+      "id": "N03",
+      "lr": 0.0012241254239010195,
+      "batch_size": 16,
+      "dropout": 0.2844965380981573,
+      "weight_decay": 0.004771043507010072
+    },
+    {
+      "id": "N04",
+      "lr": 0.00010377449206944811,
+      "batch_size": 64,
+      "dropout": 0.1273537964962717,
+      "weight_decay": 3.946169602914176e-06
+    },
+    {
+      "id": "N05",
+      "lr": 0.001968122337030032,
+      "batch_size": 64,
+      "dropout": 0.16491461268643326,
+      "weight_decay": 2.142375191175596e-05
+    },
+    {
+      "id": "N06",
+      "lr": 0.0001006425491836914,
+      "batch_size": 32,
+      "dropout": 0.07868905344853276,
+      "weight_decay": 0.0009223682203254734
+    },
+    {
+      "id": "N07",
+      "lr": 0.00019706493927759323,
+      "batch_size": 64,
+      "dropout": 0.25940899120368627,
+      "weight_decay": 4.705707923400165e-05
+    },
+    {
+      "id": "N08",
+      "lr": 0.0004002379003934376,
+      "batch_size": 32,
+      "dropout": 0.23142438855253855,
+      "weight_decay": 8.061775140823085e-05
+    },
+    {
+      "id": "N09",
+      "lr": 0.0023043719330343875,
+      "batch_size": 64,
+      "dropout": 0.14618971129071512,
+      "weight_decay": 0.00045244146291950133
+    },
+    {
+      "id": "N10",
+      "lr": 0.0007582979864646537,
+      "batch_size": 16,
+      "dropout": 0.17721952108450895,
+      "weight_decay": 1.2895870913454355e-06
+    },
+    {
+      "id": "N11",
+      "lr": 0.0002482367736725017,
+      "batch_size": 64,
+      "dropout": 0.08846370216035289,
+      "weight_decay": 5.742285659441163e-06
+    },
+    {
+      "id": "N12",
+      "lr": 0.00017958115292431096,
+      "batch_size": 32,
+      "dropout": 0.2912451795822417,
+      "weight_decay": 8.8341691836719e-06
+    },
+    {
+      "id": "N13",
+      "lr": 0.0004214859424525753,
+      "batch_size": 32,
+      "dropout": 0.11650841758005627,
+      "weight_decay": 6.808810639081014e-06
+    },
+    {
+      "id": "N14",
+      "lr": 0.00010335986527468987,
+      "batch_size": 64,
+      "dropout": 0.1956080336970198,
+      "weight_decay": 1.4416188128158413e-06
+    },
+    {
+      "id": "N15",
+      "lr": 0.00026317415900200874,
+      "batch_size": 32,
+      "dropout": 0.16763688952516953,
+      "weight_decay": 0.00026992433646820535
+    },
+    {
+      "id": "N16",
+      "lr": 0.0009648725101080143,
+      "batch_size": 64,
+      "dropout": 0.1717819327333266,
+      "weight_decay": 2.72872493349697e-06
+    },
+    {
+      "id": "N17",
+      "lr": 0.0022614827178855097,
+      "batch_size": 16,
+      "dropout": 0.23102620891205333,
+      "weight_decay": 1.1643160262980966e-06
+    },
+    {
+      "id": "N18",
+      "lr": 0.00045903499987072466,
+      "batch_size": 32,
+      "dropout": 0.24970072936099103,
+      "weight_decay": 7.78390591253292e-06
+    },
+    {
+      "id": "N19",
+      "lr": 0.0023019356401972717,
+      "batch_size": 16,
+      "dropout": 0.2458923052455385,
+      "weight_decay": 4.571045973169544e-06
+    },
+    {
+      "id": "N20",
+      "lr": 0.0008789681221303378,
+      "batch_size": 32,
+      "dropout": 0.20224924729369304,
+      "weight_decay": 2.6352631736270302e-06
+    }
+  ]
+}

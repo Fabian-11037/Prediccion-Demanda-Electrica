@@ -1,0 +1,13 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T03",
+    "lr": 0.00021154560000440935,
+    "batch_size": 16,
+    "dropout": 0.15183857506731907,
+    "weight_decay": 0.00018078359831223548
+  },
+  "semilla": 44,
+  "fold": 2018,
+  "modelo": "TFT_adaptado"
+}

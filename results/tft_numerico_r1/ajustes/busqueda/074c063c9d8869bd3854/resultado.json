@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T07",
+    "lr": 0.0005722032410625913,
+    "batch_size": 64,
+    "dropout": 0.279075532038453,
+    "weight_decay": 2.5315982160273552e-05
+  },
+  "semilla": 43,
+  "fold": 2018,
+  "modelo": "TFT_adaptado",
+  "segundos": 989.8043053150177,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 850573824,
+  "epocas": 38,
+  "mejor_epoca": 28,
+  "MASE": 0.721773471576754,
+  "RMSE": 198790.4353367179,
+  "MAE": 155627.28282694297,
+  "sMAPE": 2.012569167023515,
+  "MAPE": 2.0080493793398455,
+  "MASE_h1": 0.669280087427077,
+  "MASE_h12": 0.5694604490062171,
+  "MASE_h24": 1.0657491239960402
+}

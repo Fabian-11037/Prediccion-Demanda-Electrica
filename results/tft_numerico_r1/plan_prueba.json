@@ -1,0 +1,19 @@
+{
+  "configuracion": {
+    "id": "T02",
+    "lr": 0.0012848706005851602,
+    "batch_size": 16,
+    "dropout": 0.2672334634068939,
+    "weight_decay": 0.00017340665040679244
+  },
+  "semillas": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004
+  ],
+  "exploratorio": true,
+  "potencia_acreditada": false,
+  "piloto_realizado": false
+}

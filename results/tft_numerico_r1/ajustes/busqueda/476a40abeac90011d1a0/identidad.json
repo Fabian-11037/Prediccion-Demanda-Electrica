@@ -1,0 +1,13 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T16",
+    "lr": 0.0013460670676069552,
+    "batch_size": 32,
+    "dropout": 0.29422743131535967,
+    "weight_decay": 0.00021377297133084213
+  },
+  "semilla": 44,
+  "fold": 2018,
+  "modelo": "TFT_adaptado"
+}

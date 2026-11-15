@@ -1,0 +1,13 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T10",
+    "lr": 0.002935889115486,
+    "batch_size": 64,
+    "dropout": 0.22132178894538784,
+    "weight_decay": 0.00043630370160059904
+  },
+  "semilla": 44,
+  "fold": 2018,
+  "modelo": "TFT_adaptado"
+}

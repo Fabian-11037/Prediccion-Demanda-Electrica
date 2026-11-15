@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T15",
+    "lr": 0.00010089111420024641,
+    "batch_size": 32,
+    "dropout": 0.2144200857977695,
+    "weight_decay": 4.534076113404685e-06
+  },
+  "semilla": 43,
+  "fold": 2018,
+  "modelo": "TFT_adaptado",
+  "segundos": 1168.39235830307,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 463109120,
+  "epocas": 41,
+  "mejor_epoca": 31,
+  "MASE": 0.862861151667054,
+  "RMSE": 240119.85190448747,
+  "MAE": 186048.31263404284,
+  "sMAPE": 2.382796084515404,
+  "MAPE": 2.383517484273417,
+  "MASE_h1": 0.7029321829133712,
+  "MASE_h12": 0.6384860779227444,
+  "MASE_h24": 1.0599690527698167
+}

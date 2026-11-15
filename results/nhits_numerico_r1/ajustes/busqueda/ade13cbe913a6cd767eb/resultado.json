@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "N18",
+    "lr": 0.00045903499987072466,
+    "batch_size": 32,
+    "dropout": 0.24970072936099103,
+    "weight_decay": 7.78390591253292e-06
+  },
+  "semilla": 43,
+  "fold": 2018,
+  "modelo": "NHITS_adaptado",
+  "segundos": 62.43272876739502,
+  "n_parametros": 17489442,
+  "memoria_gpu_max_bytes": 416907776,
+  "epocas": 29,
+  "mejor_epoca": 19,
+  "MASE": 0.7429687305908702,
+  "RMSE": 202847.47033775793,
+  "MAE": 160197.3601421625,
+  "sMAPE": 2.086445046022122,
+  "MAPE": 2.084520284498547,
+  "MASE_h1": 0.8825682314501632,
+  "MASE_h12": 0.603084525977566,
+  "MASE_h24": 0.8650342803977369
+}

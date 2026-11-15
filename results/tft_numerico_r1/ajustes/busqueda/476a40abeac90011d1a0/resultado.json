@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T16",
+    "lr": 0.0013460670676069552,
+    "batch_size": 32,
+    "dropout": 0.29422743131535967,
+    "weight_decay": 0.00021377297133084213
+  },
+  "semilla": 44,
+  "fold": 2018,
+  "modelo": "TFT_adaptado",
+  "segundos": 628.8312449455261,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 463109120,
+  "epocas": 22,
+  "mejor_epoca": 12,
+  "MASE": 0.6146272725042444,
+  "RMSE": 170686.980908524,
+  "MAE": 132524.6440025176,
+  "sMAPE": 1.7162268974801944,
+  "MAPE": 1.7159134452585965,
+  "MASE_h1": 0.598592006591599,
+  "MASE_h12": 0.511475611489656,
+  "MASE_h24": 0.7601647729013962
+}

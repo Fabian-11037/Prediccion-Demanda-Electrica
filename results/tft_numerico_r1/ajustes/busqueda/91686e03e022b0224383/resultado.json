@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T09",
+    "lr": 0.0025337862251764037,
+    "batch_size": 64,
+    "dropout": 0.23094139231915606,
+    "weight_decay": 0.0009057106149756194
+  },
+  "semilla": 43,
+  "fold": 2018,
+  "modelo": "TFT_adaptado",
+  "segundos": 443.43046474456787,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 850573824,
+  "epocas": 17,
+  "mejor_epoca": 7,
+  "MASE": 0.7565107532534981,
+  "RMSE": 211864.35195865767,
+  "MAE": 163117.26267939724,
+  "sMAPE": 2.088833586484804,
+  "MAPE": 2.0892146357252455,
+  "MASE_h1": 0.7253096899314208,
+  "MASE_h12": 0.5829507731588448,
+  "MASE_h24": 0.811165134874365
+}

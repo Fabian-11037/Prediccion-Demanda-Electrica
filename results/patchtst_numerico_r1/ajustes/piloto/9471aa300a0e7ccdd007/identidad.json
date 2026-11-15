@@ -1,0 +1,13 @@
+{
+  "etapa": "piloto",
+  "configuracion": {
+    "id": "P20",
+    "lr": 0.0018710980016069898,
+    "batch_size": 32,
+    "dropout": 0.056011167807668114,
+    "weight_decay": 2.301803969922701e-06
+  },
+  "semilla": 104,
+  "fold": 2020,
+  "modelo": "PatchTST_adaptado"
+}

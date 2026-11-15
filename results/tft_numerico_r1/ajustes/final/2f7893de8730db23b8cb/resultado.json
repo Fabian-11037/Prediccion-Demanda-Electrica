@@ -1,0 +1,26 @@
+{
+  "etapa": "final",
+  "configuracion": {
+    "id": "T02",
+    "lr": 0.0012848706005851602,
+    "batch_size": 16,
+    "dropout": 0.2672334634068939,
+    "weight_decay": 0.00017340665040679244
+  },
+  "semilla": 1001,
+  "fold": "final",
+  "modelo": "TFT_adaptado",
+  "segundos": 1714.3873944282532,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 266523136,
+  "epocas": 28,
+  "mejor_epoca": 18,
+  "MASE": 1.2051873202644956,
+  "RMSE": 322156.26966227137,
+  "MAE": 259859.96345988289,
+  "sMAPE": 2.8051800758398473,
+  "MAPE": 2.816715479687177,
+  "MASE_h1": 1.3113020647869342,
+  "MASE_h12": 1.5149789247335186,
+  "MASE_h24": 1.1644382212581428
+}

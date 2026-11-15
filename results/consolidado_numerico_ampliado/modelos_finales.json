@@ -1,0 +1,442 @@
+{
+  "patchtst_numerico_r1": {
+    "resumen": {
+      "modelo": "PatchTST_adaptado",
+      "n_final": 5,
+      "semillas": [
+        1000,
+        1001,
+        1002,
+        1003,
+        1004
+      ],
+      "MASE_validacion": 0.6216443814629534,
+      "anios_confirmacion": [
+        2019,
+        2020,
+        2021
+      ],
+      "MASE_prueba": 0.7256488817261022,
+      "MASE_sd": 0.018925678365100243,
+      "dimensionamiento": {
+        "margen_relativo": 0.03,
+        "margen_absoluto": 0.03425805078502295,
+        "MASE_referencia": 1.1419350261674317,
+        "alpha": 0.05,
+        "potencia_objetivo": 0.8,
+        "replicas": 10000,
+        "bloque_dias": 14,
+        "semillas_piloto": 5,
+        "potencia_limite_temporal": 0.0984,
+        "alcance": "Estimación bootstrap exploratoria de precisión bajo alternativa mínima; cinco semillas no certifican potencia ni distribución de nuevas inicializaciones",
+        "n_final": null,
+        "estado": "precision_temporal_insuficiente",
+        "evaluaciones": []
+      },
+      "nota": "Evaluación exploratoria retrospectiva autorizada con cinco semillas. El piloto no acreditó la potencia objetivo del 80 % para el margen del 3 %. Configuración y selección congeladas antes de evaluar 2022–2025.",
+      "exploratorio": true,
+      "potencia_acreditada": false,
+      "MAE_prueba": 156462.89063899714,
+      "RMSE_prueba": 211133.8286118764,
+      "sMAPE_prueba": 1.704372913816697,
+      "MAPE_prueba": 1.7068277899403235,
+      "mejora_ingenuo_semanal_pct": 46.44287915205463
+    },
+    "referencias": {
+      "ingenuo_168h": {
+        "MASE": 1.354906444254724,
+        "RMSE": 444631.8697397882,
+        "MAE": 292142.08710586355,
+        "sMAPE": 3.213973439741544,
+        "MAPE": 3.2192764022063534,
+        "MASE_h1": 1.0795406430141095,
+        "MASE_h12": 1.5973554337382287,
+        "MASE_h24": 1.1479626684667639
+      },
+      "ingenuo_24h": {
+        "MASE": 2.076724548638992,
+        "RMSE": 659593.4615946971,
+        "MAE": 447778.9935651951,
+        "sMAPE": 4.976671294772843,
+        "MAPE": 4.959302720072593,
+        "MASE_h1": 1.0242125227650498,
+        "MASE_h12": 2.840598480487229,
+        "MASE_h24": 1.664640781108977
+      }
+    },
+    "artefactos": [
+      {
+        "semilla": 1003,
+        "configuracion": {
+          "id": "P20",
+          "lr": 0.0018710980016069898,
+          "batch_size": 32,
+          "dropout": 0.056011167807668114,
+          "weight_decay": 2.301803969922701e-06
+        },
+        "modelo.pt": "results/patchtst_numerico_r1/ajustes/final/02e7e18e3386db895382/modelo.pt",
+        "escaladores.json": "results/patchtst_numerico_r1/ajustes/final/02e7e18e3386db895382/escaladores.json",
+        "predicciones.npz": "results/patchtst_numerico_r1/ajustes/final/02e7e18e3386db895382/predicciones.npz",
+        "historia.json": "results/patchtst_numerico_r1/ajustes/final/02e7e18e3386db895382/historia.json",
+        "resultado.json": "results/patchtst_numerico_r1/ajustes/final/02e7e18e3386db895382/resultado.json",
+        "identidad.json": "results/patchtst_numerico_r1/ajustes/final/02e7e18e3386db895382/identidad.json"
+      },
+      {
+        "semilla": 1002,
+        "configuracion": {
+          "id": "P20",
+          "lr": 0.0018710980016069898,
+          "batch_size": 32,
+          "dropout": 0.056011167807668114,
+          "weight_decay": 2.301803969922701e-06
+        },
+        "modelo.pt": "results/patchtst_numerico_r1/ajustes/final/6b845001b6f4025b6897/modelo.pt",
+        "escaladores.json": "results/patchtst_numerico_r1/ajustes/final/6b845001b6f4025b6897/escaladores.json",
+        "predicciones.npz": "results/patchtst_numerico_r1/ajustes/final/6b845001b6f4025b6897/predicciones.npz",
+        "historia.json": "results/patchtst_numerico_r1/ajustes/final/6b845001b6f4025b6897/historia.json",
+        "resultado.json": "results/patchtst_numerico_r1/ajustes/final/6b845001b6f4025b6897/resultado.json",
+        "identidad.json": "results/patchtst_numerico_r1/ajustes/final/6b845001b6f4025b6897/identidad.json"
+      },
+      {
+        "semilla": 1001,
+        "configuracion": {
+          "id": "P20",
+          "lr": 0.0018710980016069898,
+          "batch_size": 32,
+          "dropout": 0.056011167807668114,
+          "weight_decay": 2.301803969922701e-06
+        },
+        "modelo.pt": "results/patchtst_numerico_r1/ajustes/final/6c781bfe4794257cb70b/modelo.pt",
+        "escaladores.json": "results/patchtst_numerico_r1/ajustes/final/6c781bfe4794257cb70b/escaladores.json",
+        "predicciones.npz": "results/patchtst_numerico_r1/ajustes/final/6c781bfe4794257cb70b/predicciones.npz",
+        "historia.json": "results/patchtst_numerico_r1/ajustes/final/6c781bfe4794257cb70b/historia.json",
+        "resultado.json": "results/patchtst_numerico_r1/ajustes/final/6c781bfe4794257cb70b/resultado.json",
+        "identidad.json": "results/patchtst_numerico_r1/ajustes/final/6c781bfe4794257cb70b/identidad.json"
+      },
+      {
+        "semilla": 1004,
+        "configuracion": {
+          "id": "P20",
+          "lr": 0.0018710980016069898,
+          "batch_size": 32,
+          "dropout": 0.056011167807668114,
+          "weight_decay": 2.301803969922701e-06
+        },
+        "modelo.pt": "results/patchtst_numerico_r1/ajustes/final/777d0bd4fc7b5afe660e/modelo.pt",
+        "escaladores.json": "results/patchtst_numerico_r1/ajustes/final/777d0bd4fc7b5afe660e/escaladores.json",
+        "predicciones.npz": "results/patchtst_numerico_r1/ajustes/final/777d0bd4fc7b5afe660e/predicciones.npz",
+        "historia.json": "results/patchtst_numerico_r1/ajustes/final/777d0bd4fc7b5afe660e/historia.json",
+        "resultado.json": "results/patchtst_numerico_r1/ajustes/final/777d0bd4fc7b5afe660e/resultado.json",
+        "identidad.json": "results/patchtst_numerico_r1/ajustes/final/777d0bd4fc7b5afe660e/identidad.json"
+      },
+      {
+        "semilla": 1000,
+        "configuracion": {
+          "id": "P20",
+          "lr": 0.0018710980016069898,
+          "batch_size": 32,
+          "dropout": 0.056011167807668114,
+          "weight_decay": 2.301803969922701e-06
+        },
+        "modelo.pt": "results/patchtst_numerico_r1/ajustes/final/b0919720c85866a47901/modelo.pt",
+        "escaladores.json": "results/patchtst_numerico_r1/ajustes/final/b0919720c85866a47901/escaladores.json",
+        "predicciones.npz": "results/patchtst_numerico_r1/ajustes/final/b0919720c85866a47901/predicciones.npz",
+        "historia.json": "results/patchtst_numerico_r1/ajustes/final/b0919720c85866a47901/historia.json",
+        "resultado.json": "results/patchtst_numerico_r1/ajustes/final/b0919720c85866a47901/resultado.json",
+        "identidad.json": "results/patchtst_numerico_r1/ajustes/final/b0919720c85866a47901/identidad.json"
+      }
+    ]
+  },
+  "nhits_numerico_r1": {
+    "resumen": {
+      "modelo": "NHITS_adaptado",
+      "n_final": 5,
+      "MASE_validacion": 0.9303906182274658,
+      "anios_confirmacion": [
+        2019,
+        2020,
+        2021
+      ],
+      "MASE_prueba": 1.0236287774259343,
+      "MASE_sd": 0.057097578807101854,
+      "MAE_prueba": 220712.6910694766,
+      "dimensionamiento": {
+        "margen_relativo": 0.03,
+        "margen_absoluto": 0.03425805078502295,
+        "MASE_referencia": 1.1419350261674317,
+        "alpha": 0.05,
+        "potencia_objetivo": 0.8,
+        "replicas": 10000,
+        "bloque_dias": 14,
+        "semillas_piloto": 5,
+        "potencia_limite_temporal": 0.0843,
+        "alcance": "Estimación bootstrap exploratoria de precisión bajo alternativa mínima; cinco semillas no certifican potencia ni distribución de nuevas inicializaciones",
+        "n_final": null,
+        "estado": "precision_temporal_insuficiente",
+        "evaluaciones": []
+      },
+      "nota": "Reevaluación retrospectiva exploratoria. El piloto no certifica potencia futura. Arquitectura oficial adaptada a covariables; sin exención E2 automática.",
+      "exploratorio": true,
+      "potencia_acreditada": false,
+      "semillas": [
+        1000,
+        1001,
+        1002,
+        1003,
+        1004
+      ],
+      "mejora_ingenuo_semanal_pct": 24.45022445893018,
+      "RMSE_prueba": 281206.85019475647,
+      "sMAPE_prueba": 2.4017796910052764,
+      "MAPE_prueba": 2.403842360496724
+    },
+    "referencias": {
+      "ingenuo_168h": {
+        "MASE": 1.354906444254724,
+        "RMSE": 444631.8697397882,
+        "MAE": 292142.08710586355,
+        "sMAPE": 3.213973439741544,
+        "MAPE": 3.2192764022063534,
+        "MASE_h1": 1.0795406430141095,
+        "MASE_h12": 1.5973554337382287,
+        "MASE_h24": 1.1479626684667639
+      },
+      "ingenuo_24h": {
+        "MASE": 2.076724548638992,
+        "RMSE": 659593.4615946971,
+        "MAE": 447778.9935651951,
+        "sMAPE": 4.976671294772843,
+        "MAPE": 4.959302720072593,
+        "MASE_h1": 1.0242125227650498,
+        "MASE_h12": 2.840598480487229,
+        "MASE_h24": 1.664640781108977
+      }
+    },
+    "artefactos": [
+      {
+        "semilla": 1003,
+        "configuracion": {
+          "id": "N14",
+          "lr": 0.00010335986527468987,
+          "batch_size": 64,
+          "dropout": 0.1956080336970198,
+          "weight_decay": 1.4416188128158413e-06
+        },
+        "modelo.pt": "results/nhits_numerico_r1/ajustes/final/7b928e1e3d69485b5f2e/modelo.pt",
+        "escaladores.json": "results/nhits_numerico_r1/ajustes/final/7b928e1e3d69485b5f2e/escaladores.json",
+        "predicciones.npz": "results/nhits_numerico_r1/ajustes/final/7b928e1e3d69485b5f2e/predicciones.npz",
+        "historia.json": "results/nhits_numerico_r1/ajustes/final/7b928e1e3d69485b5f2e/historia.json",
+        "resultado.json": "results/nhits_numerico_r1/ajustes/final/7b928e1e3d69485b5f2e/resultado.json",
+        "identidad.json": "results/nhits_numerico_r1/ajustes/final/7b928e1e3d69485b5f2e/identidad.json"
+      },
+      {
+        "semilla": 1004,
+        "configuracion": {
+          "id": "N14",
+          "lr": 0.00010335986527468987,
+          "batch_size": 64,
+          "dropout": 0.1956080336970198,
+          "weight_decay": 1.4416188128158413e-06
+        },
+        "modelo.pt": "results/nhits_numerico_r1/ajustes/final/9e2d9f2c474fea356fe6/modelo.pt",
+        "escaladores.json": "results/nhits_numerico_r1/ajustes/final/9e2d9f2c474fea356fe6/escaladores.json",
+        "predicciones.npz": "results/nhits_numerico_r1/ajustes/final/9e2d9f2c474fea356fe6/predicciones.npz",
+        "historia.json": "results/nhits_numerico_r1/ajustes/final/9e2d9f2c474fea356fe6/historia.json",
+        "resultado.json": "results/nhits_numerico_r1/ajustes/final/9e2d9f2c474fea356fe6/resultado.json",
+        "identidad.json": "results/nhits_numerico_r1/ajustes/final/9e2d9f2c474fea356fe6/identidad.json"
+      },
+      {
+        "semilla": 1000,
+        "configuracion": {
+          "id": "N14",
+          "lr": 0.00010335986527468987,
+          "batch_size": 64,
+          "dropout": 0.1956080336970198,
+          "weight_decay": 1.4416188128158413e-06
+        },
+        "modelo.pt": "results/nhits_numerico_r1/ajustes/final/b60dbe1a08e5ae341dbf/modelo.pt",
+        "escaladores.json": "results/nhits_numerico_r1/ajustes/final/b60dbe1a08e5ae341dbf/escaladores.json",
+        "predicciones.npz": "results/nhits_numerico_r1/ajustes/final/b60dbe1a08e5ae341dbf/predicciones.npz",
+        "historia.json": "results/nhits_numerico_r1/ajustes/final/b60dbe1a08e5ae341dbf/historia.json",
+        "resultado.json": "results/nhits_numerico_r1/ajustes/final/b60dbe1a08e5ae341dbf/resultado.json",
+        "identidad.json": "results/nhits_numerico_r1/ajustes/final/b60dbe1a08e5ae341dbf/identidad.json"
+      },
+      {
+        "semilla": 1002,
+        "configuracion": {
+          "id": "N14",
+          "lr": 0.00010335986527468987,
+          "batch_size": 64,
+          "dropout": 0.1956080336970198,
+          "weight_decay": 1.4416188128158413e-06
+        },
+        "modelo.pt": "results/nhits_numerico_r1/ajustes/final/edd7a3a72fdeb49d8dd8/modelo.pt",
+        "escaladores.json": "results/nhits_numerico_r1/ajustes/final/edd7a3a72fdeb49d8dd8/escaladores.json",
+        "predicciones.npz": "results/nhits_numerico_r1/ajustes/final/edd7a3a72fdeb49d8dd8/predicciones.npz",
+        "historia.json": "results/nhits_numerico_r1/ajustes/final/edd7a3a72fdeb49d8dd8/historia.json",
+        "resultado.json": "results/nhits_numerico_r1/ajustes/final/edd7a3a72fdeb49d8dd8/resultado.json",
+        "identidad.json": "results/nhits_numerico_r1/ajustes/final/edd7a3a72fdeb49d8dd8/identidad.json"
+      },
+      {
+        "semilla": 1001,
+        "configuracion": {
+          "id": "N14",
+          "lr": 0.00010335986527468987,
+          "batch_size": 64,
+          "dropout": 0.1956080336970198,
+          "weight_decay": 1.4416188128158413e-06
+        },
+        "modelo.pt": "results/nhits_numerico_r1/ajustes/final/f6822a62ef7e3b178878/modelo.pt",
+        "escaladores.json": "results/nhits_numerico_r1/ajustes/final/f6822a62ef7e3b178878/escaladores.json",
+        "predicciones.npz": "results/nhits_numerico_r1/ajustes/final/f6822a62ef7e3b178878/predicciones.npz",
+        "historia.json": "results/nhits_numerico_r1/ajustes/final/f6822a62ef7e3b178878/historia.json",
+        "resultado.json": "results/nhits_numerico_r1/ajustes/final/f6822a62ef7e3b178878/resultado.json",
+        "identidad.json": "results/nhits_numerico_r1/ajustes/final/f6822a62ef7e3b178878/identidad.json"
+      }
+    ]
+  },
+  "tft_numerico_r1": {
+    "resumen": {
+      "modelo": "TFT_adaptado",
+      "n_final": 5,
+      "semillas": [
+        1000,
+        1001,
+        1002,
+        1003,
+        1004
+      ],
+      "MASE_validacion": 0.8882098780444868,
+      "anios_confirmacion": [
+        2019,
+        2020,
+        2021
+      ],
+      "semillas_confirmacion": [
+        43
+      ],
+      "MASE_prueba": 1.1469175132607121,
+      "MASE_sd": 0.046441288192858886,
+      "presupuesto_reducido": true,
+      "ajustes": 62,
+      "dimensionamiento": {
+        "estado": "piloto_omitido_por_presupuesto_autorizado",
+        "n_final": null,
+        "potencia_acreditada": false,
+        "semillas_fijadas_exploratorias": 5
+      },
+      "exploratorio": true,
+      "potencia_acreditada": false,
+      "nota": "Selección reducida autorizada antes de prueba. Evaluación retrospectiva exploratoria;sin piloto ni potencia acreditada.",
+      "MAE_prueba": 247295.94982962467,
+      "RMSE_prueba": 308838.4753367967,
+      "sMAPE_prueba": 2.7036083877311046,
+      "MAPE_prueba": 2.702224223354235,
+      "mejora_ingenuo_semanal_pct": 15.350796497865781
+    },
+    "referencias": {
+      "ingenuo_168h": {
+        "MASE": 1.354906444254724,
+        "RMSE": 444631.8697397882,
+        "MAE": 292142.08710586355,
+        "sMAPE": 3.213973439741544,
+        "MAPE": 3.2192764022063534,
+        "MASE_h1": 1.0795406430141095,
+        "MASE_h12": 1.5973554337382287,
+        "MASE_h24": 1.1479626684667639
+      },
+      "ingenuo_24h": {
+        "MASE": 2.076724548638992,
+        "RMSE": 659593.4615946971,
+        "MAE": 447778.9935651951,
+        "sMAPE": 4.976671294772843,
+        "MAPE": 4.959302720072593,
+        "MASE_h1": 1.0242125227650498,
+        "MASE_h12": 2.840598480487229,
+        "MASE_h24": 1.664640781108977
+      }
+    },
+    "artefactos": [
+      {
+        "semilla": 1004,
+        "configuracion": {
+          "id": "T02",
+          "lr": 0.0012848706005851602,
+          "batch_size": 16,
+          "dropout": 0.2672334634068939,
+          "weight_decay": 0.00017340665040679244
+        },
+        "modelo.pt": "results/tft_numerico_r1/ajustes/final/291eb66ef264baca3d2a/modelo.pt",
+        "escaladores.json": "results/tft_numerico_r1/ajustes/final/291eb66ef264baca3d2a/escaladores.json",
+        "predicciones.npz": "results/tft_numerico_r1/ajustes/final/291eb66ef264baca3d2a/predicciones.npz",
+        "historia.json": "results/tft_numerico_r1/ajustes/final/291eb66ef264baca3d2a/historia.json",
+        "resultado.json": "results/tft_numerico_r1/ajustes/final/291eb66ef264baca3d2a/resultado.json",
+        "identidad.json": "results/tft_numerico_r1/ajustes/final/291eb66ef264baca3d2a/identidad.json"
+      },
+      {
+        "semilla": 1001,
+        "configuracion": {
+          "id": "T02",
+          "lr": 0.0012848706005851602,
+          "batch_size": 16,
+          "dropout": 0.2672334634068939,
+          "weight_decay": 0.00017340665040679244
+        },
+        "modelo.pt": "results/tft_numerico_r1/ajustes/final/2f7893de8730db23b8cb/modelo.pt",
+        "escaladores.json": "results/tft_numerico_r1/ajustes/final/2f7893de8730db23b8cb/escaladores.json",
+        "predicciones.npz": "results/tft_numerico_r1/ajustes/final/2f7893de8730db23b8cb/predicciones.npz",
+        "historia.json": "results/tft_numerico_r1/ajustes/final/2f7893de8730db23b8cb/historia.json",
+        "resultado.json": "results/tft_numerico_r1/ajustes/final/2f7893de8730db23b8cb/resultado.json",
+        "identidad.json": "results/tft_numerico_r1/ajustes/final/2f7893de8730db23b8cb/identidad.json"
+      },
+      {
+        "semilla": 1000,
+        "configuracion": {
+          "id": "T02",
+          "lr": 0.0012848706005851602,
+          "batch_size": 16,
+          "dropout": 0.2672334634068939,
+          "weight_decay": 0.00017340665040679244
+        },
+        "modelo.pt": "results/tft_numerico_r1/ajustes/final/4b18790cfea310c0550b/modelo.pt",
+        "escaladores.json": "results/tft_numerico_r1/ajustes/final/4b18790cfea310c0550b/escaladores.json",
+        "predicciones.npz": "results/tft_numerico_r1/ajustes/final/4b18790cfea310c0550b/predicciones.npz",
+        "historia.json": "results/tft_numerico_r1/ajustes/final/4b18790cfea310c0550b/historia.json",
+        "resultado.json": "results/tft_numerico_r1/ajustes/final/4b18790cfea310c0550b/resultado.json",
+        "identidad.json": "results/tft_numerico_r1/ajustes/final/4b18790cfea310c0550b/identidad.json"
+      },
+      {
+        "semilla": 1003,
+        "configuracion": {
+          "id": "T02",
+          "lr": 0.0012848706005851602,
+          "batch_size": 16,
+          "dropout": 0.2672334634068939,
+          "weight_decay": 0.00017340665040679244
+        },
+        "modelo.pt": "results/tft_numerico_r1/ajustes/final/6a80cfc84110636fa1a1/modelo.pt",
+        "escaladores.json": "results/tft_numerico_r1/ajustes/final/6a80cfc84110636fa1a1/escaladores.json",
+        "predicciones.npz": "results/tft_numerico_r1/ajustes/final/6a80cfc84110636fa1a1/predicciones.npz",
+        "historia.json": "results/tft_numerico_r1/ajustes/final/6a80cfc84110636fa1a1/historia.json",
+        "resultado.json": "results/tft_numerico_r1/ajustes/final/6a80cfc84110636fa1a1/resultado.json",
+        "identidad.json": "results/tft_numerico_r1/ajustes/final/6a80cfc84110636fa1a1/identidad.json"
+      },
+      {
+        "semilla": 1002,
+        "configuracion": {
+          "id": "T02",
+          "lr": 0.0012848706005851602,
+          "batch_size": 16,
+          "dropout": 0.2672334634068939,
+          "weight_decay": 0.00017340665040679244
+        },
+        "modelo.pt": "results/tft_numerico_r1/ajustes/final/92c6991ed931caada4d4/modelo.pt",
+        "escaladores.json": "results/tft_numerico_r1/ajustes/final/92c6991ed931caada4d4/escaladores.json",
+        "predicciones.npz": "results/tft_numerico_r1/ajustes/final/92c6991ed931caada4d4/predicciones.npz",
+        "historia.json": "results/tft_numerico_r1/ajustes/final/92c6991ed931caada4d4/historia.json",
+        "resultado.json": "results/tft_numerico_r1/ajustes/final/92c6991ed931caada4d4/resultado.json",
+        "identidad.json": "results/tft_numerico_r1/ajustes/final/92c6991ed931caada4d4/identidad.json"
+      }
+    ]
+  }
+}

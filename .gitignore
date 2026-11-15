@@ -39,3 +39,16 @@ book/_build/
 results/patchtst_numerico_r1/*.lock
 results/patchtst_numerico_r1/servicios_locales.json
 results/patchtst_numerico_r1/ajustes/**/historia_en_curso.json
+
+# Servicios locales y artefactos provisionales de las corridas numéricas ampliadas
+results/nhits_numerico_r1/*.lock
+results/tft_numerico_r1/*.lock
+results/*_numerico_r1/servicios_locales.json
+results/*_numerico_r1/apagado_automatico.json
+results/*_numerico_r1/cola.json
+results/*_numerico_r1/resultados_guardados.json
+results/*_numerico_r1/ajustes/**/historia_en_curso.json
+results/*_numerico_r1/ajustes/**/modelo_parcial.pt
+# Pesos intermedios se conservan localmente; los15checkpoints finales sí se publican
+results/*_numerico_r1/ajustes/busqueda/**/modelo.pt
+results/*_numerico_r1/ajustes/piloto/**/modelo.pt

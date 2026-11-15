@@ -1,0 +1,7 @@
+# Evaluación retrospectiva exploratoria de PatchTST · 11 de noviembre de 2026
+
+Se autoriza ejecutar la prueba tras finalizar los 125 ajustes de selección y piloto. Se fija antes de leer la prueba la configuración P20 ya seleccionada y cinco semillas nuevas: 1000–1004. El número de semillas constituye un presupuesto exploratorio; no se obtiene del dimensionamiento fallido ni acredita potencia del 80 % para el margen relativo del 3 %. `dimensionamiento.json` y `seleccion_cerrada.json` se conservan intactos.
+
+Cada semilla se reajusta exclusivamente con los orígenes anteriores a 2022, con reserva interna cronológica del 10 %, purga de 24 h y estadísticas de imputación y escala calculadas solo con el tramo de optimización. Se mantienen arquitectura, variables, hiperparámetros, parada temprana, máximo de 200 épocas y restauración del mejor estado interno. El conjunto 2022–2025 se evalúa retrospectivamente, con los mismos orígenes para los ingenuos diario y semanal. No se seleccionan modelos o épocas mediante prueba.
+
+El ejecutor `scripts/probar_patchtst_numerico.py` comprueba las huellas del plan congelado y escribe `plan_prueba_exploratoria.json` antes de preparar las ventanas de prueba. Guarda modelos, escaladores, historiales, predicciones por origen y métricas por semilla en el directorio de resultados vigente. El límite original de 24 h no se renueva. El monitor de apagado autorizado espera el cierre del proceso, comprueba los artefactos y sincroniza los archivos antes de solicitar el apagado.

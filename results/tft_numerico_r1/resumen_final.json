@@ -1,0 +1,38 @@
+{
+  "modelo": "TFT_adaptado",
+  "n_final": 5,
+  "semillas": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004
+  ],
+  "MASE_validacion": 0.8882098780444868,
+  "anios_confirmacion": [
+    2019,
+    2020,
+    2021
+  ],
+  "semillas_confirmacion": [
+    43
+  ],
+  "MASE_prueba": 1.1469175132607121,
+  "MASE_sd": 0.046441288192858886,
+  "presupuesto_reducido": true,
+  "ajustes": 62,
+  "dimensionamiento": {
+    "estado": "piloto_omitido_por_presupuesto_autorizado",
+    "n_final": null,
+    "potencia_acreditada": false,
+    "semillas_fijadas_exploratorias": 5
+  },
+  "exploratorio": true,
+  "potencia_acreditada": false,
+  "nota": "Selección reducida autorizada antes de prueba. Evaluación retrospectiva exploratoria;sin piloto ni potencia acreditada.",
+  "MAE_prueba": 247295.94982962467,
+  "RMSE_prueba": 308838.4753367967,
+  "sMAPE_prueba": 2.7036083877311046,
+  "MAPE_prueba": 2.702224223354235,
+  "mejora_ingenuo_semanal_pct": 15.350796497865781
+}

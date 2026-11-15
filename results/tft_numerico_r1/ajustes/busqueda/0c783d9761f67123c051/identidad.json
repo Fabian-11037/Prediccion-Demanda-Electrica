@@ -1,0 +1,13 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T15",
+    "lr": 0.00010089111420024641,
+    "batch_size": 32,
+    "dropout": 0.2144200857977695,
+    "weight_decay": 4.534076113404685e-06
+  },
+  "semilla": 44,
+  "fold": 2018,
+  "modelo": "TFT_adaptado"
+}

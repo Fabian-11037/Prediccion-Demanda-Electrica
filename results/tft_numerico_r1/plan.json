@@ -1,0 +1,205 @@
+{
+  "politica_busqueda": {
+    "filtro_anios": [
+      2018
+    ],
+    "finalistas": 5,
+    "confirmacion_anios": [
+      2019,
+      2020,
+      2021
+    ],
+    "total_preprueba": 125
+  },
+  "politica_prueba": {
+    "semilla_inicial": 1000,
+    "semillas_si_no_dimensionable": 5,
+    "exploratorio": true
+  },
+  "sha256": {
+    "PLAN_TFT_NUMERICO_R1.md": "66abdef1068a6eb489c5ba35deee32f39025262e77ab95d3349926ed0b6f8a2e",
+    "src/demanda/seleccion_escalonada.py": "edca9311e9f51e4ede216fed62cef33c73f4652dcb81c2e056509311982442f5",
+    "config/diseno_entrenamiento_texto.json": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf",
+    "src/demanda/tft_numerico.py": "2e44b18b02e4f53e9ff5b0c1d79cff3db4f6e7a77428ef7a6a70930b470e0c76",
+    "src/demanda/patchtst_numerico.py": "5231acd66ffc76edd5fc583f8bc609dd6b6273f87ecc61fd60174e17cfbd804a",
+    "src/demanda/potencia_pareada.py": "dc51c45ea21aa3af8149d1b364a411c07bddd211a58b9b1f61d115ff6ec8d743",
+    "scripts/entrenar_tft_numerico.py": "153749a01dacb69463ba156250e7d6097a1bc7dbb807e67edb5935f927a148b6",
+    "src/demanda/diseno_numerico.py": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04",
+    "src/demanda/particion.py": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466",
+    "src/demanda/modelos_base.py": "a261efe4c40951aecd8f6076b077a9439179ec9a742bfb3e9be29f843c004f16",
+    "src/demanda/metricas.py": "8f859cb24a3e0f1ac374e5608772af057cb8a9b95d1e0d95223e51142f76892d",
+    "data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+    "data/processed/feature_registry.json": "91f016c804162bd65ad101e3f9f0cd995498b3ca356c3e528926cc86a30ab4b0",
+    "src/demanda/vendor/tft/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/demanda/vendor/tft/LICENSE": "de7890eb7276b802bdea8dcf60030010f3f97b37b1864fb1d1f8ba2251712c03",
+    "src/demanda/vendor/tft/tft_original.py": "32b662f18f0c272276e317b792a164f25ec908b992dd38ffea842557f812e7fb",
+    "src/demanda/vendor/tft/PROCEDENCIA.md": "131ad0871d4516c6ec89719cbb2bef74796002710160580450838371332bbb18",
+    "src/demanda/vendor/tft/core.py": "8469ce4e8dab7dc419a67871539783eab80cb805f0711e4c8615b6eaabc02a62",
+    "src/demanda/vendor/patchtst/ORIGEN.json": "a98ca3d73d6b89bf7719825c8dc54044f2f0c0e515e9320357092cbdf742d7cc",
+    "src/demanda/vendor/patchtst/PatchTST_backbone.py": "ee21f3f7069e23870421d035bf68d0c22254a9ea94d684646c56bccb400f63b9",
+    "src/demanda/vendor/patchtst/etth1.sh": "556c87cd7dd795094ff6cb73465e84c90686017e1535e0ba23ed43683b9b0897",
+    "src/demanda/vendor/patchtst/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/demanda/vendor/patchtst/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "src/demanda/vendor/patchtst/NOTICE": "6e5b954738d7a008c81f8fe8b011ef3537748262979f4c0518c668780b91d2bf",
+    "src/demanda/vendor/patchtst/PatchTST_layers.py": "21c06c70a90c60ee2a269b5c600c702834dea22cdfd72915e6b0f8b4a28db3f6",
+    "src/demanda/vendor/patchtst/RevIN.py": "e64c0ccded9228b347134e7368420d3fb10f70c75145b5ff2d8bdd8c3af59df6"
+  },
+  "arquitectura": {
+    "origen": "Nixtla/neuralforecast",
+    "revision": "94b6ce131838be38a1fb5157349f02bbc8c89ef6",
+    "hidden_size": 16,
+    "n_head": 4,
+    "n_rnn_layers": 1,
+    "rnn_type": "lstm",
+    "activacion_grn": "ELU",
+    "historia": 168,
+    "horizonte": 24,
+    "historicas_exogenas": 59,
+    "calendario": 23,
+    "estaticas": 0,
+    "salida": "lineal univariada de referencia",
+    "adaptacion": "compacta exploratoria"
+  },
+  "configuraciones": [
+    {
+      "id": "T01",
+      "lr": 0.001,
+      "batch_size": 32,
+      "dropout": 0.1,
+      "weight_decay": 0.0001
+    },
+    {
+      "id": "T02",
+      "lr": 0.0012848706005851602,
+      "batch_size": 16,
+      "dropout": 0.2672334634068939,
+      "weight_decay": 0.00017340665040679244
+    },
+    {
+      "id": "T03",
+      "lr": 0.00021154560000440935,
+      "batch_size": 16,
+      "dropout": 0.15183857506731907,
+      "weight_decay": 0.00018078359831223548
+    },
+    {
+      "id": "T04",
+      "lr": 0.0016956879336015097,
+      "batch_size": 32,
+      "dropout": 0.2840523766777661,
+      "weight_decay": 9.598712812539463e-06
+    },
+    {
+      "id": "T05",
+      "lr": 0.001317911095091395,
+      "batch_size": 16,
+      "dropout": 0.07588708183526914,
+      "weight_decay": 2.348751856975909e-06
+    },
+    {
+      "id": "T06",
+      "lr": 0.0001141805201876289,
+      "batch_size": 16,
+      "dropout": 0.1191351057893174,
+      "weight_decay": 0.0003034453274192053
+    },
+    {
+      "id": "T07",
+      "lr": 0.0005722032410625913,
+      "batch_size": 64,
+      "dropout": 0.279075532038453,
+      "weight_decay": 2.5315982160273552e-05
+    },
+    {
+      "id": "T08",
+      "lr": 0.00044233563064799186,
+      "batch_size": 16,
+      "dropout": 0.13709618038942833,
+      "weight_decay": 8.929173599819348e-06
+    },
+    {
+      "id": "T09",
+      "lr": 0.0025337862251764037,
+      "batch_size": 64,
+      "dropout": 0.23094139231915606,
+      "weight_decay": 0.0009057106149756194
+    },
+    {
+      "id": "T10",
+      "lr": 0.002935889115486,
+      "batch_size": 64,
+      "dropout": 0.22132178894538784,
+      "weight_decay": 0.00043630370160059904
+    },
+    {
+      "id": "T11",
+      "lr": 0.00010498292305816378,
+      "batch_size": 16,
+      "dropout": 0.21309727996224337,
+      "weight_decay": 1.3918503769299746e-06
+    },
+    {
+      "id": "T12",
+      "lr": 0.00020540445940112805,
+      "batch_size": 16,
+      "dropout": 0.17275653514454842,
+      "weight_decay": 0.0002451333732577054
+    },
+    {
+      "id": "T13",
+      "lr": 0.00030125048947331196,
+      "batch_size": 32,
+      "dropout": 0.17138291185670346,
+      "weight_decay": 1.7370773370762096e-06
+    },
+    {
+      "id": "T14",
+      "lr": 0.0028195599669932833,
+      "batch_size": 64,
+      "dropout": 0.278396015826248,
+      "weight_decay": 0.00015724096294763456
+    },
+    {
+      "id": "T15",
+      "lr": 0.00010089111420024641,
+      "batch_size": 32,
+      "dropout": 0.2144200857977695,
+      "weight_decay": 4.534076113404685e-06
+    },
+    {
+      "id": "T16",
+      "lr": 0.0013460670676069552,
+      "batch_size": 32,
+      "dropout": 0.29422743131535967,
+      "weight_decay": 0.00021377297133084213
+    },
+    {
+      "id": "T17",
+      "lr": 0.00015762385243229827,
+      "batch_size": 32,
+      "dropout": 0.29610642888879957,
+      "weight_decay": 0.0003142997345432885
+    },
+    {
+      "id": "T18",
+      "lr": 0.0007923935696605345,
+      "batch_size": 16,
+      "dropout": 0.2750559238570956,
+      "weight_decay": 0.0011035629361282214
+    },
+    {
+      "id": "T19",
+      "lr": 0.0009390255739306532,
+      "batch_size": 16,
+      "dropout": 0.13257234342533664,
+      "weight_decay": 1.1956738602622176e-05
+    },
+    {
+      "id": "T20",
+      "lr": 0.00023158478520022072,
+      "batch_size": 16,
+      "dropout": 0.2124730740621371,
+      "weight_decay": 1.5326420902530472e-06
+    }
+  ]
+}

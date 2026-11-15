@@ -1,0 +1,13 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "P15",
+    "lr": 0.001174480938905126,
+    "batch_size": 16,
+    "dropout": 0.2023083856764487,
+    "weight_decay": 4.219892767342976e-06
+  },
+  "semilla": 43,
+  "fold": 2020,
+  "modelo": "PatchTST_adaptado"
+}

@@ -1,0 +1,15 @@
+{
+  "estado": "Requiere decisión",
+  "completados": 125,
+  "total": 125,
+  "actualizado": "2026-11-11T06:47:54.098309-05:00",
+  "pid": 18566,
+  "etapa": "dimensionamiento",
+  "configuracion": "P20",
+  "semilla": 104,
+  "fold": 2021,
+  "epoca": 29,
+  "loss_train": 0.014497357259663972,
+  "loss_es": 0.016025633718964327,
+  "detalle": "El piloto no permite acreditar el objetivo de precisión con más semillas en el mismo periodo. Prueba no ejecutada. Consultar dimensionamiento.json."
+}

@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T05",
+    "lr": 0.001317911095091395,
+    "batch_size": 16,
+    "dropout": 0.07588708183526914,
+    "weight_decay": 2.348751856975909e-06
+  },
+  "semilla": 43,
+  "fold": 2018,
+  "modelo": "TFT_adaptado",
+  "segundos": 1188.4381461143494,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 264859136,
+  "epocas": 24,
+  "mejor_epoca": 14,
+  "MASE": 0.6850522481356477,
+  "RMSE": 192169.97678835533,
+  "MAE": 147709.52961036094,
+  "sMAPE": 1.8982552058245696,
+  "MAPE": 1.8979184681232766,
+  "MASE_h1": 0.6267110764071273,
+  "MASE_h12": 0.5495250065873957,
+  "MASE_h24": 0.8339593264566759
+}

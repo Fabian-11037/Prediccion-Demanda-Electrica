@@ -1,0 +1,17 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>TFT · Plan reducido</title>
+<style>body{font:18px system-ui;background:#14202c;color:#eef5fa;max-width:950px;margin:50px auto;padding:20px}progress{width:100%;height:32px}p{line-height:1.7}</style>
+<h1>TFT compacto · GPU · Plan reducido</h1><progress id="barra" value="0" max="62"></progress>
+<p id="conteo">Cargando estado…</p><p id="actual"></p><p id="transicion"></p>
+<p>Filtro2018:17configuraciones × 3semillas =51.<br>Confirmación2019–2021:2finalistas × 1semilla × 3años =6.<br>Prueba2022–2025:5semillas =5.</p>
+<p>Piloto omitido. Evaluación exploratoria, sin potencia acreditada.<br>Se conservan el plazo original y el apagado después de guardar resultados.</p><small id="fecha"></small>
+<script>
+async function actualizar(){try{
+ const [s,t]=await Promise.all([fetch('estado.json',{cache:'no-store'}).then(r=>r.json()),fetch('transicion_reducida.json',{cache:'no-store'}).then(r=>r.json())]);
+ document.getElementById('barra').value=Math.min(s.completados,62);
+ document.getElementById('conteo').textContent=`${s.completados}/62 ajustes del plan reducido · ${(100*s.completados/62).toFixed(1)}%`;
+ document.getElementById('actual').textContent=`${s.estado} · ${s.etapa||''} · ${s.configuracion||''} · semilla ${s.semilla??''} · año ${s.fold??''} · época ${s.epoca??''}`;
+ document.getElementById('transicion').textContent=t.estado==='esperando_fin_ajuste_activo'?'Transición programada: esperando el guardado del ajuste activo antes de reanudar con62ajustes.':t.estado==='reanudado_reducido'?'Plan reducido en ejecución.':`${t.estado}: ${t.detalle||''}`;
+ document.getElementById('fecha').textContent=s.actualizado;
+ }catch(e){document.getElementById('transicion').textContent='Preparando transición; el estado se actualizará automáticamente.'}}
+actualizar();setInterval(actualizar,8000);
+</script></html>

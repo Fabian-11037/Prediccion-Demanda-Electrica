@@ -1,0 +1,45 @@
+{
+  "configuracion": {
+    "id": "P20",
+    "lr": 0.0018710980016069898,
+    "batch_size": 32,
+    "dropout": 0.056011167807668114,
+    "weight_decay": 2.301803969922701e-06
+  },
+  "semillas": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004
+  ],
+  "exploratorio": true,
+  "potencia_acreditada": false,
+  "nota": "Evaluación exploratoria retrospectiva autorizada con cinco semillas. El piloto no acreditó la potencia objetivo del 80 % para el margen del 3 %. Configuración y selección congeladas antes de evaluar 2022–2025.",
+  "plazo_original": 1794436815.2876887,
+  "fuentes_sha256": {
+    "ADENDA_PATCHTST_ESCALONADO.md": "b3fb432504467cbd719a098bc7b360ebddf4f90e73908068057b87b10566f7f2",
+    "src/demanda/seleccion_escalonada.py": "edca9311e9f51e4ede216fed62cef33c73f4652dcb81c2e056509311982442f5",
+    "PLAN_PATCHTST_NUMERICO_R1.md": "332db6cbcdcf7e0b4341486a1839a53939572709cc651d50f920978d65615eb1",
+    "config/diseno_entrenamiento_texto.json": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf",
+    "src/demanda/patchtst_numerico.py": "5231acd66ffc76edd5fc583f8bc609dd6b6273f87ecc61fd60174e17cfbd804a",
+    "src/demanda/potencia_pareada.py": "dc51c45ea21aa3af8149d1b364a411c07bddd211a58b9b1f61d115ff6ec8d743",
+    "scripts/entrenar_patchtst_numerico.py": "b1a7cf0fe95e8e77736b8b53a2397b2aa40e1be2b94558ba2e9c7e7d2cf41290",
+    "src/demanda/diseno_numerico.py": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04",
+    "src/demanda/particion.py": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466",
+    "src/demanda/modelos_base.py": "a261efe4c40951aecd8f6076b077a9439179ec9a742bfb3e9be29f843c004f16",
+    "data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+    "data/processed/feature_registry.json": "91f016c804162bd65ad101e3f9f0cd995498b3ca356c3e528926cc86a30ab4b0",
+    "src/demanda/vendor/patchtst/ORIGEN.json": "a98ca3d73d6b89bf7719825c8dc54044f2f0c0e515e9320357092cbdf742d7cc",
+    "src/demanda/vendor/patchtst/PatchTST_backbone.py": "ee21f3f7069e23870421d035bf68d0c22254a9ea94d684646c56bccb400f63b9",
+    "src/demanda/vendor/patchtst/etth1.sh": "556c87cd7dd795094ff6cb73465e84c90686017e1535e0ba23ed43683b9b0897",
+    "src/demanda/vendor/patchtst/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/demanda/vendor/patchtst/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "src/demanda/vendor/patchtst/NOTICE": "6e5b954738d7a008c81f8fe8b011ef3537748262979f4c0518c668780b91d2bf",
+    "src/demanda/vendor/patchtst/PatchTST_layers.py": "21c06c70a90c60ee2a269b5c600c702834dea22cdfd72915e6b0f8b4a28db3f6",
+    "src/demanda/vendor/patchtst/RevIN.py": "e64c0ccded9228b347134e7368420d3fb10f70c75145b5ff2d8bdd8c3af59df6"
+  },
+  "seleccion_sha256": "8b23d54d88dbcdb3c598911c44fb4e84813f7cc622662380be06889ab023df5b",
+  "ejecutor_sha256": "fd40f9a844e62ae876f7db7928479f6356842783e0a3c0408dda946e1e7127c1",
+  "fecha": "2026-11-11T10:23:34.902998-05:00"
+}

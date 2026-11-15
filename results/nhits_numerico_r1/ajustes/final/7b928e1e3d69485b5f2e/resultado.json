@@ -1,0 +1,26 @@
+{
+  "etapa": "final",
+  "configuracion": {
+    "id": "N14",
+    "lr": 0.00010335986527468987,
+    "batch_size": 64,
+    "dropout": 0.1956080336970198,
+    "weight_decay": 1.4416188128158413e-06
+  },
+  "semilla": 1003,
+  "fold": "final",
+  "modelo": "NHITS_adaptado",
+  "segundos": 28.81980800628662,
+  "n_parametros": 17489442,
+  "memoria_gpu_max_bytes": 416907776,
+  "epocas": 21,
+  "mejor_epoca": 11,
+  "MASE": 1.0757201329632433,
+  "RMSE": 291375.4737622328,
+  "MAE": 231944.51994694115,
+  "sMAPE": 2.510858173062,
+  "MAPE": 2.522507079426343,
+  "MASE_h1": 1.1148627864037404,
+  "MASE_h12": 1.3032829212555852,
+  "MASE_h24": 1.0311231931906173
+}

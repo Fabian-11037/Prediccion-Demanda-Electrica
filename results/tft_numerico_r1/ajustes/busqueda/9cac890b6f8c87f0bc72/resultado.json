@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T04",
+    "lr": 0.0016956879336015097,
+    "batch_size": 32,
+    "dropout": 0.2840523766777661,
+    "weight_decay": 9.598712812539463e-06
+  },
+  "semilla": 44,
+  "fold": 2018,
+  "modelo": "TFT_adaptado",
+  "segundos": 737.3078999519348,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 463109120,
+  "epocas": 26,
+  "mejor_epoca": 16,
+  "MASE": 0.7496558306881909,
+  "RMSE": 211672.5715413119,
+  "MAE": 161639.21864641638,
+  "sMAPE": 2.1002719578907394,
+  "MAPE": 2.0980967768224903,
+  "MASE_h1": 0.8619815214250747,
+  "MASE_h12": 0.6013660136671833,
+  "MASE_h24": 0.8199217916996491
+}

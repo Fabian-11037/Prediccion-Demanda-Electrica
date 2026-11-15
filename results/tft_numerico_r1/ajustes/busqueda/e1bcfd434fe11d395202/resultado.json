@@ -1,0 +1,26 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "T12",
+    "lr": 0.00020540445940112805,
+    "batch_size": 16,
+    "dropout": 0.17275653514454842,
+    "weight_decay": 0.0002451333732577054
+  },
+  "semilla": 44,
+  "fold": 2018,
+  "modelo": "TFT_adaptado",
+  "segundos": 1493.1909444332123,
+  "n_parametros": 281443,
+  "memoria_gpu_max_bytes": 264859136,
+  "epocas": 30,
+  "mejor_epoca": 20,
+  "MASE": 0.8823831839237902,
+  "RMSE": 247418.79206907,
+  "MAE": 190257.61230356203,
+  "sMAPE": 2.456647451803066,
+  "MAPE": 2.457935328976058,
+  "MASE_h1": 1.0463578884989642,
+  "MASE_h12": 0.604389291093511,
+  "MASE_h24": 0.9260586292532421
+}

@@ -1,0 +1,13 @@
+{
+  "etapa": "busqueda",
+  "configuracion": {
+    "id": "N20",
+    "lr": 0.0008789681221303378,
+    "batch_size": 32,
+    "dropout": 0.20224924729369304,
+    "weight_decay": 2.6352631736270302e-06
+  },
+  "semilla": 44,
+  "fold": 2018,
+  "modelo": "NHITS_adaptado"
+}
