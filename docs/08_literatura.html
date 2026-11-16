@@ -230,9 +230,21 @@
 <li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fundamentos.html">10.1. Fundamentos y preprocesamiento compartido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/arx.html">10.2. ARX lineal regularizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/mlp.html">10.3. MLP: perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/lstm.html">10.4. LSTM: memoria recurrente con compuertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/cnn1d.html">10.5. CNN1D: filtros locales sobre la historia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/patchtst.html">10.6. PatchTST numérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nhits.html">10.7. N-HiTS: interpolación jerárquica residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tft.html">10.8. TFT: selección de variables y atención interpretable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tcn.html">10.9. TCN: convoluciones causales dilatadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/itransformer.html">10.10. iTransformer: atención entre variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -1009,21 +1021,21 @@
 <img alt="_images/39ea26b557239bd984bb8d1eeda7dccb8c169af4fcdf7061c002f8e9032e1fbe.png" src="_images/39ea26b557239bd984bb8d1eeda7dccb8c169af4fcdf7061c002f8e9032e1fbe.png" />
 </div>
 </div>
-<p>La MLP presenta la mayor capacidad parametrizada. La CNN1D conserva una salida densa sobre posiciones temporales agrupadas, por lo que su tamaño no depende sólo del número de filtros. Los parámetros no determinan por sí solos precisión ni latencia; el capítulo de modelos contrasta error, variabilidad y tiempo registrado.</p>
+<p>Entre las cuatro familias de demanda/calendario, la MLP presenta la mayor capacidad parametrizada. La CNN1D conserva una salida densa sobre posiciones temporales agrupadas, por lo que su tamaño no depende sólo del número de filtros. Los parámetros no determinan por sí solos precisión ni latencia; el capítulo de modelos contrasta error, variabilidad y tiempo registrado.</p>
 <section id="mlp-sobre-ventana-de-rezagos">
 <h3>8.6.1. MLP sobre ventana de rezagos<a class="headerlink" href="#mlp-sobre-ventana-de-rezagos" title="Link to this heading">#</a></h3>
 <p>La MLP representa interacciones no lineales entre una ventana fija y calendario mediante capas densas. Su sesgo inductivo no impone recurrencia ni invariancia a traslaciones temporales; cada posición puede aprender una función distinta. Es adecuada cuando los perfiles y el calendario explican gran parte de la variación, pero puede depender de una selección suficiente de rezagos y de regularización. Su paralelización es directa y su costo crece con longitud de entrada, ancho y profundidad.</p>
-<p>Pelekis et al., Kathirgamanathan et al. y Laitsos et al. incluyen modelos densos como comparadores. Los datasets, DOI, resultados y dispersión disponible están en §8.2; sus configuraciones no son idénticas a las del SIN. La arquitectura seleccionada y su pérdida, optimizador, parámetros y costo se detallan en §10.2. La referencia lineal ARX contrasta si la capacidad no lineal añade precisión bajo las entradas observadas.</p>
+<p>Pelekis et al., Kathirgamanathan et al. y Laitsos et al. incluyen modelos densos como comparadores. Los datasets, DOI, resultados y dispersión disponible están en §8.2; sus configuraciones no son idénticas a las del SIN. La arquitectura seleccionada y su pérdida, optimizador, parámetros y costo se detallan en la <a class="reference internal" href="arquitecturas/mlp.html#e2-mlp"><span class="std std-ref">ficha de MLP</span></a>. La referencia lineal ARX contrasta si la capacidad no lineal añade precisión bajo las entradas observadas.</p>
 </section>
 <section id="lstm-sobre-secuencias">
 <h3>8.6.2. LSTM sobre secuencias<a class="headerlink" href="#lstm-sobre-secuencias" title="Link to this heading">#</a></h3>
 <p>La LSTM utiliza puertas y estado recurrente para representar dependencias de una secuencia. El último estado comprime la historia, por lo que una memoria más larga no garantiza conservar toda la información relevante. Su capacidad permite relaciones temporales flexibles, pero depende de escalado, longitud de secuencia y regularización. El procesamiento recurrente introduce una dependencia de cálculo entre pasos y puede elevar el tiempo respecto a una red densa de tamaño comparable.</p>
-<p>Las comparaciones de demanda de §8.2 documentan LSTM numéricas y variantes con documentos. El uso de texto, los horizontes y el presupuesto difieren entre artículos. No se atribuye una mejora a la recurrencia aislada ni se equipara el error entre sistemas eléctricos. §10.2 reproduce la configuración ejecutada y §10.9 contrasta estabilidad por fechas e inicializaciones.</p>
+<p>Las comparaciones de demanda de §8.2 documentan LSTM numéricas y variantes con documentos. El uso de texto, los horizontes y el presupuesto difieren entre artículos. No se atribuye una mejora a la recurrencia aislada ni se equipara el error entre sistemas eléctricos. La <a class="reference internal" href="arquitecturas/lstm.html#e2-lstm"><span class="std std-ref">ficha de LSTM</span></a> reproduce la configuración ejecutada y <a class="reference internal" href="10_evaluacion.html#evaluacion-e2"><span class="std std-ref">evaluación integrada</span></a> contrasta estabilidad por fechas e inicializaciones.</p>
 </section>
 <section id="cnn1d-sobre-historia-temporal">
 <h3>8.6.3. CNN1D sobre historia temporal<a class="headerlink" href="#cnn1d-sobre-historia-temporal" title="Link to this heading">#</a></h3>
 <p>La CNN1D comparte filtros entre posiciones y favorece patrones locales. La longitud del kernel, el agrupamiento y la cabeza de salida determinan cuánto contexto puede representar. El entrenamiento permite paralelizar posiciones; la cabeza aplanada del modelo ejecutado conserva dependencias con el tamaño de ventana y puede concentrar una parte importante de los parámetros. La arquitectura no incorpora por sí sola memoria recurrente.</p>
-<p>Los dos textos completos incorporados identifican CNN1D como comparador de demanda; sus configuraciones y límites se registran en §8.2. La frecuencia observada empata con TCN en el corpus dirigido, sin justificar que ambas arquitecturas sean intercambiables. TCN conserva su categoría porque añade estructura temporal propia. §10.2 contiene las fórmulas de capacidad y costo de la CNN seleccionada.</p>
+<p>Los dos textos completos incorporados identifican CNN1D como comparador de demanda; sus configuraciones y límites se registran en §8.2. La frecuencia observada empata con TCN en el corpus dirigido, sin justificar que ambas arquitecturas sean intercambiables. TCN conserva su categoría porque añade estructura temporal propia. La <a class="reference internal" href="arquitecturas/cnn1d.html#e2-cnn1d"><span class="std std-ref">ficha de CNN1D</span></a> contiene las fórmulas de capacidad y costo de la CNN seleccionada.</p>
 </section>
 <section id="comparacion-critica-de-robustez-y-escalabilidad">
 <h3>8.6.4. Comparación crítica de robustez y escalabilidad<a class="headerlink" href="#comparacion-critica-de-robustez-y-escalabilidad" title="Link to this heading">#</a></h3>
@@ -1104,6 +1116,7 @@
 </tbody>
 </table>
 </div>
+<p>El capítulo de arquitecturas desarrolla PatchTST numérico, N-HiTS, TFT, TCN e iTransformer, además de TaTS y fusión tardía con documentos oficiales. Cada ficha distingue el mecanismo implementado de su artículo orientador y enlaza el pipeline. Estas incorporaciones no alteran retrospectivamente el denominador de cinco estudios empíricos utilizado para contar comparadores. TGForecaster participa con cinco semillas en cada variante N y N+O.</p>
 </section>
 </section>
 <section id="sintesis-e-implicaciones-para-el-experimento">
@@ -1117,7 +1130,7 @@
 <section id="brecha-de-investigacion-y-pregunta-contrastable">
 <h2>Brecha de investigación y pregunta contrastable<a class="headerlink" href="#brecha-de-investigacion-y-pregunta-contrastable" title="Link to this heading">#</a></h2>
 <p>En el corpus auditado, los estudios con titulares y demanda se concentran en Reino Unido y los benchmarks numéricos utilizan otros sistemas eléctricos. No se identificó en estos estudios una comparación de demanda del SIN colombiano a 24 horas que combine disponibilidad histórica verificable de titulares, control del cambio de cobertura editorial y ablación numérica/documental con los mismos orígenes. La ausencia en este corpus no acredita inexistencia en toda la literatura.</p>
-<p>La brecha operativa del proyecto es determinar si el contexto documental disponible antes del origen añade capacidad predictiva al baseline numérico del SIN bajo cambios de régimen. La hipótesis contrastable es una reducción relativa de MASE de al menos el 3 %, acompañada de incertidumbre pareada por bloques, frente al baseline congelado y con presupuesto comparable. La siguiente etapa debe separar utilidad del contenido, cobertura de fuentes y selección de representación mediante ablaciones. Los resultados actuales establecen la referencia numérica y no prueban todavía esa contribución del texto.</p>
+<p>La brecha operativa del proyecto es determinar si el contexto documental disponible antes del origen añade capacidad predictiva al baseline numérico del SIN bajo cambios de régimen. La hipótesis contrastable es una reducción relativa de MASE de al menos el 3 %, acompañada de incertidumbre pareada por bloques, frente al baseline congelado y con presupuesto comparable. La evaluación contrasta TaTS y fusión tardía frente a PatchTST numérico, y TGForecaster con documentos frente a su variante numérica. Los controles de retirada, contenido cero y contenido histórico de la misma fuente examinan la dependencia del texto con pesos fijos. Permanecen pendientes la variante con prensa, las ablaciones por fuente y una comparación con núcleo e hiperparámetros idénticos para atribuir el efecto exclusivamente al contenido.</p>
 <p>Time-MMD, de Liu et al., y NSW-EPNews, de Bi et al., aportan referencias metodológicas para integrar series y documentos; sus resultados no se agregan a la evidencia empírica de demanda. Los doce resúmenes se mantienen como contexto, fuera del denominador de comparadores de texto completo.</p>
 </section>
 </section>

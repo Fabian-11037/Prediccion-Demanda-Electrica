@@ -1,0 +1,407 @@
+{
+ "version": "fusion_tardia_paquete_20261112",
+ "modelo": "Fusión tardía (pronóstico numérico + pronóstico de texto)",
+ "paquete": {
+  "clave": "fusion_tardia",
+  "nombre": "Fusión tardía (pronóstico numérico + pronóstico de texto)",
+  "red": "fusion_tardia",
+  "carpeta_resultados": "resultados_fusion_tardia",
+  "usa_descripciones": false,
+  "carpeta": "FusionTardia"
+ },
+ "contrato": "config/diseno_entrenamiento_texto.json",
+ "variantes": [
+  "N",
+  "N+O"
+ ],
+ "busqueda": {
+  "pliegue_inicial": 2018,
+  "pliegues_restantes": [
+   2019,
+   2020,
+   2021
+  ],
+  "semilla": 43,
+  "finalistas": 5,
+  "criterio_finalistas": "menor MASE de validación en el pliegue 2018; empates: menos parámetros y luego menor id",
+  "criterio_seleccion": "menor MASE medio de los cuatro pliegues (igual peso); empates: menos parámetros y luego menor id"
+ },
+ "final": {
+  "semillas": [
+   1000,
+   1001,
+   1002,
+   1003,
+   1004
+  ],
+  "ajuste": "orígenes con objetivo anterior a 2022-01-01; último 10 % como parada interna con purga de 24 h",
+  "prueba": "2022-01-01 a 2025-12-31, retrospectiva"
+ },
+ "entrenamiento": {
+  "optimizador": "AdamW",
+  "perdida": "MAE sobre demanda / nivel de la ventana",
+  "plan": "ReduceLROnPlateau(factor 0.5, paciencia 2)",
+  "max_epocas": 200,
+  "min_epocas": 10,
+  "paciencia": 6,
+  "mejora_relativa_minima": 0.002,
+  "recorte_gradiente": 1.0
+ },
+ "inferencia": {
+  "bloque_dias": 14,
+  "sensibilidad_bloque_dias": [
+   7,
+   28
+  ],
+  "remuestreos": 10000,
+  "semilla_bootstrap": 20261111,
+  "margen_relativo": 0.03
+ },
+ "arquitectura_fija": {
+  "formula": "y = y_num + alfa * m * y_txt",
+  "alfa_inicial": 0.5,
+  "ultima_capa_rama_texto": "inicia en cero",
+  "rama_texto": [
+   "relevancia (64)",
+   "d_fusion",
+   24
+  ],
+  "relevancia_texto": {
+   "dimension": 64,
+   "consulta": "media de las últimas 24 h y media de las 168 h de la historia numérica normalizada"
+  },
+  "patchtst": {
+   "parche": 16,
+   "paso": 8,
+   "relleno_final": 8,
+   "parches": 21,
+   "cabeza": "lineal sobre parches de demanda + MLP de contexto",
+   "ancho_contexto": 128
+  },
+  "d_ff": "2 x d_model",
+  "activacion": "GELU"
+ },
+ "prueba_rapida": {
+  "configuraciones": [
+   10,
+   20
+  ]
+ },
+ "configuraciones": [
+  {
+   "id": 1,
+   "nucleo": "itransformer",
+   "d_model": 128,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.001,
+   "weight_decay": 0.0001,
+   "lote": 64,
+   "d_fusion": 64
+  },
+  {
+   "id": 2,
+   "nucleo": "itransformer",
+   "d_model": 128,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64,
+   "d_fusion": 64
+  },
+  {
+   "id": 3,
+   "nucleo": "itransformer",
+   "d_model": 128,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.001,
+   "weight_decay": 0.001,
+   "lote": 128,
+   "d_fusion": 32
+  },
+  {
+   "id": 4,
+   "nucleo": "itransformer",
+   "d_model": 128,
+   "capas": 3,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64,
+   "d_fusion": 128
+  },
+  {
+   "id": 5,
+   "nucleo": "itransformer",
+   "d_model": 128,
+   "capas": 3,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.001,
+   "weight_decay": 0.001,
+   "lote": 128,
+   "d_fusion": 64
+  },
+  {
+   "id": 6,
+   "nucleo": "itransformer",
+   "d_model": 256,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64,
+   "d_fusion": 64
+  },
+  {
+   "id": 7,
+   "nucleo": "itransformer",
+   "d_model": 256,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.0001,
+   "weight_decay": 0.001,
+   "lote": 32,
+   "d_fusion": 128
+  },
+  {
+   "id": 8,
+   "nucleo": "itransformer",
+   "d_model": 256,
+   "capas": 3,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0001,
+   "weight_decay": 0.0001,
+   "lote": 32,
+   "d_fusion": 64
+  },
+  {
+   "id": 9,
+   "nucleo": "itransformer",
+   "d_model": 256,
+   "capas": 3,
+   "cabezas": 8,
+   "dropout": 0.3,
+   "lr": 0.0003,
+   "weight_decay": 0.01,
+   "lote": 128,
+   "d_fusion": 32
+  },
+  {
+   "id": 10,
+   "nucleo": "itransformer",
+   "d_model": 64,
+   "capas": 2,
+   "cabezas": 4,
+   "dropout": 0.1,
+   "lr": 0.001,
+   "weight_decay": 0.0001,
+   "lote": 64,
+   "d_fusion": 64
+  },
+  {
+   "id": 11,
+   "nucleo": "patchtst",
+   "d_model": 128,
+   "capas": 3,
+   "cabezas": 16,
+   "dropout": 0.2,
+   "lr": 0.0001,
+   "weight_decay": 0.0001,
+   "lote": 128,
+   "d_fusion": 64
+  },
+  {
+   "id": 12,
+   "nucleo": "patchtst",
+   "d_model": 128,
+   "capas": 3,
+   "cabezas": 16,
+   "dropout": 0.2,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64,
+   "d_fusion": 64
+  },
+  {
+   "id": 13,
+   "nucleo": "patchtst",
+   "d_model": 128,
+   "capas": 3,
+   "cabezas": 16,
+   "dropout": 0.3,
+   "lr": 0.001,
+   "weight_decay": 0.001,
+   "lote": 128,
+   "d_fusion": 32
+  },
+  {
+   "id": 14,
+   "nucleo": "patchtst",
+   "d_model": 128,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64,
+   "d_fusion": 128
+  },
+  {
+   "id": 15,
+   "nucleo": "patchtst",
+   "d_model": 64,
+   "capas": 3,
+   "cabezas": 4,
+   "dropout": 0.2,
+   "lr": 0.001,
+   "weight_decay": 0.0001,
+   "lote": 64,
+   "d_fusion": 64
+  },
+  {
+   "id": 16,
+   "nucleo": "patchtst",
+   "d_model": 64,
+   "capas": 3,
+   "cabezas": 4,
+   "dropout": 0.3,
+   "lr": 0.0003,
+   "weight_decay": 0.001,
+   "lote": 128,
+   "d_fusion": 64
+  },
+  {
+   "id": 17,
+   "nucleo": "patchtst",
+   "d_model": 16,
+   "capas": 3,
+   "cabezas": 4,
+   "dropout": 0.3,
+   "lr": 0.0001,
+   "weight_decay": 0.0001,
+   "lote": 128,
+   "d_fusion": 64
+  },
+  {
+   "id": 18,
+   "nucleo": "patchtst",
+   "d_model": 64,
+   "capas": 2,
+   "cabezas": 4,
+   "dropout": 0.1,
+   "lr": 0.001,
+   "weight_decay": 0.0001,
+   "lote": 32,
+   "d_fusion": 128
+  },
+  {
+   "id": 19,
+   "nucleo": "patchtst",
+   "d_model": 128,
+   "capas": 3,
+   "cabezas": 16,
+   "dropout": 0.1,
+   "lr": 0.0001,
+   "weight_decay": 0.01,
+   "lote": 32,
+   "d_fusion": 32
+  },
+  {
+   "id": 20,
+   "nucleo": "patchtst",
+   "d_model": 16,
+   "capas": 3,
+   "cabezas": 4,
+   "dropout": 0.3,
+   "lr": 0.001,
+   "weight_decay": 0.001,
+   "lote": 64,
+   "d_fusion": 64
+  }
+ ],
+ "desviaciones_declaradas": [
+  "Presupuesto: el contrato registra 20 configuraciones x 3 semillas (43, 44, 45) x 4 pliegues. Por tiempo y recursos, y antes de entrenar, el autor fijó 20 configuraciones x 1 semilla (43) en el pliegue 2018 y las 5 mejores en los pliegues 2019-2021. La comparación con otros modelos solo es equitativa si reciben el mismo esquema.",
+  "La preselección en un solo pliegue y con una sola semilla está expuesta al ruido de inicialización; el orden de las 20 configuraciones no se interpreta como evidencia.",
+  "Semillas finales: 5 (1000-1004). Es el mínimo de piloto del diseño; no acredita por sí mismo potencia 0,80.",
+  "El bloque 2022-2025 ya fue examinado con otros modelos del proyecto: la prueba es retrospectiva y no constituye evidencia confirmatoria independiente.",
+  "Texto: documentos oficiales con disponibilidad en [origen - 72 h, origen], como máximo los 64 más recientes; resumen por relevancia aprendida cuya consulta usa solo la historia numérica. Sin documentos el resumen vale cero.",
+  "Se entrenan N y N+O. La variante N+O+P (prensa) no forma parte de este paquete.",
+  "Ausencias numéricas: mediana del ajuste de cada pliegue y un indicador por bloque (precio, hidrología, clima), porque las columnas de cada bloque comparten el patrón de ausencia.",
+  "Modelo de fusión tardía (a nivel de salida): el núcleo numérico y la rama de texto producen cada uno un pronóstico de 24 h y se combinan con un peso escalar aprendido. Es una construcción propia a partir de esa definición general; no reproduce la configuración de un artículo, de modo que no queda exenta de la búsqueda de arquitecturas del E2 §14 si se incorpora al Top 10.",
+  "La combinación es aditiva (y_num + alfa * y_txt) y no convexa, porque sin documentos el pronóstico debe coincidir con el numérico. Las dos ramas se entrenan juntas; la última capa de la rama de texto empieza en cero y alfa en 0,5.",
+  "Los núcleos numéricos y las 20 configuraciones numéricas son los del paquete del modelo 6. La variante N es, por tanto, el mismo modelo que la variante N de ese paquete (mismas configuraciones y semillas); se repite aquí para que el contraste pareado N+O frente a N salga del mismo equipo.",
+  "iTransformer: embedding de identidad por variable y calendario futuro dentro de los tokens de calendario. PatchTST: codificación independiente por canal y cabeza de dos vías (lineal sobre los parches de la demanda y MLP de contexto de ancho 128). Son adaptaciones propias.",
+  "Durante la construcción del paquete se revisó la convergencia solo con el ajuste y la parada interna del pliegue 2018 (sin el año de validación ni la prueba). Las 20 configuraciones no se modificaron después."
+ ],
+ "manual": {
+  "titulo": "Entrenamiento de la fusión tardía",
+  "zip": "FusionTardia.zip",
+  "que_se_entrena": [
+   "Modelo de <b>fusión tardía</b>: un núcleo numérico (iTransformer en las configuraciones 1 a 10, PatchTST en las 11 a 20) pronostica las 24 h; una rama de texto pronostica otras 24 h a partir de los documentos oficiales del origen; el resultado es el primero más un peso aprendido por el segundo. Sin documentos, el pronóstico es exactamente el numérico.",
+   "Variantes <b>N</b> (solo numéricas) y <b>N+O</b> (numéricas + documentos oficiales), cada una con su propia búsqueda de 20 configuraciones. La variante N coincide con la N del paquete del modelo 6."
+  ],
+  "fijo": "PatchTST: parche 16, paso 8. d_fusion es el ancho de la rama de texto (solo N+O).",
+  "columnas": [
+   [
+    "id",
+    "#",
+    0.8
+   ],
+   [
+    "nucleo",
+    "Núcleo",
+    2.4
+   ],
+   [
+    "d_model",
+    "d_model",
+    1.8
+   ],
+   [
+    "capas",
+    "Capas",
+    1.5
+   ],
+   [
+    "cabezas",
+    "Cabezas",
+    1.9
+   ],
+   [
+    "dropout",
+    "Dropout",
+    1.9
+   ],
+   [
+    "lr",
+    "lr",
+    1.5
+   ],
+   [
+    "weight_decay",
+    "weight decay",
+    2.2
+   ],
+   [
+    "lote",
+    "Lote",
+    1.2
+   ],
+   [
+    "d_fusion",
+    "d_fusion",
+    2.0
+   ]
+  ]
+ }
+}

@@ -1,0 +1,384 @@
+{
+ "version": "modelo7_tgforecaster_paquete_20261112",
+ "modelo": "Modelo 7 (TGForecaster adaptado)",
+ "paquete": {
+  "clave": "modelo7",
+  "nombre": "Modelo 7 (TGForecaster adaptado)",
+  "red": "tgforecaster",
+  "carpeta_resultados": "resultados_modelo7",
+  "usa_descripciones": true,
+  "carpeta": "Modelo7_TGForecaster"
+ },
+ "contrato": "config/diseno_entrenamiento_texto.json",
+ "variantes": [
+  "N",
+  "N+O"
+ ],
+ "busqueda": {
+  "pliegue_inicial": 2018,
+  "pliegues_restantes": [
+   2019,
+   2020,
+   2021
+  ],
+  "semilla": 43,
+  "finalistas": 5,
+  "criterio_finalistas": "menor MASE de validación en el pliegue 2018; empates: menos parámetros y luego menor id",
+  "criterio_seleccion": "menor MASE medio de los cuatro pliegues (igual peso); empates: menos parámetros y luego menor id"
+ },
+ "final": {
+  "semillas": [
+   1000,
+   1001,
+   1002,
+   1003,
+   1004
+  ],
+  "ajuste": "orígenes con objetivo anterior a 2022-01-01; último 10 % como parada interna con purga de 24 h",
+  "prueba": "2022-01-01 a 2025-12-31, retrospectiva"
+ },
+ "entrenamiento": {
+  "optimizador": "AdamW",
+  "perdida": "MAE sobre demanda / nivel de la ventana",
+  "plan": "ReduceLROnPlateau(factor 0.5, paciencia 2)",
+  "max_epocas": 200,
+  "min_epocas": 10,
+  "paciencia": 6,
+  "mejora_relativa_minima": 0.002,
+  "recorte_gradiente": 1.0
+ },
+ "inferencia": {
+  "bloque_dias": 14,
+  "sensibilidad_bloque_dias": [
+   7,
+   28
+  ],
+  "remuestreos": 10000,
+  "semilla_bootstrap": 20261111,
+  "margen_relativo": 0.03
+ },
+ "arquitectura_fija": {
+  "parches_historia": {
+   "parche": 16,
+   "paso": 8,
+   "relleno_final": 8,
+   "parches": 21
+  },
+  "parches_horizonte": {
+   "parche": 8,
+   "paso": 4,
+   "consultas": 5
+  },
+  "normalizacion": "nivel de la ventana del motor del proyecto; sin normalización reversible",
+  "relevancia_texto": {
+   "dimension": 64,
+   "consulta": "descripción de la demanda + media de las últimas 24 h y de las 168 h de la historia numérica"
+  },
+  "memoria": "parches de todas las variables + descripción de cada canal + 7 tokens de calendario diario",
+  "consulta_horizonte": "descripción de la demanda + resumen de documentos + calendario futuro del parche + posición",
+  "decodificador": "lineal por token al largo del parche y suma ponderada de los parches solapados",
+  "d_ff": "2 x d_model",
+  "activacion": "GELU"
+ },
+ "prueba_rapida": {
+  "configuraciones": [
+   15,
+   17
+  ]
+ },
+ "configuraciones": [
+  {
+   "id": 1,
+   "d_model": 64,
+   "capas": 2,
+   "capas_mezcla": 1,
+   "cabezas": 4,
+   "dropout": 0.1,
+   "lr": 0.001,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 2,
+   "d_model": 64,
+   "capas": 2,
+   "capas_mezcla": 2,
+   "cabezas": 4,
+   "dropout": 0.2,
+   "lr": 0.001,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 3,
+   "d_model": 64,
+   "capas": 3,
+   "capas_mezcla": 1,
+   "cabezas": 4,
+   "dropout": 0.2,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 4,
+   "d_model": 64,
+   "capas": 3,
+   "capas_mezcla": 2,
+   "cabezas": 4,
+   "dropout": 0.1,
+   "lr": 0.0003,
+   "weight_decay": 0.001,
+   "lote": 128
+  },
+  {
+   "id": 5,
+   "d_model": 64,
+   "capas": 3,
+   "capas_mezcla": 3,
+   "cabezas": 4,
+   "dropout": 0.3,
+   "lr": 0.001,
+   "weight_decay": 0.001,
+   "lote": 128
+  },
+  {
+   "id": 6,
+   "d_model": 64,
+   "capas": 2,
+   "capas_mezcla": 3,
+   "cabezas": 4,
+   "dropout": 0.1,
+   "lr": 0.0001,
+   "weight_decay": 0.0001,
+   "lote": 32
+  },
+  {
+   "id": 7,
+   "d_model": 128,
+   "capas": 2,
+   "capas_mezcla": 1,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 8,
+   "d_model": 128,
+   "capas": 2,
+   "capas_mezcla": 2,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 9,
+   "d_model": 128,
+   "capas": 3,
+   "capas_mezcla": 1,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.001,
+   "weight_decay": 0.001,
+   "lote": 128
+  },
+  {
+   "id": 10,
+   "d_model": 128,
+   "capas": 3,
+   "capas_mezcla": 2,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0001,
+   "weight_decay": 0.0001,
+   "lote": 32
+  },
+  {
+   "id": 11,
+   "d_model": 128,
+   "capas": 3,
+   "capas_mezcla": 3,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.0003,
+   "weight_decay": 0.001,
+   "lote": 64
+  },
+  {
+   "id": 12,
+   "d_model": 128,
+   "capas": 3,
+   "capas_mezcla": 3,
+   "cabezas": 8,
+   "dropout": 0.3,
+   "lr": 0.001,
+   "weight_decay": 0.01,
+   "lote": 128
+  },
+  {
+   "id": 13,
+   "d_model": 128,
+   "capas": 2,
+   "capas_mezcla": 3,
+   "cabezas": 16,
+   "dropout": 0.2,
+   "lr": 0.0001,
+   "weight_decay": 0.0001,
+   "lote": 128
+  },
+  {
+   "id": 14,
+   "d_model": 128,
+   "capas": 3,
+   "capas_mezcla": 2,
+   "cabezas": 16,
+   "dropout": 0.3,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 15,
+   "d_model": 32,
+   "capas": 3,
+   "capas_mezcla": 1,
+   "cabezas": 4,
+   "dropout": 0.1,
+   "lr": 0.001,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 16,
+   "d_model": 32,
+   "capas": 3,
+   "capas_mezcla": 2,
+   "cabezas": 4,
+   "dropout": 0.2,
+   "lr": 0.001,
+   "weight_decay": 0.001,
+   "lote": 64
+  },
+  {
+   "id": 17,
+   "d_model": 32,
+   "capas": 2,
+   "capas_mezcla": 3,
+   "cabezas": 4,
+   "dropout": 0.3,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 128
+  },
+  {
+   "id": 18,
+   "d_model": 256,
+   "capas": 2,
+   "capas_mezcla": 1,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.0001,
+   "weight_decay": 0.001,
+   "lote": 32
+  },
+  {
+   "id": 19,
+   "d_model": 256,
+   "capas": 3,
+   "capas_mezcla": 2,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0001,
+   "weight_decay": 0.0001,
+   "lote": 32
+  },
+  {
+   "id": 20,
+   "d_model": 256,
+   "capas": 2,
+   "capas_mezcla": 2,
+   "cabezas": 8,
+   "dropout": 0.3,
+   "lr": 0.0003,
+   "weight_decay": 0.01,
+   "lote": 128
+  }
+ ],
+ "desviaciones_declaradas": [
+  "Presupuesto: el contrato registra 20 configuraciones x 3 semillas (43, 44, 45) x 4 pliegues. Por tiempo y recursos, y antes de entrenar, el autor fijó 20 configuraciones x 1 semilla (43) en el pliegue 2018 y las 5 mejores en los pliegues 2019-2021. La comparación con otros modelos solo es equitativa si reciben el mismo esquema.",
+  "La preselección en un solo pliegue y con una sola semilla está expuesta al ruido de inicialización; el orden de las 20 configuraciones no se interpreta como evidencia.",
+  "Semillas finales: 5 (1000-1004). Es el mínimo de piloto del diseño; no acredita por sí mismo potencia 0,80.",
+  "El bloque 2022-2025 ya fue examinado con otros modelos del proyecto: la prueba es retrospectiva y no constituye evidencia confirmatoria independiente.",
+  "Texto: documentos oficiales con disponibilidad en [origen - 72 h, origen], como máximo los 64 más recientes; resumen por relevancia aprendida cuya consulta usa solo la historia numérica. Sin documentos el resumen vale cero.",
+  "Se entrenan N y N+O. La variante N+O+P (prensa) no forma parte de este paquete.",
+  "Ausencias numéricas: mediana del ajuste de cada pliegue y un indicador por bloque (precio, hidrología, clima), porque las columnas de cada bloque comparten el patrón de ausencia.",
+  "El artículo de TGForecaster (arXiv:2405.13522) no publica número de capas, dimensión, cabezas ni hiperparámetros de entrenamiento; remite a su código. Solo fija parches de 6 con paso 3 (16 y 8 en su conjunto sintético). Este paquete no adopta, por tanto, una configuración publicada: el modelo no queda exento de la búsqueda de arquitecturas del E2 §14, y las 20 configuraciones son la búsqueda de hiperparámetros acordada, no esa búsqueda.",
+  "El artículo usa texto del periodo que se pronostica. Aquí no existe texto futuro: se usan solo documentos disponibles en el origen o antes.",
+  "Consultas del horizonte: 5 parches de 8 h con paso 4. Cada consulta suma la descripción de la demanda, el resumen de documentos, el calendario futuro de su parche y una posición aprendida. El decodificador proyecta cada token a su parche y combina los solapados con pesos aprendidos que suman 1 por hora.",
+  "Memoria de la atención cruzada: parches de todas las variables de la historia (no solo de la demanda), identificadas con su descripción, más siete tokens con el calendario diario de la historia. Es una adaptación propia: el artículo trata cada canal por separado y pronostica todos; aquí solo se pronostica la demanda y las covariables deben poder informarla.",
+  "Relevancia de documentos: una sola etapa con pesos aprendidos, cuya consulta combina la descripción de la demanda con la historia numérica (regla del contrato), en lugar de los bloques de atención cruzada del artículo.",
+  "Parches de la historia de 16 h con paso 8, como en el modelo 6. Sin normalización reversible, igual que el artículo; la demanda se normaliza con el nivel de la ventana, como en el resto del proyecto.",
+  "Descripciones de canal: tomadas del diccionario de datos del proyecto (sin la cláusula de desplazamiento, con su unidad); las tres de ausencia se redactaron para este paquete. Se codifican con el mismo codificador congelado que los documentos. La variante N las conserva: no son información externa.",
+  "Durante la construcción del paquete se revisó la convergencia solo con el ajuste y la parada interna del pliegue 2018 (sin el año de validación ni la prueba). Las 20 configuraciones no se modificaron después."
+ ],
+ "manual": {
+  "titulo": "Entrenamiento del modelo 7",
+  "zip": "Modelo7_TGForecaster.zip",
+  "que_se_entrena": [
+   "Modelo 7 del Top 10: <b>TGForecaster adaptado</b>. Un codificador de parches procesa cada variable de la historia; cinco consultas, una por parche del horizonte, combinan la descripción de la demanda, el resumen de los documentos oficiales y el calendario futuro, y leen la historia por atención cruzada; un decodificador por tokens arma las 24 h.",
+   "Variantes <b>N</b> (sin documentos; conserva las descripciones de canal) y <b>N+O</b> (con documentos oficiales), cada una con su propia búsqueda de 20 configuraciones."
+  ],
+  "fijo": "Parches de la historia 16/8; parches del horizonte 8/4. capas es la profundidad del codificador y capas_mezcla la de la atención cruzada.",
+  "columnas": [
+   [
+    "id",
+    "#",
+    0.8
+   ],
+   [
+    "d_model",
+    "d_model",
+    2.0
+   ],
+   [
+    "capas",
+    "Capas",
+    1.7
+   ],
+   [
+    "capas_mezcla",
+    "Capas de mezcla",
+    2.6
+   ],
+   [
+    "cabezas",
+    "Cabezas",
+    2.0
+   ],
+   [
+    "dropout",
+    "Dropout",
+    2.0
+   ],
+   [
+    "lr",
+    "lr",
+    1.7
+   ],
+   [
+    "weight_decay",
+    "weight decay",
+    2.6
+   ],
+   [
+    "lote",
+    "Lote",
+    1.8
+   ]
+  ]
+ }
+}

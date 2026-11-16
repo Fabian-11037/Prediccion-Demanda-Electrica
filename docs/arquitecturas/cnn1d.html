@@ -1,0 +1,813 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10.5. CNN1D: filtros locales sobre la historia &#8212; Pronóstico de la demanda eléctrica del SIN colombiano</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'arquitecturas/cnn1d';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="10.6. PatchTST numérico" href="patchtst.html" />
+    <link rel="prev" title="10.4. LSTM: memoria recurrente con compuertas" href="lstm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Pronóstico de la demanda eléctrica del SIN colombiano</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Pronóstico de la demanda eléctrica del SIN colombiano
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_datos.html">1. Problema y datos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../diccionario.html">Diccionario de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_calidad.html">2. Calidad e integridad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_demanda.html">3. Distribución y evolución de la demanda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_estacionalidad.html">4. Calendario y estacionalidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_covariables.html">6. Covariables y disponibilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_literatura.html">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="fundamentos.html">10.1. Fundamentos y preprocesamiento compartido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arx.html">10.2. ARX lineal regularizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mlp.html">10.3. MLP: perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lstm.html">10.4. LSTM: memoria recurrente con compuertas</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.5. CNN1D: filtros locales sobre la historia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patchtst.html">10.6. PatchTST numérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nhits.html">10.7. N-HiTS: interpolación jerárquica residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tft.html">10.8. TFT: selección de variables y atención interpretable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcn.html">10.9. TCN: convoluciones causales dilatadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="itransformer.html">10.10. iTransformer: atención entre variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuentes.html">Fuentes y fundamento metodológico</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/arquitecturas/cnn1d.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>10.5. CNN1D: filtros locales sobre la historia</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-y-fundamentos">Arquitectura y fundamentos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esquema-global">Esquema global</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detalle-de-las-operaciones">Detalle de las operaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-la-arquitectura">Código de la arquitectura</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escalado-por-pliegue-y-optimizacion">Escalado por pliegue y optimización</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion">Evaluación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes">Fuentes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cnn1d-filtros-locales-sobre-la-historia">
+<span id="e2-cnn1d"></span><h1>10.5. CNN1D: filtros locales sobre la historia<a class="headerlink" href="#cnn1d-filtros-locales-sobre-la-historia" title="Link to this heading">#</a></h1>
+<p>La <a class="reference internal" href="fundamentos.html#fundamentos-arquitecturas"><span class="std std-ref">notación y las operaciones compartidas</span></a> definen los tensores, el nivel de demanda, la atención, las activaciones y la optimización.</p>
+<section id="arquitectura-y-fundamentos">
+<h2>Arquitectura y fundamentos<a class="headerlink" href="#arquitectura-y-fundamentos" title="Link to this heading">#</a></h2>
+<p>La CNN1D busca patrones cortos, como una rampa o un cambio de pendiente, mediante filtros compartidos en todas las posiciones. Compartir pesos permite detectar una forma similar en distintas horas. La agregación posterior combina esas respuestas con el calendario de las horas que se pronostican.</p>
+<p>La red seleccionada tiene una sola convolución de 16 filtros y núcleo de cinco horas sobre 24 canales de entrada. Se añade relleno simétrico de dos posiciones para conservar la longitud de 168. Después de ReLU y dropout por canal de 0,1, un promedio de dos horas reduce la longitud a 84. Los <span class="math notranslate nohighlight">\(16\times84=1.344\)</span> atributos se concatenan con los 552 del calendario futuro; una capa <span class="math notranslate nohighlight">\(1.896\rightarrow24\)</span> produce las correcciones. El total es de 47.464 parámetros.</p>
+<div class="math notranslate nohighlight">
+\[z_{s,c}=\operatorname{ReLU}\!\left(b_c+\sum_{j=1}^{24}\sum_{i=-2}^{2}K_{cij}x_{s+i,j}\right),\quad
+\widehat{\mathbf y}=\ell_t\left[\mathbf1+W[\operatorname{vec}(\operatorname{AvgPool}_2z);\operatorname{vec}(F)]+b\right].\]</div>
+<p>El filtro no es causal dentro de la ventana, porque utiliza posiciones vecinas a izquierda y derecha. Esto no implica consultar el horizonte: todas las posiciones de la ventana son anteriores al origen. Es diferente de la TCN, que sí impone causalidad en cada convolución. La capa final reúne toda la historia filtrada, mientras que el campo local de cada filtro es de cinco horas. Se ajusta con Huber y AdamW; los escaladores y los pesos restaurados se mantienen fijos al evaluar.</p>
+<section id="esquema-global">
+<h3>Esquema global<a class="headerlink" href="#esquema-global" title="Link to this heading">#</a></h3>
+<p><a class="reference download internal" download="" href="../_downloads/1744366022fd52160cb48df669241258/cnn1d_global.png"><span class="xref download myst"><img alt="Arquitectura global de cnn1d" src="../_images/cnn1d_global.png" /></span></a></p>
+<p>La convolución extrae patrones locales de la demanda y del calendario pasado. La agrupación reduce la historia; su representación se combina con el calendario futuro para obtener 24 correcciones.</p>
+</section>
+<section id="detalle-de-las-operaciones">
+<h3>Detalle de las operaciones<a class="headerlink" href="#detalle-de-las-operaciones" title="Link to this heading">#</a></h3>
+<p><a class="reference download internal" download="" href="../_downloads/4d7a09a94764d7858e501764717ac80f/cnn1d_detalle.png"><span class="xref download myst"><img alt="Detalle de la arquitectura de cnn1d" src="../_images/cnn1d_detalle.png" /></span></a></p>
+<p>Cada filtro consulta cinco posiciones de la historia y los 24 canales de entrada. AvgPool combina pares de horas; los 1.344 atributos resultantes y los 552 del calendario alimentan la lectura lineal.</p>
+<p>El <a class="reference internal" href="fundamentos.html#exportacion-esquemas"><span class="std std-ref">código de exportación de los esquemas</span></a> forma parte del preprocesamiento compartido.</p>
+</section>
+<section id="codigo-de-la-arquitectura">
+<h3>Código de la arquitectura<a class="headerlink" href="#codigo-de-la-arquitectura" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">asdict</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">modelos_base</span> <span class="k">as</span> <span class="n">M</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="k">class</span><span class="w"> </span><span class="nc">Secuencial</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="linenos">14</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nombre</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">tr</span><span class="p">):</span>
+<span class="linenos">15</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">();</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="o">=</span><span class="n">nombre</span>
+<span class="linenos">16</span>        <span class="n">f</span><span class="o">=</span><span class="n">tr</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">tr</span><span class="o">.</span><span class="n">cal_p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="n">L</span><span class="o">=</span><span class="n">tr</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="n">H</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">tr</span><span class="o">.</span><span class="n">cal_f</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="linenos">17</span>        <span class="k">if</span> <span class="n">nombre</span><span class="o">==</span><span class="s1">'lstm'</span><span class="p">:</span>
+<span class="linenos">18</span>            <span class="n">w</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">'unidades'</span><span class="p">]);</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">LSTM</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span><span class="n">d</span><span class="o">=</span><span class="n">w</span>
+<span class="linenos">19</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">20</span>            <span class="n">w</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">'filtros'</span><span class="p">]);</span><span class="n">kernel</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">'kernel'</span><span class="p">])</span>
+<span class="linenos">21</span>            <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv1d</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">padding</span><span class="o">=</span><span class="n">kernel</span><span class="o">//</span><span class="mi">2</span><span class="p">),</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span><span class="n">nn</span><span class="o">.</span><span class="n">Dropout1d</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">'dropout'</span><span class="p">]),</span><span class="n">nn</span><span class="o">.</span><span class="n">AvgPool1d</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">());</span><span class="n">d</span><span class="o">=</span><span class="n">w</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">22</span>        <span class="bp">self</span><span class="o">.</span><span class="n">drop</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">'dropout'</span><span class="p">]);</span><span class="bp">self</span><span class="o">.</span><span class="n">salida</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d</span><span class="o">+</span><span class="n">H</span><span class="o">*</span><span class="n">k</span><span class="p">,</span><span class="n">H</span><span class="p">)</span>
+<span class="linenos">23</span>        <span class="c1"># Predicción inicial próxima al nivel; aprende desviaciones horarias.</span>
+<span class="linenos">24</span>        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">zeros_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">salida</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+<span class="linenos">26</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="o">==</span><span class="s1">'lstm'</span><span class="p">:</span><span class="n">_</span><span class="p">,(</span><span class="n">h</span><span class="p">,</span><span class="n">_</span><span class="p">)</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="n">z</span><span class="o">=</span><span class="n">h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">27</span>        <span class="k">else</span><span class="p">:</span><span class="n">z</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="linenos">28</span>        <span class="k">return</span> <span class="mf">1.</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">salida</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">z</span><span class="p">),</span><span class="n">c</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">1</span><span class="p">)],</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos">29</span>    <span class="k">def</span><span class="w"> </span><span class="nf">preparar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">):</span><span class="k">pass</span>
+<span class="linenos">30</span>    <span class="k">def</span><span class="w"> </span><span class="nf">penalizacion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="k">return</span> <span class="mf">0.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="pipeline-de-entrenamiento-y-prueba">
+<h2>Pipeline de entrenamiento y prueba<a class="headerlink" href="#pipeline-de-entrenamiento-y-prueba" title="Link to this heading">#</a></h2>
+<p>La configuración utilizada por esta familia es:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cnn1d_17"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"ventana"</span><span class="p">:</span><span class="w"> </span><span class="mi">168</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"capas"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"dropout"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"weight_decay"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0001</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"batch_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"lr"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0003</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"scheduler"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plateau"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"perdida"</span><span class="p">:</span><span class="w"> </span><span class="s2">"huber"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"paciencia"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"filtros"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"kernel"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>El procedimiento separa ajuste, parada interna y evaluación externa, estima las transformaciones únicamente en ajuste y restaura el mínimo de parada. La función admite validación o prueba con autorización explícita y conserva las salidas en una carpeta nueva. Los bloques siguientes documentan el código; construir el libro no ejecuta entrenamientos.</p>
+<section id="escalado-por-pliegue-y-optimizacion">
+<h3>Escalado por pliegue y optimización<a class="headerlink" href="#escalado-por-pliegue-y-optimizacion" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="sd">"""Preprocesamiento por fold y redes pequeñas para la reevaluación exploratoria v3."""</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">asdict</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="linenos"> 6</span><span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+<span class="linenos"> 7</span><span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">modelos_base</span> <span class="k">as</span> <span class="n">M</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">class</span><span class="w"> </span><span class="nc">DatosFold</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">Datos</span><span class="p">):</span>
+<span class="linenos">10</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">panel</span><span class="p">,</span> <span class="n">registro</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">posiciones_train</span><span class="p">,</span> <span class="n">secuencial</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="linenos">11</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span> <span class="n">registro</span><span class="p">,</span> <span class="n">cfg</span><span class="p">)</span>
+<span class="linenos">12</span>        <span class="n">pos</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">posiciones_train</span><span class="p">)</span>
+<span class="linenos">13</span>        <span class="n">inicio</span><span class="o">=</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">pos</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">-</span><span class="n">cfg</span><span class="o">.</span><span class="n">ventana</span><span class="p">]</span>
+<span class="linenos">14</span>        <span class="n">fin</span><span class="o">=</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">pos</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">15</span>        <span class="n">filas</span><span class="o">=</span><span class="n">panel</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="o">&gt;=</span><span class="n">inicio</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="o">&lt;=</span><span class="n">fin</span><span class="p">)]</span>
+<span class="linenos">16</span>        <span class="n">cols</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cols_x</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">cols_cal</span>
+<span class="linenos">17</span>        <span class="bp">self</span><span class="o">.</span><span class="n">escala</span><span class="o">.</span><span class="n">media_</span><span class="o">=</span><span class="n">filas</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="linenos">18</span>        <span class="bp">self</span><span class="o">.</span><span class="n">escala</span><span class="o">.</span><span class="n">std_</span><span class="o">=</span><span class="n">filas</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.</span><span class="p">)</span>
+<span class="linenos">19</span>        <span class="c1"># Estadísticas del objetivo exclusivamente en etiquetas de entrenamiento.</span>
+<span class="linenos">20</span>        <span class="n">target</span><span class="o">=</span><span class="s1">'y_demanda_real_kwh'</span>
+<span class="linenos">21</span>        <span class="n">etiquetas</span><span class="o">=</span><span class="n">panel</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="o">&gt;=</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">pos</span><span class="o">.</span><span class="n">min</span><span class="p">()])</span><span class="o">&amp;</span><span class="p">(</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="o">&lt;=</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">pos</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span><span class="o">+</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">horizonte</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span><span class="n">target</span><span class="p">]</span>
+<span class="linenos">22</span>        <span class="bp">self</span><span class="o">.</span><span class="n">escala</span><span class="o">.</span><span class="n">media_</span><span class="p">[</span><span class="n">target</span><span class="p">]</span><span class="o">=</span><span class="n">etiquetas</span><span class="o">.</span><span class="n">mean</span><span class="p">();</span><span class="bp">self</span><span class="o">.</span><span class="n">escala</span><span class="o">.</span><span class="n">std_</span><span class="p">[</span><span class="n">target</span><span class="p">]</span><span class="o">=</span><span class="n">etiquetas</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="linenos">23</span>        <span class="bp">self</span><span class="o">.</span><span class="n">secuencial</span><span class="o">=</span><span class="kc">False</span>
+<span class="linenos">24</span>        <span class="n">train</span><span class="o">=</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">conjunto_pos</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+<span class="linenos">25</span>        <span class="bp">self</span><span class="o">.</span><span class="n">sigma_demanda</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">x</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()),</span><span class="mf">1e-6</span><span class="p">)</span>
+<span class="linenos">26</span>        <span class="bp">self</span><span class="o">.</span><span class="n">secuencial</span><span class="o">=</span><span class="n">secuencial</span>
+<span class="linenos">27</span>        <span class="bp">self</span><span class="o">.</span><span class="n">auditoria</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">inicio_ajuste</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">inicio</span><span class="p">),</span><span class="n">fin_ajuste</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">fin</span><span class="p">),</span><span class="n">filas</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">filas</span><span class="p">),</span><span class="n">sigma_demanda</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma_demanda</span><span class="p">,</span><span class="n">secuencial</span><span class="o">=</span><span class="n">secuencial</span><span class="p">,</span>
+<span class="linenos">28</span>            <span class="n">descripcion_escala_mase</span><span class="o">=</span><span class="s1">'Fija 2000–2017, como denominador de referencia de la ejecución original; no participa en optimización'</span><span class="p">)</span>
+<span class="linenos">29</span>    <span class="k">def</span><span class="w"> </span><span class="nf">conjunto_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">clave</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos">30</span>        <span class="n">c</span><span class="o">=</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">conjunto_pos</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="n">clave</span><span class="p">)</span>
+<span class="linenos">31</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">secuencial</span><span class="p">:</span>
+<span class="linenos">32</span>            <span class="n">c</span><span class="o">.</span><span class="n">x</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">x</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mf">1.</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma_demanda</span>
+<span class="linenos">33</span>        <span class="k">return</span> <span class="n">c</span>
+<span class="linenos">34</span>    <span class="k">def</span><span class="w"> </span><span class="nf">escaladores</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">35</span>        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">media</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">escala</span><span class="o">.</span><span class="n">media_</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span><span class="n">std</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">escala</span><span class="o">.</span><span class="n">std_</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span><span class="n">columnas_x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cols_x</span><span class="p">,</span><span class="n">columnas_cal</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cols_cal</span><span class="p">,</span>
+<span class="linenos">36</span>            <span class="n">escala_mase</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">escala_mase</span><span class="p">,</span><span class="n">datos</span><span class="o">=</span><span class="n">asdict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cfg</span><span class="p">),</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">auditoria</span><span class="p">)</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="k">class</span><span class="w"> </span><span class="nc">Secuencial</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="linenos">39</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nombre</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">tr</span><span class="p">):</span>
+<span class="linenos">40</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">();</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="o">=</span><span class="n">nombre</span>
+<span class="linenos">41</span>        <span class="n">f</span><span class="o">=</span><span class="n">tr</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">tr</span><span class="o">.</span><span class="n">cal_p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="n">L</span><span class="o">=</span><span class="n">tr</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="n">H</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">tr</span><span class="o">.</span><span class="n">cal_f</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="linenos">42</span>        <span class="k">if</span> <span class="n">nombre</span><span class="o">==</span><span class="s1">'lstm'</span><span class="p">:</span>
+<span class="linenos">43</span>            <span class="n">w</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">'unidades'</span><span class="p">]);</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">LSTM</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span><span class="n">d</span><span class="o">=</span><span class="n">w</span>
+<span class="linenos">44</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">45</span>            <span class="n">w</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">'filtros'</span><span class="p">]);</span><span class="n">kernel</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">'kernel'</span><span class="p">])</span>
+<span class="linenos">46</span>            <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv1d</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">padding</span><span class="o">=</span><span class="n">kernel</span><span class="o">//</span><span class="mi">2</span><span class="p">),</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span><span class="n">nn</span><span class="o">.</span><span class="n">Dropout1d</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">'dropout'</span><span class="p">]),</span><span class="n">nn</span><span class="o">.</span><span class="n">AvgPool1d</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">());</span><span class="n">d</span><span class="o">=</span><span class="n">w</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">47</span>        <span class="bp">self</span><span class="o">.</span><span class="n">drop</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">'dropout'</span><span class="p">]);</span><span class="bp">self</span><span class="o">.</span><span class="n">salida</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d</span><span class="o">+</span><span class="n">H</span><span class="o">*</span><span class="n">k</span><span class="p">,</span><span class="n">H</span><span class="p">)</span>
+<span class="linenos">48</span>        <span class="c1"># Predicción inicial próxima al nivel; aprende desviaciones horarias.</span>
+<span class="linenos">49</span>        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">zeros_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">salida</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
+<span class="linenos">50</span>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+<span class="linenos">51</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="o">==</span><span class="s1">'lstm'</span><span class="p">:</span><span class="n">_</span><span class="p">,(</span><span class="n">h</span><span class="p">,</span><span class="n">_</span><span class="p">)</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="n">z</span><span class="o">=</span><span class="n">h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">52</span>        <span class="k">else</span><span class="p">:</span><span class="n">z</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="linenos">53</span>        <span class="k">return</span> <span class="mf">1.</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">salida</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">z</span><span class="p">),</span><span class="n">c</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">1</span><span class="p">)],</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos">54</span>    <span class="k">def</span><span class="w"> </span><span class="nf">preparar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">):</span><span class="k">pass</span>
+<span class="linenos">55</span>    <span class="k">def</span><span class="w"> </span><span class="nf">penalizacion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="k">return</span> <span class="mf">0.</span>
+<span class="linenos">56</span>
+<span class="linenos">57</span><span class="k">class</span><span class="w"> </span><span class="nc">Entrenador</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">ModeloTorch</span><span class="p">):</span>
+<span class="linenos">58</span>    <span class="k">def</span><span class="w"> </span><span class="nf">ajustar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">tr</span><span class="p">,</span><span class="n">va</span><span class="p">,</span><span class="n">datos</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">semilla</span><span class="p">,</span><span class="n">op</span><span class="p">):</span>
+<span class="linenos">59</span>        <span class="n">M</span><span class="o">.</span><span class="n">fijar_semillas</span><span class="p">(</span><span class="n">semilla</span><span class="p">,</span><span class="n">op</span><span class="p">);</span><span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="o">=</span><span class="n">dev</span><span class="o">=</span><span class="n">M</span><span class="o">.</span><span class="n">resolver_dispositivo</span><span class="p">(</span><span class="n">op</span><span class="o">.</span><span class="n">dispositivo</span><span class="p">)</span>
+<span class="linenos">60</span>        <span class="bp">self</span><span class="o">.</span><span class="n">red</span><span class="o">=</span><span class="n">red</span><span class="o">=</span><span class="p">(</span><span class="n">Secuencial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">tr</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'lstm'</span><span class="p">,</span><span class="s1">'cnn1d'</span><span class="p">)</span> <span class="k">else</span> <span class="n">M</span><span class="o">.</span><span class="n">construir_red</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">tr</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+<span class="linenos">61</span>        <span class="n">xt</span><span class="p">,</span><span class="n">ct</span><span class="p">,</span><span class="n">yt</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_tensores</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span><span class="n">datos</span><span class="o">.</span><span class="n">objetivo_norm</span><span class="p">(</span><span class="n">tr</span><span class="p">),</span><span class="n">dev</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">62</span>        <span class="n">xv</span><span class="p">,</span><span class="n">cv</span><span class="p">,</span><span class="n">yv</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_tensores</span><span class="p">(</span><span class="n">va</span><span class="p">,</span><span class="n">datos</span><span class="o">.</span><span class="n">objetivo_norm</span><span class="p">(</span><span class="n">va</span><span class="p">),</span><span class="n">dev</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">63</span>        <span class="n">red</span><span class="o">.</span><span class="n">preparar</span><span class="p">(</span><span class="n">xt</span><span class="p">,</span><span class="n">ct</span><span class="p">)</span>
+<span class="linenos">64</span>        <span class="n">lossf</span><span class="o">=</span><span class="p">{</span><span class="s1">'mse'</span><span class="p">:</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">(),</span><span class="s1">'mae'</span><span class="p">:</span><span class="n">nn</span><span class="o">.</span><span class="n">L1Loss</span><span class="p">(),</span><span class="s1">'huber'</span><span class="p">:</span><span class="n">nn</span><span class="o">.</span><span class="n">HuberLoss</span><span class="p">(</span><span class="n">delta</span><span class="o">=</span><span class="mf">.05</span><span class="p">)}[</span><span class="n">p</span><span class="p">[</span><span class="s1">'perdida'</span><span class="p">]]</span>
+<span class="linenos">65</span>        <span class="n">opt</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">AdamW</span><span class="p">(</span><span class="n">red</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span><span class="n">lr</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="s1">'lr'</span><span class="p">],</span><span class="n">weight_decay</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'weight_decay'</span><span class="p">,</span><span class="mf">0.</span><span class="p">))</span>
+<span class="linenos">66</span>        <span class="n">sched</span><span class="o">=</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">ReduceLROnPlateau</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="n">factor</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span><span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s1">'scheduler'</span><span class="p">]</span><span class="o">==</span><span class="s1">'plateau'</span> <span class="k">else</span>
+<span class="linenos">67</span>            <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">CosineAnnealingLR</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="n">T_max</span><span class="o">=</span><span class="n">op</span><span class="o">.</span><span class="n">max_epocas</span><span class="p">)</span> <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s1">'scheduler'</span><span class="p">]</span><span class="o">==</span><span class="s1">'cosine'</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+<span class="linenos">68</span>        <span class="n">best</span><span class="o">=</span><span class="n">reference</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">);</span><span class="n">state</span><span class="o">=</span><span class="kc">None</span><span class="p">;</span><span class="n">stale</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">hist</span><span class="o">=</span><span class="p">[];</span><span class="n">gen</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">Generator</span><span class="p">()</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">semilla</span><span class="p">)</span>
+<span class="linenos">69</span>        <span class="n">bs</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">'batch_size'</span><span class="p">])</span>
+<span class="linenos">70</span>        <span class="k">for</span> <span class="n">ep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">op</span><span class="o">.</span><span class="n">max_epocas</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="linenos">71</span>            <span class="n">red</span><span class="o">.</span><span class="n">train</span><span class="p">();</span><span class="n">tot</span><span class="o">=</span><span class="mf">0.</span>
+<span class="linenos">72</span>            <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xt</span><span class="p">),</span><span class="n">generator</span><span class="o">=</span><span class="n">gen</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">bs</span><span class="p">):</span>
+<span class="linenos">73</span>                <span class="n">ix</span><span class="o">=</span><span class="n">ix</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">);</span><span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">(</span><span class="n">set_to_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">74</span>                <span class="n">loss</span><span class="o">=</span><span class="n">lossf</span><span class="p">(</span><span class="n">red</span><span class="p">(</span><span class="n">xt</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span><span class="n">ct</span><span class="p">[</span><span class="n">ix</span><span class="p">]),</span><span class="n">yt</span><span class="p">[</span><span class="n">ix</span><span class="p">]);</span><span class="n">objective</span><span class="o">=</span><span class="n">loss</span><span class="o">+</span><span class="n">red</span><span class="o">.</span><span class="n">penalizacion</span><span class="p">()</span>
+<span class="linenos">75</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">torch</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">objective</span><span class="p">):</span><span class="k">raise</span> <span class="ne">FloatingPointError</span><span class="p">(</span><span class="s1">'Pérdida no finita'</span><span class="p">)</span>
+<span class="linenos">76</span>                <span class="n">objective</span><span class="o">.</span><span class="n">backward</span><span class="p">();</span><span class="n">nn</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">clip_grad_norm_</span><span class="p">(</span><span class="n">red</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span><span class="n">op</span><span class="o">.</span><span class="n">clip</span><span class="p">);</span><span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">();</span><span class="n">tot</span><span class="o">+=</span><span class="nb">float</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
+<span class="linenos">77</span>            <span class="n">red</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="linenos">78</span>            <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+<span class="linenos">79</span>                <span class="n">vl</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lossf</span><span class="p">(</span><span class="n">red</span><span class="p">(</span><span class="n">xv</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">512</span><span class="p">],</span><span class="n">cv</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">512</span><span class="p">]),</span><span class="n">yv</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">512</span><span class="p">]))</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">xv</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">512</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">xv</span><span class="p">),</span><span class="mi">512</span><span class="p">))</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">xv</span><span class="p">)</span>
+<span class="linenos">80</span>            <span class="n">hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">epoca</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span><span class="n">train_loss</span><span class="o">=</span><span class="n">tot</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">xt</span><span class="p">),</span><span class="n">val_loss</span><span class="o">=</span><span class="n">vl</span><span class="p">,</span><span class="n">lr</span><span class="o">=</span><span class="n">opt</span><span class="o">.</span><span class="n">param_groups</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'lr'</span><span class="p">]))</span>
+<span class="linenos">81</span>            <span class="k">if</span> <span class="n">vl</span><span class="o">&lt;</span><span class="n">best</span><span class="p">:</span>
+<span class="linenos">82</span>                <span class="n">best</span><span class="o">=</span><span class="n">vl</span><span class="p">;</span><span class="n">state</span><span class="o">=</span><span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">red</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="linenos">83</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span> <span class="ow">or</span> <span class="n">vl</span><span class="o">&lt;</span><span class="n">reference</span><span class="o">-</span><span class="nb">max</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span><span class="mf">.002</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">reference</span><span class="p">)):</span>
+<span class="linenos">84</span>                <span class="n">reference</span><span class="o">=</span><span class="n">vl</span><span class="p">;</span><span class="n">stale</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">85</span>            <span class="k">else</span><span class="p">:</span><span class="n">stale</span><span class="o">+=</span><span class="mi">1</span>
+<span class="linenos">86</span>            <span class="k">if</span> <span class="n">sched</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span><span class="n">sched</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">vl</span><span class="p">)</span> <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s1">'scheduler'</span><span class="p">]</span><span class="o">==</span><span class="s1">'plateau'</span> <span class="k">else</span> <span class="n">sched</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="linenos">87</span>            <span class="n">callback</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">'observador'</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+<span class="linenos">88</span>            <span class="k">if</span> <span class="n">callback</span><span class="p">:</span><span class="n">callback</span><span class="p">(</span><span class="n">hist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">89</span>            <span class="k">if</span> <span class="n">ep</span><span class="o">&gt;=</span><span class="mi">10</span> <span class="ow">and</span> <span class="n">stale</span><span class="o">&gt;=</span><span class="mi">6</span><span class="p">:</span><span class="k">break</span>
+<span class="linenos">90</span>        <span class="n">red</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="linenos">91</span>        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">n_parametros</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">red</span><span class="o">.</span><span class="n">parameters</span><span class="p">()),</span><span class="n">epocas</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">hist</span><span class="p">),</span><span class="n">mejor_epoca</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="n">v</span><span class="p">[</span><span class="s1">'val_loss'</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">hist</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">dispositivo</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">dev</span><span class="p">),</span><span class="n">historia</span><span class="o">=</span><span class="n">hist</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>El siguiente bloque vincula las implementaciones mostradas y permite seleccionar CPU o GPU sin funciones exclusivas del sistema operativo. La inicialización del dispositivo se conserva en resolver_dispositivo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ejecutar_configuracion</span><span class="p">(</span><span class="n">raiz</span><span class="p">,</span> <span class="n">familia</span><span class="p">,</span> <span class="n">semilla</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">dispositivo</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">,</span>
+                          <span class="n">fase</span><span class="o">=</span><span class="s1">'validacion'</span><span class="p">,</span> <span class="n">anio</span><span class="o">=</span><span class="mi">2021</span><span class="p">,</span> <span class="n">permitir_prueba</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                          <span class="n">salida</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">raiz</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">raiz</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+    <span class="n">procedencia</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">raiz</span><span class="o">/</span><span class="s1">'results/jbook/modelos_actualizados.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+    <span class="n">fuentes</span><span class="o">=</span><span class="n">raiz</span><span class="o">/</span><span class="s1">'results/repositorio'</span><span class="o">/</span><span class="n">procedencia</span><span class="p">[</span><span class="s1">'commit'</span><span class="p">]</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">fuentes</span><span class="o">/</span><span class="s1">'src'</span><span class="p">))</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">demanda</span><span class="w"> </span><span class="kn">import</span> <span class="n">modelos_base</span> <span class="k">as</span> <span class="n">M</span><span class="p">,</span> <span class="n">particion</span> <span class="k">as</span> <span class="n">P</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">demanda</span><span class="w"> </span><span class="kn">import</span> <span class="n">reentrenamiento_v3</span> <span class="k">as</span> <span class="n">motor</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">demanda.variantes_v4</span><span class="w"> </span><span class="kn">import</span> <span class="n">Secuencial</span> <span class="k">as</span> <span class="n">Recurrente</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">demanda.metricas</span><span class="w"> </span><span class="kn">import</span> <span class="n">evaluar</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+    <span class="n">registro</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">fuentes</span><span class="o">/</span><span class="s1">'results/consolidado/modelos.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">registro</span><span class="p">[</span><span class="n">familia</span><span class="p">][</span><span class="s1">'configuracion'</span><span class="p">]</span>
+    <span class="n">panel</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">raiz</span><span class="o">/</span><span class="s1">'data/processed/panel_horario.parquet'</span><span class="p">)</span>
+    <span class="n">variables</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">fuentes</span><span class="o">/</span><span class="s1">'data/processed/feature_registry.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+    <span class="n">cfg</span><span class="o">=</span><span class="n">M</span><span class="o">.</span><span class="n">ConfigDatos</span><span class="p">(</span><span class="n">ventana</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">'ventana'</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">fase</span><span class="o">==</span><span class="s1">'prueba'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">permitir_prueba</span><span class="p">:</span><span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="s1">'La prueba requiere acceso explícito'</span><span class="p">)</span>
+        <span class="n">tr</span><span class="p">,</span><span class="n">es</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">pretest</span><span class="p">(</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">ventana</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">ventana</span><span class="p">)</span>
+        <span class="n">ev</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">origenes</span><span class="p">(</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="s1">'test'</span><span class="p">,</span><span class="n">ventana</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">ventana</span><span class="p">,</span><span class="n">allow_test</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fold</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">folds_forward_chaining</span><span class="p">(</span><span class="n">panel</span><span class="o">.</span><span class="n">index</span><span class="p">,[</span><span class="n">anio</span><span class="p">],</span><span class="n">ventana</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">ventana</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">tr</span><span class="p">,</span><span class="n">es</span><span class="p">,</span><span class="n">ev</span><span class="o">=</span><span class="n">fold</span><span class="p">[</span><span class="s1">'tr'</span><span class="p">],</span><span class="n">fold</span><span class="p">[</span><span class="s1">'es'</span><span class="p">],</span><span class="n">fold</span><span class="p">[</span><span class="s1">'val'</span><span class="p">]</span>
+    <span class="n">datos</span><span class="o">=</span><span class="n">motor</span><span class="o">.</span><span class="n">DatosFold</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="n">variables</span><span class="p">,</span><span class="n">cfg</span><span class="p">,</span><span class="n">tr</span><span class="p">,</span><span class="n">secuencial</span><span class="o">=</span><span class="n">familia</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'lstm'</span><span class="p">,</span><span class="s1">'cnn1d'</span><span class="p">))</span>
+    <span class="n">train</span><span class="p">,</span><span class="n">stop</span><span class="p">,</span><span class="n">evaluacion</span><span class="o">=</span><span class="p">[</span><span class="n">datos</span><span class="o">.</span><span class="n">conjunto_pos</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tr</span><span class="p">,</span><span class="n">es</span><span class="p">,</span><span class="n">ev</span><span class="p">]]</span>
+    <span class="k">assert</span> <span class="n">train</span><span class="o">.</span><span class="n">origen</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span><span class="o">&lt;</span><span class="n">stop</span><span class="o">.</span><span class="n">origen</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">stop</span><span class="o">.</span><span class="n">origen</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span><span class="o">&lt;</span><span class="n">evaluacion</span><span class="o">.</span><span class="n">origen</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">auditoria</span><span class="p">[</span><span class="s1">'fin_ajuste'</span><span class="p">])</span><span class="o">&lt;</span><span class="n">stop</span><span class="o">.</span><span class="n">origen</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">fabrica</span><span class="o">=</span><span class="n">motor</span><span class="o">.</span><span class="n">Secuencial</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">familia</span><span class="o">==</span><span class="s1">'lstm'</span><span class="p">:</span><span class="n">motor</span><span class="o">.</span><span class="n">Secuencial</span><span class="o">=</span><span class="n">Recurrente</span>
+        <span class="n">modelo</span><span class="o">=</span><span class="n">motor</span><span class="o">.</span><span class="n">Entrenador</span><span class="p">(</span><span class="n">familia</span><span class="p">)</span>
+        <span class="n">info</span><span class="o">=</span><span class="n">modelo</span><span class="o">.</span><span class="n">ajustar</span><span class="p">(</span><span class="n">train</span><span class="p">,</span><span class="n">stop</span><span class="p">,</span><span class="n">datos</span><span class="p">,</span><span class="n">config</span><span class="p">[</span><span class="s1">'params'</span><span class="p">],</span><span class="n">semilla</span><span class="p">,</span>
+                           <span class="n">M</span><span class="o">.</span><span class="n">Opciones</span><span class="p">(</span><span class="n">max_epocas</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span><span class="n">dispositivo</span><span class="o">=</span><span class="n">dispositivo</span><span class="p">,</span><span class="n">hilos</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">motor</span><span class="o">.</span><span class="n">Secuencial</span><span class="o">=</span><span class="n">fabrica</span>
+    <span class="n">pred</span><span class="o">=</span><span class="n">datos</span><span class="o">.</span><span class="n">invertir</span><span class="p">(</span><span class="n">modelo</span><span class="o">.</span><span class="n">predecir</span><span class="p">(</span><span class="n">evaluacion</span><span class="p">),</span><span class="n">evaluacion</span><span class="p">)</span>
+    <span class="n">metricas</span><span class="o">=</span><span class="n">evaluar</span><span class="p">(</span><span class="n">evaluacion</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="n">pred</span><span class="p">,</span><span class="n">datos</span><span class="o">.</span><span class="n">escala_mase</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">salida</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">destino</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">salida</span><span class="p">)</span><span class="o">/</span><span class="n">familia</span><span class="o">/</span><span class="nb">str</span><span class="p">(</span><span class="n">semilla</span><span class="p">)</span><span class="o">/</span><span class="nb">str</span><span class="p">(</span><span class="n">anio</span> <span class="k">if</span> <span class="n">fase</span><span class="o">==</span><span class="s1">'validacion'</span> <span class="k">else</span> <span class="n">fase</span><span class="p">)</span>
+        <span class="n">destino</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">escala</span><span class="o">=</span><span class="n">datos</span><span class="o">.</span><span class="n">escaladores</span><span class="p">()</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">({</span><span class="s1">'state_dict'</span><span class="p">:{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">modelo</span><span class="o">.</span><span class="n">red</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
+                    <span class="s1">'modelo'</span><span class="p">:</span><span class="n">familia</span><span class="p">,</span><span class="s1">'params'</span><span class="p">:</span><span class="n">config</span><span class="p">[</span><span class="s1">'params'</span><span class="p">],</span><span class="s1">'escaladores'</span><span class="p">:</span><span class="n">escala</span><span class="p">},</span>
+                    <span class="n">destino</span><span class="o">/</span><span class="s1">'modelo.pt'</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span><span class="n">destino</span><span class="o">/</span><span class="s1">'predicciones.npz'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">evaluacion</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="n">yhat</span><span class="o">=</span><span class="n">pred</span><span class="p">,</span>
+                            <span class="n">origen</span><span class="o">=</span><span class="n">evaluacion</span><span class="o">.</span><span class="n">origen</span><span class="o">.</span><span class="n">as_unit</span><span class="p">(</span><span class="s1">'ns'</span><span class="p">)</span><span class="o">.</span><span class="n">asi8</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">nombre</span><span class="p">,</span><span class="n">objeto</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">'escaladores'</span><span class="p">,</span><span class="n">escala</span><span class="p">),(</span><span class="s1">'historia'</span><span class="p">,</span><span class="n">info</span><span class="p">[</span><span class="s1">'historia'</span><span class="p">]),</span>
+                              <span class="p">(</span><span class="s1">'metricas'</span><span class="p">,</span><span class="n">metricas</span><span class="p">)]:</span>
+            <span class="p">(</span><span class="n">destino</span><span class="o">/</span><span class="p">(</span><span class="n">nombre</span><span class="o">+</span><span class="s1">'.json'</span><span class="p">))</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">objeto</span><span class="p">,</span><span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                                <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">default</span><span class="o">=</span><span class="nb">str</span><span class="p">),</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">modelo</span><span class="p">,</span><span class="n">datos</span><span class="p">,</span><span class="n">evaluacion</span><span class="p">,</span><span class="n">pred</span><span class="p">,</span><span class="n">info</span><span class="p">,</span><span class="n">metricas</span>
+
+<span class="c1"># Selección: comparar el MASE medio de confirmación, sin leer prueba.</span>
+<span class="c1"># Piloto: repetir cada configuración seleccionada con semillas 100–104</span>
+<span class="c1"># en los cuatro años externos. Final: semillas 1000–1004 con acceso explícito.</span>
+<span class="c1"># El argumento salida conserva pesos, escaladores, curvas, métricas y predicciones.</span>
+
+</pre></div>
+</div>
+<p>Para esta página, <code class="docutils literal notranslate"><span class="pre">familia</span></code> toma el valor <code class="docutils literal notranslate"><span class="pre">cnn1d</span></code>. Las definiciones completas de datos y métricas se muestran en el <a class="reference internal" href="fundamentos.html#fundamentos-arquitecturas"><span class="std std-ref">preprocesamiento compartido</span></a>; los cuerpos de las redes y del bucle de ajuste están visibles en esta página.</p>
+</section>
+</section>
+<section id="evaluacion">
+<h2>Evaluación<a class="headerlink" href="#evaluacion" title="Link to this heading">#</a></h2>
+<p>Los resultados de esta familia se integran en la <a class="reference internal" href="../10_evaluacion.html#evaluacion-e2"><span class="std std-ref">evaluación estadística conjunta</span></a>, con métricas por semilla, horizonte y origen. La comparación distingue las entradas demanda/calendario de las entradas numéricas ampliadas y el aporte de texto oficial.</p>
+</section>
+<section id="fuentes">
+<h2>Fuentes<a class="headerlink" href="#fuentes" title="Link to this heading">#</a></h2>
+<p>La formulación y las dimensiones se verifican en las clases del código mostrado.. La descripción corresponde a la implementación del experimento; las adaptaciones se identifican en el texto.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./arquitecturas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lstm.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">10.4. LSTM: memoria recurrente con compuertas</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="patchtst.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">10.6. PatchTST numérico</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-y-fundamentos">Arquitectura y fundamentos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esquema-global">Esquema global</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detalle-de-las-operaciones">Detalle de las operaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-la-arquitectura">Código de la arquitectura</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escalado-por-pliegue-y-optimizacion">Escalado por pliegue y optimización</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion">Evaluación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes">Fuentes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Fabian José Manrique Morelos y Gloria Bastidas Rodriguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Maestría en Estadística Aplicada · Universidad del Norte
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

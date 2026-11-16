@@ -230,9 +230,21 @@
 <li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fundamentos.html">10.1. Fundamentos y preprocesamiento compartido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/arx.html">10.2. ARX lineal regularizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/mlp.html">10.3. MLP: perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/lstm.html">10.4. LSTM: memoria recurrente con compuertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/cnn1d.html">10.5. CNN1D: filtros locales sobre la historia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/patchtst.html">10.6. PatchTST numérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nhits.html">10.7. N-HiTS: interpolación jerárquica residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tft.html">10.8. TFT: selección de variables y atención interpretable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tcn.html">10.9. TCN: convoluciones causales dilatadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/itransformer.html">10.10. iTransformer: atención entre variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -392,6 +404,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservacion-y-reconstruccion-de-la-entrega">Conservación y reconstrucción de la entrega</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedencia-de-modelos-y-reconstruccion">Procedencia de modelos y reconstrucción</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruccion-y-revision-de-consistencia">Reconstrucción y revisión de consistencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproduccion-de-los-diagnosticos-ampliados">Reproducción de los diagnósticos ampliados</a></li>
 </ul>
             </nav>
         </div>
@@ -470,7 +483,6 @@ Name: versión documental, dtype: str
 <h3>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="p">.</span><span class="n">bookenv</span>
 <span class="p">.</span><span class="n">bookenv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">requirements-book</span><span class="p">.</span><span class="n">lock</span><span class="p">.</span><span class="n">txt</span>
-<span class="p">.</span><span class="n">bookenv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">scripts</span><span class="p">\</span><span class="n">crear_jbook</span><span class="p">.</span><span class="n">py</span>
 <span class="p">.</span><span class="n">bookenv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">jupyter-book</span><span class="p">.</span><span class="n">exe</span> <span class="n">build</span> <span class="n">book</span> <span class="p">-</span><span class="n">-warningiserror</span> <span class="p">-</span><span class="n">-keep-going</span>
 <span class="p">.</span><span class="n">bookenv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">scripts</span><span class="p">\</span><span class="n">verificar_jbook</span><span class="p">.</span><span class="n">py</span>
 </pre></div>
@@ -480,11 +492,11 @@ Name: versión documental, dtype: str
 <h3>Linux<a class="headerlink" href="#linux" title="Link to this heading">#</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.bookenv
 .bookenv/bin/python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-book.lock.txt
-.bookenv/bin/python<span class="w"> </span>scripts/crear_jbook.py
 .bookenv/bin/jupyter-book<span class="w"> </span>build<span class="w"> </span>book<span class="w"> </span>--warningiserror<span class="w"> </span>--keep-going
 .bookenv/bin/python<span class="w"> </span>scripts/verificar_jbook.py
 </pre></div>
 </div>
+<p>Estos comandos construyen el libro con las salidas conservadas. <code class="docutils literal notranslate"><span class="pre">execute_notebooks:</span> <span class="pre">off</span></code> evita reevaluar las celdas durante esa construcción. Para recalcular los análisis se utiliza <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">scripts/crear_jbook.py</span></code>; para reconstruir solo la evaluación, <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">scripts/reorganizar_capitulo10.py</span></code>. La recalculación requiere las entradas e instantáneas indicadas en la procedencia; los diagnósticos de redes conservan su entorno separado.</p>
 <p>Los análisis se ejecutan por CPU. El entrenamiento conserva sus dependencias en requirements.txt y permite seleccionar dispositivo mediante la interfaz del repositorio: –dispositivo auto, cpu o cuda. La GPU requiere PyTorch compatible con CUDA o ROCm y con su controlador; el entorno documental no lo exige. La compatibilidad de rutas no equivale a una ejecución verificada en ambos sistemas: el entorno efectivamente utilizado queda registrado en entorno.json.</p>
 </section>
 </section>
@@ -494,12 +506,29 @@ Name: versión documental, dtype: str
 </section>
 <section id="procedencia-de-modelos-y-reconstruccion">
 <h2>Procedencia de modelos y reconstrucción<a class="headerlink" href="#procedencia-de-modelos-y-reconstruccion" title="Link to this heading">#</a></h2>
-<p>Los modelos se identifican mediante el commit d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3 y el <a class="reference download internal" download="" href="_downloads/bbf8bbb7448964f9a4f6565b48907556/modelos.json"><span class="xref download myst">registro de artefactos</span></a>. El <a class="reference download internal" download="" href="_downloads/8908f8125ee42330f01d4992525e735c/indice_artefactos_v3_v4.csv"><span class="xref download myst">índice SHA-256</span></a> registra 2.304 archivos y la selección conserva cinco checkpoints por familia. Las métricas se reconstruyen desde etiquetas y predicciones con idénticos orígenes. El código está en scripts/modelos_actualizados_jbook.py; el informe usa results/jbook/modelos_actuales.</p>
-<p>Para reconstruir las secciones: python scripts/crear_jbook.py 08_literatura 09_validacion 10_modelos 10_evaluacion 11_sintesis 12_reproducibilidad; después, jupyter-book build book –warningiserror –keep-going y python scripts/verificar_jbook.py. Este procedimiento analiza artefactos guardados. El pipeline reproducible admite un dispositivo explícito y rutas con pathlib; la ejecución GPU registrada utiliza ROCm. La reproducción en Linux y Windows requiere instalar PyTorch compatible con el dispositivo elegido.</p>
+<p>Las cuatro familias de demanda/calendario conservan el commit d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3 y su <a class="reference download internal" download="" href="_downloads/bbf8bbb7448964f9a4f6565b48907556/modelos.json"><span class="xref download myst">registro de artefactos</span></a>; el <a class="reference download internal" download="" href="_downloads/8908f8125ee42330f01d4992525e735c/indice_artefactos_v3_v4.csv"><span class="xref download myst">índice SHA-256</span></a> identifica 2.304 archivos. Las arquitecturas ampliadas proceden del commit 66111003f387b8452b1fc690dbc7fc503d5570df y de los paquetes consolidados. El inventario conserva pesos, escaladores, historias, predicciones y métricas por semilla; el control N compartido se cuenta una vez. TFT utiliza el paquete seleccionado por rigor del procedimiento y fidelidad arquitectónica.</p>
+<p>La evaluación integra 65 realizaciones finales de trece procedimientos, con cinco semillas cada uno, y dos referencias deterministas. Las métricas se reconstruyen con predicciones conservadas y orígenes alineados. <a class="reference download internal" download="" href="_downloads/58a23919eb8a36fa4491a5e4d7f4bc5e/metadatos_procedimientos.csv"><span class="xref download myst">Metadatos de ajuste y validación</span></a> y <a class="reference download internal" download="" href="_downloads/c961b05a391d0bba594c7600dbe7ea37/cobertura_diagnosticos.csv"><span class="xref download myst">cobertura de diagnósticos</span></a> identifican el alcance de cada análisis. TGForecaster conserva cinco realizaciones por variante.</p>
+<p>Para reconstruir la evaluación integrada se ejecuta <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">scripts/reorganizar_capitulo10.py</span></code>; después, <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">book</span> <span class="pre">--warningiserror</span> <span class="pre">--keep-going</span></code> y <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">scripts/verificar_jbook.py</span></code>. El generador completo <code class="docutils literal notranslate"><span class="pre">scripts/crear_jbook.py</span></code> integra la misma ampliación al finalizar. Los datos de predicción y las entradas documentales deben conservar su inventario de procedencia. La reproducción del análisis documental usa CPU; la inferencia y el entrenamiento requieren PyTorch compatible con CPU, CUDA o ROCm según el procedimiento y dispositivo. La reconstrucción del libro no inicia entrenamiento.</p>
 </section>
 <section id="reconstruccion-y-revision-de-consistencia">
 <h2>Reconstrucción y revisión de consistencia<a class="headerlink" href="#reconstruccion-y-revision-de-consistencia" title="Link to this heading">#</a></h2>
 <p>El generador integra modelos_actualizados_jbook.py, correcciones_e1_jbook.py y consistencia_jbook.py. La construcción del informe utiliza artefactos guardados; la medición de CPU se conserva en latencia_inferencia.csv y entorno_inferencia.json. Para repetir esa medición se utiliza un entorno separado con requirements-inferencia.lock.txt y scripts/medir_inferencia.py. No se ajustan pesos durante el análisis. La revisión global contrasta terminología, unidades, particiones, margen, cifras, inferencia, referencias y enlaces con los archivos fuente; sus resultados se registran en REVISION_CONSISTENCIA_JBOOK.md.</p>
+</section>
+<section id="reproduccion-de-los-diagnosticos-ampliados">
+<h2>Reproducción de los diagnósticos ampliados<a class="headerlink" href="#reproduccion-de-los-diagnosticos-ampliados" title="Link to this heading">#</a></h2>
+<p>La <a class="reference internal" href="10_evaluacion.html"><span class="std std-doc">evaluación integrada</span></a> incluye importancia agrupada, latencia CPU y sensibilidad al contenido de los documentos y a las descripciones estáticas. Sus figuras se reconstruyen con los CSV de <code class="docutils literal notranslate"><span class="pre">results/diagnosticos_ampliados</span></code>, sin cargar redes ni iniciar una evaluación nueva.</p>
+<p>Para repetir las mediciones se utiliza el entorno de inferencia con PyTorch CPU y la carpeta hermana <code class="docutils literal notranslate"><span class="pre">Consolidado-Entrenamientos-20261115</span></code>, cuyo índice identifica los checkpoints, escaladores y vectores congelados. La inferencia conserva los pesos y registra cada realización completada para reanudarla. La latencia debe medirse cuando hayan terminado los procesos de perturbación.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/diagnosticos_ampliados.py<span class="w"> </span>--fase<span class="w"> </span>inferir<span class="w"> </span>--workers<span class="w"> </span><span class="m">4</span>
+python<span class="w"> </span>scripts/diagnosticos_ampliados.py<span class="w"> </span>--fase<span class="w"> </span>latencia
+</pre></div>
+</div>
+<p>Después, en el entorno del JBook, se reconstruye únicamente la presentación a partir de esos resultados:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/actualizar_diagnosticos_jbook.py
+jupyter-book<span class="w"> </span>build<span class="w"> </span>book<span class="w"> </span>--warningiserror<span class="w"> </span>--keep-going
+python<span class="w"> </span>scripts/verificar_jbook.py
+</pre></div>
+</div>
+<p>El protocolo registra fechas, donantes, grupos, semillas, controles e incertidumbre. <code class="docutils literal notranslate"><span class="pre">reproduccion_semillas.csv</span></code> documenta la correspondencia numérica con las predicciones conservadas; <code class="docutils literal notranslate"><span class="pre">entorno.json</span></code> identifica el ordenador y las condiciones de latencia. El código de restauración y diagnóstico se presenta íntegro al final de la evaluación integrada.</p>
 </section>
 </section>
 
@@ -578,6 +607,7 @@ Name: versión documental, dtype: str
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservacion-y-reconstruccion-de-la-entrega">Conservación y reconstrucción de la entrega</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedencia-de-modelos-y-reconstruccion">Procedencia de modelos y reconstrucción</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruccion-y-revision-de-consistencia">Reconstrucción y revisión de consistencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproduccion-de-los-diagnosticos-ampliados">Reproducción de los diagnósticos ampliados</a></li>
 </ul>
   </nav></div>
 

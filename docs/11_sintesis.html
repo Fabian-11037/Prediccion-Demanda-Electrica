@@ -66,7 +66,7 @@
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
     <link rel="next" title="12. Reproducibilidad y procedencia" href="12_reproducibilidad.html" />
-    <link rel="prev" title="10.10. Pipeline de entrenamiento y evaluación" href="10_pipeline.html" />
+    <link rel="prev" title="10.14. Resultados y evaluación integrada" href="10_evaluacion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   <meta name="docsearch:version" content="" />
@@ -230,9 +230,21 @@
 <li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fundamentos.html">10.1. Fundamentos y preprocesamiento compartido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/arx.html">10.2. ARX lineal regularizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/mlp.html">10.3. MLP: perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/lstm.html">10.4. LSTM: memoria recurrente con compuertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/cnn1d.html">10.5. CNN1D: filtros locales sobre la historia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/patchtst.html">10.6. PatchTST numérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nhits.html">10.7. N-HiTS: interpolación jerárquica residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tft.html">10.8. TFT: selección de variables y atención interpretable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tcn.html">10.9. TCN: convoluciones causales dilatadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/itransformer.html">10.10. iTransformer: atención entre variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Síntesis del análisis exploratorio</a></li>
@@ -385,7 +397,8 @@
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consecuencias-para-la-representacion-y-la-evaluacion">Consecuencias para la representación y la evaluación</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-y-amenazas-a-la-validez">Alcance y amenazas a la validez</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-del-benchmark">Resultado del benchmark</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencia-con-demanda-y-calendario">Referencia con demanda y calendario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-conjunta-de-arquitecturas">Evaluación conjunta de arquitecturas</a></li>
 </ul>
             </nav>
         </div>
@@ -480,9 +493,13 @@
 <p>Las series administrativas y los titulares pueden contener revisiones. La disponibilidad declarada de noticias no acredita una versión histórica exacta; el escenario estricto ofrece mayor trazabilidad con menor cobertura. La ausencia de titulares recuperados no debe convertirse en una señal de ausencia de eventos.</p>
 <p>La validación 2018–2021 combina regímenes distintos y participa en selección. Las limitaciones de independencia de la prueba retrospectiva permanecen en el preregistro. El EDA caracteriza asociaciones y cobertura, sin establecer causalidad ni una ganancia atribuible al texto. Los resultados predictivos y sus diagnósticos se presentan en el capítulo de modelos.</p>
 </section>
-<section id="resultado-del-benchmark">
-<h2>Resultado del benchmark<a class="headerlink" href="#resultado-del-benchmark" title="Link to this heading">#</a></h2>
-<p>La MLP presenta el menor MASE medio del periodo de prueba; ARX y CNN1D quedan próximos y LSTM obtiene mayor error. Las cuatro familias superan las referencias estacionales en el agregado. La evaluación conserva cinco semillas por configuración y separa variabilidad algorítmica de incertidumbre temporal. Las diferencias se describen junto con perfiles horarios, segmentos, curvas de aprendizaje y costo de ajuste, sin afirmar superioridad confirmatoria.</p>
+<section id="referencia-con-demanda-y-calendario">
+<h2>Referencia con demanda y calendario<a class="headerlink" href="#referencia-con-demanda-y-calendario" title="Link to this heading">#</a></h2>
+<p>Entre las cuatro familias con demanda y calendario, la MLP presenta el menor MASE medio del periodo de prueba; ARX y CNN1D quedan próximos y LSTM obtiene mayor error. Las cuatro familias superan las referencias estacionales en el agregado. La evaluación conserva cinco semillas por configuración y separa variabilidad algorítmica de incertidumbre temporal. Las diferencias se describen junto con perfiles horarios, segmentos, curvas de aprendizaje y costo de ajuste, sin afirmar superioridad confirmatoria.</p>
+</section>
+<section id="evaluacion-conjunta-de-arquitecturas">
+<h2>Evaluación conjunta de arquitecturas<a class="headerlink" href="#evaluacion-conjunta-de-arquitecturas" title="Link to this heading">#</a></h2>
+<p>La <a class="reference internal" href="10_evaluacion.html#evaluacion-e2"><span class="std std-ref">evaluación estadística conjunta</span></a> conserva las cuatro familias base e incorpora las arquitecturas numéricas ampliadas y las variantes con texto oficial. El conjunto de confianza retiene TaTS y su control numérico; no se identifica un ganador único. El aporte de texto en TaTS es equivalente dentro del margen temporal del 3 % bajo las inicializaciones ejecutadas, sin mejora demostrada; la fusión tardía aumenta el error. Las entradas, máscaras y presupuestos distintos limitan una atribución exclusiva a la arquitectura. TGForecaster incorpora N y N+O; el procedimiento con documentos presenta un error medio mayor que su control N.</p>
 </section>
 </section>
 
@@ -517,12 +534,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="10_pipeline.html"
+       href="10_evaluacion.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">10.10. Pipeline de entrenamiento y evaluación</p>
+        <p class="prev-next-title">10.14. Resultados y evaluación integrada</p>
       </div>
     </a>
     <a class="right-next"
@@ -554,7 +571,8 @@
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consecuencias-para-la-representacion-y-la-evaluacion">Consecuencias para la representación y la evaluación</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-y-amenazas-a-la-validez">Alcance y amenazas a la validez</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-del-benchmark">Resultado del benchmark</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencia-con-demanda-y-calendario">Referencia con demanda y calendario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-conjunta-de-arquitecturas">Evaluación conjunta de arquitecturas</a></li>
 </ul>
   </nav></div>
 

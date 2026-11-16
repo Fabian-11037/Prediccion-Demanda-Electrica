@@ -230,9 +230,21 @@
 <li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fundamentos.html">10.1. Fundamentos y preprocesamiento compartido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/arx.html">10.2. ARX lineal regularizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/mlp.html">10.3. MLP: perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/lstm.html">10.4. LSTM: memoria recurrente con compuertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/cnn1d.html">10.5. CNN1D: filtros locales sobre la historia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/patchtst.html">10.6. PatchTST numérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nhits.html">10.7. N-HiTS: interpolación jerárquica residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tft.html">10.8. TFT: selección de variables y atención interpretable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tcn.html">10.9. TCN: convoluciones causales dilatadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/itransformer.html">10.10. iTransformer: atención entre variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -579,7 +591,7 @@
 </table>
 </div></div>
 </div>
-<p>La MAD móvil varía entre 0.034 y 0.242 GWh por intervalo, mostrando cuánto cambia la dispersión local de las diferencias semanales. Ljung–Box a 14 días obtiene p &lt;1e-300; los contrastes son exploratorios y no comparan modelos. BDS contrasta independencia e idéntica distribución: su rechazo, en una serie con memoria, no aísla no linealidad. Los diagnósticos de heterocedasticidad sobre residuos predictivos se presentan en §10.9.</p>
+<p>La MAD móvil varía entre 0.034 y 0.242 GWh por intervalo, mostrando cuánto cambia la dispersión local de las diferencias semanales. Ljung–Box a 14 días obtiene p &lt;1e-300; los contrastes son exploratorios y no comparan modelos. BDS contrasta independencia e idéntica distribución: su rechazo, en una serie con memoria, no aísla no linealidad. Los diagnósticos de heterocedasticidad sobre residuos predictivos se presentan en <a class="reference internal" href="10_evaluacion.html#evaluacion-e2"><span class="std std-ref">evaluación integrada</span></a>.</p>
 <p><strong>Decisión.</strong> Conservar rezagos diarios y semanales como referencias temporales.</p>
 <p><strong>Impacto.</strong> Permite evaluar memoria y ciclos presentes en los datos.</p>
 <p><strong>Riesgo.</strong> La persistencia y la tendencia pueden generar correlaciones altas sin mejoras de pronóstico.</p>

@@ -67,7 +67,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="10. Modelos y benchmark de demanda" href="10_modelos.html" />
+    <link rel="next" title="10. Modelos, arquitecturas y evaluación" href="10_modelos.html" />
     <link rel="prev" title="9. Diseño de evaluación" href="09_validacion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -232,9 +232,21 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">9.1. Diseño de entrenamiento ampliado</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fundamentos.html">10.1. Fundamentos y preprocesamiento compartido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/arx.html">10.2. ARX lineal regularizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/mlp.html">10.3. MLP: perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/lstm.html">10.4. LSTM: memoria recurrente con compuertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/cnn1d.html">10.5. CNN1D: filtros locales sobre la historia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/patchtst.html">10.6. PatchTST numérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nhits.html">10.7. N-HiTS: interpolación jerárquica residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tft.html">10.8. TFT: selección de variables y atención interpretable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tcn.html">10.9. TCN: convoluciones causales dilatadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/itransformer.html">10.10. iTransformer: atención entre variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -417,6 +429,7 @@
 <span id="diseno-ampliado"></span><h1>9.1. Diseño de entrenamiento ampliado<a class="headerlink" href="#diseno-de-entrenamiento-ampliado" title="Link to this heading">#</a></h1>
 <p><strong>Fabian José Manrique Morelos y Gloria Bastidas Rodriguez</strong>
 Versión de diseño: 10 de noviembre de 2026.</p>
+<p>La especificación siguiente corresponde a la ampliación con canales oficial y prensa, comparaciones con núcleo común y una propuesta de fusión acotada. Los procedimientos evaluados y sus controles con pesos fijos se describen en el capítulo 10; la rama de prensa y la compuerta acotada no forman parte de esos resultados.</p>
 <section id="pregunta-y-comparacion-principal">
 <h2>1. Pregunta y comparación principal<a class="headerlink" href="#pregunta-y-comparacion-principal" title="Link to this heading">#</a></h2>
 <p>¿La incorporación de documentos oficiales y, posteriormente, de prensa mejora el pronóstico horario de demanda eléctrica del SIN a 24 horas, con respecto a modelos que reciben la misma información numérica?</p>
@@ -426,7 +439,7 @@ Versión de diseño: 10 de noviembre de 2026.</p>
 <li><p><strong>N+O:</strong> las mismas variables numéricas y documentos oficiales.</p></li>
 <li><p><strong>N+O+P:</strong> las mismas variables numéricas, documentos oficiales y prensa.</p></li>
 </ol>
-<p>El contraste N+O frente a N estima el aporte oficial; N+O+P frente a N+O estima el aporte adicional de prensa. Cada arquitectura textual tendrá su control sin texto con el mismo núcleo y un presupuesto comparable. Los ingenuos diario y semanal y ARX se conservan como referencias adicionales. Las métricas actuales de demanda y calendario no representan el rendimiento del conjunto ampliado.</p>
+<p>El contraste N+O frente a N estima el aporte oficial; N+O+P frente a N+O estima el aporte adicional de prensa. Cada arquitectura textual tendrá su control sin texto con el mismo núcleo y un presupuesto comparable. Los ingenuos diario y semanal y ARX se conservan como referencias adicionales. La evaluación distingue las cuatro familias de demanda/calendario de las arquitecturas que utilizan el conjunto numérico ampliado.</p>
 </section>
 <section id="contrato-numerico-comun">
 <h2>2. Contrato numérico común<a class="headerlink" href="#contrato-numerico-comun" title="Link to this heading">#</a></h2>
@@ -668,7 +681,7 @@ Versión de diseño: 10 de noviembre de 2026.</p>
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">10. Modelos y benchmark de demanda</p>
+        <p class="prev-next-title">10. Modelos, arquitecturas y evaluación</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

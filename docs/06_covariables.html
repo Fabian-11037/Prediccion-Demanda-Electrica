@@ -230,9 +230,21 @@
 <li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fundamentos.html">10.1. Fundamentos y preprocesamiento compartido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/arx.html">10.2. ARX lineal regularizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/mlp.html">10.3. MLP: perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/lstm.html">10.4. LSTM: memoria recurrente con compuertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/cnn1d.html">10.5. CNN1D: filtros locales sobre la historia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/patchtst.html">10.6. PatchTST numérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nhits.html">10.7. N-HiTS: interpolación jerárquica residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tft.html">10.8. TFT: selección de variables y atención interpretable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tcn.html">10.9. TCN: convoluciones causales dilatadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/itransformer.html">10.10. iTransformer: atención entre variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -401,7 +413,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="covariables-y-disponibilidad">
 <h1>6. Covariables y disponibilidad<a class="headerlink" href="#covariables-y-disponibilidad" title="Link to this heading">#</a></h1>
-<p>Se caracteriza el panel ampliado con observaciones meteorológicas e hidrológicas pasadas. Las asociaciones descriptivas no implican disponibilidad futura ni causalidad.</p>
+<p>Se caracteriza el panel ampliado con observaciones meteorológicas e hidrológicas pasadas. Las asociaciones descriptivas no implican disponibilidad futura ni causalidad. Las figuras muestran una selección de asociaciones y agregados urbanos; no equivalen a importancia predictiva. El diccionario conserva las variables individuales y el diseño especifica los rezagos efectivos del entrenamiento.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
@@ -439,16 +451,16 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ciudades</span><span class="o">=</span><span class="p">[</span><span class="s1">'bogota'</span><span class="p">,</span><span class="s1">'medellin'</span><span class="p">,</span><span class="s1">'cali'</span><span class="p">,</span><span class="s1">'barranquilla'</span><span class="p">,</span><span class="s1">'cartagena'</span><span class="p">,</span><span class="s1">'bucaramanga'</span><span class="p">,</span><span class="s1">'pereira'</span><span class="p">,</span><span class="s1">'cucuta'</span><span class="p">];</span> <span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>
-<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">var</span><span class="p">,</span><span class="n">titulo</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,[</span><span class="s1">'temperature_2m_c'</span><span class="p">,</span><span class="s1">'relative_humidity_2m_pct'</span><span class="p">,</span><span class="s1">'precipitation_preceding_hour_mm'</span><span class="p">],[</span><span class="s1">'Temperatura (°C)'</span><span class="p">,</span><span class="s1">'Humedad (%)'</span><span class="p">,</span><span class="s1">'Precipitación (mm/h)'</span><span class="p">]):</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">var</span><span class="p">,</span><span class="n">titulo</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,[</span><span class="s1">'temperature_2m_c'</span><span class="p">,</span><span class="s1">'relative_humidity_2m_pct'</span><span class="p">,</span><span class="s1">'precipitation_preceding_hour_mm'</span><span class="p">],[</span><span class="s1">'Temperatura (°C)'</span><span class="p">,</span><span class="s1">'Humedad (%)'</span><span class="p">,</span><span class="s1">'Precipitación (mm en la hora previa)'</span><span class="p">]):</span>
     <span class="k">for</span> <span class="n">ciudad</span> <span class="ow">in</span> <span class="n">ciudades</span><span class="p">:</span>
-        <span class="n">z</span><span class="o">=</span><span class="n">panel</span><span class="p">[</span><span class="s1">'x_obs_'</span><span class="o">+</span><span class="n">var</span><span class="o">+</span><span class="s1">'_'</span><span class="o">+</span><span class="n">ciudad</span><span class="p">];</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">label</span><span class="o">=</span><span class="n">ciudad</span><span class="p">)</span>
+        <span class="n">z</span><span class="o">=</span><span class="n">panel</span><span class="p">[</span><span class="s1">'x_obs_'</span><span class="o">+</span><span class="n">var</span><span class="o">+</span><span class="s1">'_'</span><span class="o">+</span><span class="n">ciudad</span><span class="p">];</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">label</span><span class="o">=</span><span class="p">{</span><span class="s1">'bogota'</span><span class="p">:</span><span class="s1">'Bogotá'</span><span class="p">,</span><span class="s1">'medellin'</span><span class="p">:</span><span class="s1">'Medellín'</span><span class="p">,</span><span class="s1">'cucuta'</span><span class="p">:</span><span class="s1">'Cúcuta'</span><span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ciudad</span><span class="p">,</span><span class="n">ciudad</span><span class="o">.</span><span class="n">title</span><span class="p">()))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Mes'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="n">titulo</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span> <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5210b84ed0652a456698a1892759c0a6e46e25aae6ad8cc590a879a080658bad.png" src="_images/5210b84ed0652a456698a1892759c0a6e46e25aae6ad8cc590a879a080658bad.png" />
+<img alt="_images/a27effff91cc08eb7f1224c1628c2d44bf0010bb111cb1c556e337221ad5bbfd.png" src="_images/a27effff91cc08eb7f1224c1628c2d44bf0010bb111cb1c556e337221ad5bbfd.png" />
 </div>
 </div>
 <p>Los perfiles urbanos muestran heterogeneidad espacial y estacional. La ponderación por población resume ciudades, pero no describe lluvia en cuencas aportantes ni sustituye pronósticos con emisión previa. Los pesos estáticos de 2018 introducen una limitación temporal para años anteriores.</p>
@@ -661,7 +673,7 @@
 </section>
 <section id="entradas-comunes-del-diseno-predictivo">
 <h2>Entradas comunes del diseño predictivo<a class="headerlink" href="#entradas-comunes-del-diseno-predictivo" title="Link to this heading">#</a></h2>
-<p>La comparación con texto empleará el mismo conjunto numérico en todas sus variantes: demanda, calendario, clima de ocho ciudades, hidrología y precio. La especificación de disponibilidad, las máscaras y el presupuesto se presentan en el <a class="reference internal" href="09_diseno_ampliado.html#diseno-ampliado"><span class="std std-ref">diseño de entrenamiento ampliado</span></a>. La información realizada durante el horizonte queda excluida de las entradas.</p>
+<p>El diseño de comparación con texto establece el mismo conjunto numérico para sus variantes: demanda, calendario, clima de ocho ciudades, hidrología y precio. La especificación de disponibilidad, las máscaras y el presupuesto se presentan en el <a class="reference internal" href="09_diseno_ampliado.html#diseno-ampliado"><span class="std std-ref">diseño de entrenamiento ampliado</span></a>. La información realizada durante el horizonte queda excluida de las entradas.</p>
 </section>
 </section>
 

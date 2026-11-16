@@ -229,9 +229,21 @@
 <li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos y benchmark de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.9. Evaluación temporal y diagnósticos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_pipeline.html">10.10. Pipeline de entrenamiento y evaluación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fundamentos.html">10.1. Fundamentos y preprocesamiento compartido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/arx.html">10.2. ARX lineal regularizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/mlp.html">10.3. MLP: perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/lstm.html">10.4. LSTM: memoria recurrente con compuertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/cnn1d.html">10.5. CNN1D: filtros locales sobre la historia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/patchtst.html">10.6. PatchTST numérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nhits.html">10.7. N-HiTS: interpolación jerárquica residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tft.html">10.8. TFT: selección de variables y atención interpretable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tcn.html">10.9. TCN: convoluciones causales dilatadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/itransformer.html">10.10. iTransformer: atención entre variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -389,7 +401,7 @@
 <p><strong>Fabian José Manrique Morelos y Gloria Bastidas Rodriguez</strong><br />
 Maestría en Estadística Aplicada · Universidad del Norte</p>
 <p>El estudio caracteriza la demanda real horaria y su relación con el calendario, las condiciones ambientales y la información documental disponible. El análisis exploratorio fundamenta la representación temporal y el diseño de evaluación de pronósticos diarios de 24 horas.</p>
-<p>El libro presenta los datos, su calidad, distribución, estacionalidad, dependencia, covariables, titulares y protocolo temporal, junto con el benchmark numérico de MLP, LSTM y CNN1D y las referencias ARX y estacionales. Cada sección incluye el código analítico y las implicaciones de los resultados. El análisis integra calidad de medición, cambios de régimen, transferencia del vocabulario y estabilidad de tópicos, junto con una síntesis metodológica y una guía de reproducción.</p>
+<p>El libro presenta los datos, su calidad, distribución, estacionalidad, dependencia, covariables, titulares y protocolo temporal, junto con catorce procedimientos de pronóstico: redes densas, recurrentes, convolucionales, multiescala y de atención, variantes con texto oficial y referencias ARX y estacionales. Cada sección incluye el código analítico y las implicaciones de los resultados. El análisis integra calidad de medición, cambios de régimen, transferencia del vocabulario y estabilidad de tópicos, junto con una síntesis metodológica y una guía de reproducción.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>

@@ -4,6 +4,8 @@
 **Fabian José Manrique Morelos y Gloria Bastidas Rodriguez**
 Versión de diseño: 10 de noviembre de 2026.
 
+La especificación siguiente corresponde a la ampliación con canales oficial y prensa, comparaciones con núcleo común y una propuesta de fusión acotada. Los procedimientos evaluados y sus controles con pesos fijos se describen en el capítulo 10; la rama de prensa y la compuerta acotada no forman parte de esos resultados.
+
 ## 1. Pregunta y comparación principal
 
 ¿La incorporación de documentos oficiales y, posteriormente, de prensa mejora el pronóstico horario de demanda eléctrica del SIN a 24 horas, con respecto a modelos que reciben la misma información numérica?
@@ -14,7 +16,7 @@ El problema es de **series de tiempo multivariadas con pronóstico multipaso dir
 2. **N+O:** las mismas variables numéricas y documentos oficiales.
 3. **N+O+P:** las mismas variables numéricas, documentos oficiales y prensa.
 
-El contraste N+O frente a N estima el aporte oficial; N+O+P frente a N+O estima el aporte adicional de prensa. Cada arquitectura textual tendrá su control sin texto con el mismo núcleo y un presupuesto comparable. Los ingenuos diario y semanal y ARX se conservan como referencias adicionales. Las métricas actuales de demanda y calendario no representan el rendimiento del conjunto ampliado.
+El contraste N+O frente a N estima el aporte oficial; N+O+P frente a N+O estima el aporte adicional de prensa. Cada arquitectura textual tendrá su control sin texto con el mismo núcleo y un presupuesto comparable. Los ingenuos diario y semanal y ARX se conservan como referencias adicionales. La evaluación distingue las cuatro familias de demanda/calendario de las arquitecturas que utilizan el conjunto numérico ampliado.
 
 ## 2. Contrato numérico común
 
