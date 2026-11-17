@@ -1,0 +1,22 @@
+{
+  "etapa": "confirmacion",
+  "modelo": "mlp",
+  "configuracion": {
+    "id": "mlp_15",
+    "ventana": 168,
+    "params": {
+      "capas": 3,
+      "unidades": 512,
+      "dropout": 0.031358961285384124,
+      "weight_decay": 0.0020042470524518014,
+      "batch_size": 64,
+      "lr": 0.0005627221275874185,
+      "scheduler": "none",
+      "perdida": "huber",
+      "paciencia": 8
+    }
+  },
+  "semilla": 44,
+  "fold": 2020,
+  "max_epocas": 60
+}

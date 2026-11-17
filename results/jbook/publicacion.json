@@ -1,0 +1,31 @@
+{
+  "commit": "04e224dcc678a8ceadcc38d6bc18cdd33674736a",
+  "branch": "main",
+  "pages_path": "/docs",
+  "publicado": true,
+  "url": "https://fabian-11037.github.io/Prediccion-Demanda-Electrica/intro.html",
+  "workflow_run": 42526271066,
+  "estado": "success",
+  "paginas_verificadas": [
+    "intro.html",
+    "10_modelos.html"
+  ],
+  "html_normalizado_coincide": true,
+  "entrega_zip": "C:\\Users\\Work\\.codex\\visualizations\\2026\\11\\03\\01a1a367-1f7b-7091-8886-7bd03700887f\\JBook_Demanda_Ejecucion_20261108.zip",
+  "zip_bytes": 227768051,
+  "zip_sha256": "221c309ff40f515324fab05f9b613f34f988768876ad893fc8888255180ee2b0",
+  "zip_cuadernos_ejecutados": 13,
+  "zip_celdas_analiticas": 75,
+  "zip_figuras": 42,
+  "zip_errores": 0,
+  "zip_enlaces_rotos": 0,
+  "benchmark_reproducido": true,
+  "tests_jbook": {
+    "passed": 9
+  },
+  "suite_repositorio": {
+    "passed": 55,
+    "failed": 1,
+    "fallo_preexistente": "test_es_y_validacion_no_cambian_escaladores_v3: asignación 999999.0 a columna int8 con pandas 3.1.1; fuentes de entrenamiento sin cambios"
+  }
+}

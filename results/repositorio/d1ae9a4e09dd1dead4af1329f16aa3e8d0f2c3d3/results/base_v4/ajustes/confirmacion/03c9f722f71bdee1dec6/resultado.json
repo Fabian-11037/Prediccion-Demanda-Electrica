@@ -1,0 +1,37 @@
+{
+  "etapa": "confirmacion",
+  "modelo": "cnn1d",
+  "configuracion": "cnn1d_v4_02",
+  "semilla": 44,
+  "fold": 2019,
+  "ventana": 168,
+  "params": {
+    "dropout": 0.1,
+    "weight_decay": 0.0001,
+    "batch_size": 256,
+    "scheduler": "plateau",
+    "perdida": "huber",
+    "paciencia": 6,
+    "capas": 2,
+    "filtros": 16,
+    "kernel": 5,
+    "dilataciones": [
+      1,
+      1
+    ],
+    "lr": 0.0003
+  },
+  "segundos": 2.852776050567627,
+  "MASE": 0.7991970394143392,
+  "RMSE": 222323.6014008252,
+  "MAE": 172321.1902145457,
+  "sMAPE": 2.1738648671281564,
+  "MAPE": 2.167648192408853,
+  "MASE_h1": 0.8268413621323569,
+  "MASE_h12": 0.7200383664506849,
+  "MASE_h24": 0.7418122610867895,
+  "n_parametros": 48760,
+  "epocas": 23,
+  "mejor_epoca": 17,
+  "dispositivo": "cuda"
+}

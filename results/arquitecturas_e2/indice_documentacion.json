@@ -1,0 +1,135 @@
+[
+  {
+    "key": "arx",
+    "title": "ARX lineal regularizado",
+    "code": "base/src/demanda/modelos_base.py",
+    "names": [
+      "Tabular",
+      "ARXLineal"
+    ],
+    "package": null
+  },
+  {
+    "key": "mlp",
+    "title": "MLP: perceptrón multicapa",
+    "code": "base/src/demanda/modelos_base.py",
+    "names": [
+      "Tabular",
+      "MLP"
+    ],
+    "package": null
+  },
+  {
+    "key": "lstm",
+    "title": "LSTM: memoria recurrente con compuertas",
+    "code": "base/src/demanda/variantes_v4.py",
+    "names": [
+      "Secuencial"
+    ],
+    "package": null
+  },
+  {
+    "key": "cnn1d",
+    "title": "CNN1D: filtros locales sobre la historia",
+    "code": "base/src/demanda/reentrenamiento_v3.py",
+    "names": [
+      "Secuencial"
+    ],
+    "package": null
+  },
+  {
+    "key": "patchtst",
+    "title": "PatchTST numérico",
+    "code": "Modelo6_TaTS/src/modelo6/redes.py",
+    "names": [
+      "_CapaPatch",
+      "NucleoPatchTST",
+      "Modelo6"
+    ],
+    "package": "Modelo6_TaTS"
+  },
+  {
+    "key": "nhits",
+    "title": "N-HiTS: interpolación jerárquica residual",
+    "code": "numerico_repositorio/src/demanda/nhits_numerico.py",
+    "names": [
+      "BaseLinealDeterminista",
+      "NHITSNumerico"
+    ],
+    "package": "numerico_repositorio"
+  },
+  {
+    "key": "tft",
+    "title": "TFT: selección de variables y atención interpretable",
+    "code": "Modelo3_TFT/src/entrenamiento/redes.py",
+    "names": [
+      "_GLU",
+      "_CompuertaSuma",
+      "_GRN",
+      "_SeleccionVariables",
+      "_AtencionInterpretable",
+      "TFT"
+    ],
+    "package": "Modelo3_TFT"
+  },
+  {
+    "key": "tcn",
+    "title": "TCN: convoluciones causales dilatadas",
+    "code": "Modelo4_TCN/src/entrenamiento/redes.py",
+    "names": [
+      "campo_receptivo_tcn",
+      "_BloqueTCN",
+      "TCN"
+    ],
+    "package": "Modelo4_TCN"
+  },
+  {
+    "key": "itransformer",
+    "title": "iTransformer: atención entre variables",
+    "code": "Modelo5_iTransformer/src/entrenamiento/redes.py",
+    "names": [
+      "NucleoITransformer",
+      "NumericoITransformer"
+    ],
+    "package": "Modelo5_iTransformer"
+  },
+  {
+    "key": "tats",
+    "title": "TaTS: texto como variables temporales auxiliares",
+    "code": "Modelo6_TaTS/src/modelo6/redes.py",
+    "names": [
+      "AgregadorTexto",
+      "NucleoITransformer",
+      "_CapaPatch",
+      "NucleoPatchTST",
+      "Modelo6"
+    ],
+    "package": "Modelo6_TaTS"
+  },
+  {
+    "key": "tgforecaster",
+    "title": "TGForecaster: consultas del horizonte guiadas por texto",
+    "code": "Modelo7_TGForecaster/src/entrenamiento/redes.py",
+    "names": [
+      "Relevancia",
+      "_parches",
+      "_CapaPatch",
+      "_CapaMezcla",
+      "TGForecaster"
+    ],
+    "package": "Modelo7_TGForecaster"
+  },
+  {
+    "key": "fusion",
+    "title": "Fusión tardía de pronósticos numéricos y textuales",
+    "code": "FusionTardia/src/entrenamiento/redes.py",
+    "names": [
+      "Relevancia",
+      "NucleoITransformer",
+      "_CapaPatch",
+      "NucleoPatchTST",
+      "FusionTardia"
+    ],
+    "package": "FusionTardia"
+  }
+]

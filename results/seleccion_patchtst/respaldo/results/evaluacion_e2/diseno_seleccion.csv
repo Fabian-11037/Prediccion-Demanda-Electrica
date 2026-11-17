@@ -1,0 +1,15 @@
+clave,candidatos_filtro,filtro,confirmacion,piloto,final,max_epocas,paciencia
+arx_lineal,20,20 ajustes; 1 semilla; 2019,24 ajustes; 2 semillas; 2018–2021,5 semillas × 4 años,5 semillas,30 / 60,6
+cnn1d,26,26 ajustes; 1 semilla; 2019,48 ajustes; 2 semillas; 2018–2021,5 semillas × 4 años,5 semillas,30 / 60,6
+lstm,24,24 ajustes; 1 semilla; 2019,48 ajustes; 2 semillas; 2018–2021,5 semillas × 4 años,5 semillas,30 / 60,6
+mlp,20,20 ajustes; 1 semilla; 2019,24 ajustes; 2 semillas; 2018–2021,5 semillas × 4 años,5 semillas,30 / 60,6
+adj_fusion_tardia_20261113_1728__N+O,20,20 ajustes; 1 semilla; 2018,15 ajustes; 1 semilla; 2019–2021,Sin piloto independiente,5 semillas,200 / 200,6
+adj_modelo3_20261115_0419__N,20,20 ajustes; 1 semilla; 2018,15 ajustes; 1 semilla; 2019–2021,Sin piloto independiente,5 semillas,200 / 200,6
+adj_modelo4_20261114_1224__N,20,20 ajustes; 1 semilla; 2018,15 ajustes; 1 semilla; 2019–2021,Sin piloto independiente,5 semillas,200 / 200,6
+adj_modelo5_20261114_1327__N,20,20 ajustes; 1 semilla; 2018,15 ajustes; 1 semilla; 2019–2021,Sin piloto independiente,5 semillas,200 / 200,6
+adj_modelo6_20261112_1035__N,20,20 ajustes; 1 semilla; 2018,15 ajustes; 1 semilla; 2019–2021,Sin piloto independiente,5 semillas,200 / 200,6
+adj_modelo6_20261112_1035__N+O,20,20 ajustes; 1 semilla; 2018,15 ajustes; 1 semilla; 2019–2021,Sin piloto independiente,5 semillas,200 / 200,6
+adj_modelo7_20261114_0430__N,20,20 ajustes; 1 semilla; 2018,15 ajustes; 1 semilla; 2019–2021,Sin piloto independiente,5 semillas,200 / 200,6
+adj_modelo7_20261114_0430__N+O,20,20 ajustes; 1 semilla; 2018,15 ajustes; 1 semilla; 2019–2021,Sin piloto independiente,5 semillas,200 / 200,6
+repo_nhits_numerico_r1__N,20,60 ajustes; 3 semillas; 2018,45 ajustes; 3 semillas; 2019–2021,5 semillas × 4 años,5 semillas,200 / 200,10
+repo_patchtst_numerico_r1__N,20,60 ajustes; 3 semillas; 2018,45 ajustes; 3 semillas; 2019–2021,5 semillas × 4 años,5 semillas,200 / 200,10

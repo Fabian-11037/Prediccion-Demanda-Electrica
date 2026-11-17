@@ -1,0 +1,18 @@
+{
+  "procedimientos": 13,
+  "realizaciones": 65,
+  "referencias": 2,
+  "parejas_temporales": 105,
+  "parejas_semillas": 78,
+  "contrastes_texto": 3,
+  "horizontes_texto": 72,
+  "tablas_recalculadas_desde_artefactos": true,
+  "entrenamiento": false,
+  "publicacion": false,
+  "inventario": {
+    "figura": 51,
+    "tabla_calculada": 25,
+    "esquema": 24,
+    "tabla_markdown": 22
+  }
+}

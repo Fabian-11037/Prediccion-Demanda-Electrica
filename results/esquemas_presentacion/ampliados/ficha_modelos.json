@@ -1,0 +1,152 @@
+{
+  "tcn": {
+    "N": {
+      "clave": "adj_modelo4_20261114_1224__N",
+      "configuracion": {
+        "id": 7,
+        "kernel": 5,
+        "anchos": [
+          64,
+          64,
+          64
+        ],
+        "patron_dropout": [
+          0,
+          1,
+          0
+        ],
+        "dropout": 0.2,
+        "lr": 0.001,
+        "weight_decay": 0.01,
+        "lote": 64
+      },
+      "parametros": 169944,
+      "MASE": 0.926633402839458
+    }
+  },
+  "itransformer": {
+    "N": {
+      "clave": "adj_modelo5_20261114_1327__N",
+      "configuracion": {
+        "id": 1,
+        "d_model": 128,
+        "capas": 2,
+        "cabezas": 8,
+        "dropout": 0.1,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "lote": 64
+      },
+      "parametros": 321816,
+      "MASE": 0.7418140956036695
+    }
+  },
+  "tats": {
+    "N": {
+      "clave": "adj_modelo6_20261112_1035__N",
+      "configuracion": {
+        "id": 18,
+        "nucleo": "patchtst",
+        "d_model": 64,
+        "capas": 2,
+        "cabezas": 4,
+        "dropout": 0.1,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "lote": 32,
+        "d_texto": 24
+      },
+      "parametros": 466480,
+      "MASE": 0.6725016176243331
+    },
+    "N+O": {
+      "clave": "adj_modelo6_20261112_1035__N+O",
+      "configuracion": {
+        "id": 12,
+        "nucleo": "patchtst",
+        "d_model": 128,
+        "capas": 3,
+        "cabezas": 16,
+        "dropout": 0.2,
+        "lr": 0.0003,
+        "weight_decay": 0.0001,
+        "lote": 64,
+        "d_texto": 12
+      },
+      "parametros": 1428380,
+      "MASE": 0.6684326601038767
+    }
+  },
+  "fusion": {
+    "N+O": {
+      "clave": "adj_fusion_tardia_20261113_1728__N+O",
+      "configuracion": {
+        "id": 18,
+        "nucleo": "patchtst",
+        "d_model": 64,
+        "capas": 2,
+        "cabezas": 4,
+        "dropout": 0.1,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "lote": 32,
+        "d_fusion": 128
+      },
+      "parametros": 584649,
+      "MASE": 0.7037972119224651
+    }
+  },
+  "tgforecaster": {
+    "N": {
+      "clave": "adj_modelo7_20261114_0430__N",
+      "configuracion": {
+        "id": 19,
+        "d_model": 256,
+        "capas": 3,
+        "capas_mezcla": 2,
+        "cabezas": 8,
+        "dropout": 0.1,
+        "lr": 0.0001,
+        "weight_decay": 0.0001,
+        "lote": 32
+      },
+      "parametros": 2899072,
+      "MASE": 1.00199188776678
+    },
+    "N+O": {
+      "clave": "adj_modelo7_20261114_0430__N+O",
+      "configuracion": {
+        "id": 1,
+        "d_model": 64,
+        "capas": 2,
+        "capas_mezcla": 1,
+        "cabezas": 4,
+        "dropout": 0.1,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "lote": 64
+      },
+      "parametros": 326464,
+      "MASE": 1.1224194422950282
+    }
+  },
+  "patchtst": {
+    "N": {
+      "clave": "adj_modelo6_20261112_1035__N",
+      "configuracion": {
+        "id": 18,
+        "nucleo": "patchtst",
+        "d_model": 64,
+        "capas": 2,
+        "cabezas": 4,
+        "dropout": 0.1,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "lote": 32,
+        "d_texto": 24
+      },
+      "parametros": 466480,
+      "MASE": 0.6725016176243331
+    }
+  }
+}

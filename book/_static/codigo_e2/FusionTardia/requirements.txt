@@ -1,0 +1,6 @@
+# PyTorch lo instala lanzar.py (elige GPU o CPU). Aquí va el resto.
+numpy>=1.26
+pandas>=2.1
+pyarrow>=15
+tqdm>=4.66
+transformers>=4.44

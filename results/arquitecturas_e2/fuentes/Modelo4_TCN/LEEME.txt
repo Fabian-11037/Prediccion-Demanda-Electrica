@@ -1,0 +1,40 @@
+MODELO 4 (TCN) - ENTRENADOR
+========================================
+
+USO EN WINDOWS
+  1. Extraiga el zip completo en una ruta corta, por ejemplo
+     C:\Entrenamiento\Modelo4_TCN (no ejecute nada desde dentro del zip).
+  2. Doble clic en PRUEBA_RAPIDA_WINDOWS.bat
+     La primera vez instala lo necesario (10 a 30 minutos, con internet).
+     Debe terminar con: PRUEBA RAPIDA CORRECTA
+  3. Doble clic en ENTRENAR_WINDOWS.bat y deje la ventana abierta.
+  4. Al terminar (ENTRENAMIENTO TERMINADO) envie los dos archivos que
+     aparecen en esta carpeta y empiezan por ENVIAR_
+
+USO EN LINUX O MACOS
+  bash prueba_rapida_linux_mac.sh
+  bash entrenar_linux_mac.sh
+
+REQUISITOS
+  - Python 3.10 a 3.14 de 64 bits (en Windows el lanzador intenta instalarlo)
+  - Internet solo para la preparacion (PyTorch, 2 a 3 GB)
+  - 10 GB libres en disco
+  - GPU NVIDIA recomendada; sin ella funciona en el procesador, mas lento
+
+QUE HACE
+  Entrena 40 modelos: 20 configuraciones en el pliegue 2018, las 5 mejores
+  en 2019-2021 y la prueba 2022-2025 con 5 semillas. La barra muestra el
+  avance y el tiempo restante estimado.
+
+INTERRUMPIR Y REANUDAR
+  Puede cerrar la ventana en cualquier momento. Al volver a hacer doble clic
+  en ENTRENAR_WINDOWS.bat continua donde quedo. No modifique los archivos
+  del paquete despues del primer arranque.
+
+SI ALGO FALLA
+  Comprima la carpeta resultados_modelo4 (o resultados_prueba_rapida) y enviela
+  junto con una captura de la ventana.
+
+Todo se instala dentro de esta carpeta (.venv). Para desinstalar, borrela.
+Si extrae varios paquetes de este proyecto en una misma carpeta, comparten
+la instalacion; ejecute uno a la vez.

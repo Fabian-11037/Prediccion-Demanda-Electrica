@@ -118,6 +118,8 @@ def main():
     integrar_importancia(books,md,code,note,ROOT)
     from diseno_ampliado_jbook import integrar_ampliado,escribir_pagina
     integrar_ampliado(books,md,code,ROOT)
+    from arquitecturas_e2_jbook import integrar_e2,escribir_toc_e2
+    integrar_e2(books,md,ROOT)
     seleccion=set(sys.argv[1:])
     if seleccion-set(books):raise ValueError('Capítulos desconocidos: '+str(seleccion-set(books)))
     for stem,cells in books.items():
@@ -159,9 +161,13 @@ sphinx:
     (BOOK/'_toc.yml').write_text('format: jb-book\nroot: intro\nchapters:\n'+''.join('  - file: '+stem+'\n'+('    sections:\n      - file: diccionario\n' if stem=='01_datos' else '    sections:\n      - file: 10_evaluacion\n      - file: 10_pipeline\n' if stem=='10_modelos' else '') for stem in books if stem!='10_evaluacion')+'  - file: fuentes\n',encoding='utf-8')
     armonizar_archivos(ROOT)
     escribir_pagina(ROOT)
+    escribir_toc_e2(ROOT)
     audit=dict(development_start='2000-01-01',development_end_exclusive='2022-01-01',
         test_values_read=False,model_results_read=True,training_executed=False,model_chapter_empty=False,
         authors=['Fabian José Manrique Morelos','Gloria Bastidas Rodriguez'],notebooks=len(books))
     (ROOT/'results/jbook/auditoria.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding='utf-8')
+
+    from reorganizar_capitulo10 import reorganizar
+    reorganizar(ROOT)
 
 if __name__=='__main__':main()

@@ -1,0 +1,1635 @@
+[Página 1]
+                   Proyecto Final de Deep Learning:
+                                               Entregable 1
+
+               Estado del Arte, EDA e Implementación de los Tres Modelos Base de la
+                                                          Literatura
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Estructura del proyecto y cómo leer este documento
+El proyecto consta de tres entregables encadenados: elEntregable 1(este documento)
+establece el baseline con tres modelos; elEntregable 2escala a un benchmark de
+10 modelos con inferencia estadística formal; elEntregable 3lleva los resultados a
+producción y aporta un modelo original. Los resultados, elpipeline, las particiones y
+Objetivo del Entregable
+eldatasetdefinidos aquí sereutilizanen los entregables siguientes: cualquier decisión
+Identificar el estado del arte en Deep Learning para el problema de aplicación selec-
+tomada en este documento debe poder sostenerse en ellos.
+cionado, realizar un EDA exhaustivo,extraer de la literatura los tres modelos
+de Deep Learning más básicos que se emplean como referencia comparativaLas Secciones 1 a 5 definenquédebe entregarse.
+paradichoproblemaLa Sección 6 definecómo procedersegún el tipo de problema.eimplementarlosconrigorexperimental,garantizandorepro-
+ducibilidadyausenciadedata leakage.Elpropósitofinalesestablecer,conevidencia
+Tipos de problema admitidosLaSección7aclaralaslimitacionesinferencialesdetrabajarconsolotresmodelos.1
+Solo se aceptan proyectos cuyos datos correspondan aunode los siguientes diez tiposestadística, el nivel mínimo de desempeño (baseline) en error o precisiónque
+de problema:Donde una sección posterior precise a una anterior,prevalece la más restrictiva.cualquier modelo avanzado deberá superar para justificar su mayor complejidad.
+
+[Página 2]
+   1.Clasificación (datos tabulares).
+
+   2.Regresión (datos tabulares).
+
+   3.Series de tiempo (pronóstico de una serie a partir de su propio pasado, con o sin
+       covariables).
+
+   4.Regresión temporal (objetivo continuo que depende de covariables observadas en
+       el tiempo, sin que el pronóstico se base en la autorregresión del objetivo).
+
+   5.Regresión espacial.
+
+   6.Regresión espacio-temporal.
+
+   7.Clasificación de imágenes.
+
+   8.Segmentación de imágenes.
+
+   9.Clasificación de texto.
+
+  10.Etiquetado secuencial (sequence labeling) y aprendizaje secuencia a secuencia
+       (sequence-to-sequence), tratados como dos tipos distintos con rutas separadas
+       en el Entregable 2.
+Diferencia entre series de tiempo y regresión temporal.Enseries de tiempoel
+objetivo es pronosticar valores futuros de una serie usando su propia historia (rezagos
+del objetivo), con o sin covariables exógenas; el orden temporal y la autocorrelación
+son la estructura central. Enregresión temporalel objetivo se explica por covariables
+medidas en el mismo instante o con rezagos de las covariables, y no se utiliza la historia
+del objetivo como entrada; los datos tienen marca de tiempo, pero el problema se evalúa1. Definición del Problema y Dataset
+como una regresión con partición cronológica. Si el proyecto usa rezagos del objetivoDefinición formal del problema:
+como entrada,esseries de tiempo.
+Cualquier proyecto fuera de esta lista no será evaluado. El tipo de problema elegido•Enunciarelproblemaennotaciónmatemática:espaciodeentradaX,espaciodesalida
+determina las secciones del EDA, las arquitecturas base candidatas, el esquema de
+partición, las métricas y las pruebas estadísticas que deben aplicarse (véase la Sección2
+6,Guía de Procedimiento por Tipo de Problema). Cada tipo tiene su ruta metodológica
+completa en la Sección 7 del Entregable 2.
+
+[Página 3]
+                      Y, función objetivof:X→Yy función de pérdidaLque se minimiza.
+                  •Declarar explícitamente a cuál de los diez tipos de problema admitidos pertenece el
+                      proyecto.
+                  •Declarar la pregunta de investigación y la hipótesis operativa que el benchmark per-
+                      mitirá contrastar.
+                  •Declarar a priorila métrica primaria, las métricas secundarias, el margen de rele-
+                      vancia prácticaδy la unidad de independencia (paciente, documento, autor, cliente,
+                      serie, escena); estas decisiones se heredan en los Entregables 2 y 3.
+
+                Justificación del dataset:
+
+                  •Relevancia científica o aplicada del problema.
+                  •Disponibilidad pública, licencia de uso y procedencia (proceso de generación y reco-
+                      lección de los datos).
+                  •Uso previo del dataset en la literatura revisada, de modo que los resultados sean
+                      comparables.
+
+                Descripción técnica:
+
+                  •Tamaño y estructura (número de observaciones, dimensionalidad, formato de alma-
+                      cenamiento).
+                  •Tipo de datos y unidad de observación.
+                  •Variable objetivo y su proceso de etiquetado (manual, automático, medición instru-
+                      mental), incluyendo el ruido de etiqueta esperado.
+                  •Estructuradedependenciaentreobservaciones(independientes,agrupadasporsujeto,
+                      sitio o documento; temporales; espaciales). Esta estructura condiciona la partición y
+                      la inferencia estadística posterior.
+                  •Versión del dataset yhasho suma de verificación para trazabilidad.
+
+             2. Análisis Exploratorio de Datos (EDA) Mejorado
+
+
+
+
+
+
+
+
+
+
+El EDA debe serexhaustivo, reproducible y orientado a decisiones de mo-
+delado. Cada análisis debe responder explícitamente:¿cómo impacta esto el diseño3
+del modelo, el preprocesamiento o el esquema de validación?No se aceptan análisis
+descriptivos sin interpretación técnica.
+
+[Página 4]
+2.1 EDA General (aplica a todos los tipos de problema)
+
+  Análisis de la variable objetivo:
+
+     •Distribución (histogramas, densidades, conteos por clase o por etiqueta).
+     •Cuantificar el desbalance (razón entre clase mayoritaria y minoritaria; entropía de la
+         distribución de clases).
+     •Detectar clases raras, colas pesadas, asimetría y curtosis (en objetivos continuos).
+     •Implicación:resampling, ponderación de pérdidas, transformación del objetivo (log,
+         Box–Cox) o métricas robustas.
+
+  Calidad del dataset:
+
+     •Valores faltantes: cuantificar y caracterizar el mecanismo (MCAR, MAR, MNAR)
+         con evidencia, no solo conteos.
+     •Datos corruptos, inconsistentes o fuera de rango físico o semántico.
+     •Duplicados exactos y casi duplicados (críticos en imágenes y texto, pues generan fuga
+         entre particiones).
+     •Ruido de etiquetas: estimación mediante inspección muestral o acuerdo entre anota-
+         dores, cuando aplique.
+
+  Identificación de sesgos y desplazamientos de distribución:
+
+     •Sesgos de representación (clases o subpoblaciones dominantes).
+     •Sesgos temporales y espaciales (cambios de régimen, autocorrelación espacial).
+     •Sesgos semánticos o de dominio (NLP, imágenes de distintas fuentes o sensores).
+     •Correlaciones espurias entre atributos irrelevantes y la etiqueta (shortcut learning).
+     •Prueba de desplazamiento de covariables entre las particiones propuestas (por ejem-
+         plo, clasificador adversarial o pruebas de dos muestras).
+     •Implicación: balanceo, recolección adicional, validación estratificada o agrupada.
+
+  Partición del dataset:
+
+     •Definir explícitamente los conjuntos de entrenamiento, validación y prueba, con pro-
+         porciones y semilla.
+     •Justificar la estrategia según la estructura de dependencia de los datos: aleatoria,
+         estratificada, agrupada, temporal o espacial por bloques.
+     •Verificar que la distribución de la variable objetivo y de las covariables principales sea
+         consistente entre particiones.
+
+                                                       4
+
+[Página 5]
+                  •Congelar el conjunto de prueba (almacenar suhash): no se consulta durante el ajuste
+                      de hiperparámetros ni durante el diseño del preprocesamiento.
+
+             2.2 EDA Específico por Tipo de Problema
+
+
+
+
+
+
+
+             A. Clasificación y Regresión (datos tabulares)
+
+                Estructura de atributos:
+
+                  •Tipificación de variables (numéricas, categóricas nominales y ordinales), cardinalidad
+                      y escalas.
+                  •Distribuciones univariadas, asimetría y valores atípicos (criterio explícito: rango in-
+                      tercuartílico, distancia de Mahalanobis o métodos robustos).
+                  •Implicación: transformación, escalado robusto, codificación (one-hot,embeddingsde
+                      entidades).
+
+                Relación entre atributos y objetivo:
+
+                  •Correlaciones lineales y de rango (Pearson, Spearman) e información mutua para
+                      relaciones no lineales.
+                  •Multicolinealidad (factor de inflación de varianza, número de condición).
+                  •Detección de atributos con fuga de información hacia el objetivo (atributos derivados
+                      de la etiqueta o registrados posteriormente al evento).
+
+                Complejidad de la tarea:
+
+                  •Estimar la separabilidad o linealidad inicial ajustando un modelo lineal de referen-
+                      cia (regresión logística o lineal regularizada) para dimensionar el margen de mejora
+                      disponible.
+
+                Implicaciones clave:diseño de MLP (profundidad, ancho, regularización), manejo de
+                variables categóricas, función de pérdida (entropía cruzada ponderada, Huber, error cua-
+                drático) y partición estratificada o agrupada.
+
+             B. Series de Tiempo
+
+                Visualización y descomposición:
+
+Realice únicamente el bloque de EDA que corresponda al tipo de problema elegido. Si5
+el problema combina modalidades (por ejemplo, imágenes con metadatos tabulares),
+aplique cada bloque pertinente.
+
+[Página 6]
+     •Gráfico de la serie y descomposición (STL o equivalente) en tendencia, estacionalidad
+        (puede ser múltiple) y residuo.
+     •Detección de cambios de régimen y puntos de quiebre.
+
+  Estacionariedad:
+
+     •Pruebas ADF y KPSS usadas de forma conjunta, interpretando los cuatro escenarios
+        posibles de concordancia o conflicto entre ambas.
+     •Implicación: diferenciación, transformación logarítmica o de potencia, normalización
+        por ventana.
+
+  Dependencia temporal:
+
+     •ACF y PACF con bandas de confianza; periodograma o análisis espectral para perio-
+        dicidades.
+     •Identificación de rezagos relevantes que justifiquen la longitud de la ventana de en-
+        trada.
+     •Evaluación de no linealidad y heterocedasticidad (por ejemplo, prueba ARCH).
+
+  Frecuencia, granularidad y datos faltantes:
+
+     •Intervalo de muestreo, regularidad y huecos temporales; política de imputación que
+        no use información futura.
+     •Series múltiples: heterogeneidad entre series y decisión entre modelo local, global o
+        multivariado.
+
+  Outliers y anomalías:detección, causa probable y evaluación de su impacto sobre el
+  error.
+
+  Implicaciones clave:
+
+     •Definición del horizonte de pronósticoh(un paso o multi-paso) y de la longitud de la
+        ventana de entrada.
+     •Estrategia multi-paso (recursiva, directa o multi-salida).
+     •Partición cronológica estricta y validación con origen móvil (rolling-origin); escalado
+        ajustado solo con el pasado.
+     •Riesgo principal:data leakage temporal.
+
+C. Regresión Temporal
+
+  Estructura temporal de las covariables:
+
+                                                      6
+
+[Página 7]
+     •Frecuencia, regularidad y huecos de las covariables; desfases entre la marca de tiempo
+         de las covariables y la del objetivo.
+     •Disponibilidad de cada covariableen el momento de la predicción(una covariable
+         que solo se conoce después del evento es fuga).
+
+  Relación covariables–objetivo en el tiempo:
+
+     •Correlaciones cruzadas con rezagos de las covariables; identificación de desfases infor-
+         mativos.
+     •Deriva de la relación (cambios de régimen, relaciones no estacionarias) mediante es-
+         timaciones en ventanas móviles.
+     •Diagnósticodeautocorrelacióndelosresiduosdeunmodelodereferencia,paradecidir
+         si el problema es realmente de regresión temporal o necesita rezagos del objetivo (en
+         cuyo caso corresponde a series de tiempo).
+
+  Implicaciones clave:ventana de rezagos de las covariables, partición cronológica estricta
+  conembargo, escalado ajustado solo con el pasado y riesgo defuga temporal.
+
+D. Regresión Espacial
+
+  Estructura geográfica:
+
+     •Mapa de ubicaciones y de la variable objetivo; cobertura espacial y densidad de mues-
+         treo (agrupamientos y vacíos).
+     •Sistema de coordenadas y proyección empleados.
+
+  Autocorrelación espacial:
+
+     •Índice I de Moran (global y local, LISA) y/o C de Geary, con definición explícita de
+         la matriz de pesos espaciales.
+     •Semivariograma empírico: rango,silly efectonugget.
+     •Implicación: distancia de decorrelación que determina el tamaño de los bloques de
+         validación.
+
+  Covariables:estacionariedad espacial de las relaciones (posible heterogeneidad espacial),
+  multicolinealidad y calidad por ubicación.
+
+  Implicaciones clave:
+
+     •Representación de la posición (coordenadas,embeddingsposicionales, grafo de vecin-
+         dad).
+
+
+                                                        7
+
+[Página 8]
+     •Partición por bloques espaciales con separación (buffer) mayor al rango del semiva-
+        riograma.
+     •Riesgo principal:fuga espacial, que infla el desempeño con particiones aleatorias.
+
+E. Regresión Espacio-Temporal
+
+  Estructura conjunta:
+
+     •Estructura del tensor de datos (nodos o celdas×tiempo×atributos) y régimen de
+        observación (rejilla regular, red de sensores, grafo).
+     •Análisis de cada marginal: perfil temporal por ubicación (análisis tipo B) y mapa por
+        instante (análisis tipo D).
+
+  Dependencia espacio-temporal:
+
+     •Autocorrelación espacio-temporal (por ejemplo, I de Moran espacio-temporal, corre-
+        lación cruzada con rezagos entre vecinos, variogramas espacio-temporales).
+     •Estacionariedad y separabilidad espacio-temporal; propagación o difusión entre ubi-
+        caciones.
+
+  Datos faltantes y heterogeneidad:patrones de faltantes por sensor y por tiempo;
+  ubicaciones con dinámicas atípicas.
+
+  Implicaciones clave:
+
+     •Construcción del grafo o de la rejilla (criterio de vecindad: distancia, adyacencia o
+        correlación).
+     •Elección de arquitecturas base que combinen componente temporal y espacial.
+     •Partición temporal estricta; si se evalúa generalización a ubicaciones nuevas, además
+        partición por bloques espaciales.
+     •Riesgos:fuga temporal y fuga espacialde forma simultánea.
+
+F. Clasificación de Imágenes
+
+  Inspección visual:
+
+     •Muestras aleatorias estratificadas por clase; identificación de ruido, artefactos, marcas
+        de agua y errores de etiquetado.
+     •Deteccióndeatajosvisuales(fondos,bordesometadatoscorrelacionadosconlaclase).
+
+  Dimensionalidad y formato:
+
+
+                                                      8
+
+[Página 9]
+     •Distribución de alto, ancho y relación de aspecto; número de canales y profundidad
+         de bits.
+     •Implicación:resizing, recorte opadding, normalización.
+
+  Estadísticos de intensidad:
+
+     •Histogramas por canal; media y desviación estándar por canal calculadas solo con el
+         conjunto de entrenamiento.
+     •Detección de saturación, bajo contraste y diferencias de adquisición entre clases.
+
+  Balance y duplicados:
+
+     •Conteo por clase; implicación endata augmentation,class weightingo muestreo ba-
+         lanceado.
+     •Detección de duplicados y casi duplicados mediantehashingperceptual o similitud
+         deembeddings, y eliminación de fugas entre particiones.
+
+  Estructura de agrupamiento:si existen varias imágenes por sujeto, paciente, sitio o
+  secuencia, la partición debe ser agrupada.
+
+  Implicaciones clave:resolución de entrada,augmentationsadmisibles (que preserven la
+  etiqueta), profundidad de la CNN base y estrategia de partición.
+
+G. Segmentación de Imágenes
+
+  Inspección visual de imágenes y máscaras:
+
+     •Superposición de máscaras sobre imágenes; verificación de alineación, calidad de bor-
+         des y consistencia entre anotadores.
+     •Identificación de máscaras vacías, ruidosas o inconsistentes.
+
+  Distribución de clases a nivel de píxel:
+
+     •Frecuencia de píxeles por clase, fracción de fondo y presencia de clases raras.
+     •Distribución del tamaño, número y forma de las regiones (componentes conexas);
+         tamaño relativo del objeto respecto a la imagen.
+     •Implicación: pérdida basada en solapamiento (Dice, Tversky,focal) o ponderada, y
+         muestreo de parches centrados en clases raras.
+
+  Dimensionalidad y formato:resoluciones, canales y necesidad de recortes en parches
+  (tiling); consistencia de resolución entre imagen y máscara.
+
+
+
+                                                       9
+
+[Página 10]
+  Estadísticos de intensidad:histogramas por canal y por clase; normalización con esta-
+  dísticos del conjunto de entrenamiento.
+  Duplicados y agrupamiento:detección de imágenes repetidas o solapadas (especial-
+  mente si provienen de mosaicos o recortes de una misma escena); partición por escena,
+  sujeto o sitio.
+  Implicaciones clave:profundidad del codificador–decodificador base, resolución de en-
+  trada,augmentationsque se apliquen de manera consistente a imagen y máscara, y reporte
+  de métricas por clase.
+
+H. Clasificación de Texto
+
+  Longitud de textos:
+
+     •Distribución de longitud (en palabras y entokensde subpalabra) y percentiles 90, 95
+         y 99.
+     •Implicación: longitud máxima de secuencia, truncamiento opadding.
+
+  Análisis léxico:
+
+     •Frecuencias, ley de Zipf, términos discriminantes por clase (por ejemplo, información
+         mutua olog-odds).
+     •Detección de términos que actúan como atajos (nombres propios, fuentes, plantillas).
+
+  Tokenización y vocabulario:
+
+     •Tamaño de vocabulario, tasa de palabras fuera de vocabulario y comparación entre
+         tokenización por palabra y por subpalabra.
+     •Cobertura de losembeddingspreentrenados candidatos sobre el vocabulario.
+
+  Ruido y calidad:caracteres especiales, URLs, mayúsculas,emojis,stopwords, idioma
+  mixto, errores ortográficos; decisión justificada de limpieza (no limpiar en exceso si la
+  señal está en el formato).
+
+  Balance, duplicados y fuga semántica:
+
+     •Distribución de etiquetas; ratio de desbalance.
+     •Duplicados exactos y casi duplicados (similitud den-gramas o deembeddings) entre
+         particiones.
+     •Agrupamiento por autor, fuente o hilo cuando exista: la partición debe respetarlo.
+
+  Implicaciones clave:tipo de representación (embeddingsestáticos de palabra o subpala-
+  bra), longitud de secuencia y arquitectura base (CNN de texto, RNN, LSTM o GRU).
+
+                                                       10
+
+[Página 11]
+I. Etiquetado Secuencial
+
+  Esquema de etiquetas:
+
+     •Conjunto de etiquetas y formato (por ejemplo, BIO o BIOES); frecuencia por etiqueta
+         y proporción de la etiqueta nula (“O”).
+     •Validez estructural de las secuencias de etiquetas (transiciones inválidas).
+     •Implicación: métricas a nivel de entidad frente a nivel detokeny restricciones de
+         decodificación.
+
+  Estructura de las secuencias:
+
+     •Distribución de longitudes de oraciones o secuencias; longitud de los segmentos eti-
+         quetados (spans).
+     •Análisis detokensfuera de vocabulario y de ambigüedad (mismotokencon múltiples
+         etiquetas).
+
+  Dependencias entre etiquetas:matriz de transición empírica entre etiquetas consecu-
+  tivas; justificación de modelar o no dependencias de salida.
+
+  Calidad de anotación, duplicados y fuga:consistencia de la anotación, oraciones
+  repetidas entre particiones y partición por documento (no por oración suelta).
+
+  Implicaciones clave:representación de entrada (palabra, carácter o subpalabra), arqui-
+  tectura base (RNN, LSTM o GRU, con o sin capa de decodificación estructurada) y manejo
+  del desbalance de la etiqueta nula.
+
+J. Aprendizaje Secuencia a Secuencia
+
+  Longitudes de origen y destino:
+
+     •Distribución de longitudes de entrada y de salida, y su relación (razón de longitudes,
+         correlación).
+     •Implicación: longitudes máximas,bucketingy límites de decodificación.
+
+  Vocabularios:
+
+     •Tamaño, cobertura y tasa de palabras fuera de vocabulario en origen y destino; deci-
+         sión de vocabulario compartido o separado y tipo de tokenización.
+
+  Calidad del alineamiento entre pares:detección de pares desalineados, ruidosos o
+  truncados; pares duplicados y pares casi duplicados entre particiones.
+
+
+
+                                                      11
+
+[Página 12]
+               Distribución de contenido:dominios, temas o estilos presentes; desplazamiento de do-
+               minio entre particiones.
+
+               Implicaciones clave:arquitectura codificador–decodificador base, estrategia de entre-
+               namiento (teacher forcing), estrategia de decodificación (voraz o por haz), métricas de
+               generación y partición que evite fuga de pares o de documentos.
+
+
+
+
+
+
+
+
+
+
+
+
+            3. Revisión del Estado del Arte y Extracción de los Tres Modelos
+            Base
+
+
+
+
+
+
+
+
+
+
+
+            3.1 Estrategia de Búsqueda (Obligatoria)
+
+               Cadenadebúsqueda:documentar laspalabras clavey lacadena booleanacompleta (por
+               ejemplo, “deep learning” AND “forecasting” AND “renewable energy”), con sinónimos y
+               variantes terminológicas, la fecha de ejecución y el número de resultados de cada cadena.
+
+               Bases de datos consultadas:WoS, Scopus e IEEE Xplore (y, de forma complementaria,
+               arXiv para identificar tendencias recientes).
+
+               Periodo de búsqueda:preferiblemente los últimos 5–8 años.
+
+Requisito obligatorioCriterios de inclusión y exclusión:
+Cada análisis del EDA debe concluir con una sección explícita de:•Relevancia directa al problema de aplicación seleccionado.
+Larevisióndeliteraturadebeproducirunúnicoresultadocentral:laidentificacióndelosDecisión de preprocesamiento derivada.•Uso de Deep Learning.
+tres modelos de Deep Learning más básicosImpacto en la arquitectura del modelo.que los estudios revisados emplean
+como referencia comparativapara el problema de aplicación seleccionado12      . La
+revisión debe basarse en literatura científica reciente (preferiblemente Q1 en WoS oRiesgos identificados (incluyendo posibles fuentes dedata leakage).
+Scopus) y ser trazable y reproducible.
+No se aceptan análisis descriptivos sin interpretación técnica.
+
+[Página 13]
+                  •Métricas reportadas de forma verificable.
+                  •Presencia de un modelo de referencia o línea base contra el cual se compara el modelo
+                     propuesto.
+                  •Exclusión de estudios sin descripción suficiente de la arquitectura de referencia o del
+                     protocolo experimental.
+
+               Trazabilidad del proceso:reportar el número de registros identificados, depurados, eva-
+               luadosyfinalmenteincluidos,enundiagramadeflujotipoPRISMA,eindicarquiénrealizó
+               la selección y cómo se resolvieron los desacuerdos.
+
+               Evaluacióndelacalidaddelosestudios:valorarparacadaestudioincluidolaclaridad
+               delprotocoloexperimental,laausenciaaparentedefugadedatos,elnúmeroderepeticiones
+               y el uso de pruebas estadísticas.
+
+             3.2 Identificación de los Tres Modelos Base de Deep Learning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               Procedimiento de extracción:
+
+                  1.Revisar, en cada estudio incluido, qué modelos de Deep Learning se emplean como
+                     referencia o línea base.
+                  2.Registrar para cada uno: tipo de arquitectura, profundidad, ancho, regularización y
+                     configuración de entrenamiento reportada.
+                  3.Construir una tabla de frecuencia que indique cuántos estudios utilizan cada modelo
+                     como referencia.
+                  4.Ordenar los candidatos por frecuencia de uso y por complejidad (número de paráme-
+Los tres modelos base debenextraerse de la revisión de literaturatros y profundidad)., a partir de
+los modelos de Deep Learning más sencillos que los estudios utilizan con fines com-5.Seleccionarexactamentetresmodelos:losmásrecurrentesydemenorcomplejidad
+parativospara resolver el problema de aplicación seleccionadoarquitectónica, justificando la selección con las referencias que la respaldan.. Su función es
+equivalente a la que cumplen, en aprendizaje automático clásico, elmodelo logís-
+ticoen clasificación y laregresión de vectores de soporte (SVR) con núcleo
+linealen regresión: establecer un nivel mínimo de desempeño que permita determinar13
+cuánto error o precisión debe mejorar un modelo avanzado para ser considerado una
+contribución relevante.
+
+[Página 14]
+                  6.Verificar que los tres modelos no sean redundantes entre sí (deben diferir en el sesgo
+                     inductivo que incorporan).
+
+               Criterios que debe cumplir cada modelo base:
+
+                  •Arquitectura simple, reproducible y ampliamente documentada.
+                  •Uso frecuente como comparación en la literatura del problema elegido.
+                  •Capacidad de entrenarse bajo el mismo pipeline y la misma partición que los demás
+                     modelos base.
+                  •Ser un modelo de Deep Learning (no se aceptan como base modelos de aprendizaje
+                     automático clásico, que se emplean solo como referencia de contexto).
+
+               Productoobligatorio:tabladesíntesisconlassiguientescolumnas:referencia,problema,
+               dataset, modelos de Deep Learning básicos utilizados como referencia, métricas reportadas
+               y valores obtenidos.
+
+               Justificación explícitade la equivalencia entre los tres modelos base seleccionados y
+               los modelos de referencia clásicos (modelo logístico en clasificación, SVR lineal en regre-
+               sión), argumentando en términos de capacidad de representación, supuestos y propósito
+               comparativo.
+               Si la literatura no define la arquitecturade un modelo base (por ejemplo, se reporta
+               solo “un MLP”), el estudianteno la elige por criterio personal: aplica la búsqueda de
+               arquitectura del Entregable 2 (Sección 14), declarando el espacio antes de entrenar.
+
+
+
+
+
+
+
+Familias de arquitecturas base candidatas según el tipo de problema
+Las siguientes familias son punto de partida orientativo; la selección final debe provenir
+de la frecuencia observada en la literatura revisada.
+      Clasificación y regresión tabular:perceptrón multicapa (MLP) superficial,
+      MLP profundo con regularización, red residual para datos tabulares.
+
+      Series de tiempo:MLP sobre ventana de rezagos, RNN simple, LSTM y GRU
+      de una capa, CNN 1D / TCN poco profunda.
+
+      Regresión temporal:MLP sobre covariables con rezagos, LSTM o GRU sobre
+      secuencias de covariables, CNN 1D poco profunda sobre covariables.
+
+      Regresión espacial:MLP con coordenadas y covariables, MLP conembeddings
+      posicionales, CNN sobre rejilla de vecindad.
+                                                                  14
+      Regresión  espacio-temporal:LSTM  o  GRU  global  sobre  ventanas,
+      ConvLSTM, red convolucional sobre grafo o rejilla de poca profundidad.
+
+[Página 15]
+      3.3 Análisis Detallado por Modelo Base
+
+          Para cada uno de los tres modelos base se debe incluir:
+
+         Referencias completasde los artículos que lo respaldan como línea base (formato aca-
+         démico, con DOI).
+
+         Tipo de arquitectura:MLP, RNN, LSTM, GRU, CNN, codificador–decodificador, etc.
+
+         Descripción técnica:
+
+           •Componentes principales, ecuaciones de las capas y flujo de datos (con diagrama).
+           •Supuestos de modelado y sesgo inductivo.
+           •Función de pérdida y procedimiento de optimización habituales.
+
+         Tipo de problema que aborda.
+
+         Dataset(s) utilizadosen los artículos donde se emplea como referencia.
+Clasificación de imágenes:Métricas reportadasCNN poco profunda (estilo LeNet o VGG reduci-y valores obtenidos en la literatura, indicando si incluyen medidas
+da), CNN pequeña con normalización por lotes, ResNet de baja profundidad.de dispersión.
+
+Segmentación de imágenes:Fortalezas:simplicidad, eficiencia, facilidad de reproducción.red totalmente convolucional (FCN) sencilla,
+codificador–decodificador convolucional básico, U-Net reducida.Limitaciones:capacidad de representación, sobreajuste, sensibilidad a hiperparámetros.
+
+Clasificación de texto:Complejidad computacional:MLP sobreembeddingspromediados (tipofastTextcon
+red), CNN de texto, LSTM o GRU unidireccional o bidireccional de una capa.
+Etiquetado secuencial:•Número de parámetros (con expresión analítica en función de los hiperparámetros).LSTM o GRU bidireccional con clasificación portoken,
+la misma con capa de decodificación estructurada (CRF), CNN dilatada.•Costo por paso de entrenamiento y de inferencia (orden de complejidad).
+
+Secuencia a secuencia:codificador–decodificador con GRU o LSTM, el mis-15
+mo con mecanismo de atención aditiva, codificador–decodificador convolucional
+sencillo.
+
+[Página 16]
+                  •Tiempo de entrenamiento, si se reporta.
+
+            3.4 Comparación Crítica
+
+               Comparación estructurada entre los tres modelos base:
+
+                  •Desempeño reportado en la literatura.
+                  •Robustez.
+                  •Escalabilidad.
+
+               Análisis crítico de la validez de los estudios revisados: protocolos de partición, riesgo de
+               fuga, número de repeticiones, ausencia de pruebas estadísticas y comparabilidad entre
+               conjuntos de datos.
+
+               Análisis de la brecha de desempeño que la literatura reporta entre los modelos avanzados
+               y estos modelos base, como contexto para interpretar el baseline obtenido.
+
+               Identificación degap en la literatura, formulado como una brecha concreta y verifica-
+               ble (por ejemplo, “ningún estudio incluido compara X contra Y bajo la condición Z con
+               inferencia estadística”).
+
+
+
+
+
+            4. Implementación y Evaluación de los Tres Modelos Base
+
+
+
+
+
+
+
+
+            4.1 Diseño Experimental
+
+               Definición clara de:
+
+                  •Variables de entrada (representación y dimensiones).
+                  •Variable objetivo y horizonte de predicción (si aplica).
+
+               División del dataset:
+
+
+
+
+Los tres modelos base extraídos de la literatura deben ser implementados,16
+No se acepta una revisión descriptiva superficial. Se esperaanálisis crítico compa-comparados bajo el mismo entorno experimental y evaluados de forma ri-
+rativoy justificación clara de los tres modelos base extraídos.gurosa.
+
+[Página 17]
+                   •Entrenamiento / validación / prueba, con proporciones, semilla y estrategia de parti-
+                       ción (aleatoria, estratificada, agrupada, temporal o espacial por bloques) justificada
+                       en el EDA.
+                   •Esquema de validación para selección de hiperparámetros: validación cruzada ani-
+                       dada o partición fija de validación, según el tamaño del dataset y la estructura de
+                       dependencia.
+
+                Definición de pipeline:
+
+                   •Preprocesamiento (ajustado solo con el conjunto de entrenamiento).
+                   •Entrenamiento.
+                   •Evaluación.
+
+
+
+
+
+
+
+
+                Piloto:al menoscinco ejecuciones independientes(semillas distintas) de cada uno de
+                los tres modelos base, sobre la partición de validación. Reportar media, desviación estándar
+                y coeficiente de variación de la métrica primaria.
+
+                Diferencia mínima de interés:fijar el margenδde relevancia práctica (ya declarado en
+                la Sección 1) y expresarlo también en unidades de la desviación estándar de las diferencias
+                pareadas,δ/ˆσ           d.
+
+                Tamaño de muestra:calcular el número de ejecuciones necesarias para detectarδcon
+                potencia1−β≥0,80y nivelα= 0,05mediante la aproximación
+
+                                                                (︂z1−α/2       +z    1−β)︂2 ˆσ    2d
+                                                        R≈                 δ2      ,
+
+                y reportar el resultado junto con el supuesto de normalidad de las diferencias pareadas (o
+                la alternativa no paramétrica si no se cumple).
+
+                Diferencia mínima detectable:con las ejecuciones realizadas, reportar la menor dife-
+                rencia que el diseño puede detectar con potencia 0.80. Si es mayor queδ, el diseño debe
+                ampliarse o declararse como limitación explícita.
+
+                Relación con el Entregable 2:el valorˆσ      d estimado aquí se usará como punto de partida
+                para el número de semillas del benchmark. No se considera definitivo.
+Estudio piloto y dimensionamiento de la muestra.Antes de la ejecución defini-
+tiva de los tres modelos base, el equipo debe realizar unestudio piloto17        que permita
+estimar la variabilidad de la métrica primaria y dimensionar el número de ejecuciones.
+Sin este paso, el baseline no tiene sustento estadístico verificable.
+
+[Página 18]
+  Registro:el piloto, sus supuestos y su resultado se documentan en un archivo de prere-
+  gistro breve, fechado y previo a la ejecución definitiva.
+
+4.2 Implementación de los Tres Modelos Base
+
+  Implementar los tres modelos base identificados en la sección 3.2 con la configuración
+  reportada en la literatura, o con una configuración mínima justificada.
+
+  Entrenarlos con elmismo pipeline, la misma partición y las mismas semillas.
+
+  Definición de hiperparámetros:
+
+     •Learning rate y planificador.
+     •Número de capas y unidades.
+     •Batch size.
+     •Optimizador, regularización (dropout, decaimiento de pesos) y función de pérdida.
+
+  Estrategia de entrenamiento:
+
+     •Número máximo de épocas.
+     •Early stoppingcon criterio sobre el conjunto de validación.
+
+  Registro de:
+
+     •Curvas de entrenamiento y validación.
+     •Número de parámetros.
+     •Tiempo computacional y hardware empleado.
+
+  Equidad en la optimización:los tres modelos base deben recibir el mismo esfuerzo de
+  ajuste de hiperparámetros (mismo método de búsqueda, mismo presupuesto de evaluacio-
+  nes y espacios de búsqueda comparables en amplitud), de modo que el baseline obtenido
+  sea justo y no subestimado. Documentar el espacio de búsqueda y los valores seleccionados.
+
+  Implementación desde cero o uso de librerías justificadas, con versiones desoftwareregis-
+  tradas.
+
+4.3 Requisitos Experimentales
+
+  Control de semillas aleatorias (generadores de la librería, de números aleatorios y de las
+  operaciones del dispositivo), declarando si se usa determinismo estricto.
+
+
+
+
+
+                                                      18
+
+[Página 19]
+                Repetición de experimentos:cada modelo base se ejecuta con semillas de inicialización
+                independientes y documentadas. El número mínimo escinco ejecuciones independien-
+                tes por modelo(seis si se usan pruebas por rangos), y debe ajustarse al valor que resulte
+                delestudio pilotode la Sección 4.1; si el análisis de potencia exige más ejecuciones,
+                ese número prevalece. Cuando sea posible, combinar semillas distintas con particiones de
+                validación distintas.
+
+                Reporte de media, desviación estándar e intervalos de confianza.
+
+                Uso de GPU (si aplica) documentado.
+
+                Empaquetado reproducible: archivo de dependencias,scriptso cuadernos ejecutables de
+                extremo a extremo y registro de configuración de cada corrida.
+
+             Buenas Prácticas Obligatorias
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Prevención de Data Leakage (crítico)
+      Separar completamente train/validation/test.
+
+      Ajustar transformaciones (escalado, codificación, vocabulario, imputación, selec-
+      ción de atributos) solo en train.
+
+      Evitar mezcla temporal en series de tiempo, regresión temporal y espacio-
+      temporal.
+
+      Evitar fuga espacial: validar por bloques con separación mayor al rango de auto-
+      correlación.
+
+      EvitarfugadeinformaciónsemánticaenNLP(duplicados,casiduplicados,mismo4.4 Evaluación
+      autor o documento en particiones distintas).
+      Evitar fuga por agrupamiento en imágenes (mismo sujeto, sitio o escena en par-Definir métrica principal y métricas secundarias acordes al problema:
+
+      ticiones distintas).•Clasificación (tabular, imágenes, texto):Accuracy, Precision, Recall, F1-score
+
+      Validación consistente entre los tres modelos base.
+                                                                   19
+      El conjunto de prueba se evalúa una sola vez por corrida, con el modelo y los
+      hiperparámetros ya fijados.
+
+[Página 20]
+      (macro, ponderado y por clase), AUC-ROC, AUC-PR (recomendada con desbalance),
+      coeficiente de correlación de Matthews y calibración (error de calibración esperado,
+      diagrama de fiabilidad).
+  •Regresión (tabular, temporal, espacial, espacio-temporal) y series de tiem-
+      po:RMSE, MAE,R                    2; MAPE o sMAPE (con cautela ante valores cercanos a cero) y
+      MASE para comparar entre series o contra un pronóstico ingenuo.
+  •Series de tiempo:reportar el error por horizonte de pronóstico y comparar con
+      referencias ingenuas (persistencia y ingenuo estacional).
+  •Regresión espacial y espacio-temporal:errores globales y por ubicación o región,
+      y autocorrelación espacial de los residuos (I de Moran sobre residuos).
+  •Etiquetado secuencial:precisión, exhaustividad y F1 a nivel de entidad (coinci-
+      dencia exacta despans), además de exactitud a nivel detoken.
+  •Secuencia a secuencia:métricas de generación según la tarea (por ejemplo, BLEU,
+      ROUGE, chrF o exactitud de secuencia completa), reportando la configuración exacta
+      de cálculo (tokenización, versión de la implementación).
+  •Segmentación de imágenes:
+        ◦IoU (Intersection over Union):
+
+                                             IoU=       TPTP+FP+FN
+
+           dondeTP,FPyFNcorresponden a verdaderos positivos, falsos positivos y
+           falsos negativos a nivel de píxel.
+        ◦Dice Coefficient (F1-score para segmentación):
+
+                                           Dice=                2TP2TP+FP+FN
+
+        ◦Pixel Accuracy:proporción de píxeles correctamente clasificados.
+        ◦Mean IoU (mIoU):promedio del IoU sobre todas las clases.
+        ◦Boundary-based metrics (opcional):evaluación de bordes para tareas donde
+           la precisión espacial es crítica.
+
+Comparación justa entre modelos base:
+
+  •Uso del mismo dataset y partición.
+  •Mismo pipeline de preprocesamiento.
+  •Misma configuración de evaluación.
+
+
+                                                   20
+
+[Página 21]
+               Análisis de resultados:
+
+                  •Reportar media, desviación estándar e intervalo de confianza (múltiples ejecuciones).
+                  •Descomposición de la varianza: variabilidad por semilla frente a variabilidad entre
+                     modelos.
+                  •Evaluación de robustez (por subgrupos, por nivel de ruido o ante perturbaciones
+                     controladas).
+                  •Diagnóstico de overfitting/underfitting mediante curvas de aprendizaje y brecha entre
+                     entrenamiento y validación.
+                  •Análisis de errores por segmentos relevantes (clase, rango del objetivo, ubicación,
+                     horizonte, longitud de la secuencia).
+
+               Análisis cualitativo:
+
+                  •Visualización de predicciones frente a valores reales (o frente aground truthen seg-
+                     mentación).
+                  •Identificación de errores sistemáticos y de casos difíciles.
+                  •Análisis de residuos (estructura, sesgo y heterocedasticidad).
+
+             5. Benchmark de los Modelos Base y Definición del Baseline
+
+
+
+
+
+
+
+
+
+             5.1 Comparación Tabular
+
+               Tabla con:
+
+                  •Modelo base.
+                  •Métricas (media±desviación estándar).
+                  •Intervalos de confianza (95%), indicando el método de construcción (por ejemplo,t
+                     de Student obootstrap).
+                  •Tiempo de entrenamiento y de inferencia.
+                  •Número de parámetros.
+
+El benchmark debe serreproducible, justo y comparable, e incluir de manera
+conjunta los tres modelos base. Su resultado es elnivel mínimo de desempeño21
+(baseline)que deberá superar cualquier modelo avanzado propuesto en trabajos pos-
+teriores.
+
+[Página 22]
+            5.2 Ranking de Modelos Base
+
+               Ordenar los tres modelos según la métrica principal del problema.
+
+               Analizar trade-off:
+
+                 •Precisión vs costo computacional.
+                 •Precisión vs complejidad del modelo.
+
+            5.3 Definición del Baseline y Margen de Mejora Disponible
+
+
+
+
+
+
+
+               Selección del baseline de referencia:
+
+                 •Identificar el mejor modelo base según la métrica principal.
+                 •Reportar su desempeño con media, desviación estándar e intervalo de confianza al
+                     95%.
+
+               Cuantificación de las diferencias entre modelos base:
+
+                 •Regresión (incluida la temporal, espacial y espacio-temporal) y series de
+                     tiempo:reducción relativa del error de cada modelo respecto al peor modelo base y
+                     respecto al mejor,
+
+                                           ∆RMSE = RMSEref−RMSE  modeloRMSEref    ×100 %,
+
+                     y su equivalente para MAE.
+                 •Clasificación, etiquetado secuencial y segmentación:diferencia absoluta y re-
+                     lativa en la métrica principal (F1-score, AUC-ROC, F1 de entidad, mIoU o Dice)
+                     entre los modelos base.
+                 •Secuencia a secuencia:diferencia absoluta y relativa en la métrica principal de
+                     generación.
+                 •Acompañar cada diferencia con unamedida de tamaño de efecto(por ejemplo,d
+                     de Cohen pareada orde rango biserial).
+
+               Inferencia sobre las diferencias:
+
+
+
+Esteanálisiseselobjetivocentraldelentregable:determinarcuáleselmejormodelo22
+base y qué nivel de error o precisión establece como umbral mínimoque debe
+superarse para que un modelo avanzado represente una mejora significativa y relevante.
+
+[Página 23]
+                  •Comparaciones pareadas entre los tres modelos base, con corrección por múltiples
+                     comparaciones (Holm o Bonferroni).
+                  •Reporte de la diferencia media, el intervalo de confianza al 95% y elp-valor exacto
+                     (ajustado y sin ajustar).
+
+               Umbral de mejora para modelos avanzados:
+
+                  •Definir, a partir de la variabilidad observada (desviación estándar entre corridas e IC
+                     al 95%), lamejora mínima detectableque un modelo avanzado debería lograr
+                     respecto al mejor modelo base para considerarse estadísticamente distinguible del
+                     baseline.
+                  •Definir unmargen de relevancia práctica(por ejemplo, reducción relativa mínima
+                     del error) justificado por el contexto de la aplicación y por la variabilidad intrínseca
+                     de los datos.
+                  •Contrastar el baseline con una cota de referencia del problema cuando exista (por
+                     ejemplo, ruido irreducible estimado, acuerdo entre anotadores o desempeño humano).
+
+               Interpretación:
+
+                  •Distinguir entre diferencia estadísticamente significativa y diferencia prácticamente
+                     relevante entre los modelos base.
+                  •Valorar si el aumento en complejidad, número de parámetros y costo computacional
+                     entre los modelos base se traduce en mejoras de desempeño.
+                  •Concluir de manera explícita cuál es el baseline y qué margen de mejora queda dis-
+                     ponible para modelos más avanzados.
+
+             5.4 Análisis Estadístico y Pruebas de Hipótesis
+
+
+
+
+
+
+
+
+             Comparación General entre Modelos Base (todos los tipos de problema)
+
+               Verificación de supuestos:normalidad de las diferencias pareadas (Shapiro–Wilk y
+               gráficos Q–Q), independencia y homogeneidad de varianzas. Justificar la elección entre
+               prueba paramétrica y no paramétrica a partir de esta verificación.
+
+               Comparaciones pareadas:
+
+
+Se deben realizarpruebas de hipótesis formalespara evaluar si las diferencias23
+entre los modelos base son estadísticamente significativas. No se aceptan comparaciones
+basadas únicamente en promedios.
+
+[Página 24]
+     •t-test pareado(con normalidad).
+     •Wilcoxon signed-rank test(no paramétrico).
+     •Las observaciones pareadas deben corresponder a la misma semilla, partición o bloque
+        para ambos modelos.
+
+  Múltiples modelos (los tres modelos base):
+
+     •ANOVA de medidas repetidas(si se cumplen los supuestos).
+     •Friedman test(recomendado), con la salvedad de potencia de la Sección 7.
+     •Post-hoc:
+           ◦Nemenyi test.
+           ◦Corrección de Bonferroni o Holm.
+
+  Intervalos de confianza y tamaño de efecto:bootstrapsobre las diferencias pareadas
+  y tamaño de efecto asociado a cada comparación.
+
+  Advertenciasobreindependencia:lasejecucionesquecompartenelconjuntodeprueba
+  no son estrictamente independientes; reconocer esta limitación y, cuando sea posible, usar
+  validación cruzada repetida con corrección de varianza o remuestreo por bloques.
+
+  Reporte de potencia:acompañar cada prueba de hipótesis con la potencia estimada o
+  la diferencia mínima detectable del diseño.
+
+  Ausencia de significancia:no interpretarla como equivalencia. Si se quiere afirmar que
+  dos modelos base son equivalentes, usar TOST o ROPE con margenδy reportarlo como
+  análisis separado.
+
+  Tamaño del efecto:reportar siempre junto con elp-valor (por ejemplo,δde Cliff odde
+  Cohen según corresponda).
+
+Caso Específico: Clasificación (tabular, imágenes y texto)
+
+  Test de DeLong:
+
+     •Comparación estadística entre curvas ROC correlacionadas (mismo conjunto de prue-
+        ba).
+     •Evaluación de diferencias significativas en AUC.
+
+  Test de McNemar:comparación de tasas de error entre dos clasificadores sobre el mis-
+  mo conjunto de prueba (con la corrección de continuidad o la versión exacta cuando las
+  discordancias sean pocas).
+
+
+                                                    24
+
+[Página 25]
+  Reportar:
+
+     •Diferencia de AUC y de la métrica principal.
+     •p-valor exacto del test.
+     •Intervalos de confianza.
+
+  En problemas multiclase, aplicar DeLong de forma justificada (uno contra el resto, con
+  corrección) o reportar la comparación mediantebootstrapestratificado.
+
+Caso Específico: Series de Tiempo y Regresión Temporal
+
+  Test de Diebold–Mariano:
+
+     •Comparación de precisión predictiva entre modelos, para cada horizonte.
+     •Usar la corrección para muestras pequeñas (Harvey–Leybourne–Newbold) y una fun-
+        ción de pérdida coherente con la métrica principal.
+
+  Test BDS (Brock–Dechert–Scheinkman):
+
+     •Evaluación de independencia y no linealidad en residuos.
+
+  Test de Ljung–Box:
+
+     •Evaluación de autocorrelación en residuos, con los grados de libertad apropiados y
+        varios rezagos.
+
+  Interpretar los residuos: autocorrelación remanente o no linealidad sin explicar indican
+  margen de mejora estructural para modelos más avanzados.
+
+Caso Específico: Regresión (tabular, espacial y espacio-temporal)
+
+  Comparación de errores mediante:
+
+     •t-test o Wilcoxon sobre errores (RMSE, MAE) entre corridas.
+     •Diebold–Mariano sobre los errores a nivel de observación de la partición de prueba,
+        cuando las observaciones sean aproximadamente independientes.
+
+  Evaluación de intervalos de confianza de las métricas (bootstrap).
+
+  Regresión espacial y espacio-temporal:aplicar el I de Moran a los residuos de cada
+  modelo; la autocorrelación espacial remanente invalida la independencia supuesta por las
+  pruebas clásicas y debe tratarse conbootstrappor bloques espaciales.
+
+
+
+
+                                                     25
+
+[Página 26]
+Caso Específico: Segmentación de Imágenes
+
+  Unidad de análisis: la imagen (no el píxel), pues los píxeles de una misma imagen están
+  correlacionados; calcular Dice o IoU por imagen y comparar por pares con Wilcoxon o
+  t-test pareado.
+
+  Bootstrapsobre imágenes de prueba para los intervalos de confianza de mIoU y Dice.
+
+  Comparar por clase, con corrección por múltiples comparaciones.
+
+Caso Específico: Etiquetado Secuencial y Secuencia a Secuencia
+
+  Bootstrappareado sobre oraciones o documentos de prueba (remuestreo de las unidades,
+  no de lostokens) para comparar F1 de entidad, BLEU, ROUGE o la métrica de generación
+  empleada.
+
+  Prueba de permutación pareada (aproximada) como alternativa no paramétrica para mé-
+  tricas a nivel de corpus.
+
+  Reportar el intervalo de confianza de la diferencia y elp-valor exacto.
+
+Buenas Prácticas Estadísticas
+
+  Nivel de significancia:α= 0,05, declarado antes de analizar los resultados.
+
+  Reportarp-valores exactos (no solo<0.05), ajustados y sin ajustar.
+
+  Reportar intervalos de confianza y tamaños de efecto.
+
+  Verificar supuestos (normalidad, independencia).
+
+  Realizar múltiples ejecuciones (mínimo 5).
+
+  Declarar con antelación la métrica principal y las comparaciones de interés, para evitar la
+  exploración selectiva de resultados.
+
+Interpretación
+
+  Determinar si las diferencias entre modelos base son estadísticamente significativas.
+
+  Distinguir entre significancia estadística y relevancia práctica.
+
+  Evitar conclusiones basadas solo en métricas promedio.
+
+
+
+
+
+
+                                                      26
+
+[Página 27]
+             5.5 Discusión Crítica
+
+                ¿Cuál de los tres modelos base funciona mejor y por qué (sesgo inductivo, capacidad,
+                regularización)?
+
+                ¿Cuál generaliza mejor?
+
+                ¿Las diferencias entre los modelos base son estadísticamente significativas y prácticamente
+                relevantes?
+
+                ¿Existe trade-off relevante entre desempeño y costo entre los modelos base?
+
+                ¿Cuál es el baseline resultante y qué umbral de mejora debe superar un modelo avanzado
+                para ser relevante en este problema?
+
+                ¿Qué margen de mejora potencial sugiere la brecha reportada en la literatura frente al
+                baseline obtenido, y qué tan creíble es dada la variabilidad medida?
+
+                Amenazas a la validez: interna (fuga de datos, optimización desigual), externa (generali-
+                zación a otros datasets o dominios) y de construcción (adecuación de las métricas).
+
+                Limitaciones del estudio.
+
+                Recomendaciones futuras.
+
+
+
+
+
+             6. Guía de Procedimiento por Tipo de Problema
+
+
+
+
+
+
+
+
+
+
+
+             6.1 Clasificación (datos tabulares)
+
+                Partición:estratificada por clase; agrupada si existen múltiples registros por entidad
+                (paciente, cliente, sitio). Validación cruzada anidada si el tamaño es reducido.
+
+                Preprocesamiento:imputación, escalado y codificación ajustados solo en train;embed-
+Esta sección indica, para cada tipo de problema admitido,dingsde entidades para categóricas de alta cardinalidad.cómo procederen la
+partición, el preprocesamiento, la selección de modelos base, la función de pérdida,
+la evaluación y la inferencia. Siga únicamente la guía correspondiente a su proyecto.27
+No se aceptan conclusiones descriptivas. Toda afirmación debe estar respaldada porLa ruta completa de cada tipo para el benchmark de 10 modelos se desarrolla en el
+evidencia estadística rigurosaEntregable 2..
+
+[Página 28]
+  Modelos base típicos:MLP superficial, MLP profundo regularizado, red residual tabu-
+  lar.
+
+  Pérdida:entropía cruzada (ponderada ofocalante desbalance).
+
+  Evaluación:F1 macro, AUC-ROC, AUC-PR, MCC, calibración.
+
+  Inferencia:DeLong, McNemar, Friedman con post-hoc.
+
+  Referencia de contexto:regresión logística, para dimensionar el margen.
+
+6.2 Regresión (datos tabulares)
+
+  Partición:aleatoria o agrupada; estratificar por cuantiles del objetivo si hay asimetría
+  fuerte.
+
+  Preprocesamiento:transformacióndelobjetivosiesnecesaria(invertirlatransformación
+  antes de calcular métricas); escalado robusto.
+
+  Modelos base típicos:MLP superficial, MLP profundo regularizado, red residual tabu-
+  lar.
+
+  Pérdida:error cuadrático, absoluto o Huber según las colas del objetivo.
+
+  Evaluación:RMSE, MAE,R                                       2, análisis de residuos.
+
+  Inferencia:t-test pareado o Wilcoxon, Friedman con post-hoc,∆             RMSE con IC.
+
+  Referencia de contexto:SVR lineal o regresión lineal regularizada.
+
+6.3 Series de Tiempo
+
+  Partición:cronológica estricta (entrenamiento<validación<prueba), con validación de
+  origen móvil; ningún dato futuro en el ajuste de transformaciones.
+
+  Preprocesamiento:ventanas deslizantes con longitud derivada de ACF/PACF; diferen-
+  ciación o normalización calculadas con el pasado; imputación causal.
+
+  Modelos base típicos:MLP sobre rezagos, RNN simple, LSTM o GRU de una capa,
+  CNN 1D poco profunda.
+
+  Pérdida:error cuadrático o absoluto, coherente con la métrica de evaluación; declarar la
+  estrategia multi-paso.
+
+  Evaluación:RMSE, MAE, MASE por horizonte y comparación con pronóstico ingenuo.
+
+  Inferencia:Diebold–Mariano por horizonte, Ljung–Box y BDS sobre residuos, Friedman
+  con post-hoc.
+
+                                                     28
+
+[Página 29]
+6.4 Regresión Temporal
+
+  Partición:cronológica estricta conembargoigual al máximo rezago de las covariables; sin
+  barajar.
+
+  Preprocesamiento:construcción de rezagos de lascovariables(no del objetivo); esca-
+  lado ajustado solo con el pasado; verificación de que cada covariable está disponible al
+  momento de predecir.
+
+  Modelos base típicos:MLP sobre covariables con rezagos, LSTM o GRU sobre secuen-
+  cias de covariables, CNN 1D poco profunda.
+
+  Pérdida:error cuadrático, absoluto o Huber.
+
+  Evaluación:RMSE, MAE,R                                       2; análisis de la autocorrelación de residuos (si es alta, re-
+  considerar el tipo de problema).
+
+  Inferencia:Diebold–Mariano, Ljung–Box sobre residuos, Wilcoxon otpareado sobre eje-
+  cuciones, Friedman con post-hoc.
+
+  Referencia de contexto:regresión lineal regularizada con las mismas covariables reza-
+  gadas.
+
+6.5 Regresión Espacial
+
+  Partición:por bloques espaciales conbuffersuperior al rango del semivariograma; evitar
+  partición aleatoria de puntos.
+
+  Preprocesamiento:proyección de coordenadas, construcción de la matriz de vecindad o
+  de la rejilla; estandarización ajustada solo en train.
+
+  Modelos base típicos:MLP con coordenadas y covariables, MLP conembeddingsposi-
+  cionales, CNN sobre rejilla de vecindad.
+
+  Pérdida:error cuadrático o absoluto.
+
+  Evaluación:RMSE, MAE,R                                       2 por bloque y mapa de errores; I de Moran sobre residuos.
+
+  Inferencia:comparación pareada por bloques de validación,bootstrappor bloques, Fried-
+  man con post-hoc.
+
+6.6 Regresión Espacio-Temporal
+
+  Partición:temporal estricta; adicionalmente, por bloques espaciales si el objetivo es ge-
+  neralizar a ubicaciones no observadas. Declarar cuál escenario se evalúa.
+
+
+
+                                                        29
+
+[Página 30]
+  Preprocesamiento:construcción de tensores o grafos con criterio de vecindad documen-
+  tado; ventanas temporales; normalización por nodo o global (justificada) ajustada con el
+  pasado de train.
+
+  Modelosbasetípicos:LSTMoGRUglobalsobreventanasconcoordenadas,ConvLSTM,
+  red convolucional sobre grafo o rejilla poco profunda.
+
+  Pérdida:error cuadrático o absoluto, con enmascaramiento de datos faltantes.
+
+  Evaluación:errores por horizonte, por ubicación y globales; I de Moran sobre residuos.
+
+  Inferencia:Diebold–Mariano por horizonte y ubicación con corrección múltiple, Ljung–
+  Box por serie, Friedman con post-hoc.
+
+6.7 Clasificación de Imágenes
+
+  Partición:estratificada y agrupada por sujeto, sitio o escena; eliminación previa de du-
+  plicados y casi duplicados.
+
+  Preprocesamiento:resizingy normalización con estadísticos del conjunto de entrena-
+  miento;augmentationsaplicadas únicamente en train y que preserven la etiqueta.
+
+  Modelos base típicos:CNN poco profunda, CNN pequeña con normalización por lotes,
+  ResNet de baja profundidad.
+
+  Pérdida:entropía cruzada (ponderada ofocalante desbalance).
+
+  Evaluación:F1 macro, AUC-ROC, matriz de confusión, mapas de saliencia para análisis
+  cualitativo.
+
+  Inferencia:McNemar, DeLong, Friedman con post-hoc.
+
+6.8 Segmentación de Imágenes
+
+  Partición:por imagen, escena o sujeto, sin solapamiento entre parches de distintas parti-
+  ciones.
+
+  Preprocesamiento:normalización con estadísticos de train; recorte en parches si la reso-
+  luciónlorequiere;augmentationsgeométricasyfotométricasaplicadasdeformaconsistente
+  a imagen y máscara.
+
+  Modelos base típicos:FCN sencilla, codificador–decodificador convolucional básico, U-
+  Net reducida.
+
+  Pérdida:Dice, entropía cruzada ponderada o combinación;focalo Tversky ante clases
+  raras.
+
+                                                     30
+
+[Página 31]
+  Evaluación:mIoU, Dice, exactitud de píxel y métricas por clase; métricas de borde (op-
+  cional); visualización de predicciones frente aground truth.
+
+  Inferencia:Wilcoxon ot-test pareado sobre métricas por imagen,bootstrapsobre imáge-
+  nes, Friedman con post-hoc.
+
+6.9 Clasificación de Texto
+
+  Partición:estratificada; agrupada por autor, fuente o hilo; eliminación previa de duplica-
+  dosycasiduplicadosentreparticiones.Endatosconderivatemporal,particióncronológica.
+
+  Preprocesamiento:tokenización y construcción del vocabulario solo con train; longitud
+  máxima derivada del EDA; manejo documentado de palabras fuera de vocabulario.
+
+  Modelos base típicos:MLP sobreembeddingspromediados, CNN de texto, LSTM o
+  GRU de una capa.
+
+  Pérdida:entropía cruzada (ponderada ante desbalance).
+
+  Evaluación:F1 macro, AUC-ROC (o AUC-PR), matriz de confusión, análisis de errores
+  por longitud y por clase.
+
+  Inferencia:McNemar,bootstrappareado sobre documentos, Friedman con post-hoc.
+
+6.10 Etiquetado Secuencial
+
+  Partición:por documento (no por oración); estratificación aproximada por frecuencia de
+  etiquetas raras.
+
+  Preprocesamiento:esquema de etiquetado consistente (BIO o BIOES), vocabulario de
+  palabras y, si aplica, de caracteres, construidos solo con train.
+
+  Modelos base típicos:LSTM o GRU bidireccional con clasificación portoken, la misma
+  con CRF, CNN dilatada.
+
+  Pérdida:entropía cruzada portoken(con enmascaramiento depadding) o verosimilitud
+  condicional de secuencia (CRF).
+
+  Evaluación:F1 a nivel de entidad (coincidencia exacta), precisión y exhaustividad por
+  tipo de entidad, exactitud portoken.
+
+  Inferencia:bootstrappareado sobre documentos, prueba de permutación, Friedman con
+  post-hoc.
+
+
+
+
+
+                                                      31
+
+[Página 32]
+             6.11 Aprendizaje Secuencia a Secuencia
+
+                Partición:por documento o fuente, evitando pares repetidos o casi repetidos entre parti-
+                ciones; reportar desplazamiento de dominio si existe.
+
+                Preprocesamiento:tokenización(palabraosubpalabra)aprendidasolocontrain;filtrado
+                documentado de pares ruidosos o muy largos; vocabulario compartido o separado según el
+                EDA.
+
+                Modelos base típicos:codificador–decodificador con GRU o LSTM, el mismo con aten-
+                ción aditiva, codificador–decodificador convolucional sencillo.
+
+                Pérdida:entropía cruzada portokenconteacher forcing(con enmascaramiento depad-
+                ding), con suavizado de etiquetas opcional.
+
+                Evaluación:métrica de generación acorde a la tarea (BLEU, ROUGE, chrF o exactitud
+                de secuencia completa), decodificación declarada (voraz o por haz, con tamaño del haz),
+                análisis de errores por longitud.
+
+                Inferencia:bootstrappareado sobre ejemplos de prueba y prueba de permutación pareada;
+                Friedman con post-hoc sobre semillas.
+
+             7. Limitaciones Inferenciales de Trabajar con Tres Modelos
+
+
+
+
+
+
+
+                Friedman con 3 modelos y 5 bloques:el test tiene muy poca potencia y el post-hoc
+                de Nemenyi es conservador. Una ausencia de significancianodemuestra equivalencia entre
+                los modelos base.
+
+                MínimodelWilcoxonpareado:conn= 5pares,elp-valorexactobilateralmáspequeño
+                posible es2/2          5 = 0,0625, mayor que0,05. Con 5 ejecucioneses imposible rechazarH                                                                            0
+                conWilcoxonbilateralaα= 0,05,inclusositodaslasdiferenciasvanenlamismadirección.
+                Por eso se recomienda usar al menos 6 ejecuciones para esa prueba, o reportartpareado
+                con verificación de normalidad, obootstrappareado.
+
+                Corrección de Holm con 3 comparaciones:reduce aún más la potencia; el nivel
+                ajustado más exigente esα/3≈0,0167.
+
+                Qué hacer:
+
+
+Con solo tres modelos y cinco ejecuciones, varias pruebas del catálogo estadístico tienen32
+potencia muy baja. Este entregable debe reconocerlo y tratarlo de forma explícita,
+en lugar de reportarp-valores como si las pruebas tuvieran poder suficiente.
+
+[Página 33]
+     1.Usarvalidación cruzada repetida(por ejemplo5×5) para obtener más observa-
+         ciones pareadas, aplicando la corrección de varianza de Nadeau y Bengio.
+     2.Reportarladiferenciamínimadetectableconelnúmerodeejecucionesdisponible.
+     3.Complementar contamañosde efecto conintervalo deconfianza(porbootstrap)
+         y con laprobabilidad de superioridad.
+     4.Para afirmar equivalencia entre dos modelos base, usar TOST o ROPE con el margen
+         δ, no la ausencia de significancia.
+
+  Objetivo del entregable:el propósito esfijar el baseliney su variabilidad con honesti-
+  dad, no obtener significancia a toda costa. Un resultado “no concluyente” bien justificado
+  y cuantificado es aceptable; unp<0,05obtenido con pruebas inapropiadas, no.
+
+Entregables
+
+  Informe en Jupyter Book.
+
+  Código completo (EDA + tres modelos base + análisis estadístico), ejecutable de extremo
+  a extremo y versionado.
+
+  Dataset (o instrucciones exactas yscriptspara su obtención cuando la licencia no permita
+  redistribuirlo).
+
+  Tabla de síntesis de la literatura con los modelos base extraídos y el diagrama de flujo del
+  proceso de búsqueda.
+
+  Tablacomparativadelostresmodelosbaseconmétricas,definicióndelbaselineeinferencia
+  estadística.
+
+  Archivo de dependencias, semillas y configuración de cada corrida.
+
+  Declaración a priori de la métrica primaria, el margenδ, la unidad de independencia y la
+  partición (insumo del Entregable 2).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                       33
+
+[Página 34]
+            Evaluación
+
+
+                         Criterio                                           Peso
+
+                         EDA                                                     30%
+                         Revisión de literatura y extracción de los tres modelos base     30%
+                         Implementación de los tres modelos base                      20%
+                         Benchmark, definición del baseline y análisis estadístico        20%
+
+                         Total                                            100%
+
+            Buenas Prácticas
+
+               Usar múltiples ejecuciones (mínimo 5; preferible 6 o más para pruebas por rangos).
+
+               Reportar media, desviación estándar, IC 95% y tamaño de efecto.
+
+               Justificar las pruebas estadísticas utilizadas y verificar sus supuestos.
+
+               Mantener consistencia experimental entre los tres modelos base.
+
+               Documentar completamente el pipeline y garantizar su reproducibilidad.
+
+               Declarar con antelación la métrica principal y el protocolo de evaluación.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Observación Final
+Seesperaunanálisisexhaustivo:nosolocompararlostresmodelosbase,sinodemostrar
+rigurosamente, mediante inferencia estadística, cuál es el baseline de desempeño para el
+problema seleccionado y qué margen de mejora debe superar un modelo avanzado para34
+ser considerado una contribución significativa y relevante, reconociendo con honestidad
+las limitaciones de potencia de un diseño con tres modelos.

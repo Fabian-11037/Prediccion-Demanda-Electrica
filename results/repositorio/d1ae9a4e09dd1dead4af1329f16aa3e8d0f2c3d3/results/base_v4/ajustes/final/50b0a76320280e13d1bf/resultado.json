@@ -1,0 +1,39 @@
+{
+  "etapa": "final",
+  "modelo": "cnn1d",
+  "configuracion": "cnn1d_v4_01",
+  "semilla": 1001,
+  "fold": "final",
+  "ventana": 168,
+  "params": {
+    "dropout": 0.1,
+    "weight_decay": 0.0001,
+    "batch_size": 256,
+    "scheduler": "plateau",
+    "perdida": "huber",
+    "paciencia": 6,
+    "capas": 2,
+    "filtros": 16,
+    "kernel": 3,
+    "dilataciones": [
+      1,
+      1
+    ],
+    "lr": 0.0003
+  },
+  "segundos": 7.290895938873291,
+  "MASE": 1.10893584333179,
+  "RMSE": 298930.45254554955,
+  "MAE": 239106.42178371962,
+  "sMAPE": 2.659071786490986,
+  "MAPE": 2.6457745407408324,
+  "MASE_h1": 1.4326520494273967,
+  "MASE_h12": 1.2143406713457017,
+  "MASE_h24": 1.224878765344554,
+  "n_parametros": 47480,
+  "epocas": 52,
+  "mejor_epoca": 46,
+  "dispositivo": "cuda",
+  "MAE_train_normalizado_eval": 0.0162351131439209,
+  "MAE_es_normalizado_eval": 0.023856254294514656
+}

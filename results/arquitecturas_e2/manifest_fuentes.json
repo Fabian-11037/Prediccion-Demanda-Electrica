@@ -1,0 +1,712 @@
+[
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\entrenamiento\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\entrenamiento\\texto.py",
+    "sha256": "329cf06136385d603bf06b063ac1af14f93a5169214bc0bb8172b8f39b3977e8"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\entrenamiento\\protocolo.py",
+    "sha256": "d61a151dc7714a4207be61dbb06210ced2f9ffc8041ce8db60589915405639e4"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\entrenamiento\\pruebas.py",
+    "sha256": "e9609ec95902ba26cfed87047ff5bc3cc4bf3d1c80ffc27f5cade9b1a9b089a1"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\entrenamiento\\redes.py",
+    "sha256": "5963150c4d7d21f6d857afe67378189b9d00052f27e8b38423cf68e082df8eaf"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\entrenamiento\\motor.py",
+    "sha256": "67efbaa669a3beeac1c244c9e00bd8c974817f54059167d8176cbee9753e653d"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\entrenamiento\\datos.py",
+    "sha256": "8bb169787dd857bfe9270e94bdce997c8309f7140b9e48532271c14fda7d976f"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\demanda\\metricas.py",
+    "sha256": "8f859cb24a3e0f1ac374e5608772af057cb8a9b95d1e0d95223e51142f76892d"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\demanda\\config.py",
+    "sha256": "a1c23f51ff8511785fe04303430420074fcf4f9aed6b038d56372f4e7acbc3c5"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\demanda\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\demanda\\particion.py",
+    "sha256": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\demanda\\corpus.py",
+    "sha256": "df90f6ffdc9f862975371ffffdd465791d681fb74e47cb8c3b51f71fd0665391"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\src\\demanda\\diseno_numerico.py",
+    "sha256": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\requirements.txt",
+    "sha256": "9f44911132d65b3ce60eb9f3706ab0a8ab5af415e2c11f5f6d8d05305b3b964b"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\LEEME.txt",
+    "sha256": "2f66d3b5a70232053f57ab3fe357eae967018660df26a0376e374e27d79cd04e"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\config\\diseno_entrenamiento_texto.json",
+    "sha256": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\config\\modelo.json",
+    "sha256": "345eb781134c934a3c4ee6dd4257e96c1aea804783c92d626c7e513108b4c7a9"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\PRUEBA_RAPIDA_WINDOWS.bat",
+    "sha256": "72c609745d97f4c5b8a65771d4c63bb0154e00ca1c1d5deda4f68b92fc5631db"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\lanzar.py",
+    "sha256": "bfdffe3eb28ba6411a65d4c7bd91b4c9f5c66f002e754b27405446a65fbb6bb3"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\ENTRENAR_WINDOWS.bat",
+    "sha256": "e3bb8fcbbd81701842cae9789b910e2a9dc9c70b61c284d97c36cc70a47db74b"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\prueba_rapida_linux_mac.sh",
+    "sha256": "604ae0847148f8ec38ad2a8499a1306eb3f835eec7d29f2f60cb94f99131b497"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\entrenar_linux_mac.sh",
+    "sha256": "838bf2c61ed75f396013fcd875c01db2a70c3b81eec236854f5305a543a0a846"
+  },
+  {
+    "paquete": "Modelo3_TFT",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo3_TFT\\ejecutar.py",
+    "sha256": "f911fa59dbe8dc2a44fd949a63b9c509b23b6995c3c4b40411bd7fdf431a98e3"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\entrenamiento\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\entrenamiento\\texto.py",
+    "sha256": "329cf06136385d603bf06b063ac1af14f93a5169214bc0bb8172b8f39b3977e8"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\entrenamiento\\protocolo.py",
+    "sha256": "2bec33ee018756757541d64046cc13de6f1c09eb14b63c143413460ed11a6f90"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\entrenamiento\\pruebas.py",
+    "sha256": "d5132af810636059cfce5aed545dcd41254c4b1bc23c2c78587d642fe7ec4749"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\entrenamiento\\redes.py",
+    "sha256": "56d95bffe6ad3c625120f9a30be066eed108121cd9787e2d668a7d5667b6a724"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\entrenamiento\\motor.py",
+    "sha256": "e3494c20df6b6ed8f7582df4bdbd8e86b00e2664fc105f2c536de0eb2c697143"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\entrenamiento\\datos.py",
+    "sha256": "8bb169787dd857bfe9270e94bdce997c8309f7140b9e48532271c14fda7d976f"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\demanda\\metricas.py",
+    "sha256": "8f859cb24a3e0f1ac374e5608772af057cb8a9b95d1e0d95223e51142f76892d"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\demanda\\config.py",
+    "sha256": "a1c23f51ff8511785fe04303430420074fcf4f9aed6b038d56372f4e7acbc3c5"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\demanda\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\demanda\\particion.py",
+    "sha256": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\demanda\\corpus.py",
+    "sha256": "df90f6ffdc9f862975371ffffdd465791d681fb74e47cb8c3b51f71fd0665391"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\src\\demanda\\diseno_numerico.py",
+    "sha256": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\requirements.txt",
+    "sha256": "9f44911132d65b3ce60eb9f3706ab0a8ab5af415e2c11f5f6d8d05305b3b964b"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\LEEME.txt",
+    "sha256": "0a5102d3b1ce7cac0e1f3c01cc7466cdb1c10ae2db64eea977585f24f782d037"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\config\\diseno_entrenamiento_texto.json",
+    "sha256": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\config\\modelo.json",
+    "sha256": "63d172e42921b600dd7da61e45bb5da5c29acf4e2fa185162b41c26ef32d62df"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\PRUEBA_RAPIDA_WINDOWS.bat",
+    "sha256": "800a0666d718bdddebbd23a17f47ef8f228d8dfbbc2e2c5dd39696ab65606d3f"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\lanzar.py",
+    "sha256": "bfdffe3eb28ba6411a65d4c7bd91b4c9f5c66f002e754b27405446a65fbb6bb3"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\ENTRENAR_WINDOWS.bat",
+    "sha256": "6d11f652f4472877c682ebdc37170bfd8d12f49499ce3ff5ceb154d12538ae38"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\prueba_rapida_linux_mac.sh",
+    "sha256": "604ae0847148f8ec38ad2a8499a1306eb3f835eec7d29f2f60cb94f99131b497"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\entrenar_linux_mac.sh",
+    "sha256": "838bf2c61ed75f396013fcd875c01db2a70c3b81eec236854f5305a543a0a846"
+  },
+  {
+    "paquete": "Modelo4_TCN",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo4_TCN\\ejecutar.py",
+    "sha256": "f911fa59dbe8dc2a44fd949a63b9c509b23b6995c3c4b40411bd7fdf431a98e3"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\entrenamiento\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\entrenamiento\\texto.py",
+    "sha256": "329cf06136385d603bf06b063ac1af14f93a5169214bc0bb8172b8f39b3977e8"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\entrenamiento\\protocolo.py",
+    "sha256": "2bec33ee018756757541d64046cc13de6f1c09eb14b63c143413460ed11a6f90"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\entrenamiento\\pruebas.py",
+    "sha256": "d5132af810636059cfce5aed545dcd41254c4b1bc23c2c78587d642fe7ec4749"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\entrenamiento\\redes.py",
+    "sha256": "56d95bffe6ad3c625120f9a30be066eed108121cd9787e2d668a7d5667b6a724"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\entrenamiento\\motor.py",
+    "sha256": "e3494c20df6b6ed8f7582df4bdbd8e86b00e2664fc105f2c536de0eb2c697143"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\entrenamiento\\datos.py",
+    "sha256": "8bb169787dd857bfe9270e94bdce997c8309f7140b9e48532271c14fda7d976f"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\demanda\\metricas.py",
+    "sha256": "8f859cb24a3e0f1ac374e5608772af057cb8a9b95d1e0d95223e51142f76892d"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\demanda\\config.py",
+    "sha256": "a1c23f51ff8511785fe04303430420074fcf4f9aed6b038d56372f4e7acbc3c5"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\demanda\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\demanda\\particion.py",
+    "sha256": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\demanda\\corpus.py",
+    "sha256": "df90f6ffdc9f862975371ffffdd465791d681fb74e47cb8c3b51f71fd0665391"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\src\\demanda\\diseno_numerico.py",
+    "sha256": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\requirements.txt",
+    "sha256": "9f44911132d65b3ce60eb9f3706ab0a8ab5af415e2c11f5f6d8d05305b3b964b"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\LEEME.txt",
+    "sha256": "ec1761f446f3a285fb6a97bf7a7d20200e6d96374c9c99148ecbc1c8e45ebaeb"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\config\\diseno_entrenamiento_texto.json",
+    "sha256": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\config\\modelo.json",
+    "sha256": "f488ed0c5a07a20b310ab993c091f8f75f6723a8b3245241852a4a762e61a018"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\PRUEBA_RAPIDA_WINDOWS.bat",
+    "sha256": "3ac3f429dea3c7c1085bc877cddcf6671fc82dd3461069af62d3c74a0109ef93"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\lanzar.py",
+    "sha256": "bfdffe3eb28ba6411a65d4c7bd91b4c9f5c66f002e754b27405446a65fbb6bb3"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\ENTRENAR_WINDOWS.bat",
+    "sha256": "1ebffc27ecdb7b96ee7628dcc9928af855884c534d4d79a81690e1df5e693cb7"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\prueba_rapida_linux_mac.sh",
+    "sha256": "604ae0847148f8ec38ad2a8499a1306eb3f835eec7d29f2f60cb94f99131b497"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\entrenar_linux_mac.sh",
+    "sha256": "838bf2c61ed75f396013fcd875c01db2a70c3b81eec236854f5305a543a0a846"
+  },
+  {
+    "paquete": "Modelo5_iTransformer",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo5_iTransformer\\ejecutar.py",
+    "sha256": "f911fa59dbe8dc2a44fd949a63b9c509b23b6995c3c4b40411bd7fdf431a98e3"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\MANUAL.pdf",
+    "sha256": "b613c6bf262a7b3e25acc9029f28772ac8c0f38df57b01cd87753909f2c5b072"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\entrenamiento\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\entrenamiento\\texto.py",
+    "sha256": "329cf06136385d603bf06b063ac1af14f93a5169214bc0bb8172b8f39b3977e8"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\entrenamiento\\protocolo.py",
+    "sha256": "2bec33ee018756757541d64046cc13de6f1c09eb14b63c143413460ed11a6f90"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\entrenamiento\\pruebas.py",
+    "sha256": "a07c3c294a22dd16e6d4360ebad9496ee03fe1df959d871142ba172b3045eb9d"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\entrenamiento\\redes.py",
+    "sha256": "aee21c7587bb0003f3a7ded593ea71588acbe4950e56e45da1b9fb2404abe34d"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\entrenamiento\\motor.py",
+    "sha256": "e3494c20df6b6ed8f7582df4bdbd8e86b00e2664fc105f2c536de0eb2c697143"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\entrenamiento\\datos.py",
+    "sha256": "8bb169787dd857bfe9270e94bdce997c8309f7140b9e48532271c14fda7d976f"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\demanda\\metricas.py",
+    "sha256": "8f859cb24a3e0f1ac374e5608772af057cb8a9b95d1e0d95223e51142f76892d"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\demanda\\config.py",
+    "sha256": "a1c23f51ff8511785fe04303430420074fcf4f9aed6b038d56372f4e7acbc3c5"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\demanda\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\demanda\\particion.py",
+    "sha256": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\demanda\\corpus.py",
+    "sha256": "df90f6ffdc9f862975371ffffdd465791d681fb74e47cb8c3b51f71fd0665391"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\src\\demanda\\diseno_numerico.py",
+    "sha256": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\requirements.txt",
+    "sha256": "1af743b706f5343d3caff5000a749f256cb04c0cef16216c94895a1c289e1071"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\LEEME.txt",
+    "sha256": "0ccd8548655d79596e7a1f3b8845d8cb2b7a6b58e316319df44e69988612fb42"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\config\\diseno_entrenamiento_texto.json",
+    "sha256": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\config\\descripciones_canal.json",
+    "sha256": "a377dfd58d9241d063f015a0190b0ec33fb7c28821d4329c858811f36f12de4b"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\config\\modelo.json",
+    "sha256": "0893030fb29648e7fdff8bd4fd6164d25f9784c4b96303318fa1a3867f8b64b4"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\PRUEBA_RAPIDA_WINDOWS.bat",
+    "sha256": "d8a5cf55a89783a2bf6aa64072e678b0f83f0d67293b88cb61f651aead6d6803"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\lanzar.py",
+    "sha256": "d8ea4269afb88874adfbc2a7835d5c49c4abffca704a6a05024c83fcab768f65"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\ENTRENAR_WINDOWS.bat",
+    "sha256": "3e85e74ed93cc17f6b17bac93b55e51882817c31e83dfbb76a35a3733de595f7"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\prueba_rapida_linux_mac.sh",
+    "sha256": "604ae0847148f8ec38ad2a8499a1306eb3f835eec7d29f2f60cb94f99131b497"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\entrenar_linux_mac.sh",
+    "sha256": "838bf2c61ed75f396013fcd875c01db2a70c3b81eec236854f5305a543a0a846"
+  },
+  {
+    "paquete": "Modelo7_TGForecaster",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo7_TGForecaster\\ejecutar.py",
+    "sha256": "582166c8f41f561e9dae9a04d2492bedfaa81a20e1d9b7301325e255d1cef4a2"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\MANUAL.pdf",
+    "sha256": "23816b2ec7c66d86fc35b5621ba2514f32b02d94ead3f2300f8d98d7fae6d521"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\entrenamiento\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\entrenamiento\\texto.py",
+    "sha256": "329cf06136385d603bf06b063ac1af14f93a5169214bc0bb8172b8f39b3977e8"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\entrenamiento\\protocolo.py",
+    "sha256": "2bec33ee018756757541d64046cc13de6f1c09eb14b63c143413460ed11a6f90"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\entrenamiento\\pruebas.py",
+    "sha256": "a07c3c294a22dd16e6d4360ebad9496ee03fe1df959d871142ba172b3045eb9d"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\entrenamiento\\redes.py",
+    "sha256": "aee21c7587bb0003f3a7ded593ea71588acbe4950e56e45da1b9fb2404abe34d"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\entrenamiento\\motor.py",
+    "sha256": "e3494c20df6b6ed8f7582df4bdbd8e86b00e2664fc105f2c536de0eb2c697143"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\entrenamiento\\datos.py",
+    "sha256": "8bb169787dd857bfe9270e94bdce997c8309f7140b9e48532271c14fda7d976f"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\demanda\\metricas.py",
+    "sha256": "8f859cb24a3e0f1ac374e5608772af057cb8a9b95d1e0d95223e51142f76892d"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\demanda\\config.py",
+    "sha256": "a1c23f51ff8511785fe04303430420074fcf4f9aed6b038d56372f4e7acbc3c5"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\demanda\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\demanda\\particion.py",
+    "sha256": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\demanda\\corpus.py",
+    "sha256": "df90f6ffdc9f862975371ffffdd465791d681fb74e47cb8c3b51f71fd0665391"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\src\\demanda\\diseno_numerico.py",
+    "sha256": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\requirements.txt",
+    "sha256": "1af743b706f5343d3caff5000a749f256cb04c0cef16216c94895a1c289e1071"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\LEEME.txt",
+    "sha256": "58488b841779313dbcb8e31ae28211c7945e65f344a541b841c7b64bee2cf45d"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\config\\diseno_entrenamiento_texto.json",
+    "sha256": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\config\\modelo.json",
+    "sha256": "dcdda2dfb65e2a40d3545ef4dd5a93c0c3adc8edaf09d936f7d00e61e90b9c74"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\PRUEBA_RAPIDA_WINDOWS.bat",
+    "sha256": "f5c154a44ee2a0fbf30b3bd67b2684146279fc91b8aa78fe79d0e7117a2e9fd2"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\lanzar.py",
+    "sha256": "d8ea4269afb88874adfbc2a7835d5c49c4abffca704a6a05024c83fcab768f65"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\ENTRENAR_WINDOWS.bat",
+    "sha256": "4a1ceddd6d1108ce80463f7131043a32d9158eb938cb5419777cb4bd422058db"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\prueba_rapida_linux_mac.sh",
+    "sha256": "604ae0847148f8ec38ad2a8499a1306eb3f835eec7d29f2f60cb94f99131b497"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\entrenar_linux_mac.sh",
+    "sha256": "838bf2c61ed75f396013fcd875c01db2a70c3b81eec236854f5305a543a0a846"
+  },
+  {
+    "paquete": "FusionTardia",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\FusionTardia\\ejecutar.py",
+    "sha256": "582166c8f41f561e9dae9a04d2492bedfaa81a20e1d9b7301325e255d1cef4a2"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\MANUAL_Modelo6_TaTS.pdf",
+    "sha256": "679833cfbe4d14470df889b7fcdefd094a0b92c617c874da28f16ec3cb98b472"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\modelo6\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\modelo6\\texto.py",
+    "sha256": "27f6c50d23b072db7066a73647b06cd79d26f559aa037c2c48c84bb1c217f08a"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\modelo6\\protocolo.py",
+    "sha256": "59618b0b227124465c6b9d6306228ae9e7f7613fa23fd9820aa669f005b72dbd"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\modelo6\\pruebas.py",
+    "sha256": "75263880e306dbb7a6b8fc66a007b4e9081caf587999ded1e270570e76658765"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\modelo6\\redes.py",
+    "sha256": "305d09576e974c57810cd0c63d1a49f3df8d9e9be2c336e755f3b0a07f8c9884"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\modelo6\\motor.py",
+    "sha256": "e3494c20df6b6ed8f7582df4bdbd8e86b00e2664fc105f2c536de0eb2c697143"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\modelo6\\datos.py",
+    "sha256": "8bb169787dd857bfe9270e94bdce997c8309f7140b9e48532271c14fda7d976f"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\demanda\\metricas.py",
+    "sha256": "8f859cb24a3e0f1ac374e5608772af057cb8a9b95d1e0d95223e51142f76892d"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\demanda\\config.py",
+    "sha256": "a1c23f51ff8511785fe04303430420074fcf4f9aed6b038d56372f4e7acbc3c5"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\demanda\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\demanda\\particion.py",
+    "sha256": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\demanda\\corpus.py",
+    "sha256": "df90f6ffdc9f862975371ffffdd465791d681fb74e47cb8c3b51f71fd0665391"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\src\\demanda\\diseno_numerico.py",
+    "sha256": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\requirements.txt",
+    "sha256": "1af743b706f5343d3caff5000a749f256cb04c0cef16216c94895a1c289e1071"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\LEEME.txt",
+    "sha256": "2f6b241d158088bd6ba680562fb73976d3af6860b94a753a411f1c113ee683dd"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\config\\diseno_entrenamiento_texto.json",
+    "sha256": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\config\\modelo6.json",
+    "sha256": "0a7495dfd3b58165b2c76b31e7c9e0097fe880c6e7e8b79e27eea15a2c3b2fbe"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\PRUEBA_RAPIDA_WINDOWS.bat",
+    "sha256": "2cdcd4b7540ce917698183cd24d580adb527ddaab016f28c439e11a314b2aa29"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\lanzar.py",
+    "sha256": "5bc0545d54bf99afd7c3401b11ee36662de8815dffcf6fc3d600adf6e571c2f2"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\ENTRENAR_WINDOWS.bat",
+    "sha256": "23345fa3050a97913cd7e22991414e55bcf9a4f5cb48fcc10d37c9f0779cd28f"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\prueba_rapida_linux_mac.sh",
+    "sha256": "604ae0847148f8ec38ad2a8499a1306eb3f835eec7d29f2f60cb94f99131b497"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\entrenar_linux_mac.sh",
+    "sha256": "838bf2c61ed75f396013fcd875c01db2a70c3b81eec236854f5305a543a0a846"
+  },
+  {
+    "paquete": "Modelo6_TaTS",
+    "ruta": "results\\arquitecturas_e2\\fuentes\\Modelo6_TaTS\\ejecutar.py",
+    "sha256": "f2b04d2944a6b7ade453c46a0e316e8f5eb4e012dd9a73fbd4e4fbe8efb58fba"
+  }
+]

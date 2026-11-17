@@ -1,0 +1,15 @@
+clave,modelo,rango
+repo_patchtst_numerico_r1__N,PatchTST (repositorio) · N,4.0
+repo_nhits_numerico_r1__N,N-HiTS · N,12.0
+adj_modelo3_20261115_0419__N,TFT · N,12.0
+adj_modelo4_20261114_1224__N,TCN · N,9.6
+adj_modelo5_20261114_1327__N,iTransformer · N,5.2
+adj_modelo6_20261112_1035__N,PatchTST (control N de TaTS/fusión) · N,2.0
+adj_modelo6_20261112_1035__N+O,TaTS adaptado · N+O,1.2
+adj_fusion_tardia_20261113_1728__N+O,Fusión tardía · N+O,3.6
+adj_modelo7_20261114_0430__N,TGForecaster · N,10.8
+adj_modelo7_20261114_0430__N+O,TGForecaster · N+O,12.6
+mlp,MLP,5.0
+lstm,LSTM,11.6
+cnn1d,CNN1D,7.6
+arx_lineal,ARX,7.8

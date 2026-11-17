@@ -1,0 +1,12 @@
+# Resultados exploratorios v3
+
+Escalado por fold exclusivamente con entrenamiento. Validación 2018–2021; reevaluación de prueba 2022–2025 previamente observada. Cinco semillas finales por familia; sin afirmación de potencia estadística ni confirmación independiente.
+
+| modelo     |   n_final |   MASE_cv_seleccion |   MASE_validacion_piloto |   MASE_prueba |   MASE_sd_prueba |   MAE_prueba |   sMAPE_prueba |   MASE_prueba_v2 |   MAE_train_normalizado_eval |   MAE_es_normalizado_eval |   MASE_demanda_permutada_validacion |   mejora_MASE_vs_v2_pct |   mejora_vs_referencia_semanal_pct |
+|:-----------|----------:|--------------------:|-------------------------:|--------------:|-----------------:|-------------:|---------------:|-----------------:|-----------------------------:|--------------------------:|------------------------------------:|------------------------:|-----------------------------------:|
+| arx_lineal |         5 |            0.683788 |                 0.681085 |      0.851675 |        0.0144388 |       183636 |        2.00417 |         0.831267 |                    0.0165959 |                 0.0197633 |                             1.5559  |                -2.45509 |                            37.1414 |
+| mlp        |         5 |            0.533521 |                 0.541557 |      0.752022 |        0.0437767 |       162149 |        1.76192 |         0.692472 |                    0.014555  |                 0.015973  |                             1.45792 |                -8.59963 |                            44.4964 |
+| lstm       |         5 |            0.794534 |                 0.852627 |      1.09296  |        0.0755252 |       235662 |        2.65585 |         1.74826  |                    0.0156116 |                 0.0223403 |                             1.31108 |                37.4828  |                            19.333  |
+| cnn1d      |         5 |            0.659117 |                 0.681302 |      0.857347 |        0.0654324 |       184859 |        2.03186 |         2.07004  |                    0.0150024 |                 0.0195312 |                             1.32444 |                58.583   |                            36.7228 |
+
+La comparación con v2 combina correcciones de escalado, presupuesto y cambios de arquitectura; no permite atribuir la diferencia a un único factor. Los errores train/ES se calculan con dropout desactivado. Predicciones, historiales, pesos y escaladores se conservan por ajuste en ajustes/.

@@ -1,0 +1,227 @@
+{
+  "procedimientos": 14,
+  "metricas_desarrollo": 70,
+  "fuentes": {
+    "piloto_externo": 6,
+    "parada_interna": 8
+  },
+  "tablas_y_figuras": [
+    {
+      "celda": 6,
+      "seccion": "## Entrenamiento, selección y precisión del piloto",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 8,
+      "seccion": "## Entrenamiento, selección y precisión del piloto",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 11,
+      "seccion": "### Precisión de desarrollo y dimensionamiento",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 13,
+      "seccion": "### Precisión de desarrollo y dimensionamiento",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 15,
+      "seccion": "### Precisión de desarrollo y dimensionamiento",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 20,
+      "seccion": "### Precisión en la reserva interna",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 23,
+      "seccion": "### Precisión requerida entre inicializaciones",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 26,
+      "seccion": "## Curvas de aprendizaje",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 29,
+      "seccion": "## Desempeño y precisión temporal",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 31,
+      "seccion": "## Desempeño y precisión temporal",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 34,
+      "seccion": "## Comparaciones temporales de todos los procedimientos",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 37,
+      "seccion": "## Validación y generalización",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 40,
+      "seccion": "### Ajuste y parada interna",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 43,
+      "seccion": "## Demanda observada frente a predicción",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 46,
+      "seccion": "### Perfil horario en una semana de prueba",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 49,
+      "seccion": "## Error por horizonte",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 52,
+      "seccion": "## Segmentos de evaluación",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 55,
+      "seccion": "## Aporte de texto oficial y equivalencia",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 58,
+      "seccion": "## Comparaciones entre semillas y tamaño del efecto",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 60,
+      "seccion": "## Comparaciones entre semillas y tamaño del efecto",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 63,
+      "seccion": "### Distribución de diferencias entre inicializaciones",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 66,
+      "seccion": "## Friedman, post hoc y conjunto de confianza",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 69,
+      "seccion": "### Post hoc completo de Nemenyi",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 71,
+      "seccion": "### Post hoc completo de Nemenyi",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 74,
+      "seccion": "## Diagnóstico de residuos y calibración",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 77,
+      "seccion": "## Variación entre fechas e inicializaciones",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 80,
+      "seccion": "## Impacto de valores atípicos sobre el error e identidad de prueba",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 84,
+      "seccion": "## Importancia de variables en los modelos ampliados",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 87,
+      "seccion": "## Sensibilidad al contenido de los documentos oficiales",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 90,
+      "seccion": "### Descripciones estáticas de los canales en TGForecaster",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 93,
+      "seccion": "## Coste de inferencia medido y coste de ajuste registrado",
+      "figuras": 0,
+      "tablas": 1
+    },
+    {
+      "celda": 96,
+      "seccion": "### Demanda y calendario",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 99,
+      "seccion": "### Distribución de la sensibilidad a lo largo de la historia",
+      "figuras": 1,
+      "tablas": 0
+    },
+    {
+      "celda": 104,
+      "seccion": "## Cobertura de los diagnósticos",
+      "figuras": 0,
+      "tablas": 1
+    }
+  ],
+  "figuras_capitulo": 21,
+  "tablas_capitulo": 13,
+  "prueba_y_desarrollo_no_intercambiados": true,
+  "parejas_dimensionamiento_por_fuente": {
+    "piloto": 15,
+    "parada": 28
+  },
+  "pruebas_correctas": 86,
+  "omitidas": 5,
+  "entrenamiento": false,
+  "publicacion": false,
+  "revision_integral": "results/revision_integral/auditoria.json",
+  "diagnosticos_ampliados": "results/diagnosticos_ampliados/fuentes_diagnosticos.json"
+}

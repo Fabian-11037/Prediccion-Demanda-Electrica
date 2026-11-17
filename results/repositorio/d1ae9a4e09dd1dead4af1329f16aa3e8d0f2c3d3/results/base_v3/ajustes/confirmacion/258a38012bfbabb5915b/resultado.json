@@ -1,0 +1,32 @@
+{
+  "etapa": "confirmacion",
+  "modelo": "lstm",
+  "configuracion": "lstm_20",
+  "semilla": 43,
+  "fold": 2019,
+  "ventana": 168,
+  "params": {
+    "capas": 1,
+    "dropout": 0.3,
+    "weight_decay": 0.001,
+    "batch_size": 256,
+    "lr": 0.001,
+    "scheduler": "plateau",
+    "perdida": "huber",
+    "paciencia": 6,
+    "unidades": 32
+  },
+  "segundos": 8.639341592788696,
+  "MASE": 0.7544804321574313,
+  "RMSE": 209497.67350298967,
+  "MAE": 162679.48910099614,
+  "sMAPE": 2.087569758045457,
+  "MAPE": 2.0725585945190534,
+  "MASE_h1": 0.7475318650840858,
+  "MASE_h12": 0.661637982354008,
+  "MASE_h24": 0.7749293121701641,
+  "n_parametros": 21464,
+  "epocas": 39,
+  "mejor_epoca": 33,
+  "dispositivo": "cuda"
+}

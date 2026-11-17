@@ -4,6 +4,8 @@
 **Fabian José Manrique Morelos y Gloria Bastidas Rodriguez**
 Versión de diseño: 10 de noviembre de 2026.
 
+La especificación siguiente corresponde a la ampliación con canales oficial y prensa, comparaciones con núcleo común y una propuesta de fusión acotada. Los procedimientos evaluados y sus controles con pesos fijos se describen en el capítulo 10; la rama de prensa y la compuerta acotada no forman parte de esos resultados.
+
 ## 1. Pregunta y comparación principal
 
 ¿La incorporación de documentos oficiales y, posteriormente, de prensa mejora el pronóstico horario de demanda eléctrica del SIN a 24 horas, con respecto a modelos que reciben la misma información numérica?
@@ -14,7 +16,7 @@ El problema es de **series de tiempo multivariadas con pronóstico multipaso dir
 2. **N+O:** las mismas variables numéricas y documentos oficiales.
 3. **N+O+P:** las mismas variables numéricas, documentos oficiales y prensa.
 
-El contraste N+O frente a N estima el aporte oficial; N+O+P frente a N+O estima el aporte adicional de prensa. Cada arquitectura textual tendrá su control sin texto con el mismo núcleo y un presupuesto comparable. Los ingenuos diario y semanal y ARX se conservan como referencias adicionales. Las métricas actuales de demanda y calendario no representan el rendimiento del conjunto ampliado.
+El contraste N+O frente a N estima el aporte oficial; N+O+P frente a N+O estima el aporte adicional de prensa. Cada arquitectura textual tendrá su control sin texto con el mismo núcleo y un presupuesto comparable. Los ingenuos diario y semanal y ARX se conservan como referencias adicionales. La evaluación distingue las cuatro familias de demanda/calendario de las arquitecturas que utilizan el conjunto numérico ampliado.
 
 ## 2. Contrato numérico común
 
@@ -104,9 +106,9 @@ El entrenador futuro debe reproducir el contrato de escalado por pliegue, parada
 
 Se fija un presupuesto nuevo para los hiperparámetros no arquitectónicos: 20 configuraciones por familia, con tres semillas comunes y los cuatro pliegues externos; máximo 200 épocas, pérdida MAE normalizada, AdamW, recorte de gradiente 1 y parada interna. La tasa, lote y regularización se ajustan con ese presupuesto. En cada evaluación se restaura el mínimo absoluto de parada interna. La búsqueda arquitectónica posterior mantiene fijos esos parámetros y su criterio de parada; no vuelve a escogerlos por candidato. Las ejecuciones fallidas y sus costes se registran y se repiten solo bajo una regla técnica común.
 
-La pauta E2 §14 exime de la búsqueda de arquitecturas únicamente cuando el artículo define una configuración concreta que se adopta y documenta. Nombrar una familia publicada no basta. Antes de ejecutar, la ficha de cada modelo debe enlazar la configuración y su traducción a los datos; si no queda definida, se aplica el espacio obligatorio. TCN se declara sin diseño predefinido. Lo mismo se aplica al cabezal propio cuando no tenga configuración publicada; no se exime por utilizar un encoder preentrenado.
+Las configuraciones adoptadas de la literatura deben identificar las capas, dimensiones y adaptación a las entradas del SIN. Para las arquitecturas sin configuración predefinida, la búsqueda considera un espacio común de anchos y regularización.
 
-El espacio obligatorio contiene tres bloques con anchos $(w_1,w_2,w_3)\in\{16,32,64,128,256\}^3$ y patrones de dropout $(b_1,b_2,b_3)\in\{0,1\}^3$, tasa 0,2: **1.000 arquitecturas por modelo sujeto a §14**. En TCN cada ancho corresponde a un bloque con dos convoluciones y el dropout se aplica al final del bloque. Se enumeran todas las combinaciones sin poda previa.
+El espacio obligatorio contiene tres bloques con anchos $(w_1,w_2,w_3)\in\{16,32,64,128,256\}^3$ y patrones de dropout $(b_1,b_2,b_3)\in\{0,1\}^3$, tasa 0,2: **1.000 arquitecturas por modelo sin configuración predefinida**. En TCN cada ancho corresponde a un bloque con dos convoluciones y el dropout se aplica al final del bloque. Se enumeran todas las combinaciones sin poda previa.
 
 - **Fase 1:** 1.000 candidatos, semilla 42, máximo 50 épocas (25 % del presupuesto completo), mismo criterio de parada.
 - **Fase 2:** diez mejores por menor MASE externo y el control $(64,64,64),(0,1,0)$ si no está incluido; máximo 200 épocas, semillas 100–104. La regla de desempate favorece menor complejidad y después identificador.
@@ -125,7 +127,7 @@ $$\operatorname{MASE}_t=\frac{1}{24q_{168}}\sum_{h=0}^{23}|y_{t+h}-\hat y_{t+h}|
 
 Menor MASE es mejor. Se reportan MAE, RMSE, errores por horizonte, festivos, precio y condiciones hidrológicas, junto con cobertura de texto y ausencia numérica. El margen práctico es **3 % relativo**: para una referencia $B$, $\Delta_{rel}=100(MASE_A-MASE_B)/MASE_B$. El mismo denominador de referencia rige dimensionamiento, contraste de mejora y equivalencia de esa comparación; no se cambian márgenes entre etapas. La referencia primaria del aporte oficial es N y la del aporte de prensa es N+O. Las comparaciones globales con MLP se identifican por separado.
 
-Los errores horarios de un día no son 24 réplicas independientes. La inferencia primaria utiliza diferencias pareadas por origen, promediadas sobre semillas para el estimando principal, y bootstrap temporal por bloques de 14 días, 10.000 remuestreos, con sensibilidad de 7 y 28 días. La incertidumbre de inicialización se informa aparte; los IC temporales condicionan las semillas ejecutadas. Se aplica Holm a la familia preregistrada de contrastes principales. La potencia objetivo es 0,80 para el benchmark E2 y 0,90 para las afirmaciones de superioridad del modelo original E3; no se supone acreditada antes del piloto. Se dimensiona con diferencias en la misma escala y remuestreo que respete dependencia; no se usa una varianza horaria como si fueran días independientes.
+Los errores horarios de un día no son 24 réplicas independientes. La inferencia primaria utiliza diferencias pareadas por origen, promediadas sobre semillas para el estimando principal, y bootstrap temporal por bloques de 14 días, 10.000 remuestreos, con sensibilidad de 7 y 28 días. La incertidumbre de inicialización se informa aparte; los IC temporales condicionan las semillas ejecutadas. Se aplica Holm a la familia preregistrada de contrastes principales. La potencia objetivo es 0,80 para el benchmark y 0,90 para las afirmaciones de superioridad del modelo original; no se supone acreditada antes del piloto. Se dimensiona con diferencias en la misma escala y remuestreo que respete dependencia; no se usa una varianza horaria como si fueran días independientes.
 
 DM con corrección HAC sobre pérdida absoluta es un contraste secundario cuando sus supuestos sean defendibles. El anidamiento de una compuerta no habilita automáticamente Clark–West: su ajuste de errores cuadrados no es un contraste de MAE/MASE. TOST sobre el margen relativo se acompaña de un IC compatible con dependencia. Friedman y comparaciones por semillas/pliegues se presentan con sus unidades y limitaciones; no sustituyen la inferencia temporal. No se escoge la prueba primaria según Shapiro–Wilk con cinco semillas. Tampoco se calcula potencia conjunta como $0,9^{12}$ sin independencia.
 
@@ -153,7 +155,7 @@ Un núcleo temporal positivo puede ponderar documentos mediante mezclas de decai
 
 La mezcla convexa de perfiles diarios es una alternativa: $\hat y=\ell(x)a(x/\ell(x),X_{exo},F)\sum_k\pi_k P_k$, con $a>0$ y perfiles de media uno. Un factor $a$ dependiente del perfil normalizado, covariables y calendario permite cambiar el nivel del día siguiente. Si $a$ y $\pi$ no dependen de la escala absoluta de demanda, se conserva $\hat y(cx,X_{exo},F)=c\hat y(x,X_{exo},F)$ para $c>0$ manteniendo exógenas fijas. Sin $a$, la media pronosticada queda forzada a $\ell(x)$ y puede impedir cambios asociados a festivos. Su utilidad y novedad requieren evaluación propia.
 
-## 9. Entregables de implementación
+## 9. Implementación y registro experimental
 
 Antes del siguiente entrenamiento se deben completar las fichas de configuración publicada, los adaptadores de covariables, el motor común, las pruebas de causalidad y el tamaño definitivo de semillas. La configuración JSON marca este estado como diseño para implementación: no es un registro de entrenamientos ejecutados. El cálculo de embeddings, la búsqueda y la prueba requieren una ejecución explícita posterior.
 

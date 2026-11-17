@@ -1,0 +1,123 @@
+archivo,celda,tipo,seccion
+01_datos.ipynb,6,tabla_calculada,# 1. Problema y datos
+02_calidad.ipynb,3,tabla_calculada,# 2. Calidad e integridad
+02_calidad.ipynb,3,figura,# 2. Calidad e integridad
+02_calidad.ipynb,9,figura,## Representatividad geográfica y poblacional
+02_calidad.ipynb,13,tabla_calculada,## Sensibilidad descriptiva a observaciones extremas
+03_demanda.ipynb,3,figura,# 3. Distribución y evolución de la demanda
+03_demanda.ipynb,5,figura,# 3. Distribución y evolución de la demanda
+03_demanda.ipynb,8,figura,## Cambios exploratorios de régimen
+03_demanda.ipynb,12,tabla_calculada,"## Asimetría, curtosis y transformaciones del objetivo"
+04_estacionalidad.ipynb,3,figura,# 4. Calendario y estacionalidad
+04_estacionalidad.ipynb,5,figura,# 4. Calendario y estacionalidad
+04_estacionalidad.ipynb,7,figura,# 4. Calendario y estacionalidad
+05_dependencia.ipynb,3,figura,# 5. Dependencia temporal y estacionariedad
+05_dependencia.ipynb,5,tabla_calculada,# 5. Dependencia temporal y estacionariedad
+05_dependencia.ipynb,8,figura,## Memoria tras retirar el ciclo semanal
+05_dependencia.ipynb,11,figura,## Variación de la dispersión y dependencia residual
+05_dependencia.ipynb,11,tabla_calculada,## Variación de la dispersión y dependencia residual
+05_dependencia.ipynb,14,tabla_markdown,## Lectura conjunta de ADF y KPSS
+06_covariables.ipynb,3,figura,# 6. Covariables y disponibilidad
+06_covariables.ipynb,5,figura,# 6. Covariables y disponibilidad
+06_covariables.ipynb,8,figura,## Asociaciones disponibles al inicio del día
+06_covariables.ipynb,11,figura,## Respuesta meteorológica y calendario
+06_covariables.ipynb,14,figura,## Estabilidad entre entrenamiento y validación
+06_covariables.ipynb,18,tabla_calculada,## Prueba de desplazamiento entre particiones
+07_texto.ipynb,2,tabla_markdown,### Corpus y alcance del análisis exploratorio
+07_texto.ipynb,5,tabla_calculada,## Corpus oficial utilizado en los modelos
+07_texto.ipynb,7,figura,## Corpus oficial utilizado en los modelos
+07_texto.ipynb,9,figura,## Corpus oficial utilizado en los modelos
+07_texto.ipynb,11,figura,## Corpus oficial utilizado en los modelos
+07_texto.ipynb,13,tabla_calculada,## Corpus oficial utilizado en los modelos
+07_texto.ipynb,13,figura,## Corpus oficial utilizado en los modelos
+07_texto.ipynb,17,figura,"## Cobertura mensual, longitud y repetición"
+07_texto.ipynb,19,figura,"## Cobertura mensual, longitud y repetición"
+07_texto.ipynb,22,figura,## Bigramas y diversidad léxica
+07_texto.ipynb,25,figura,## Evolución de tópicos y composición por fuente
+07_texto.ipynb,28,figura,## Transferencia del vocabulario y estabilidad de los tópicos
+07_texto.ipynb,31,tabla_calculada,## Cobertura del historial documental por pliegue
+08_literatura.ipynb,4,tabla_markdown,## 8.2. Estudios directamente relacionados con la demanda
+08_literatura.ipynb,5,figura,## 8.2. Estudios directamente relacionados con la demanda
+08_literatura.ipynb,7,tabla_markdown,### Comparadores adicionales de demanda revisados en texto completo
+08_literatura.ipynb,9,tabla_markdown,### Métodos generales
+08_literatura.ipynb,10,tabla_markdown,### Documentos operativos
+08_literatura.ipynb,11,tabla_markdown,### Estudios de contexto identificados en IEEE
+08_literatura.ipynb,13,figura,## 8.4. Matriz de evidencia de demanda
+08_literatura.ipynb,16,figura,### Evidencia directa de demanda
+08_literatura.ipynb,19,figura,## 8.6. Arquitecturas de interés y modelos numéricos
+08_literatura.ipynb,24,tabla_markdown,### 8.6.4. Comparación crítica de robustez y escalabilidad
+08_literatura.ipynb,26,tabla_markdown,### Extensiones respaldadas por la revisión
+09_validacion.ipynb,5,figura,## Formulación y entradas
+09_validacion.ipynb,5,tabla_calculada,## Formulación y entradas
+09_validacion.ipynb,8,tabla_calculada,### Pipeline por origen
+09_validacion.ipynb,17,tabla_markdown,## Registro del diseño y cierre de selección
+10_evaluacion.ipynb,6,tabla_calculada,"## Entrenamiento, selección y precisión del piloto"
+10_evaluacion.ipynb,8,figura,"## Entrenamiento, selección y precisión del piloto"
+10_evaluacion.ipynb,11,tabla_calculada,### Precisión de desarrollo y dimensionamiento
+10_evaluacion.ipynb,13,tabla_calculada,### Precisión de desarrollo y dimensionamiento
+10_evaluacion.ipynb,15,tabla_calculada,### Precisión de desarrollo y dimensionamiento
+10_evaluacion.ipynb,20,tabla_calculada,### Precisión en la reserva interna
+10_evaluacion.ipynb,23,figura,### Precisión requerida entre inicializaciones
+10_evaluacion.ipynb,26,figura,## Curvas de aprendizaje
+10_evaluacion.ipynb,29,figura,## Desempeño y precisión temporal
+10_evaluacion.ipynb,31,tabla_calculada,## Desempeño y precisión temporal
+10_evaluacion.ipynb,34,figura,## Comparaciones temporales de todos los procedimientos
+10_evaluacion.ipynb,37,figura,## Validación y generalización
+10_evaluacion.ipynb,40,figura,### Ajuste y parada interna
+10_evaluacion.ipynb,43,figura,## Demanda observada frente a predicción
+10_evaluacion.ipynb,46,figura,### Perfil horario en una semana de prueba
+10_evaluacion.ipynb,49,figura,## Error por horizonte
+10_evaluacion.ipynb,52,figura,## Segmentos de evaluación
+10_evaluacion.ipynb,55,tabla_calculada,## Aporte de texto oficial y equivalencia
+10_evaluacion.ipynb,58,tabla_calculada,## Comparaciones entre semillas y tamaño del efecto
+10_evaluacion.ipynb,60,figura,## Comparaciones entre semillas y tamaño del efecto
+10_evaluacion.ipynb,63,figura,### Distribución de diferencias entre inicializaciones
+10_evaluacion.ipynb,66,figura,"## Friedman, post hoc y conjunto de confianza"
+10_evaluacion.ipynb,69,figura,### Post hoc completo de Nemenyi
+10_evaluacion.ipynb,71,tabla_calculada,### Post hoc completo de Nemenyi
+10_evaluacion.ipynb,74,tabla_calculada,## Diagnóstico de residuos y calibración
+10_evaluacion.ipynb,77,figura,## Variación entre fechas e inicializaciones
+10_evaluacion.ipynb,80,tabla_calculada,## Impacto de valores atípicos sobre el error e identidad de prueba
+10_evaluacion.ipynb,84,figura,## Importancia de variables en los modelos ampliados
+10_evaluacion.ipynb,87,figura,## Sensibilidad al contenido de los documentos oficiales
+10_evaluacion.ipynb,90,figura,### Descripciones estáticas de los canales en TGForecaster
+10_evaluacion.ipynb,93,tabla_calculada,## Coste de inferencia medido y coste de ajuste registrado
+10_evaluacion.ipynb,96,figura,### Demanda y calendario
+10_evaluacion.ipynb,99,figura,### Distribución de la sensibilidad a lo largo de la historia
+10_evaluacion.ipynb,104,tabla_calculada,## Cobertura de los diagnósticos
+11_sintesis.ipynb,4,tabla_markdown,## Consecuencias para la representación y la evaluación
+09_diseno_ampliado.md,25,tabla_markdown,## 2. Contrato numérico común
+09_diseno_ampliado.md,82,tabla_markdown,## 5. Familias del benchmark
+diccionario.md,11,tabla_markdown,### Índice y objetivo
+diccionario.md,18,tabla_markdown,### Demanda y precio históricos
+diccionario.md,25,tabla_markdown,### Meteorología
+diccionario.md,57,tabla_markdown,### Hidrología y auditoría
+diccionario.md,67,tabla_markdown,### Calendario
+diccionario.md,95,tabla_markdown,## Disponibilidad y fuentes
+diccionario.md,109,tabla_markdown,## Corpus de titulares
+diccionario.md,132,tabla_markdown,## Inventario de ciudades
+fuentes.md,3,tabla_markdown,# Fuentes y fundamento metodológico
+arquitecturas/arx.md,17,esquema,### Esquema global
+arquitecturas/arx.md,23,esquema,### Detalle de las operaciones
+arquitecturas/cnn1d.md,18,esquema,### Esquema global
+arquitecturas/cnn1d.md,24,esquema,### Detalle de las operaciones
+arquitecturas/fusion.md,20,esquema,### Esquema global
+arquitecturas/fusion.md,26,esquema,### Detalle de las operaciones
+arquitecturas/itransformer.md,21,esquema,### Esquema global
+arquitecturas/itransformer.md,27,esquema,### Detalle de las operaciones
+arquitecturas/lstm.md,21,esquema,### Esquema global
+arquitecturas/lstm.md,27,esquema,### Detalle de las operaciones
+arquitecturas/mlp.md,20,esquema,### Esquema global
+arquitecturas/mlp.md,26,esquema,### Detalle de las operaciones
+arquitecturas/nhits.md,21,esquema,### Esquema global
+arquitecturas/nhits.md,27,esquema,### Detalle de las operaciones
+arquitecturas/patchtst.md,22,esquema,### Esquema global
+arquitecturas/patchtst.md,28,esquema,### Detalle de las operaciones
+arquitecturas/tats.md,22,esquema,### Esquema global
+arquitecturas/tats.md,28,esquema,### Detalle de las operaciones
+arquitecturas/tcn.md,20,esquema,### Esquema global
+arquitecturas/tcn.md,26,esquema,### Detalle de las operaciones
+arquitecturas/tft.md,22,esquema,### Esquema global
+arquitecturas/tft.md,28,esquema,### Detalle de las operaciones
+arquitecturas/tgforecaster.md,22,esquema,### Esquema global
+arquitecturas/tgforecaster.md,28,esquema,### Detalle de las operaciones

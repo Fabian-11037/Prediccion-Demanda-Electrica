@@ -1,0 +1,10 @@
+{
+  "conservar": "adj_modelo6_20261112_1035__N",
+  "nombre": "PatchTST · N",
+  "retirar": "repo_patchtst_numerico_r1__N",
+  "criterio": "Menor error de prueba entre los dos resultados numéricos de PatchTST disponibles; selección solicitada por el usuario después de observar los resultados.",
+  "MASE_conservado": 0.6725016176243331,
+  "MASE_retirado": 0.7256488817261028,
+  "entrenamiento": false,
+  "publicacion": false
+}

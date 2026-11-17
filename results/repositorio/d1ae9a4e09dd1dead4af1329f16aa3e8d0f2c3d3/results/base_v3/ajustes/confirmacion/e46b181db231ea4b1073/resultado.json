@@ -1,0 +1,32 @@
+{
+  "etapa": "confirmacion",
+  "modelo": "mlp",
+  "configuracion": "mlp_11",
+  "semilla": 43,
+  "fold": 2021,
+  "ventana": 168,
+  "params": {
+    "capas": 2,
+    "unidades": 128,
+    "dropout": 0.0035459143015831307,
+    "weight_decay": 0.0003827221364333344,
+    "batch_size": 64,
+    "lr": 0.004689628419943547,
+    "scheduler": "plateau",
+    "perdida": "huber",
+    "paciencia": 8
+  },
+  "segundos": 7.044525861740112,
+  "MASE": 0.5350260783113568,
+  "RMSE": 153567.012445955,
+  "MAE": 115361.20138532585,
+  "sMAPE": 1.359411283667353,
+  "MAPE": 1.3628315984567398,
+  "MASE_h1": 0.29418589780191023,
+  "MASE_h12": 0.7030385469555887,
+  "MASE_h24": 0.6187701827878828,
+  "n_parametros": 111896,
+  "epocas": 41,
+  "mejor_epoca": 35,
+  "dispositivo": "cuda"
+}

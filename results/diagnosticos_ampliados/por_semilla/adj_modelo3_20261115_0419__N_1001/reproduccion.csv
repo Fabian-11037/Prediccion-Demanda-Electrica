@@ -1,0 +1,2 @@
+clave,semilla,checkpoint_sha256,max_diferencia_kwh,media_diferencia_kwh,max_diferencia_relativa,MAE_guardado,MAE_cpu,cambio_relativo_MAE,origenes,reproduccion_numerica
+adj_modelo3_20261115_0419__N,1001,17a8be587fe64d0e39637f9548d226c6af5b9909476f850c1da14c46e94a06c7,144.17164904251695,16.89984339069886,1.6674996055104112e-05,211130.86111681498,211129.81624327358,4.948937999251258e-06,1461,True

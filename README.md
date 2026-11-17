@@ -1,66 +1,44 @@
-# Predicción de demanda eléctrica (SIN, Colombia) con series de tiempo y texto
+# Pronóstico de demanda eléctrica del SIN colombiano
 
-Datos consolidados con reglas explícitas de disponibilidad temporal para entrenar modelos que combinen series de tiempo y NLP en el pronóstico de la **demanda real horaria** del Sistema Interconectado Nacional.
+**Fabian José Manrique Morelos y Gloria Bastidas Rodriguez**  
+Maestría en Estadística Aplicada · Universidad del Norte.
 
-Lee primero [`CONTEXTO_PROYECTO.md`](CONTEXTO_PROYECTO.md): define el problema, las reglas anti-fuga, las decisiones abiertas y las limitaciones de los datos.
+Pronóstico directo de demanda real horaria a 24 horas, con 168 horas de historia. El estudio compara diez modelos principales, dos comparadores numéricos y las variantes N/N+O de TGForecaster: trece procedimientos con cinco semillas cada uno, además de dos referencias estacionales. MASE es la métrica primaria; MAE y RMSE complementan la evaluación.
+
+- [Jupyter Book](https://fabian-11037.github.io/Prediccion-Demanda-Electrica/intro.html).
+- [Dashboard interactivo](https://demanda-electrica-dashboard.onrender.com/index.html).
+- [Contexto del proyecto](CONTEXTO_PROYECTO.md).
 
 ## Contenido
-- `data/raw`: serie horaria 2000-2025 (demanda, precio de bolsa, clima en 8 ciudades), hidrología diaria y 568 295 titulares con metadatos de disponibilidad.
-- `data/external`: festivos de Colombia (generados), y scripts/plantillas para ISE (DANE) y pronósticos de temperatura (pendientes de descarga).
-- `data/processed`: panel horario *as-of* (`panel_horario.parquet`), registro de variables con su clase de disponibilidad, informe de calidad y cobertura de titulares.
-- `src/demanda`: calendario, consolidación, particiones, ventanas por origen, titulares por escenario, ISE, pronósticos y climatología (todo ajustado solo con entrenamiento).
-- `scripts/entrenar_modelos_base.py`: búsqueda, piloto y corrida final de los tres modelos base en PyTorch (ARX lineal ridge/lasso, MLP, LSTM), con GPU automática y opciones de hiperparámetros (ver `CONTEXTO_PROYECTO.md` §9).
-- `tests`: pruebas de fuga (ventanas, rezagos, escalas, particiones, pronósticos, ISE, titulares) y de calendario.
 
-## Uso rápido
+`book/` contiene las fuentes del libro, los cuadernos ejecutados, las fichas de arquitectura, sus esquemas y los pipelines. `docs/` contiene la versión publicada. `data/processed/panel_horario.parquet` integra demanda, precio, clima e hidrología con sus reglas de disponibilidad. `results/evaluacion_e2/` conserva el benchmark y los contrastes; `results/diagnosticos_ampliados/` conserva importancia, latencia y sensibilidad documental. `scripts/` y `src/` incluyen las implementaciones; `tests/` verifica datos, disponibilidad y evaluación.
+
+## Construcción del libro
+
+Con Python y las dependencias documentales:
+
 ```bash
-pip install -r requirements.txt
-python scripts/construir_panel.py
-pytest -q tests
+python -m pip install -r requirements-book.lock.txt
+jupyter-book build book --warningiserror --keep-going
 ```
 
-## Diseño anti-fuga en una línea
-Cada columna `x_*` ya trae su rezago de publicación y solo se lee antes del origen; el futuro solo expone calendario (`cal_*`) y pronósticos con emisión previa; las escalas se ajustan con entrenamiento; la partición purga el horizonte y la prueba está congelada.
+El resultado se genera en `book/_build/html/intro.html`. Los cuadernos incluyen sus salidas y la construcción no los reejecuta. En Windows, los ejecutables se encuentran en `Scripts/` del entorno virtual; en Linux, en `bin/`.
 
-## Resultados consolidados
+Para reconstruir las gráficas de evaluación a partir de predicciones y mediciones conservadas:
 
-Los resultados de **PatchTST, N-HiTS y TFT con información numérica ampliada** están en [la consolidación numérica](results/consolidado_numerico_ampliado/README.md), junto con predicciones por fecha y semilla, historiales completos, escaladores y 15 modelos finales. En prueba retrospectiva 2022–2025, el MASE medio de cinco semillas fue 0,7256, 1,0236 y 1,1469, respectivamente. La evaluación es exploratoria; TFT utilizó un presupuesto reducido y no se acredita potencia estadística. Las entradas ampliadas difieren de las usadas en los baselines anteriores.
+```bash
+python scripts/reconstruir_evaluacion.py
+jupyter-book build book --warningiserror --keep-going
+```
 
-Las ejecuciones GPU v2, v3 y v4 están completas. La consolidación de métricas, limitaciones y modelos se encuentra en [`results/consolidado/README.md`](results/consolidado/README.md). El registro [`modelos.json`](results/consolidado/modelos.json) referencia los pesos, escaladores, predicciones y curvas de las cinco semillas de cada configuración seleccionada por validación entre las versiones corregidas.
+`scripts/reorganizar_capitulo10.py` reconstruye la organización y presentación integrada; `scripts/actualizar_diagnosticos_jbook.py` actualiza los diagnósticos desde los CSV. La sección estadística forma parte de `10_evaluacion.ipynb`; la fuente inicial se conserva en `results/reorganizacion_capitulo10/fuentes/`. Estos procesos no entrenan modelos.
 
-| Familia | Ejecución | MASE de prueba ↓ |
-|---|---|---:|
-| MLP | v3 | 0,752 |
-| ARX | v3 | 0,852 |
-| CNN1D | v3 | 0,857 |
-| LSTM | v4 | 1,001 |
-| Ingenuo semanal | Referencia | 1,355 |
-| Ingenuo diario | Referencia | 2,077 |
+La repetición de inferencia requiere los checkpoints, escaladores y vectores identificados en `results/diagnosticos_ampliados/fuentes_diagnosticos.json`, el entorno `requirements-inferencia.lock.txt` y la ubicación `DEMANDA_ARTEFACTOS`. La construcción documental y la regeneración de figuras desde resultados guardados no requieren esos pesos.
 
-La prueba 2022–2025 ya fue observada: son resultados exploratorios, sin confirmación independiente ni pruebas de significancia. La selección entre ejecuciones es retrospectiva. Las versiones v3/v4 corrigen el ajuste del escalador para excluir la parada temprana; v2 se conserva como antecedente, con su salvedad documentada. No se deben mezclar sus presupuestos ni interpretar sus diferencias como efectos causales aislados.
+## Datos y evaluación
 
-Se conservan los artefactos completos en `results/base_v2/`, `results/base_v3/` y `results/base_v4/`: pesos, escaladores, predicciones con fecha y semilla e historiales por época. Los planes de cada fase documentan arquitectura, presupuesto y particiones. Pendientes de datos: ISE y pronósticos meteorológicos con emisión verificable; no se incorporaron como entradas a estas ejecuciones.
+Las entradas históricas se leen antes del origen, el calendario puede conocerse para el horizonte y las transformaciones se ajustan exclusivamente con entrenamiento. El clima ERA5 es reanálisis. El texto utiliza disponibilidad declarada y conserva las advertencias de versión histórica. La validación avanza cronológicamente; la evaluación retrospectiva utiliza los mismos 1461 orígenes de 2022–2025 para todos los procedimientos.
 
-## Jupyter Book
-
-[Consultar el libro](https://fabian-11037.github.io/Prediccion-Demanda-Electrica/intro.html).
-
-Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez. El libro integra datos, EDA, literatura, diseño, benchmark, curvas y diagnósticos con código visible e interpretaciones. El código completo de entrenamiento y prueba se conserva en el apéndice.
-
-Las fuentes del libro están en book y scripts; docs contiene el HTML de publicación. La reproducción documental y la continuidad se describen en [el contexto del libro](continuidad/CONTEXTO_PROYECTO.md).
-
-El libro publicado presenta el análisis y benchmark documentados en los cuadernos actuales. Los artefactos de los modelos se consultan en [la consolidación](results/consolidado/README.md).
-
-
-## Datos adicionales · 10 de noviembre de 2026
-
-Se incorporan pronósticos meteorológicos de ocho ciudades (JMA/GFS), versiones ISE, población DANE, extensión numérica2026, pronóstico oficial XM para auditoría y el corpus textual integrado. Inventario, restricciones temporales y reproducción en [datos adicionales](data/external/README_DATOS_ADICIONALES_20261110.md); hashes en [manifiesto](data/processed/dataset_ampliado_20261110.json). El panel y los modelos congelados se conservan.
-
-El diseño recibido y su [revisión](literature/REVISION_DISENO_ENTRENAMIENTO_20261110.md) quedan como insumos para un protocolo futuro, sin ejecutar entrenamientos. Esta actualización no modifica el HTML publicado del JBook.
-
-
-## Diseño comparativo con texto
-
-El [diseño de entrenamiento](literature/Diseño%20de%20entrenamiento%20pronóstico%20de%20demanda%20eléctrica%20con%20texto.md) y el [contrato numérico](config/diseno_entrenamiento_texto.json) establecen tres variantes: numérica; numérica con documentos oficiales; y numérica con documentos oficiales y prensa. Comparten demanda, calendario, clima de ocho ciudades, hidrología y precio, con disponibilidad rezagada y máscaras. El escenario textual oficial es el declarado y la relevancia se aprende en canales separados.
-
-El [JBook](https://fabian-11037.github.io/Prediccion-Demanda-Electrica/09_diseno_ampliado.html) presenta la preparación numérica, el presupuesto y los controles del diseño. Los resultados conservados corresponden a las entradas efectivamente entrenadas; esta actualización no ejecuta entrenamientos adicionales.
+```bash
+python -m pytest -q tests
+```

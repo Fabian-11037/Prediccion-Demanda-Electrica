@@ -1,0 +1,360 @@
+{
+  "cuadernos": 13,
+  "figuras_analiticas": 53,
+  "esquemas_arquitecturas": 24,
+  "celdas_analiticas": 97,
+  "procedimientos_completados": 13,
+  "realizaciones_finales": 65,
+  "referencias_deterministas": 2,
+  "parejas_semillas": 78,
+  "parejas_Nemenyi": 78,
+  "parejas_temporales": 105,
+  "participantes_MCS": 15,
+  "importancia_y_latencia_medidas": 13,
+  "pilotos_independientes": 5,
+  "TGForecaster": "N y N+O · diez realizaciones verificadas",
+  "errores_ejecucion": 0,
+  "advertencias": 0,
+  "enlaces_rotos": 0,
+  "hashes_preservados": {
+    "results/jbook/modelos_actuales/benchmark.csv": "494b8460ab95b623c5d4f16cd50d709e500bb1ba59d30ceea1d053fad02cafbf",
+    "data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15"
+  },
+  "pruebas_correctas": 86,
+  "pruebas_omitidas": 5,
+  "entrenamiento": false,
+  "publicacion": false,
+  "figuras": [
+    {
+      "cuaderno": "02_calidad.ipynb",
+      "celda": 3,
+      "seccion": "# 2. Calidad e integridad",
+      "interpretacion": "Se identifican 0 horas ausentes y 0 duplicados en desarrollo. Hay 5 horas con demanda inferior a la mitad de su referencia semanal; requieren revisión de fuente y contexto antes de cualquier correcció"
+    },
+    {
+      "cuaderno": "02_calidad.ipynb",
+      "celda": 9,
+      "seccion": "## Representatividad geográfica y poblacional",
+      "interpretacion": "La separación máxima entre coordenada solicitada y malla es 24.54 km. Bogotá concentra el 46.3 % del promedio ponderado, por lo que esa representación puede atenuar condiciones de ciudades con menor p"
+    },
+    {
+      "cuaderno": "03_demanda.ipynb",
+      "celda": 3,
+      "seccion": "# 3. Distribución y evolución de la demanda",
+      "interpretacion": "La demanda media anual pasa de 4.63 a 8.37 GWh por intervalo entre los extremos del desarrollo, un cambio del 80.8 %. La media global es 6.53 y la mediana 6.49; la distribución reúne años con distinto"
+    },
+    {
+      "cuaderno": "03_demanda.ipynb",
+      "celda": 5,
+      "seccion": "# 3. Distribución y evolución de la demanda",
+      "interpretacion": "La asociación entre nivel y dispersión mensual es 0.59. La ventana 2019–2021 permite distinguir cambios locales que el agregado de todo el histórico comprime; la comparación de errores absolutos entre"
+    },
+    {
+      "cuaderno": "03_demanda.ipynb",
+      "celda": 8,
+      "seccion": "## Cambios exploratorios de régimen",
+      "interpretacion": "El procedimiento identifica 6 cortes: 2002-08-08, 2004-08-12, 2006-07-04, 2009-07-23, 2014-01-14, 2018-07-08. Los tramos resumen cambios de nivel de la demanda ajustada por día de semana, sin atribuir"
+    },
+    {
+      "cuaderno": "04_estacionalidad.ipynb",
+      "celda": 3,
+      "seccion": "# 4. Calendario y estacionalidad",
+      "interpretacion": "El perfil agregado alcanza su máximo a las 19:00 y su mínimo a las 03:00. La matriz muestra cómo varía el ciclo diario entre días de semana; los promedios mezclan niveles de distintos años y no repres"
+    },
+    {
+      "cuaderno": "04_estacionalidad.ipynb",
+      "celda": 5,
+      "seccion": "# 4. Calendario y estacionalidad",
+      "interpretacion": "La demanda media de domingos y festivos es un 14.5 % inferior a la del resto de días. El ciclo mensual y el intradiario aconsejan conservar calendario del horizonte; su asociación puede variar entre a"
+    },
+    {
+      "cuaderno": "04_estacionalidad.ipynb",
+      "celda": 7,
+      "seccion": "# 4. Calendario y estacionalidad",
+      "interpretacion": "La componente semanal de la demanda diaria presenta un rango p5–p95 de 1.19 GWh, con DE residual 0.23. La tendencia recoge variaciones lentas; el residuo conserva episodios que el ciclo semanal no rep"
+    },
+    {
+      "cuaderno": "05_dependencia.ipynb",
+      "celda": 3,
+      "seccion": "# 5. Dependencia temporal y estacionariedad",
+      "interpretacion": "La autocorrelación a 24 y 168 horas es 0.929 y 0.967, respectivamente. El espectro complementa estos rezagos al localizar ciclos; la tendencia puede elevar la ACF global y no debe confundirse con capa"
+    },
+    {
+      "cuaderno": "05_dependencia.ipynb",
+      "celda": 8,
+      "seccion": "## Memoria tras retirar el ciclo semanal",
+      "interpretacion": "La diferencia semanal conserva ACF de 0.97 a una hora y PACF de -0.07 a 24 horas. Restar la semana anterior no agota necesariamente la memoria reciente; estos diagnósticos respaldan estudiar conjuntam"
+    },
+    {
+      "cuaderno": "05_dependencia.ipynb",
+      "celda": 11,
+      "seccion": "## Variación de la dispersión y dependencia residual",
+      "interpretacion": "La MAD móvil varía entre 0.034 y 0.242 GWh por intervalo, mostrando cuánto cambia la dispersión local de las diferencias semanales. Ljung–Box a 14 días obtiene p <1e-300; los contrastes son explorator"
+    },
+    {
+      "cuaderno": "06_covariables.ipynb",
+      "celda": 3,
+      "seccion": "# 6. Covariables y disponibilidad",
+      "interpretacion": "La correlación de Spearman entre demanda y temperatura ponderada rezagada es 0.465. La matriz permite detectar asociaciones y redundancias; las tendencias compartidas y el calendario impiden interpret"
+    },
+    {
+      "cuaderno": "06_covariables.ipynb",
+      "celda": 5,
+      "seccion": "# 6. Covariables y disponibilidad",
+      "interpretacion": "Los perfiles urbanos muestran heterogeneidad espacial y estacional. La ponderación por población resume ciudades, pero no describe lluvia en cuencas aportantes ni sustituye pronósticos con emisión pre"
+    },
+    {
+      "cuaderno": "06_covariables.ipynb",
+      "celda": 8,
+      "seccion": "## Asociaciones disponibles al inicio del día",
+      "interpretacion": "La mayor asociación en cambios diarios corresponde a Llenado, con Spearman 0.13. Las diferencias entre nivel y cambio muestran cuánto depende cada relación de la evolución lenta de las series. La prec"
+    },
+    {
+      "cuaderno": "06_covariables.ipynb",
+      "celda": 11,
+      "seccion": "## Respuesta meteorológica y calendario",
+      "interpretacion": "Tras el centrado, las asociaciones de temperatura y humedad con demanda son 0.24 y -0.21. Las líneas muestran medianas por intervalos meteorológicos y las bandas el rango intercuartílico de demanda, n"
+    },
+    {
+      "cuaderno": "06_covariables.ipynb",
+      "celda": 14,
+      "seccion": "## Estabilidad entre entrenamiento y validación",
+      "interpretacion": "Demanda presenta el mayor desplazamiento normalizado (1.83). Una distancia elevada advierte que la validación puede exigir extrapolación; no demuestra por sí sola deterioro del pronóstico. Evaluar los"
+    },
+    {
+      "cuaderno": "07_texto.ipynb",
+      "celda": 7,
+      "seccion": "## Corpus oficial utilizado en los modelos",
+      "interpretacion": "La disponibilidad de texto cambia entre años incluso con una regla de entrada constante. La línea de 2022 señala el inicio de prueba; las curvas describen cobertura y volumen de las listas diarias, si"
+    },
+    {
+      "cuaderno": "07_texto.ipynb",
+      "celda": 9,
+      "seccion": "## Corpus oficial utilizado en los modelos",
+      "interpretacion": "Desarrollo contiene 484,289 registros en el escenario declarado y 5,272 en el estricto. El declarado es el escenario principal; el estricto se utiliza para sensibilidad de disponibilidad. Las diferenc"
+    },
+    {
+      "cuaderno": "07_texto.ipynb",
+      "celda": 11,
+      "seccion": "## Corpus oficial utilizado en los modelos",
+      "interpretacion": "El vocabulario se ajusta con 30,000 titulares de una población de 380,541 registros declarados anteriores a 2018. «colombia» concentra el mayor peso TF-IDF acumulado; esta medida refleja composición l"
+    },
+    {
+      "cuaderno": "07_texto.ipynb",
+      "celda": 13,
+      "seccion": "## Corpus oficial utilizado en los modelos",
+      "interpretacion": "T6 presenta el mayor peso medio en la muestra de ajuste. Los términos de la tabla definen componentes aprendidas, no etiquetas editoriales. El predominio de una componente puede reflejar concentración"
+    },
+    {
+      "cuaderno": "07_texto.ipynb",
+      "celda": 17,
+      "seccion": "## Cobertura mensual, longitud y repetición",
+      "interpretacion": "Se analizan 484,289 titulares, con mediana de 8 palabras. Hay 49 meses sin registros recuperados en ninguna fuente; no equivalen a meses sin publicaciones. El histograma muestra hasta 50 palabras y de"
+    },
+    {
+      "cuaderno": "07_texto.ipynb",
+      "celda": 19,
+      "seccion": "## Cobertura mensual, longitud y repetición",
+      "interpretacion": "Las repeticiones exactas representan el 2.88 % y las normalizadas el 3.08 % de los registros. La diferencia cuantifica variantes formales que la comparación literal omite. La repetición puede responde"
+    },
+    {
+      "cuaderno": "07_texto.ipynb",
+      "celda": 22,
+      "seccion": "## Bigramas y diversidad léxica",
+      "interpretacion": "«estados unidos» es el bigrama con mayor presencia entre los candidatos conservados. La diversidad mediana pasa de 0.060 a 0.681 entre el primer y último año representados; las bandas muestran dispers"
+    },
+    {
+      "cuaderno": "07_texto.ipynb",
+      "celda": 25,
+      "seccion": "## Evolución de tópicos y composición por fuente",
+      "interpretacion": "El 96.95 % de los titulares tiene representación utilizable; T6 concentra la mayor contribución media. Las curvas muestran evolución del contenido representado y la matriz permite identificar diferenc"
+    },
+    {
+      "cuaderno": "07_texto.ipynb",
+      "celda": 28,
+      "seccion": "## Transferencia del vocabulario y estabilidad de los tópicos",
+      "interpretacion": "La tasa global fuera del vocabulario pasa del 30.90 % en entrenamiento al 33.85 % en validación, con divergencia Jensen–Shannon de 0.060. La similitud NMF media es 1.000 y la mínima 1.000, a la precis"
+    },
+    {
+      "cuaderno": "08_literatura.ipynb",
+      "celda": 3,
+      "seccion": "### Protocolo de elegibilidad y alcance de la búsqueda",
+      "interpretacion": "El cribado de IEEE retiene 20 de 438 registros: 12 prioritarios y ocho de contexto; cuatro corresponden a retiradas o avisos. El registro independiente de recuperación contiene 25 candidatos, con 20 t"
+    },
+    {
+      "cuaderno": "08_literatura.ipynb",
+      "celda": 8,
+      "seccion": "## 8.2. Estudios directamente relacionados con la demanda",
+      "interpretacion": "En Bai et al., la mejor combinación de titulares S, descripciones G y descripciones corporativas CG reduce el MAE un 3.63 %, mientras que combinar palabras clave W, titulares S, textos T y descripcion"
+    },
+    {
+      "cuaderno": "08_literatura.ipynb",
+      "celda": 18,
+      "seccion": "## 8.4. Matriz de evidencia",
+      "interpretacion": "De los 29 estudios destacados, 17 cuentan con revisión de texto completo y 14 incorporan texto externo. La matriz separa evidencia sobre variables eléctricas de métodos generales; una alta presencia d"
+    },
+    {
+      "cuaderno": "08_literatura.ipynb",
+      "celda": 21,
+      "seccion": "### Evidencia directa de demanda",
+      "interpretacion": "LSTM aparece en cuatro de cinco estudios empíricos; MLP en tres; CNN1D y TCN, en dos cada una. CNN-LSTM, N-BEATS y TFT aparecen una vez. CNN1D queda empatada en la tercera frecuencia del corpus dirigi"
+    },
+    {
+      "cuaderno": "08_literatura.ipynb",
+      "celda": 24,
+      "seccion": "### Precio eléctrico: contraste metodológico y sensibilidad",
+      "interpretacion": "En precio puntual, LSTM aparece en 7/16 estudios y MLP/DNN en 6/16. CNN aparece en 2/16, empatada con CNN-LSTM y Transformer; sólo una de las dos comparaciones CNN identifica explícitamente convolució"
+    },
+    {
+      "cuaderno": "08_literatura.ipynb",
+      "celda": 28,
+      "seccion": "## 8.6. Arquitecturas de interés y modelos numéricos",
+      "interpretacion": "Entre las cuatro familias de demanda/calendario, la MLP presenta la mayor capacidad parametrizada. La CNN1D conserva una salida densa sobre posiciones temporales agrupadas, por lo que su tamaño no dep"
+    },
+    {
+      "cuaderno": "09_validacion.ipynb",
+      "celda": 5,
+      "seccion": "## Formulación y entradas",
+      "interpretacion": "Cada bloque verde corresponde a un año posterior a la historia de ajuste; el tramo naranja reserva parada temprana dentro de esa historia. Los conteos verifican separación de etiquetas entre ajuste, p"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 8,
+      "seccion": "## Entrenamiento, selección y precisión del piloto",
+      "interpretacion": "Los catorce procedimientos tienen una estimación de precisión de desarrollo: seis a partir del piloto externo y ocho a partir de la parada interna. Los puntos muestran cinco inicializaciones por proce"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 23,
+      "seccion": "### Precisión requerida entre inicializaciones",
+      "interpretacion": "La planificación conservadora alcanza máximos de 82 semillas en los pilotos externos y 4231 en la reserva interna. Las mayores cifras reflejan la dispersión de las diferencias frente al margen fijado,"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 26,
+      "seccion": "## Curvas de aprendizaje",
+      "interpretacion": "La parada ocurre antes del máximo de épocas en las realizaciones presentadas y restaura el mejor estado observado en la reserva interna. La separación ajuste–parada sugiere revisar generalización y es"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 29,
+      "seccion": "## Desempeño y precisión temporal",
+      "interpretacion": "TaTS con texto oficial y su control numérico presentan los menores errores medios. La cercanía de sus barras no basta para decidir mejora o equivalencia: se utilizan contrastes pareados. El resto de p"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 34,
+      "seccion": "## Comparaciones temporales de todos los procedimientos",
+      "interpretacion": "DM–HLN con Holm rechaza en 111 de las 120 parejas. Los rechazos son específicos de cada pareja y no convierten el orden de las medias en un ranking de diferencias significativas. Un valor p elevado ta"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 37,
+      "seccion": "## Validación y generalización",
+      "interpretacion": "El error de prueba supera al de validación en los catorce procedimientos. La figura incorpora la precisión de desarrollo sin huecos: piloto externo en azul y parada interna en naranja con trama. La pa"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 40,
+      "seccion": "### Ajuste y parada interna",
+      "interpretacion": "La parada interna presenta mayor error que el ajuste en las realizaciones mostradas. La separación describe generalización dentro del periodo de desarrollo; su magnitud no se compara entre paneles por"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 43,
+      "seccion": "## Demanda observada frente a predicción",
+      "interpretacion": "TaTS y su control numérico muestran los menores errores agregados y una nube más próxima a la diagonal. Las desviaciones en demandas altas y bajas revelan errores de amplitud que el promedio global pu"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 46,
+      "seccion": "### Perfil horario en una semana de prueba",
+      "interpretacion": "Los procedimientos reproducen el ciclo diario, pero difieren en la altura de los máximos, los mínimos nocturnos y las transiciones. Esta ventana permite contextualizar las métricas en unidades de dema"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 49,
+      "seccion": "## Error por horizonte",
+      "interpretacion": "El error depende de la hora: la diferencia entre familias no es una separación constante en todo el horizonte. Los perfiles de los contrastes textuales deben leerse junto con sus diferencias pareadas,"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 52,
+      "seccion": "## Segmentos de evaluación",
+      "interpretacion": "El error cambia entre años y niveles de demanda, por lo que una única media no resume todas las condiciones operativas. La comparación por tipo de día permite distinguir la dificultad de días laborale"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 60,
+      "seccion": "## Comparaciones entre semillas y tamaño del efecto",
+      "interpretacion": "La t pareada con Holm rechaza en 24 de las 91 parejas. Los valores negativos favorecen al procedimiento de la fila. Los asteriscos identifican rechazos de la t pareada con Holm, sujetos a sus supuesto"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 63,
+      "seccion": "### Distribución de diferencias entre inicializaciones",
+      "interpretacion": "Cinco puntos ofrecen poca resolución para detectar desviaciones de normalidad. Estos gráficos describen las diferencias de inicialización y no sustituyen la inferencia temporal por bloques ni justific"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 66,
+      "seccion": "## Friedman, post hoc y conjunto de confianza",
+      "interpretacion": "Friedman rechaza igualdad global de rangos, pero no afirma que todos los pares difieran. La distancia crítica exige separaciones grandes para rechazar con Nemenyi; una separación menor no demuestra eq"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 69,
+      "seccion": "### Post hoc completo de Nemenyi",
+      "interpretacion": "Nemenyi rechaza en 10 de las 91 parejas: las parejas específicas se identifican en la matriz completa y su tabla descargable. El rechazo global de Friedman no se extiende automáticamente a todos los p"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 77,
+      "seccion": "## Variación entre fechas e inicializaciones",
+      "interpretacion": "La componente de fecha recoge cambios de dificultad compartidos por las inicializaciones. La interacción representa cambios que no se explican por efectos aditivos de fecha y semilla. Estas fracciones"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 84,
+      "seccion": "## Importancia de variables en los modelos ampliados",
+      "interpretacion": "El mayor deterioro aparece al perturbar calendario en PatchTST (repositorio) · N (221.54 %). Entre las covariables externas, el mayor incremento corresponde a precio en N-HiTS · N (1.48 %). Las celdas"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 87,
+      "seccion": "## Sensibilidad al contenido de los documentos oficiales",
+      "interpretacion": "En Fusión tardía · N+O, retirar documentos cambia el MAE +11.61 % (IC95 % [+10.59; +12.65]) y sustituir su contenido por texto histórico lo cambia +1.76 % (IC95 % [+0.98; +2.55]). La sustitución modif"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 90,
+      "seccion": "### Descripciones estáticas de los canales en TGForecaster",
+      "interpretacion": "En TGForecaster · N, anular las descripciones cambia el MAE +167.27 % y permutarlas +4.20 %. En TGForecaster · N+O, anular las descripciones cambia el MAE +69.97 % y permutarlas +9.50 %. La sensibilid"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 96,
+      "seccion": "### Demanda y calendario",
+      "interpretacion": "En MLP, perturbar el perfil de demanda con nivel fijo aumenta el MAE un 134.9 %, mientras alterar semana y festivos lo incrementa un 210.1 %. Año y temporadas produce un cambio menor, del 8.3 %. El ca"
+    },
+    {
+      "cuaderno": "10_evaluacion.ipynb",
+      "celda": 99,
+      "seccion": "### Distribución de la sensibilidad a lo largo de la historia",
+      "interpretacion": "El bloque 1 es el de mayor sensibilidad en MLP: perturbar las últimas 24 horas aumenta su MAE un 112.6 %. La sensibilidad a los bloques anteriores es menor. ARX utiliza únicamente 48 rezagos; los bloq"
+    }
+  ],
+  "parejas_dimensionamiento_piloto": 10,
+  "procedimientos_tabla_seleccion": 13,
+  "pruebas_revision_dimensionamiento": 13,
+  "precision_desarrollo_parada": {
+    "procedimientos": 8,
+    "metricas": 40,
+    "parejas": 28,
+    "prueba_usada_para_dimensionar": false
+  },
+  "revision_integral": "results/revision_integral/auditoria.json",
+  "diagnosticos_ampliados": "results/diagnosticos_ampliados/fuentes_diagnosticos.json",
+  "esquemas_presentacion": "results/esquemas_presentacion/manifest.json",
+  "seleccion_patchtst": "config/seleccion_patchtst.json"
+}

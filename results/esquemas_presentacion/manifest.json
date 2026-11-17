@@ -1,0 +1,241 @@
+{
+  "fuente_original": {
+    "archivo": "fuente_original.pptx",
+    "sha256": "21a80ddae81ebb93b8d68a4d94fb1ae49e9d950b281ca0e90b36224efb95de14"
+  },
+  "adaptacion_tft": {
+    "archivo": "esquemas_para_jbook.pptx",
+    "sha256": "db4a4c3e2b06bb91670888ebb4b6dceef644fd0b93e4bea38cef7b3be0cc3f20",
+    "configuracion": 1,
+    "ancho": 160,
+    "historicas_con_calendario": 56,
+    "calendario_futuro": 23,
+    "parametros": 11715596,
+    "MASE": 1.051025611419284
+  },
+  "imagenes": {
+    "arx": {
+      "global": {
+        "diapositiva": 3,
+        "archivo": "renderizados/diapositiva_03.png",
+        "sha256": "18dee67e57f22d9f682f598efbc33247cf4d935af00aa2e27e1fb954a9395306",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      },
+      "detalle": {
+        "diapositiva": 4,
+        "archivo": "renderizados/diapositiva_04.png",
+        "sha256": "9cd74c3f23565b64eb798199d1d146633e60d24e1a4788eafdba78a47e8398ed",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      }
+    },
+    "mlp": {
+      "global": {
+        "diapositiva": 5,
+        "archivo": "renderizados/diapositiva_05.png",
+        "sha256": "a25bb4ed0ea3d9ae2579121fd605a19dab60d93dd0d46e65dfd447474c38a5f2",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      },
+      "detalle": {
+        "diapositiva": 6,
+        "archivo": "renderizados/diapositiva_06.png",
+        "sha256": "eef565d0e882c5d308c3d5329b12c7917d9620237705bd51db72058fec039523",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      }
+    },
+    "cnn1d": {
+      "global": {
+        "diapositiva": 7,
+        "archivo": "renderizados/diapositiva_07.png",
+        "sha256": "51788a3214b2b797774f482135ac4ed5b9c4e2fa0c4869938686d1eb9efe7f9c",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      },
+      "detalle": {
+        "diapositiva": 8,
+        "archivo": "renderizados/diapositiva_08.png",
+        "sha256": "4f234f277fc52aeb0ffdcb2d2a25f6ef0e131870e8f252a1d6b01730810e1d3d",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      }
+    },
+    "lstm": {
+      "global": {
+        "diapositiva": 9,
+        "archivo": "renderizados/diapositiva_09.png",
+        "sha256": "deb81bc1badb096c6ab1147a599f21e73693aeb9089b92b52d497616d0b12f98",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      },
+      "detalle": {
+        "diapositiva": 10,
+        "archivo": "renderizados/diapositiva_10.png",
+        "sha256": "b3f5e0476a18d6b572300286e85638ede6e8c62399b0462409d01a0203ea3ef0",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      }
+    },
+    "patchtst": {
+      "global": {
+        "diapositiva": 11,
+        "archivo": "renderizados/ampliado_11.png",
+        "sha256": "4cad71b350b91298d7b45b4f0eec8d84243920918781f408956cc03f105e6c5b",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      },
+      "detalle": {
+        "diapositiva": 12,
+        "archivo": "renderizados/ampliado_12.png",
+        "sha256": "e1d0d653764c41ff168afc3e690c033dbaa32682ad2939ba506fa155dcf1315e",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      }
+    },
+    "nhits": {
+      "global": {
+        "diapositiva": 13,
+        "archivo": "renderizados/diapositiva_13.png",
+        "sha256": "93f73d7ca397a786c41f2ebe6380dd4e962d8a9adcdf94b97f9d679846fe6ec2",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      },
+      "detalle": {
+        "diapositiva": 14,
+        "archivo": "renderizados/diapositiva_14.png",
+        "sha256": "2b9e505e95c37c289d2bea284cb91831bd92cc1d9098f2c60aa8d8028b2695af",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      }
+    },
+    "tft": {
+      "global": {
+        "diapositiva": 15,
+        "archivo": "renderizados/diapositiva_15.png",
+        "sha256": "4afb5a38aaefc377c3a6d247df19c57ffe51158b485498e8ab4994da2e11fd10",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      },
+      "detalle": {
+        "diapositiva": 16,
+        "archivo": "renderizados/diapositiva_16.png",
+        "sha256": "09cffa9c3b1cd8ecb281d24296dc12ba2d999aeac5c95138cac8b48524d334bb",
+        "ancho_px": 3200,
+        "alto_px": 1800
+      }
+    },
+    "tcn": {
+      "global": {
+        "diapositiva": 1,
+        "archivo": "renderizados/ampliado_01.png",
+        "sha256": "71ea5104bd43ddf43ccbb4aac520538d854b981f7373a1026edfe72a15f48097",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      },
+      "detalle": {
+        "diapositiva": 2,
+        "archivo": "renderizados/ampliado_02.png",
+        "sha256": "9e9b4ed4dab237e3081fcbd45e6f2b282ce75f5da3d3d2165aa8c793cf074c66",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      }
+    },
+    "itransformer": {
+      "global": {
+        "diapositiva": 3,
+        "archivo": "renderizados/ampliado_03.png",
+        "sha256": "d09ab4f46942644a8b17a313302ad24c46d0971bf766ba94130d6b5ebe21ebad",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      },
+      "detalle": {
+        "diapositiva": 4,
+        "archivo": "renderizados/ampliado_04.png",
+        "sha256": "fec89a6275c3318ca70878e1e85e37f09de347e17b1fd823c68f64685f4f521e",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      }
+    },
+    "tats": {
+      "global": {
+        "diapositiva": 5,
+        "archivo": "renderizados/ampliado_05.png",
+        "sha256": "8eccd676c8452812dd07bfa511831603e9e3c5a0ec21f50bfb7d3c94a49e1ac6",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      },
+      "detalle": {
+        "diapositiva": 6,
+        "archivo": "renderizados/ampliado_06.png",
+        "sha256": "163116d8c844e453c7a65c165aa08c90a9657f51232132831dbd40c149e78f7c",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      }
+    },
+    "fusion": {
+      "global": {
+        "diapositiva": 7,
+        "archivo": "renderizados/ampliado_07.png",
+        "sha256": "4afde9aa217ca8b0eaeb2b782dcf85ced8e463b6ab1362e902de711146d4cd99",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      },
+      "detalle": {
+        "diapositiva": 8,
+        "archivo": "renderizados/ampliado_08.png",
+        "sha256": "57970fc109d8537160cc63f78bda399b5fb51ab5602666d78d97178258ae8dcf",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      }
+    },
+    "tgforecaster": {
+      "global": {
+        "diapositiva": 9,
+        "archivo": "renderizados/ampliado_09.png",
+        "sha256": "fb2b7e192a603cecfa5cf23724f29d5eca98014497de00064b09aa90008f7ed0",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      },
+      "detalle": {
+        "diapositiva": 10,
+        "archivo": "renderizados/ampliado_10.png",
+        "sha256": "a8b8ddb5eb6d3e2e748e8af54ebf705ff38f3a7468c2dd2380d13b9aa01971ad",
+        "ancho_px": 3200,
+        "alto_px": 1800,
+        "fuente": "ampliados/esquemas_ampliados.pptx"
+      }
+    }
+  },
+  "modelos_conservados": [],
+  "ampliados": {
+    "archivo": "ampliados/esquemas_ampliados.pptx",
+    "sha256": "1f322e279866ca00f80d247ff7f642ada19e6e709cc537d99dc4840ec8784779",
+    "codigo": "scripts/crear_esquemas_ampliados.mjs",
+    "sha256_codigo": "7ed8c8afde555c767d930cf0f21d0893089ca41594e58c617080e2a53807767e",
+    "dimensiones": "ampliados/ficha_modelos.json",
+    "sha256_dimensiones": "d5aeaf80f5e8e34630b5cd4954d627c267ca3dee0b3891f709fca405f0bb81b4",
+    "familias": [
+      "tcn",
+      "itransformer",
+      "tats",
+      "fusion",
+      "tgforecaster",
+      "patchtst"
+    ],
+    "diapositivas": 12,
+    "revision_visual": true
+  }
+}

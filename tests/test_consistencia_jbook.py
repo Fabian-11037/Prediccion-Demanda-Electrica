@@ -46,7 +46,7 @@ def test_latencia_reportada_y_medida_en_mismos_modelos():
 def test_numeracion_y_archivos_canonicos():
     assert narrativa('09_validacion').startswith('# 9.')
     assert narrativa('10_modelos').startswith('# 10.')
-    assert narrativa('10_evaluacion').startswith('# 10.9.')
+    assert '# 10.14. Resultados y evaluación integrada' in narrativa('10_evaluacion')
     assert not (ROOT/'book/08_validacion.ipynb').exists()
     assert not (ROOT/'book/09_modelos.ipynb').exists()
 

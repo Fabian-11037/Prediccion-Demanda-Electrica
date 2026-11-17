@@ -1,0 +1,32 @@
+{
+  "publicado": true,
+  "commit": "a56092374b3db1f983332dddd691649afe25f532",
+  "url": "https://fabian-11037.github.io/Prediccion-Demanda-Electrica/09_diseno_ampliado.html",
+  "paginas_verificadas": [
+    {
+      "pagina": "09_diseno_ampliado.html",
+      "status": 200,
+      "coincide": true
+    },
+    {
+      "pagina": "09_validacion.html",
+      "status": 200,
+      "coincide": true
+    },
+    {
+      "pagina": "10_modelos.html",
+      "status": 200,
+      "coincide": true
+    },
+    {
+      "pagina": "10_evaluacion.html",
+      "status": 200,
+      "coincide": true
+    }
+  ],
+  "contrato_verificado": true,
+  "entrenamiento": false,
+  "accion_id": 42893080352,
+  "estado_accion": "completed",
+  "conclusion_accion": "success"
+}

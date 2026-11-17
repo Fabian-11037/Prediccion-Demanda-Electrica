@@ -1,0 +1,190 @@
+{
+  "arx_lineal": [
+    {
+      "id": "arx_lineal_03",
+      "ventana": 168,
+      "params": {
+        "penalizacion": "lasso",
+        "lags": 168,
+        "batch_size": 256,
+        "lr": 0.00045652380990309643,
+        "scheduler": "cosine",
+        "perdida": "mae",
+        "paciencia": 25,
+        "lambda": 3.2807576218826044e-06
+      }
+    },
+    {
+      "id": "arx_lineal_01",
+      "ventana": 168,
+      "params": {
+        "penalizacion": "ridge",
+        "lags": 96,
+        "batch_size": 256,
+        "lr": 0.00019423130380512372,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 25,
+        "lambda": 3.62374192043218e-05
+      }
+    },
+    {
+      "id": "arx_lineal_02",
+      "ventana": 168,
+      "params": {
+        "penalizacion": "lasso",
+        "lags": 48,
+        "batch_size": 64,
+        "lr": 0.0006582612236208865,
+        "scheduler": "plateau",
+        "perdida": "mae",
+        "paciencia": 15,
+        "lambda": 1.3733953296838922e-07
+      }
+    }
+  ],
+  "mlp": [
+    {
+      "id": "mlp_11",
+      "ventana": 168,
+      "params": {
+        "capas": 2,
+        "unidades": 128,
+        "dropout": 0.0035459143015831307,
+        "weight_decay": 0.0003827221364333344,
+        "batch_size": 64,
+        "lr": 0.004689628419943547,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 8
+      }
+    },
+    {
+      "id": "mlp_15",
+      "ventana": 168,
+      "params": {
+        "capas": 3,
+        "unidades": 512,
+        "dropout": 0.031358961285384124,
+        "weight_decay": 0.0020042470524518014,
+        "batch_size": 64,
+        "lr": 0.0005627221275874185,
+        "scheduler": "none",
+        "perdida": "huber",
+        "paciencia": 8
+      }
+    },
+    {
+      "id": "mlp_08",
+      "ventana": 168,
+      "params": {
+        "capas": 1,
+        "unidades": 256,
+        "dropout": 0.1300487238686116,
+        "weight_decay": 0.002288369149001423,
+        "batch_size": 128,
+        "lr": 0.0010514237163826354,
+        "scheduler": "cosine",
+        "perdida": "huber",
+        "paciencia": 25
+      }
+    }
+  ],
+  "lstm": [
+    {
+      "id": "lstm_16",
+      "ventana": 168,
+      "params": {
+        "capas": 1,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 256,
+        "lr": 0.001,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 6,
+        "unidades": 32
+      }
+    },
+    {
+      "id": "lstm_18",
+      "ventana": 168,
+      "params": {
+        "capas": 1,
+        "dropout": 0.2,
+        "weight_decay": 0.001,
+        "batch_size": 256,
+        "lr": 0.001,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 6,
+        "unidades": 32
+      }
+    },
+    {
+      "id": "lstm_20",
+      "ventana": 168,
+      "params": {
+        "capas": 1,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 256,
+        "lr": 0.001,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 6,
+        "unidades": 32
+      }
+    }
+  ],
+  "cnn1d": [
+    {
+      "id": "cnn1d_18",
+      "ventana": 168,
+      "params": {
+        "capas": 1,
+        "dropout": 0.2,
+        "weight_decay": 0.001,
+        "batch_size": 256,
+        "lr": 0.001,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 6,
+        "filtros": 16,
+        "kernel": 3
+      }
+    },
+    {
+      "id": "cnn1d_17",
+      "ventana": 168,
+      "params": {
+        "capas": 1,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 256,
+        "lr": 0.0003,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 6,
+        "filtros": 16,
+        "kernel": 5
+      }
+    },
+    {
+      "id": "cnn1d_06",
+      "ventana": 168,
+      "params": {
+        "capas": 1,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 256,
+        "lr": 0.001,
+        "scheduler": "plateau",
+        "perdida": "huber",
+        "paciencia": 6,
+        "filtros": 8,
+        "kernel": 3
+      }
+    }
+  ]
+}

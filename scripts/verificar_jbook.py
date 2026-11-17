@@ -30,13 +30,19 @@ def main():
                     assert i+1<len(n.cells) and n.cells[i+1].cell_type=='markdown',(nombre,i)
                     assert len(n.cells[i+1].source.strip())>35,(nombre,i)
     modelo=notebooks['10_modelos']
-    assert len(modelo.cells)>10 and any(c.cell_type=='code' for c in modelo.cells)
-    assert (book/'10_pipeline.md').exists()
+    assert modelo.metadata.get('capitulo10_integrado')
+    assert (book/'arquitecturas/fundamentos.md').exists()
+    assert not (book/'10_pipeline.md').exists()
+    assert not (book/'10_estadistica_e2.ipynb').exists()
     dic=json.loads((ROOT/'data/processed/diccionario_datos.json').read_text(encoding='utf-8'))
     assert all(r['descripcion'] and r['unidad'] for r in dic)
     assert len(dic)==len({(r['bloque'],r['variable']) for r in dic})
-    for nombre in ['diccionario','10_evaluacion','10_pipeline','11_sintesis','12_reproducibilidad']:
+    for nombre in ['diccionario','10_evaluacion','arquitecturas/fundamentos','11_sintesis','12_reproducibilidad']:
         assert (html/(nombre+'.html')).exists(),nombre
+    # Compatibilidad de enlaces externos sin conservar capítulos duplicados.
+    redirecciones_capitulo10={'10_pipeline':'arquitecturas/fundamentos.html','10_estadistica_e2':'10_evaluacion.html'}
+    for nombre,destino in redirecciones_capitulo10.items():
+        (html/(nombre+'.html')).write_text('<!doctype html><html lang="es"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url='+destino+'"><link rel="canonical" href="'+destino+'"><title>Contenido integrado</title></head><body><a href="'+destino+'">Continuar a la sección integrada</a></body></html>',encoding='utf-8')
     class Enlaces(HTMLParser):
         def __init__(self):
             super().__init__();self.links=[]

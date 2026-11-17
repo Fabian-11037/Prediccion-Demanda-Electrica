@@ -1,0 +1,21 @@
+{
+  "principales": [
+    "ARX",
+    "MLP",
+    "LSTM",
+    "CNN1D",
+    "TFT",
+    "TCN",
+    "iTransformer",
+    "TaTS",
+    "Fusión tardía",
+    "TGForecaster"
+  ],
+  "comparadores_numericos": [
+    "PatchTST",
+    "N-HiTS"
+  ],
+  "procedimientos": 13,
+  "realizaciones": 65,
+  "referencias_deterministas": 2
+}

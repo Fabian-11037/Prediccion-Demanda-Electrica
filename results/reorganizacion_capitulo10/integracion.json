@@ -1,0 +1,18 @@
+{
+  "celdas_integradas": 40,
+  "arquitecturas": 12,
+  "fuentes": [
+    "10_estadistica_e2.ipynb",
+    "10_evaluacion.ipynb",
+    "10_modelos.ipynb",
+    "10_pipeline.md",
+    "fundamentos_original.md"
+  ],
+  "orden": "fundamentos, doce arquitecturas y pipelines, evaluación integrada",
+  "paginas_retiradas": [
+    "10_pipeline",
+    "10_estadistica_e2"
+  ],
+  "entrenamiento": false,
+  "publicacion": false
+}

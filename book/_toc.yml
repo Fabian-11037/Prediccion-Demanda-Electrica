@@ -16,8 +16,20 @@ chapters:
       - file: 09_diseno_ampliado
   - file: 10_modelos
     sections:
+      - file: arquitecturas/fundamentos
+      - file: arquitecturas/arx
+      - file: arquitecturas/mlp
+      - file: arquitecturas/lstm
+      - file: arquitecturas/cnn1d
+      - file: arquitecturas/patchtst
+      - file: arquitecturas/nhits
+      - file: arquitecturas/tft
+      - file: arquitecturas/tcn
+      - file: arquitecturas/itransformer
+      - file: arquitecturas/tats
+      - file: arquitecturas/tgforecaster
+      - file: arquitecturas/fusion
       - file: 10_evaluacion
-      - file: 10_pipeline
   - file: 11_sintesis
   - file: 12_reproducibilidad
   - file: fuentes

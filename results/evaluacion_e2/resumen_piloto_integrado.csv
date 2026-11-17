@@ -1,0 +1,14 @@
+Procedimiento,MASE medio,DE,Semillas piloto,CV (%),Disponibilidad
+N-HiTS · N,0.8267114376088397,0.00993611640656524,5.0,1.2018844731729157,Piloto independiente
+TFT · N,,,,,Sin piloto independiente
+TCN · N,,,,,Sin piloto independiente
+iTransformer · N,,,,,Sin piloto independiente
+PatchTST · N,,,,,Sin piloto independiente
+TaTS adaptado · N+O,,,,,Sin piloto independiente
+Fusión tardía · N+O,,,,,Sin piloto independiente
+TGForecaster · N,,,,,Sin piloto independiente
+TGForecaster · N+O,,,,,Sin piloto independiente
+MLP,0.5415568537267458,0.016639915179668056,5.0,3.072607255389678,Piloto independiente
+LSTM,0.7712178179889597,0.018331535801706867,5.0,2.3769595792675644,Piloto independiente
+CNN1D,0.6813016051945221,0.032329871669392135,5.0,4.7453097751269,Piloto independiente
+ARX,0.6810850694819742,0.016518119817647007,5.0,2.4252652947172235,Piloto independiente

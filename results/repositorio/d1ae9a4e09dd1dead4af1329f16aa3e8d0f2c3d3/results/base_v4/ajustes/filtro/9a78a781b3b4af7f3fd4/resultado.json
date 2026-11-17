@@ -1,0 +1,37 @@
+{
+  "etapa": "filtro",
+  "modelo": "cnn1d",
+  "configuracion": "cnn1d_v4_03",
+  "semilla": 42,
+  "fold": 2019,
+  "ventana": 168,
+  "params": {
+    "dropout": 0.1,
+    "weight_decay": 0.0001,
+    "batch_size": 256,
+    "scheduler": "plateau",
+    "perdida": "huber",
+    "paciencia": 6,
+    "capas": 2,
+    "filtros": 32,
+    "kernel": 3,
+    "dilataciones": [
+      1,
+      1
+    ],
+    "lr": 0.0003
+  },
+  "segundos": 4.475904226303101,
+  "MASE": 0.7045492002590339,
+  "RMSE": 199341.74299651568,
+  "MAE": 151913.42155410486,
+  "sMAPE": 1.9143254496717381,
+  "MAPE": 1.9080624213505826,
+  "MASE_h1": 0.6600153101653056,
+  "MASE_h12": 0.6785690840805672,
+  "MASE_h24": 0.6670549689912005,
+  "n_parametros": 83224,
+  "epocas": 24,
+  "mejor_epoca": 18,
+  "dispositivo": "cuda"
+}

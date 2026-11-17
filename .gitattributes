@@ -28,3 +28,15 @@ data/external/poblacion_dane/** whitespace=blank-at-eol,blank-at-eof,space-befor
 data/external/actualizacion_2026/** whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 data/external/pronostico_demanda_xm/** whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 data/processed/diccionario_datos_adicionales.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+results/repositorio/** -text
+results/evaluacion_e2/** -text
+results/diagnosticos_ampliados/** -text
+results/reorganizacion_capitulo10/fuentes/** -text
+book/** -text
+
+book/** whitespace=cr-at-eol
+results/repositorio/** whitespace=cr-at-eol
+results/evaluacion_e2/** whitespace=cr-at-eol
+results/diagnosticos_ampliados/** whitespace=cr-at-eol
+results/reorganizacion_capitulo10/fuentes/** whitespace=cr-at-eol

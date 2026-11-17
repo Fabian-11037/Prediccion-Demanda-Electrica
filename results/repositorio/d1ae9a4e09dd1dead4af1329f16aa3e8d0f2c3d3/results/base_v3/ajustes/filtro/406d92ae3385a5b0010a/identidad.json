@@ -1,0 +1,22 @@
+{
+  "etapa": "filtro",
+  "modelo": "lstm",
+  "configuracion": {
+    "id": "lstm_15",
+    "ventana": 72,
+    "params": {
+      "capas": 1,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 256,
+      "lr": 0.001,
+      "scheduler": "plateau",
+      "perdida": "huber",
+      "paciencia": 6,
+      "unidades": 32
+    }
+  },
+  "semilla": 42,
+  "fold": 2019,
+  "max_epocas": 30
+}

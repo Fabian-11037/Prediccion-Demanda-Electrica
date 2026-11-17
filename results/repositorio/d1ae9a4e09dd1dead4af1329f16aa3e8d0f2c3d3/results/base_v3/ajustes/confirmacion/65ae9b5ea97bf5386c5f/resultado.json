@@ -1,0 +1,31 @@
+{
+  "etapa": "confirmacion",
+  "modelo": "arx_lineal",
+  "configuracion": "arx_lineal_01",
+  "semilla": 43,
+  "fold": 2021,
+  "ventana": 168,
+  "params": {
+    "penalizacion": "ridge",
+    "lags": 96,
+    "batch_size": 256,
+    "lr": 0.00019423130380512372,
+    "scheduler": "plateau",
+    "perdida": "huber",
+    "paciencia": 25,
+    "lambda": 3.62374192043218e-05
+  },
+  "segundos": 1.2055392265319824,
+  "MASE": 0.795454492710714,
+  "RMSE": 230326.76311357343,
+  "MAE": 171514.23014012552,
+  "sMAPE": 2.0525344391543867,
+  "MAPE": 2.0550631121717933,
+  "MASE_h1": 0.3405570023462485,
+  "MASE_h12": 0.8840569963245285,
+  "MASE_h24": 0.7128047080154567,
+  "n_parametros": 15576,
+  "epocas": 41,
+  "mejor_epoca": 35,
+  "dispositivo": "cuda"
+}

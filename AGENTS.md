@@ -10,5 +10,9 @@ Reglas clave:
 5. El clima de `data/raw` es reanálisis: no es una entrada válida para el futuro.
 6. No inventar referencias ni cifras; las cifras de los textos salen de celdas ejecutadas.
 7. Antes de commit: `pytest -q tests`.
-8. La prueba ya fue leída para ARX lineal y MLP (`results/base/`). No cambiar espacios, presupuesto ni opciones de entrenamiento después de ver esos resultados; el LSTM se corre en GPU con las mismas opciones.
+8. Conservar pesos, configuraciones y presupuestos de los modelos seleccionados. El JBook analiza artefactos guardados y mide inferencia sin reentrenar. No ejecutar entrenamiento adicional sin solicitud expresa.
 9. La validación cruzada es forward chaining propio (`src/demanda/particion.py`); no se usa el paquete `timeseries-cv`.
+
+## Referencias bibliográficas
+
+Se permite citar Time-MMD, NSW-EPNews y publicaciones de otros autores cuando su atribución y pertinencia sean explícitas. La restricción de redacción se refiere a proyectos del autor, no a publicaciones externas. Las reglas específicas de modelos, resultados actuales y publicación están en CONTEXTO_PROYECTO.md.

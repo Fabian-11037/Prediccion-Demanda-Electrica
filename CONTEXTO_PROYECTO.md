@@ -1,29 +1,31 @@
-# Contexto del proyecto (para cualquier agente o persona que continúe el trabajo)
-Estado vigente de los datos y decisiones para futuras corridas: §22 y [contexto de continuidad](continuidad/CONTEXTO_PROYECTO.md). Los apartados de ejecuciones conservan su cronología.
+# Contexto del proyecto
 
-Idioma de trabajo: **español**. Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez (Maestría en Estadística Aplicada, Universidad del Norte).
+Actualizado el 17 de noviembre de 2026. Idioma: español. Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez. Maestría en Estadística Aplicada, Universidad del Norte.
 
-## 0. Regla de redacción (obligatoria)
-Este proyecto es **independiente de cualquier trabajo anterior del autor**. En los artículos, cuadernos, informes, README, dashboards, presentaciones y código que se desarrollen aquí **no se debe mencionar, citar, comparar ni insinuar ningún proyecto previo** (otro objetivo de pronóstico, otro conjunto de datos, otro repositorio, resultados o decisiones tomadas en él). Tampoco se copian textos, tablas, figuras, cifras ni diccionarios de datos de ese trabajo. Todo se redacta como si este fuera el único proyecto: el problema es el pronóstico de la **demanda real de energía eléctrica**, los datos son los de este repositorio y las decisiones son las que quedan documentadas aquí. Si algún material heredado menciona otro objetivo (p. ej. en metadatos de datos), se reescribe antes de usarlo. `tests/test_higiene_redaccion.py` revisa que el repositorio no contenga referencias a nombres del trabajo anterior; no lo desactives.
+## Estado vigente · 17 de noviembre de 2026
+
+La evaluación conserva 13 procedimientos, 65 realizaciones y dos referencias. PatchTST se presenta una vez (MASE 0,6725016). Hay 51 gráficas, 47 tablas y 24 esquemas. La redacción y reproducción de las fuentes se actualizan en §35; las secciones fechadas anteriores documentan estados históricos. No entrenar ni publicar sin solicitud expresa.
+
+## 0. Redacción y alcance
+
+El Jupyter Book se redacta como un artículo de maestría sobre demanda eléctrica del SIN colombiano. Presentar procedimiento, modelos y resultados vigentes, sin comparaciones históricas innecesarias. Se documentan la exposición al conjunto de prueba y la cronología cuando afectan la validez del análisis. No mencionar otros proyectos del autor. Se permite citar Time-MMD, NSW-EPNews y publicaciones externas con atribución explícita a sus autores. Integrar las interpretaciones naturalmente después de cada figura. Mostrar el código analítico, de gráficas y pipelines; usar Markdown nativo para narrativa y evitar tablas que repitan gráficos. No publicar ni iniciar entrenamientos salvo solicitud expresa.
 
 ## 1. Objetivo
 Proyecto final del curso de Deep Learning. Meta global: un **modelo original y novedoso que combine modelos de series de tiempo con NLP** (variables temporales + texto) para mejorar el pronóstico de la **demanda real de energía eléctrica del Sistema Interconectado Nacional (SIN) de Colombia**. Hay tres entregables encadenados; el conjunto de datos, la partición, las métricas y los márgenes de equivalencia que se fijen en el primero se heredan en los siguientes.
 
 | Entregable | Qué pide (resumen) |
 |---|---|
-| **E1** Estado del arte, EDA y 3 baselines | EDA exhaustivo, extracción de 3 modelos base de la literatura, piloto, ≥5 semillas, benchmark, baseline e inferencia, Jupyter Book. Los baselines no tienen que ser redes neuronales. |
+| **E1** Estado del arte, EDA y 3 baselines | EDA exhaustivo, extracción de 3 modelos base de la literatura, piloto, ≥5 semillas, benchmark, baseline e inferencia, Jupyter Book. La pauta exige tres modelos de Deep Learning; las referencias clásicas se reportan como contexto. |
 | **E2** Benchmark de 10 modelos | Top-10 (≥4 familias) + baselines, replicar un paper guía e identificar su limitación, preregistro, auditoría de fuga, búsqueda de 1000 arquitecturas en dos fases, ablación (≥3 componentes), robustez (≥3 niveles), potencia, Friedman/Holm/MCS/DM. |
 | **E3** Modelo original | Mecanismo, pérdida o entrenamiento nuevos; implementación propia; superioridad significativa frente al Top-10 y baselines fuertes en el conjunto principal y en ≥2 de 3 conjuntos adicionales de naturaleza distinta (elegidos antes de ver resultados); demostración formal de una propiedad; dashboard público; informe; sustentación. |
 
 Las pautas oficiales están en el proyecto de claude.ai «DL Project» (`Entregable{1,2,3}DeepLearningProject.pdf`).
 
-## 2. Problema definido
-- **Objetivo (confirmado):** demanda real (`demanda_real_kwh`, kWh por intervalo horario del SIN).
-- **Propuesta por confirmar:** frecuencia horaria, ámbito nacional (SIN), horizonte H = 24 horas, historia L = 168 horas (una semana). Origen `t0` en hora entera; el pronóstico cubre los intervalos que empiezan en `t0, …, t0+23h`. Origen diario a las 00:00 por defecto (`paso_h=24`).
-- **Métrica primaria sugerida:** MASE con escala del ingenuo estacional (24 h o 168 h) calculada solo con entrenamiento; secundarias RMSE, MAE y sMAPE por horizonte y tipo de día. Hay tendencia creciente de la demanda (demanda horaria media de ≈4.6 GWh en 2000 a ≈9.5 GWh en 2025), por lo que la escala absoluta de entrenamiento infla el error en periodos tardíos: comparar modelos solo dentro de una misma partición o usar una escala relativa al nivel.
-- **Tipo de problema:** series de tiempo (usa rezagos del objetivo).
-- **Modelos base (E1), decididos:** (1) regresión lineal ARX con penalización L2 (ridge) o L1 (lasso) sobre rezagos de demanda, resúmenes de covariables y calendario del horizonte, tipo LEAR; (2) MLP; (3) LSTM. **Todos se entrenan en PyTorch** (GPU si está disponible). Inicialmente se había elegido LightGBM como segundo modelo, pero no se entrena con PyTorch; queda como opción en CPU (`--modelos lightgbm`) y **debe confirmarse con el autor si el MLP lo reemplaza definitivamente**. Los modelos base deben justificarse con la revisión de literatura (el ingenuo estacional y la persistencia se reportan como referencia aparte). Nota: el L1 del ARX se optimiza por descenso de gradiente con penalización (no coordenadas cíclicas), por lo que no produce ceros exactos; declararlo.
-- **Pronóstico directo multi-salida** (una salida por hora del horizonte). Normalización por defecto: demanda dividida por su media en la ventana (`--normalizacion nivel`), que absorbe la tendencia de largo plazo; el resto de entradas se estandariza con estadísticas de entrenamiento.
+## 2. Problema y parámetros
+
+Objetivo: demanda real horaria nacional del SIN, en kWh por intervalo. Pronóstico directo de 24 horas desde las 00:00 de Colombia, con 168 horas de historia. Las cuatro familias de demanda/calendario utilizan demanda histórica y 23 variables de calendario; ARX utiliza 48 rezagos. Los procedimientos ampliados incorporan 30 variables históricas: demanda, precio, cuatro hidrológicas y 24 climáticas, además de calendario y máscaras de ausencia. TaTS, fusión tardía y TGForecaster N+O incorporan documentos oficiales. ISE y prensa no se incluyen en los resultados disponibles.
+
+MASE es la métrica primaria, con denominador fijo de diferencias semanales de 2000–2017: 215617,90361589016 kWh. MAE y RMSE complementan el benchmark integrado; los diagnósticos incluyen sesgo y perfiles horarios. sMAPE y R² de análisis parciales no se presentan como métricas comunes de todos los procedimientos. Margen relativo de interés: 3 %; α=0,05 y potencia objetivo 0,80. Cinco semillas finales por familia no acreditan esa potencia. La unidad temporal es el origen diario con sus 24 errores; las semillas no vuelven independientes los días compartidos.
 
 ## 3. Datos (carpeta `data/`)
 Inventario y detalle en `data/raw/README.md` y `data/external/README.md`.
@@ -35,14 +37,15 @@ Inventario y detalle en `data/raw/README.md` y `data/external/README.md`.
 | Habitantes por ciudad (censo 2018 del DANE ajustado por omisión censal) | estático | incluido en `data/raw/numeric/ciudades.csv`; cifras de **fuente secundaria** (Portafolio, 17-oct-2019, citando al DANE); sustituir por el archivo oficial |
 | Hidrología diaria (llenado, reserva útil, capacidad útil, aportes) | 2000-01-01 → 2025-12-31 | incluido |
 | Titulares de prensa (7 medios) y boletines IDEAM | 568 295 titulares, 2004-2025 | incluido (`data/raw/noticias/titulares.parquet`) |
+| Corpus integrado de prensa y documentos oficiales | 575473 filas; 7907 documentos oficiales únicos | data/processed/corpus_texto.parquet; disponibilidad y alcance en §13 |
 | Festivos de Colombia | 2000-2035 | generado (`data/external/festivos_colombia.csv`) |
-| ISE (DANE), actividad económica | Base2015:2005–2026-08; ediciones antiguas desde2000 | Descargado,168anexos y102ediciones normalizadas; ver§22 |
-| Pronósticos meteorológicos | JMA2018 y GFS2021, ocho ciudades, hasta2026-11-09 | Descargado; temperatura/humedad/precipitación y disponibilidad estimada; ver§22 |
+| ISE (DANE), actividad económica | Base2015:2005–2026-08; ediciones antiguas desde2000 | Descargado,168anexos y102ediciones normalizadas; ver§17 |
+| Pronósticos meteorológicos | JMA2018 y GFS2021, ocho ciudades, hasta2026-11-09 | Descargado; temperatura/humedad/precipitación y disponibilidad estimada; ver§17 |
 
-La extensión numérica2026 se descarga por separado y no modifica el panel congelado; ver§22.
+La extensión numérica2026 se descarga por separado y no modifica el panel congelado; ver§17.
 
 ### Tabla consolidada
-`python scripts/construir_panel.py` genera en `data/processed/`: `panel_horario.parquet` (índice = inicio del intervalo, hora de Colombia), `feature_registry.json` (rol, clase de disponibilidad, rezago y fuente de cada columna), `calidad_datos.json` y `cobertura_titulares_{estricto,declarado}.csv`.
+`python scripts/construir_panel.py` genera en `data/processed/`: `panel_horario.parquet` (índice = inicio del intervalo, hora de Colombia), `feature_registry.json` (rol, clase de disponibilidad, rezago y fuente de cada columna), `calidad_datos.json` y `cobertura_titulares_{estricto, declarado}.csv`.
 
 Prefijos de columnas:
 - `y_demanda_real_kwh`: objetivo; solo se lee como etiqueta del horizonte.
@@ -56,218 +59,173 @@ Prefijos de columnas:
 3. **Ventanas por origen** (`src/demanda/ventanas.py`): las columnas `x_*` nunca se leen en filas `>= p`; solo `cal_*` y pronósticos con emisión previa se leen en el horizonte; `y_*` solo como etiqueta. Prueba que lo verifica corrompiendo el futuro.
 4. **Partición cronológica con purga** (`src/demanda/particion.py`): cada intervalo-objetivo queda completo dentro de una partición (purga = H). **El conjunto de prueba está congelado**: `origenes(..., 'test')` exige `allow_test=True` y solo debe invocarse en la corrida final.
 5. **Escalas, imputación, vocabulario y climatología se ajustan solo con entrenamiento** (`AjustadorEscala`, `ClimatologiaTemperatura`; hay pruebas que alteran validación/prueba y verifican que no cambia nada).
-6. **Texto:** el **escenario declarado es la versión oficial del dataset textual** y se aplica a documentos institucionales y prensa en todas las particiones. Fecha diaria sin hora: día siguiente 00:00 de Colombia; año de publicación sin mes: año siguiente. Conservar advertencias de versión histórica no verificada y excluir cuarentena/fechas inutilizables. El escenario estricto queda para sensibilidad y auditoría de disponibilidad; no supone una alternativa predictiva equivalente cuando falta entrenamiento histórico. La relevancia se aprende dentro del modelo, sin filtro por términos ni categorías manuales. Nunca concatenar URL, fechas de recuperación ni pruebas de procedencia al texto. El diseño de canales y las tres variantes comparables se especifican en §21 y en el contexto de continuidad del libro.
+6. **Texto:** el **escenario declarado es la versión oficial del dataset textual** y se aplica a documentos institucionales y prensa en todas las particiones. Fecha diaria sin hora: día siguiente 00:00 de Colombia; año de publicación sin mes: año siguiente. Conservar advertencias de versión histórica no verificada y excluir cuarentena/fechas inutilizables. El escenario estricto queda para sensibilidad y auditoría de disponibilidad; no supone una alternativa predictiva equivalente cuando falta entrenamiento histórico. La relevancia se aprende dentro del modelo, sin filtro por términos ni categorías manuales. Nunca concatenar URL, fechas de recuperación ni pruebas de procedencia al texto. El diseño de canales y las tres variantes comparables se especifican en §14.
 7. **Clima:** el clima de `data/raw` es reanálisis. Como covariable del futuro solo valen pronósticos con emisión conocida (cobertura corta) o la climatología de entrenamiento. No interpolar pronósticos hacia atrás con ERA5.
 8. Los preregistros se escriben **antes** de buscar, hacer piloto o ejecutar, y se versionan.
 9. Mismo esfuerzo de búsqueda para todos los modelos. «No significativo» no es equivalencia (usar TOST/ROPE). Reportar p exactos, ajustados y sin ajustar, IC y tamaño de efecto.
 10. Antes de afirmar algo sobre literatura, verificarlo en el texto completo. No inventar referencias ni DOI. Las cifras de los textos deben salir de celdas ejecutadas.
 
-## 5. Partición (PROPUESTA, no preregistrada)
-Train 2000-2017, validación 2018-2021, prueba 2022-2025 (`PARTICION` en `config.py`). Observaciones:
-- 2020-2021 (pandemia) cae en validación: la validación no es representativa del régimen posterior.
-- Los valores 2022-2025 ya se han mirado en exploraciones descriptivas de este material. Si se usan como prueba final, hay que declararlo. **Alternativa recomendada:** bloque prospectivo desde 2026-01-01 (descargar 2026 de XM y Open-Meteo antes de preregistrar) y dejar 2022-2025 como validación o prueba secundaria.
-- La disponibilidad de texto es muy desigual entre particiones (ver §7). Para experimentos con texto conviene fijar a priori el periodo y las fuentes.
+## 5. Diseño y modelos seleccionados
 
-## 6. Pendientes y decisiones abiertas
+Forward chaining propio, sin timeseries-cv: años externos 2018–2021, historia expansiva y último 10 % de orígenes previos para parada interna. Purga de etiquetas de 24 horas entre tramos. Prueba: 2022–2025, con 1461 orígenes diarios y sin faltantes ni duplicados. El ajuste final utiliza el historial anterior a 2022 y su reserva interna. Los escaladores se ajustan sólo con el tramo de optimización; la escala MASE es un denominador de evaluación separado del preprocesamiento.
+
+Configuraciones consolidadas: MLP de dos capas de 128 unidades, 111896 parámetros; LSTM de una capa de 48, 28632 parámetros; CNN1D de una convolución con 16 filtros y kernel cinco, 47464 parámetros; ARX lasso de 48 rezagos, 14424 parámetros. Las secuenciales concatenan calendario histórico y demanda; el calendario futuro se concatena a la representación antes de una cabeza lineal, con salida residual alrededor de uno en escala de nivel. CNN aplica promedio local de factor dos. MLP y ARX estandarizan además su entrada tabular con entrenamiento.
+
+Candidatos: MLP: 20, ARX: 20, LSTM: 24, CNN: 26. Filtro en 2019 y semilla 42, máximo30 épocas. Confirmación con semillas 43/44 y cuatro años externos, máximo60 épocas. Selección por menor MASE de confirmación. Piloto: semillas 100–104 en los cuatro pliegues de la configuración seleccionada. Final: semillas 1000–1004 por familia. El registro de artefactos incluye384 ajustes:90 filtro,144 confirmación,120 piloto y30 final; el benchmark usa20 realizaciones seleccionadas. El presupuesto desigual limita comparaciones de familias.
+
+Entrenador: AdamW, precisión completa, determinismo estricto, clip 1; mínimo10 épocas y paciencia6. Mejora significativa max(1e-6,0,002×pérdida de referencia), con restauración del mínimo absoluto. Plateau reduce lr a la mitad tras dos épocas sin mejora. Huberδ=0,05 es parámetro de pérdida, distinto del margen relativo3 %. Las opciones exactas están en el registro de modelos y el código congelado; no modificarlas al reconstruir el libro.
+
+## 6. Resultados y lectura estadística
+
+| Modelo | MASE medio | MAE (kWh) | RMSE (kWh) | R² medio |
+|---|---:|---:|---:|---:|
+| MLP | 0.752022 | 162,149.39 | 209,153.21 | 0.967130 |
+| ARX | 0.851675 | 183,636.41 | 245,952.61 | 0.954621 |
+| CNN1D | 0.857347 | 184,859.31 | 238,815.15 | 0.957063 |
+| LSTM | 1.000502 | 215,726.19 | 270,164.36 | 0.945162 |
+| Ingenuo semanal | 1.354906 | 292,142.09 | 444,631.87 | 0.851736 |
+| Ingenuo diario | 2.076725 | 447,778.99 | 659,593.46 | 0.673723 |
+
+MLP es el baseline empírico del benchmark y reduce el error un44,5 % frente al ingenuo semanal. ARX y CNN1D tienen errores agregados próximos. Se calculan medias, DE e intervalos t95 % entre cinco inicializaciones, condicionados a las mismas fechas. No confundir esos intervalos con incertidumbre temporal ni la banda de semillas con un intervalo predictivo calibrado.
+
+La evaluación temporal promedia pérdidas individuales entre semillas antes de remuestrear; no evalúa una predicción ensemble. Bootstrap circular estratificado por año,10000 réplicas, bloques 7/14/28 días e índices apareados. DM–HLN sobre diferencias diarias por hora, HAC Bartlett14rezagos, h=1origen diario no solapado; Holm por separado entre72 contrastes neuronales y72contraARX. Residuos de semilla 1000: Ljung–Box 7/14/28, ARCH 7, BDSdimensión2 sobre últimos1000 días, Holm entre20diagnósticos. BDS no aísla no linealidad si existe memoria.
+
+Los resultados y contrastes tienen alcance exploratorio y descriptivo: no afirmar superioridad confirmatoria, equivalencia ni potencia alcanzada. La revisión de fuentes y los supuestos de disponibilidad limitan la validez histórica. No presentar el solapamiento de IC como prueba de igualdad.
+
+## 7. Pendientes y limitaciones de fuentes
 
 ### Datos que faltan
 | Dato | Por qué falta | Qué hacer |
 |---|---|---|
-| ISE (DANE), actividad económica | El entorno de desarrollo no alcanza el DANE | Descargar el anexo del ISE y correr `scripts/adquisicion/importar_ise.py` (**sin probar con el archivo real**; revisar el orden de columnas) |
-| Pronósticos de temperatura con emisión previa | El entorno no alcanza Open-Meteo | Correr `scripts/adquisicion/descargar_pronosticos_temperatura.py` (**sin probar**); comprobar que `previous_dayN` entrega corridas distintas y revisar huecos. Cobertura: GFS desde 2021-03, resto desde 2024-01 |
-| Datos de 2026 (demanda, precio, hidrología, clima, titulares) | El conjunto termina el 2025-12-31 | Necesarios si se adopta el bloque de prueba prospectivo (§5) |
-| Habitantes oficiales (DANE) y proyecciones anuales | Solo se obtuvo el censo 2018 ajustado por una fuente secundaria | Descargar las proyecciones municipales del DANE y decidir si la población es estática o anual |
-| Pronóstico oficial de demanda de XM | No se verificó que exista un archivo histórico con fecha de emisión | Verificar antes de usarlo como covariable o comparador (hoy está fuera) |
+| ISE (DANE), actividad económica | Descargado;102ediciones normalizadas | Completar parser de66formatos si se requieren; no mezclar bases ni vintages |
+| Pronósticos meteorológicos | Descargados JMA/GFS con adelantos distintos verificados | Emisión exacta y publicación no certificadas; tratar disponibilidad proxy y subperiodo |
+| Datos de2026 | Extensión numérica descargada por separado | Texto exhaustivo pendiente; no llamar prospectivo a un periodo ya observado |
+| Habitantes oficiales DANE | Descargadas proyecciones/retroproyecciones de ocho ciudades2000–2026 | Decidir uso y vintage sin reemplazar los pesos congelados |
+| Pronóstico oficial XM | Histórico SIMEM descargado2022–2026 | Publicación posterior al objetivo; falta emisión original, continúa excluido de entradas |
 | Horas reales de publicación (demanda, precio, hidrología) | La fuente no las certifica | Los rezagos de `config.py` son supuestos; documentarlos o medirlos |
-| `PREREGISTRO.md` | Aún no se ha escrito | **Obligatorio antes de la etapa `final`**: el script lo exige |
+| PREREGISTRO.md y adendas | Conservar documentos versionados | Preservar identidad y trazabilidad |
 
-### Decisiones abiertas
-1. Confirmar frecuencia (horaria), horizonte (24 h) y ámbito (SIN).
-2. Confirmar que el MLP reemplaza a LightGBM como segundo modelo base (§2) y justificar los tres con la literatura.
-3. Elegir el bloque de prueba (¿prospectivo 2026?) y preregistrar. El delta relativo de interés quedó fijado en **δ = 3 %** (confirmado por el autor, 2026-11-07).
-4. Definir el tratamiento de valores anómalos de demanda (p. ej. 2007-04-26 10:00-12:00 cae a 6-39 % de lo esperable; ver `data/processed/calidad_datos.json`). Los datos **no se corrigieron**.
-5. Decidir si los titulares (metadato con derechos del editor) se mantienen en un repositorio público; solo se incluye el titular y la URL únicamente de registros con versión archivada verificada.
 
-### Preregistro de las pruebas estadísticas (pendiente, obligatorio antes de aplicarlas)
-Hay que escribirlo, fecharlo y versionarlo antes de calcular cualquier prueba entre modelos. Debe fijar como mínimo:
-- **Comparaciones:** los 3 contrastes pareados entre modelos base (ARX–MLP, ARX–LSTM, MLP–LSTM) y cada modelo frente al ingenuo de 168 h; familia de hipótesis para la corrección.
-- **Unidad de independencia y apareamiento:** origen de pronóstico (cada día a las 00:00) para las pruebas sobre errores; semillas apareadas por índice para las pruebas sobre el MASE por semilla; declarar la dependencia serial entre orígenes consecutivos (bootstrap por bloques o errores estándar robustos).
-- **Pruebas:** Diebold-Mariano con corrección de Harvey-Leybourne-Newbold por horizonte (h = 1, 12, 24 y media); prueba sobre semillas (t pareada o Wilcoxon, justificar); corrección de Holm; equivalencia con TOST o ROPE usando el margen δ (diferencia relativa de interés) que fije el autor — «no significativo» no es equivalencia.
-- **Reporte:** p exactos, ajustados y sin ajustar, IC (bootstrap por bloques), tamaño de efecto (p. ej. delta de Cliff o diferencia relativa de MASE) y potencia α = 0.05, 0.80.
-- **Qué datos:** solo la prueba, una vez, con las predicciones guardadas en `results/*/preds/test.npz`; sin repetir la prueba para ajustar.
-- **Para E2/E3:** Friedman con post hoc sobre semillas, Model Confidence Set y las exigencias de la pauta (≥3 pruebas por contraste, |Cliff δ| ≥ 0.147 en E3); incluirlas cuando corresponda.
 
-### Opciones de hiperparametrización sugeridas
-**Implementadas en la v2 (2026-11-07, sin ejecutar):** 1 (tasa de aprendizaje y planificador: log-uniforme 1e-4..1e-2; ninguno/coseno/meseta; sin calentamiento), 2 (paciencia {8, 15, 25} y `min_delta` = 1e-6), 4 (pérdida MSE/MAE/Huber con delta 0.05 «nivel» / 0.5 «global») y la parte de semillas de 9 (20 configuraciones y 3 semillas por configuración). **No implementadas:** 3, 5, 6, 7, 8 y el successive halving. Detalle en `PREREGISTRO.md`, «Ampliación de la v2». Cualquier opción nueva se aplica a los tres modelos con el mismo presupuesto y se anota en el preregistro antes de ejecutar. Por prioridad:
-1. **Tasa de aprendizaje y planificador** (log-uniforme 1e-4..1e-2; coseno, reducción en meseta o calentamiento): hoy `lr = 1e-3` es fijo y es el parámetro que más afecta la convergencia del ARX y del LSTM.
-2. **Parada temprana:** paciencia {8, 15, 25} y `min_delta`; con 200 épocas conviene evaluar paciencia mayor.
-3. **Optimizador:** AdamW / Adam / SGD con momento (y `betas`); recorte de gradiente {0.5, 1, 5}.
-4. **Función de pérdida:** MSE / MAE / Huber (con `delta`); con demanda, Huber o MAE suelen ser más robustos a valores anómalos.
-5. **Arquitectura MLP:** activación {ReLU, GELU, SiLU}, normalización (LayerNorm/BatchNorm), conexiones residuales, ancho decreciente.
-6. **Arquitectura LSTM:** bidireccional en la historia, agregación por atención sobre todos los pasos (en vez del último estado), dropout recurrente, tamaño de la rama de calendario.
-7. **ARX:** elastic net (`l1_ratio`), rezagos selectivos (24, 48, 72, 168, 336) en vez de ventana contigua, interacciones calendario × hora.
-8. **Datos:** longitud de ventana `L` {72, 168, 336}, conjunto de covariables (`serie`, `calendario`, `completo`), modo de normalización (`nivel`, `global`), paso entre orígenes de entrenamiento (24 h o 6 h para aumentar muestras).
-9. **Búsqueda:** subir `--n-config` a 20-30 o usar reducción sucesiva (successive halving) con presupuesto igual por modelo; promediar 2-3 semillas por configuración en los candidatos finales para reducir el ruido de selección (hoy la selección usa 1 semilla y la varianza entre semillas, sd ≈ 0.045-0.050, es comparable a las diferencias entre modelos).
+Completar trazabilidad de búsqueda bibliográfica, cadenas institucionales con fecha, conciliación entre bases y revisión independiente. Los recuentos dirigidos de comparadores no equivalen a prevalencia en toda la literatura. Evaluar extensiones con covariables y texto mediante ablaciones, mismos orígenes y presupuesto comparable; no alterar modelos ni resultados guardados durante una actualización documental. La latencia CPU está medida y su protocolo se documenta en §11. Conservar el margen y la métrica definidos.
 
-### Trabajo por hacer
-- E1: EDA, extracción de 3 modelos base de la literatura, piloto, ≥5 semillas, baseline e inferencia, Jupyter Book; completar la revisión de literatura (cadenas booleanas con fecha, bases de datos, exclusiones, tabla de síntesis con DOI).
-- E2/E3: Top-10, paper guía, auditoría de fuga del texto, búsqueda de 1000 arquitecturas, modelo original (ideas candidatas: compuerta de utilidad del texto guiada por incertidumbre con propiedad de «no empeorar»; pérdida de texto placebo; núcleo de respuesta al impulso de noticias; pronóstico conformal condicionado por texto — confirmar novedad con búsqueda dirigida).
-
-### Estado del código de entrenamiento y resultados
-- **Ejecutado (2026-11-07, CPU):** búsqueda con validación cruzada forward chaining (pliegues anuales 2018-2021, ventana expansiva, purga de 24 h, parada temprana con el último 10 % del entrenamiento) y etapa final sobre la prueba para **ARX lineal y MLP** (12 configuraciones cada uno, 5 semillas finales 1000-1004). No hubo piloto previo: desviación declarada en `PREREGISTRO.md`. Todo en `results/base/`.
-- **El LSTM no se ha ejecutado** (más de 80 s por época en CPU): debe correrse en GPU con las mismas opciones, sin cambiar su espacio ni su presupuesto (`buscar --modelos lstm` y luego `final --modelos lstm --allow-test`). **La prueba ya fue leída para ARX lineal y MLP**: no ajustar nada del LSTM en función de esos resultados.
-- La validación cruzada **no** usa el paquete `timeseries-cv` (`tsxv`): su forward chaining es univariado, produce una ventana de validación por pliegue y no admite purga ni covariables; se implementó el mismo esquema en `src/demanda/particion.py`.
-
-#### Configuraciones elegidas (MASE medio en los 4 pliegues)
-| Modelo | Configuración | MASE CV | Por pliegue 2018 / 2019 / 2020 / 2021 |
-|---|---|---|---|
-| ARX lineal | lasso, lambda 4.45e-6, rezagos 168, batch 256 | 0.724 | 0.624 / 0.601 / 0.904 / 0.767 |
-| MLP | 2 capas, 128 unidades, dropout 0.32, weight decay 2.6e-3, batch 32 | 0.684 | ver `results/base/busqueda.csv` |
-| Ingenuo 168 h (referencia) | — | 1.142 | 1.079 / 1.113 / 1.157 / 1.218 |
-| Ingenuo 24 h (referencia) | — | 1.836 | 1.874 / 1.902 / 1.737 / 1.830 |
-
-#### Métricas en la prueba 2022-2025 (5 semillas; media, desviación estándar, IC 95 % t)
-| Modelo | MASE | IC 95 % | RMSE (kWh) | MAE (kWh) | sMAPE % | MASE h=1 | h=12 | h=24 |
-|---|---|---|---|---|---|---|---|---|
-| ARX lineal (lasso) | 0.878 (sd 0.045) | 0.822-0.933 | 248 656 | 189 230 | 2.07 | 0.566 | 1.161 | 0.820 |
-| MLP | 0.867 (sd 0.050) | 0.805-0.930 | 239 011 | 186 952 | 2.05 | 0.779 | 1.115 | 1.051 |
-| Ingenuo 168 h | 1.355 | — | 444 632 | 292 142 | 3.21 | 1.080 | 1.597 | 1.148 |
-| Ingenuo 24 h | 2.077 | — | 659 593 | 447 779 | 4.98 | 1.024 | 2.841 | 1.665 |
-
-Lectura permitida con la evidencia actual: ambos modelos superan con claridad a los ingenuos; ARX lineal y MLP **no se distinguen** con 5 semillas (IC 95 % solapados; no se ha aplicado ninguna prueba de hipótesis ni de equivalencia). A h=1 y h=24 el ARX es mejor en MASE medio; a h=12 y en RMSE el MLP es algo mejor. El MASE de prueba no es comparable con el de validación (escala en kWh de 2000-2017 y demanda creciente: el ingenuo de 168 h pasa de 1.14 en CV a 1.35 en la prueba).
-
-#### Limitaciones de estas corridas
-- Sin piloto previo: 5 semillas son el mínimo, no un tamaño sustentado por potencia.
-- Dos semillas del ARX (1001 y 1002) llegaron al tope de 60 épocas con la mejor época en el límite: el ARX puede estar sin converger. **Decisión del autor (2026-11-07): mantener la parada temprana y subir las épocas máximas a 200** para los tres modelos (ya es el valor por defecto del script; está anotado como versión 2 en `PREREGISTRO.md`). La v2 debe ejecutarse en `--salida results/base_v2` para conservar los resultados v1 (60 épocas), y se reportan ambos.
-- La varianza entre semillas del ARX y del MLP es alta (sd ≈ 0.045-0.050) frente a la diferencia entre ellos.
-- 2020 (pandemia) es un pliegue de selección; el ARX lasso tiene su peor pliegue en 2020.
-- Los valores de 2022-2025 ya se habían visto en exploraciones descriptivas antes del preregistro.
-- Solo calendario y demanda como covariables; clima, precio, hidrología, ISE y texto no se han probado.
-- Sin pruebas estadísticas entre modelos (Holm, Diebold-Mariano, TOST): pendientes y deben preregistrarse.
-- **La ruta de GPU no se ha probado** (el entorno de desarrollo no tiene GPU). Con CUDA, el determinismo estricto exige `CUBLAS_WORKSPACE_CONFIG` (el código lo define); los resultados de CPU y GPU no coinciden bit a bit: declarar el dispositivo en cada corrida (`entorno_*.json` lo registra).
-- Tiempos medidos en CPU de 2 núcleos: búsqueda de 12 configuraciones con 4 pliegues ≈ 14 min para ARX lineal + MLP; ajuste final ≈ 4 s (ARX) y ≈ 17 s (MLP) por semilla; LSTM > 80 s por época.
-
-## 7. Limitaciones de datos conocidas (declararlas en los artículos)
+### Limitaciones conocidas
 - **Cobertura de texto desigual:** 2008-2019 es casi solo El Colombiano (sitemap, fecha declarada sin hora); desde 2020 hay otras fuentes con volúmenes muy distintos por año (Semana: ≈17.6 mil en 2022 y ≈0.1 mil en 2025); los boletines IDEAM suben en 2024-2025. El cambio de composición de fuentes entre entrenamiento y prueba es un riesgo de sesgo de distribución, no de fuga.
 - El escenario estricto de texto (62 572 titulares) empieza en 2021-04-25.
 - Las horas de publicación históricas de demanda, precio e hidrología no están certificadas; los rezagos son supuestos. XM puede revisar cifras históricas.
 - El ISE se revisa; una serie descargada hoy tiene sesgo de *vintage*.
 - ERA5 es reanálisis y no representa lo que un operador habría tenido como pronóstico.
 
-## 8. Estructura del repositorio
-```
-CONTEXTO_PROYECTO.md    este archivo (leer primero)
-data/raw/               numeric/{hourly,hydrology,ciudades.csv}, noticias/titulares.parquet, README.md
-data/external/          festivos_colombia.csv, actividad_economica/, pronosticos_temperatura/, README.md
-data/processed/         panel_horario.parquet, feature_registry.json, calidad_datos.json, cobertura_titulares_*.csv
-src/demanda/            config, calendario, consolidar, particion, ventanas, noticias, actividad_economica,
-                        pronosticos, climatologia, metricas, modelos_base
-scripts/                construir_panel.py, generar_festivos.py, entrenar_modelos_base.py,
-                        adquisicion/{descargar_pronosticos_temperatura,importar_ise}.py
-results/base/           (se crea al entrenar) busqueda.csv, mejor_config.json, piloto*.csv/json, final_runs.csv,
-                        resumen_final.csv, hist/, preds/, entorno_*.json
-tests/                  calendario, fuga del panel y las ventanas, particiones, externos, adquisición, modelos base, higiene de redacción
-```
+## 8. Artefactos y procedencia
 
-## 9. Cómo ejecutar
-```bash
-pip install -r requirements.txt
-python scripts/generar_festivos.py        # festivos
-python scripts/construir_panel.py         # panel as-of + registro + cobertura
-pytest -q tests                           # pruebas de fuga, calendario y pipeline de entrenamiento
-```
-Ejemplo de ventanas sin fuga:
-```python
-import json, pandas as pd
-from demanda.particion import origenes, AjustadorEscala
-from demanda.ventanas import construir_ventanas, columnas_por_clase
-panel = pd.read_parquet("data/processed/panel_horario.parquet")
-reg = json.load(open("data/processed/feature_registry.json"))
-x, k = columnas_por_clase(reg, "past_only"), columnas_por_clase(reg, "known_future")
-esc = AjustadorEscala().ajustar(panel, x + ["y_demanda_real_kwh"])
-w = construir_ventanas(panel, origenes(panel.index, "train"), x, k, escala=esc)
-```
+Commit de modelos: d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3. Descarga local: results/repositorio/d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3. IMPORTACION.json conserva2404 archivos y177897923 bytes. Se descargaron pesos, escaladores, curvas, predicciones, identidades, métricas, código yplanes. El registro results/consolidado/modelos.json identifica cinco checkpoints por familia; el índice conserva2304 artefactos con SHA-256 de384 ajustes. Preservar archivos y rutas originales como evidencia técnica; no editar pesos ni metadatos para modificar resultados.
 
-### Entrenamiento de los modelos base (`scripts/entrenar_modelos_base.py`)
-Etapas, en orden: `listar` (espacios y opciones) → `buscar` → `piloto` → `final`.
-```bash
-python scripts/entrenar_modelos_base.py listar
-python scripts/entrenar_modelos_base.py buscar --n-config 20 --semillas-por-config 3 --salida results/base_v2   # v2: validación; mismo presupuesto para los 3
-python scripts/entrenar_modelos_base.py piloto                                              # 5 semillas (100-104) sobre validación; estima n de semillas
-python scripts/entrenar_modelos_base.py final --allow-test --prereg PREREGISTRO.md          # PRUEBA: una sola vez, tras preregistrar
-```
-Opciones principales (todas con `--help`):
-- **Hiperparámetros buscados** (búsqueda aleatoria; `--n-config` igual para todos): ARX lineal: penalización (ridge/lasso), lambda (rango según penalización), rezagos de demanda {24, 48, 96, 168}, batch size. MLP y LSTM: capas {1,2,3}, unidades, dropout [0, 0.5], weight decay (log), batch size. **Desde la v2, los tres** añaden `lr` (log 1e-4..1e-2), `scheduler` {none, cosine, plateau}, `perdida` {mse, mae, huber} y `paciencia` {8, 15, 25}.
-- **Fijar o ampliar:** `--fijar modelo.param=valor` (repetible) saca un parámetro de la búsqueda; `--espacio ruta.json` reemplaza espacios.
-- **Entrenamiento (valores por defecto; en la v2 `lr`, `perdida` y `paciencia` de los modelos PyTorch se buscan y estas opciones solo actúan si se fijan con `--fijar`/espacio propio):** `--max-epocas` (200 desde la v2; la v1 usó 60), `--min-delta` (1e-6), `--paciencia`, `--lr`, `--perdida {mse,mae,huber}`, `--huber-delta`, `--clip`, `--max-arboles` (LightGBM).
-- **Datos:** `--covariables {serie,calendario,completo}`, `--clima-por-ciudad`, `--ventana`, `--horizonte`, `--paso-h`, `--hora-origen`, `--normalizacion {nivel,global}`, `--escala-mase-lag {24,168}`.
-- **Dispositivo:** `--dispositivo {auto,cpu,cuda,cuda:N}` (auto usa GPU si existe), `--determinismo {estricto,rapido}`, `--amp` (bfloat16 en GPU), `--max-gb-gpu`, `--hilos`.
-- **Semillas:** búsqueda: `--semillas-por-config` (3 desde la v2: semillas 1, 2, 3, promediadas; v1: 1); piloto 100-104; final 1000+ (n = máximo entre 5 y lo que estime el piloto con `--delta`, `--alfa`, `--potencia`). La búsqueda es reanudable (`busqueda.csv`).
-- **Referencias** (ingenuo 24 h y 168 h con la misma disponibilidad de datos que los modelos) se reportan aparte en `referencias_{val,test}.json`.
-- **GPU:** instalar PyTorch con CUDA (en la web oficial de PyTorch, elegir la versión de CUDA que corresponda al controlador) y comprobar `python -c "import torch; print(torch.cuda.is_available())"`.
+Fuentes: src/demanda/modelos_base.py, reentrenamiento_v3.py yvariantes_v4.py dentro de la instantánea; configuración de datos, particion.py ymetricas.py completan el pipeline. El checkpoint LSTM usa la fábrica variantes_v4; CNN, DatosFold yEntrenador usan reentrenamiento_v3. No confundir módulos del checkout activo con las fuentes de la instantánea. El pipeline del libro muestra las implementaciones y una función integrada portable que permite CPU o GPU, con prueba protegida por acceso explícito. No se invoca durante la construcción del informe.
 
-## 10. Git y accesos
-Repositorio: `github.com/Fabian-11037/prediccion-demanda-electrica` (rama `main`). Los commits de Claude llevan el trailer `Co-Authored-By`. El código y los textos se producen con asistencia de IA y deben ser revisados por el autor.
+Hardware registrado: PyTorch 2.9.1+rocm6.4, GPU AMD Radeon Graphics,12868124672 bytes. Las rutas del informe usan pathlib y soportan Windows/Linux; cada plataforma requiere PyTorch compatible con CPU, CUDA oROCm. No afirmar ejecución verificada en Linux por compilar rutas en Windows. Los tiempos de ajuste incluyen evaluación registrada y no miden latencia; ésta se mide por separado en CPU.
 
-## 11. Ejecución GPU iniciada el 7 de noviembre de 2026
+## 9. Jupyter Book
 
-Se descargó este repositorio en una carpeta independiente y se preparó la ejecución v2 conforme al preregistro existente:ARX lineal,MLP,LSTM;20configuraciones por modelo,3semillas y4pliegues (720ajustes de búsqueda);piloto de5semillas por modelo en4pliegues (60ajustes);etapa final preregistrada con el número de semillas estimado por el piloto,mínimo5. Datos y espacios sin cambios,normalización nivel,calendario,168horas de historia y24de horizonte,máximo200épocas,determinismo estricto,sinAMP. Los resultados se guardan en `results/base_v2`,conservando `results/base`. La etapa final utiliza el acceso a prueba ya previsto en la versión2;no se aplican pruebas estadísticas nuevas.
+Generador: scripts/crear_jbook.py. scripts/modelos_actualizados_jbook.py construye los capítulos de modelos y evaluación; scripts/correcciones_e1_jbook.py es la capa final de conciliación estadística y documental. El registro activo está en results/jbook/modelos_actualizados.json. Los resultados derivados actuales se escriben exclusivamente en results/jbook/modelos_actuales. La reconstrucción no modifica configuraciones, entrena ni genera pronósticos neuronales.
 
-Entorno local `mlenv`,Python3.12.3,PyTorch2.9.1+rocm6.4,GPUAMD Radeon RX6700XT12GB;ajuste de compatibilidad del proceso `HSA_OVERRIDE_GFX_VERSION=10.3.0`. Se verificó forward/backward deLSTM con determinismo estricto. Las dependencias faltantes de pruebas (`pytest` y `holidays`) se instalaron en una carpeta aislada fuera del repositorio,sin cambiar los paquetes demlenv. Las40pruebas pasaron antes y después de añadir observación por época.
+Capítulos: problema/datos, calidad, demanda, estacionalidad, dependencia, covariables, texto, literatura, diseño, modelos, evaluación, síntesis, reproducibilidad. book/10_pipeline.md incorpora clases yfunciones de datos, partición, arquitecturas, optimizador, parada, predicción, métricas ypersistencia. Los cuadernos contienen el código para curvas, benchmark, perfiles, segmentos, incertidumbre ydiagnósticos. La tabla complementa la figura en lugar de repetir métricas visualizadas. La ventana ilustrativa es1–7julio2023 ylas curvas usan semilla 1000; no atribuirles representatividad universal.
 
-Orquestación: `scripts/ejecutar_gpu.py`;observación opcional en `src/demanda/modelos_base.py` (sin alterar pérdida,optimizador,muestreo ni parada). Persiste pesos,escaladores,curvas,predicciones y métricas de cada ajuste en `results/base_v2/ajustes`;permite recuperar ajustes completos. Estado vivo `estado_gpu.json`,barra `progreso.html`,plan con huellas `plan_gpu.json`,hardware y logs dentro de esa carpeta. PID yURL del servidor local en `servicios_locales.json`. No se configura apagado automático ni reinicio al encender. Una ejecución completa exige `ejecucion_completa.json`;hasta entonces consultar el estado. Las métricas/resultados se guardan localmente en el repositorio;no se suben automáticamente aGitHub.
+EDA numérico: exclusivamente desarrollo2000–2021. Diccionario84 campos:59panel,18 titulares,7ciudades. Verifica rangos, finitud, coherencia hidráulica, distancia de malla ypesos poblacionales; no corrige fuentes. Rupturas retrospectivas ycentrado climático descriptivo no se usan como transformaciones de entrenamiento. Los diagnósticos de diferencias de entrenamiento no son residuos predictivos.
 
-## 12. CNN1D incorporada con espacio confirmado, 7 de noviembre de 2026
+Diagnóstico léxico del archivo original:484289 titulares elegibles de desarrollo; cobertura, duplicados, longitud, bigramas, diversidad léxica ytransferencia. TF-IDF máximo6000 términos yNMF6 componentes, ajustados en muestra determinista de30000 titulares anteriores a2018; proyección con representación congelada. Sensibilidad de inicialización con semilla 11038 yemparejamiento óptimo. No clasificar temas manualmente ni afirmar utilidad predictiva a partir del EDA. Literatura:27estudios destacados,15 textos completos y12 abstracts; ochoabstracts IEEEde contexto; registro complementario de20 textos completos con frecuencias por denominadores16/14/19, separado del corpus empírico de demanda de cinco estudios. Scripts/literatura_integral_jbook.py y literature/analisis contienen extracción, código yhuellas.
 
-Se confirmó añadirCNN1D con1–3capas,32/64/128filtros ykernel3/5/7,Dropout uniforme[0,0.5] yweight_decay log-uniforme[1e-6,1e-2]. La adenda `PREREGISTRO_CNN1D.md` especifica la rama de historia convolucional,pooling a7bloques y rama separada de calendario futuro conocido. Comparte pérdida,tasa de aprendizaje,planificador,paciencia,lotes,normalización,datos y particiones con los demás modelos. Se conservan los20candidatos,3semillas y4pliegues por modelo:960ajustes de búsqueda y80de piloto. Las semillas finales se dimensionan con el máximo requerido por los pilotos de los cuatro modelos,mínimo5por modelo.
+Reconstrucción parcial: python scripts/crear_jbook.py 08_literatura 09_validacion 10_modelos 10_evaluacion 11_sintesis 12_reproducibilidad. Construir con jupyter-book build book --warningiserror --keep-going y verificar con python scripts/verificar_jbook.py. El verificador revisa celdas, figuras, diccionario, enlaces y copia HTML a docs; no publica. Entorno documental:.bookenv, requirements-book.lock.txt. Antes de cualquier commit ejecutar pytest -q tests. No publicar salvo solicitud expresa.
 
-La ampliación no cambia las60configuraciones muestreadas deARX,MLP,LSTM:se comprobó igualdad exacta frente a las fuentes archivadas. Se interrumpió de forma controlada el proceso inicial con51ajustes completos,que se conservan y se recuperan por caché. El plan y fuentes originales quedan archivados. La migración explícita `--incorporar-cnn` admite únicamente la nueva familia y cambios de implementación asociados;verifica que los datos y opciones comunes se mantengan. El entrenamiento continúa en `results/base_v2` y el mismo panel local,con el nuevoPID en `servicios_locales.json`.
+## 10. Estado de esta actualización
 
-La pruebaGPU detectó queAdaptiveAvgPool1d no dispone debackward determinista. ParaL=168se implementa su equivalente exacto porreshape a7bloques de24horas y media;se verificaron valores y gradientes frente al pooling adaptativo. Forward/backward de laCNN completa pasaron enGPU con determinismo estricto,sinAMP. Las45pruebas del repositorio pasaron antes de registrar el cambio e iniciarCNN1D. La adenda y las fuentes se versionan antes de su primer ajuste. No se modificó el preregistro original ni se consultó prueba para diseñarCNN1D.
-
-## 13. Apagado al finalizar autorizado
-
-Por solicitud del usuario, se activó `scripts/apagar_al_completar.py`. Comprueba cada30segundos los marcadores de búsqueda,piloto yfinal,`ejecucion_completa.json` yestadoCompletado;sincroniza los archivos antes de solicitar el apagado mediante logind. Si el entrenamiento informaError,cancela el apagado. Registro en `results/base_v2/apagado_automatico.json`;log en `apagado_automatico.log`. Sustituye la indicación anterior de ausencia de apagado automático. La sesión confirmó permiso de apagado sin contraseña.
-
-## 14. Límite de búsqueda LSTM autorizado durante la ejecución
-
-Se solicitó completar la configuración LSTM activa (quinta, índice4) y proceder aCNN1D. `ADENDA_LIMITE_LSTM.md` registra la desviación del presupuesto original:5configuraciones LSTM y20para las otras familias,780ajustes de búsqueda. El controlador `scripts/transicion_lstm_cnn.py` espera la fila completa enbusqueda.csv,detiene el proceso anterior yreanuda desde caché con `limites_busqueda.json`. Conserva12ajustes por configuración yno modifica piloto nifinal. Archiva fuentes previas yregistra la migración delplan. El apagado automático permanece activo. Las45pruebas pasaron tras el cambio.
+Se descargaron los artefactos completos y se reconstruyeron las métricas desde predicciones. El JBook presenta únicamente la descripción de los modelos, el procedimiento ylos resultados actuales, con código visible einterpretaciones integradas. Se eliminan referencias narrativas aotras ejecuciones; los identificadores técnicos originales se conservan para trazabilidad. HTML local en docs. No se ejecuta entrenamiento ni se publica el sitio durante esta actualización.
 
 
-## 15. Resultados completos y publicación
-
-Ejecución finalizada el 8 de noviembre de 2026:780ajustes de búsqueda,80de piloto y780finales (195semillas por familia). Los resultados y limitaciones se resumen en `results/base_v2/README.md`. Se publican métricas,configuraciones,metadatos yresumen de pérdidas;los pesos,predicciones ehistoriales completos permanecen localmente por volumen. La comparación de validación yprueba se conserva en esa carpeta. No se ejecutaron nuevas evaluaciones sobre prueba.
-
-## 16. Publicación de artefactos completos
-
-Se incorporan los artefactos de los 1.640 ajustes completos: predicciones NPZ con origen temporal, etiquetas y pronósticos; historiales por época; checkpoints PyTorch con pesos y escaladores; y exportaciones independientes de escaladores JSON. `results/base_v2/indice_artefactos.csv` documenta 9.840 archivos con modelo, semilla, etapa, periodo y SHA-256. También se incluyen los historiales agregados originales. Esta ampliación sustituye la restricción de publicación de artefactos descrita en §15. `scripts/exportar_predicciones.py` genera CSV con fechas de origen y objetivo en hora de Colombia; se verificó un ejemplo. Un ajuste interrumpido e incompleto permanece local, fuera del índice. Las 45 pruebas pasaron.
-
-## 17. Reevaluación corregida v3 completada
-
-`PLAN_REENTRENAMIENTO_V3.md` y `results/base_v3/` documentan la corrección: escaladores por fold sin ES, redes secuenciales pequeñas y regularizadas, 276 ajustes y cinco semillas finales por familia. Se completó la reevaluación exploratoria de prueba 2022–2025. No es confirmación independiente ni se afirma potencia estadística. El resumen y los artefactos están en esa carpeta; la ejecución anterior se conserva. MASE de prueba: ARX0.851675,MLP0.752022,LSTM1.092962,CNN1D0.857347.
-
-## 18. Ampliación de capacidad v4 autorizada
-
-Se autoriza entrenar seis variantes CNN1D y cuatro LSTM, seleccionar en validación y reevaluar prueba. `PLAN_VARIANTES_V4.md` fija 108 ajustes y el mismo preprocesamiento corregido y regularización de v3. Resultados separados en `results/base_v4`; comparación descriptiva con v3 y modelos ingenuos. Código: `scripts/entrenar_variantes_v4.py` y `src/demanda/variantes_v4.py`; reutiliza el entrenador corregido sin modificar sus fuentes. El usuario solicita ejecución en segundo plano y espera sin seguimiento periódico hasta que avise. No se configura apagado en esta fase.
+Construcción local completada: cero errores, advertencias y enlaces locales rotos. Sin publicación.
 
 
-## 19. Consolidación de ejecuciones completas
+## 11. Correcciones del E1 y evidencia estadística
 
-V4 completó sus108ajustes. LSTM1capa48unidades obtuvo MASEprueba1.000502;CNN2capas16filtros,kernel3,0.962367. La selección retrospectiva por menorMASEde confirmación de validación entrev3/v4conservaMLP/ARX/CNNdev3yLSTMdev4. `results/consolidado/` reúne las métricas de diez resultados agregados,registro de cuatro familias con cinco checkpoints cada una eíndiceSHA-256de2304artefactos nuevos,correspondientes a384ajustesv3/v4. Se conservan todos los modelos alternativos yla ejecuciónv2. `scripts/consolidar_resultados.py` reproduce las tablas eíndices sin reentrenar. Las comparaciones son exploratorias por exposición previa aprueba yno se afirma significancia.
+La última capa del generador es scripts/correcciones_e1_jbook.py. Se ejecuta después de modelos_actualizados_jbook.py y concilia todo el contenido. Los archivos canónicos son book/09_validacion.ipynb y book/10_modelos.ipynb. La evaluación temporal es §10.9 y el pipeline §10.10; el índice mantiene esos anexos bajo modelos. No reintroducir nombres ni descripciones de escalado global en la documentación vigente.
 
-## 20. Jupyter Book y continuidad del análisis
+EDA: asimetría y exceso de curtosis, logaritmo y Box-Cox con lambda ajustada en 2000–2017 y aplicada a validación; sensibilidad descriptiva de anomalías; cuatro escenarios de ADF/KPSS y conclusión observada: nivel no estacionario, diferencia diaria compatible con estacionariedad bajo las pruebas usadas. Desplazamiento: contraste de diferencias de CDF en 19 cuantiles del desarrollo agrupado, permutación de bloques de 28 días, 1999 permutaciones y Holm entre siete variables. El supuesto es intercambiabilidad aproximada de bloques bajo la nula; no tratar horas como independientes ni convertir un rechazo en evidencia causal.
 
-El 8 de noviembre de 2026 el autor solicita publicar el libro construido en GitHub Pages: https://fabian-11037.github.io/Prediccion-Demanda-Electrica/.
+Piloto: promediar primero los cuatro años dentro de cada semilla (cinco realizaciones por familia). Mostrar media, DE, CV y detalle por año. Dimensionamiento normal pareado: R=25–45 según contraste; hasta 60 con Bonferroni conservador. MDD con cinco semillas: aproximadamente 6,68–8,96 % del MASE piloto de MLP, mayor que el margen del 3 %. El dimensionamiento es retrospectivo y no acredita haber determinado las cinco semillas ejecutadas. Mantener esta limitación sin iniciar entrenamientos adicionales. Se muestran las fechas de commits de planes y los cierres de selección existentes, sin inventar fechas ni reescribir protocolos.
 
-El libro incluye EDA numérico y documental, literatura, diseño, benchmark y diagnósticos de MLP, LSTM y CNN1D, con ARX como referencia de contexto. Las fuentes están en book y scripts; el sitio construido, en docs. La continuidad específica del libro, sus resultados y límites metodológicos está en [continuidad/CONTEXTO_PROYECTO.md](continuidad/CONTEXTO_PROYECTO.md). Ese archivo documenta la instantánea y los análisis secundarios, sin cambiar los entrenamientos.
+Inferencia condicional por semillas: t pareada, Shapiro–Wilk, Q–Q, Wilcoxon exacto, bootstrap exhaustivo de 5^5 remuestreos, Cohen dz y Holm. Las t ajustadas producen p 0,000582–0,006434; Wilcoxon ajustado es 0,1875 en las tres parejas. No rechazar normalidad con cinco diferencias no la acredita. Friedman exacto enumera 6^5=7776 permutaciones: Q=10, p=0,000771605. Nemenyi aproximado distingue MLP–LSTM con p=0,00446; las otras parejas dan p=0,25378. No extrapolar estas pruebas a independencia temporal ni entre datasets.
 
-La publicación utiliza el HTML existente y no repite entrenamiento ni evaluación de redes. Las actualizaciones posteriores del contenido requieren solicitud del autor; no publicar automáticamente por el solo hecho de modificar análisis.
+TOST: margen relativo único ±3 % para θ_AB=(μ_A−μ_B)/μ_MLP. Dos t unilaterales sobre d±0,03·MLP incorporan incertidumbre de la referencia; IC90 % pareados de Fieller. CNN1D–ARX tiene p ajustado=0,858967: no se establece equivalencia. El umbral práctico es MASE<0,72946128, que equivale a MAE<157284,91 kWh con escala fija; cruzarlo no demuestra por sí solo superioridad estadística. Las reducciones MAE/RMSE frente a mejor y peor red están en reducciones_relativas.csv.
 
-## 21. Diseño de integración textual acordado · 9 de noviembre de 2026
+El análisis temporal incluye 14 contrastes globales: tres entre redes, tres frente a ARX y ocho frente a ingenuos. DM–HLN por hora conserva 72+72+192 contrastes, con Holm separado por familia. Bootstrap centrado y pareado de 10000 réplicas en bloques de 14 días e intervalos temporales con sensibilidad 7/28. Los CSV completos y tablas numéricas están enlazados desde el libro mediante book/_static/resultados y se exportan automáticamente después de ejecutar los cuadernos.
+
+Atípicos de evaluación: límites de Tukey sobre log(y/y_lag168) ajustados en 2000–2017. Marcan 2520 horas (aprox.7,19 %). En MLP concentran el 8,63 % del error absoluto; excluirlas del cálculo reduciría MAE un 1,56 %. No se excluyen del benchmark ni se cambian predicciones. El hash canónico de orígenes UTC y etiquetas float64 little-endian es 595f00dd186280542cfd7fed9a580ebe1b19c8cc4e0e742ef12e2e6d2eb0f49a. Está visible en el texto y definido en huella_prueba.json; identificar contenido no acredita por sí solo cuándo se congeló.
+
+Latencia: scripts/medir_inferencia.py carga los 20 checkpoints con weights_only=True y strict=True, sin optimizador, ajuste ni etiquetas. Entorno aislado .inferenv, PyTorch 2.9.1+cpu, un hilo, batch 1, 20 calentamientos y 200 mediciones por checkpoint. Medianas aproximadas: ARX 0,0209ms, MLP 0,0482ms, CNN1D 0,0656ms, LSTM 0,2858ms por origen de 24 salidas. Sólo forward con entradas sintéticas finitas; no incluye carga, preparación, transferencia ni escritura. Los valores p95 por familia son medianas de los p95 de sus checkpoints. No comparar directamente con tiempos de ajuste GPU. Guardar entorno_inferencia.json y latencia_inferencia.csv; el código completo está visible en el JBook.
+
+Literatura: se agregan textos completos de Kathirgamanathan et al. (2022), DOI 10.1049/tje2.12132, y Laitsos et al. (2023), DOI 10.3390/math11132912. Se verificaron arquitectura, métricas, países, datos y límites; no se equipara automáticamente su horizonte con salida directa24. Corpus empírico de demanda: LSTM 4/5, MLP 3/5, CNN1D 2/5, TCN 2/5, CNN-LSTM 1/5, N-BEATS 1/5 y TFT 1/5. Los dos trabajos de Bai son publicaciones de una línea compartida, no replicaciones independientes entre sistemas. Time-MMD y estudios de precio son contexto de otros autores, fuera del denominador de demanda. Se explicitan elegibilidad, ventana 2018–8noviembre 2026, búsqueda pública realizada, brecha circunscrita al corpus e hipótesis de contribución documental al SIN. Las cadenas y fechas originales de Scopus/WoS no se recuperaron; sigue pendiente reconciliación entre bases y doble evaluación independiente. Los 12 abstracts son contexto, no evidencia de comparadores de texto completo.
+
+El test de higiene permite referencias a publicaciones de otros autores y sigue prohibiendo referencias a proyectos del autor en la entrega. Su ámbito son archivos de entrega propios, excluyendo dependencias y archivos de terceros. Se verificaron37pruebas, con 5 omitidas por dependencias opcionales; el código activo de datos y entrenamiento no se modificó. Las advertencias de esas pruebas proceden de APIs de pandas en módulos existentes. La reconstrucción documental no entrena modelos ni publica. Mantener las interpretaciones junto a figuras, tablas complementarias y código analítico visible.
+
+Verificación final: 13 cuadernos, 75 celdas analíticas y 42 figuras; cero errores, advertencias del libro y enlaces locales rotos. Los CSV y el hash de prueba están publicados sólo en el HTML local. Sin entrenamiento ni despliegue.
+
+
+## 12. Revisión global de coherencia de lenguaje y contenido
+
+Se revisaron los trece cuadernos, introducción, fuentes, diccionario y pipeline. La capa final es scripts/consistencia_jbook.py, invocada después de correcciones_e1_jbook.py; armonizar_archivos se ejecuta después de escribir las páginas Markdown. Se homogeneizaron las unidades de demanda como energía por intervalo horario, los nombres geográficos, la lectura del calendario y el uso de «resumen» en español, preservando títulos, enlaces e identificadores originales. Los p numéricamente subdesbordados se muestran como <1e-300. Las secciones de alcance y discusión se consolidan en §10.8.
+
+El margen confirmado es relativo (δ=3 %), no un número absoluto de MASE fijado con prueba. La planificación normal utiliza DE de diferencias divididas por la media piloto de MLP; conserva R25–45 y hasta60 con Bonferroni. TOST usa el mismo parámetro relativo θ_AB=(μ_A−μ_B)/μ_MLP y dos contrastes unilaterales de combinaciones lineales pareadas. Fieller incorpora la covarianza con la referencia y requiere normalidad bivariada; con cinco semillas ese supuesto no se acredita por falta de rechazo de Shapiro. La implementación verifica coherencia entre IC90 % individual y TOST sin ajuste, y aplica Holm por familia. Ninguna pareja demuestra equivalencia; CNN1D–ARX tiene p ajustado0,858967. No se alteraron las cinco semillas, predicciones ni pesos.
+
+El plan de LSTM de12:15:50 se registró después de finalizar los otros modelos a12:02:06. Documentar que esos resultados de prueba estaban disponibles y que el bloque2022–2025 había sido consultado. La cronología por sí sola no demuestra qué métricas influyeron en cada decisión, pero impide asumir una comparación confirmatoria independiente. El orden de dimensionamiento no cumple §4.1 y la potencia para3 % sigue sin acreditarse. No reescribir protocolos originales ni ocultar esta limitación mediante estilo editorial.
+
+La revisión bibliográfica continúa siendo dirigida. Las secciones8.6.1–8.6.4 desarrollan MLP, LSTM, CNN1D y comparación crítica de robustez/escalabilidad. Faltan cadenas originales y fechas de Scopus/WoS, un flujo PRISMA conciliado y evaluación independiente por segundo revisor. Time-MMD y NSW-EPNews se citan como publicaciones externas. La irradiancia de RSAM es meteorológica: se corrigió G10.other_electricity_variable=0 y se actualizó su manifiesto; no se alteraron resultados de estudios ni fuentes numéricas de modelos.
+
+Los contratos de coherencia se verifican en tests/test_consistencia_jbook.py: cinco semillas por familia, margen relativo, referencia MLP común, latencia CPU registrada, numeración canónica y presentación de p. La revisión se entrega en REVISION_CONSISTENCIA_JBOOK.md. El estado de coherencia interna no equivale a cumplimiento integral del E1. No publicar ni iniciar entrenamiento adicional sin solicitud expresa.
+
+Cierre de la revisión global: trece cuadernos, introducción, fuentes, diccionario y pipeline revisados; 75 celdas analíticas, 42 figuras, cero errores, advertencias del libro y enlaces locales rotos. Evidencia: results/jbook/revision_consistencia.json y REVISION_CONSISTENCIA_JBOOK.md. Sin nuevos entrenamientos ni publicación.
+
+En ADF, el valor cero del software corresponde al límite de su aproximación de MacKinnon y se reporta como p<0,001; no se interpreta como probabilidad exactamente nula ni como una cota de 1e-300.
+
+Validación final: 43 pruebas correctas y 5 omitidas; las advertencias de pruebas corresponden a APIs de pandas de módulos existentes. El JBook tiene cero errores, advertencias de construcción y enlaces locales rotos. Se conservan cinco semillas por familia, sin entrenamiento ni publicación adicionales.
+
+## 13. Corpus oficial y disponibilidad temporal · 9 de noviembre de 2026
+
+Adquisición local, sin entrenamiento ni publicación. Fuente operativa: results/documentos_oficiales/INFORME_COBERTURA.md y auditoria_integracion.json. Se descargaron 7219 entradas de 7223 del inventario; 4 fallos HTTP permanecen documentados. Los 47 paquetes contienen 770 PDF individuales. El conjunto oficial conserva 7907 versiones únicas; 729 titulares se enriquecen y el corpus consolidado tiene 575473 filas, con ids únicos.
+
+| fuente | documentos | con_cuerpo | con_texto_parcial | cuarentena | habilitados_declarado_2000_2025 | habilitados_estricto_2000_2025 |
+|---|---|---|---|---|---|---|
+| CREG | 909 | 748 | 470 | 183 | 726 | 252 |
+| IDEAM | 1857 | 1855 | 22 | 47 | 1809 | 878 |
+| MinEnergia | 2722 | 2722 | 0 | 0 | 2721 | 0 |
+| UPME | 207 | 207 | 8 | 0 | 206 | 121 |
+| XM | 2212 | 2148 | 646 | 9 | 2203 | 4 |
+
+Tablas: data/processed/corpus_texto.parquet y data/raw/documentos_oficiales/documentos_oficiales.parquet. Manifiesto: data/processed/dataset_texto_oficial_manifest.json. Diccionario: data/processed/diccionario_corpus_texto.csv. Los originales numéricos y titulares, cuadernos, HTML y modelos del E1 no se modifican. El corpus ampliado se integra mediante src/demanda/corpus.py: cargar_corpus requiere un escenario explícito y documentos_en_origen selecciona origen−ventana <= disponibilidad <= origen, con zona de Colombia y ventanas auditadas de 24/72/168 horas.
+
+La disponibilidad estricta de un PDF solo se adelanta a una captura cuando su SHA-1 Base32 coincide exactamente con el digest de una respuesta 200 en CDX. Se conservan el índice completo, timestamp, URL y SHA-256 local. No se declara una recuperación del payload archivado cuando la reproducción no fue accesible. Son 1255 documentos oficiales históricos utilizables por esta regla; la primera captura utilizable es 2004-06-30 06:09:07+00:00. El título editorial actual no queda verificado por ese digest: el cargador estricto utiliza el encabezado derivado del propio PDF. Una captura de un titular no verifica un cuerpo recuperado después. Sin prueba histórica, disponible_estricto es la recuperación en 2026 y el registro no entra antes en los orígenes de 2000–2025.
+
+Antigüedad al verificar: 1016 documentos corroborados tienen un campo de fecha diaria y 11 presentan una captura en las primeras 72 horas desde su inicio; desfase mediano 1659.7 días. La auditoría editorial posterior excluye uno de esos 11 porque su fecha procede del repositorio XM y no de una edición verificable: quedan diez documentos oficiales recientes con disponibilidad estricta (nueve antes de 2022 y uno en prueba). Detalle: antiguedad_edicion_al_verificar.csv. Un boletín antiguo capturado después no constituye un pronóstico reciente para ese origen. Antes de evaluar señal anticipatoria, comprobar su vigencia y fecha de edición; las ventanas de captura por sí solas no acreditan frescura. No se aplicó un filtro temático ni se entrenó una compuerta.
+
+El escenario declarado mantiene la advertencia de versión histórica no verificada. Fecha diaria sin hora: día siguiente 00:00 de Bogotá; año de publicación sin mes: año siguiente. Un año de referencia del archivo no acredita publicación. XM conserva el supuesto de fecha de creación/modificación del repositorio como tal, sin llamarlo hora oficial de publicación. Los miembros de ZIP usan su encabezado de edición, no la fecha del contenedor. Fechas desconocidas o incompatibles quedan en cuarentena, salvo evidencia de disponibilidad de esa misma versión por captura.
+
+Cobertura de la ampliación oficial en ventana de 72 horas:
+- Entrenamiento 2000–2017, declarado: 41.1% de orígenes con texto oficial en 72 horas.
+- Validación 2018–2021, declarado: 98.1% de orígenes con texto oficial en 72 horas.
+- Prueba 2022–2025, declarado: 98.0% de orígenes con texto oficial en 72 horas.
+- Entrenamiento 2000–2017, estricto: 0.3% de orígenes con texto oficial en 72 horas.
+- Validación 2018–2021, estricto: 8.9% de orígenes con texto oficial en 72 horas.
+- Prueba 2022–2025, estricto: 30.2% de orígenes con texto oficial en 72 horas.
+
+La cobertura mensual incluye meses con cero documentos y se guarda por fuente y escenario. cobertura_particiones.csv conserva los cortes vigentes y continuidad_fuente.csv identifica días sin texto. Estos gaps no se rellenan ni se interpretan automáticamente como publicaciones perdidas: la periodicidad de las series es distinta. Los orígenes y métricas numéricas permanecen congelados.
+
+OCR local Windows.Media.Ocr, idioma es-MX, render máximo 1800 píxeles y hasta cuatro páginas por escaneo. El campo texto_alcance distingue cuerpo, fragmento, texto de diapositivas y titular; las páginas restantes de documentos largos permanecen en el PDF original. No se asignan temas ni se filtra por relevancia manual. Toda selección aprendida, vocabulario o ajuste posterior debe usar únicamente entrenamiento. La adquisición no inició entrenamiento, selección de arquitecturas ni evaluación predictiva. La posterior actualización documental y su publicación se registran en §14.
+
+Reproducción: comandos en data/raw/documentos_oficiales/README.md; scripts de adquisición, expansión segura de ZIP, extracción, verificación CDX e integración incluidos. requirements-oficiales.txt y requirements-ocr-windows.txt separan el procesamiento general del OCR. Los JSON OCR permiten reutilizar el texto sin el motor Windows. No confundir el corpus nuevo con el archivo original de titulares al continuar E2/E3; utilizar el manifiesto y el cargador por origen.
+
+## 14. Diseño de integración textual acordado · 9 de noviembre de 2026
 
 ### Dataset de referencia y variantes
 
-El **escenario declarado es la versión oficial del dataset textual**. No confundir la versión oficial del dataset con el canal de documentos oficiales: el mismo escenario temporal rige también para la prensa. Mantener las advertencias históricas, reglas de precisión de fecha, cuarentena y trazabilidad de §13 del contexto de continuidad del libro. El escenario estricto se reserva para análisis de sensibilidad y auditoría de disponibilidad, con su cobertura limitada explícita.
+El **escenario declarado es la versión oficial del dataset textual**. No confundir la versión oficial del dataset con el canal de documentos oficiales: el mismo escenario temporal rige también para la prensa. Mantener las advertencias históricas, reglas de precisión de fecha, cuarentena y trazabilidad de §13. El escenario estricto se reserva para análisis de sensibilidad y auditoría de disponibilidad, con su cobertura limitada explícita.
 
 Comparar tres variantes: **(1) variables numéricas sin texto; (2) las mismas variables numéricas y texto oficial; (3) las mismas variables numéricas, texto oficial y prensa**. La comparación principal estima el aporte del texto oficial frente a la referencia numérica; la tercera estima el aporte adicional de la prensa. Conservar orígenes, horizonte24, calendario y conjunto numérico comunes; no descartar días sin texto. Mantener particiones vigentes (referencia2000–2017, validación externa2018–2021, prueba2022–2025), semillas, MASE, margen relativo3 % y presupuesto de búsqueda comparable. El ajuste final conserva la historia anterior a2022 y su reserva interna. Las cinco semillas y artefactos numéricos actuales no se modifican.
 
@@ -291,7 +249,23 @@ El capítulo `book/07_texto.ipynb` se titula «Corpus documental y procesamiento
 
 Actualización documental autorizada para publicar en GitHub Pages. Sin nuevos entrenamientos, embeddings ajustados, métricas predictivas ni cambios de datos o modelos. La continuidad específica del libro se mantiene en `continuidad/CONTEXTO_PROYECTO.md` al publicar; el contexto raíz remoto conserva además sus antecedentes técnicos.
 
-## 22. Datos adicionales y diseño recibido · 10 de noviembre de 2026
+## 15. Comparación gráfica observado–predicho · 10 de noviembre de 2026
+
+El §10.7 del capítulo de modelos presenta las35.064horas de prueba2022–2025 mediante densidad observado–predicho de las cinco inicializaciones por familia. Diagonal de identidad, escalas y colores comunes; cada panel anota MAE y RMSE medios entre semillas, comprobados contra el benchmark. Los175.320pares hora–semilla de cada panel no son horas independientes. Se conserva el detalle horario del1–7julio2023 con observado, media de pronósticos, rango p10–p90 y MAE de los errores individuales de la semana. La media de pronósticos es visual; no sustituye el estimando del benchmark. Ambas figuras incluyen interpretaciones integradas y su código analítico completo.
+
+El §10.5 enlaza directamente esta comparación. `scripts/observado_prediccion_jbook.py` integra la sección al generador; los PNG y `resumen_observado_predicho.csv` se conservan en `results/jbook/modelos_actuales/`. La actualización utiliza exclusivamente predicciones guardadas, verifica2304huellas y reproduce las métricas existentes; no altera pesos, configuraciones, datos, semillas ni benchmark. Se actualiza el libro local sin entrenamiento ni publicación. No copiar automáticamente esta edición a GitHub Pages.
+
+## 16. Importancia agrupada de variables · 10 de noviembre de 2026
+
+Se incorpora a `book/10_evaluacion.ipynb` el análisis de importancia de las entradas efectivas de los cuatro modelos congelados, enlazado desde §10.5. `scripts/importancia_variables.py` reproduce en CPU los20checkpoints con sus escaladores y fuentes guardadas, verifica sus SHA-256 y calcula13grupos×10desplazamientos×5semillas×4familias=2600registros. Los donantes trasladan circularmente orígenes completos dentro de cada año2022–2025, con separación circular mínima28días y semilla11037+r. No se ajustan modelos, escaladores ni opciones de búsqueda. La mayor diferencia frente a los pronósticos guardados es26,915kWh en un punto y0,127kWh de MAE; las comparaciones de perturbación usan un baseline CPU común y el benchmark conserva su hash.
+
+Grupos: demanda completa (perfil y nivel); perfil normalizado con nivel fijo; nivel de ventana; calendario completo; semana/festivos; año/temporadas; siete bloques de24horas de demanda. Los grupos se solapan y no son una descomposición aditiva. Se preservan conjuntamente las codificaciones del grupo en pasado y futuro. Los bloques3–7 de ARX quedan marcados como no utilizados porque solo recibe48rezagos. La hora es invariante entre orígenes diarios a medianoche y su importancia no es identificable mediante esta permutación; no se informa como cero. El clima, hidrología y texto no forman parte de estos modelos y no reciben puntuación.
+
+La diferencia de MAE dividida por q168 expresa importancia en MASE. Para las figuras se promedian primero las semillas de cada desplazamiento; el cambio relativo usa el MAE basal medio de la familia. Los segmentos p10–p90 describen solo dispersión entre diez desplazamientos tras promediar semillas; no son IC temporales. La perturbación rompe dependencias entre grupos y puede crear combinaciones artificiales; mide sensibilidad del modelo, sin efectos causales ni el resultado de retirar una entrada y reentrenar. El diagnóstico sobre prueba es retrospectivo y no se usa para selección.
+
+Resultados y protocolo: `results/jbook/importancia_variables/`, con reproduccion_baseline.csv, permutaciones.csv, resumen.csv, donantes.npz, protocolo.json, ejecucion.json y dos PNG. Los CSV y registros se enlazan desde `_static/resultados/importancia_variables/`. `scripts/importancia_jbook.py` integra la sección al generador y mantiene visibles las gráficas, análisis, interpretaciones y código completo de inferencia/perturbación. Se mantienen las gráficas observado–predicho. Actualización local sin entrenamiento ni publicación.
+
+## 17. Datos adicionales y diseño recibido · 10 de noviembre de 2026
 
 ### Descargas verificadas e incorporación
 
@@ -320,15 +294,15 @@ El nuevo periodo 2026 es retrospectivo y no un test prospectivo. La cobertura de
 
 ### Archivo de diseño y revisión
 
-Se conserva sin modificar `literature/Diseño de entrenamiento pronóstico de demanda eléctrica con texto.md`. Es una propuesta recibida, no un preregistro adoptado. Su revisión está en `literature/REVISION_DISENO_ENTRENAMIENTO_20261110.md`. Mantener las decisiones confirmadas de §21 y del contexto de continuidad: declarado principal; tres variantes; canales oficial/prensa y relevancia aprendida, sin filtrado por palabras clave.
+Se conserva sin modificar `literature/Diseño de entrenamiento pronóstico de demanda eléctrica con texto.md`. Es una propuesta recibida, no un preregistro adoptado. Su revisión está en `literature/REVISION_DISENO_ENTRENAMIENTO_20261110.md`. Mantener las decisiones confirmadas de §14: declarado principal; tres variantes; canales oficial/prensa y relevancia aprendida, sin filtrado por palabras clave.
 
 Antes de implementar: corregir que una cota de corrección garantiza deterioro acotado, no «no empeorar»; revisar la proposición de pérdida placebo cuando la base no es óptima; fijar campo receptivo real de TCN; mantener la base congelada en eval; no aplicar Clark–West directamente a MAE; conservar MASE fijo y selección por menor valor; reconocer exposición de prueba y conciliar presupuestos y fuente de entrenador con los artefactos v3/v4. No copiar automáticamente fórmulas de memoria, exenciones de búsqueda ni la fecha prospectivaenero 2026 al preregistro.
 
 Reproducción y paquetes: `requirements-datos.txt` y `requirements-datos.lock.txt`. Nuevos scripts de descarga en `scripts/adquisicion/`; `scripts/validar_datos_adicionales.py` verifica cobertura y hashes. Las reglas as-of se prueban en `tests/test_datos_adicionales.py`. No sustituir los controles de texto por un placebo que pueda introducir documentos posteriores al origen aunque estén en la misma partición.
 
-## 23. Diseño corregido y contrato numérico común · 10 de noviembre de 2026
+## 18. Diseño corregido y contrato numérico común · 10 de noviembre de 2026
 
-Se adopta el diseño corregido de `literature/Diseño de entrenamiento pronóstico de demanda eléctrica con texto.md` y su contrato `config/diseno_entrenamiento_texto.json`. Esta decisión sustituye el estado de propuesta sin modificar descrito en §22. El diseño está listo para implementar; no constituye una nueva ejecución ni un preregistro retroactivo.
+Se adopta el diseño corregido de `literature/Diseño de entrenamiento pronóstico de demanda eléctrica con texto.md` y su contrato `config/diseno_entrenamiento_texto.json`. Esta decisión sustituye el estado de propuesta sin modificar descrito en §17. El diseño está listo para implementar; no constituye una nueva ejecución ni un preregistro retroactivo.
 
 Las tres variantes N, N+O y N+O+P comparten 30 variables históricas (demanda, precio, cuatro hidrológicas y 24 climáticas de ocho ciudades) y 23 de calendario. `src/demanda/diseno_numerico.py` selecciona las mismas columnas para todas, conserva NaN/máscaras y añade 167 h al clima ya desplazado 1 h, para un rezago efectivo de 168 h. Sensibilidad fijada: 90 días. El panel y registro congelados no se sobrescriben. La disponibilidad histórica de versiones ERA5 no queda certificada: ERA5T tiene unos cinco días de retraso y ERA5 final dos a tres meses; el análisis con el archivo recuperado sigue siendo retrospectivo. No usar clima, precio o hidrología realizados en el horizonte. Imputación y escalado se ajustan solo en el tramo de optimización de cada pliegue. No introducir ISE, pronósticos incompletos ni pesos poblacionales revisados como entradas comunes sin otro protocolo.
 
@@ -342,38 +316,219 @@ Pendientes antes del siguiente entrenamiento: fichas exactas de arquitecturas pu
 
 Esta actualización autoriza publicación del JBook con el diseño corregido y las gráficas locales observado–predicho e importancia agrupada. No ejecuta entrenamiento, búsqueda, ajuste de embeddings ni nuevas métricas predictivas. Mantener los checkpoints, predicciones y benchmark conservados.
 
-## 24. PatchTST numérico: ruta fija autorizada · 10 de noviembre de 2026
+## 19. Arquitecturas y evaluación estadística E2 · 15 de noviembre de 2026
 
-El usuario mantiene los baselines en espera yautoriza iniciarPatchTSTpor la ruta1. Plan detallado en `PLAN_PATCHTST_NUMERICO_R1.md`. Núcleo oficialETTh1(revisión204c21efe0b39603ad6e2ca640ef5896646ab1a9):3capas,d_model16,4cabezas,d_ff128,patch16,stride8. Adaptación168/24ylectura afín para83canales históricos(30numéricas,23calendario,30máscaras)y23calendario futuro. Es un modelo adaptado;no afirmar réplica exacta niexenciónE2automática del cabezal propio.
+Se incorporan doce fichas bajo `book/arquitecturas/`: ARX, MLP, LSTM, CNN1D, PatchTST, N-HiTS, TFT seleccionado, TCN, iTransformer, TaTS, TGForecaster y fusión tardía. Cada una describe entradas, dimensiones, operaciones, fórmulas y adaptaciones reales; contiene SVG/PNG, código del esquema, red y pipeline de datos, optimización y prueba. Las fuentes de los seis paquetes recibidos se conservan en `results/arquitecturas_e2/fuentes/`; las huellas de las fuentes de los cinco paquetes con resultados coinciden con REGISTRO.json. La limitación de fuentes faltantes de la consolidación inicial queda resuelta por estos adjuntos. Los bloques de código se muestran mediante literalinclude y no ejecutan entrenamientos al construir el libro.
 
-Motor nuevo `src/demanda/patchtst_numerico.py`;runner `scripts/entrenar_patchtst_numerico.py`;salidas `results/patchtst_numerico_r1`. Medianas yescalas se ajustan solo con filas históricas de entrenamiento de cadafold. No haytexto,nuevas variables fuera del contrato nisobrescritura delbenchmark. Arquitectura fija,20configuraciones,semillas43–45y4pliegues:240ajustes,máximo200épocas,MAEnormalizada,AdamW,clip1,parada interna ymínimo absoluto restaurado. Piloto5semillas×4pliegues:20ajustes. Dimensionamiento pareado por bloques14d/10000réplicas contra ingenuo semanal,δrel3%,α0.05,potenciaobjetivo0.8. Prueba solo tras fijarR;si la precisión temporal del piloto no permite el objetivo,estadoRequiere decisión,sin evaluar prueba automáticamente. Reevaluación2022–2025retrospectiva. Límite persistente24horas;no renueva el reloj al reiniciar,guarda parciales yno declara completo lo pendiente. Sin apagado automático ni publicación automática.
+TFT principal: paquete Modelo3_TFT, ancho160, cuatro cabezas, selección GRN por variable, LSTM, atención interpretable causal; la versión compacta del repositorio permanece alternativa. TGForecaster sólo tiene fuente/configuración, sin métricas ni rangos inventados. Las cuatro familias base conservan pesos/configuraciones/entradas originales. Las variantes ampliadas reciben clima, hidrología, precio, demanda y calendario; se declaran 30 máscaras en el repositorio frente a tres por bloque en los paquetes.
 
-## 25. Selección escalonada PatchTST autorizada durante búsqueda
+`scripts/estadistica_e2.py` calcula resultados desde predicciones guardadas; entradas de consolidación en `results/evaluacion_e2/entradas/`. Doce procedimientos con cinco semillas, dos ingenuos, 1461 orígenes diarios y 35064 horas por semilla. El control N de TaTS/fusión no se duplica. q168 fijo215617,90361589016; margen relativo3%; bootstrap circular pareado10000, bloques14d con sensibilidad7/28; HAC13d y HLN h efectivo1 para las emisiones diarias no solapadas. El ingenuo diario respeta publicación1h y usa48h en el último horizonte. Se calculan 91 comparaciones temporales, 66 entre semillas, Holm por prueba/familia, t pareada, Wilcoxon exacto, Shapiro, Levene, Cohen dz con IC no central, Friedman/Nemenyi/CD, MCS90%, TOST, error por horizonte, Ljung–Box, ARCH-LM, BDS y Mincer–Zarnowitz HAC. Los diagnósticos usan residuo diario de la predicción media sólo para diagnóstico; el benchmark promedia pérdidas, no predicciones.
 
-Se autoriza completar20configuraciones×3semillas en2018(60ajustes),retenercinco yconfirmarlas en2019–2021con tressemillas(45ajustes). La selección definitiva usa solo estos tresaños;2018se reserva al filtro. Piloto de20ajustes ydimensionamiento/prueba sin cambios:125+R. `ADENDA_PATCHTST_ESCALONADO.md` documenta la desviación respecto del presupuesto original yla exposición aresultados parciales. Se conservan fuentes,plan original,cachés ysemillas. El controlador `scripts/transicion_patchtst_escalonado.py` espera que termine el ajuste activo yreanuda el runner con migración explícita. El plazo24horas no se renueva. La barra existente refleja el nuevo total al reanudar. No afirmar búsqueda uniforme de20configuraciones en cuatro años.
+Resultados principales: MCS retiene TaTS N+O y control N. TaTS: cambio relativo−0,605%, DM pHolm(2)=0,4403, bootstrap pHolm(2)=0,4356; no mejora demostrada. TOST pHolm(2)=0,00120 acredita equivalencia temporal ±3% condicionada a las cinco semillas. Fusión tardía: cambio+4,654%, DM pHolm(2)=4,35e−12, bootstrap pHolm(2)=0,000200; empeora. No se interpreta esa equivalencia temporal como generalización a nuevas semillas. Friedman Q51,5538 y p3,28e−7; Wilcoxon con cinco pares no rechaza tras Holm. BDS no demuestra no linealidad por sí solo si existe autocorrelación. Los contrastes son retrospectivos y no convierten el bloque examinado en confirmatorio.
 
-## 26. Prueba exploratoria PatchTST autorizada · 11 de noviembre de 2026
+La pauta E2 se revisó completa (65 páginas). Persisten pendientes de cumplimiento: TGForecaster evaluado, ARIMA/ETS, presupuesto homogéneo, potencia acreditada, búsquedas arquitectónicas §14 cuando apliquen y ablaciones/robustez controladas. No se aplica Clark–West a MAE ni se inventan intervalos predictivos/PIT a partir de la dispersión entre semillas. Los pvalores y limitaciones se muestran junto a las conclusiones.
 
-La selección y el piloto terminaron con 125 ajustes. P20 quedó fijada por validación 2019–2021. El dimensionamiento no encontró un número de semillas que acreditara la potencia objetivo para el margen del 3 %. Se autoriza ejecutar la prueba retrospectiva 2022–2025 con un presupuesto exploratorio de cinco semillas nuevas, 1000–1004, sin atribuirles potencia acreditada. Véase `ADENDA_PATCHTST_PRUEBA_EXPLORATORIA.md`. El ejecutor `scripts/probar_patchtst_numerico.py` conserva los artefactos y fuentes congelados, registra el plan antes de preparar la prueba y reutiliza el motor original. No renueva el plazo de 24 h. Se mantiene el apagado autorizado después de guardar y sincronizar los resultados; la barra local conserva el puerto 39972 y muestra 130 ajustes totales.
+Reproducción: `scripts/crear_arquitecturas_e2.py`, `scripts/estadistica_e2.py`, `scripts/crear_capitulo_e2.py` y `scripts/arquitecturas_e2_jbook.py`; luego jupyter-book build y scripts/verificar_jbook.py. El generador principal conserva índice/alcance con el integrador E2. `scripts/pipeline_ampliado_portable.py` aporta ajuste/validación o ajuste/prueba explícitos en CPU/GPU para PatchTST/N-HiTS, conserva motor y parámetros y exige permiso de prueba; sólo se compiló y verificó su guarda, sin entrenar. Se añaden cinco curvas por procedimiento a la evaluación. Actualización local: no se publica ni se modifica un checkpoint, una predicción conservada o una semilla.
 
-## 27. N-HiTS numérico: entrenamiento y prueba autorizados · 14 de noviembre de 2026
+## 20. Integración y orden del capítulo 10 · 15 de noviembre de 2026
 
-Se autoriza iniciar el modelo5 con el esquema propuesto de arquitectura fija y selección escalonada. Plan `PLAN_NHITS_NUMERICO_R1.md`, ejecutor `scripts/entrenar_nhits_numerico.py`, modelo `src/demanda/nhits_numerico.py`, salidas `results/nhits_numerico_r1`. Bloques oficiales de Nixtla/neuralforecast fijados en revisión94b6ce131838be38a1fb5157349f02bbc8c89ef6, tres escalas con un bloque cada una y ancho512, pooling2/2/1, interpolación lineal con nodos6/12/24. La interpolación se materializa como matriz fija matemáticamente equivalente para permitir backward determinista en ROCm; se verifican salidas y gradientes frente al código oficial.
+Se unifican las secciones de modelos/resultados y las dos evaluaciones. `10_modelos.ipynb` queda como introducción; sigue `arquitecturas/fundamentos.md` (§10.1), doce fichas con código (§10.2–10.13) y una sola evaluación `10_evaluacion.ipynb` (§10.14). Se retiran del libro `10_pipeline.md` y `10_estadistica_e2.ipynb`. El código único de partición, datos/escalado y métricas pasa a fundamentos; los pipelines particulares permanecen en cada ficha. Las páginas antiguas tendrán redirección local sin contenido duplicado.
 
-Mismo contrato y preparador numérico de PatchTST, sin texto ni cabezal adicional. Veinte configuraciones con semillas43–45:60ajustes de filtro2018y45de confirmación2019–2021; la selección definitiva solo usa los últimos tresaños. Piloto20ajustes y dimensionamiento pareado. La instrucción incluye prueba:si no se puede dimensionar R,se ejecutan cinco semillas exploratorias1000–1004,sin acreditar potencia; si se dimensiona,se usa R. El plan de prueba se guarda antes del primer acceso a2022–2025. Límite persistente24h desde el lanzamiento, con guardado de parciales. Barra local puerto39973. Se mantiene el apagado solicitado después de sincronizar resultados; sin publicación automática ni cambios de configuración según prueba.
+La evaluación común utiliza la inferencia global disponible, sin repetir los contrastes parciales de tres redes con otra familia de Holm como si fueran conclusiones globales. Conserva selección y piloto, generalización, observado–predicho, segmentos, variación fecha/semilla, atípicos y huella de prueba, coste e importancia de variables. Los diagnósticos complementarios de cuatro familias mantienen ese alcance explícito. Se eliminan la curva de una sola semilla, los benchmarks/rangos/residuos formales parciales duplicados y el perfil horario repetido entre segmentos. Las curvas de cinco semillas, las comparaciones globales y sus hipótesis son las de la evaluación integrada. Las tablas originales permanecen en results; no se alteran predicciones, pesos o semillas.
 
-## 28. TFT compacto en cola después de N-HiTS · 14 de noviembre de 2026
+`scripts/reorganizar_capitulo10.py` preserva las fuentes antes de la integración en `results/reorganizacion_capitulo10/fuentes/`, separa los nombres del análisis general y los del grupo base, ejecuta sólo análisis conservados y mantiene el orden. `crear_jbook.py` lo invoca como último paso; `crear_capitulo_e2.py` genera su cuaderno fuente fuera del libro y lo integra, en vez de recrear una evaluación independiente. `crear_arquitecturas_e2.py` utiliza el pipeline archivado para las fichas y respeta la numeración. El integrador E2, los enlaces, la síntesis y el verificador se ajustan al nuevo orden. Actualización local, sin entrenar ni publicar.
 
-Se autoriza preparar y programar el modelo6 después del cierre de N-HiTS. Plan`PLAN_TFT_NUMERICO_R1.md`,ejecutor`scripts/entrenar_tft_numerico.py`,modelo`src/demanda/tft_numerico.py`,cola`scripts/encadenar_nhits_tft.py`. Componentes de referenciaNixtla/neuralforecast en revisión94b6ce131838be38a1fb5157349f02bbc8c89ef6,adaptación compacta con dimensión16,una capa LSTM ycuatro cabezas;no se afirma réplica literal ni exención automáticaE2. El contrato numérico,selección escalonada125ajustes,piloto ypolítica de prueba exploratoria se conservan como en N-HiTS. El plan se congela antes de encolar yla prueba queda protegida por selección ysemillas registradas.
 
-La cola espera el cierre yguardado de N-HiTS antes de usar GPU;una comprobación sintéticaGPU de TFT también espera ese cierre. Límite24h propio de TFT desde su inicio,sin contar espera;no se renueva al reanudar. Estado ybarra en`results/tft_numerico_r1`,puerto39974. El monitor de apagado de N-HiTS se difiere explícitamente:el apagado pasa al final de TFT,después de sincronizar sus artefactos. Un fallo de N-HiTS o de la cola se registra yno inicia silenciosamente otro entrenamiento.
+## 21. Auditoría integral de cobertura gráfica y estadística · 15 de noviembre de 2026
 
-## 29. Cierre reducido de TFT autorizado durante búsqueda
+La evaluación integrada de book/10_evaluacion.ipynb utiliza doce procedimientos completados, cinco semillas cada uno (60 realizaciones), 1.461 orígenes diarios y 35.064 horas de prueba por realización. Añade dos referencias deterministas. El control N de TaTS/fusión se cuenta una vez. TGForecaster conserva arquitectura y pipeline, sin resultados; no se incorpora artificialmente a contrastes ni gráficas de rendimiento.
 
-El14de noviembre se autoriza la recomendación de reducir TFTa62ajustes:las primeras17configuraciones con tres semillas2018(51),dos finalistas con una semilla43en2019–2021(6),yprueba exploratoria con semillas1000–1004(5). Se omite piloto/dimensionamiento yno se acredita potencia80%. La selección definitiva usa solo2019–2021. Véase`ADENDA_TFT_PRESUPUESTO_REDUCIDO.md`. Se conservan arquitectura,hiperparámetros,datos,identidades de ajustes yplazo original,sin renovación. El plan original no se reescribe. `scripts/transicion_tft_reducido.py`espera el guardado del ajuste activo antes de sustituir la instancia por`scripts/entrenar_tft_reducido.py`,que reutiliza ajustes completos ytermina las semillas faltantes deT17. La transición restablece el apagado para la nueva instancia. Las fuentes yresultados anteriores permanecen conservados;la reducción de presupuesto yla exposición parcial se declaran al comparar modelos.
+Se corrigieron las selecciones parciales de presentación: la tabla entre semillas muestra las 66 parejas completas, diferencia MASE, Shapiro, t pareada/Wilcoxon con Holm y Cohen dz con IC95 %. Incluye matriz completa del efecto y Q-Q de los once procedimientos frente al control N. Friedman/rangos incluye doce procedimientos; Nemenyi presenta las 66 parejas (siete rechazos), y el MCS muestra los catorce participantes, con paso, p y estado retenido/excluido. Retiene solo TaTS y N: es el resultado del procedimiento, no un filtro de entrada. La t pareada ajustada rechaza en 27/66 como sensibilidad; Wilcoxon en ninguna. Se muestran las 91 parejas temporales mediante matriz DM–HLN Holm, con 84 rechazos; las diferencias e intervalos siguen descargables. No confundir incertidumbre de inicialización con temporal ni rechazo global con todas las parejas significativas.
 
-## 30. Resultados terminados y publicación autorizada · 15 de noviembre de2026
+Se ampliaron a los doce procedimientos generalización validación/prueba, densidad observado–predicho, perfil del 1–7julio2023, segmentos por año/tipo de día/cuartil de demanda, descomposición descriptiva fecha/semilla/interacción y sensibilidad a atípicos. Curvas e indicadores por horizonte ya abarcan los doce. Las figuras usan las cinco predicciones individuales para las métricas; la media de pronósticos es solo visual. Escalas comunes en observado–predicho y semana, banda p10–p90 sin atribuirle cobertura probabilística. Las predicciones se alinean por semilla, origen y horizonte y reproducen MAE/MASE/RMSE del benchmark.
 
-Las tres corridas numéricas ampliadas terminaron con cinco semillas finales1000–1004. PatchTST:P20,130ajustes,MASEprueba0.7256488817,MAE156462.8906kWh. N-HiTS:N14,130ajustes,MASE1.0236287774,MAE220712.6911kWh. TFT:T02,62ajustes,MASE1.1469175133,MAE247295.9498kWh. TFTterminó el15de noviembre a00:28deColombia. Todos superan al ingenuo semanalMASE1.3549064443;no se acredita significancia ni potencia80%. Las restricciones de presupuesto,exposición de prueba yentradas distintas de los baselines anteriores siguen vigentes.
+El piloto gráfico incorpora los seis procedimientos con piloto independiente (120 resultados semilla–año). Las seis variantes ampliadas restantes no conservan piloto; no se reemplaza por prueba ni se dibuja como cero. El dimensionamiento integrado se amplía en §22 a los seis procedimientos con piloto, con disponibilidad explícita para los doce. La validación externa de PatchTST/N-HiTS del repositorio promedia2019–2021; las demás2018–2021. El coste registrado y los parámetros incluyen los doce procedimientos. La latencia CPU y la importancia por perturbación permanecen medidas solo en las cuatro familias de demanda/calendario: las ocho ampliadas figuran pendientes. No inferir importancia nula de clima/hidrología/precio/texto a partir de esa ausencia. Las métricas ajuste/parada se muestran en paneles separados: MAE normalizado para cuatro familias y MASE para seis variantes ampliadas; los dos modelos numéricos del repositorio solo conservan curvas en ese diagnóstico. No convertir Huber ni pérdida online con dropout en MAE de evaluación.
 
-Se autoriza publicar resultados enGitHubyapagar después de confirmar elpush. Consolidación reproducible:`scripts/consolidar_numerico_ampliado.py`,salidas`results/consolidado_numerico_ampliado`. Se publican predicciones,historiales,escaladores,identidades,métricas y15checkpoints finales. Los pesos intermedios de búsqueda/piloto(cerca de9GB)se conservan localmente yse excluyen deGit;la consolidación documenta este alcance ycontiene manifiestoSHA-256de archivos publicados. No se reconstruye ni publica automáticamente elJBooken esta actualización del repositorio.
+Se armonizaron introducción, pregunta de investigación, alcance bibliográfico, diseño y reproducción. Diseño declara presupuestos distintos, 60 realizaciones, máscaras30/3 y HAC13 en la inferencia integrada. El margen relativo sigue3 %; en la familia textual el denominador es el control N. El código de análisis y las interpretaciones están en las celdas del libro; el alcance y las ausencias se resumen en cobertura_diagnosticos.csv. Importancia/latencia adicional, piloto no ejecutado, TGForecaster, potencia y requisitos experimentales pendientes no se reconstruyen a partir de predicciones finales.
+
+Implementación: scripts/completar_evaluacion_jbook.py, invocado por scripts/reorganizar_capitulo10.py y por el generador completo. metadatos_procedimientos.csv conserva60 filas; pilotos_disponibles.csv120. Se pueden reutilizar en otro PC sin la carpeta hermana de consolidación. La armonización es idempotente para evitar párrafos repetidos. Se preservan código visible, Markdown nativo y orden arquitecturas antes de resultados. No se modifican pesos, configuraciones, semillas, panel ni resultados estadísticos guardados. Sin entrenamiento, nuevas predicciones de redes ni publicación. Verificación: 69 pruebas correctas y cinco omitidas por dependencias opcionales; auditoría de construcción y cobertura en results/evaluacion_e2/.
+
+Cierre de auditoría §21:13cuadernos,84celdas analíticas,48figuras analíticas y12esquemas. Construcción sin advertencias, cero errores y enlaces locales rotos; hashes del panel y benchmark preservados. Se comprobó la reconstrucción de metadatos sin carpeta externa. Informe:results/evaluacion_e2/REVISION_COBERTURA.md y auditoria_cobertura.json.
+
+
+## 22. Selección y dimensionamiento integrados · 15 de noviembre de 2026
+
+La sección «Entrenamiento, selección y precisión del piloto» presenta ahora los doce procedimientos completados mediante diseno_seleccion.csv: candidatos, ajustes y semillas de filtro/confirmación, años externos, piloto independiente, cinco semillas finales, máximos de épocas y paciencia efectiva. Los presupuestos de las cuatro familias de demanda/calendario se obtienen de todos los CSV de filtro/confirmación conservados (90 y144ajustes), sin omitir sus rondas. PatchTST/N-HiTS conservan60ajustes de filtro y45confirmación cada uno; los seis procedimientos ampliados restantes20y15por variante. Sus criterios de selección promedian2019–2021y2018–2021,respectivamente. TGForecaster no tiene resultados.
+
+«Dimensionamiento y precisión del piloto» sustituye el bloque limitado al grupo demanda/calendario. El resumen incluye doce filas: seis pilotos con cinco semillas100–104, promediadas sobre cuatro años2018–2021, y seis procedimientos sin piloto con métricas sin estimar. Se dimensionan las15parejas de los seis pilotos, incluyendo ARX,MLP,LSTM,CNN1D,PatchTSTyN-HiTS. Se conserva δ relativo0,03 y como escala de las diferencias la media piloto de MLP0,5415568537267458; no se utiliza prueba. Aproximación normal bilateral α0,05,potencia0,80, mínimo5semillas; se informa DE relativa,δ/DE,Rindividual,RBonferroni(15)yMDDcon5. Rindividual5–45y máximoBonferroni82. Es planificación retrospectiva entre inicializaciones, no el diseño que determinó los cinco ajustes finales ni una garantía de potencia temporal. Los resultados guardados de prueba, pesos y semillas permanecen intactos.
+
+Se incorporan también los registros dimensionamiento.json de PatchTST/N-HiTS: diagnóstico temporal bootstrap14d, referencia ingenuo semanal de validación MASE1,1419350261674317, estimación límite0,0984/0,0843y n_finalno determinado. Se distingue del cálculo normal entre semillas; no se transforma en un R inventado ni se usa la variación de prueba como piloto.
+
+Código visible en book/10_evaluacion.ipynb. Datos y cálculos descargables:results/evaluacion_e2/{diseno_seleccion,resumen_piloto_integrado,dimensionamiento_piloto_integrado,dimensionamiento_temporal_registrado}.csv,copiados a book/_static/resultados/evaluacion_e2/. scripts/completar_evaluacion_jbook.py conserva metadatos de selección y genera las celdas; scripts/reorganizar_capitulo10.py ejecuta y copia las tablas. Prueba de cobertura adicional en tests/test_cobertura_evaluacion.py: doce procedimientos,seis pilotos,quince parejas y ausencia de métricas fabricadas. Actualización local,sin entrenar ni publicar.
+
+Verificación de §22:13pruebas de cobertura/integración/consistencia correctas;13cuadernos,87celdas analíticas,48figuras, cero errores,advertencias y enlaces rotos. HTML local en docs/10_evaluacion.html actualizado,sin publicación.
+
+
+## 23. Precisión retrospectiva con parada interna · 15 de noviembre de 2026
+
+Por solicitud expresa, se completa la precisión de los seis procedimientos sin piloto con las métricas MASE_parada de sus cinco entrenamientos finales (1000–1004):TFT,TCN,iTransformer,controlN,TaTSN+Oyfusión tardíaN+O. Se verifican30registros,803orígenes comunes2019-10-21–2021-12-31y q168=215617,90361589016. Son métricas de evaluación del checkpoint restaurado, no pérdidas online ni mínimos de otra escala. La extracción conserva ruta y SHA-256 de cada resultado y coteja las métricas con metadatos_procedimientos.csv. No se cargan pesos ni se generan nuevos pronósticos para este cálculo.
+
+El resumen incorpora media,DE,CV e IC95%t entre cinco inicializaciones. Se calculan quince diferencias pareadas,DE e IC95% de la diferencia,DE relativa,δ/DE,Rindividual,RBonferroni(15)yMDDcon5. Se conserva margen3%,α0,05,potencia objetivo0,80 y mínimo5semillas. La referencia de escala de este grupo es el MASE medio de parada del controlN:0,5709805536589401. La fórmula utiliza la DE y el margen fijado; no la diferencia observada como alternativa para estimar potencia. Máximos:124semillas en aproximación individual y226conBonferroni. No se ha aumentado el número ejecutado ni se acredita potencia externa.
+
+MASE de parada medio:TaTS0,564763;controlN0,570981;fusión tardía0,587055;iTransformer0,595955;TCN0,728790;TFT0,799907. El CV menor es iTransformer2,735%y el mayor,fusión tardía7,484%. Estos resultados describen la reserva de desarrollo y no reemplazan el ranking de prueba. Los IC son condicionales al periodo compartido y dependen de la aproximación t con n5.
+
+La reserva también seleccionó la época de parada:el análisis es retrospectivo y no equivale al piloto externo de cuatro años ni a un preregistro anterior a entrenar. Se mantienen por separado los seis pilotos externos y los seis análisis de parada,sin mezclar sus medias o semillas. La tabla piloto visible muestra solo sus seis procedimientos; su inventario histórico sigue conservando doce filas y las ausencias reales. La cobertura añade «Precisión de desarrollo»:seis pilotos externos y seis reservas internas retrospectivas;TGForecaster sigue sin resultados. El diseño del capítulo9 incorpora ese alcance.
+
+Implementación:scripts/precision_parada_jbook.py,integrado al final de scripts/completar_evaluacion_jbook.py. El JBook muestra íntegro calcular_precision_parada y sus llamadas para resumen y diferencias. Entradas/salidas:results/evaluacion_e2/{entradas_precision_parada.csv,precision_parada_resumen.csv,precision_parada_comparaciones.csv,precision_parada_protocolo.json},con copias descargables enbook/_static/resultados/evaluacion_e2/. Las métricas de prueba no intervienen en la planificación. Pruebas verifican cobertura,semillas,tramo común,invariancia ante métricas de prueba y que desplazar una diferencia media sin alterar su DE no cambie R. Se preservan panel,benchmark,pesos,escaladores,predicciones y semillas. Actualización local,sin entrenamiento ni publicación.
+
+Verificación de §23:17pruebas de precisión/cobertura/integración/consistencia correctas. Libro:13cuadernos,89celdas analíticas,48figuras;sin errores,advertencias ni enlaces rotos. Métricas de prueba y panel preservados. HTML local actualizado en docs/10_evaluacion.html,sin publicación.
+
+
+## 24. Presentación integral de precisión en §10.14 · 15 de noviembre de 2026
+
+Se actualizan las tablas y figuras de desarrollo para incorporar las métricas de parada de los seis procedimientos sin piloto. Un único resumen visible incluye los doce procedimientos,con fuente,periodo,cinco semillas,MASE,DE,CV e IC95%t. Conserva dos fuentes:seis pilotos externos(media de cuatro años2018–2021,semillas100–104)y seis reservas internas(803días2019-10-21–2021-12-31,semillas1000–1004). Las tablas parciales duplicadas de seis procedimientos se sustituyen por el resumen;los CSV de detalle y los cálculos separados se conservan. No se agregan las dos fuentes para producir contrastes de66parejas de desarrollo ni un ranking común.
+
+La figura de selección muestra piloto anual,puntos de cinco semillas piloto,puntos de las cinco semillas de parada y el control de permutación disponible para cuatro familias. La figura de generalización tiene las doce estimaciones de desarrollo,sin barras vacías:azul para piloto y naranja tramado para parada,con periodos explícitos;junto a validación externa y prueba. La tabla de selección añade fuente de precisión y la tabla de métricas de prueba identifica esa procedencia. Una nueva figura muestra por separado las quince parejas de planificación de cada fuente,con sus referenciasMLP/controlN y máximosBonferroni82/226.
+
+Las figuras y tablas de observado–predicho,semana,horizontes,segmentos,residuos,atípicos,contrastes,Friedman/Nemenyi/MCS y las métricas de prueba se reconstruyen a partir de sus artefactos conservados. La parada interna no reemplaza sus pérdidas de prueba. La importancia y latencia siguen limitadas a las cuatro familias medidas;TGForecaster continúa sin resultados. El texto y la discusión aclaran que tener una estimación retrospectiva de precisión no acredita potencia ni un piloto externo.
+
+Implementación:scripts/presentacion_precision_jbook.py,última capa de scripts/precision_parada_jbook.py. El cálculo de consolidación,las gráficas y las tablas se muestran como código analítico ejecutado en el libro. Nuevos archivos:results/evaluacion_e2/{precision_desarrollo_resumen.csv(12filas),precision_desarrollo_semillas.csv(60filas),generalizacion_integrada.csv(12filas)},con copias descargables. Gráficas:precision_desarrollo_fuentes.png,generalizacion_completa.png,dimensionamiento_fuentes.png. Se verifica cobertura de los doce,cinco realizaciones por procedimiento,ausencia de huecos y coincidencia de las métricas de prueba con el benchmark original. Sin entrenamiento,inferencia adicional,selección de configuraciones ni publicación.
+
+Verificación de §24:75pruebas correctas y cinco omitidas;13cuadernos,91celdas analíticas,49figuras;sin errores,advertencias ni enlaces rotos. Inventario de tablas y figuras de10.14enresults/evaluacion_e2/auditoria_presentacion_precision.json. HTML local actualizado,sin publicación.
+
+
+## 25. Incorporación de TGForecaster · 15 de noviembre de 2026
+
+Se incorporan los ZIP ENVIAR_resultados_modelo7_20261114_0430.zip y ENVIAR_pesos_y_vectores_modelo7_20261114_0430.zip,con sus SHA-256 en results/modelo7_integracion/importacion.json. Importador idempotente:scripts/importar_modelo7.py. Los282archivos se extraen con rutas comprobadas a la carpeta hermana Consolidado-Entrenamientos-20261115/fuentes/adjuntos/modelo7_20261114_0430/resultados_modelo7/. Se verifican17archivos de código/configuración frente a REGISTRO.json,admitiendo equivalencia CRLF/LF sin modificar originales. Se conservan diez checkpoints (cinco N y cinco N+O),sin deserializarlos ni ejecutar redes. Las predicciones tienen1461orígenes y24h por semilla,fechas completas,sin duplicados,con350640filas nuevas. Las fechas NPY de tipo objeto se leen mediante análisis estático de cadenas ISO,sin ejecutar pickle.
+
+Clave del experimento:adj_modelo7_20261114_0430. N:configuración19,d_model256,tres capas temporales,dos de mezcla,ocho cabezas,2899072parámetros. N+O:configuración1,d_model64,dos capas temporales,una de mezcla,cuatro cabezas,326464parámetros. Cada variante conserva20candidatos en2018,cinco finalistas en2019–2021,selección por media de cuatro años y cinco semillas1000–1004. Son80ajustes (70búsqueda+10finales),sin piloto externo independiente. La precisión de desarrollo se calcula con sus métricas de parada sobre los803días comunes anteriores a2022. No se vuelven a entrenar modelos ni se seleccionan configuraciones a partir de prueba.
+
+TGForecaster N ya utiliza embeddings de descripciones estáticas de33canales;no debe describirse como ausencia absoluta de representaciones lingüísticas. N+O añade documentos oficiales variables por origen. Se verifica el caché oficial14162×768float16,idéntico por SHA-256 al de TaTS/fusión,por lo que no cuenta como un corpus nuevo;las33descripciones×768 constituyen otro recurso. Se actualizan índice de modelos,vectores,inventario global,manifiesto y resumen de la consolidación. El conjunto ampliado tiene50realizaciones principales,además de10alternativas/alias. Con las20realizaciones de las cuatro familias base,el JBook compara14procedimientos y70realizaciones finales,más dos ingenuos.
+
+Resultados de prueba reproducidos con etiquetas canónicas:TGForecaster N MASE1,001992 y MAE216047,3903kWh;N+O MASE1,122419 y MAE242013,7271kWh. El texto incrementa el error12,0188%,IC95%relativo[10,2740%;13,7437%]. DM–HLN Holm(3)=1,3620e-55,bootstrap Holm(3)=0,000300;TOSTno acredita equivalencia. Los hiperparámetros de N y N+O difieren:el contraste corresponde al procedimiento completo,no una ablación de contenido con núcleo fijo.
+
+Se recalcula la inferencia desde las predicciones conservadas:120parejas temporales,91parejas entre semillas y tres contrastes textuales,con ajustes Holm por familia. Las columnas textuales se llaman p_DM_Holm_texto,p_bootstrap_Holm_texto,p_TOST_Holm_texto;no reutilizar el nombre Holm2. El MCS90% mantiene TaTS y su controlN. FriedmanQ59,3314,p6,916e-8;Levene centrado en mediana ahora rechaza igualdad de varianzas(p0,000834). NemenyiCD8,87284. Se actualizan las sensibilidades7/14/28d y72contrastes textuales por horizonte. Las métricas originales de prueba de los otros modelos no cambian,pero sus valores p ajustados y rangos se recalculan al ampliar la familia.
+
+La precisión de desarrollo abarca seis pilotos externos y ocho reservas internas:70métricas en total. El grupo de parada conserva40métricas y28parejas (Bonferroni28),referencia común controlN de parada0,5709805536589401;Raproximado máximo2112individual y4231Bonferroni. La gran variación entre semillas de TGForecaster aumenta esas estimaciones;son planificación retrospectiva sensible a n5,no potencia alcanzada ni un número de entrenamientos autorizado. No mezclar los periodos ni las referenciasMLP/controlN de los dos grupos.
+
+Los generadores usan matrices/cuadrículas dimensionadas con el inventario y ocultan paneles vacíos. Todas las curvas,observado–predicho,semana,horizontes,segmentos,generalización,precisión,estadística,atípicos y costes incluyen TGForecaster. Se retiran las declaraciones de resultados pendientes en su ficha,introducción,literatura,síntesis,diseño y reproducción. La importancia por perturbación y la latencia CPU siguen disponibles solo para las cuatro familias medidas;no se inventan para los diez procedimientos ampliados. Se mantienen pesos,escaladores,datos y semillas. La actualización es local,sin entrenamiento,inferencia de redes ni publicación.
+
+Reproducción:importar_modelo7.py;estadistica_e2.py;crear_arquitecturas_e2.py;crear_capitulo_e2.py;construcción y verificar_jbook.py. Las entradas de resultados y metadatos normalizados permanecen en results/evaluacion_e2 para reconstrucción documental sin la carpeta hermana. No usar el consolidador base antiguo sin reaplicar después el importador de modelo7. Los respaldos previos están en results/modelo7_integracion/respaldo/ y los cambios de capacidad del generador,en results/modelo7_integracion/actualizar_generadores.py.
+
+Verificación de §25:78pruebas correctas y5omitidas. Libro local:13cuadernos,91celdas analíticas,49figuras y12esquemas de arquitectura;sin errores,advertencias ni enlaces locales rotos. Modelo7incorporado a tablas,gráficas y contrastes;HTML en docs/10_evaluacion.html actualizado,sin publicar.
+
+
+## 26. Revisión integral de tablas y gráficas · 15 de noviembre de 2026
+
+Estado vigente: 13 cuadernos, 93 celdas analíticas, 50 gráficas, 25 tablas calculadas, 24 tablas Markdown y 12 esquemas. Se revisaron todas las figuras visualmente, sus interpretaciones, periodos y unidades; las tablas mantienen columnas alineadas y no presentan valores no finitos accidentales. Se cotejaron resultados contra benchmark, pérdidas, semillas, curvas, metadatos y correcciones Holm. El capítulo 10.14 incluye 14 procedimientos, 70 realizaciones y dos referencias: 120 parejas temporales, 91 entre semillas, tres contrastes textuales y 72 contrastes por horizonte. Se corrigen denominadores antiguos (111/120 rechazos DM), etiquetas de 28 parejas de parada y máximos de dimensionamiento 82/4231. Las secciones anteriores de este contexto documentan estados históricos; los inventarios vigentes son los de esta sección y §25.
+
+Se incorpora al capítulo 7 el corpus oficial efectivamente codificado (14.162 registros, 12.330 contenidos distintos, 6.574 solo con titular, 1.175 truncados), preservando identidad y orden del índice del encoder y verificando los hashes de contenido. Entradas autocontenidas en results/evaluacion_e2/entradas/texto/: corpus_oficial.parquet, indice_encoder.parquet, ficha_encoder.json y cobertura_original.csv. El caché incluye documentos que no estaban disponibles al cierre de 2025; la tabla distingue esa elegibilidad. La ficha informa 33,36 % de descarte por capacidad nominal, mientras que la cuenta sin duplicar el solapamiento de fragmentos produce 36,16 %. Los vectores permanecen intactos; el promedio normalizado de fragmentos precede a la relevancia aprendida entre documentos. Se añade cobertura anual de disponibilidad y volumen admitido en ventanas de 72 horas, cotejada con el archivo conservado. TaTS conserva su agregación mediante cierres diarios históricos.
+
+El gráfico del escenario estricto ahora representa los años sin registros de desarrollo en un eje 2000–2021, evitando un panel aparentemente vacío. STL utiliza etiquetas españolas y unidades correctas de GWh por intervalo. Se precisan nombres de ciudades y precipitación acumulada en la hora previa. Diseño y texto distinguen las variables efectivamente entrenadas, los presupuestos desiguales y la variante de prensa sin resultados. Importancia por perturbación y latencia permanecen medidas en cuatro familias, ausentes para diez procedimientos ampliados; no se les atribuye importancia nula.
+
+Implementación: scripts/revision_integral_jbook.py, última capa de completar_evaluacion_jbook.py y armonización final de reorganizar_capitulo10.py; código analítico y Markdown nativo en el libro. Informe e inventario: results/revision_integral/REVISION_TABLAS_GRAFICAS.md, inventario_tablas_graficas.csv y auditoria.json. Se actualizan también los informes de cobertura existentes. Verificación: 82 pruebas correctas y cinco omitidas; construcción sin errores ni advertencias, cero enlaces rotos. Hashes del panel y benchmark base preservados. HTML local en docs actualizado, sin entrenar, ejecutar redes ni publicar.
+
+La tabla de «Desempeño y precisión temporal» incluye MASE de prueba con cuatro decimales, junto con MAE, RMSE, realizaciones y fuente de precisión. Los valores proceden del benchmark conservado y abarcan los 14 procedimientos y las dos referencias.
+
+
+## 27. Diagnósticos ampliados con pesos congelados · 16 de noviembre de 2026
+
+Se completaron los diez procedimientos ampliados y las cinco semillas de cada uno: 50 checkpoints restaurados con weights_only=True y carga estricta. Se conservaron los escaladores de ajuste y las configuraciones elegidas; no se inició optimización ni se sustituyó el benchmark. Las reproducciones basales cubren los 1.461 días de 2022–2025. Máxima diferencia frente a las predicciones conservadas: 778,4835 kWh por pronóstico; máximo cambio relativo de MAE: 0,005962 %. Los diagnósticos usan como referencia el basal CPU de cada checkpoint.
+
+Importancia: 192 fechas fijas (1,8,15,22 de cada mes), cinco semillas, nueve grupos y tres desplazamientos circulares por año con separación mínima de 28 días. Se obtienen 1.350 mediciones y 90 resúmenes. Grupos: perfil de demanda, nivel de restitución, precio, reservas (llenado/reserva/capacidad), aportes, temperatura de ocho ciudades, humedad de ocho ciudades, precipitación de ocho ciudades y calendario. La hora es invariante y no queda identificada. El p10–p90 entre desplazamientos no es IC temporal; no comparar esta muestra como si fuera idéntica a las 1.461 fechas y diez desplazamientos de las cuatro familias base. El calendario domina en siete procedimientos y el perfil en tres; máximo de una covariable externa: precio en N-HiTS, +1,4768 % de MAE. No inferir efectos causales ni sumarlos.
+
+Sensibilidad: 1.461 días y cinco semillas, manteniendo historia numérica, calendario y pesos. Controles: sin documentos; vectores a cero con presencia conservada; contenido histórico de la misma fuente con disponibilidad declarada anterior a 2022 (tres remuestreos con reemplazo, no permutación biyectiva). No se agrupa por tema ni se aprende un filtro externo de relevancia. TaTS: retirada +17,0654 %, cero +15,0910 %, contenido histórico +0,0152 % (divergencia 476,8 kWh). Fusión tardía: +11,6111 %, +3,1296 % y +1,7576 %, respectivamente. TGForecaster N+O: +30,3923 %, +28,4251 % y −1,6524 %. La sensibilidad dentro de un checkpoint no es la comparación de procedimientos N/N+O ajustados por separado. El reemplazo histórico apenas afecta TaTS y mejora descriptivamente TGForecaster; no demuestra una ventaja predictiva de las noticias recientes.
+
+Las descripciones estáticas TG se evalúan aparte, manteniendo fija la descripción del objetivo en la relevancia documental: N a cero +167,2748 %, permutada +4,1954 %; N+O a cero +69,9672 %, permutada +9,4964 %. Son intervenciones sobre codificación de canales y consultas del horizonte, susceptibles de alejar la entrada de entrenamiento. Los 13 resúmenes textuales tienen IC95 % puntuales por bootstrap circular pareado de 14 días, B10000, después de promediar semillas y repeticiones. No convierten cinco inicializaciones en potencia acreditada ni equivalencia confirmatoria.
+
+Latencia: las 70 realizaciones de los 14 procedimientos se miden de nuevo en la misma CPU con un hilo, batch uno, tres orígenes comunes, 20 calentamientos y 100 mediciones por corrida. Son 210 corridas. Se muestran mediana de medianas y mediana de p95 por corrida; no p95 agrupado. ARX 0,02395 ms; TFT 54,32780 ms, extremos de las medianas. Se excluyen carga, preparación y encoder E5, usando vectores congelados en memoria. Los contadores documentales distinguen siete cierres para TaTS, uno para las otras ramas documentales y cero para variantes sin documentos. La importancia agrupada y la latencia ya no están pendientes para los diez ampliados.
+
+Entradas: carpeta hermana Consolidado-Entrenamientos-20261115 y su consolidado/indice_modelos.json; corpus e índice del encoder ya documentados en §26. Resultados autocontenidos para el libro en results/diagnosticos_ampliados; el cálculo de redes necesita además la consolidación con pesos y vectores. scripts/inferencia_ampliada.py restaura redes/entradas; scripts/diagnosticos_ampliados.py ejecuta --fase inferir (cuatro procesos de un hilo; reanuda realizaciones completas), --fase resumir y --fase latencia (serial, después de terminar perturbaciones). scripts/diagnosticos_ampliados_jbook.py integra resultados como última capa de revision_integral_jbook.corregir_capitulo10; scripts/actualizar_diagnosticos_jbook.py reconstruye sólo el capítulo con CSV guardados. La generación completa también armoniza la sección de reproducción. La construcción documental no ejecuta redes. Los resultados, las figuras y el código completo de inferencia/diagnóstico aparecen en 10.14; el capítulo 12 explica la reproducción.
+
+Informe: results/diagnosticos_ampliados/RESUMEN_DIAGNOSTICOS.md. Trazabilidad: fuentes_diagnosticos.json (50 pesos y sus escaladores/predicciones/resultados, hashes del código, panel y benchmark base), protocolo.json, entorno.json y reproduccion_semillas.csv. Los CSV se copian a book/_static/resultados/diagnosticos_ampliados. Revisión: 86 pruebas correctas y cinco omitidas; 13 cuadernos, 97 celdas analíticas, 53 gráficas, 49 tablas y 12 esquemas; sin errores, advertencias ni enlaces rotos. Tres figuras nuevas inspeccionadas visualmente. HTML local actualizado en docs. Sin entrenamiento ni publicación. El usuario solicita apagar el equipo después del cierre y guardado; el apagado se programa como última acción.
+
+
+## 28. Esquemas de arquitectura procedentes del PowerPoint · 16 de noviembre de 2026
+
+Se reemplazan los esquemas de ARX, MLP, CNN1D, LSTM, PatchTST, N-HiTS y TFT por sus diagramas globales y detalles de celdas de Esquemas_arquitectura_modelos_Entregable2.pptx. Son 14 PNG de 3200×1800. Se conservan los cinco esquemas de TCN, iTransformer, TaTS, fusión tardía y TGForecaster, que no aparecen en ese archivo. Estado vigente: 12 páginas de modelos y 19 esquemas; 13 cuadernos, 97 celdas analíticas, 53 gráficas y 49 tablas.
+
+El PPTX suministrado permanece intacto y se conserva una copia en results/esquemas_presentacion/fuente_original.pptx, con SHA-256 en manifest.json. Las diapositivas 15–16 describían TFT compacto de 16 unidades, 83 entradas y 281443 parámetros. Sólo su adaptación para las imágenes del JBook usa el TFT seleccionado: configuración1 (etiqueta T01), ancho160, 56 variables pasadas (30 numéricas+3máscaras+23calendario), 23 de calendario futuro, cuatro cabezas, 11715596 parámetros y MASE1,0510256114. La fórmula del embedding usa R^160. Se usó edición dirigida con artifact-tool; se restauró el contenedor del PPTX original para conservar la fidelidad de las formas y fórmulas durante la exportación. No se modifican pesos, hiperparámetros ni resultados. La adaptación es documental y está en results/esquemas_presentacion/esquemas_para_jbook.pptx, no es un experimento nuevo.
+
+Fuente, diapositivas, imágenes y hashes: results/esquemas_presentacion/manifest.json. PNG de extracción: renderizados/; copia de uso en book/_static/arquitecturas_presentacion/. Las imágenes del JBook abren la versión de alta resolución al pulsarlas. Se integran interpretaciones específicas tras el esquema global y el detalle. Se retira en esas siete páginas el código Matplotlib que correspondía a las imágenes sustituidas; el código real de arquitectura, entrenamiento y prueba se conserva. El procedimiento de extracción se muestra una vez en fundamentos, con scripts/exportar_esquemas_presentacion.ps1. PowerPoint sólo se necesita para volver a exportar; la construcción de libro en Windows/Linux usa los PNG incluidos.
+
+Persistencia: scripts/esquemas_presentacion.py instala y valida los activos sin llamar a PowerPoint, redes ni entrenamiento. Se invoca al finalizar crear_arquitecturas_e2.py y reorganizar_capitulo10.py, evitando que el generador reintroduzca diagramas sustituidos. Las cinco páginas sin reemplazo conservan su código de esquema. La revisión visual cubre las 14 diapositivas relevantes y la corrección final de TFT; el inventario se actualiza a 19 esquemas. Construcción local sin advertencias, cero errores y enlaces rotos; 86 pruebas correctas y cinco omitidas. HTML local en docs actualizado; sin entrenamiento ni publicación. El apagado de §27 correspondió al cierre de esa tarea; esta actualización no programa otro apagado.
+
+
+## 29. Esquemas de las cinco familias restantes · 16 de noviembre de 2026
+
+Estado vigente: doce familias con dos diagramas por familia, 24 esquemas en total. TCN, iTransformer, TaTS, fusión tardía y TGForecaster sustituyen sus cinco SVG genéricos por diez PNG de 3200×1800 con el estilo de la presentación: Cambria/Calibri, colores por operación, flujo global, detalle de celdas y cuatro paneles de ecuaciones. Cada página conserva las implementaciones de arquitectura y los pipelines de entrenamiento y prueba, e integra explicaciones tras ambos esquemas. Las imágenes abren su versión de alta resolución.
+
+Los diagramas nuevos se construyen con formas, conectores y texto editables mediante scripts/crear_esquemas_ampliados.mjs; el PPTX resultante está en results/esquemas_presentacion/ampliados/esquemas_ampliados.pptx. La ficha de dimensiones y variantes está en ampliados/ficha_modelos.json, obtenida del índice principal de la consolidación, las configuraciones guardadas y results/evaluacion_e2/benchmark.csv. El código de redes contrastado se conserva en results/arquitecturas_e2/fuentes. La presentación suministrada y las catorce imágenes incorporadas en §28 permanecen intactas. El manifiesto registra fuente, diapositiva, dimensiones y SHA-256 de los 24 PNG y del generador nuevo.
+
+TCN: tres bloques de dos convoluciones causales, kernel5, dilataciones1/4/16, 64 filtros, campo receptivo169h y lectura con calendario futuro. iTransformer: 33 tokens históricos y23 de calendario, dimensión128, dos capas y ocho cabezas. TaTS N+O: siete cierres diarios, resumen documental aprendido de12 atributos más presencia, 46 canales, PatchTST128/tres capas/16cabezas y dos lecturas; su controlN de64/dos/cuatro se identifica aparte. Fusión tardía: núcleo64/dos/cuatro, rama documental64→128→24, combinación aditiva con presencia y escalar aprendido sin acotación; ambas ramas se entrenan conjuntamente. TGForecaster N+O: dimensión64, dos capas temporales, una de mezcla y cuatro cabezas; memoria700tokens y cinco parches futuros de ocho horas con paso cuatro y pesos de solape. Su varianteN tiene dimensión256, tres capas temporales y dos de mezcla, ocho cabezas; conserva descripciones estáticas de variables. Las cifras de parámetros y MASE de los subtítulos corresponden a esas variantes seleccionadas.
+
+Reproducción documental: generar los diez diagramas con artifact-tool en Node, exportar mediante scripts/exportar_esquemas_presentacion.ps1 e instalar con scripts/esquemas_presentacion.py. El generador JS y la extracción PowerShell se muestran en fundamentos; la construcción del libro usa los PNG incluidos y no ejecuta redes ni requiere PowerPoint. El instalador ya está integrado en los dos generadores del capítulo10. No reaplicar los SVG genéricos sobre las páginas instaladas.
+
+Se revisan visualmente los diez diagramas nuevos, sus conexiones, ecuaciones y dimensiones; el PPTX supera las verificaciones de integridad, geometría, tipografía e importación. Inventarios actualizados: 13cuadernos, 97celdas analíticas, 53gráficas, 49tablas y24esquemas. Se conservan pesos, semillas, configuraciones, datos y resultados. HTML local en docs actualizado, sin entrenamiento ni publicación. Esta tarea no programa un apagado.
+
+Verificación de §29: 86 pruebas correctas y cinco omitidas; construcción sin advertencias, cero errores y enlaces locales rotos. Se cotejan las diez imágenes servidas por el HTML con sus SHA-256. Las advertencias de deprecación de pandas en las pruebas de calendario y fuentes externas preexistían y no afectan esta actualización documental.
+
+
+## 30. Un único resultado numérico de PatchTST · 16 de noviembre de 2026
+
+Se conserva adj_modelo6_20261112_1035__N como «PatchTST · N», con cinco semillas, MASE0,6725016176243331, MAE145003,38897045367kWh y RMSE194117,79554852837kWh. repo_patchtst_numerico_r1__N (MASE0,7256488817261028) deja de participar en la presentación y en la familia de contrastes; sus pesos, predicciones y fuentes no se eliminan. La elección por mejor rendimiento de prueba fue solicitada por el usuario después de observar los resultados y se documenta como retrospectiva. No describirla como selección a priori ni como resultado nuevo de entrenamiento. La configuración conservada sigue siendo el control numérico común de TaTS y fusión tardía, contabilizado una vez.
+
+Estado vigente: 13procedimientos, 65realizaciones y dos referencias; 105parejas temporales y78entre semillas, tres contrastes textuales y72por horizonte. Se reconstruyen bootstrap, Holm, Friedman, Nemenyi, MCS y residuos desde predicciones guardadas, conservando exactamente las métricas individuales de los modelos restantes. FriedmanQ54,3824175824,p2,334748e-7 y diferencia críticaNemenyi8,159475334. Precisión de desarrollo: cinco pilotos externos (25métricas) y ocho reservas internas (40), dimensionados por separado. Son10parejas externas y máximo conservador76; el grupo interno mantiene28parejas y máximo4231. La ficha, los pipelines y ambos esquemas de PatchTST ahora describen la configuración18 del paqueteModelo6: 33canales, dimensión64, dos capas, cuatro cabezas, dropout0,1, contexto2825→128→24 y466480parámetros, sinRevIN interno.
+
+Política: config/seleccion_patchtst.json; scripts/seleccion_patchtst.py la aplica en la reconstrucción estadística y documental. Se filtran metadatos, diseño, pilotos y curvas; se actualizan todas las figuras, tablas y descargas de la evaluación y se armonizan introducción, literatura, diseño y reproducción. El libro continúa con12fichas y24esquemas; los modelos con documentos siguen siendo procedimientos separados. Los diagnósticos crudos conservan sus50checkpoints y70realizaciones medidos; la vista vigente incluye45checkpoints ampliados, 65realizaciones y195corridas de latencia. No ejecutar redes para rehacer estas figuras: usar los CSV y predicciones existentes.
+
+Respaldo previo de derivados: results/seleccion_patchtst/respaldo. Auditoría y resumen: results/seleccion_patchtst/auditoria.json y RESUMEN.md. Reproducción: estadistica_e2.py; crear_arquitecturas_e2.py; crear_capitulo_e2.py; construcción y verificar_jbook.py. Diagramas nativos de PatchTST en diapositivas11–12 del PPTX ampliado, exportados a ampliado_11/12.png y registrados porSHA-256. La presentación suministrada permanece intacta. Sin entrenamiento, inferencia de redes, publicación ni apagado.
+
+Verificación de §30: 86 pruebas correctas y cinco omitidas; 13 cuadernos, 97 celdas analíticas, 53 gráficas, 49 tablas y24 esquemas. Construcción sin advertencias, cero errores y enlaces locales rotos. El HTML y la descarga del benchmark coinciden con la selección de13 procedimientos. Se confirma porSHA-256 que el panel y el benchmark base permanecen intactos. HTML local actualizado en docs; sin publicación.
+
+
+## 31. Revisión de consistencia y completitud · 16 de noviembre de 2026
+
+Se contrastan las pautas locales E1/E2 (34/65 páginas), narrativa, código y artefactos del JBook. Se corrigen Levene (p≈0,001526), los enlaces de literatura a MLP/LSTM/CNN1D, la descripción de controles textuales ya ejecutados y el alcance de diseños futuros, prensa y escenario estricto. Se explicitan extremos documentales inclusivos y los siete cierres de TaTS. MASE permanece primario, MAE/RMSE son las métricas complementarias del benchmark; el RMSE se calcula por semilla y después se promedia. Se distingue construir HTML con salidas conservadas de recalcular los análisis.
+
+Persistencia: scripts/consistencia_completitud_jbook.py es la última armonización de scripts/seleccion_patchtst.py; actualizar_diagnosticos_jbook.py aplica la misma capa. revision_integral_jbook.py obtiene el p de Levene del protocolo vigente. El documento de diseño y su descarga identifican la ampliación propuesta; los resultados conservados no ejecutan la variante de prensa ni una compuerta acotada.
+
+Estado comprobado: 13 procedimientos,65 realizaciones,105 parejas temporales,78 entre semillas, tres contrastes textuales y72 por horizonte;13 cuadernos,97 celdas,53 gráficas,49 tablas y24 esquemas. Se verifican60 referencias de código (52 archivos distintos),24 imágenes porSHA-256 y902 enlaces con fragmento en35 páginas. Se auditan9497 cierres de72h con límite64 y extremos inclusivos; no hay adelanto respecto de la disponibilidad declarada. Esto no certifica versiones publicadas históricamente. Memoria pico: soloN-HiTS tiene416907776bytes por semilla;FLOPs ausentes en13 procedimientos. Las predicciones y los pesos se conservan.
+
+Completitud parcial E1/E2. Pendientes prioritarios: documentar la selección de los diez modelos principales existentes,ARIMA oETS según§7.4S5,réplica del paper guía con condiciones originales§5,robustez de3severidades y ablación de3componentes§4.6,potencia y presupuesto prospectivos,memoria/FLOPs,conciliaciónPRISMA y revisión independiente. Los controles de contenido con pesos fijos ya se completaron; no deben volver a describirse como pendientes, pero no sustituyen una ablación con núcleo e hiperparámetros idénticos. No iniciar automáticamente estos experimentos.
+
+Recomendaciones: priorizar atribución controlada del texto con PatchTST común; reservar evaluación posterior al congelamiento efectivo; no usar datos2026 ya inspeccionados como prospectivos; cerrar trazabilidad bibliográfica y verificar una reconstrucción limpia enWindows/Linux. El mayor número retrospectivo de semillas no es una orden de entrenamiento ni potencia acreditada.
+
+Informe vigente: REVISION_CONSISTENCIA_JBOOK.md y results/revision_consistencia_20261116/REVISION.md. Evidencias en auditoria.json,recursos_por_semilla.csv,pruebas.log,construccion.log yqa/. Verificación:86pruebas correctas y5omitidas;construcción sin errores ni advertencias,enlaces y anclas locales íntegros. HTML local actualizado;sin entrenamiento,inferencia de redes,publicación ni apagado.
+
+
+## 32. Conjunto principal de diez modelos · 16 de noviembre de 2026
+
+El usuario aclara que los diez modelos son los ya entrenados: ARX, MLP, LSTM, CNN1D, TFT, TCN, iTransformer, TaTS, fusión tardía y TGForecaster. Este es el conjunto principal acordado. PatchTST y N-HiTS se conservan como comparadores numéricos; TGForecaster tiene variantes N/N+O. De ahí los trece procedimientos y65realizaciones de las tablas, además de los dos ingenuos. No recomendar incorporar nuevas arquitecturas para completar un supuesto conjunto de diez adicionales. Se retira ese pendiente del JBook y del informe de revisión. Los restantes pendientes metodológicos se mantienen. Sin cambios de pesos, predicciones ni métricas, sin entrenamiento ni publicación.
+
+
+## 33. Publicación del estado actual · 16 de noviembre de 2026
+
+A solicitud del usuario se publica el HTML generado en main:/docs del repositorio Prediccion-Demanda-Electrica. Commit 95c492c65bccc2ceecdfb9da176d9506c5986f5a. GitHub Pages confirma estado built y respuesta HTTP200 en https://fabian-11037.github.io/Prediccion-Demanda-Electrica/intro.html. Se conserva el contenido vigente, con trece procedimientos y diez modelos principales. No se recalculan modelos ni se modifican pesos. La publicación solo actualiza docs; el checkout de publicación es la carpeta hermana Publicacion-Demanda-JBook-20261116. Recibo local: results/publicacion/jbook_20261116.json. No volver a publicar cambios posteriores sin una nueva solicitud.
+
+## 34. Dashboard público en Render · 17 de noviembre de 2026
+
+Se crea dashboard/ con aplicación estática independiente: Contexto, EDA y Modelos. URL: https://demanda-electrica-dashboard.onrender.com/index.html. Render confirma Live; servicio srv-dbuc2rec6qcc73da0mdg, despliegue dep-dbuc2rmc6qcc73da0nc0, código 1a4fffe5fddf8adeef7773fd9fc488c1eafed494. El acceso HTTP devuelve 200.
+
+Utiliza los resultados congelados: diez modelos principales, trece procedimientos,65realizaciones,1461orígenes,105parejas temporales y78entre semillas. EDA de30series2000–2025, cobertura del canal oficial, pronósticos por fecha, benchmark, rangos/MCS, diagnósticos,24esquemas y enlaces a los pipelines del JBook. MAE/RMSE se agregan después de evaluar cada semilla; banda p10–p90 entre inicializaciones. No ofrece pronósticos para fechas nuevas.
+
+El despliegue no requiere Python, pesos, GPU, claves ni servicio de pago. Raíz dashboard, publicación site, comando echo Dashboard preparado, SKIP_INSTALL_DEPS=true. Conexión por repositorio público y despliegue manual; no ampliar permisos GitHub. La exportación se ejecuta explícitamente con dashboard/scripts/export_data.py, nunca durante el despliegue. Trazabilidad en site/data/manifest.json. Contexto de operación en dashboard/CONTEXTO_DASHBOARD.md.
+
+Comprobaciones:86pruebas correctas y5omitidas del proyecto;3pruebas específicas del dashboard correctas, incluida reproducción de las métricas de los13procedimientos. Revisión de navegación, filtros, límites de fecha, diagnósticos y diseño móvil/escritorio. No se entrenan modelos ni se modifican sus pesos, predicciones o configuraciones. El JBook conserva el contenido publicado.
+
+## 35. Redacción académica y fuentes reproducibles · 17 de noviembre de 2026
+
+El usuario solicita prosa propia de investigación, sin autoevaluaciones del cumplimiento del entregable ni aclaraciones editoriales innecesarias. La discusión conserva resultados, incertidumbre y amenazas metodológicas. La literatura se centra en demanda: se retiran las tablas y los contrastes empíricos de precio, y Time-MMD se cita como referencia metodológica externa. Cinco estudios empíricos de demanda sustentan el recuento de comparadores; la revisión y los resúmenes mantienen su función contextual. La introducción identifica trece procedimientos y dos referencias estacionales. Inventario vigente:51figuras,47tablas y24esquemas.
+
+Se sincronizan book/, sus arquitecturas, TOC, recursos y scripts con el análisis actual. La sección estadística está integrada en10_evaluacion.ipynb; su fuente histórica se conserva en results/reorganizacion_capitulo10/fuentes, sin duplicar páginas. scripts/redaccion_investigacion.py aplica el criterio editorial al finalizar las reconstrucciones. No restaurar dictámenes sobre la entrega ni las tablas de precio retiradas.
+
+scripts/reconstruir_evaluacion.py reejecuta las40celdas analíticas desde predicciones y mediciones conservadas. La instantánea d1ae9a4 conserva2019archivos de análisis no neuronales,57,5MB; se verifican hashes de metadatos y predicciones. Los checkpoints no se requieren para reconstruir figuras. Se incluyen results/evaluacion_e2, results/diagnosticos_ampliados y las fuentes y recursos de los generadores. .gitattributes conserva los bytes de las fuentes con hash al mover entre Windows/Linux.
+
+scripts/reorganizar_capitulo10.py reconstruye la presentación integrada; la actualización completa del EDA es opcional con --actualizar-eda. La inferencia nueva requiere PyTorch y los binarios identificados en fuentes_diagnosticos.json; su raíz se configura mediante DEMANDA_ARTEFACTOS. La construcción documental utiliza las salidas incluidas y no requiere la carpeta hermana de consolidación. No presentar estos dos procesos como si tuvieran las mismas dependencias.
+
+No se cambian pesos, arquitecturas, predicciones ni métricas de prueba; no se entrena ni se publica el JBook. El HTML público conserva su última versión hasta una solicitud de publicación.

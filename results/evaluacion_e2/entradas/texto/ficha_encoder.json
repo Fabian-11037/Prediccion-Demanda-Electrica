@@ -1,0 +1,29 @@
+{
+ "ficha": {
+  "encoder": "intfloat/multilingual-e5-base",
+  "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "prefijo": "query: ",
+  "pooling": "mean_attention_mask",
+  "normalizacion": "L2",
+  "tokens_max": 512,
+  "solapamiento_tokens": 64,
+  "max_fragmentos_documento": 8,
+  "n_documentos": 14162,
+  "sha256_contenidos": "2a931421fc6378d289a0c9de93014611c35a3a99eaebe0489fcd82a175c322d9"
+ },
+ "dimension": 768,
+ "documentos_codificados": 14162,
+ "segundos": 628.2,
+ "dispositivo": "cuda",
+ "documentos_truncados": 1175,
+ "porcentaje_documentos_truncados": 8.3,
+ "porcentaje_tokens_descartados": 33.36,
+ "capacidad_tokens_por_fragmento": 507,
+ "tokens_especiales": [
+  1,
+  1
+ ],
+ "tokens_prefijo": 3,
+ "transformers": "5.22.2",
+ "codificador_de_prueba": false
+}

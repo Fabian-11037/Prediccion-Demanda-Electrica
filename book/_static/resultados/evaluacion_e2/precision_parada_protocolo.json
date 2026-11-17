@@ -1,0 +1,27 @@
+{
+  "procedimientos": 8,
+  "realizaciones": 40,
+  "semillas": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004
+  ],
+  "parejas": 28,
+  "n_origenes_parada": 803,
+  "inicio": "2019-10-21 00:00:00-05:00",
+  "fin": "2021-12-31 00:00:00-05:00",
+  "referencia": "adj_modelo6_20261112_1035__N",
+  "MASE_referencia": 0.5709805536589401,
+  "delta_relativo": 0.03,
+  "alpha": 0.05,
+  "potencia_objetivo": 0.8,
+  "R_max_individual": 2112,
+  "R_max_Bonferroni": 4231,
+  "fuente_error": "MASE_parada · evaluación del checkpoint restaurado",
+  "prueba_usada_para_dimensionar": false,
+  "piloto_externo_reconstruido": false,
+  "entrenamiento": false,
+  "publicacion": false
+}
