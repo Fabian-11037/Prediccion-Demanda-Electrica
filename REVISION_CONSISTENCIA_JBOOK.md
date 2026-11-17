@@ -1,33 +1,59 @@
-# Revisión de consistencia del Jupyter Book
+# Revisión de consistencia y completitud del JBook
 
-Fecha: 8 de noviembre de 2026. Alcance: trece cuadernos, introducción, fuentes, diccionario, pipeline, resultados derivados y contexto. Se contrastaron lenguaje, conceptos, cifras y enlaces; no se ajustaron modelos ni se modificaron sus predicciones.
+16 de noviembre de 2026. Se contrastaron los capítulos, sus tablas y figuras, las fichas de arquitectura, el código mostrado, los resultados guardados, los enlaces internos y las pautas E1/E2. La revisión usa artefactos existentes; no inicia entrenamiento, inferencia de redes ni publicación.
 
-| Aspecto | Resultado de la revisión |
-|---|---|
-| Problema y variables | Una serie objetivo, demanda real horaria del SIN, con covariables. Horizonte 24, historia 168; entradas ejecutadas: demanda y 23 variables de calendario. |
-| Unidades y calendario | Demanda expresada como energía por intervalo, no mezclada con precios o potencia de otros estudios. Domingo/festivo se distingue del resto y de sábado no festivo. |
-| Periodos y escalado | EDA2000–2021; validación expansiva 2018–2021; prueba 2022–2025. Estadísticas de características por tramo de optimización; denominador MASE fijo de referencia 2000–2017. |
-| Margen | δ relativo único 3 %. Planificación sobre diferencias relativas a MLP piloto; TOST sobre θ_AB=(μ_A−μ_B)/μ_MLP. Umbral operativo 0,97×MASE de MLP. |
-| Semillas y potencia | Cinco semillas finales 1000–1004 por familia. El cálculo aproximado exige 25–45 y hasta 60 con ajuste conservador; cinco no acreditan potencia 0,80 para 3 %. |
-| Conclusiones estadísticas | t pareadas con Holm y DM detectan diferencias entre las tres redes. Wilcoxon exacto no rechaza con cinco pares; Nemenyi no distingue todas las parejas. Las conclusiones se atribuyen a cada método. |
-| ARX frente a CNN1D | No se detecta diferencia temporal significativa ni se establece equivalencia. TOST relativo con Holm: p≈0,859. |
-| Latencia | Medida en CPU y separada del ajuste GPU. Veinte checkpoints, calentamiento 20, mediciones 200, batch 1 y un hilo; sólo forward. |
-| Cronología | Se declara que el plan LSTM fue posterior a la disponibilidad de otros resultados de prueba y que el conjunto no constituye confirmación independiente. El dimensionamiento es retrospectivo. |
-| Literatura | Se separan demanda, precio y métodos generales. Cinco estudios empíricos de demanda en el denominador; resúmenes sólo como contexto. Se incorporan secciones propias por modelo y comparación crítica. |
-| Matriz bibliográfica | Se corrigió la clasificación de irradiancia como variable meteorológica; los estudios de otros autores mantienen atribución y alcance. |
-| Redacción y estructura | Se consolidaron alcance y discusión, tiempos verbales y términos; se eliminaron rutas repetidas de exportación en tablas. Capítulos 09_validacion y 10_modelos; evaluación 10.9 y pipeline 10.10. |
-| Reproducibilidad | Código analítico visible, narrativa nativa, descargas de resultados, hash canónico de etiquetas y referencias cruzadas verificables. |
+## Resultado
 
-## Limitaciones que permanecen
+La presentación y los resultados son consistentes después de las correcciones. El cumplimiento experimental de E1/E2 sigue siendo parcial: una entrega sin errores de construcción no acredita el cumplimiento de todos los requisitos metodológicos.
 
-La potencia, el presupuesto desigual, la selección adaptativa y la exposición a prueba limitan una conclusión confirmatoria. La cronología no prueba por sí sola qué información influyó en las decisiones. No se recuperaron las cadenas originales ni las fechas de ejecución de Scopus y WoS; no hay un PRISMA conciliado ni revisión independiente duplicada. No se identifica una cota empírica de ruido irreducible.
+Inventario vigente: 13 cuadernos, 97 celdas analíticas, 53 figuras, 49 tablas (25 calculadas y 24 Markdown), 12 fichas y 24 esquemas. Benchmark: 13 procedimientos, 65 realizaciones, dos referencias, 105 parejas temporales, 78 entre semillas, tres contrastes textuales y 72 contrastes textuales por horizonte. PatchTST figura una sola vez con MASE 0,6725016176.
 
-La coherencia interna del libro no equivale a cumplimiento integral de la pauta. Los resultados cuantitativos se conservan con alcance exploratorio. La medición CPU no se presenta como medición GPU ni como latencia de extremo a extremo.
+## Correcciones aplicadas
 
-## Validación
+- El p de Levene del texto se actualiza de 0,000834 a 0,001526 según el protocolo vigente. La corrección se deriva del archivo de resultados para evitar otra cifra desactualizada al regenerar.
+- Las referencias de literatura a MLP, LSTM y CNN1D enlazan sus fichas propias; antes apuntaban a §10.2, correspondiente a ARX.
+- La síntesis bibliográfica incorpora TGForecaster y los controles de contenido ya calculados. La prensa, las ablaciones por fuente y la comparación con núcleo e hiperparámetros idénticos permanecen pendientes.
+- Se distingue lo ejecutado de la ampliación propuesta: canal oficial frente a prensa, ventana principal frente a sensibilidades previstas, y fusión tardía evaluada frente a la propuesta de corrección acotada. El escenario estricto tiene auditoría de cobertura, no resultados predictivos equivalentes a los del declarado.
+- Se explicita la ventana documental inclusiva [cierre − 72 h, cierre] y los siete cierres de TaTS. Se conserva el procedimiento real; no se retroajustan listas ni pesos.
+- El diseño de métricas coincide con el benchmark integrado: MASE primario, MAE y RMSE complementarios. Se aclara que las métricas se calculan por semilla y después se promedian, incluyendo RMSE.
+- La reproducción distingue construir HTML con salidas conservadas de recalcular los análisis. La revisión no certifica una ejecución nueva en Linux ni el entrenamiento en todas las combinaciones de hardware.
+- El alcance del E2 explicita el conjunto principal de diez modelos entrenados, la réplica del paper guía y los registros de recursos faltantes.
 
-La construcción y la verificación local comprueban ejecución, enlaces, presencia de interpretaciones, cobertura del diccionario y contratos entre resultados. Los resultados de esas comprobaciones quedan en results/jbook/auditoria.json y results/jbook/revision_consistencia.json. No se publica el sitio durante esta revisión.
+Las correcciones persisten en scripts/consistencia_completitud_jbook.py, integrado en la armonización de la selección y en la reconstrucción de diagnósticos. Las salidas numéricas del benchmark, las configuraciones y las predicciones se conservan.
 
-En ADF, el valor cero del software corresponde al límite de su aproximación de MacKinnon y se reporta como p<0,001; no se interpreta como probabilidad exactamente nula ni como una cota de 1e-300.
+## Consistencia y completitud por componente
 
-Validación final: 43 pruebas correctas y 5 omitidas; las advertencias de pruebas corresponden a APIs de pandas de módulos existentes. El JBook tiene cero errores, advertencias de construcción y enlaces locales rotos. Se conservan cinco semillas por familia, sin entrenamiento ni publicación adicionales.
+| Componente | Resultado | Evidencia o pendiente |
+|---|---|---|
+| Formulación, unidades y entradas | Consistente | Demanda nacional en kWh por intervalo, 168 h de historia, 24 h de horizonte. Covariables ampliadas y entradas de las cuatro familias base diferenciadas. |
+| Datos, EDA y diccionario | Presentes | Calidad, distribución, transformaciones, ADF/KPSS, estacionalidad, clima e hidrología, atípicos y desplazamiento formal; código e interpretación junto a las figuras. 84 campos persistidos definidos. |
+| Selección y prueba | Documentadas con limitaciones |4 años externos disponibles, confirmaciones distintas por procedimiento, prueba retrospectiva 2022–2025. La selección de PatchTST por error de prueba no se presenta como prospectiva. |
+| Semillas, métricas y contrastes | Consistentes |5 semillas por procedimiento; MASE, MAE, RMSE, intervalos temporales y entre semillas; Holm, Friedman, Nemenyi, MCS, DM–HLN ybootstrap concordantes con los archivos. |
+| Potencia y equidad | Parcial |No se acredita potencia 0,80; los presupuestos difieren. El dimensionamiento retrospectivo no determina cuántas semillas deban ejecutarse automáticamente. |
+| Arquitecturas y pipelines | Presentes |12 fichas, 24 diagramas y 60 referencias a 52 archivos distintos; se comprueban existencia y sintaxis Python. No se ejecutan los pipelines de entrenamiento en esta revisión. |
+| Corpus y disponibilidad | Consistente bajo escenario declarado |14.162 registros del caché, escenario y reglas identificados;9.497 cierres auditados sin documentos adelantados respecto a su disponibilidad declarada. La publicación histórica de esas versiones sigue sin certificarse. |
+| Sensibilidad al texto | Presente con alcance condicionado |Retirada, contenido cero y contenido histórico con pesos fijos para 3 procedimientos; descripciones estáticas de TGForecaster separadas. No sustituye una ablación con reentrenamiento y núcleo idéntico. |
+| Conjunto principal del benchmark | Diez modelos entrenados | ARX, MLP, LSTM, CNN1D, TFT, TCN, iTransformer, TaTS, fusión tardía y TGForecaster. PatchTST y N-HiTS son comparadores numéricos; TGForecaster tiene dos variantes. Se conservan trece procedimientos y dos referencias deterministas. |
+| Referencias y paper guía | Parcial |ARX e ingenuos presentes; falta ARIMA o ETS según ruta temporal §7.4 S5. No se documenta réplica bajo dataset, partición y métrica originales del paper guía §5. |
+| Robustez y ablación §4.6 | Parcial |Hay perturbaciones e intervenciones de contenido, pero no una batería de severidad de al menos 3 niveles por perturbación ni ablación de 3 componentes del mejor modelo con el diseño exigido. |
+| Recursos §4.2 | Parcial |Parámetros, tiempos y latencia presentes. Solo N-HiTS conserva memoria pico: 416.907.776 bytes en cada semilla. Sin FLOPs registrados para 13 procedimientos. No confundir latencia del forward con costo del encoder o servicio completo. |
+| Literatura §3 | Parcial |Revisión dirigida con fuentes y recuentos; faltan cadenas y fechas originales de Scopus/WoS, conciliación PRISMA y revisión independiente. 12 estudios derivados de abstracts permanecen fuera del denominador de comparadores de texto completo. |
+| Reproducibilidad documental | Verificada localmente |86 pruebas correctas, 5 omitidas; construcción sin advertencias, errores ni enlaces rotos. 902 fragmentos HTML verificados en 35 páginas. No se ejecuta una instalación limpia en Linux durante esta revisión. |
+
+## Recomendaciones priorizadas
+
+1. **Aislar el aporte del texto.** Comparar una base PatchTST común con y sin documentos manteniendo núcleo, hiperparámetros, entradas, semillas y presupuesto. Conservar los controles de presencia, contenido cero e histórico y añadir ablaciones por fuente y disponibilidad. El resultado de TaTS es cercano al control; la dependencia de un canal no demuestra utilidad de noticias recientes.
+2. **Completar las obligaciones experimentales del E2 antes de ampliar complejidad.** Documentar la selección de los diez modelos existentes, incorporar ARIMA o ETS como referencia y seleccionar un paper guía con dataset y código accesibles para la réplica exigida. Preparar robustez a 3 severidades y ablación de 3 componentes, evitando contar cambios de arquitectura o presupuesto como efecto puro del texto.
+3. **Planificar prospectivamente potencia y prueba.** Fijar hipótesis primarias, δ = 3 %, familias de contrastes y presupuesto antes de nuevas corridas. Estimar precisión con un piloto adecuado; no adoptar mecánicamente las mayores estimaciones retrospectivas. Reservar una prueba con fechas posteriores al congelamiento efectivo y registrar entradas/pronósticos en tiempo real.
+4. **Cerrar la evidencia bibliográfica.** Recuperar estrategias y fechas de búsqueda, conciliar duplicados y exclusiones, documentar PRISMA y someter la extracción a revisión independiente. Los abstracts sirven para localizar candidatos, no para respaldar comparaciones experimentales no verificadas.
+5. **Completar costos y reproducción.** Medir memoria pico y FLOPs con entrada, batch y hardware definidos, e incluir el costo del encoder cuando se evalúe operación. Probar una reconstrucción desde copia limpia en Windows y Linux con dependencias fijadas y un inventario mínimo de archivos.
+
+Estas recomendaciones quedan como pendientes. No se programan entrenamientos ni publicación.
+
+## Evidencias
+
+- results/revision_consistencia_20261116/auditoria.json: contratos, conteos, código, esquemas, ventanas y enlaces.
+- results/revision_consistencia_20261116/recursos_por_semilla.csv: 65 registros de disponibilidad de memoria/FLOPs y sus fuentes.
+- results/revision_consistencia_20261116/pruebas.log y construccion.log.
+- results/revision_consistencia_20261116/pauta_E1.txt y pauta_E2.txt: extracción de 34 y 65 páginas, con límites de página.
+- results/revision_consistencia_20261116/respaldo/: documentación antes de las correcciones.
