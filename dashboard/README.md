@@ -1,5 +1,7 @@
 # Dashboard de demanda eléctrica del SIN
 
+[Abrir el dashboard público](https://demanda-electrica-dashboard.onrender.com/index.html).
+
 Aplicación estática con Contexto, EDA y Modelos. Presenta los diez modelos principales, dos comparadores numéricos y las variantes N/N+O de TGForecaster: trece procedimientos, cinco semillas por procedimiento y dos referencias ingenuas.
 
 Los pronósticos corresponden a la evaluación histórica 2022–2025. El selector de fechas explora resultados guardados; no produce predicciones para fechas nuevas. No necesita pesos, GPU, credenciales ni servidor Python en producción. Los datos y Plotly se sirven desde el mismo sitio, sin servicios externos de analítica.
