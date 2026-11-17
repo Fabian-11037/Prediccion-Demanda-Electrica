@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: demanda-electrica-dashboard
+    runtime: static
+    rootDir: dashboard
+    buildCommand: echo Dashboard preparado
+    staticPublishPath: site
+    envVars:
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+    buildFilter:
+      paths:
+        - dashboard/**
