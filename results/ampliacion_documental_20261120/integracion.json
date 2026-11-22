@@ -1,0 +1,20 @@
+{
+  "version": "corpus_oficial_ampliado_20261120",
+  "filas_anteriores": 575473,
+  "documentos_nuevos": 50104,
+  "corpus_filas": 625577,
+  "oficiales_filas": 58011,
+  "ids_duplicados": 0,
+  "cuarentena_nuevos": 6231,
+  "nuevos_con_cuerpo": 49744,
+  "por_fuente": {
+    "CREG": 3706,
+    "IDEAM": 45199,
+    "Presidencia": 773,
+    "XM": 426
+  },
+  "corpus_anterior_sha256": "2b6ee4071ae0806b236cd3cf9c0aa7335bc4dc02ac6241c556c95a45b7eb7cc7",
+  "corpus_sha256": "e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c",
+  "entrenamiento": false,
+  "publicacion": false
+}

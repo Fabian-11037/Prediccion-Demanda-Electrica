@@ -28,3 +28,20 @@ estado_extraccion,str,"Resultado de la extracción automática, incluido OCR pen
 version,str,Versión de integración o conservación del titular.
 titulo_verificado,str,"En PDF corroborados por CDX, encabezado derivado del propio PDF; evita usar un título editorial actual como si estuviera archivado."
 grupo_titulo_fecha,str,"Huella de fuente, título normalizado y fecha para diagnosticar repetición, sin borrar automáticamente publicaciones de días distintos."
+identidad_pdf_aceptada,bool,"Concordancia del número y año del acto con el PDF enlazado, a partir del encabezado o de su nombre; no acredita disponibilidad histórica."
+identidad_pdf_metodo,str,Evidencia empleada al contrastar el identificador del acto con su PDF original.
+identidad_pdf_detalle,str,"Resultado de la comparación de identificadores, URL y SHA-256 del PDF. Si no se corrobora, se conserva solo el HTML depurado como contenido utilizable."
+fecha_encabezado_documento,str,"Fecha de edición leída en el encabezado del PDF, separada de la fecha del nombre para auditar discrepancias."
+fecha_nombre_documento,str,Fecha de edición identificada en el nombre del PDF. Una discrepancia con el encabezado de un miembro ZIP activa cuarentena.
+caracteres_control_eliminados,int,Cantidad de caracteres no imprimibles retirados del texto extraído. Su presencia se conserva como alerta de calidad.
+mes_referencia,str,Mes YYYY-MM identificado en la carpeta del informe XM. No es una fecha de publicación.
+anio_referencia,int,Año del periodo descrito por el informe. No equivale a su publicación ni disponibilidad.
+fecha_catalogo,str,Fecha declarada en el catálogo oficial; no se hereda a los miembros de archivos ZIP.
+modificado_repositorio,str,Última modificación del repositorio. La migración de Sinergox en 2026 no acredita publicación histórica.
+version_extractor,int,Versión del extractor empleado en la ampliación documental.
+extractor_texto,str,Motor de extracción nativa; OCR se identifica también en estado y alertas.
+pdf_creation_date,str,"Metadato de creación del PDF, conservado como diagnóstico y nunca como prueba de publicación."
+paquete_url,str,URL del archivo ZIP que contenía el PDF; los miembros se verifican por CRC y SHA-256.
+evidencia_fecha,str,Extracto del encabezado o del Diario Oficial utilizado para identificar la fecha declarada.
+indice_url,str,Catálogo oficial desde el que se descubrió el documento.
+indice_archivo,str,"Copia local del índice oficial, conservada con su SHA-256."

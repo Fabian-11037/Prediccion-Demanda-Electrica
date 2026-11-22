@@ -1,5 +1,5 @@
 {
-  "version": "corpus_oficial_20261109",
+  "version": "corpus_oficial_ampliado_20261120",
   "periodo": [
     "2000-01-01",
     "2025-12-31"
@@ -22,8 +22,8 @@
     },
     {
       "archivo": "data/processed/corpus_texto.parquet",
-      "bytes": 92218678,
-      "sha256": "2b6ee4071ae0806b236cd3cf9c0aa7335bc4dc02ac6241c556c95a45b7eb7cc7"
+      "bytes": 159086185,
+      "sha256": "e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c"
     },
     {
       "archivo": "data/raw/noticias/titulares.parquet",
@@ -32,13 +32,13 @@
     },
     {
       "archivo": "data/raw/documentos_oficiales/documentos_oficiales.parquet",
-      "bytes": 17871116,
-      "sha256": "478ee682a1f1cc3838b943c4187f8d1b62a9fbfe089b2dffdcc8b24f02e6d2a1"
+      "bytes": 89624627,
+      "sha256": "3bd14cd84b25ceb6c737404d97b27b840e56a4abc780f6748eb2c972af3173dd"
     },
     {
       "archivo": "data/processed/diccionario_corpus_texto.csv",
-      "bytes": 3070,
-      "sha256": "e792292d1a254bd21088686916a20a3e8dc3f1b76a9b0c3a7c9b9a958ef56dfb"
+      "bytes": 5124,
+      "sha256": "3bc5e2575eadc99916a5cbe407939f969dcc1b875c65f0323f55a54f64a32cd6"
     },
     {
       "archivo": "scripts/adquisicion/descargar_documentos_oficiales.py",
@@ -69,6 +69,75 @@
       "archivo": "src/demanda/corpus.py",
       "bytes": 2846,
       "sha256": "df90f6ffdc9f862975371ffffdd465791d681fb74e47cb8c3b51f71fd0665391"
+    },
+    {
+      "archivo": "scripts/adquisicion/ampliar_corpus_20261120.py",
+      "bytes": 23334,
+      "sha256": "5d99ffbba6ee0f4c3262e414a28e5880d6b3cf382708641c3e9e813db12c22ca"
+    },
+    {
+      "archivo": "scripts/adquisicion/integrar_ampliacion_20261120.py",
+      "bytes": 36798,
+      "sha256": "2c78e4e949865035ff9be6d8e3b4b3894d155ba0d8fb75cdd21a2209bf1ff96c"
+    },
+    {
+      "archivo": "scripts/adquisicion/cerrar_ampliacion_20261120.py",
+      "bytes": 20116,
+      "sha256": "77c795a68978173f52c1d13eb24420c8a26496027a27f75368a5d5d78cb0ad00"
+    },
+    {
+      "archivo": "scripts/adquisicion/completar_ampliacion_20261120.py",
+      "bytes": 12060,
+      "sha256": "09aaaa5c7e43b13e61d482c1b01506991cf6a73d18c6d5101d1fb8ac1503f313"
+    },
+    {
+      "archivo": "scripts/adquisicion/validar_ampliacion_20261120.py",
+      "bytes": 3477,
+      "sha256": "55d49c34cb83e7768d995c16f56baecd316965e7d7e7fc195b51519bdfe6b854"
+    },
+    {
+      "archivo": "scripts/adquisicion/identidad_normativa.py",
+      "bytes": 5626,
+      "sha256": "9a13f86f9e0438c475386c39fa0cc76b1e6a252a5dfeea7dd794feeb50844089"
+    },
+    {
+      "archivo": "requirements-oficiales.txt",
+      "bytes": 156,
+      "sha256": "889b9c923e1ec3f756018f3279c09abc2e6e6ffa5fe7cbfcbb590f05881afeef"
+    },
+    {
+      "archivo": "requirements-ocr-windows.txt",
+      "bytes": 475,
+      "sha256": "edf58cffb0566d0a01f109d33f363692bf3465f00b5351378c2b0bf9b9c56110"
+    },
+    {
+      "archivo": "data/raw/documentos_oficiales/ampliacion_20261120/ideam_rutas_directas.json",
+      "bytes": 5021016,
+      "sha256": "35eab9c7592c2ddc0b51772556198a6859ef26cd3d54faed9394c56dc4674aac"
+    },
+    {
+      "archivo": "data/raw/documentos_oficiales/ampliacion_20261120/documentos_nuevos.parquet",
+      "bytes": 76993045,
+      "sha256": "1256585986644004cf28cdaaaec32019d552a63c7bdff9be2f9fbdff319e298d"
     }
+  ],
+  "actualizado_en": "2026-11-21T22:38:35.515562+00:00",
+  "filas_corpus": 625577,
+  "filas_nuevas": 50104,
+  "fuentes": 13,
+  "escenario_principal": "declarado",
+  "escenario_sensibilidad": "estricto",
+  "snapshot_previo": "data/processed/versiones/corpus_oficial_20261109/",
+  "corpus_evaluacion_congelado": "results/evaluacion_e2/entradas/texto/corpus_oficial.parquet",
+  "corpus_evaluacion_filas": 14162,
+  "recopilacion": "results/ampliacion_documental_20261120/INFORME.md",
+  "entrenamiento_ejecutado": false,
+  "publicacion_ejecutada": false,
+  "reglas_temporales": [
+    "Fecha sin hora: día siguiente a las 00:00 America/Bogota.",
+    "Diario Oficial: se considera también la fecha posterior de disponibilidad web si está declarada.",
+    "Fecha de recuperación como disponibilidad estricta de los documentos nuevos; no se retrodata.",
+    "Sin fecha de publicación identificada: cuarentena. El mes referido, CreationDate y migración no sustituyen la publicación.",
+    "Sin clasificación temática ni filtrado manual de relevancia; los tipos son familias documentales de origen."
   ]
 }

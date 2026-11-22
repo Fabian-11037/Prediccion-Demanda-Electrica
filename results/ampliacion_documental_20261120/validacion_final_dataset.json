@@ -1,0 +1,133 @@
+{
+  "fecha": "2026-11-21T22:39:23.230999+00:00",
+  "duplicados_id": 0,
+  "duplicados_nuevos_fuente_bytes": 0,
+  "muestra_originales_sha256": 100,
+  "sha256_texto": "todos los documentos nuevos",
+  "meses_por_fuente_escenario": 312,
+  "cobertura_coincide_cargador": [
+    {
+      "escenario": "declarado",
+      "fuente": "CREG",
+      "documentos": 3494
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "Dinero",
+      "documentos": 129
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "El Colombiano",
+      "documentos": 461461
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "El Espectador",
+      "documentos": 8550
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "El Tiempo",
+      "documentos": 49350
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "IDEAM",
+      "documentos": 48485
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "La República",
+      "documentos": 10381
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "MinEnergia",
+      "documentos": 2721
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "Portafolio",
+      "documentos": 1815
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "Presidencia",
+      "documentos": 753
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "Semana",
+      "documentos": 29385
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "UPME",
+      "documentos": 206
+    },
+    {
+      "escenario": "declarado",
+      "fuente": "XM",
+      "documentos": 2346
+    },
+    {
+      "escenario": "estricto",
+      "fuente": "CREG",
+      "documentos": 252
+    },
+    {
+      "escenario": "estricto",
+      "fuente": "El Espectador",
+      "documentos": 4697
+    },
+    {
+      "escenario": "estricto",
+      "fuente": "El Tiempo",
+      "documentos": 48323
+    },
+    {
+      "escenario": "estricto",
+      "fuente": "IDEAM",
+      "documentos": 878
+    },
+    {
+      "escenario": "estricto",
+      "fuente": "La República",
+      "documentos": 8162
+    },
+    {
+      "escenario": "estricto",
+      "fuente": "MinEnergia",
+      "documentos": 0
+    },
+    {
+      "escenario": "estricto",
+      "fuente": "Portafolio",
+      "documentos": 391
+    },
+    {
+      "escenario": "estricto",
+      "fuente": "Presidencia",
+      "documentos": 0
+    },
+    {
+      "escenario": "estricto",
+      "fuente": "Semana",
+      "documentos": 999
+    },
+    {
+      "escenario": "estricto",
+      "fuente": "UPME",
+      "documentos": 121
+    },
+    {
+      "escenario": "estricto",
+      "fuente": "XM",
+      "documentos": 4
+    }
+  ],
+  "alineaciones_comprobadas": 30,
+  "entrenamiento": false,
+  "publicacion": false
+}

@@ -1,0 +1,12 @@
+{
+  "meses": 312,
+  "fuentes": 13,
+  "filas": 9360,
+  "duplicados": 0,
+  "escenarios": [
+    "declarado",
+    "estricto"
+  ],
+  "entrenamiento": false,
+  "publicacion": false
+}

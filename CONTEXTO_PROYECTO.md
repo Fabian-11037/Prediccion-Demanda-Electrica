@@ -1,10 +1,10 @@
 # Contexto del proyecto
 
-Actualizado el 17 de noviembre de 2026. Idioma: español. Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez. Maestría en Estadística Aplicada, Universidad del Norte.
+Actualizado el 2026-11-21. Idioma: español. Autores: Fabian José Manrique Morelos y Gloria Bastidas Rodriguez. Maestría en Estadística Aplicada, Universidad del Norte.
 
-## Estado vigente · 17 de noviembre de 2026
+## Estado vigente · 20 de noviembre de 2026
 
-La evaluación conserva 13 procedimientos, 65 realizaciones y dos referencias. PatchTST se presenta una vez (MASE 0,6725016). Hay 51 gráficas, 47 tablas y 24 esquemas. La redacción y reproducción de las fuentes se actualizan en §35; las secciones fechadas anteriores documentan estados históricos. No entrenar ni publicar sin solicitud expresa.
+La evaluación conserva 15 procedimientos aprendidos, 75 realizaciones y 2 referencias estacionales. El menor MASE medio corresponde a TimesNet · N: 0,6429278. El MCS al 90 % retiene TimesNet · N. Hay 51 gráficas, 47 tablas y 28 esquemas. Los conteos y las conclusiones se regeneran desde resultados; ver §37. Esta actualización es local; no entrenar ni publicar sin solicitud expresa.
 
 ## 0. Redacción y alcance
 
@@ -37,7 +37,7 @@ Inventario y detalle en `data/raw/README.md` y `data/external/README.md`.
 | Habitantes por ciudad (censo 2018 del DANE ajustado por omisión censal) | estático | incluido en `data/raw/numeric/ciudades.csv`; cifras de **fuente secundaria** (Portafolio, 17-oct-2019, citando al DANE); sustituir por el archivo oficial |
 | Hidrología diaria (llenado, reserva útil, capacidad útil, aportes) | 2000-01-01 → 2025-12-31 | incluido |
 | Titulares de prensa (7 medios) y boletines IDEAM | 568 295 titulares, 2004-2025 | incluido (`data/raw/noticias/titulares.parquet`) |
-| Corpus integrado de prensa y documentos oficiales | 575473 filas; 7907 documentos oficiales únicos | data/processed/corpus_texto.parquet; disponibilidad y alcance en §13 |
+| Corpus integrado de prensa y documentos oficiales | 625577 filas; ampliación oficial versionada en §41 | data/processed/corpus_texto.parquet; manifiesto activo y cobertura en §41 |
 | Festivos de Colombia | 2000-2035 | generado (`data/external/festivos_colombia.csv`) |
 | ISE (DANE), actividad económica | Base2015:2005–2026-08; ediciones antiguas desde2000 | Descargado,168anexos y102ediciones normalizadas; ver§17 |
 | Pronósticos meteorológicos | JMA2018 y GFS2021, ocho ciudades, hasta2026-11-09 | Descargado; temperatura/humedad/precipitación y disponibilidad estimada; ver§17 |
@@ -86,9 +86,11 @@ Entrenador: AdamW, precisión completa, determinismo estricto, clip 1; mínimo10
 | Ingenuo semanal | 1.354906 | 292,142.09 | 444,631.87 | 0.851736 |
 | Ingenuo diario | 2.076725 | 447,778.99 | 659,593.46 | 0.673723 |
 
-MLP es el baseline empírico del benchmark y reduce el error un44,5 % frente al ingenuo semanal. ARX y CNN1D tienen errores agregados próximos. Se calculan medias, DE e intervalos t95 % entre cinco inicializaciones, condicionados a las mismas fechas. No confundir esos intervalos con incertidumbre temporal ni la banda de semillas con un intervalo predictivo calibrado.
+Entre las cuatro familias de demanda/calendario, MLP es el baseline empírico y reduce el error un 44,5 % frente al ingenuo semanal. El benchmark ampliado y su ranking vigente están en §36–40. ARX y CNN1D tienen errores agregados próximos. Se calculan medias, DE e intervalos t95 % entre cinco inicializaciones, condicionados a las mismas fechas. No confundir esos intervalos con incertidumbre temporal ni la banda de semillas con un intervalo predictivo calibrado.
 
-La evaluación temporal promedia pérdidas individuales entre semillas antes de remuestrear; no evalúa una predicción ensemble. Bootstrap circular estratificado por año,10000 réplicas, bloques 7/14/28 días e índices apareados. DM–HLN sobre diferencias diarias por hora, HAC Bartlett14rezagos, h=1origen diario no solapado; Holm por separado entre72 contrastes neuronales y72contraARX. Residuos de semilla 1000: Ljung–Box 7/14/28, ARCH 7, BDSdimensión2 sobre últimos1000 días, Holm entre20diagnósticos. BDS no aísla no linealidad si existe memoria.
+La evaluación integrada promedia pérdidas individuales entre semillas antes de remuestrear; no evalúa una predicción ensemble. Utiliza bootstrap circular pareado con 10.000 réplicas y bloques de 7/14/28 días. DM–HLN utiliza diferencias diarias, HAC Bartlett de 13 rezagos y horizonte efectivo de un origen no solapado. Holm considera 136 parejas temporales, 105 entre semillas y una familia específica de tres contrastes textuales. Los 72 contrastes textuales por horizonte se ajustan conjuntamente.
+
+Los diagnósticos integrados utilizan el residuo diario medio de la predicción media de cinco semillas, exclusivamente para diagnóstico. Incluyen Ljung–Box 7/14/28, ARCH-LM 14, BDS dimensión 2, Jarque–Bera y Mincer–Zarnowitz con HAC 13; cada familia se ajusta por Holm entre 15 procedimientos. BDS no aísla no linealidad cuando existe memoria. Las condiciones vigentes están en `results/evaluacion_e2/protocolo.json`; los análisis parciales de las cuatro familias base conservan su propio alcance.
 
 Los resultados y contrastes tienen alcance exploratorio y descriptivo: no afirmar superioridad confirmatoria, equivalencia ni potencia alcanzada. La revisión de fuentes y los supuestos de disponibilidad limitan la validez histórica. No presentar el solapamiento de IC como prueba de igualdad.
 
@@ -231,7 +233,7 @@ Comparar tres variantes: **(1) variables numéricas sin texto; (2) las mismas va
 
 ### Canales independientes y relevancia aprendida
 
-Separar por `tipo_fuente`: `official_report` para XM, IDEAM, CREG, UPME y MinEnergia; `news` para los siete medios conservados (El Colombiano, El Tiempo, El Espectador, La República, Portafolio, Semana y Dinero). Los boletines IDEAM previos siguen en el canal oficial aunque solo tengan titular; distinguir su alcance respecto de los nuevos cuerpos. Usar `data/processed/corpus_texto.parquet`, cargar con `cargar_corpus('declarado')` y seleccionar con `documentos_en_origen`.
+Separar por `tipo_fuente`: `official_report` para XM, IDEAM, CREG, UPME, MinEnergia y Presidencia; `news` para los siete medios conservados (El Colombiano, El Tiempo, El Espectador, La República, Portafolio, Semana y Dinero). Los boletines IDEAM previos siguen en el canal oficial aunque solo tengan titular; distinguir su alcance respecto de los nuevos cuerpos. Usar `data/processed/corpus_texto.parquet`, cargar con `cargar_corpus('declarado')` y seleccionar con `documentos_en_origen`.
 
 Cada canal produce su representación agregada y un indicador propio de ausencia. Sin documentos, su representación es cero con indicador activo; ausencia en el archivo no equivale a ausencia de eventos. La ponderación de fragmentos/documentos se aprende dentro del modelo mediante la pérdida de pronóstico, condicionada cuando corresponda a la historia numérica disponible. No filtrar prensa por términos ni asignar relevancia o temas manuales. Los tópicos NMF del EDA describen el archivo de titulares y no constituyen etiquetas ni embeddings predictivos del corpus ampliado. Los embeddings de cada canal se fusionan conservando su identidad y la posibilidad de reducir el peso de la prensa.
 
@@ -322,7 +324,7 @@ Se incorporan doce fichas bajo `book/arquitecturas/`: ARX, MLP, LSTM, CNN1D, Pat
 
 TFT principal: paquete Modelo3_TFT, ancho160, cuatro cabezas, selección GRN por variable, LSTM, atención interpretable causal; la versión compacta del repositorio permanece alternativa. TGForecaster sólo tiene fuente/configuración, sin métricas ni rangos inventados. Las cuatro familias base conservan pesos/configuraciones/entradas originales. Las variantes ampliadas reciben clima, hidrología, precio, demanda y calendario; se declaran 30 máscaras en el repositorio frente a tres por bloque en los paquetes.
 
-`scripts/estadistica_e2.py` calcula resultados desde predicciones guardadas; entradas de consolidación en `results/evaluacion_e2/entradas/`. Doce procedimientos con cinco semillas, dos ingenuos, 1461 orígenes diarios y 35064 horas por semilla. El control N de TaTS/fusión no se duplica. q168 fijo215617,90361589016; margen relativo3%; bootstrap circular pareado10000, bloques14d con sensibilidad7/28; HAC13d y HLN h efectivo1 para las emisiones diarias no solapadas. El ingenuo diario respeta publicación1h y usa48h en el último horizonte. Se calculan 91 comparaciones temporales, 66 entre semillas, Holm por prueba/familia, t pareada, Wilcoxon exacto, Shapiro, Levene, Cohen dz con IC no central, Friedman/Nemenyi/CD, MCS90%, TOST, error por horizonte, Ljung–Box, ARCH-LM, BDS y Mincer–Zarnowitz HAC. Los diagnósticos usan residuo diario de la predicción media sólo para diagnóstico; el benchmark promedia pérdidas, no predicciones.
+`scripts/estadistica_e2.py` calcula resultados desde predicciones guardadas; entradas de consolidación en `results/evaluacion_e2/entradas/`. Doce procedimientos con cinco semillas, dos ingenuos, 1461 orígenes diarios y 35064 horas por semilla. El control N de TaTS/fusión no se duplica. q168 fijo215617,90361589016; margen relativo3%; bootstrap circular pareado10000, bloques14d con sensibilidad7/28; HAC 13d y HLN h efectivo1 para las emisiones diarias no solapadas. El ingenuo diario respeta publicación1h y usa48h en el último horizonte. Se calculan 91 comparaciones temporales, 66 entre semillas, Holm por prueba/familia, t pareada, Wilcoxon exacto, Shapiro, Levene, Cohen dz con IC no central, Friedman/Nemenyi/CD, MCS90%, TOST, error por horizonte, Ljung–Box, ARCH-LM, BDS y Mincer–Zarnowitz HAC. Los diagnósticos usan residuo diario de la predicción media sólo para diagnóstico; el benchmark promedia pérdidas, no predicciones.
 
 Resultados principales: MCS retiene TaTS N+O y control N. TaTS: cambio relativo−0,605%, DM pHolm(2)=0,4403, bootstrap pHolm(2)=0,4356; no mejora demostrada. TOST pHolm(2)=0,00120 acredita equivalencia temporal ±3% condicionada a las cinco semillas. Fusión tardía: cambio+4,654%, DM pHolm(2)=4,35e−12, bootstrap pHolm(2)=0,000200; empeora. No se interpreta esa equivalencia temporal como generalización a nuevas semillas. Friedman Q51,5538 y p3,28e−7; Wilcoxon con cinco pares no rechaza tras Holm. BDS no demuestra no linealidad por sí solo si existe autocorrelación. Los contrastes son retrospectivos y no convierten el bloque examinado en confirmatorio.
 
@@ -349,7 +351,7 @@ Se ampliaron a los doce procedimientos generalización validación/prueba, densi
 
 El piloto gráfico incorpora los seis procedimientos con piloto independiente (120 resultados semilla–año). Las seis variantes ampliadas restantes no conservan piloto; no se reemplaza por prueba ni se dibuja como cero. El dimensionamiento integrado se amplía en §22 a los seis procedimientos con piloto, con disponibilidad explícita para los doce. La validación externa de PatchTST/N-HiTS del repositorio promedia2019–2021; las demás2018–2021. El coste registrado y los parámetros incluyen los doce procedimientos. La latencia CPU y la importancia por perturbación permanecen medidas solo en las cuatro familias de demanda/calendario: las ocho ampliadas figuran pendientes. No inferir importancia nula de clima/hidrología/precio/texto a partir de esa ausencia. Las métricas ajuste/parada se muestran en paneles separados: MAE normalizado para cuatro familias y MASE para seis variantes ampliadas; los dos modelos numéricos del repositorio solo conservan curvas en ese diagnóstico. No convertir Huber ni pérdida online con dropout en MAE de evaluación.
 
-Se armonizaron introducción, pregunta de investigación, alcance bibliográfico, diseño y reproducción. Diseño declara presupuestos distintos, 60 realizaciones, máscaras30/3 y HAC13 en la inferencia integrada. El margen relativo sigue3 %; en la familia textual el denominador es el control N. El código de análisis y las interpretaciones están en las celdas del libro; el alcance y las ausencias se resumen en cobertura_diagnosticos.csv. Importancia/latencia adicional, piloto no ejecutado, TGForecaster, potencia y requisitos experimentales pendientes no se reconstruyen a partir de predicciones finales.
+Se armonizaron introducción, pregunta de investigación, alcance bibliográfico, diseño y reproducción. Diseño declara presupuestos distintos, 60 realizaciones, máscaras30/3 y HAC 13 en la inferencia integrada. El margen relativo sigue3 %; en la familia textual el denominador es el control N. El código de análisis y las interpretaciones están en las celdas del libro; el alcance y las ausencias se resumen en cobertura_diagnosticos.csv. Importancia/latencia adicional, piloto no ejecutado, TGForecaster, potencia y requisitos experimentales pendientes no se reconstruyen a partir de predicciones finales.
 
 Implementación: scripts/completar_evaluacion_jbook.py, invocado por scripts/reorganizar_capitulo10.py y por el generador completo. metadatos_procedimientos.csv conserva60 filas; pilotos_disponibles.csv120. Se pueden reutilizar en otro PC sin la carpeta hermana de consolidación. La armonización es idempotente para evitar párrafos repetidos. Se preservan código visible, Markdown nativo y orden arquitecturas antes de resultados. No se modifican pesos, configuraciones, semillas, panel ni resultados estadísticos guardados. Sin entrenamiento, nuevas predicciones de redes ni publicación. Verificación: 69 pruebas correctas y cinco omitidas por dependencias opcionales; auditoría de construcción y cobertura en results/evaluacion_e2/.
 
@@ -465,7 +467,7 @@ Estado vigente: doce familias con dos diagramas por familia, 24 esquemas en tota
 
 Los diagramas nuevos se construyen con formas, conectores y texto editables mediante scripts/crear_esquemas_ampliados.mjs; el PPTX resultante está en results/esquemas_presentacion/ampliados/esquemas_ampliados.pptx. La ficha de dimensiones y variantes está en ampliados/ficha_modelos.json, obtenida del índice principal de la consolidación, las configuraciones guardadas y results/evaluacion_e2/benchmark.csv. El código de redes contrastado se conserva en results/arquitecturas_e2/fuentes. La presentación suministrada y las catorce imágenes incorporadas en §28 permanecen intactas. El manifiesto registra fuente, diapositiva, dimensiones y SHA-256 de los 24 PNG y del generador nuevo.
 
-TCN: tres bloques de dos convoluciones causales, kernel5, dilataciones1/4/16, 64 filtros, campo receptivo169h y lectura con calendario futuro. iTransformer: 33 tokens históricos y23 de calendario, dimensión128, dos capas y ocho cabezas. TaTS N+O: siete cierres diarios, resumen documental aprendido de12 atributos más presencia, 46 canales, PatchTST128/tres capas/16cabezas y dos lecturas; su controlN de64/dos/cuatro se identifica aparte. Fusión tardía: núcleo64/dos/cuatro, rama documental64→128→24, combinación aditiva con presencia y escalar aprendido sin acotación; ambas ramas se entrenan conjuntamente. TGForecaster N+O: dimensión64, dos capas temporales, una de mezcla y cuatro cabezas; memoria700tokens y cinco parches futuros de ocho horas con paso cuatro y pesos de solape. Su varianteN tiene dimensión256, tres capas temporales y dos de mezcla, ocho cabezas; conserva descripciones estáticas de variables. Las cifras de parámetros y MASE de los subtítulos corresponden a esas variantes seleccionadas.
+TCN: tres bloques de dos convoluciones causales, kernel5, dilataciones1/4/16, 64 filtros, campo receptivo169h y lectura con calendario futuro. iTransformer: 33 tokens históricos y23 de calendario, dimensión128, dos capas y ocho cabezas. TaTS N+O: siete cierres diarios, resumen documental aprendido de12 atributos más presencia, 46 canales, PatchTST128/tres capas/16cabezas y dos lecturas; su controlN de64/dos/cuatro se identifica aparte. Fusión tardía: núcleo64/dos/cuatro, rama documental64→128→24, combinación aditiva con presencia y escalar aprendido sin acotación; ambas ramas se entrenan conjuntamente. TGForecaster N+O: dimensión64, dos capas temporales, una de mezcla y cuatro cabezas; memoria700tokens y cinco parches futuros de ocho horas con paso cuatro y pesos de solape. Su varianteN tiene dimensión 256, tres capas temporales y dos de mezcla, ocho cabezas; conserva descripciones estáticas de variables. Las cifras de parámetros y MASE de los subtítulos corresponden a esas variantes seleccionadas.
 
 Reproducción documental: generar los diez diagramas con artifact-tool en Node, exportar mediante scripts/exportar_esquemas_presentacion.ps1 e instalar con scripts/esquemas_presentacion.py. El generador JS y la extracción PowerShell se muestran en fundamentos; la construcción del libro usa los PNG incluidos y no ejecuta redes ni requiere PowerPoint. El instalador ya está integrado en los dos generadores del capítulo10. No reaplicar los SVG genéricos sobre las páginas instaladas.
 
@@ -532,3 +534,201 @@ scripts/reconstruir_evaluacion.py reejecuta las40celdas analíticas desde predic
 scripts/reorganizar_capitulo10.py reconstruye la presentación integrada; la actualización completa del EDA es opcional con --actualizar-eda. La inferencia nueva requiere PyTorch y los binarios identificados en fuentes_diagnosticos.json; su raíz se configura mediante DEMANDA_ARTEFACTOS. La construcción documental utiliza las salidas incluidas y no requiere la carpeta hermana de consolidación. No presentar estos dos procesos como si tuvieran las mismas dependencias.
 
 No se cambian pesos, arquitecturas, predicciones ni métricas de prueba; no se entrena ni se publica el JBook. El HTML público conserva su última versión hasta una solicitud de publicación.
+
+
+## 36. N-BEATS y TimesNet · integración local del 20 de noviembre de 2026
+
+### Composición vigente
+
+El Top 10 comprende PatchTST, N-HiTS, TFT, TCN, iTransformer, TaTS, fusión tardía, TGForecaster, N-BEATS y TimesNet. Las tres redes de E1 (MLP, LSTM y CNN1D) y ARX se presentan aparte. La variante N de TGForecaster es un control adicional de su variante N+O. Son quince procedimientos aprendidos con cinco semillas (1000–1004), más los ingenuos diario y semanal. Esta composición sustituye los conteos de estados anteriores, incluido §32.
+
+### Predicciones y métricas
+
+N-BEATS conserva la configuración 16, 30 bloques, cuatro capas densas de 512 unidades por bloque, dropout 0,1 y 49.464.960 parámetros. TimesNet conserva la configuración 19, dos TimesBlock, cinco periodos, seis núcleos, dimensiones internas 16 y 328.266 parámetros. No se modifican checkpoints, escaladores, selección ni entrenamientos.
+
+| Modelo | MASE | DE MASE entre semillas | MAE (kWh) | RMSE (kWh) |
+|---|---:|---:|---:|---:|
+| N-BEATS | 0.953342617 | 0.032285941 | 205557.736528 | 261699.235572 |
+| TimesNet · lote uno | 0.642927818 | 0.013146216 | 138626.748294 | 181637.303953 |
+
+Las métricas se calculan por semilla y después se promedian; el RMSE no es el de la predicción media. TimesNet es el menor error descriptivo y el único retenido por el MCS al 90 % bajo este protocolo. La evaluación temporal y la incertidumbre entre inicializaciones mantienen sus unidades separadas.
+
+**TimesNet: fuente canónica obligatoria.** Para prueba se utiliza `results/reevaluacion_timesnet_lote1_20261120/predicciones_{semilla}.npz`, campo `yhat_lote1_kwh`. Su copia normalizada es `results/evaluacion_e2/entradas/adicionales/nuevo_timesnet/final/N/semilla_{semilla}/predicciones_canonicas.npz`. No utilizar el `pred_prueba.npz` nativo del paquete para el benchmark vigente: corresponde al lote agrupado. TimesBlock selecciona frecuencias promediando sobre el lote; lote uno evita que las historias de otros orígenes intervengan en el pronóstico. La validación, las curvas y el MASE de parada conservan los registros originales de desarrollo; no se reevaluó la selección.
+
+N-BEATS utiliza las predicciones originales con etiquetas canónicas de doble precisión. Sus exógenas incorporan las últimas 24 horas; la demanda utiliza 168 horas. Ambos modelos comparten las 30 variables históricas del contrato numérico (clima con su rezago de diseño, precio e hidrología), 23 de calendario y tres máscaras de ausencia. Las escalas proceden exclusivamente del ajuste.
+
+### Estadística, precisión y diagnósticos
+
+Se recalculan 136 parejas temporales entre 17 métodos y 105 parejas entre semillas de los 15 procedimientos aprendidos. DM–HLN usa HAC de 13 rezagos y bootstrap circular de 14 días con 10.000 remuestras; Holm se aplica a cada familia completa. Friedman, Nemenyi, MCS, TOST, residuos y resultados por horizonte incluyen ambos modelos. Los tres contrastes textuales conservan su familia Holm(3) y sus 72 contrastes por horizonte. El margen relativo sigue siendo 3 %, α=0,05 y la potencia objetivo 0,80.
+
+Cinco procedimientos conservan piloto externo; los otros diez incluyen precisión retrospectiva de la parada interna, ahora con 50 registros y 45 parejas. Las curvas contienen 75 realizaciones. No se presenta la parada interna como un piloto independiente ni se altera el número de semillas.
+
+La importancia de los once procedimientos ampliados utiliza 192 fechas (días 1, 8, 15 y 22 de cada mes de 2022–2025), nueve grupos y tres desplazamientos circulares por año, cinco semillas y donantes de los 1.461 días. N-BEATS y TimesNet se incorporan mediante los pesos congelados; TimesNet usa lote uno en cada perturbación. Las cuatro referencias de demanda/calendario conservan su diagnóstico de importancia con 1.461 fechas y diez repeticiones. La sensibilidad documental corresponde a los tres modelos con documentos y no se aplica a las dos nuevas redes numéricas.
+
+La latencia incluye los quince procedimientos: un hilo CPU, lote uno, 20 calentamientos y 100 mediciones en tres orígenes por semilla. Se conservan 225 resúmenes de medición. Se agregan la mediana de las 15 medianas y la mediana de sus p95; no es el p95 conjunto. Los archivos y el entorno están en `results/diagnosticos_ampliados/` y `results/integracion_top10_20261120/protocolo_diagnosticos.json`.
+
+### Archivos y reproducción
+
+- Entradas comunes: `results/evaluacion_e2/entradas/consolidado/predicciones_finales.parquet` y `resumen_principal.csv`, claves `nuevo_nbeats__N` y `nuevo_timesnet__N`.
+- Configuraciones, escaladores, curvas y metadatos: `results/evaluacion_e2/entradas/adicionales/nuevo_{nbeats,timesnet}/`.
+- Pesos originales: `results/integracion_top10_20261120/pesos/ENVIAR_pesos_NBEATS_TimesNet_20261119_2125.zip`; SHA-256 en su manifest y diez checkpoints en `auditoria_pesos.csv`. Conservar el ZIP como artefacto binario; no es necesario para construir el libro ni ejecutar el dashboard.
+- `scripts/integrar_top10.py` normaliza entradas y agrega metadatos, precisión y diagnósticos. Mantiene copia previa en `results/integracion_top10_20261120/respaldo/`.
+- `scripts/estadistica_e2.py` recalcula estadísticas de las predicciones conservadas; `scripts/reorganizar_capitulo10.py` reconstruye la evaluación e interpretaciones; `scripts/arquitecturas_top10.py` genera las fichas y los cuatro esquemas nuevos.
+- `scripts/diagnosticos_top10.py` mide importancia y latencia mediante inferencia, sin ajuste. No ejecutarlo al reconstruir el libro: sus CSV ya están guardados.
+- Las fichas `book/arquitecturas/nbeats.md` y `timesnet.md` incluyen fundamentos, esquemas y código de preparación, selección, optimización, parada temprana y prueba por origen. La evaluación integrada pasa a §10.16.
+- `dashboard/scripts/export_data.py` exporta datos guardados y verifica sus métricas; el selector separa Top 10, baselines E1, referencia clásica y control numérico. `dashboard/site/` funciona de forma autónoma.
+
+Para regenerar estadísticas y presentación, sin redes ni entrenamiento:
+
+```console
+python scripts/estadistica_e2.py
+python scripts/reorganizar_capitulo10.py
+python dashboard/scripts/export_data.py
+jupyter-book build book --warningiserror --keep-going
+python scripts/verificar_jbook.py
+```
+
+La construcción usa salidas guardadas (`execute_notebooks: off`). Las versiones locales de `book/`, `docs/` y `dashboard/site/` se actualizan; GitHub Pages y Render permanecen sin desplegar. No hacer push ni publicar sin solicitud expresa.
+
+Verificación de la integración de §36: 89 pruebas correctas y 5 omitidas; tres pruebas del dashboard correctas. El inventario mantiene 51 figuras, 47 tablas y 28 esquemas. La construcción estricta del JBook finaliza sin advertencias y el verificador comprueba los enlaces locales. La revisión visual confirma TimesNet y N-BEATS en el selector, pronósticos, benchmark e importancia, sin errores de consola. No se publicaron cambios.
+
+## 37. Consistencia documental y generación desde resultados · 20 de noviembre de 2026
+
+Las inconsistencias de conteo, precisión, importancia y MCS se corrigen en los capítulos 9, 10 y 11. La revisión vigente se genera en `REVISION_CONSISTENCIA_JBOOK.md`; el capítulo 12 enlaza esa revisión y el resumen de procedencia.
+
+`scripts/narrativa_resultados.py` es la fuente de presentación de conteos y conclusiones. Lee el benchmark, contrastes, MCS, metadatos, pilotos, parada, importancia y latencia. Las celdas Markdown se identifican con `resultado_documental` y no contienen código de generación de texto. `integrar_top10.ajustar_celdas`, `reorganizar_capitulo10.py`, `reconstruir_evaluacion.py`, `actualizar_diagnosticos_jbook.py` y la armonización final de `redaccion_investigacion.py` aplican esa fuente. No volver a corregir los números mediante sustituciones de palabras o cifras antiguas.
+
+Estado derivado: 136 parejas temporales, 105 entre semillas, 5 pilotos externos y 10 procedimientos con precisión de parada (50 registros; 45 parejas). La importancia ampliada comprende 11 procedimientos; sus basales se distinguen de las 45 comprobaciones de reproducción completa ya conservadas. La latencia comprende 15 procedimientos y 225 registros de medición.
+
+TimesNet mantiene validación y parada con lote 256, y prueba y perturbaciones con lote 1. La comparación desarrollo–prueba declara esa diferencia; los checkpoints, predicciones y métricas se conservan. Los vacíos metodológicos identificados en la revisión no se presentan como corregidos por esta actualización documental.
+
+El verificador rechaza las celdas gestionadas si su contenido no coincide con los resultados, incluso si el libro construye correctamente. Las pruebas incluyen idempotencia, detección de párrafos obsoletos y cambios simulados de conteos, ranking y MCS. `results/revision_documental_20261120/resumen_documental.json` conserva los valores y huellas de origen. Regenerar con `python scripts/reorganizar_capitulo10.py`; construir con `jupyter-book build book --warningiserror --keep-going` y revisar con `python scripts/verificar_jbook.py`. Ninguno de estos pasos entrena ni despliega.
+
+## 38. Esquemas detallados de N-BEATS y TimesNet · 20 de noviembre de 2026
+
+Los cuatro esquemas (global y detalle de cada modelo) utilizan el estilo de las demás arquitecturas: leyenda por tipo de elemento, marcos de módulos, entradas y dimensiones explícitas, conexiones residuales y cuatro tarjetas matemáticas. Se generan PNG de 3200×1800 y SVG vectoriales.
+
+`scripts/esquemas_top10_detallados.py` dibuja la arquitectura congelada y obtiene parámetros y MASE del benchmark y sus metadatos. N-BEATS representa las cuatro capas densas, las dos salidas de cada bloque, la resta de backcast y la suma de pronósticos. TimesNet representa normalización, embeddings, dos TimesBlock, cinco periodos por FFT, dos bancos Inception de seis núcleos, agregación, residuo y lectura con calendario.
+
+`arquitecturas_top10.py` utiliza este generador; `reorganizar_capitulo10.fundamentos` conserva su código visible en el JBook. Las cuatro imágenes se sincronizan con `dashboard/site/architectures/`. La procedencia y comprobación de ajuste de textos están en `results/esquemas_presentacion/top10_detallados/manifest.json`; las versiones sustituidas se conservan en su respaldo. Los resultados numéricos y pesos permanecen intactos. No se publica esta actualización.
+
+
+## 39. Revisión funcional de los pipelines · 20 de noviembre de 2026
+
+A solicitud del usuario, se verificó el funcionamiento de entrenamiento de las 15 configuraciones seleccionadas mediante ajustes mínimos aislados: dos épocas, ocho orígenes de optimización, dos de parada y dos de validación de agosto–octubre de 2020. Las arquitecturas completas coincidieron con sus conteos de parámetros, recibieron gradientes finitos y actualizaron sus pesos. Se verificó restauración exacta de predicciones y escaladores en procesos independientes. TaTS, fusión tardía y TGForecaster N+O tienen gradientes no nulos en sus módulos de relevancia. Estas comprobaciones no son nuevos resultados del benchmark ni habilitan reentrenar la evaluación por iniciativa propia.
+
+El punto de entrada vigente para futuros ajustes es `scripts/entrenar_arquitectura.py`, con dependencias en `requirements-entrenamiento.txt` y configuraciones seleccionadas en `config/entrenamiento_congelado.json`. Acepta `--modelo`, `--semilla`, `--anio` (2018–2021), `--dispositivo cpu|cuda|auto`, `--salida` y `--smoke`. La fase predeterminada es validación; prueba requiere `--fase prueba --allow-test` y autorización de evaluación final. Nunca sobrescribe carpetas. Ejecutar cada arquitectura en un proceso nuevo. `inferir` restaura el modelo y las transformaciones persistidas sin volver a estimarlas.
+
+PatchTST utiliza Modelo6 N, configuración 18 y 466.480 parámetros. El adaptador `pipeline_ampliado_portable.py` delega en esta selección; no usar la configuración retirada P20. N-HiTS conserva N14 y sus 83 canales. Los vectores oficiales y descripciones congelados se copiaron dentro del repositorio a `data/processed/entrenamiento_texto/`; sus huellas están en `manifiesto.json` y la relación con el corpus en `procedencia.json`. Deben convertirse a float32. Los checkpoints del lanzador incluyen estos buffers, no persistentes en los state_dict originales.
+
+Para futuras ejecuciones del lanzador, TimesNet conserva su lote de ajuste y usa un origen por llamada en parada, validación y predicción. No se alteraron las pérdidas, pesos o resultados de los artefactos históricos; su protocolo sigue registrado en el benchmark. Los lotes finales unitarios se unen al anterior, sin descartar etiquetas. Los demás hiperparámetros y arquitecturas seleccionados se conservan.
+
+El código ejecutable y los comandos están incluidos en fundamentos (§10.1) y las catorce fichas. `scripts/documentar_entrenamiento.py` sincroniza las fuentes y lo llaman los generadores de arquitecturas y fundamentos. La construcción del libro no entrena. Informe y evidencias: `results/auditoria_entrenamiento_20261120/INFORME.md`, `verificacion_final/resumen.json`, `restauracion_sin_reajuste.json`, `fuentes_verificadas.json` y `cierre.json`. Los checkpoints diagnósticos se eliminan tras verificar la restauración; no se mezclan con los pesos del proyecto.
+
+Validación física realizada en Windows y CPU (PyTorch 2.9.1+cpu). CUDA y Linux quedan disponibles por el diseño portable del lanzador, pero no fueron ejecutados en esta máquina. No declarar validación de GPU o Linux como realizada. Se conservaron los 28 archivos numéricos de evaluación verificados por SHA-256. No se entrenó con prueba, no se sobrescribieron pesos originales y no se publicó.
+
+Cierre de verificación: 106 pruebas del proyecto correctas (6 omitidas en el entorno documental), 12 pruebas del módulo con Torch correctas, construcción estricta del JBook sin advertencias y sin enlaces locales rotos.
+
+
+## 40. Revisión final de completitud y consistencia · 20 de noviembre de 2026
+
+Se contrastaron capítulos, figuras, tablas, CSV descargables, resultados, dashboard y código con las pautas E 1/E 2. Se corrigieron conteos obsoletos en los capítulos 1 y 12, las etiquetas de descarga y las secciones de segmentos, residuos, variación y atípicos. La precisión de ajuste/parada comprende cuatro familias base y diez ampliadas: 69 de 70 realizaciones tienen mayor error de parada; N-HiTS conserva curvas sin esas métricas desagregadas. Se eliminaron párrafos repetidos en literatura y validación.
+
+La gráfica de error por horizonte omitía N-BEATS y TimesNet aunque sus filas existían en el CSV. Ahora construye sus grupos desde el benchmark y verifica cobertura exhaustiva sin duplicados. Se recalculó únicamente esa figura con resultados guardados. El menor MASE por horizonte corresponde a TimesNet en 16 horas, PatchTST en 6 y TaTS en 2; es un recuento descriptivo. Las demás figuras y tablas conservan los subconjuntos que corresponden a sus entradas o fuentes de precisión.
+
+`scripts/coherencia_documental.py` complementa la narrativa canónica con coberturas, interpretaciones y deduplicación. Los capítulos 1 y 12 se incluyen en la verificación de celdas gestionadas. `scripts/auditar_completitud.py` comprueba resultados, alcance de horizontes, CSV, dashboard y configuraciones; no ejecuta redes. Los conteos del motor de diagnósticos se derivan del registro en lugar de constantes fijas. La reconstrucción sincroniza su código visible.
+
+Las evidencias están en `results/revision_final_20261120/auditoria.json` y `pautas_fuentes.json`; `REVISION_CONSISTENCIA_JBOOK.md` incluye comprobaciones y pendientes metodológicos. Estos últimos siguen siendo preguntas/H 0/H 1 explícitas, trazabilidad de revisión sistemática y priorización, preregistro e independencia de prueba, potencia y presupuesto, réplica del paper guía, búsqueda aplicable a diseños no predefinidos, robustez por severidad, ablaciones, cobertura predictiva, techo de desempeño y costos incompletos. La diferencia de lotes de TimesNet en los resultados conservados sigue documentada.
+
+La revisión conserva 15 procedimientos,75 realizaciones,2 referencias,136 parejas temporales, 105 entre semillas,51 gráficas,47 tablas y 28 esquemas. No se modificaron los 28 archivos numéricos contrastados por SHA-256. No se entrenó, no se ejecutó inferencia neuronal y no se publicó.
+
+Cierre de §40: 14 controles de cobertura correctos, 111 pruebas del proyecto correctas (6 omitidas en el entorno documental), 3 pruebas del dashboard correctas y 11 pruebas finales de narrativa/cobertura correctas. Construcción estricta sin advertencias ni enlaces locales rotos. El informe completo se conserva en `results/revision_final_20261120/INFORME.md`.
+
+
+
+## 41. Ampliación documental oficial · 2026-11-21
+
+El corpus activo es `corpus_oficial_ampliado_20261120`: 625,577 registros, con 50,104 documentos nuevos de IDEAM, CREG, XM y Presidencia. Se conservan sin cambios todas las filas anteriores, la prensa y el panel numérico. La instantánea anterior se encuentra en `data/processed/versiones/corpus_oficial_20261109/`. Esta sección sustituye los conteos operativos de §13 para futuras adquisiciones, sin alterar la trazabilidad histórica.
+
+| Fuente | Nuevos | Con cuerpo | Disponibles en declarado 2000–2025 | Cuarentena |
+|---|---:|---:|---:|---:|
+| CREG | 3706 | 3544 | 2768 | 938 |
+| IDEAM | 45199 | 45003 | 40201 | 4990 |
+| Presidencia | 773 | 772 | 753 | 20 |
+| XM | 426 | 425 | 143 | 283 |
+
+### Cobertura y disponibilidad
+
+Los 312 meses de 2000–2025 están auditados con ceros explícitos por fuente y escenario. El informe completo y los CSV están en `results/ampliacion_documental_20261120/INFORME.md`. Los archivos `cobertura_mensual_fuente.csv`, `cobertura_anual_fuente.csv`, `cobertura_particiones.csv` y `cobertura_oficial_anual_cuerpo.csv` distinguen disponibilidad, cuerpos, titulares, días y ventanas de24/72/168horas. `inventario_por_periodo_referido.csv` describe el periodo del informe y no su disponibilidad.
+
+IDEAM incorpora paquetes históricos de ITD, BCH y alertas oficiales BADT, BAICV y BAH, con la fecha de edición identificada por documento y su base registrada. Esas familias mezclan observaciones, alertas y pronósticos; no equivalen al boletín específico de pronóstico a tres días. No se considera cerrado el hueco2000–2009 ni el pronóstico a tres días anterior a2024 por recuperar otros tipos de boletín. Los fallos del archivo histórico y Wayback quedan registrados.
+
+CREG incluye resoluciones definitivas y la numeración por prefijos. Se verifica la correspondencia de número y año entre el acto y su PDF enlazado; si no se corrobora, se conserva el PDF como evidencia y se utiliza el HTML depurado. Se priorizan PDF originales; los HTML jurídicos sin original excluyen notas posteriores y artículos sustituidos y se marcan parciales. Los decretos provienen de catálogos oficiales CREG y Cancillería: no son un inventario exhaustivo de toda norma nacional o local. Los actos replicados se deduplican por número y año. El OCR se limita a cuatro primeras páginas, con alcance y alertas explícitas.
+
+XM añade informes mensuales Sinergox y anuales del SIN y mercado. La modificación por migración en agosto de2026, el mes referido y la creación del PDF no se utilizan como fechas de publicación. Los documentos sin fecha editorial sustentada quedan en cuarentena, conservando archivo y procedencia. No presentar la recuperación física como cobertura temporal utilizable.
+
+El declarado sigue siendo el dataset oficial. Una fecha sin hora se incorpora desde el día siguiente a las00:00 de Colombia. Para actos jurídicos se usa la publicación del Diario Oficial o la fecha posterior de disponibilidad web expresamente declarada. Cuando los gestores discrepan se utiliza la más tardía y se conserva la alerta. No se usa la expedición del acto como publicación. Los PDF de paquetes no heredan la fecha del ZIP. Las fechas de encabezado y nombre se conservan separadas; si discrepan en un PDF histórico, queda en cuarentena hasta revisión. Una discrepancia de año con la carpeta del paquete sin correspondencia entre encabezado y nombre también activa cuarentena; la carpeta nunca se usa para redatar el documento. Se eliminan caracteres de control de fuentes PDF mal mapeadas, identificando el alcance parcial; si no queda texto legible, se aplica OCR.
+
+La disponibilidad estricta nueva es la recuperación efectiva en2026; no se retrodata, por lo que no aumenta el estricto2000–2025. La versión histórica de los bytes permanece sin verificación para el escenario declarado. Los registros en cuarentena se conservan para auditoría y el cargador los excluye.
+
+### Contrato para futuros entrenamientos
+
+Se mantienen tres variantes comparables: numérica; numérica+oficial; numérica+oficial+prensa. Los canales oficial y prensa siguen separados, con indicadores de ausencia y relevancia aprendida por el modelo. No se introduce clasificación temática ni selección manual de relevancia. Las variables numéricas comunes conservan clima, hidrología y precio con sus rezagos; el reanálisis no se utiliza como clima conocido del futuro.
+
+**La evaluación vigente conserva su corpus congelado de14.162 documentos** en `results/evaluacion_e2/entradas/texto/corpus_oficial.parquet`, sus vectores y los resultados de los15procedimientos. Los registros nuevos no corresponden a filas de los vectores congelados. Un entrenamiento posterior autorizado debe construir un nuevo caché y vectores versionados desde el manifiesto actualizado, auditar disponibilidad y ventanas y conservar la correspondencia entre id y vector. No volver a codificar ni entrenar automáticamente. Antes del caché nuevo, revisar la densidad y el truncamiento a64documentos de72horas en cobertura_particiones.csv, fijar el presupuesto común y auditar la selección sin temas ni relevancia manual.
+
+Reproducción de esta adquisición: `scripts/adquisicion/ampliar_corpus_20261120.py`, `integrar_ampliacion_20261120.py`, `cerrar_ampliacion_20261120.py` y `completar_ampliacion_20261120.py`. Extracción nativa con PyMuPDF1.26.5; hojas con openpyxl; OCR español con Windows.Media.Ocr y `.ocr_env`. Los paquetes validan CRC y los archivos conservan SHA-256. El manifiesto activo y el diccionario incluyen procedencia, alcance, versiones y reglas. Se preservan originales locales y fallos de acceso; no se afirma exhaustividad donde quedan meses o familias sin documentos.
+
+Verificación final del proyecto: 128 passed, 6 skipped; registro `results/ampliacion_documental_20261120/pruebas_finales.log`. Los controles están en `conservacion_resultados.json`, `validacion_cobertura.json`, `calidad_extraccion.csv`, `documentos_cuarentena.csv` y `cierre.json`. No se entrenan modelos, no se regeneran embeddings ni se evalúa demanda. No se modifica ni publica el JBook o dashboard en esta adquisición.
+
+
+## 42. Diagnóstico temporal del texto · 2026-11-21
+
+El procedimiento vigente para este diagnóstico es `scripts/diagnostico_texto_temporal.py`; sustituye la selección interna LOO de los scripts conservados en `docs/Claude outputs/`. Estos últimos y sus CSV se mantienen como entradas históricas de comparación. No usar sus etiquetas de «puntos de MASE» para las diferencias de porcentajes.
+
+Se reutilizan ocho NPZ de validación archivados de E cfg07 y TimesNet cfg19, realización identificada como semilla 43. Historial inicial 2018; evaluación externa 2019–2021 (1096 orígenes diarios). Cuatro particiones internas expansivas, escalado por partición, purga de dos días interna y externa, 25 valores de alpha y selección por MSE del residuo relativo. Vocabulario y SVD anteriores a 2018; representaciones, truncamiento y factor de corrección diario conservados. No se cargan redes ni se usan etiquetas o predicciones de prueba 2022–2025.
+
+La reducción textual se calcula como 100·(MASE_C+R−MASE_texto)/MASE_C+R. Las diferencias anteriores frente al porcentaje de mejora sobre la base original se etiquetan como puntos porcentuales y se convierten al denominador común en `comparacion_anterior.csv`. IC95 puntuales: 9.999 remuestreos pareados por origen, bloques de 14 días dentro de cada año. Holm global sobre 110 contrastes: 54 de desempeño, 54 de magnitud del error y 2 correcciones numéricas. Los 296 desplazamientos placebo se ajustan con Holm por separado; su resolución mínima no permite rechazo con 54 comparaciones, por lo que no se interpreta ese resultado como ausencia de señal.
+
+| base | MASE_sin_correccion | MASE_C_R | reduccion_relativa_pct | ic95_inferior | ic95_superior | p_bootstrap_holm |
+| --- | --- | --- | --- | --- | --- | --- |
+| E | 0.5400 | 0.5356 | 0.8085 | -0.8161 | 2.3414 | 1.0000 |
+| TimesNet | 0.5566 | 0.5360 | 3.6889 | 2.4187 | 4.9209 | 0.0110 |
+
+Resultados textuales: 9 de 54 mejoras puntuales; 0 tras Holm; 0 alcanzan 3 %. Mayor mejora puntual: oficial_congelado · E · AN, 0.3752 %, p ajustado 0.2725. El incremento máximo de R² de magnitud es 0.059461; 0 incrementos significativos tras Holm. Estas conclusiones se limitan a las representaciones y la corrección diaria examinadas, con una realización archivada de cada base.
+
+Informe y resultados: `results/diagnostico_texto_temporal_20261121/INFORME.md`, `metricas.csv`, `correccion_numerica.csv`, `correccion_numerica_anual.csv`, `magnitud_error.csv`, `particiones_y_alpha.csv`, `placebos.csv`, `verificacion.json` y `manifiesto.json`. `scripts/informar_diagnostico_texto.py` genera el informe y esta sección desde los CSV; no fijar manualmente sus conteos. Los ZIP compactos `entradas_E.zip` y `entradas_TimesNet.zip` conservan exactamente los ocho NPZ usados, sin depender de Descargas para repetir el cálculo.
+
+Verificación: 132 pruebas correctas y 6 omitidas; registro `pruebas.log` en la carpeta del diagnóstico. Se conservan 37 archivos de entrada y resultados previos por SHA-256. El corpus activo, el corpus congelado de 14.162 documentos, sus vectores y el benchmark de 15 procedimientos permanecen intactos. No se reentrenan las redes, no se modifica el JBook ni el dashboard y no se publica.
+
+
+## 43. Dashboard sincronizado · revisión del usuario · 21 de noviembre de 2026
+
+El dashboard local coincide con las once tablas del benchmark, sus 15 procedimientos, 75 realizaciones y 28 esquemas del JBook. Se añaden 14 fichas Markdown descargables con las inclusiones de código Python resueltas, interpretaciones tomadas de las fichas y precisión de desarrollo por fuente. Los enlaces de pronóstico abren la ficha interna, evitando las páginas de N-BEATS y TimesNet todavía ausentes en GitHub Pages. Se verificaron 132 pruebas del proyecto (6 omitidas) y 5 pruebas del dashboard. Los artefactos previos, pesos y resultados se conservaron; no se modificó ni publicó el JBook.
+
+La publicación en Render fue autorizada inicialmente. El commit `ba891c0c8c307f466b6dd875dc539e9826629493`, limitado a `dashboard/`, ya se había subido a GitHub cuando el usuario indicó «no publiques aún» y pidió revisar. **No se activó el despliegue manual de Render. No desplegar hasta nueva autorización.** Se comprobó que Render conserva un único despliegue Live del commit `1a4fffe5fddf8adeef7773fd9fc488c1eafed494`.
+
+Vista para revisión: `http://127.0.0.1:8068/`, servidor local de `dashboard/site`. Copia aislada de publicación: `../Publicacion-Dashboard-20261121/`. Evidencias, pruebas y estado: `results/sincronizacion_dashboard_20261121/`; `estado_publicacion.json` registra el commit subido y el despliegue detenido.
+
+
+Resumen final de Modelos solicitado durante la revisión: se añade una tabla comparativa de los 15 procedimientos con periodo y MASE de validación de selección, MASE de prueba y enlace a la evaluación del JBook. La exportación obtiene validación de metadatos_procedimientos.csv y prueba de benchmark.csv. El resumen permanece al final de todas las vistas de Modelos. Cambios únicamente locales, posteriores al commit ba891c0; no hacer push ni desplegar hasta nueva autorización.
+
+
+## 44. Publicación conjunta y paquete de ejecución · 22 de noviembre de 2026
+
+El usuario autorizó publicar el JBook y el dashboard, sustituyendo la pausa de revisión de la sección anterior. Commit publicado: `bc2b8b382bcb8641cb27e3bca5f2269a7b45afa7`; Render: `dep-dc17gabl550s73dm0gu0`. El JBook se sirve desde `main:/docs`; el dashboard se despliega manualmente desde `dashboard/site`. Se publicaron también las fuentes actuales de `book/`, la guía `EJECUCION_LOCAL.md`, `ejecutar.py` y `requirements-jbook.txt`. El dashboard incluye el resumen de validación y prueba al final de Modelos y el enlace al JBook.
+
+Se comprobó que intro, N-BEATS, TimesNet y evaluación publicados coinciden con los HTML preparados; app.js, core.js, index.html y study.json públicos coinciden con el dashboard actualizado, normalizando únicamente finales de línea. El JBook se construye sin ejecutar cuadernos, con sus salidas guardadas. Las pruebas del proyecto dieron 132 correctas y 6 omitidas; las cinco del dashboard son correctas.
+
+Paquete mínimo: `results/publicacion/Demanda_Electrica_JBook_Dashboard_minimo_20261122.zip` (33.274.128 bytes). Incluye fuentes y recursos necesarios para reconstruir el libro con sus salidas guardadas, dashboard estático con datos exportados, instrucciones Windows/Linux, lanzador y manifiesto SHA-256. No incluye datos de investigación completos ni pesos. Se extrajo y reconstruyó en una carpeta limpia: sin enlaces locales rotos, 254 archivos con integridad comprobada y dashboard accesible por HTTP con los 15 procedimientos. En Windows conviene extraer en una ruta corta para evitar el límite de longitud de archivos.
+
+Registro de comprobaciones, URLs y hash del ZIP: `results/publicacion/publicacion_20261122.json`. No se entrenaron modelos ni se alteraron resultados científicos.
+
+
+## 45. Corpus activo disponible en el repositorio · 22 de noviembre de 2026
+
+Se actualiza `data/processed/corpus_texto.parquet` con la versión `corpus_oficial_ampliado_20261120`: 625.577 registros de 13 fuentes, 50.104 incorporaciones y sin identificadores duplicados. El Parquet se conserva byte a byte (159.086.185 bytes; SHA-256 `e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c`) y se publica mediante Git LFS. Para recuperar sus bytes tras clonar: `git lfs install` y `git lfs pull --include="data/processed/corpus_texto.parquet"`. Un puntero LFS no es el dataset completo.
+
+Se sincronizan el manifiesto activo, el diccionario y las auditorías de cobertura en `results/ampliacion_documental_20261120/`. `data/processed/README_CORPUS.md` documenta descarga, integridad y uso. Las fechas y alertas se conservan; declarado continúa como escenario principal y estricto como sensibilidad. El campo de publicación del manifiesto original corresponde al cierre de la adquisición; esta sección registra su posterior carga al repositorio.
+
+No cambian el panel numérico, corpus congelado, pesos, vectores ni resultados. No se entrenan modelos ni se despliega Render; el JBook publicado conserva su contenido. Los próximos entrenamientos autorizados deben construir y versionar nuevos vectores desde este corpus ampliado.

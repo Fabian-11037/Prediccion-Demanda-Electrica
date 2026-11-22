@@ -1,0 +1,45 @@
+{
+  "version": "corpus_oficial_ampliado_20261120",
+  "fecha": "2026-11-21T22:38:36.052697+00:00",
+  "corpus_filas": 625577,
+  "nuevos": 50104,
+  "por_fuente": [
+    {
+      "fuente": "CREG",
+      "nuevos": 3706,
+      "con_cuerpo": 3544,
+      "declarado_2000_2025": 2768,
+      "estricto_2000_2025": 0,
+      "cuarentena": 938
+    },
+    {
+      "fuente": "IDEAM",
+      "nuevos": 45199,
+      "con_cuerpo": 45003,
+      "declarado_2000_2025": 40201,
+      "estricto_2000_2025": 0,
+      "cuarentena": 4990
+    },
+    {
+      "fuente": "Presidencia",
+      "nuevos": 773,
+      "con_cuerpo": 772,
+      "declarado_2000_2025": 753,
+      "estricto_2000_2025": 0,
+      "cuarentena": 20
+    },
+    {
+      "fuente": "XM",
+      "nuevos": 426,
+      "con_cuerpo": 425,
+      "declarado_2000_2025": 143,
+      "estricto_2000_2025": 0,
+      "cuarentena": 283
+    }
+  ],
+  "ficheros_conservados": 30,
+  "fallos_descarga": 0,
+  "paquetes_ok": 816,
+  "entrenamiento": false,
+  "publicacion": false
+}
