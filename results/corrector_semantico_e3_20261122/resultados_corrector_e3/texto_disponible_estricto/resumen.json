@@ -1,0 +1,56 @@
+{
+ "disponibilidad": "disponible_estricto",
+ "corpus_sha256": "e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c",
+ "documentos": 5345,
+ "por_canal": {
+  "prensa": 5272,
+  "oficial": 73
+ },
+ "fragmentos": 6001,
+ "fragmentos_usados": 1120,
+ "intervalos": 15,
+ "dias": 4079,
+ "fuentes": [
+  "CREG",
+  "El Espectador",
+  "El Tiempo",
+  "IDEAM",
+  "La República",
+  "UPME",
+  "XM"
+ ],
+ "dias_con_alineados_pct": {
+  "2010": 0.0,
+  "2011": 0.0,
+  "2012": 0.0,
+  "2013": 0.0,
+  "2014": 0.0,
+  "2015": 0.0,
+  "2016": 0.0,
+  "2017": 0.0,
+  "2018": 0.0,
+  "2019": 0.0,
+  "2020": 0.0,
+  "2021": 18.08219178082192
+ },
+ "candidatos_medios_por_reserva": {
+  "alineados": 0.019367492032360874,
+  "oficial": 0.524393233635695,
+  "prensa": 0.25888698210345673
+ },
+ "reservas": {
+  "alineados": [
+   0,
+   32
+  ],
+  "oficial": [
+   32,
+   80
+  ],
+  "prensa": [
+   80,
+   128
+  ]
+ },
+ "segundos": 12.6
+}

@@ -1,0 +1,13 @@
+{
+ "python": "3.12.3",
+ "sistema": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+ "torch": "2.9.1+rocm6.4",
+ "numpy": "2.4.6",
+ "dispositivo": "cuda",
+ "cuda": null,
+ "gpu": "AMD Radeon Graphics",
+ "pandas": "2.3.3",
+ "scipy": "1.18.1",
+ "sklearn": "1.9.1",
+ "transformers": "4.57.1"
+}

@@ -1,0 +1,9 @@
+{
+ "cabezas": 4,
+ "d": 32,
+ "dropout": 0.3,
+ "lote": 64,
+ "lr": 0.0003,
+ "weight_decay": 0.0001,
+ "id": 4
+}

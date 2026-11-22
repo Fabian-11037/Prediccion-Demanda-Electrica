@@ -1,0 +1,17 @@
+...........................................................sssss.        [100%]
+=============================== warnings summary ===============================
+../../Machine Learning/mlenv/lib/python3.12/site-packages/dash/testing/plugin.py:104
+  /home/fabian/Documents/Machine Learning/mlenv/lib/python3.12/site-packages/dash/testing/plugin.py:104: PytestRemovedIn10Warning: The hookimpl pytest_addhooks uses old-style configuration options (marks or attributes).
+  Please use the pytest.hookimpl(tryfirst=True) decorator instead
+   to configure the hooks.
+   See https://docs.pytest.org/en/latest/deprecations.html#configuring-hook-specs-impls-using-markers
+    @pytest.mark.tryfirst
+
+tests/test_corrector.py::test_corrector_arranca_en_cero_y_respeta_la_cota
+  /home/fabian/Documents/DL Project/Corrector_Semantico_E3/tests/test_corrector.py:103: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+  Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+    assert out.shape == (5, 24) and float(out.abs().max()) <= 0.05 + 1e-6
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+60 passed, 5 skipped, 2 warnings in 26.79s
+

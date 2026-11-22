@@ -732,3 +732,12 @@ Se actualiza `data/processed/corpus_texto.parquet` con la versión `corpus_ofici
 Se sincronizan el manifiesto activo, el diccionario y las auditorías de cobertura en `results/ampliacion_documental_20261120/`. `data/processed/README_CORPUS.md` documenta descarga, integridad y uso. Las fechas y alertas se conservan; declarado continúa como escenario principal y estricto como sensibilidad. El campo de publicación del manifiesto original corresponde al cierre de la adquisición; esta sección registra su posterior carga al repositorio.
 
 No cambian el panel numérico, corpus congelado, pesos, vectores ni resultados. No se entrenan modelos ni se despliega Render; el JBook publicado conserva su contenido. Los próximos entrenamientos autorizados deben construir y versionar nuevos vectores desde este corpus ampliado.
+
+
+## 46. Corrector semántico E3 en GPU · 22 de noviembre de 2026
+
+Se ejecuta el paquete Corrector_Semantico_E3 con el corpus ampliado publicado mediante Git LFS (SHA-256 e82f1b0f…), en GPU AMD y PyTorch/ROCm. Se completan 156 ajustes: 33 anuales de E y 123 del corrector, semillas 101–103. La selección utiliza 2018 y la evaluación de desarrollo 2019–2021 (1.096 días). La prueba 2022–2025 no se ejecuta ni se presenta como evaluada en esta corrida.
+
+Resultados en `results/corrector_semantico_e3_20261122/`: informe, contrastes con bootstrap por bloques y Holm, métricas por año y hora, predicciones, historiales, correcciones por fecha y semilla, plan, fuentes y manifiesto SHA-256. El MASE de C+R es 0,54671; corrector numérico 0,54186; oficial reciente 0,54169; oficial alineado 0,54397; oficial y prensa 0,54270. No se demuestra aporte semántico adicional frente a los controles; ninguna variante textual alcanza el umbral registrado de mejora relevante del 3 % frente a C+R. No se ha contrastado directamente con TimesNet sobre idénticos orígenes y protocolo.
+
+Los vectores E5 permanecen locales y se pueden reconstruir; el ejecutor del paquete no guardó checkpoints neuronales de esta corrida. Se documentan ambas limitaciones. Las únicas adaptaciones del código previo al registro fueron impedir traslado silencioso a CPU y agregar observación opcional por época. Las 60 pruebas del paquete pasaron (5 omitidas); las 84 del checkout local del repositorio pasaron. Se autoriza publicar estos resultados en GitHub y apagar el equipo después de verificar la publicación. No se reconstruye el JBook ni se despliega Render como parte de esta actualización de resultados.

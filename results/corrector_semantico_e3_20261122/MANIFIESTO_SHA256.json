@@ -1,0 +1,2162 @@
+[
+ {
+  "archivo": "EJECUCION.json",
+  "bytes": 879,
+  "sha256": "1101432faf1934982ff42536cea788bfb2a75a4316a793fbd0641b46e5f6c6fd"
+ },
+ {
+  "archivo": "ENVIAR_resultados_corrector_20261122_0212.zip",
+  "bytes": 21133866,
+  "sha256": "111f0558fdc16e38e32e89bdc2f3f5dca292669f28f3ccfad99877e700f2038a"
+ },
+ {
+  "archivo": "README.md",
+  "bytes": 4381,
+  "sha256": "45a8fdb5f401e31fd12b8d24960dafda068b8f1a448f62421b166b277496f652"
+ },
+ {
+  "archivo": "codigo/LEEME.txt",
+  "bytes": 4483,
+  "sha256": "010a175c04d5f382a4dfc68a6d6ad16905a000a9f7c1f293e5b56e86664b208a"
+ },
+ {
+  "archivo": "codigo/config/descripciones_canal.json",
+  "bytes": 5508,
+  "sha256": "a377dfd58d9241d063f015a0190b0ec33fb7c28821d4329c858811f36f12de4b"
+ },
+ {
+  "archivo": "codigo/config/diseno_entrenamiento_texto.json",
+  "bytes": 4425,
+  "sha256": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf"
+ },
+ {
+  "archivo": "codigo/config/plan_corrector.json",
+  "bytes": 4174,
+  "sha256": "9dab04d8993b13ec14bf3f1f44f02dc455036702601f73a9b6c4d71700876246"
+ },
+ {
+  "archivo": "codigo/config/plan_e2.json",
+  "bytes": 37539,
+  "sha256": "ebaf5551a505fc56774157cfae7191b0d7978c9a798d8bac9dfdb040a1910dd1"
+ },
+ {
+  "archivo": "codigo/config/plan_e3.json",
+  "bytes": 93240,
+  "sha256": "d829b6c0e2a40528523dc62d61ee2fba68675997b8eedc6d8b9e33e2655bd338"
+ },
+ {
+  "archivo": "codigo/ejecutar_corrector.py",
+  "bytes": 9172,
+  "sha256": "0e6c08a61a6cecbfdb176ee525c8492954922e3146f2e1965a5892d8815557f2"
+ },
+ {
+  "archivo": "codigo/requirements.txt",
+  "bytes": 352,
+  "sha256": "c50804cda63dbc9b6ca7a473553851e797a0ef264266f3ec296e298592adbca3"
+ },
+ {
+  "archivo": "codigo/src/analisis/__init__.py",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ {
+  "archivo": "codigo/src/analisis/estadistica_e3.py",
+  "bytes": 52853,
+  "sha256": "0b7e1026b1a0710c1d7b2c1893a764123b775f9e611b5d776f98657a43cff018"
+ },
+ {
+  "archivo": "codigo/src/corrector/__init__.py",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ {
+  "archivo": "codigo/src/corrector/evaluacion.py",
+  "bytes": 4492,
+  "sha256": "35ec4c5a0cb7bcd45c344e6850d13bfcfd6e1db45f48165f1244dee3fbd51bb1"
+ },
+ {
+  "archivo": "codigo/src/corrector/fechas.py",
+  "bytes": 6065,
+  "sha256": "e7264bf97ab2cd490f3d0c4eda632a1889df5cae57cce0ab269a7781cd3e8d60"
+ },
+ {
+  "archivo": "codigo/src/corrector/modelo.py",
+  "bytes": 9704,
+  "sha256": "c9bbc511f1373ce1283707d7e25d42f5745b8c536d38527f51517f7baa3d35aa"
+ },
+ {
+  "archivo": "codigo/src/corrector/protocolo.py",
+  "bytes": 11945,
+  "sha256": "49dde298855fa8cec76cfb17e0657bf1483d76ca23448d227470270eeeb26659"
+ },
+ {
+  "archivo": "codigo/src/corrector/residuos.py",
+  "bytes": 7785,
+  "sha256": "2d56a274685bbf4403df616df8a4db7fe6f454d1f432f09f41e11ec510797001"
+ },
+ {
+  "archivo": "codigo/src/corrector/texto.py",
+  "bytes": 16480,
+  "sha256": "254d58334d0979a295e52e499248971aa55f52a0a090e2c7e9cd0e4ce84263b8"
+ },
+ {
+  "archivo": "codigo/src/demanda/__init__.py",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ {
+  "archivo": "codigo/src/demanda/config.py",
+  "bytes": 3989,
+  "sha256": "a1c23f51ff8511785fe04303430420074fcf4f9aed6b038d56372f4e7acbc3c5"
+ },
+ {
+  "archivo": "codigo/src/demanda/corpus.py",
+  "bytes": 2846,
+  "sha256": "df90f6ffdc9f862975371ffffdd465791d681fb74e47cb8c3b51f71fd0665391"
+ },
+ {
+  "archivo": "codigo/src/demanda/diseno_numerico.py",
+  "bytes": 2097,
+  "sha256": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04"
+ },
+ {
+  "archivo": "codigo/src/demanda/metricas.py",
+  "bytes": 1785,
+  "sha256": "8f859cb24a3e0f1ac374e5608772af057cb8a9b95d1e0d95223e51142f76892d"
+ },
+ {
+  "archivo": "codigo/src/demanda/particion.py",
+  "bytes": 6689,
+  "sha256": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/__init__.py",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/adicionales.py",
+  "bytes": 10141,
+  "sha256": "9e17feade83244f652c28a7742d7cf95cd26a3a21d5f5b045c7854fe4c4e2c07"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/clasicos.py",
+  "bytes": 10832,
+  "sha256": "dbf49d92a7a1059003a9cffd36dcc3b159447a399460843529e56dfeb21419ed"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/costes.py",
+  "bytes": 6324,
+  "sha256": "23484847928bc854fbf87a59de123d53180db5dd54dcd8c823258dca62639c71"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/datos.py",
+  "bytes": 10267,
+  "sha256": "1f77b12d159e683be10291e0c153261bbf5f4725f76cc97acfda6481a18d9c7f"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/exportacion.py",
+  "bytes": 12229,
+  "sha256": "4be0896eada0264e3cf0f1add0750213ee6161b6ef42f44e24c3286cf9725496"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/interpretabilidad.py",
+  "bytes": 7043,
+  "sha256": "87d57ba7d03d92396b48c3640b172786dbcb5fd6e4f983426ade536ac183f814"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/motor.py",
+  "bytes": 8683,
+  "sha256": "f9c93619a8994411afa896007ade79583feea8c47d72d213427b47238199cbd0"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/protocolo.py",
+  "bytes": 17979,
+  "sha256": "f3957746eb990138706743b5b1ef1962fa05ff187489d42d9f7cdf49e32184d7"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/protocolo_e2.py",
+  "bytes": 24372,
+  "sha256": "f55da4ef1180d25b1239940b372e112d205627a06357fdea7620ad86a6d1846a"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/protocolo_e3.py",
+  "bytes": 47951,
+  "sha256": "e4153d6a6700f62507e1e3219ffb98c772faf893e0c7c87325319680258a6ded"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/pruebas.py",
+  "bytes": 9464,
+  "sha256": "e9609ec95902ba26cfed87047ff5bc3cc4bf3d1c80ffc27f5cade9b1a9b089a1"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/redes.py",
+  "bytes": 26726,
+  "sha256": "f95f3e67aededbeb944893c53499692f58da3fd48a875890418829a1edf7ba3f"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/redes_e2.py",
+  "bytes": 14599,
+  "sha256": "b8aa32ef860c6cdc1912a8281b6d837c4deffe4ff60d738246de7629f7f78555"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/redes_e3.py",
+  "bytes": 7634,
+  "sha256": "f1a727eba4d5801a6283ecf97c002af465a96a5f8338f2693295fe84836a1634"
+ },
+ {
+  "archivo": "codigo/src/entrenamiento/texto.py",
+  "bytes": 15203,
+  "sha256": "94b90d4f985ca04cd3f5fc58c2085c1439d7f4d90501bcaa759fac4f558bc8a8"
+ },
+ {
+  "archivo": "codigo/src/exploracion/__init__.py",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ {
+  "archivo": "codigo/src/exploracion/agregacion.py",
+  "bytes": 4462,
+  "sha256": "6147b73c4aa1e8b1478d7ff29142f85e56fd16f916c7dd8afc54788762de5cd4"
+ },
+ {
+  "archivo": "codigo/src/exploracion/mecanismos.py",
+  "bytes": 10551,
+  "sha256": "824d3306de7d106b8d19993c2b4d26badfc2eea01ed0c695a431d9fe715ee317"
+ },
+ {
+  "archivo": "codigo/src/exploracion/protocolo.py",
+  "bytes": 24925,
+  "sha256": "054b6a2e3b2bb985952f76530f27cfe40fadfd1178379347a3e63880c0fdfb41"
+ },
+ {
+  "archivo": "codigo/src/original/__init__.py",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ {
+  "archivo": "codigo/src/original/mecanismos.py",
+  "bytes": 18228,
+  "sha256": "bda8ecf1dcd97df4b4741d13775c9bceb15a2a7c3990fc1f45b5aa63b1a159e4"
+ },
+ {
+  "archivo": "codigo/src/vendor/nhits/LICENSE",
+  "bytes": 11337,
+  "sha256": "de7890eb7276b802bdea8dcf60030010f3f97b37b1864fb1d1f8ba2251712c03"
+ },
+ {
+  "archivo": "codigo/src/vendor/nhits/PROCEDENCIA.md",
+  "bytes": 669,
+  "sha256": "214c1fe849eba401f25563eee05b4bd3be73fc6d26578f635d9bef6308c07f2c"
+ },
+ {
+  "archivo": "codigo/src/vendor/nhits/__init__.py",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ {
+  "archivo": "codigo/src/vendor/nhits/core.py",
+  "bytes": 6190,
+  "sha256": "8ab9faac4d31221ee807aeb8290365210d2bd8e5b94a71736111bab86140a05b"
+ },
+ {
+  "archivo": "codigo/src/vendor/nhits/nhits_original.py",
+  "bytes": 19077,
+  "sha256": "a769bdef26155fe4b0872c45a13e467ea3ef53c914d41bbec535a5fb49d802ed"
+ },
+ {
+  "archivo": "codigo/src/vendor/timesnet/LICENSE",
+  "bytes": 1084,
+  "sha256": "8a6caa178ea3f33ebff5d7bb5558628cf5b423305dc30d3630f86564c7db94a2"
+ },
+ {
+  "archivo": "codigo/src/vendor/timesnet/TimesNet.py",
+  "bytes": 8735,
+  "sha256": "f64c4bed1fd7347090044a0163bd4209c9f9ec1c1b19ceff47842df36b64bba7"
+ },
+ {
+  "archivo": "codigo/src/vendor/timesnet/layers/Conv_Blocks.py",
+  "bytes": 2376,
+  "sha256": "16d9f2d9e4fa094dc357901e32beecda9839709bcca02625e6447186933ce4e1"
+ },
+ {
+  "archivo": "codigo/src/vendor/timesnet/layers/Embed.py",
+  "bytes": 7012,
+  "sha256": "17e7c3577324c41a0da427a199c955b782fde905aabb1f7cbc3c4e15ebd4ae35"
+ },
+ {
+  "archivo": "codigo/src/vendor/timesnet/layers/__init__.py",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ {
+  "archivo": "codigo/tests/test_corrector.py",
+  "bytes": 8101,
+  "sha256": "f4a089202d50e6126119afb8d265b8c3e6d85d37426c96b9df57f67c961af019"
+ },
+ {
+  "archivo": "codigo/tests/test_original_model.py",
+  "bytes": 15060,
+  "sha256": "9e39b620ceadd1aff1084e4b8dd9dba21ac41af9283612ba3c26b2f6e932c0de"
+ },
+ {
+  "archivo": "resultados_corrector_e3/REGISTRO.json",
+  "bytes": 5956,
+  "sha256": "3c1556f7ca5dd45cbfaa6e4b3992b11b94d6c0aa07582235c84d2f6d3f3b822c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/RESUMEN_CORRECTOR.md",
+  "bytes": 3673,
+  "sha256": "e39f030f3a46e850a5b35d152a3b9d46e8d4ee7024de8395de770daf3308e9b9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/bitacora.log",
+  "bytes": 15711,
+  "sha256": "02bd29288579ce3c96dee31872efb6554fea9aaaa89384053d91e9cb50c86d1a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/configuracion_elegida.json",
+  "bytes": 107,
+  "sha256": "37b854b87b5136802764376bf225a07c4e4166612a2df9e74302f03a5099d74a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg01/anio_2018/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "94976a9c3d911e1cefd6d6d87798a3ad0ff9b5c2211a205610aa835dfce6a24e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg01/anio_2018/semilla_101/resultado.json",
+  "bytes": 1983,
+  "sha256": "c65174e165e9fac0db6b08c409b1f4b739cf4dad4b5def2bc7ee504e5ab0c825"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg01/anio_2018/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "b0402332965730a5d0d2a3865079a0f51bdc4cae7a2fce1295a073334f371a6a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg01/anio_2018/semilla_102/resultado.json",
+  "bytes": 1920,
+  "sha256": "66689c63570f4b3e557be58b6208bd2d9bcbbd63182cf4751df38e03c34bb82d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg01/anio_2018/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "70a90b1dc970f779e56cdb356d22df32528775d042e71b934aaf26c155e3c81f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg01/anio_2018/semilla_103/resultado.json",
+  "bytes": 1920,
+  "sha256": "dcefc13793efc67c98cd4e7f47ddc8d669271f21dbb96df521eb5bb3c5359288"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg02/anio_2018/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "7d742669885ef3935bc400e819f8e53a3a7b7408791b07c652c39658c2ca19b5"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg02/anio_2018/semilla_101/resultado.json",
+  "bytes": 2425,
+  "sha256": "10981527f07bd9df0685812f8ac3cc8e54a970366bd1b16b2c3bdd63ddba1fb1"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg02/anio_2018/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "cbdd7fcf5718afac8da4c6d82a2e4990935a5beab513ca1ea9cbae995f253923"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg02/anio_2018/semilla_102/resultado.json",
+  "bytes": 1611,
+  "sha256": "9c8c29ae296514761f2f3b41969ea1b2daed65e38513ca6ab6c23d52c92c98a9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg02/anio_2018/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "2163463c7181b224e0ccc81827e8b29d62d06d7a5c608555a50bd344c6e4618c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg02/anio_2018/semilla_103/resultado.json",
+  "bytes": 2046,
+  "sha256": "1cca265e94a0e6aa000593e32c5a18863db072b07f81e666fab5091227a290a1"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg03/anio_2018/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "a54e0c7b472afb8e5bbd88ccebaf8a1a9d37a95ee636ee89f03da265a52bdfbb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg03/anio_2018/semilla_101/resultado.json",
+  "bytes": 1982,
+  "sha256": "946d9e5693792e9a8051f409d342784b3d7330fff1db3d58a01f0873c8aac12e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg03/anio_2018/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "69900e43571299e669ecb6b9a3af43b766590724334416a736867d16cbfd7bca"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg03/anio_2018/semilla_102/resultado.json",
+  "bytes": 1921,
+  "sha256": "a242b5e29e5544c9c04fd3046087163544b2af342794945872e4a32a00f6f6cb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg03/anio_2018/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "cc4637cab4038b4c938a0261367a0ac1a9567766f8a76a7518dc53c541de2f71"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg03/anio_2018/semilla_103/resultado.json",
+  "bytes": 1862,
+  "sha256": "9957905bfa97b45031e10b9ea6e439d9e31628e067dbe201ef43cf4225fbc09a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg04/anio_2018/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "377e61c64007e5b61833ee66be8cce7a8e9df813d3e38b590dc3529535d312c1"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg04/anio_2018/semilla_101/resultado.json",
+  "bytes": 2616,
+  "sha256": "a744c9a5f59f0757136ea345db10ab5f4163565f79a7482f13791e41ef3dc0c0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg04/anio_2018/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "c2309d2c72bfbf34e7d02abe0d5b38c4154e6dcd1be0b3bcdeb0d15619731804"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg04/anio_2018/semilla_102/resultado.json",
+  "bytes": 1611,
+  "sha256": "774096026fb92ad2ac4632f632d8d1bce95088a617a86c96e655fd8481ce085d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg04/anio_2018/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "f5f3402270a2f4feb5bdd3c458440890a2b23771b275f22a5892ee1c99a0b5a9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg04/anio_2018/semilla_103/resultado.json",
+  "bytes": 2053,
+  "sha256": "47ad3969a8fc13a90b699766b356e7a14aefade1c34c67d2feee7fda1dc47b70"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg05/anio_2018/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "7607cd3be8b5c3f0f7b837315cd7425bf16f0f07fab052c35fbbaa881f956c11"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg05/anio_2018/semilla_101/resultado.json",
+  "bytes": 2295,
+  "sha256": "13db411cf0a39e85a6ad72bae209895b600b9961179a6e013e215973f228f0f0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg05/anio_2018/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "c9e0264d8055acfa00c68e36dbb35b68480ad8121d6910a6f61460d52f9bd614"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg05/anio_2018/semilla_102/resultado.json",
+  "bytes": 1609,
+  "sha256": "a2b0b9b138bca6f275a9a6a317f0719d6ef07a3b7badf99333a7c57835bbd16f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg05/anio_2018/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "05d8f8c360b5b51b34d4225182fe4c436e6d274fec4d9f789fb02be52eaa4916"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg05/anio_2018/semilla_103/resultado.json",
+  "bytes": 1672,
+  "sha256": "2f6cc22d16ec404aefbd3aa17b96abd1af440ce43044c920624b5b86f531dc2a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg06/anio_2018/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "76c9bd5c02243558addcf51ab394fe73b8f5bf9e059089e06c81b437ede125b0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg06/anio_2018/semilla_101/resultado.json",
+  "bytes": 2422,
+  "sha256": "a529483dc2bab26e991caac00e19a3c4ec5311a048c4dad7958bd17c36e89054"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg06/anio_2018/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "aeaf859601c9287dd8b8fece608ad45ff7f6252c8973fcdcc361df4185c7bf78"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg06/anio_2018/semilla_102/resultado.json",
+  "bytes": 1606,
+  "sha256": "d3879e494ece6d4b8e221b84bb5f79195b7ce04693ea7f75c179ea1a5b062e44"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg06/anio_2018/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "41e94b9e47a155ddcacca43f54a24c0fe63a48669c6aad8a42abfc135a12a394"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg06/anio_2018/semilla_103/resultado.json",
+  "bytes": 1856,
+  "sha256": "19501c40d2a77525098fd10302e902edf0c7ced02d13b53ad764b18360396dcc"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg07/anio_2018/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "5184005ef9ea1e13545c21f14422b1a8b0c116eccd34ce1ffb3a19aeb4793ad3"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg07/anio_2018/semilla_101/resultado.json",
+  "bytes": 2423,
+  "sha256": "9b4f09d0cb1fb020bf736580ad0220d1f1ab050ccd4c67049de44d26c89cb965"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg07/anio_2018/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "19bf200a73b9e66b62273f672f4a6433e7ed719b65199adcdedbf2b19a8b578e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg07/anio_2018/semilla_102/resultado.json",
+  "bytes": 1611,
+  "sha256": "e292ffa0317d647a8bb7f38c16c12f96dad676e0977c755d3136d833645e8fd6"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg07/anio_2018/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "7e20380cdecd22aad2670ef64f65bafb08d4cb7b37b576b9090589fbfc939df4"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg07/anio_2018/semilla_103/resultado.json",
+  "bytes": 1669,
+  "sha256": "336c391e1a3a416ca3fdaf1fb9c8ec4971ab2f3eeaa8baaffbdd21c5cee1507a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg08/anio_2018/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "166c53a2b5cb57f83aa5361be1d121e7af75dd6dfc0380b06913934cc4c3f0dd"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg08/anio_2018/semilla_101/resultado.json",
+  "bytes": 3169,
+  "sha256": "00fcafac5c5dc73c7950e2bec06194d082691347840ce1df1ab76ccb5f468ab9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg08/anio_2018/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "7cc734a2cae6ef87a5f3109f98fa9b14f27cefbb5a538af26e0bcb640a73ce9d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg08/anio_2018/semilla_102/resultado.json",
+  "bytes": 1610,
+  "sha256": "4e5caea2281b89630d606a0b879cd29ad38a7d6cf3bfde2807ac302d62d40e2e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg08/anio_2018/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "56479c225bb76e219a2e60a77e52d0c336444c7862259bbdee169498e750c7fc"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/oficial_prensa_cfg08/anio_2018/semilla_103/resultado.json",
+  "bytes": 2046,
+  "sha256": "1b63d7a8e1013b7bfab629e0d71dd91efd2bbfea61bf6752313425f92d9819d9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/busqueda/tabla.csv",
+  "bytes": 1277,
+  "sha256": "a7f04ea5378b37e94d72b093f55990f64aae0af05186f66a79356e67475f38ff"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2019/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "d646574338821a4c1b2ec88b441e349ee12c112cbfc108aae3032038023255fb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2019/semilla_101/resultado.json",
+  "bytes": 2542,
+  "sha256": "5aed377f36dae853690cebf5f588f10396002bcde1de5eb5feeacde63d6fe9f9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2019/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "94aa6518dbfd2cd94b462f8b955fd97f0e0d4af64c1380c93e4d2462e5b19003"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2019/semilla_102/resultado.json",
+  "bytes": 1601,
+  "sha256": "aed81ca3621fb7e79a525f3a8c40ccae8e3ac7acec9af4e4ac77d7b68fcb5f44"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2019/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "b4e6104ed4e60461b17e8d3735793be67b207e164845058e4fc9fcbeca7197eb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2019/semilla_103/resultado.json",
+  "bytes": 2598,
+  "sha256": "889f7f3097926c9e096512a2fcdf8d53c1c912f415451d810b5bbbbd87cf31a0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2020/semilla_101/delta.npy",
+  "bytes": 35264,
+  "sha256": "c29347972380265f88df51b9d78e9349480c044a76c3903218798ccc509c88fb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2020/semilla_101/resultado.json",
+  "bytes": 1606,
+  "sha256": "6f8908fa54645353a44c2b4c502fa8a40b1a5f3bda2d90b2e9b882d434cd6aae"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2020/semilla_102/delta.npy",
+  "bytes": 35264,
+  "sha256": "728132fe4b77b823d6ac33f656e23858f0f6cca8dc5db7ed672bb4174bc719ce"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2020/semilla_102/resultado.json",
+  "bytes": 1664,
+  "sha256": "3debf4ba3361f887eb9590fa12a1bea9761c5a98a8b89d6b1ceed627dd28982c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2020/semilla_103/delta.npy",
+  "bytes": 35264,
+  "sha256": "2447e358b637ab51e80f3fa0b7b3f1eb8b69a06abc090155806c9db3b8f769dc"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2020/semilla_103/resultado.json",
+  "bytes": 1667,
+  "sha256": "34650343bda59b42bbc678b28bc69cf6a81f7fa39080d8185bf5b210e0af87c4"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2021/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "ec5970637813090c376d03caaa081afcec0a075167432f2f8938beb626e2b83b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2021/semilla_101/resultado.json",
+  "bytes": 2530,
+  "sha256": "8edf88359d371551cd6da97fcc00b9961b40537e4eddb71ec5f45ee740a2d984"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2021/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "8db443c07f8921c5f64fe0fe1da8f02e78d097be588064794f7de73c827a70d5"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2021/semilla_102/resultado.json",
+  "bytes": 2093,
+  "sha256": "5f851d51a8193f6989d3079e8d854123f1a7abb4f8438b110c367f66e917b726"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2021/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "fa2f1ffcf5ed0a95d8ee3c6174646bc8fca8acd3e4702f12b10048accfd5210a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/estricto/oficial_prensa/anio_2021/semilla_103/resultado.json",
+  "bytes": 2340,
+  "sha256": "15f2049f6dff74d6b26ecbb10ba09904d6fe9e4c668cd49e90e997b271689d4b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2019/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "fe20ebc8c42ee532ce56134dc676a8fca011129d05792f8fc2d35c060c801c68"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2019/semilla_101/resultado.json",
+  "bytes": 2227,
+  "sha256": "3ed6f87c17a87ce4aa42f523daa266bfb3e35bf73ee240dffe53cc0767eeaa5f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2019/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "b5078eac12b66c9d50423e292fc608b87e4a28a5f06fe7c030cb3177c926f53e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2019/semilla_102/resultado.json",
+  "bytes": 1601,
+  "sha256": "41940af2101d9ff3f236a285b18b91df28fca2d67a13af1beeb0e46cbd2240f9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2019/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "5349803ecb4faf3f91c7bee8b8c42fee53e2818011bf6f8dc067935a9c8e9c12"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2019/semilla_103/resultado.json",
+  "bytes": 2297,
+  "sha256": "a44a7f5076ca24cf01ea9529568e433ded74f24d3a83b1c7c14eaead39794b93"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2020/semilla_101/delta.npy",
+  "bytes": 35264,
+  "sha256": "3d187dd810ba9349055fbabfd9224dc87e5f858eb7bf41b5678ca6c2e08fd72c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2020/semilla_101/resultado.json",
+  "bytes": 1608,
+  "sha256": "faf70838e9aeaa57fbc0b50d5313beef34f19c22afb7b685f65b4fed11817456"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2020/semilla_102/delta.npy",
+  "bytes": 35264,
+  "sha256": "5b2e334ae1bc84e0113c6f53a9d52a11b888b292e5dbc35b5e5f395fed85f917"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2020/semilla_102/resultado.json",
+  "bytes": 1602,
+  "sha256": "7489533f16414a9f7d8b3e8c0e495842564f90edb81cabb334a5e5c1676c8a73"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2020/semilla_103/delta.npy",
+  "bytes": 35264,
+  "sha256": "54def7b4b14e81332a1a8176fc59f48bc3bebece0450cd109131157df1cc0212"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2020/semilla_103/resultado.json",
+  "bytes": 1609,
+  "sha256": "97a96a79a3a9004d15a70ab93f1e8dd55e12740878669b6e1e9814fa2bc25555"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2021/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "b9e6909af42e60377e20323d1fef2775d1c99e5ea94e82b28d96dabbd988ad16"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2021/semilla_101/resultado.json",
+  "bytes": 2661,
+  "sha256": "2e9fc126a55748bc40b8353ae62024de4ef618a553e7b12265c88e82adee2e9c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2021/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "4ed5dfeb32f67eb10fd7d3c74cffbb3a2e312cd2e859caa6632fc0b4db0a770d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2021/semilla_102/resultado.json",
+  "bytes": 1659,
+  "sha256": "05e2af40dbd5f1780142117e1dcbf354bfe54711bdec260fefe00e450b12c098"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2021/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "b0af9c3020343946af7dfd178c9dae28c62c0e3983c7736da9d15f6bdb28bca2"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_154/anio_2021/semilla_103/resultado.json",
+  "bytes": 1847,
+  "sha256": "667ce40396a77a2602f74cdb1620fc87f2e034c2ae1ad0e3e68292a9e385ddea"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2019/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "761fd6a5ab7187e09b387ab1ce9e7a28c00c8a3a845c1aed4e811228acff60e2"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2019/semilla_101/resultado.json",
+  "bytes": 2231,
+  "sha256": "09544ad645f0741cd750b1c25be62ee982efbb4657d8593feeb2f106453c990e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2019/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "b4eb03ac3292c8a8c5c9d65253ff36788f8b01155c1d799c59261fdeaa0405cd"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2019/semilla_102/resultado.json",
+  "bytes": 1599,
+  "sha256": "c1f0a6093c224f8beda88f222679fcc095cc866ffe9671b268b4905d3f9ffd30"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2019/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "d89f25d3a967076ba870fc122daeb1eeb18f6311d283a2af9ef75ec41849590c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2019/semilla_103/resultado.json",
+  "bytes": 2296,
+  "sha256": "8927ff388e9d2482bbecea4521931c83619402179a81189526001e2790453e1d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2020/semilla_101/delta.npy",
+  "bytes": 35264,
+  "sha256": "76310838766e39bdc212a0afbbf1e58d97082c61bb35c3a7176630d84c85cdb7"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2020/semilla_101/resultado.json",
+  "bytes": 1614,
+  "sha256": "c5c983e04c76e6d84a016e136e35ab47e0d76f4119258647f112f92e44cdebac"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2020/semilla_102/delta.npy",
+  "bytes": 35264,
+  "sha256": "ea33ec4a4091def3a498326d51361c6925e4f0ce5cbad30c30790ae765d2606b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2020/semilla_102/resultado.json",
+  "bytes": 1601,
+  "sha256": "5b1042cac52a81bf806437509b8984b9c37b63890d7fd27a4492cd2c71949328"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2020/semilla_103/delta.npy",
+  "bytes": 35264,
+  "sha256": "3955c00478e2e57d06dca7316d62e582f9fd3375021ade5d40c432f20fa9c690"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2020/semilla_103/resultado.json",
+  "bytes": 1611,
+  "sha256": "3a9106552f8f8fe615f07ee5bfb703face5d2a56965e4b4c3fa2d7d40d5aedaa"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2021/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "4851a592c922bf71c1b00fc043cce1168685ffd8f9a79ebb1704cd0949f0b0fb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2021/semilla_101/resultado.json",
+  "bytes": 2660,
+  "sha256": "e3e90d28c411f3799817903b741c992cc06e1bf79b493c75d56c1265d5def232"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2021/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "26b9a58e8fe85812d264970339f525ea3164ff420b767ad1bd7f66b77b4a737f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2021/semilla_102/resultado.json",
+  "bytes": 1658,
+  "sha256": "b11b52dc4883382aa27670c237a1cae46f873d6023353ef810db7148c48649a9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2021/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "e7c9f137db2d7c43050b42392299f986669f0002a2656cb18a819b8ad1cfa299"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_217/anio_2021/semilla_103/resultado.json",
+  "bytes": 1970,
+  "sha256": "acb7862dc5afffc43ae62bca604b94e332c6162c8cf24d59ab283963d3caafa4"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2019/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "39c11e5e76254c4cc9883d7a324c6461e0c7a90ec080561106ca4d89b51997bb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2019/semilla_101/resultado.json",
+  "bytes": 2234,
+  "sha256": "feb86174a172d9cbc4a89dbfbb7f4f468d07b1099896eeb22cc4bfb2939154e5"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2019/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "2bfabcf57a0a7be311cdadf70304131c0b51b355f4aa4382d86cab21afa6f92c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2019/semilla_102/resultado.json",
+  "bytes": 1600,
+  "sha256": "04616e25c4e6956937f15f5797843f8adf9de6324bb809e5f1dfd1cce8fb7bc6"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2019/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "88c9d9cb08f7f58d485438268ff1319bded6a774480df090be0b63afc7d59a25"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2019/semilla_103/resultado.json",
+  "bytes": 2287,
+  "sha256": "7026165fafb89580ba3900a6eadd1169ecfa67bc88a3fc298e36e3ff1c86a8bd"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2020/semilla_101/delta.npy",
+  "bytes": 35264,
+  "sha256": "a03d8f697e5cd5d16914b74b847337afb8bee69dd6a27a026d353bb1f0792d8b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2020/semilla_101/resultado.json",
+  "bytes": 1610,
+  "sha256": "869fd0899aa8fc53feb325acd73d6ef8fc3d8aaf06cc1d8defdab13a649bb064"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2020/semilla_102/delta.npy",
+  "bytes": 35264,
+  "sha256": "dacb146e859ab1af529c7caad7b969f112c356285cb3c9fe65782ea69b4c12a0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2020/semilla_102/resultado.json",
+  "bytes": 1603,
+  "sha256": "ca9fb7cffe1fa0a95f9a7b976ab73b90758a60815d204198864dd8825bf2864a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2020/semilla_103/delta.npy",
+  "bytes": 35264,
+  "sha256": "3daf287e3c4a8c561ac6b3283a783f11e0e07c676f8f260ea8e1b6810723e62d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2020/semilla_103/resultado.json",
+  "bytes": 1607,
+  "sha256": "0d8f11534c92954fcbad0f5fa587a7b18bafabe38e22df300f9fa7007473feb1"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2021/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "1b9836547168869d0e9246973b21723c8da530cec1f4f83990c984fb9617699d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2021/semilla_101/resultado.json",
+  "bytes": 2657,
+  "sha256": "7c66b7622a422060d06f6a2bba942655e012913ddbe207ffaf38cf562a35ba1f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2021/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "f8aa0e15b40704aca74dea29c70076bc630dd45f6a62f85220c2b5ecf1cd1346"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2021/semilla_102/resultado.json",
+  "bytes": 1660,
+  "sha256": "107d02bb4b866624dc3a774087503f61023febcd132ae76b094b15cf81849b03"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2021/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "bb2760a0812f5613f2f44862f66161b0a2c793f1d4d8e50f4e82e509e5f93b0a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_301/anio_2021/semilla_103/resultado.json",
+  "bytes": 1971,
+  "sha256": "9c487bb71ef7a7f722fe9e2c3502d70ce3dc00097945bf96001f0f77617605d4"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2019/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "d504e04b7cb29d0dfca683752bc6d2c223e05f79ac07c186c516932ab142ba07"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2019/semilla_101/resultado.json",
+  "bytes": 2225,
+  "sha256": "fe5a040759123e2c1a1541ef5ad1cb49e978fd3da74a6a56d2ee199e0aff669f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2019/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "e68f2ff747620685cce80687e5ce782f328da690d410572caa0a1f2d8b6969ca"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2019/semilla_102/resultado.json",
+  "bytes": 1602,
+  "sha256": "ea903820387e242cb0885222c2febd363c9e2824282d17596a11ffc319d2f292"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2019/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "839318989e1231dfa82ed94b62416445d5f1ee8b89305771906392716e832b9d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2019/semilla_103/resultado.json",
+  "bytes": 2913,
+  "sha256": "c30a5e242235a5fbb20a30d2d56da3dcf28ad04a670c23a91f5020348df90751"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2020/semilla_101/delta.npy",
+  "bytes": 35264,
+  "sha256": "7881806aa42376127c5207203238354ab58e668d14943e9511115bfb4a16dc4a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2020/semilla_101/resultado.json",
+  "bytes": 1609,
+  "sha256": "55a777afb13bb9e3ce8c4d7cb45c5b5fefe3211f86e177448811116a6773907b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2020/semilla_102/delta.npy",
+  "bytes": 35264,
+  "sha256": "22b3bff43363d1e7fd778a71ec13070ee4699d98503fcaac7a497b6d5c969481"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2020/semilla_102/resultado.json",
+  "bytes": 1599,
+  "sha256": "eb638a269e42309c2f00dac41aeaf64b9792fa95d7ce695ce3cb5f2e0d212b1b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2020/semilla_103/delta.npy",
+  "bytes": 35264,
+  "sha256": "6be9106db517cb276776c74d7d42c361a2c1e750f7569c64a71411def8b234f4"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2020/semilla_103/resultado.json",
+  "bytes": 1603,
+  "sha256": "494ffc1ae6c5d729b06f9e1262b005f49e1eee54ab961129dfec1f1fed9d0742"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2021/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "1b4f2fa2358b1d04d26915f3c618f593dc96c7cbc29ca9b88eb1c7bd976bf697"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2021/semilla_101/resultado.json",
+  "bytes": 2657,
+  "sha256": "18438cd5c6fe01a8ba0d6e90ad34fedfa1343ed7c0dfa6567423a9b9bb2f0aba"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2021/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "76edf656c41b8871ad53d08d8d6ff21d7c8e1c0952f3e733587fc688a00bc295"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2021/semilla_102/resultado.json",
+  "bytes": 1846,
+  "sha256": "110b8eee1c71f410bc3763d148b2e6800fd5eac34ccb6b99a2daec538c24597f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2021/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "9d823393d0f52aa9e6c517967bae10b663afe5388301742459e20d73dbec5d17"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_49/anio_2021/semilla_103/resultado.json",
+  "bytes": 1970,
+  "sha256": "2b94c87f7693300b135b36e4adbd043ef93634f27937ea0170485465c9f7b2e2"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2019/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "d5142c235fff04281b86d70de2c8f6266c23cee7f3f0fb3c2eb135ec0bebd72e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2019/semilla_101/resultado.json",
+  "bytes": 2228,
+  "sha256": "3badd06ad2dff49d9f7e73f095ae787813b010eea250b1f2d00ecc39dc2b9253"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2019/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "75eb14a11a1e564b403c1ff37905b9d3b4abdde26b6f5de8b18c9fb9bab64e84"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2019/semilla_102/resultado.json",
+  "bytes": 1601,
+  "sha256": "34196627c0d2581d662801d476e2963065c8ccdf1e1a433fdab0fa110cb6749a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2019/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "2cea51492c238d2ac0480c60c72ba8fed684e0d54e2c25cab4c8a5a18b835a26"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2019/semilla_103/resultado.json",
+  "bytes": 2286,
+  "sha256": "b4eceda00a856e9a377c748603481653371fd74891471f2dd6f1171a03864897"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2020/semilla_101/delta.npy",
+  "bytes": 35264,
+  "sha256": "73a475511d0d2d0fdf961e050c961321c4793cbe41b1e006d4d5a7931330b905"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2020/semilla_101/resultado.json",
+  "bytes": 1605,
+  "sha256": "ea55f79a4939224e4c5cbb79c42f7cc820126b71a4c0dff41742ab29f99dca42"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2020/semilla_102/delta.npy",
+  "bytes": 35264,
+  "sha256": "b6846f1cbb53e05026b32b93414cc2e81cfc47a8242af58511c6bdda86eb7edb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2020/semilla_102/resultado.json",
+  "bytes": 1604,
+  "sha256": "eb8630f2cdd80d31dd0e4c1f05006dba58e95cc29b5bb503d4941ec101d1239d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2020/semilla_103/delta.npy",
+  "bytes": 35264,
+  "sha256": "498b48f6d9079239c9751b934a420851f7bc04142ffc2e28f2bad5a851282f9b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2020/semilla_103/resultado.json",
+  "bytes": 1607,
+  "sha256": "ad319cc9525e0a48236872cb84bf2eaf73315d6ec191ad029b33a147188f0d77"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2021/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "d97a8ae66596d900efb7b8e2c2e38e1f8f6ef66d19a950f726d65f51347d645e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2021/semilla_101/resultado.json",
+  "bytes": 2656,
+  "sha256": "7436357642d45893bad7a5ec62acf7e20e85ff965f230c92b24e675fb15d2687"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2021/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "4c913129979e23df2cd81bcfa971b99086339650d1123a40043d5e606ec478cd"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2021/semilla_102/resultado.json",
+  "bytes": 1968,
+  "sha256": "aa71da17e00a4849a747ee63cfc8be3105b80388afa881c838f6e274a9f3fd7c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2021/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "30db5911b5a195971aefaa11d34ab7a3380c39f1dbfb2133bb1434c4f8bc0ef4"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/placebo/desalineado_91/anio_2021/semilla_103/resultado.json",
+  "bytes": 1967,
+  "sha256": "92571715ed4402a9702d3059f4876016c908b18a1895792952d831a31e081406"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2019/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "4f4ce589c4f41f855fc7a5922f77731f0b8595528b092f738af352006ff44968"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2019/semilla_101/resultado.json",
+  "bytes": 2224,
+  "sha256": "a5c4948cc15c713d08b45c5576cea8a634cdac3c50fd4d4ab3047d2645d4824d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2019/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "de2d9ce2d8d2a0355da4a1bba98c51a12bc9b61048b11643273adcc4f20c6760"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2019/semilla_102/resultado.json",
+  "bytes": 1594,
+  "sha256": "1a0ba94d51808447b93b46b69df7f226885b50f262ab07849dd77ebd7dc12ecc"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2019/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "2f1f0e6842efc9ab1eb9a5b0933d40873e1f2d6efc85d86d8a506f88a0f18382"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2019/semilla_103/resultado.json",
+  "bytes": 2289,
+  "sha256": "1c9f713a59b78a83f53fcf1c689a84641b9aefeef90f75bcdc368f175156aca6"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2020/semilla_101/delta.npy",
+  "bytes": 35264,
+  "sha256": "ce3bdb2cd60f8b3a4b73eb4414458890a547529b0ea533f0bd48ec754bab4b88"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2020/semilla_101/resultado.json",
+  "bytes": 1605,
+  "sha256": "3f85200117cd9efce598edd9c54bf78579c5357fb87951c6efdc57f1ce4feff3"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2020/semilla_102/delta.npy",
+  "bytes": 35264,
+  "sha256": "bb10ba96d0b904b21e15c155f618cb1cdd75a82e77d9d68b523cab4f45c82008"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2020/semilla_102/resultado.json",
+  "bytes": 1598,
+  "sha256": "e67fd8553cba046e8823bca0b569e74755fc6a17541754184d189126e9f347e0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2020/semilla_103/delta.npy",
+  "bytes": 35264,
+  "sha256": "052aae24992aaf7742a42090f059f0e5ea1ce13107776fbffff3b81e6b396fac"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2020/semilla_103/resultado.json",
+  "bytes": 1599,
+  "sha256": "e8cc232422d1121ecdfee6cf13d579ac5f866a6d81df4967179a667debef11b4"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2021/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "9917ce9a4592d1ce82038ef6d3eae9690481bacbc29d1e608175808a57d9d09c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2021/semilla_101/resultado.json",
+  "bytes": 2652,
+  "sha256": "a52e14b898d2ce675afe2c3c9ecf9083d635883a30fbbc38a0f42cb0c012b54c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2021/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "5111e0ac6405c9efff9af6c0215db836df3222f782c3fed1a8a16b9e6105f7cc"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2021/semilla_102/resultado.json",
+  "bytes": 1839,
+  "sha256": "3f98ec9485a7ff30400f33af72b38125fdd4c7566b88d0821583f12bfc74fb49"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2021/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "44c7def21521e6d1b84ef5326c7ba45caa7d617a91c1ad190db4dde690b6b3a0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/metadatos/anio_2021/semilla_103/resultado.json",
+  "bytes": 1842,
+  "sha256": "1cc0060633dfa11f5044862008951358ba6ad418e7af4062cf1c81c15b538712"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2019/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "c3a39144b3c7ab93a0fa6b59262ae951f0a917d1a1c032975a871b9b61aca54c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2019/semilla_101/resultado.json",
+  "bytes": 2226,
+  "sha256": "b188e95ad5cd2378f405a7a10a2b03c4eee9874342a85a75e513ba8631649074"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2019/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "df6725c6277e609906921b66e2de132665413968a18541ec39745ab86aec8f8a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2019/semilla_102/resultado.json",
+  "bytes": 1596,
+  "sha256": "a2f1b81a3e36d4e72bf01a5e2ab428995326a42c538d2cc9ba1e666672f21cd1"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2019/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "129d0b4c070964b138246bd84fb06a76b8908260d53d4c56ffca8c5fc5080bb0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2019/semilla_103/resultado.json",
+  "bytes": 2294,
+  "sha256": "27976cc5528688c46b0706abe9c87590fe2f091f88c672bbaa94af7bd542c02d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2020/semilla_101/delta.npy",
+  "bytes": 35264,
+  "sha256": "cf8800f1597747dc67901047517f568f3743f62aeb6d0a818bfdab7c385b3e48"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2020/semilla_101/resultado.json",
+  "bytes": 1607,
+  "sha256": "e04ad0915dddfab7cb47cbfb208d6e075e77313e2e272075b12b298d9fee2f1a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2020/semilla_102/delta.npy",
+  "bytes": 35264,
+  "sha256": "c6c296f993e0d5037c9566937dfeec286f48aab0e1361674cb5e30708e658a90"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2020/semilla_102/resultado.json",
+  "bytes": 1665,
+  "sha256": "0bbc7c3ec8bfa1a83b2cfbc3f22b5f60a9daa7d3f801b146e585d1f435c27cd7"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2020/semilla_103/delta.npy",
+  "bytes": 35264,
+  "sha256": "04d481126541157df14b8cb0251d1886370a800b5578a7abd8f524e6e8c94214"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2020/semilla_103/resultado.json",
+  "bytes": 1663,
+  "sha256": "30e5ac44a54ac1579370c4a84dd00279709b5ca603c2876e05cd2c698a08bdb3"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2021/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "9b920beae3abfa7cea7572e844e1eaee291db7af2051172f1643898eebc6c5df"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2021/semilla_101/resultado.json",
+  "bytes": 2655,
+  "sha256": "547e0a462cb0f915edd757765b6c895cca4d90fc19e234fca27614a2a37f3920"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2021/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "3d4d86ec82fcf1f597e348687f2d23489ef58f198750da58ab60199ce96e37c8"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2021/semilla_102/resultado.json",
+  "bytes": 1842,
+  "sha256": "de99179c1b0f207ab98cee3f2b1dc4f18cf67d366c56bbc590405ed95edecd58"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2021/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "ba7db4ad829c2ed4e7600f99698c88121afcf596094e8d9610d5c9040b64b89e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/num_horario/anio_2021/semilla_103/resultado.json",
+  "bytes": 2091,
+  "sha256": "07ad8ebd0a0d17a1cedc226bf4371e5fd71bf180823212fca1b135d5604b5f6b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2019/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "dfc7e49285ef9d2a9f282708fd73fb7922d568fdec3e49c19b0cb017157a63dc"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2019/semilla_101/resultado.json",
+  "bytes": 2221,
+  "sha256": "f9d4dc5d479acfbe73417359477422d26da3edfc202a049dfabf63572b68b1c0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2019/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "91987eff373ca5ca0ef04a4fdd78c8f2027ba872ac6b5cd4948e694560724eb2"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2019/semilla_102/resultado.json",
+  "bytes": 1588,
+  "sha256": "6a1c759f7d76614f309d8b9b195e75ba76d16e2f40062e0213ed40645bcd1d45"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2019/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "a4db9646bcadd29e53f180a51bf0ca5f851318ddeb8ebfbb91f5501fbefdb4c1"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2019/semilla_103/resultado.json",
+  "bytes": 2039,
+  "sha256": "fd81329f96e5af4b1bb06a21693fd810f25b40c842ba9ae5974102112a437b8c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2020/semilla_101/delta.npy",
+  "bytes": 35264,
+  "sha256": "df9c41ddfc0b8fcff68a67960f58bba16348b29d06935cb9eba262e8668cd850"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2020/semilla_101/resultado.json",
+  "bytes": 1603,
+  "sha256": "b4f2c6530ec157a4396ce13d2eb8b842b0e72cdb4800b7a49804f4870937a03b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2020/semilla_102/delta.npy",
+  "bytes": 35264,
+  "sha256": "22efce984e543232c8775d2aec68273da88d09e52013f8d8567ae5cb9cdf4940"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2020/semilla_102/resultado.json",
+  "bytes": 1602,
+  "sha256": "76b84a81b5352a2c84614963080621a25f5b9d75b583230ac381be9317cd8ca9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2020/semilla_103/delta.npy",
+  "bytes": 35264,
+  "sha256": "a358800876941fa90be9dad7dd67e08b705a4f938da3a0e5eff1124c2c29fecb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2020/semilla_103/resultado.json",
+  "bytes": 1599,
+  "sha256": "e169e73618739648c275e739cdc15fc698695297f8679c8acf2e089872bcfe84"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2021/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "2986fb5c35d2b36b0215595a80207cb2e4d8d42154cf9965fb8366bcfbfd42d6"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2021/semilla_101/resultado.json",
+  "bytes": 2090,
+  "sha256": "2eb1a0a95472f09be41b3bfee7f7436680c3d7ae4147706c083e51afaa4899d0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2021/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "8d3711233c83eea9d503f00f3c9a065b441d5fa6ba3e18092d043cd1eeae446e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2021/semilla_102/resultado.json",
+  "bytes": 1649,
+  "sha256": "2098f1fd218a3fcc03dc766935857a41c76376b460b1c148df625a11bd2ce6a2"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2021/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "e47ea20ede49fa25430a1bea0c7489557001b89dfb6e148ea36c80c1b2762bc8"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial/anio_2021/semilla_103/resultado.json",
+  "bytes": 1962,
+  "sha256": "60e65f0fd29dd5b3e7a25bf594e6854e399dea533c1b9b39edf4102866c474e7"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2019/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "e549abe70eb1c90d0021e7065772b2475ae63d3f7c247847292a889dd4fd200f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2019/semilla_101/resultado.json",
+  "bytes": 2234,
+  "sha256": "838940ea83840b5bd7c71c2abf03619c53f3b26419b4ac7b074766c1b092938e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2019/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "155f8a35983ce6c59b086c8e147be4bb849fc58cacd01a5ea90659dcb9df2a86"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2019/semilla_102/resultado.json",
+  "bytes": 1598,
+  "sha256": "d8942524486eb305e4d179d32abef43a01d74d2c514b804e3619acbb74ac507b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2019/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "6bb0b701732a694a585e8e3b28c8f9c70f73394973a106eb80e768057288ec18"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2019/semilla_103/resultado.json",
+  "bytes": 1916,
+  "sha256": "6c87cc98cd2c27f50ff4716b5ac21845d97be4f319fac1172e44c985432c43be"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2020/semilla_101/delta.npy",
+  "bytes": 35264,
+  "sha256": "b7960bf24b5fca0c08d537c73908c0e84fbaab6eeafbc00a3f200a9304f6be44"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2020/semilla_101/resultado.json",
+  "bytes": 1606,
+  "sha256": "17a7c4c6acce9dd239932038d81e8af84280594e0190fc1ffc149d0aed238dc3"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2020/semilla_102/delta.npy",
+  "bytes": 35264,
+  "sha256": "086300f325095d62b648bcbe67416cd8733022a17b440da33e27e218c2fe8391"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2020/semilla_102/resultado.json",
+  "bytes": 1601,
+  "sha256": "bf51c2a7353ae4d401216294d7795018d075d74c17442f703ec7ccbc96d965df"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2020/semilla_103/delta.npy",
+  "bytes": 35264,
+  "sha256": "acb8786c017b4c604c385a528b32c0d04c9e82e77ae509b98a010011d234c7f3"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2020/semilla_103/resultado.json",
+  "bytes": 1606,
+  "sha256": "c3391ed396a136a05e9ce507c54f6969a377a3968362c0cd62b00fa85267d2a5"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2021/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "d3724337d6019906cb1e3d9f324942c879df62e0044a8988116db29c28e3bdca"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2021/semilla_101/resultado.json",
+  "bytes": 2654,
+  "sha256": "03f39bd382ab1e3a43cad2bf1bb850ff3520bef9e567073ecef387886468d4c2"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2021/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "5fb9ca305935fc65ffc8a7a393da9098bb336c23ed2b557b26fa1f48892cc972"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2021/semilla_102/resultado.json",
+  "bytes": 2527,
+  "sha256": "c5463936efb07ee948196715cf0dce94f74acbb6c0e516541d86fad3a7528631"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2021/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "799fe63da8e9ca0062987257d9805f38347ced1c3d07d5ce9d3c4d9729169850"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_prensa/anio_2021/semilla_103/resultado.json",
+  "bytes": 1844,
+  "sha256": "ad80076f3489d0eeb0cb8bcd153028c8eaf5aa4102f7474d47df0c0c19575472"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2019/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "c328866f0ac5f7505a9ea2dd7d934d8f6377e991ff4ad10cc98bf3d190f233a1"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2019/semilla_101/resultado.json",
+  "bytes": 2230,
+  "sha256": "010fc3a3d183aad563d962f9f230b8e712f8805153ce8f39a6674b93af034010"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2019/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "bf7319617e8871322a5c23b84cfce33d6e79bf0688d3a89cf02510983c385dde"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2019/semilla_102/resultado.json",
+  "bytes": 1599,
+  "sha256": "321636b243e343f3dc335196fe2336de025598d8d0d62eeccd7da83d559363f7"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2019/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "471dcfc5b53ae69f8326d50657d267dbc86489b4997b47301bff1221dc3f0400"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2019/semilla_103/resultado.json",
+  "bytes": 2295,
+  "sha256": "8743a2c87a07433ff24a8b032d1c81e26a38a09b103abdc6b79a241f150e1f2e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2020/semilla_101/delta.npy",
+  "bytes": 35264,
+  "sha256": "fdf941a108379640b81dffc1141361487ae18081816cdcd578608cbd84b17a48"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2020/semilla_101/resultado.json",
+  "bytes": 1611,
+  "sha256": "a5a10bd93b7aa182c819b2333e977d219b36074ab6920158838b8794bdf8912f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2020/semilla_102/delta.npy",
+  "bytes": 35264,
+  "sha256": "27a45715657118bfe8a9fc10f332069e7f4a5b08b8436b07106b4bfb9103e50a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2020/semilla_102/resultado.json",
+  "bytes": 1607,
+  "sha256": "e43de61ee8e3e06a12d2bd47594d95778ad0ab26286bdd489cb13e95cc5fd029"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2020/semilla_103/delta.npy",
+  "bytes": 35264,
+  "sha256": "b5e9ed1836890c5c2246dbf20846c30c0e8c738c6639ef233a03d46b3f2ebb9b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2020/semilla_103/resultado.json",
+  "bytes": 4798,
+  "sha256": "65a4eaf3dcdeb0d315eb0437defb446415c3edd61235a31d10d524101d705be7"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2021/semilla_101/delta.npy",
+  "bytes": 35168,
+  "sha256": "de443e7ca39faa72482090fb1454403401e2297da42fab4e2e9c8abbbbf89df0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2021/semilla_101/resultado.json",
+  "bytes": 2095,
+  "sha256": "7fcaad47739180630481dec20e30938db526c5096aa124376be4e174526da4d9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2021/semilla_102/delta.npy",
+  "bytes": 35168,
+  "sha256": "ddf47d4ef84010c9319b6b17b05cb4081531f8d0ce1cf871b0ca70548c0abec0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2021/semilla_102/resultado.json",
+  "bytes": 1845,
+  "sha256": "2da0b9eb4bec04238ee0fd2a95954067f91a3212ba858db4ef29b386af03ecf9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2021/semilla_103/delta.npy",
+  "bytes": 35168,
+  "sha256": "6c70e2d5493a4cd88e679974d4237f7304891aa5e369eb283bb4ff99408e93cf"
+ },
+ {
+  "archivo": "resultados_corrector_e3/corrector/variantes/oficial_reciente/anio_2021/semilla_103/resultado.json",
+  "bytes": 2033,
+  "sha256": "35822724e80e80fa0e6540c57876d3d162fd1015d8e8b0dcfd040a9766790bb9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/cr/resumen.json",
+  "bytes": 4771,
+  "sha256": "221d8b64e6b233515b28a4a57912c41a52930e015e1908dfac8b428ce9954456"
+ },
+ {
+  "archivo": "resultados_corrector_e3/cr/semilla_101.npz",
+  "bytes": 934246,
+  "sha256": "58bf976a3f20b54893fb0946d423573a1b5aafb1db1a1e61c073d163220acb1e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/cr/semilla_102.npz",
+  "bytes": 934178,
+  "sha256": "e7b5d9cabc14f9a35014ad1512553f7e575f746112220785aee3fea67daea55e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/cr/semilla_103.npz",
+  "bytes": 934197,
+  "sha256": "81ffeff10154525d744290e9316951bbf88939f1b9343459040d9463134c4b4f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/entorno_20261122_002500.json",
+  "bytes": 288,
+  "sha256": "940d260f00918658a4d12708b8e91c7b1318368256044c4436418365e3bcf06f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/entorno_20261122_010716.json",
+  "bytes": 288,
+  "sha256": "940d260f00918658a4d12708b8e91c7b1318368256044c4436418365e3bcf06f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/evaluacion/contrastes.csv",
+  "bytes": 3642,
+  "sha256": "111f0a928066e0d7de10184e306c34150cf256e11b6e93ac4b097f90f56d8a6a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/evaluacion/mase_por_anio.csv",
+  "bytes": 1524,
+  "sha256": "1ecff938560dae89ce5a5547e417da18f7fa807d549e913f7e2add944b874edd"
+ },
+ {
+  "archivo": "resultados_corrector_e3/evaluacion/por_hora.csv",
+  "bytes": 6412,
+  "sha256": "8025038a2d38bcd8e0bac9143cbe5accf00c0dc01fb3ce41f0772c1321734b82"
+ },
+ {
+  "archivo": "resultados_corrector_e3/evaluacion/resultado.json",
+  "bytes": 1679,
+  "sha256": "b64986391ea9d3862768377dc8e53e91145b0f66f9c660ac6e10980533c09cbf"
+ },
+ {
+  "archivo": "resultados_corrector_e3/pytest.txt",
+  "bytes": 1281,
+  "sha256": "11859efc137dc95f76adbf22b5ffb15e8d012a76f0de6cf69e80d78c7ecc5353"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2011/semilla_101/historia.csv",
+  "bytes": 2530,
+  "sha256": "d1465f2eeed2d3de2c25231013ff958cc3eacc028c23c83357e41a807e4e7f21"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2011/semilla_101/pred_val_2011.npz",
+  "bytes": 64526,
+  "sha256": "5aa1052da8b1d03f4ba77378d98225e5dc40a5dbc5f7b1356a9346af40439dbc"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2011/semilla_101/resultado.json",
+  "bytes": 1859,
+  "sha256": "f740103fbe7080fc8b8531186b5209a0435191a19de052c21394829923803142"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2011/semilla_102/historia.csv",
+  "bytes": 3676,
+  "sha256": "b26d4970af02f1a7799abf3859e867b68c286251428f54abb5dd2453ebb8495c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2011/semilla_102/pred_val_2011.npz",
+  "bytes": 64564,
+  "sha256": "311d3fece3445e4c07f8c6d1117320ff470a2d45d16c3e4103fdc06b2ae2d13f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2011/semilla_102/resultado.json",
+  "bytes": 1861,
+  "sha256": "a09dca8f667201e38c74fadd66d3d3762eb49779eedeb3a1f3158217ea15566b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2011/semilla_103/historia.csv",
+  "bytes": 2379,
+  "sha256": "846a914a7675ce7d2d57d4860fe9bd1c0c2a43fa4c7e6f1d893373327813ccdb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2011/semilla_103/pred_val_2011.npz",
+  "bytes": 64565,
+  "sha256": "5ffbb62a00319c235f6840e367f0c917f3ec322bc1913175f9b1b2ab6773b13a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2011/semilla_103/resultado.json",
+  "bytes": 1861,
+  "sha256": "89305935e98ba9b34f6f4e8bd97cf456ccfa446f486cae201ff8bc5391ef016b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2012/semilla_101/historia.csv",
+  "bytes": 2295,
+  "sha256": "6ebddb9a1220a16a3fa59a1593e574acae61ccdb7930e762d339e50649fb3d7b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2012/semilla_101/pred_val_2012.npz",
+  "bytes": 64802,
+  "sha256": "eccda3095572f62f3506a5d8f4783a344d0a40b63c276170170f9ce5fd5880fa"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2012/semilla_101/resultado.json",
+  "bytes": 1878,
+  "sha256": "c4715c9111af984e8880797805593dca68ad985b17c8825a76a329c43c660f87"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2012/semilla_102/historia.csv",
+  "bytes": 3393,
+  "sha256": "48d610fc051d6fe10606922da4b844fef0c4e4a84ccef2c1957c7c94d849a85c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2012/semilla_102/pred_val_2012.npz",
+  "bytes": 64841,
+  "sha256": "2161e7748097f51ef9d59dfd8030c4096df5065771e8dcb64540935057bcedd9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2012/semilla_102/resultado.json",
+  "bytes": 1870,
+  "sha256": "f2fcccf93bf31731eb10e5425c2116e1527e58f6714715b89a1c819691a2a5e9"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2012/semilla_103/historia.csv",
+  "bytes": 4128,
+  "sha256": "0f20d001dcca9f630d71751e6e5daa235ca54eacc89d0bf93b92de96331c9a91"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2012/semilla_103/pred_val_2012.npz",
+  "bytes": 64845,
+  "sha256": "00197ba5b8236f886632bfafbec4db92f0721905454d3539075e37a992f9fc8c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2012/semilla_103/resultado.json",
+  "bytes": 1875,
+  "sha256": "7f0d586018e22e024f30bf60658fe23e943479dd66f52e962e93a3851c03b9de"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2013/semilla_101/historia.csv",
+  "bytes": 2214,
+  "sha256": "b2aa3127d66acbf3d868b7e19d819d399d0c340345b26d2e2ff57716037be5b3"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2013/semilla_101/pred_val_2013.npz",
+  "bytes": 64838,
+  "sha256": "c092ef69eed58e174822ab7457afbed9146f4d10025e0800d2688aa8a2e3f684"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2013/semilla_101/resultado.json",
+  "bytes": 1870,
+  "sha256": "9b78d1c401df4b98cbfac555f31a44f1805ab6501f7d976a6521bc7bbce5b072"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2013/semilla_102/historia.csv",
+  "bytes": 1876,
+  "sha256": "986d40f264b4f9005a6774f7ddfef1e1d336024b34f7adeb21e9301db0eb7036"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2013/semilla_102/pred_val_2013.npz",
+  "bytes": 64861,
+  "sha256": "f619adcae790eee95444f2b91e95f9e8e7e6e3454971d51a441550d4cbb4919f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2013/semilla_102/resultado.json",
+  "bytes": 1869,
+  "sha256": "72d5311198f2e7de3d7c97f3ddae201f601d51861122098dc840d9a2bbe1723c"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2013/semilla_103/historia.csv",
+  "bytes": 3196,
+  "sha256": "98125c111010b042e8c157521f52747ce1e191ac3147e2ca81645a74f2cfe79a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2013/semilla_103/pred_val_2013.npz",
+  "bytes": 64871,
+  "sha256": "ffca9dd116a8c5e47edb519b2ef224dd50acdf8804fc3fc7a55e4e7e8ab03154"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2013/semilla_103/resultado.json",
+  "bytes": 1873,
+  "sha256": "09cc96f0544cf6ea85a6cd9c4108a836caaac0b888816e3d78cafbb0c77ffcfa"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2014/semilla_101/historia.csv",
+  "bytes": 2830,
+  "sha256": "c7fb6532747bccb673c2234537e7cc5cabccff0dc47b5a94ad395592bf46baf5"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2014/semilla_101/pred_val_2014.npz",
+  "bytes": 65260,
+  "sha256": "a86ea0ef1497dbc2bff0d81de3c02c73bc653ac390700212b7a107191bbd5110"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2014/semilla_101/resultado.json",
+  "bytes": 1865,
+  "sha256": "e55defb1e8867e311c921ef189f64653d737edf4b5c9d7eafcb857f502b5e1d2"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2014/semilla_102/historia.csv",
+  "bytes": 2170,
+  "sha256": "16622ab0f264ac3bd362442a00329f097d4b436bb6e294c44c4ce57df82b55af"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2014/semilla_102/pred_val_2014.npz",
+  "bytes": 65260,
+  "sha256": "eaab28c224b071debb33b1d8098b776b0b06a61b206aa378b0fd0648f0ccb00e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2014/semilla_102/resultado.json",
+  "bytes": 1861,
+  "sha256": "88bde0995595061d2e794f6641f3628243951426ec6bd1584ff6c506e60356fd"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2014/semilla_103/historia.csv",
+  "bytes": 2847,
+  "sha256": "72fedc2daaf23a6b8b2f0fdee534eba8060664f909a15d7090e3a4c83c6d83cc"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2014/semilla_103/pred_val_2014.npz",
+  "bytes": 65231,
+  "sha256": "d5b1bc00534820c31cc2b8d9bcaee24d4b3eaa2538c634d58b8d397c72f8280e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2014/semilla_103/resultado.json",
+  "bytes": 1867,
+  "sha256": "02fd59103f20a9fa711930c51e01eacc202d8f2a74a86679e669e3b5e0526764"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2015/semilla_101/historia.csv",
+  "bytes": 2726,
+  "sha256": "f6e32c37a63a22af42fca2e874bad19252a0eb704084a33460836a4c99affd45"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2015/semilla_101/pred_val_2015.npz",
+  "bytes": 65517,
+  "sha256": "0c6d294e47cf208e98fa932a2a57b1204b66d6b57715e8c6ac88b916baaeeadf"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2015/semilla_101/resultado.json",
+  "bytes": 1862,
+  "sha256": "e9405f18f1ea11d0af861a505740a2ebe4f9ae67c265f9a56a00fcecb132537e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2015/semilla_102/historia.csv",
+  "bytes": 1981,
+  "sha256": "4b268aa98e249cbd94d420fcad2f78028dd509b0b60f10a27a785fbb237144e0"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2015/semilla_102/pred_val_2015.npz",
+  "bytes": 65537,
+  "sha256": "3dc4bca3b4f673f78af39eb20cea57bcedc7bb64bafdb3fc6997601d72db03e2"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2015/semilla_102/resultado.json",
+  "bytes": 1862,
+  "sha256": "6eac9248a7f4402131590f245e6c1ec9e74f86ce8aa5e95e5bf370c99a25d5eb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2015/semilla_103/historia.csv",
+  "bytes": 1858,
+  "sha256": "89895b278cce0062efb8c53379699233d517189648f8402beb1acf7da9e2a00d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2015/semilla_103/pred_val_2015.npz",
+  "bytes": 65518,
+  "sha256": "590293b1f99b4be0605f9853f5da87b9ee79a7e716a27459ee96cafbeb00149e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2015/semilla_103/resultado.json",
+  "bytes": 1870,
+  "sha256": "d52f6390e8e5fa1cedefc12d17f8c1634a41a40896dd298b01c990c97cb380e2"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2016/semilla_101/historia.csv",
+  "bytes": 1985,
+  "sha256": "7f2f5248d0870a391e0ad4015f0c042e7b8f01ceab47ee3cd917416e79a4bdbe"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2016/semilla_101/pred_val_2016.npz",
+  "bytes": 65627,
+  "sha256": "66a5ee2dff37f7fe84fdd9640bd98d193ea723b02c283fec8a60e318d359846a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2016/semilla_101/resultado.json",
+  "bytes": 1867,
+  "sha256": "8f841e1f5d6533f8d0c0946bdd8db1707d711fa98a9fd1572b06400bd08eb637"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2016/semilla_102/historia.csv",
+  "bytes": 2338,
+  "sha256": "e3fd52f87a825a22ca0430cb2baa55b94a9975322995cbd857f663d88570908a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2016/semilla_102/pred_val_2016.npz",
+  "bytes": 65632,
+  "sha256": "359887a2714a36b6e9062e7e41b96b1c6a03bc653eea05e6ab2624ca32e62f6a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2016/semilla_102/resultado.json",
+  "bytes": 1859,
+  "sha256": "733e9ec2fa5f3ea193bf6ff2caac8a2ea0ffc36838b87822dcabff3f8c087252"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2016/semilla_103/historia.csv",
+  "bytes": 1758,
+  "sha256": "6b7c31cb9843febe3125e33a3ece604d6f92fb80cc185616ffdbfa35fe95fbc6"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2016/semilla_103/pred_val_2016.npz",
+  "bytes": 65641,
+  "sha256": "9eb59448e2d7c33c496eaa90c3f256ce6ad6fee0be6c460fd65c83f94db8d51d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2016/semilla_103/resultado.json",
+  "bytes": 1869,
+  "sha256": "7dbade1df52915d496fa0c8d218a60657291416b3ee870d092d3accf713e8a0d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2017/semilla_101/historia.csv",
+  "bytes": 2869,
+  "sha256": "b55f036e1755287d241f895dcd0575a6ee77dc9e6612892e8bd69efc7a6ac8fd"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2017/semilla_101/pred_val_2017.npz",
+  "bytes": 65477,
+  "sha256": "c6183da94464b826897d6dc473f6b7485c1ab96fc636adf3611c68ed83533687"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2017/semilla_101/resultado.json",
+  "bytes": 1872,
+  "sha256": "8fe1ef4f5e172954273a44c47e3840a073ee2abc01e9327b82f004c34e209e98"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2017/semilla_102/historia.csv",
+  "bytes": 4198,
+  "sha256": "42c87b4fdbd7280f2e39fc1aad5c1f0a4f51102f819a17c003d9d2808cb7c040"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2017/semilla_102/pred_val_2017.npz",
+  "bytes": 65480,
+  "sha256": "befbceae18c7f58fbecc220f1cfee5dd4ff19918b30ceb8a950f2e835749208b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2017/semilla_102/resultado.json",
+  "bytes": 1882,
+  "sha256": "e373759cc3e7aa58f9807ba8d6d80c91aa2ff32f4d939e6306fc4a85844dd392"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2017/semilla_103/historia.csv",
+  "bytes": 2763,
+  "sha256": "27f5a9767564ed47ad23ae29baabf2aee531b7656344754e3ac948dabba37c9f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2017/semilla_103/pred_val_2017.npz",
+  "bytes": 65481,
+  "sha256": "0bbb7b6dfe7cef02ed2148f16ba6c710db3d945abbc4520d94cbf3094b78f93a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2017/semilla_103/resultado.json",
+  "bytes": 1872,
+  "sha256": "5ff4965d6e70402326a1947c4dcd15dc361fb95cd1ac9f6ed4bca2d93555b0a6"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2018/semilla_101/historia.csv",
+  "bytes": 2437,
+  "sha256": "8514c88e92b1492f931f8c9884c48080cb1b7d2c42af07f0fa121588ffcfd24e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2018/semilla_101/pred_val_2018.npz",
+  "bytes": 65500,
+  "sha256": "b8c260aa15870ba3011fb65f74fa6412fcaa0225536bd170a9004b7ebedd46fa"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2018/semilla_101/resultado.json",
+  "bytes": 1868,
+  "sha256": "024c4e822d51090f7f6f6914688692c58f9b1b5b45880e5d24a86a1d0627dc0f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2018/semilla_102/historia.csv",
+  "bytes": 2557,
+  "sha256": "70abf5f438e285aeb831eb697fe03b6db2eede4690ebf9af889112cdcfdf2944"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2018/semilla_102/pred_val_2018.npz",
+  "bytes": 65514,
+  "sha256": "539c2511c1b20a36d62f883affb7ef8d8112191f8a65b2b61cc3fe82ea51a5b7"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2018/semilla_102/resultado.json",
+  "bytes": 1880,
+  "sha256": "b6db32f2bea06b9d5e61778e2c386ceeedf29539f14e73317a456f78d7671ef4"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2018/semilla_103/historia.csv",
+  "bytes": 2789,
+  "sha256": "37c3c9d0efc7c3c85ff7dbf0dc268c5cf726a5b3618a0079de9e428d946ec220"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2018/semilla_103/pred_val_2018.npz",
+  "bytes": 65463,
+  "sha256": "6eddb485330ca34d79a92b6e51b4a63dbe60e2d0fe851947c9d2ab587fb6adef"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2018/semilla_103/resultado.json",
+  "bytes": 1878,
+  "sha256": "c08227dcba33f23397b17b1f41244f7d0b2248b36fa16794c1618a270ee6b86e"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2019/semilla_101/historia.csv",
+  "bytes": 2873,
+  "sha256": "0ab444edceb368f0ceca0e1618325fa516ce3d6401ce0beaceb0aa2487fce204"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2019/semilla_101/pred_val_2019.npz",
+  "bytes": 65444,
+  "sha256": "0a99604b53ef00281db396b7693ebc4dbf754cf09eba437a2d273dfebf584712"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2019/semilla_101/resultado.json",
+  "bytes": 1871,
+  "sha256": "2a73cf894a6e4fe867227430d98e81a4f7f71c8789a197a96769fb694c128a45"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2019/semilla_102/historia.csv",
+  "bytes": 2360,
+  "sha256": "88d3299d7c14786f3e0780734d0d097711d81539fb25356eed1345c1481bcfd4"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2019/semilla_102/pred_val_2019.npz",
+  "bytes": 65468,
+  "sha256": "3ed24930b58c908760dc451d8abcf54582d094b1d75fab3dbafbe993d22e63ed"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2019/semilla_102/resultado.json",
+  "bytes": 1873,
+  "sha256": "c5edee25ea4d1f1d71c6a39148295941ca720f02080d3ccdf54d196ad04cf77b"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2019/semilla_103/historia.csv",
+  "bytes": 2523,
+  "sha256": "ad107b7a57e89ff42d2964401cbd0a75aaca64d07ddcdef86f403c8f69037ca6"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2019/semilla_103/pred_val_2019.npz",
+  "bytes": 65489,
+  "sha256": "de5dd381b780b268ea0652c7d2e0e776252fbbd9a103a3eccb678e19bf2396fb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2019/semilla_103/resultado.json",
+  "bytes": 1870,
+  "sha256": "45ff2e7861beecfcd62fb3bdf12a01cdde0ae110cd09a19ee170eca47c0187ff"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2020/semilla_101/historia.csv",
+  "bytes": 2141,
+  "sha256": "02fc180bbbaf6092bc2f54b808048ad57da4c1aa449de64bd3bf974eb8268819"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2020/semilla_101/pred_val_2020.npz",
+  "bytes": 65770,
+  "sha256": "482ae653a3524b0cbc12d71b9b6f99c7eff0dfcd704c87be7e0e464aa1dd0fde"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2020/semilla_101/resultado.json",
+  "bytes": 1861,
+  "sha256": "be465f197edfae5b24f2664506b628757270a7613745faf05020b241ad046640"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2020/semilla_102/historia.csv",
+  "bytes": 2475,
+  "sha256": "f7f9456d6b3d6115ab1969560ca0bee1b920bd0479283cbaa5480c9ffacb1347"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2020/semilla_102/pred_val_2020.npz",
+  "bytes": 65751,
+  "sha256": "71fb079813e3262cc4a0f0a66ae91d9680efc4c74a9031ac62d2c0aaa8b90a25"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2020/semilla_102/resultado.json",
+  "bytes": 1867,
+  "sha256": "a5861a253c2aa598af8c45dc555589bf3b59d80a40fe6f49edcc3703eb985a03"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2020/semilla_103/historia.csv",
+  "bytes": 3177,
+  "sha256": "e3f9802e1cbfc8525e5271e1232479be05649ca1d24297c154cb0ecec280dad7"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2020/semilla_103/pred_val_2020.npz",
+  "bytes": 65744,
+  "sha256": "3f5f6a06a293e2f9ac8ace75e950f1b1c4b08c929d2c533a7d7ba2abe4557058"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2020/semilla_103/resultado.json",
+  "bytes": 1863,
+  "sha256": "f46007736fcf9e334706e7e03e6aa29da1577bbca119ca143c0171571d55f174"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2021/semilla_101/historia.csv",
+  "bytes": 2351,
+  "sha256": "0add73ed614c263e316f56e2f7b21185ec0fbc94d5dc98fb4135498ccb19e2d2"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2021/semilla_101/pred_val_2021.npz",
+  "bytes": 65388,
+  "sha256": "7a4473f53042951837a2c9fca742ad2cd8b9766c5a7ef4ece102857c7b95cb63"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2021/semilla_101/resultado.json",
+  "bytes": 1871,
+  "sha256": "77bd1e55143fa8ba63568a5a483950fff2b383a09a9c3d52ece6871e6c86523d"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2021/semilla_102/historia.csv",
+  "bytes": 2782,
+  "sha256": "0c5d36e831d288c7f818e4a8a667a1da611ff6ff03ce0818ccfd26cbe41e3740"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2021/semilla_102/pred_val_2021.npz",
+  "bytes": 65346,
+  "sha256": "498b81edc16084a17833db23d9bb76ad8df341359335ac31640584e96faf29ed"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2021/semilla_102/resultado.json",
+  "bytes": 1868,
+  "sha256": "7b9c72b102bc87e22bcc37890fe45cc966b8c264f6e2c23a0143e8bfefb42d9a"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2021/semilla_103/historia.csv",
+  "bytes": 2529,
+  "sha256": "40068f097b28968f0386f3fd4f375b915e458fe9f4996bb6013897a392ff2e46"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2021/semilla_103/pred_val_2021.npz",
+  "bytes": 65391,
+  "sha256": "9ed57a2aa039f4431b85b27e65ad57508f6fa0110f35e8f1236644055fd058f3"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/anio_2021/semilla_103/resultado.json",
+  "bytes": 1863,
+  "sha256": "7da37fbb5b535f5241999791300980c0cc090fef2657207cc1a3a98f9f2b5883"
+ },
+ {
+  "archivo": "resultados_corrector_e3/residuos/resumen.csv",
+  "bytes": 1229,
+  "sha256": "2a203143582e92884fa6ac6e48618d3b419edf3dca86f63428e81fc732a12106"
+ },
+ {
+  "archivo": "resultados_corrector_e3/texto/candidatos.npz",
+  "bytes": 1179057,
+  "sha256": "11c95d6fb938424060ac2d99489b9afdd0cfe67a6386924a313182748a26ab3f"
+ },
+ {
+  "archivo": "resultados_corrector_e3/texto/fragmentos_usados.parquet",
+  "bytes": 18028556,
+  "sha256": "d0c6cb10b5f2d4016b584cd2b4178dec1105c29f7c9fd8b667c863bb692aa886"
+ },
+ {
+  "archivo": "resultados_corrector_e3/texto/intervalos.parquet",
+  "bytes": 633092,
+  "sha256": "2f969469465909dffd6976605163b90125a60e1e167a368256f7459928dc5ffb"
+ },
+ {
+  "archivo": "resultados_corrector_e3/texto/resumen.json",
+  "bytes": 1121,
+  "sha256": "9c0fa23fe0c0ae45720181db3a2c9987a54456c88397df42d0d7f77ec31d5dde"
+ },
+ {
+  "archivo": "resultados_corrector_e3/texto/vectores.txt",
+  "bytes": 129,
+  "sha256": "addc04146c7587ca7d877d770a537a9fd0a296e28035d951f82d57e622bfbd27"
+ },
+ {
+  "archivo": "resultados_corrector_e3/texto_disponible_estricto/candidatos.npz",
+  "bytes": 28140,
+  "sha256": "8ee34bfdf970bfe3c76a4bb646e9d2771c89aa5fb9eb083017a3de66abe2adfe"
+ },
+ {
+  "archivo": "resultados_corrector_e3/texto_disponible_estricto/fragmentos_usados.parquet",
+  "bytes": 40411,
+  "sha256": "45d8b773056a1684e8ae9b3aeb2ba4c8dc8b421c808c43cda65ff0df3eb25ac5"
+ },
+ {
+  "archivo": "resultados_corrector_e3/texto_disponible_estricto/intervalos.parquet",
+  "bytes": 5255,
+  "sha256": "5a88c4befd6289dad25a74be3445fbdf8a89a560206f9448fa64d24be1b7a241"
+ },
+ {
+  "archivo": "resultados_corrector_e3/texto_disponible_estricto/resumen.json",
+  "bytes": 901,
+  "sha256": "eb7979424eab4caad365b8b2890efc9944335df57bcab7e4955df83b310cdbe8"
+ },
+ {
+  "archivo": "resultados_corrector_e3/texto_disponible_estricto/vectores.txt",
+  "bytes": 128,
+  "sha256": "7dddc2cbe8e68589b8a479b59267ce02eda32c02a6698a1f31906b96c8834d17"
+ }
+]

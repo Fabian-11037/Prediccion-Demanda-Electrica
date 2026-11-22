@@ -1,0 +1,62 @@
+{
+ "disponibilidad": "disponible_declarado",
+ "corpus_sha256": "e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c",
+ "documentos": 446162,
+ "por_canal": {
+  "prensa": 406877,
+  "oficial": 39285
+ },
+ "fragmentos": 826190,
+ "fragmentos_usados": 379036,
+ "intervalos": 8459,
+ "dias": 4079,
+ "fuentes": [
+  "CREG",
+  "Dinero",
+  "El Colombiano",
+  "El Espectador",
+  "El Tiempo",
+  "IDEAM",
+  "La República",
+  "MinEnergia",
+  "Portafolio",
+  "Presidencia",
+  "Semana",
+  "UPME",
+  "XM"
+ ],
+ "dias_con_alineados_pct": {
+  "2010": 86.88524590163934,
+  "2011": 96.98630136986301,
+  "2012": 99.4535519125683,
+  "2013": 100.0,
+  "2014": 99.72602739726028,
+  "2015": 95.34246575342465,
+  "2016": 96.17486338797814,
+  "2017": 100.0,
+  "2018": 98.35616438356163,
+  "2019": 85.75342465753425,
+  "2020": 96.72131147540983,
+  "2021": 100.0
+ },
+ "candidatos_medios_por_reserva": {
+  "alineados": 11.29909291493013,
+  "oficial": 47.95636185339544,
+  "prensa": 47.57367001716107
+ },
+ "reservas": {
+  "alineados": [
+   0,
+   32
+  ],
+  "oficial": [
+   32,
+   80
+  ],
+  "prensa": [
+   80,
+   128
+  ]
+ },
+ "segundos": 3450.5
+}

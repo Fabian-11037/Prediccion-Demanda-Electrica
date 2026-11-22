@@ -1,0 +1,36 @@
+{
+ "veredicto": {
+  "oficial": {
+   "aporte_del_texto_demostrado": false,
+   "reduccion_relevante_frente_a_CR": false,
+   "se_descarta_aporte_de_texto_de_3pct": true,
+   "cota_superior_ic_aporte_texto": -0.2627113550901413
+  },
+  "oficial_prensa": {
+   "aporte_del_texto_demostrado": false,
+   "reduccion_relevante_frente_a_CR": false,
+   "se_descarta_aporte_de_texto_de_3pct": true,
+   "cota_superior_ic_aporte_texto": 0.007452079118229414
+  }
+ },
+ "n_origenes": 1096,
+ "dias_con_anuncio_oficial_alineado": 878,
+ "MASE": {
+  "E": 0.5560894012451172,
+  "C+R": 0.5467134118080139,
+  "num_horario": 0.5418552756309509,
+  "oficial_reciente": 0.5416901111602783,
+  "oficial": 0.5439696311950684,
+  "oficial_prensa": 0.5427000522613525,
+  "metadatos": 0.5424222350120544,
+  "desalineado_49": 0.5422880053520203,
+  "desalineado_91": 0.5418916344642639,
+  "desalineado_154": 0.5424268841743469,
+  "desalineado_217": 0.5422805547714233,
+  "desalineado_301": 0.5419968366622925,
+  "estricto": 0.5419356226921082,
+  "desalineado": 0.5421767234802246
+ },
+ "regla": "Aporte del texto demostrado: oficial (u oficial_prensa) mejora a num_horario y, en el caso de oficial_prensa, también a metadatos y al texto desalineado (media de 5 desplazamientos), con p de Holm < 0,05 en la familia global de 10 contrastes. Reducción relevante: reducción frente a C+R >= 3 % con el límite inferior del IC > 0. Equivalencia: si el límite superior del IC de los contrastes de aporte del texto queda por debajo de 3 %, se descarta un aporte del texto de 3 %. Mismos contrastes en los días con un anuncio oficial alineado (definidos solo por el texto), en una familia aparte.",
+ "prueba_rapida": false
+}

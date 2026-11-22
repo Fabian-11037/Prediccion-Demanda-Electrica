@@ -1,0 +1,58 @@
+CORRECTOR SEMÁNTICO POR HORA SOBRE E + C+R (ENTREGABLE 3, PARTICIÓN DE DESARROLLO)
+===================================================================================
+
+Qué hace
+--------
+Prueba si el texto, bien alineado con el momento de su efecto, explica el error que deja E después de la corrección
+numérica C+R. La red E queda congelada; solo se entrena un corrector pequeño que predice 24 correcciones acotadas. Usa
+solo la partición de desarrollo: ajuste 2012-2016, parada 2017, selección 2018 y evaluación 2019-2021. No lee la
+prueba 2022-2025, ni siquiera su texto. Escribe todo en resultados_corrector_e3 y no toca los otros paquetes.
+
+Etapas (reanudables; si se cierra la ventana, continúa donde quedó)
+  residuos        E se reentrena año por año (2011-2021, semillas 101-103) con los años anteriores y pronostica el año:
+                  da unos 4.000 días de error fuera de muestra para entrenar el corrector
+  cr              corrección diaria C+R (calendario + residuos de hace 2 días o más), ajustada solo con años anteriores
+  texto           corpus ampliado del 20 de noviembre (disponibilidad declarada): fragmentos de 1.500 caracteres (hasta 16
+                  por documento), fechas anunciadas ("a partir del...", "hasta el...", "del X al Y"), candidatos por día
+                  (anuncios que cubren el día, oficiales de las últimas 72 h, titulares de las últimas 72 h) y vectores E5
+  texto_estricto  lo mismo con la disponibilidad estricta (sensibilidad)
+  busqueda        8 configuraciones del corrector, elegidas solo en 2018
+  variantes       num_horario (sin texto), oficial_reciente, oficial, oficial_prensa y el control de metadatos
+  placebo         oficial_prensa con el texto de otro día (5 desplazamientos, múltiplos de 7)
+  estricto        oficial_prensa con la disponibilidad estricta
+  evaluacion      contrastes con bootstrap por bloques y Holm, por hora y en los días con un anuncio alineado
+
+La regla de decisión está escrita en config/plan_corrector.json ("evaluacion" -> "regla") y queda fijada por las
+huellas SHA-256 de REGISTRO.json antes de entrenar.
+
+Requisitos
+----------
+- El corpus ampliado: corpus_texto.parquet del 20 de noviembre (SHA-256 e82f1b0f...). Por defecto se busca en
+  D:\Documents\Maestria\Proyecto Final\Prediccion-Demanda-Electrica-JBook\data\processed\corpus_texto.parquet
+  Si está en otro lugar, páselo con --corpus (ver abajo). El paquete verifica la huella y se detiene si no coincide.
+- Conexión a internet la primera vez: descarga intfloat/multilingual-e5-base (cerca de 1 GB), en la misma revisión
+  que usa el proyecto. Si ya la tiene descargada en una carpeta, use --codificador "RUTA".
+- Unos 6 GB de memoria libre durante la etapa texto y unos 2 GB de disco para los vectores.
+
+Cómo ejecutar (Windows)
+-----------------------
+1. Extraiga este zip en la misma carpeta donde están Entrenar_E3 y los otros paquetes (reutiliza su entorno).
+2. Opcional: PRUEBA_RAPIDA_WINDOWS.bat (unos 5 minutos; usa un codificador de prueba y pocos datos; sus números no valen).
+3. CORRECTOR_WINDOWS.bat. Con la RTX 5050 se esperan del orden de 4 a 7 horas: unos 45 minutos de reentrenamientos
+   de E, entre 30 y 60 minutos de codificación de unos 380.000 fragmentos, y unas 120 corridas cortas del corrector.
+   Si el corpus está en otra ruta, abra una ventana de comandos en esta carpeta y ejecute:
+       CORRECTOR_WINDOWS.bat --corpus "RUTA\corpus_texto.parquet"
+4. Al terminar, envíe ENVIAR_resultados_corrector_AAAAMMDD_HHMM.zip (los vectores de texto no se incluyen).
+
+Conviene no correrlo al mismo tiempo que Explorar_E3 o Explorar_E3_E: compiten por la misma GPU.
+
+Resultados principales (en resultados_corrector_e3)
+---------------------------------------------------
+  RESUMEN_CORRECTOR.md          tabla de contrastes y veredicto preregistrado
+  evaluacion/contrastes.csv     reducción, IC 95 %, p unilateral y p de Holm, global y en días con anuncio alineado
+  evaluacion/por_hora.csv       reducción por hora del horizonte
+  evaluacion/mase_por_anio.csv  MASE por variante y año
+  cr/resumen.json               reducción de C+R por año y alfas elegidos
+  texto/resumen.json            documentos, fragmentos, intervalos anunciados y cobertura por año
+  texto/intervalos.parquet      cada intervalo anunciado, con su documento, para revisar la extracción
+  corrector/...                 cada corrida: resultado.json y las 24 correcciones por día (delta.npy)
