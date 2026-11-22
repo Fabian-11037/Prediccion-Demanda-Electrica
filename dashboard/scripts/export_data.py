@@ -1,18 +1,19 @@
 """Exporta resultados conservados. No importa ni ejecuta redes."""
 from pathlib import Path
-import json,hashlib,shutil
+import json,hashlib,shutil,re
+from datetime import datetime,timezone
 import numpy as np
 import pandas as pd
 
 ROOT=Path(__file__).resolve().parents[2];SITE=ROOT/'dashboard/site';OUT=SITE/'data';R=ROOT/'results/evaluacion_e2'
 BOOK='https://fabian-11037.github.io/Prediccion-Demanda-Electrica/'
-FAMILY={'mlp':'mlp','lstm':'lstm','cnn1d':'cnn1d','arx_lineal':'arx','repo_nhits_numerico_r1__N':'nhits',
+FAMILY={'nuevo_nbeats__N':'nbeats','nuevo_timesnet__N':'timesnet','mlp':'mlp','lstm':'lstm','cnn1d':'cnn1d','arx_lineal':'arx','repo_nhits_numerico_r1__N':'nhits',
  'adj_modelo3_20261115_0419__N':'tft','adj_modelo4_20261114_1224__N':'tcn','adj_modelo5_20261114_1327__N':'itransformer',
  'adj_modelo6_20261112_1035__N':'patchtst','adj_modelo6_20261112_1035__N+O':'tats',
  'adj_fusion_tardia_20261113_1728__N+O':'fusion','adj_modelo7_20261114_0430__N':'tgforecaster','adj_modelo7_20261114_0430__N+O':'tgforecaster'}
-LABEL={'arx':'ARX','mlp':'MLP','lstm':'LSTM','cnn1d':'CNN1D','patchtst':'PatchTST','nhits':'N-HiTS',
+LABEL={'nbeats':'N-BEATS','timesnet':'TimesNet','arx':'ARX','mlp':'MLP','lstm':'LSTM','cnn1d':'CNN1D','patchtst':'PatchTST','nhits':'N-HiTS',
  'tft':'TFT','tcn':'TCN','itransformer':'iTransformer','tats':'TaTS','fusion':'Fusión tardía','tgforecaster':'TGForecaster'}
-DESCRIPTION={'arx':'Combinación lineal regularizada de 48 rezagos y del calendario futuro.',
+DESCRIPTION={'nbeats':'Treinta bloques densos con doble residuo separan reconstrucción histórica y pronóstico.', 'timesnet':'Dos bloques detectan cinco periodos por FFT y aplican convoluciones bidimensionales; evaluación por origen con lote uno.', 'arx':'Combinación lineal regularizada de 48 rezagos y del calendario futuro.',
  'mlp':'Dos capas densas de 128 unidades combinan historia y calendario.',
  'lstm':'Memoria recurrente de 48 unidades y lectura con calendario conocido.',
  'cnn1d':'Filtros locales de cinco horas, agrupamiento y salida directa de 24 horas.',
@@ -29,18 +30,43 @@ def write(name,obj):
  p=OUT/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(obj,ensure_ascii=False,allow_nan=False,separators=(',',':')),encoding='utf-8')
 def rows(frame):return json.loads(frame.to_json(orient='records',double_precision=12))
 
+def expanded_ficha(path):
+ text=path.read_text(encoding='utf-8')
+ def include(match):
+  source=(path.parent/match[1].strip()).resolve()
+  source.relative_to(ROOT/'book/_static/codigo_e2')
+  code=source.read_text(encoding='utf-8-sig').rstrip()
+  lang=re.search(r':language:\s*(\w+)',match[2])
+  language=lang[1] if lang else 'python'
+  fence='`'*max(3,max([len(x) for x in re.findall(r'`+',code)]+[0])+1)
+  return fence+language+'\n'+code+'\n'+fence
+ text=re.sub(r'```\{literalinclude\}\s+([^\n]+)\n(.*?)```',include,text,flags=re.S)
+ text=re.sub(r'\{ref\}`([^`]+)`',lambda m:re.sub(r'\s*<[^>]+>','',m[1]),text)
+ text=re.sub(r'^\([^)]+\)=\n','',text,flags=re.M)
+ return text
+
+def architecture_captions(family):
+ text=(ROOT/'book/arquitecturas'/(family+'.md')).read_text(encoding='utf-8')
+ result={}
+ for kind,heading in [('global','## Esquema global'),('detalle','## Detalle de las operaciones')]:
+  section=text.split(heading,1)[1].split('\n## ',1)[0]
+  paragraphs=[x.strip() for x in section.split('\n\n') if x.strip() and not x.strip().startswith(('[','```',':','$$'))]
+  assert paragraphs,(family,kind)
+  result[kind]=paragraphs[0]
+ return result
+
 def main():
  OUT.mkdir(parents=True,exist_ok=True)
  b=pd.read_csv(R/'benchmark.csv');keys=b.loc[b.semillas.eq(5),'clave'].tolist();selected=set(keys)
- assert len(keys)==13 and b.modelo.str.startswith('PatchTST').sum()==1
+ assert len(keys)==15 and b.modelo.str.startswith('PatchTST').sum()==1
  meta=pd.read_csv(R/'metadatos_procedimientos.csv');lat=pd.read_csv(ROOT/'results/diagnosticos_ampliados/latencia_resumen.csv').set_index('clave')
  models=[]
  for v in b.loc[b.semillas.eq(5)].itertuples():
   f=FAMILY[v.clave];m=meta[meta.clave.eq(v.clave)]
   models.append(dict(id=v.clave,name=LABEL[f]+(' · N+O' if v.clave.endswith('N+O') else ' · N' if f=='tgforecaster' else ''),original=v.modelo,family=f,
-   group='Comparador numérico' if f in ['patchtst','nhits'] else 'Modelo principal',
+   group='Referencia clásica' if f=='arx' else 'Baselines E1' if f in ['mlp','lstm','cnn1d'] else 'Control numérico' if v.clave=='adj_modelo7_20261114_0430__N' else 'Top 10',
    inputs='Numéricas + documentos oficiales' if v.clave.endswith('N+O') else 'Demanda + calendario' if v.entradas=='demanda_calendario' else 'Numéricas ampliadas',
-   description=DESCRIPTION[f],params=int(m.parametros.iloc[0]),latency=float(lat.loc[v.clave,'mediana_ms']),epochs=float(m.epocas.median()),training_seconds=float(m.segundos.median()),book=BOOK+'arquitecturas/'+f+'.html'))
+   description=DESCRIPTION[f],architecture_captions=architecture_captions(f),source='./downloads/fichas/'+f+'.md',params=int(m.parametros.iloc[0]),latency=float(lat.loc[v.clave,'mediana_ms']),epochs=float(m.epocas.median()),training_seconds=float(m.segundos.median()),book=BOOK+'arquitecturas/'+f+'.html'))
  tables={}
  for key,file in {'benchmark':'benchmark','temporal':'comparaciones_temporales','seeds':'comparaciones_semillas','text':'contrastes_texto',
   'horizons':'resultados_horizonte','residuals':'diagnostico_residuos','ranks':'rangos','mcs':'mcs','curves':'curvas_aprendizaje',
@@ -49,6 +75,7 @@ def main():
  baseimp=pd.read_csv(ROOT/'results/jbook/importancia_variables/resumen.csv').rename(columns={'modelo':'clave','cambio_MAE_pct':'cambio_pct','p10_perm_pct':'p10','p90_perm_pct':'p90'})
  sens=pd.read_csv(ROOT/'results/diagnosticos_ampliados/sensibilidad_resumen.csv')
  write('study.json',dict(models=models,tables=tables,importance=rows(imp)+rows(baseimp),sensitivity=rows(sens),
+  summary=dict(procedures=len(keys),realizations=int(b.loc[b.clave.isin(keys),'semillas'].sum()),seed_count=int(b.loc[b.clave.isin(keys),'semillas'].iloc[0]),top_models=len([m for m in models if m['group']=='Top 10']),temporal_pairs=len(tables['temporal']),seed_pairs=len(tables['seeds'])),
   protocol=json.loads((R/'protocolo.json').read_text(encoding='utf-8')),authors=['Fabian José Manrique Morelos','Gloria Bastidas Rodriguez'],book=BOOK,
   dates=pd.date_range('2022-01-01','2025-12-31',freq='D').strftime('%Y-%m-%d').tolist()))
  # Se utilizan etiquetas canónicas y las cinco predicciones originales de cada origen.
@@ -101,9 +128,17 @@ def main():
  for f in set(FAMILY.values()):
   for kind in ['global','detalle']:shutil.copy2(ROOT/'book/_static/arquitecturas_presentacion'/f'{f}_{kind}.png',assets/f'{f}_{kind}.png')
  downloads=SITE/'downloads';downloads.mkdir(exist_ok=True)
+ fichas=downloads/'fichas';fichas.mkdir(exist_ok=True)
+ for family in set(FAMILY.values()):
+  text=expanded_ficha(ROOT/'book/arquitecturas'/(family+'.md'))
+  text=text.replace('../_static/arquitecturas_presentacion/','https://demanda-electrica-dashboard.onrender.com/architectures/')
+  (fichas/(family+'.md')).write_text(text,encoding='utf-8',newline='\n')
  for file in ['benchmark','comparaciones_temporales','comparaciones_semillas','contrastes_texto','resultados_horizonte','diseno_seleccion']:shutil.copy2(R/(file+'.csv'),downloads/(file+'.csv'))
- write('manifest.json',dict(procedures=13,seeds=65,origins=1461,horizon=24,history=168,training_executed=False,
-  source_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [R/'benchmark.csv',R/'perdidas_y_bootstrap.npz',ROOT/'data/processed/panel_horario.parquet']}))
- print('13 procedimientos y 65 realizaciones exportados; métricas verificadas; sin entrenamiento.')
+ sources=[R/'perdidas_y_bootstrap.npz',ROOT/'data/processed/panel_horario.parquet',R/'protocolo.json',R/'entradas/texto/corpus_oficial.parquet',ROOT/'book/_toc.yml']
+ sources+=list(R.glob('*.csv'))+list((ROOT/'results/diagnosticos_ampliados').glob('*resumen.csv'))
+ sources+=list((ROOT/'book/arquitecturas').glob('*.md'))+list((ROOT/'book/_static/arquitecturas_presentacion').glob('*.png'))
+ write('manifest.json',dict(procedures=len(keys),seeds=int(b.loc[b.clave.isin(keys),'semillas'].sum()),origins=len(truth),horizon=truth.shape[1],history=168,training_executed=False,
+  exported_at=datetime.now(timezone.utc).isoformat(),source_sha256={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(set(sources))}))
+ print(f'{len(keys)} procedimientos y {int(b.loc[b.clave.isin(keys),"semillas"].sum())} realizaciones exportados; métricas verificadas; sin entrenamiento.')
 
 if __name__=='__main__':main()

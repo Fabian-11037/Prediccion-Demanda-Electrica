@@ -4,8 +4,8 @@ import {readFileSync,existsSync} from 'node:fs';
 import {windowMetrics,spearman,calendarProfile,temporalVerdict} from '../site/core.js';
 const json=name=>JSON.parse(readFileSync(new URL('../site/data/'+name,import.meta.url),'utf8'));
 const study=json('study.json');
-test('La evaluación completa reproduce las métricas guardadas de los 13 procedimientos',()=>{
- assert.equal(study.models.length,13);assert.equal(study.dates.length,1461);
+test('La evaluación completa reproduce las métricas guardadas de los 15 procedimientos',()=>{
+ assert.equal(study.models.length,15);assert.equal(study.dates.length,1461);
  assert.equal(study.models.filter(m=>m.family==='patchtst').length,1);
  for(const model of study.models){
   const pred=json('predictions/'+model.id+'.json');
@@ -30,4 +30,25 @@ test('Los perfiles ponderan observaciones; correlaciones ignoran ausencias y tra
  assert.equal(spearman([1,1,1],[2,3,4]),null);
  assert.match(temporalVerdict({p_DM_Holm:.8,p_TOST_Holm:.8}),/No se detecta/);
  assert.match(temporalVerdict({p_DM_Holm:.8,p_TOST_Holm:.01}),/Equivalencia/);
+});
+
+
+test('Las fichas descargables y las interpretaciones cubren todas las arquitecturas',()=>{
+ for(const model of study.models){
+  for(const kind of ['global','detalle'])assert.ok(model.architecture_captions[kind].length>30,model.family+' '+kind);
+  const file=new URL('../site/'+model.source.replace(/^\.\//,''),import.meta.url);
+  assert.ok(existsSync(file),model.family);
+  const text=readFileSync(file,'utf8');assert.match(text,/```python/);assert.match(text,/Arquitectura y fundamentos/);assert.doesNotMatch(text,/\{literalinclude\}/);
+ }
+});
+
+test('Los conteos y las familias publicadas corresponden a los resultados',()=>{
+ const learned=study.tables.benchmark.filter(r=>r.semillas>1);
+ assert.equal(study.summary.procedures,learned.length);
+ assert.equal(study.summary.realizations,learned.reduce((a,r)=>a+r.semillas,0));
+ assert.equal(study.summary.temporal_pairs,study.tables.temporal.length);
+ assert.equal(study.summary.seed_pairs,study.tables.seeds.length);
+ assert.equal(study.summary.top_models,study.models.filter(m=>m.group==='Top 10').length);
+ assert.ok(study.models.some(m=>m.family==='nbeats'));assert.ok(study.models.some(m=>m.family==='timesnet'));
+ for(const model of study.models){const p=study.tables.precision.find(p=>p.clave===model.id);assert.ok(p);assert.ok(Number.isFinite(p.MASE_media));assert.ok(['Piloto externo','Parada interna'].includes(p.Fuente));}
 });
