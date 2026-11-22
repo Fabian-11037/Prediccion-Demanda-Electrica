@@ -1,0 +1,167 @@
+{
+  "fecha": "2026-11-22",
+  "estado": "instrucciones_para_ejecucion_futura_en_gpu_no_iniciada",
+  "autorizacion": "El usuario autorizó el ajuste final y después pidió dejar instrucciones para hacerlo en otro PC con GPU; no ejecutar en este PC.",
+  "alcance": "Corrector como trabajo principal; confirmar si se incluye ensamble exportable o exploración completa antes de ejecutar esas extensiones.",
+  "prueba": {
+    "inicio": "2022-01-01",
+    "fin": "2025-12-31",
+    "origen": "00:00 America/Bogota",
+    "origenes_esperados": 1461,
+    "horizonte_h": 24,
+    "ventana_h": 168,
+    "metrica": "MASE",
+    "q168_kwh": 215617.90361589016,
+    "margen_relativo": 0.03,
+    "alpha": 0.05
+  },
+  "corrector": {
+    "base": {
+      "nombre": "E",
+      "red": "original_E",
+      "config": {
+        "id": 7,
+        "nucleo": "patchtst",
+        "d_model": 32,
+        "capas": 3,
+        "cabezas": 4,
+        "dropout": 0.1,
+        "lr": 0.001421,
+        "weight_decay": 0.001,
+        "lote": 32,
+        "rho": 0.02,
+        "ancho_correccion": 32
+      },
+      "origen": "configuración elegida por validación en la etapa ajuste de la parte 1 del Entregable 3"
+    },
+    "seleccion": {
+      "cabezas": 4,
+      "d": 32,
+      "dropout": 0.3,
+      "lote": 64,
+      "lr": 0.0003,
+      "weight_decay": 0.0001,
+      "id": 4
+    },
+    "semillas": [
+      101,
+      102,
+      103
+    ],
+    "max_epocas": 60,
+    "paciencia": 8,
+    "variantes": [
+      "num_horario",
+      "oficial_reciente",
+      "oficial",
+      "oficial_prensa",
+      "metadatos"
+    ],
+    "desplazamientos_placebo": [
+      49,
+      91,
+      154,
+      217,
+      301
+    ],
+    "sha256_configuracion_elegida": "37b854b87b5136802764376bf225a07c4e4166612a2df9e74302f03a5099d74a"
+  },
+  "controles_exploracion": {
+    "patchtst": {
+      "configuracion": {
+        "id": 18,
+        "nucleo": "patchtst",
+        "d_model": 64,
+        "capas": 2,
+        "cabezas": 4,
+        "dropout": 0.1,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "lote": 32,
+        "d_texto": 24
+      },
+      "n_parametros": 466480,
+      "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/patchtst/control/pliegue_2019/semilla_101/resultado.json",
+      "sha256_fuente": "d0d2721f425bb275cf9aa68f360d320c3dd92263ffeb243e8e29545d36e2563c"
+    },
+    "E": {
+      "configuracion": {
+        "id": 7,
+        "nucleo": "patchtst",
+        "d_model": 32,
+        "capas": 3,
+        "cabezas": 4,
+        "dropout": 0.1,
+        "lr": 0.001421,
+        "weight_decay": 0.001,
+        "lote": 32,
+        "rho": 0.02,
+        "ancho_correccion": 32
+      },
+      "n_parametros": 242048,
+      "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/E/control/pliegue_2019/semilla_101/resultado.json",
+      "sha256_fuente": "196dcf856790557c46129954271b94a3bfbf094e82531efc56f34125e48ce29d"
+    },
+    "timesnet": {
+      "configuracion": {
+        "id": 19,
+        "e_layers": 2,
+        "top_k": 5,
+        "num_kernels": 6,
+        "d_model": 16,
+        "d_ff": 16,
+        "dropout": 0.1,
+        "lr": 0.000534428,
+        "weight_decay": 0.0,
+        "lote": 64
+      },
+      "n_parametros": 328266,
+      "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/timesnet/control/pliegue_2019/semilla_101/resultado.json",
+      "sha256_fuente": "e757ccf4777744e8e2617ba73836aa2a9e9671598a6637dd61eadcbcf40cf64f"
+    },
+    "periodica": {
+      "configuracion": {
+        "id": 2,
+        "d_model": 32,
+        "bloques": 2,
+        "dropout": 0.1,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "lote": 32
+      },
+      "n_parametros": 33601,
+      "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/periodica/control/pliegue_2019/semilla_101/resultado.json",
+      "sha256_fuente": "4235b9c592e3671568150e0d7961c2b6f86a2e6ecb656ee993b521fd4cf6fe42"
+    }
+  },
+  "semillas_exploracion": [
+    101,
+    102,
+    103,
+    104,
+    105
+  ],
+  "corpus_sha256": "e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c",
+  "panel_sha256": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+  "codificador": {
+    "ventana_h": 72,
+    "ventanas_sensibilidad_h": [
+      24,
+      168
+    ],
+    "max_documentos_canal": 64,
+    "max_fragmentos_documento": 8,
+    "tokens_max": 512,
+    "solapamiento_tokens": 64,
+    "encoder": "intfloat/multilingual-e5-base",
+    "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+    "prefijo": "query: ",
+    "pooling": "mean_attention_mask",
+    "normalizacion": "L2",
+    "agregacion": "relevancia_aprendida_por_canal",
+    "ausencia": "cero_y_mascara",
+    "filtro_palabras_clave": false
+  },
+  "entrenamiento_iniciado": false,
+  "prueba_ejecutada": false
+}

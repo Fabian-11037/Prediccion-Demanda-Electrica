@@ -1,0 +1,413 @@
+{
+  "version": "cuatro_modelos_originales_e3_gpu_v1",
+  "fecha_diseno": "2026-11-22",
+  "estado": "diseño propuesto; sin implementación validada ni entrenamientos nuevos",
+  "autorizacion_actual": "Subir al repositorio los contextos y diseños para continuar en un PC con GPU. No entrenar, evaluar prueba ni modificar o publicar JBook o dashboard. Una ejecución futura requiere solicitud expresa.",
+  "caracter_originalidad": "hipótesis de contribución; contrastar con MoLE, MoME, RAFT y FreshCast antes de afirmar novedad",
+  "base_configuraciones": "continuidad/CONFIGURACIONES_PRUEBA_E3_GPU.json",
+  "expertos_configuraciones_seleccionadas": {
+    "patchtst": {
+      "configuracion": {
+        "id": 18,
+        "nucleo": "patchtst",
+        "d_model": 64,
+        "capas": 2,
+        "cabezas": 4,
+        "dropout": 0.1,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "lote": 32,
+        "d_texto": 24
+      },
+      "n_parametros": 466480,
+      "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/patchtst/control/pliegue_2019/semilla_101/resultado.json",
+      "sha256_fuente": "d0d2721f425bb275cf9aa68f360d320c3dd92263ffeb243e8e29545d36e2563c"
+    },
+    "E": {
+      "configuracion": {
+        "id": 7,
+        "nucleo": "patchtst",
+        "d_model": 32,
+        "capas": 3,
+        "cabezas": 4,
+        "dropout": 0.1,
+        "lr": 0.001421,
+        "weight_decay": 0.001,
+        "lote": 32,
+        "rho": 0.02,
+        "ancho_correccion": 32
+      },
+      "n_parametros": 242048,
+      "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/E/control/pliegue_2019/semilla_101/resultado.json",
+      "sha256_fuente": "196dcf856790557c46129954271b94a3bfbf094e82531efc56f34125e48ce29d"
+    },
+    "periodica": {
+      "configuracion": {
+        "id": 2,
+        "d_model": 32,
+        "bloques": 2,
+        "dropout": 0.1,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "lote": 32
+      },
+      "n_parametros": 33601,
+      "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/periodica/control/pliegue_2019/semilla_101/resultado.json",
+      "sha256_fuente": "4235b9c592e3671568150e0d7961c2b6f86a2e6ecb656ee993b521fd4cf6fe42"
+    }
+  },
+  "modelos": {
+    "M1": {
+      "nombre": "Ensamble supervisado por complementariedad de errores",
+      "modalidad": "numerica",
+      "arquitectura": "Tres expertos congelados; MLP contextual con cabeza de complementariedad por pareja; pesos softmax por horizonte.",
+      "expertos": [
+        "patchtst",
+        "E",
+        "periodica"
+      ],
+      "rasgos": "calendario, resúmenes numéricos disponibles, pronósticos de expertos, desacuerdo y errores observables con retraso de dos días",
+      "salida": "sum_k w[d,h,k] * pred[d,h,k]; w>=0 y suma_k w=1",
+      "objetivo_auxiliar": "c_ij=(abs(r_i)+abs(r_j)-abs(r_i+r_j))/q168; r de predicciones fuera de muestra",
+      "rejilla": {
+        "ancho": [
+          32,
+          64
+        ],
+        "dropout": [
+          0.0,
+          0.1
+        ],
+        "lambda_complementariedad": [
+          0.01,
+          0.1
+        ]
+      },
+      "lambda_suavidad_horaria_fijo": 0.001,
+      "controles": [
+        "NNLS sin restricción de suma",
+        "mezcla convexa fija",
+        "EWA_retraso2",
+        "router_sin_complementariedad"
+      ]
+    },
+    "M2": {
+      "nombre": "Modelo de energía diaria y distribución horaria",
+      "modalidad": "numerica",
+      "arquitectura": "Codificador numérico PatchTST congelado y dos cabezas entrenables: energía positiva y logits horarios sobre perfil ancla.",
+      "ancla": "patchtst",
+      "salida": "E_hat=escala_E*softplus(MLP_E(z)); s=softmax(log(s_ancla+1e-8)+MLP_s(z)); yhat_h=E_hat*s_h",
+      "escala_E": "media de energía diaria solo en ajuste",
+      "perdida": "MAE_h/q168 + lambda_energia*MAE_energia/(24*q168)",
+      "rejilla": {
+        "ancho": [
+          32,
+          64
+        ],
+        "dropout": [
+          0.0,
+          0.1
+        ],
+        "lambda_energia": [
+          0.0,
+          0.1
+        ]
+      },
+      "controles": [
+        "ancla sin adaptación",
+        "solo energía",
+        "solo distribución",
+        "cabeza directa de 24 salidas con capacidad comparable"
+      ]
+    },
+    "M3": {
+      "nombre": "Ensamble con selección de expertos condicionada por texto",
+      "modalidad": "numerica_y_texto",
+      "base": "M1 congelado por partición y semilla",
+      "arquitectura": "Agregación separada de fragmentos E5 oficiales y prensa, atención condicionada al contexto numérico, y perturbación acotada de logits de M1.",
+      "salida": "w_T=softmax(logits_N + I_hay_texto*g*epsilon*tanh(Delta)); yhat=sum_k w_T*pred_k",
+      "identidad_sin_texto": "sin candidatos válidos, predicción exactamente igual a M1",
+      "rejilla": {
+        "d_texto": [
+          32,
+          64
+        ],
+        "lambda_penalizacion_delta": [
+          0.001,
+          0.01
+        ],
+        "epsilon_logits": [
+          0.25,
+          0.5
+        ]
+      },
+      "dropout_fijo": 0.1,
+      "variantes": [
+        "M3_O",
+        "M3_OP",
+        "M3_metadatos",
+        "M3_desalineado_49",
+        "M3_desalineado_91",
+        "M3_desalineado_154",
+        "M3_desalineado_217",
+        "M3_desalineado_301"
+      ],
+      "seleccion_hiperparametros": "solo M3_OP; después mismos hiperparámetros para variantes y controles",
+      "abstencion": "compuerta aprendida sin promesa de no empeorar el MAE"
+    },
+    "M4": {
+      "nombre": "Memoria de episodios numéricos y textuales para corregir residuos",
+      "modalidad": "numerica_y_texto",
+      "base": "M1 congelado por partición y semilla",
+      "arquitectura": "Proyección de contexto y canales textuales, recuperación de episodios anteriores, atención sobre residuos horarios fuera de muestra y compuerta según respaldo de la memoria.",
+      "salida": "yhat_h=pred_M1_h + q168*g*sum_j alpha_j*((y_jh-pred_OOF_M1_jh)/q168)",
+      "d_proyeccion_fijo": 32,
+      "dropout_fijo": 0.1,
+      "rejilla": {
+        "k_vecinos": [
+          8,
+          16
+        ],
+        "edad_maxima_dias": [
+          365,
+          730
+        ],
+        "ancho_compuerta": [
+          32,
+          64
+        ]
+      },
+      "memoria": "creciente con episodios completos disponibles en d-2 o antes; pesos y métricas de recuperación congelados desde antes de 2022",
+      "variantes": [
+        "M4_N",
+        "M4_O",
+        "M4_OP",
+        "M4_metadatos",
+        "M4_desalineado_49",
+        "M4_desalineado_91",
+        "M4_desalineado_154",
+        "M4_desalineado_217",
+        "M4_desalineado_301"
+      ],
+      "seleccion_hiperparametros": "solo M4_OP; después mismos hiperparámetros para variantes y controles",
+      "ablaciones": [
+        "memoria congelada en 2021",
+        "sin compuerta",
+        "sin texto",
+        "sin contexto numérico"
+      ]
+    }
+  },
+  "datos": {
+    "panel": "data/processed/panel_horario.parquet",
+    "corpus": "data/processed/corpus_texto.parquet",
+    "hashes_entrada": {
+      "data/processed/corpus_texto.parquet": "e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c",
+      "data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+      "data/processed/feature_registry.json": "973b8c2083ec7ee89d1d7462b7c9cb559453d8ca5898750cd6f6cd40c9ce9e17",
+      "results/corrector_semantico_e3_20261122/codigo/config/plan_corrector.json": "9dab04d8993b13ec14bf3f1f44f02dc455036702601f73a9b6c4d71700876246",
+      "results/corrector_semantico_e3_20261122/resultados_corrector_e3/evaluacion/contrastes.csv": "111f0a928066e0d7de10184e306c34150cf256e11b6e93ac4b097f90f56d8a6a",
+      "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/decision/desarrollo_resumen.csv": "48141e275ae02d88ab2e0a3f6de13c1413e39e4dfe447a3985b5efa5f95ba9c6"
+    },
+    "ventana_h": 168,
+    "horizonte_h": 24,
+    "numericas": "contrato común: demanda, calendario, clima rezagado, hidrología y precio; disponibilidad por origen",
+    "escenario_principal": "declarado",
+    "canales_texto": [
+      "oficial",
+      "prensa"
+    ],
+    "relevancia": "aprendida; sin temas ni términos manuales",
+    "encoder": {
+      "ventana_h": 72,
+      "ventanas_sensibilidad_h": [
+        24,
+        168
+      ],
+      "max_documentos_canal": 64,
+      "max_fragmentos_documento": 8,
+      "tokens_max": 512,
+      "solapamiento_tokens": 64,
+      "encoder": "intfloat/multilingual-e5-base",
+      "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+      "prefijo": "query: ",
+      "pooling": "mean_attention_mask",
+      "normalizacion": "L2",
+      "agregacion": "relevancia_aprendida_por_canal",
+      "ausencia": "cero_y_mascara",
+      "filtro_palabras_clave": false
+    }
+  },
+  "validacion": {
+    "folds_externos": [
+      2018,
+      2019,
+      2020,
+      2021
+    ],
+    "meta_ajuste": "OOF 2011..Y-2",
+    "meta_parada": "Y-1",
+    "meta_evaluacion": "Y",
+    "OOF_expertos": "forward chaining anual 2011..2021; ningún modelo ha visto la etiqueta de la fila que predice",
+    "OOF_M1": "OOF anidado por año desde el primer año con historia suficiente; cada selección de hiperparámetros usa solo años anteriores al año predicho. No reutilizar el ganador global de 2018–2021 para generar retrospectivamente datos supuestamente independientes en esos años.",
+    "purga_h": 24,
+    "retraso_errores_dias": 2,
+    "semillas": [
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "candidatos_por_modelo": 8,
+    "criterio_seleccion": "media MASE de folds y semillas, pesos iguales por fold; desempate exacto: menor número de parámetros y luego menor ID",
+    "early_stopping": {
+      "max_epocas": 100,
+      "min_epocas": 10,
+      "paciencia": 10,
+      "mejora_minima_absoluta_mase": 0.0001,
+      "monitor": "MASE de parada, sin términos auxiliares",
+      "restaurar_mejor": true
+    },
+    "optimizador": {
+      "nombre": "AdamW",
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "lote": 64,
+      "clip_gradiente": 1.0
+    },
+    "orden": [
+      "bases y OOF",
+      "M1",
+      "OOF anidado de M1",
+      "M2",
+      "M3_OP y M4_OP",
+      "variantes y controles con configuración fijada"
+    ],
+    "no_ejecucion_ahora": true,
+    "seleccion_M1_dentro_de_otros_modelos": "En el fold Y, la configuración de la base M1 se elige solo con años <Y. Su selección final global con 2018–2021 se reserva para el ajuste final anterior a 2022.",
+    "arranque_meta": "OOF de expertos desde 2011; OOF de M1 desde 2013 como pronto (ajuste 2011, parada 2012). Registrar fecha real; sin memoria previa, devolver la base. Usar idénticos orígenes de evaluación para todos.",
+    "interpretacion": "Las métricas de desarrollo usadas para elegir los ocho candidatos no son una estimación independiente del sesgo de selección; la evaluación final se mantiene separada."
+  },
+  "prueba": {
+    "inicio": "2022-01-01",
+    "fin": "2025-12-31",
+    "origen": "00:00 America/Bogota",
+    "origenes_esperados": 1461,
+    "horizonte_h": 24,
+    "ventana_h": 168,
+    "metrica": "MASE",
+    "q168_kwh": 215617.90361589016,
+    "margen_relativo": 0.03,
+    "alpha": 0.05,
+    "politica": "ajuste único anterior a 2022; pesos congelados durante 2022–2025; no selección con prueba",
+    "meta_ajuste": "2011-2020 OOF; usar la primera fecha elegible de cada modelo",
+    "meta_parada": "2021",
+    "basicos": "ajuste_final() con reserva cronológica y purga del contrato",
+    "politica_dinamica": "solo rasgos observables y memoria no paramétrica con retraso de dos días; no optimizador ni reajustes con prueba",
+    "independencia": "2022–2025 ya se consultó para otros modelos; documentar selección informada por esos resultados, sin afirmar prueba virgen"
+  },
+  "estadistica": {
+    "unidad": "origen diario; las 24 horas y las semillas no son réplicas temporales independientes",
+    "remuestreos": 9999,
+    "bloque_dias_principal": 14,
+    "sensibilidad_bloque_dias": [
+      7,
+      28
+    ],
+    "nivel": 0.05,
+    "contrastes_primarios": [
+      [
+        "M1",
+        "NNLS"
+      ],
+      [
+        "M1",
+        "mejor_individual_desarrollo"
+      ],
+      [
+        "M2",
+        "mejor_individual_desarrollo"
+      ],
+      [
+        "M2",
+        "M1"
+      ],
+      [
+        "M3_O",
+        "M1"
+      ],
+      [
+        "M3_OP",
+        "M1"
+      ],
+      [
+        "M3_OP",
+        "M3_metadatos"
+      ],
+      [
+        "M3_OP",
+        "M3_desalineado_promedio"
+      ],
+      [
+        "M4_O",
+        "M4_N"
+      ],
+      [
+        "M4_OP",
+        "M4_N"
+      ],
+      [
+        "M4_OP",
+        "M4_metadatos"
+      ],
+      [
+        "M4_OP",
+        "M4_desalineado_promedio"
+      ],
+      [
+        "M3_OP",
+        "M3_O"
+      ],
+      [
+        "M4_OP",
+        "M4_O"
+      ]
+    ],
+    "cantidad_parejas": 14,
+    "hipotesis_por_pareja": [
+      "ganancia_relativa<=0",
+      "ganancia_relativa<=0.03"
+    ],
+    "cantidad_hipotesis_holm": 28,
+    "ajuste": "Holm conjunto sobre las hipótesis de todas las parejas listadas; sin dividir la familia por resultado",
+    "equivalencia": "TOST ±3 % con dependencia temporal y multiplicidad declaradas; no equivalencia por p>0.05",
+    "metricas": [
+      "MASE",
+      "MAE_kWh",
+      "RMSE_kWh",
+      "MASE_por_horizonte",
+      "MASE_por_anio"
+    ],
+    "resultados_semillas": "métricas por semilla primero; media y DE después; no sustituir por métrica del promedio de pronósticos"
+  },
+  "implementacion_pendiente": [
+    "adaptadores de los cuatro modelos y controles",
+    "generación/carga del OOF anidado y auditoría",
+    "caché versionado de texto y memoria",
+    "entrenamiento GPU y checkpoint completo",
+    "predicción secuencial y evaluación estadística",
+    "restauración, disponibilidad y exportación ONNX verificadas"
+  ],
+  "salida_propuesta": "results/modelos_originales_e3_gpu_<fecha_hora>/",
+  "entrenamiento_iniciado": false,
+  "prueba_ejecutada": false,
+  "publicacion_ejecutada": false,
+  "distribucion": {
+    "contextos_y_diseno": "versionados en continuidad/ y CONTEXTO_PROYECTO.md",
+    "configuraciones_expertos": "incluidas completas en este JSON y CONFIGURACIONES_PRUEBA_E3_GPU.json",
+    "fuentes_exploracion": "referencias de procedencia locales, no incluidas en esta subida; transferir resultados/exploracion_e3_20261122/ para auditar sus archivos originales",
+    "codigo_disponible": "results/corrector_semantico_e3_20261122/codigo/",
+    "implementacion_cuatro_modelos": "pendiente; las guías no son un lanzador ejecutable"
+  }
+}

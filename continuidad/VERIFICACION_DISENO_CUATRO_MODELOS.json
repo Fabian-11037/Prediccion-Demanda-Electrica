@@ -1,0 +1,26 @@
+{
+  "fecha": "2026-11-22",
+  "tipo": "coherencia documental; no ejecución de modelos",
+  "modelos": [
+    "M1",
+    "M2",
+    "M3",
+    "M4"
+  ],
+  "candidatos_por_modelo": {
+    "M1": 8,
+    "M2": 8,
+    "M3": 8,
+    "M4": 8
+  },
+  "parejas_primarias": 14,
+  "hipotesis_holm": 28,
+  "contextos_identicos": true,
+  "insumos_protegidos_sin_cambios": 6,
+  "normalizacion_hashes_documentales": "finales de línea LF",
+  "diseno_md_sha256": "ede709fa443a9d4b4a66d7bf18ba9722f181c839f33f4344a41333d38f5d759d",
+  "diseno_json_sha256": "04781d1d0cebe1b8da4b7d59d423b23b74747f6ea6e80ba4d7ec92ac65dd039f",
+  "entrenamiento": false,
+  "prueba": false,
+  "publicacion_jbook_dashboard": false
+}

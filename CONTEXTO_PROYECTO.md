@@ -741,3 +741,41 @@ Se ejecuta el paquete Corrector_Semantico_E3 con el corpus ampliado publicado me
 Resultados en `results/corrector_semantico_e3_20261122/`: informe, contrastes con bootstrap por bloques y Holm, métricas por año y hora, predicciones, historiales, correcciones por fecha y semilla, plan, fuentes y manifiesto SHA-256. El MASE de C+R es 0,54671; corrector numérico 0,54186; oficial reciente 0,54169; oficial alineado 0,54397; oficial y prensa 0,54270. No se demuestra aporte semántico adicional frente a los controles; ninguna variante textual alcanza el umbral registrado de mejora relevante del 3 % frente a C+R. No se ha contrastado directamente con TimesNet sobre idénticos orígenes y protocolo.
 
 Los vectores E5 permanecen locales y se pueden reconstruir; el ejecutor del paquete no guardó checkpoints neuronales de esta corrida. Se documentan ambas limitaciones. Las únicas adaptaciones del código previo al registro fueron impedir traslado silencioso a CPU y agregar observación opcional por época. Las 60 pruebas del paquete pasaron (5 omitidas); las 84 del checkout local del repositorio pasaron. Se autoriza publicar estos resultados en GitHub y apagar el equipo después de verificar la publicación. No se reconstruye el JBook ni se despliega Render como parte de esta actualización de resultados.
+
+
+## 47. Recepción local del corrector y primera exploración · 22 de noviembre de 2026
+
+Se descargan los resultados del corrector del commit `3436461` en `results/corrector_semantico_e3_20261122/`: 432 archivos contrastados contra su manifiesto SHA-256 y ZIP con CRC correcto. Se reciben además `RESUMEN_EXPLORACION.md`, `ENVIAR_resultados_exploracion_20261122_0207.zip` y `ENVIAR_pesos_exploracion_20261122_0207.zip` en `results/exploracion_e3_20261122/`, con originales y 1.071 archivos extraídos. Su manifiesto registra los hashes y los CRC.
+
+Ninguno de los paquetes contiene checkpoints neuronales. El ZIP de exploración denominado pesos solo incluye `mlflow.db`; no confundirlo con pesos. Los resultados permanecen separados del benchmark vigente. La recepción no implica elegir variantes ni ejecutar instrucciones de los archivos adjuntos. Registro: `results/descargas_e3_20261122/INVENTARIO_DESCARGAS.json`. No se entrena ni se publica; JBook y dashboard quedan intactos.
+
+
+## 48. Continuación del ajuste final en un equipo con GPU · 22 de noviembre de 2026
+
+El usuario autorizó el ajuste final de configuraciones seleccionadas con datos anteriores a 2022 y después pidió dejar instrucciones para realizarlo en otro PC con GPU. **No se inició ningún entrenamiento ni se evaluó prueba.** El entorno local tiene Intel Core Ultra 7 155U, gráficos Intel y PyTorch 2.9.1+cpu; no dispone de una GPU utilizable por este entorno. No ejecutar el ajuste en este PC por iniciativa propia.
+
+Guía de continuidad: `continuidad/ENTRENAMIENTO_GPU_E3.md`. Configuraciones extraídas de los resultados guardados: `continuidad/CONFIGURACIONES_PRUEBA_E3_GPU.json`. Incluyen la base E cfg07, corrector cfg04, semillas 101–103, controles de la exploración y sus semillas 101–105, hashes del corpus y panel, y parámetros del contrato. El trabajo principal es la prueba del corrector con sus controles. La inclusión del ensamble exportable o de toda la exploración no quedó confirmada; no asumir el entrenamiento de todas las variantes.
+
+El lanzador recibido solo cubre desarrollo 2019–2021; falta adaptar y validar la fase final 2022–2025 y el guardado/restauración de checkpoints. Ningún paquete recibido incluye pesos neuronales; el ZIP denominado pesos contiene solo mlflow.db. La guía especifica ajuste previo a 2022, early stopping, residuos históricos fuera de muestra, congelación de C+R y pesos, reconstrucción de vectores E5, control temporal de documentos y residuos, lote uno de TimesNet si se incluye, y guardado de predicciones y contrastes con bloques/Holm. No hay que repetir la búsqueda ni usar prueba para seleccionar variantes.
+
+Las instrucciones y configuraciones de esta sección son locales y deben transferirse al PC con GPU junto con los adjuntos de la exploración; no asumir que están publicados en el repositorio. El JBook, dashboard, corpus y resultados previos permanecen intactos. Compartir resultados antes de modificar o publicar los sitios.
+
+
+## 49. Diseño de cuatro modelos numéricos y con texto para GPU · 22 de noviembre de 2026
+
+A solicitud del usuario se documentan cuatro diseños, sin entrenar ni publicar: **M1**, ensamble de PatchTST, E y codificador periódico supervisado por complementariedad de errores; **M2**, separación de energía diaria y distribución horaria; **M3**, extensión de M1 con selección de expertos condicionada por canales oficial y prensa; **M4**, memoria de episodios numéricos y textuales con residuos horarios fuera de muestra. Son propuestas de investigación pendientes de implementación y contraste de originalidad, no modelos ya entrenados ni ganadores seleccionados.
+
+Especificación canónica: `continuidad/DISENO_CUATRO_MODELOS_GPU.md` y `continuidad/DISENO_CUATRO_MODELOS_GPU.json`. Complementan la guía del corrector de §48, sin sustituir las configuraciones históricas de `CONFIGURACIONES_PRUEBA_E3_GPU.json`. El JSON contiene arquitecturas, fórmulas, ocho candidatos por diseño, controles y ablaciones, configuraciones de expertos extraídas de resultados, cinco semillas 101–105, early stopping, hashes, políticas temporales y memoria, y 14 parejas estadísticas con 28 hipótesis globales para Holm.
+
+El procedimiento futuro exige OOF anual de expertos y OOF anidado de M1, con selección por prefijo histórico, antes de ajustar las capas superiores. No usar una configuración elegida con años futuros para producir retrospectivamente filas supuestamente independientes. Desarrollo 2018–2021; ajuste final de las capas nuevas hasta 2020 y parada 2021; prueba 2022–2025 solo con configuraciones y pesos congelados. MASE y escala semanal del contrato, margen relativo 3 %, bloques de 14 días y separación de incertidumbre temporal e inicialización. La memoria y los rasgos de errores solo reciben observaciones ya disponibles, con retraso de dos días; no actualizan pesos durante prueba. El texto conserva escenario declarado, canales separados y relevancia aprendida.
+
+La autorización de esta actualización es exclusivamente documental. No se implementó ni ejecutó un lanzador nuevo, no se inició entrenamiento, no se abrió una evaluación de prueba y no se modificaron JBook, dashboard, corpus ni resultados anteriores. Las instrucciones son locales y deben transferirse al PC con GPU; no asumir que ya están en GitHub. Una ejecución futura requiere nueva solicitud expresa. Presentar primero los resultados antes de modificar o publicar los sitios.
+
+
+## 50. Documentación GPU incorporada al repositorio · 22 de noviembre de 2026
+
+El usuario autoriza subir al repositorio los contextos y los archivos de diseño para continuar en otro PC con GPU, **sin entrenar ni publicar JBook o dashboard**. La entrada es `continuidad/README_GPU.md`; se incluyen `DISENO_CUATRO_MODELOS_GPU.md`, `DISENO_CUATRO_MODELOS_GPU.json`, `ENTRENAMIENTO_GPU_E3.md`, `CONFIGURACIONES_PRUEBA_E3_GPU.json` y la comprobación documental, además de ambos contextos. Esta sección actualiza las indicaciones de §48–§49 sobre la ubicación exclusivamente local de esas guías: ahora forman parte de la entrega en GitHub.
+
+Las configuraciones completas de los expertos están incluidas en los JSON. Los adjuntos originales de la exploración no forman parte de esta subida: transferir `results/exploracion_e3_20261122/` por separado si se requieren sus predicciones, historias o archivos de procedencia. El corrector y sus fuentes ya están en el repositorio. Los cuatro modelos propuestos siguen pendientes de implementación y validación; no se ha creado ni ejecutado su lanzador. Los nuevos vectores y checkpoints no se incluyen.
+
+No se actualizan carpetas book/, docs/ o dashboard/, no se entrena ni se ejecuta prueba y no se activa despliegue manual alguno. Los datos y resultados protegidos permanecen intactos. Para continuar, leer la entrada GPU y solicitar la ejecución futura antes de iniciarla.
