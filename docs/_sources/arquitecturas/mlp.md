@@ -39,6 +39,30 @@ El {ref}`código de exportación de los esquemas <exportacion-esquemas>` forma p
 
 ## Pipeline de entrenamiento y prueba
 
+<!-- entrenamiento-portable:inicio -->
+### Comandos de entrenamiento y evaluación
+
+Validación temporal de la configuración seleccionada:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo mlp --anio 2021 --semilla 1000 --dispositivo auto --salida salidas/mlp_validacion_1000
+```
+
+Comprobación funcional breve:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo mlp --smoke --dispositivo cpu --salida salidas/mlp_funcional
+```
+
+Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo mlp --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/mlp_prueba_1000
+```
+
+El código completo de preparación, optimización, guardado y restauración está en el {ref}`pipeline ejecutable compartido <entrenamiento-portable>`. Cada salida debe ser una carpeta nueva.
+<!-- entrenamiento-portable:fin -->
+
 La configuración utilizada por esta familia es:
 
 ```json

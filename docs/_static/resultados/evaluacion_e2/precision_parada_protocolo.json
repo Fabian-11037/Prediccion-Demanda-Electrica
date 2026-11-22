@@ -1,6 +1,6 @@
 {
-  "procedimientos": 8,
-  "realizaciones": 40,
+  "procedimientos": 10,
+  "realizaciones": 50,
   "semillas": [
     1000,
     1001,
@@ -8,7 +8,7 @@
     1003,
     1004
   ],
-  "parejas": 28,
+  "parejas": 45,
   "n_origenes_parada": 803,
   "inicio": "2019-10-21 00:00:00-05:00",
   "fin": "2021-12-31 00:00:00-05:00",
@@ -18,7 +18,7 @@
   "alpha": 0.05,
   "potencia_objetivo": 0.8,
   "R_max_individual": 2112,
-  "R_max_Bonferroni": 4231,
+  "R_max_Bonferroni": 4529,
   "fuente_error": "MASE_parada · evaluación del checkpoint restaurado",
   "prueba_usada_para_dimensionar": false,
   "piloto_externo_reconstruido": false,

@@ -244,7 +244,9 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -396,27 +398,22 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes-seleccion-y-alcance">8.1. Fuentes, selección y alcance</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolo-de-elegibilidad-y-alcance-de-la-busqueda">Protocolo de elegibilidad y alcance de la búsqueda</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trazabilidad-de-la-busqueda">Trazabilidad de la búsqueda</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consultas-publicas-conservadas-3-de-noviembre-de-2026">Consultas públicas conservadas · 3 de noviembre de 2026</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-de-elegibilidad-y-busqueda">Criterios de elegibilidad y búsqueda</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estudios-directamente-relacionados-con-la-demanda">8.2. Estudios directamente relacionados con la demanda</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparadores-adicionales-de-demanda-revisados-en-texto-completo">Comparadores adicionales de demanda revisados en texto completo</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-de-estudios-complementarios">8.3. Síntesis de estudios complementarios</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-electrico">Precio eléctrico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-complementarios">8.3. Métodos complementarios</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-generales">Métodos generales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#texto-operativo-y-financiero">Texto operativo y financiero</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentos-operativos">Documentos operativos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estudios-de-contexto-identificados-en-ieee">Estudios de contexto identificados en IEEE</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-evidencia">8.4. Matriz de evidencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-evidencia-de-demanda">8.4. Matriz de evidencia de demanda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frecuencia-de-uso-como-comparador">8.5. Frecuencia de uso como comparador</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evidencia-directa-de-demanda">Evidencia directa de demanda</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-electrico-contraste-metodologico-y-sensibilidad">Precio eléctrico: contraste metodológico y sensibilidad</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-critica-de-los-textos-completos">Evaluación crítica de los textos completos</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitecturas-de-interes-y-modelos-numericos">8.6. Arquitecturas de interés y modelos numéricos</a><ul class="nav section-nav flex-column">
@@ -424,7 +421,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lstm-sobre-secuencias">8.6.2. LSTM sobre secuencias</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn1d-sobre-historia-temporal">8.6.3. CNN1D sobre historia temporal</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-critica-de-robustez-y-escalabilidad">8.6.4. Comparación crítica de robustez y escalabilidad</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-del-cumplimiento-bibliografico">Alcance del cumplimiento bibliográfico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-de-la-revision">Alcance de la revisión</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extensiones-respaldadas-por-la-revision">Extensiones respaldadas por la revisión</a></li>
 </ul>
 </li>
@@ -443,73 +440,28 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="literatura-y-fundamento-del-diseno">
 <h1>8. Literatura y fundamento del diseño<a class="headerlink" href="#literatura-y-fundamento-del-diseno" title="Link to this heading">#</a></h1>
-<p>La revisión relaciona el pronóstico diario de demanda con tres líneas de trabajo: redes numéricas, representaciones multiescala e integración de documentos. Se distinguen evidencia directa de demanda, estudios de precio eléctrico y métodos de otros dominios. El país de afiliación identifica a los autores; el territorio de los datos identifica el caso empírico. Los resultados conservan la métrica, unidad y configuración de cada publicación.</p>
+<p>La revisión examina el pronóstico de demanda eléctrica mediante redes numéricas, representaciones multiescala e integración documental. La evidencia empírica de demanda sustenta la selección de comparadores; los métodos generales orientan las alternativas de representación. Los resultados se presentan con las métricas y condiciones de cada publicación, distinguiendo afiliación de los autores y territorio de los datos.</p>
 <section id="fuentes-seleccion-y-alcance">
 <h2>8.1. Fuentes, selección y alcance<a class="headerlink" href="#fuentes-seleccion-y-alcance" title="Link to this heading">#</a></h2>
-<p>La consolidación del 8 de noviembre de 2026 reúne 29 estudios destacados: seis textos completos sobre demanda y 23 estudios metodológicos y aplicados, de los cuales 11 se revisaron en texto completo y 12 mediante resumen. En paralelo, el registro de comparadores contiene 20 textos completos de precio y mercados relacionados. Estos conjuntos se solapan y sus tamaños no se suman como publicaciones únicas.</p>
-<p>Las exportaciones disponibles contienen 615 registros de Scopus, 293 de Web of Science y 438 de IEEE Xplore. La exportación de Scopus supera en 53 registros el inventario inicial de 562; esa diferencia no se ha conciliado registro a registro. Las cadenas originales y las fechas de ejecución de las búsquedas institucionales no están conservadas. Los cinco archivos de IEEE se recibieron el 6 de noviembre de 2026; esa fecha no acredita cuándo se ejecutó cada consulta. La búsqueda pública dirigida está registrada el 3 de noviembre de 2026. No se presenta este inventario como una revisión sistemática completa ni como un diagrama PRISMA de registros únicos.</p>
-<p>Se priorizaron pronóstico eléctrico, comparación explícita de arquitecturas, información documental y trazabilidad del resultado. Los avisos de retirada y retractación se separaron de la evidencia científica. La revisión y extracción cuentan con un solo revisor; no existe evaluación independiente duplicada.</p>
-<section id="protocolo-de-elegibilidad-y-alcance-de-la-busqueda">
-<h3>Protocolo de elegibilidad y alcance de la búsqueda<a class="headerlink" href="#protocolo-de-elegibilidad-y-alcance-de-la-busqueda" title="Link to this heading">#</a></h3>
-<p>La ampliación dirigida de demanda considera publicaciones de 2018 al 8 de noviembre de 2026. Se incluyen estudios empíricos de demanda eléctrica con datos, horizonte y evaluación identificables, y métodos pertinentes para representación temporal o documental. Para contar comparadores se exige texto completo y evaluación explícita de una familia; las revisiones orientan contexto, los resúmenes generan candidatos y los modelos propuestos o componentes se excluyen del conteo. Se excluyen duplicados, retiradas, trabajos sin resultados verificables y aplicaciones sin vínculo metodológico justificado. País de afiliación y sistema eléctrico se registran por separado.</p>
-<p>Las búsquedas públicas del 8 de noviembre de 2026 incluyeron: <code class="docutils literal notranslate"><span class="pre">(load</span> <span class="pre">forecasting</span> <span class="pre">OR</span> <span class="pre">electricity</span> <span class="pre">demand</span> <span class="pre">forecasting)</span> <span class="pre">AND</span> <span class="pre">(CNN</span> <span class="pre">OR</span> <span class="pre">convolutional</span> <span class="pre">OR</span> <span class="pre">LSTM</span> <span class="pre">OR</span> <span class="pre">MLP)</span> <span class="pre">AND</span> <span class="pre">(comparison</span> <span class="pre">OR</span> <span class="pre">benchmark)</span></code> y las consultas literales conservadas en el registro. No se dispone de las cadenas originales ni las fechas ejecutadas de Scopus y WoS; se mantienen como información no recuperada. Las decisiones actuales de elegibilidad no se presentan como un protocolo fechado antes de las búsquedas originales. El flujo entre bases sigue sin conciliación completa. <a class="reference download internal" download="" href="_downloads/222367953828d11c8c6f33ce4a14ce34/busqueda_demanda_20261108.json"><span class="xref download myst">Registro de la ampliación pública</span></a>.</p>
+<p>Se realizó una revisión dirigida de estudios de demanda eléctrica y métodos de pronóstico temporal y documental. Se consultaron exportaciones de Scopus, Web of Science e IEEE Xplore, complementadas con búsquedas públicas y recuperación de textos completos. La extracción distingue evidencia empírica de demanda, contribuciones metodológicas y resultados disponibles únicamente en resúmenes.</p>
+<p>Se priorizaron estudios con datos, horizonte, arquitectura y evaluación identificables. Los duplicados, avisos de retirada y aplicaciones sin relación metodológica con el problema se excluyeron de la síntesis empírica.</p>
+<section id="criterios-de-elegibilidad-y-busqueda">
+<h3>Criterios de elegibilidad y búsqueda<a class="headerlink" href="#criterios-de-elegibilidad-y-busqueda" title="Link to this heading">#</a></h3>
+<p>La búsqueda dirigida abarcó publicaciones de 2018 al 8 de noviembre de 2026. El recuento de comparadores requiere texto completo y evaluación explícita de la familia: se excluyen modelos propuestos, componentes, ablaciones y menciones. Las revisiones aportan contexto y los resúmenes permiten identificar candidatos.</p>
+<p>La ampliación pública del 8 de noviembre de 2026 utilizó <code class="docutils literal notranslate"><span class="pre">(load</span> <span class="pre">forecasting</span> <span class="pre">OR</span> <span class="pre">electricity</span> <span class="pre">demand</span> <span class="pre">forecasting)</span> <span class="pre">AND</span> <span class="pre">(CNN</span> <span class="pre">OR</span> <span class="pre">convolutional</span> <span class="pre">OR</span> <span class="pre">LSTM</span> <span class="pre">OR</span> <span class="pre">MLP)</span> <span class="pre">AND</span> <span class="pre">(comparison</span> <span class="pre">OR</span> <span class="pre">benchmark)</span></code>. El <a class="reference download internal" download="" href="_downloads/222367953828d11c8c6f33ce4a14ce34/busqueda_demanda_20261108.json"><span class="xref download myst">registro de búsqueda</span></a> documenta las consultas y fuentes recuperadas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">hashlib</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'Agg'</span><span class="p">)</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
-<span class="n">ROOT</span><span class="o">=</span><span class="nb">next</span><span class="p">(</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="o">*</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">parents</span><span class="p">]</span> <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">/</span><span class="s1">'literature/analisis'</span><span class="p">)</span><span class="o">.</span><span class="n">is_dir</span><span class="p">())</span>
-<span class="n">D</span><span class="o">=</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'literature/analisis'</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'figure.dpi'</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span><span class="s1">'font.size'</span><span class="p">:</span><span class="mi">10</span><span class="p">})</span>
-<span class="n">estudios</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">D</span><span class="o">/</span><span class="s1">'estudios_destacados.csv'</span><span class="p">,</span><span class="n">keep_default_na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">comparadores</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">D</span><span class="o">/</span><span class="s1">'estudios_comparadores.csv'</span><span class="p">,</span><span class="n">keep_default_na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">extracciones</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">D</span><span class="o">/</span><span class="s1">'extracciones_modelos.csv'</span><span class="p">,</span><span class="n">keep_default_na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">recuperacion</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">D</span><span class="o">/</span><span class="s1">'recuperacion.csv'</span><span class="p">,</span><span class="n">keep_default_na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ieee</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">D</span><span class="o">/</span><span class="s1">'ieee_cribado.csv'</span><span class="p">,</span><span class="n">keep_default_na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">seleccion</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">D</span><span class="o">/</span><span class="s1">'ieee_seleccion.csv'</span><span class="p">,</span><span class="n">keep_default_na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">estudios</span><span class="o">.</span><span class="n">study_id</span><span class="o">.</span><span class="n">is_unique</span> <span class="ow">and</span> <span class="n">comparadores</span><span class="o">.</span><span class="n">study_id</span><span class="o">.</span><span class="n">is_unique</span>
-<span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">extracciones</span><span class="o">.</span><span class="n">study_id</span><span class="p">)</span><span class="o">&lt;=</span><span class="nb">set</span><span class="p">(</span><span class="n">comparadores</span><span class="o">.</span><span class="n">study_id</span><span class="p">)</span>
-<span class="n">manifest</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">D</span><span class="o">/</span><span class="s1">'manifiesto.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">manifest</span><span class="p">[</span><span class="s1">'archivos'</span><span class="p">]:</span>
-    <span class="k">assert</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">((</span><span class="n">D</span><span class="o">/</span><span class="n">item</span><span class="p">[</span><span class="s1">'archivo'</span><span class="p">])</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span><span class="o">==</span><span class="n">item</span><span class="p">[</span><span class="s1">'sha256'</span><span class="p">]</span>
-<span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">valores</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">ieee</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">seleccion</span><span class="p">),</span><span class="mi">4</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ieee</span><span class="p">)</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">seleccion</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">barh</span><span class="p">([</span><span class="s1">'Registros IEEE'</span><span class="p">,</span><span class="s1">'Seleccionados'</span><span class="p">,</span><span class="s1">'Retiradas y avisos'</span><span class="p">,</span><span class="s1">'No seleccionados'</span><span class="p">],</span><span class="n">valores</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">'#247ba0'</span><span class="p">,</span><span class="s1">'#2a9d8f'</span><span class="p">,</span><span class="s1">'#be5146'</span><span class="p">,</span><span class="s1">'#9ba5ae'</span><span class="p">])</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">valores</span><span class="p">):</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">v</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">va</span><span class="o">=</span><span class="s1">'center'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">490</span><span class="p">);</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Registros; categorías finales salvo total'</span><span class="p">)</span>
-<span class="n">counts</span><span class="o">=</span><span class="n">comparadores</span><span class="o">.</span><span class="n">estrato</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">'puntual'</span><span class="p">,</span><span class="s1">'probabilistico'</span><span class="p">,</span><span class="s1">'mercado_relacionado'</span><span class="p">,</span><span class="s1">'contexto_revision'</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">barh</span><span class="p">([</span><span class="s1">'Precio puntual'</span><span class="p">,</span><span class="s1">'Probabilístico'</span><span class="p">,</span><span class="s1">'Mercado relacionado'</span><span class="p">,</span><span class="s1">'Revisión'</span><span class="p">],</span><span class="n">counts</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'#247ba0'</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">counts</span><span class="p">):</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">v</span><span class="o">+</span><span class="mf">.2</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">va</span><span class="o">=</span><span class="s1">'center'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">19</span><span class="p">);</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Textos completos en registro de comparadores'</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span><span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/a900e11490e8dbf31dded684c55f0bf773915516249ef616112df8fe825078f3.png" src="_images/a900e11490e8dbf31dded684c55f0bf773915516249ef616112df8fe825078f3.png" />
 </div>
-</div>
-<p>El cribado de IEEE retiene 20 de 438 registros: 12 prioritarios y ocho de contexto; cuatro corresponden a retiradas o avisos. El registro independiente de recuperación contiene 25 candidatos, con 20 textos completos y cinco pendientes. Dentro de los textos recuperados predominan los 16 estudios de precio puntual. La figura muestra dos inventarios con propósitos diferentes y no un flujo único de inclusión.</p>
-</section>
-<section id="trazabilidad-de-la-busqueda">
-<h3>Trazabilidad de la búsqueda<a class="headerlink" href="#trazabilidad-de-la-busqueda" title="Link to this heading">#</a></h3>
-<p>El registro de búsqueda pública conserva consultas sobre Time-MMD, la utilidad de modelos de lenguaje en pronóstico, NSW-EPNews y el benchmark de Lago et al. Las exportaciones institucionales permiten inspeccionar registros y decisiones, pero no reconstruir sus cadenas booleanas originales. Se identificaron 28 coincidencias de título de IEEE con el inventario inicial de 83; no se dispone de una conciliación completa entre las bases.</p>
-<p>Los CSV de extracción preservan identificadores, roles de modelos, localizadores, fuentes y hashes de los textos revisados. El <a class="reference download internal" download="" href="_downloads/e647162ef2e8aa4f22b93a033c00a9c6/estudios_jbook.csv"><span class="xref download myst">registro de estudios de demanda</span></a> y los <a class="reference download internal" download="" href="_downloads/e35e39964c84bcb7e76366a88d78f1c5/estudios_destacados.csv"><span class="xref download myst">datos del análisis bibliográfico</span></a> permiten inspeccionar la evidencia. Los archivos fuente de la revisión se distribuyen con el repositorio; los artículos completos permanecen en sus sitios de origen.</p>
-</section>
-<section id="consultas-publicas-conservadas-3-de-noviembre-de-2026">
-<h3>Consultas públicas conservadas · 3 de noviembre de 2026<a class="headerlink" href="#consultas-publicas-conservadas-3-de-noviembre-de-2026" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Time MMD 2406.08627 full paper electricity multimodal dataset</p></li>
-<li><p>Are Language Models Actually Useful for Time Series Forecasting 2406.16964 pdf</p></li>
-<li><p>NSW-EPNews dataset electricity price news paper</p></li>
-<li><p>Lago De Ridder De Schutter 2021 forecasting day ahead electricity prices review open access benchmark arxiv 2008.08009</p></li>
-</ul>
-<p>Estas consultas corresponden a una búsqueda dirigida de apoyo; no sustituyen las estrategias institucionales ausentes.</p>
 </section>
 </section>
 <section id="estudios-directamente-relacionados-con-la-demanda">
@@ -562,7 +514,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ec2ec73f87aa54e3421585f67f4eb8fa51698da020635d964e134c1aff64a236.png" src="_images/ec2ec73f87aa54e3421585f67f4eb8fa51698da020635d964e134c1aff64a236.png" />
+<img alt="_images/db9b6ff2c3fa3f07bdd7ad6a752b4913c44ddeb9875e52dd56a568bb1e9d5669.png" src="_images/db9b6ff2c3fa3f07bdd7ad6a752b4913c44ddeb9875e52dd56a568bb1e9d5669.png" />
 </div>
 </div>
 <p>En Bai et al., la mejor combinación de titulares S, descripciones G y descripciones corporativas CG reduce el MAE un 3.63 %, mientras que combinar palabras clave W, titulares S, textos T y descripciones G lo incrementa un 75.5 %. En Pelekis et al., añadir temperatura favorece a cuatro familias y perjudica a N-BEATS. Ambas comparaciones muestran que más información no garantiza menor error; las alturas de los dos paneles no son comparables porque corresponden a métricas y conjuntos diferentes.</p>
@@ -593,54 +545,9 @@
 <p>Ambos estudios documentan CNN1D como comparador de demanda. Sus configuraciones y escalas difieren del SIN; respaldan la familia, sin transferir cifras ni demostrar que sea universalmente superior.</p>
 </section>
 </section>
-<section id="sintesis-de-estudios-complementarios">
-<h2>8.3. Síntesis de estudios complementarios<a class="headerlink" href="#sintesis-de-estudios-complementarios" title="Link to this heading">#</a></h2>
-<p>Se presentan las contribuciones, el país de afiliación y el caso empírico con su nivel de evidencia. «Texto completo» identifica resultados localizados en el documento; «Resumen» limita la conclusión a lo declarado en el resumen. NR indica información no reportada o no verificada. Los errores de distintos mercados, frecuencias y horizontes no forman un ranking común.</p>
-<section id="precio-electrico">
-<h3>Precio eléctrico<a class="headerlink" href="#precio-electrico" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Estudio y evidencia</p></th>
-<th class="head"><p>Afiliación / caso</p></th>
-<th class="head"><p>Arquitectura o contribución</p></th>
-<th class="head"><p>Resultado</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://jesuslago.com/wp-content/uploads/Lago2018b.pdf">Lago et al. (2018)</a> · Texto completo</p></td>
-<td><p>Países Bajos; Bélgica / Bélgica · precio day-ahead</p></td>
-<td><p>DNN, LSTM/GRU con capa densa y CNN de dos ramas</p></td>
-<td><p>sMAPE: DNN 12,34 %; MLP de referencia 13,27 %. (§5.4 y tabla 7).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://jesuslago.com/wp-content/uploads/1-s2.0-S0306261921004529-main-1.pdf">Lago et al. (2021)</a> · Texto completo</p></td>
-<td><p>Países Bajos; Polonia / Nord Pool, EE. UU., Bélgica, Francia y Alemania</p></td>
-<td><p>Benchmark abierto DNN (dos capas ocultas) y LEAR</p></td>
-<td><p>Nord Pool, MAE: DNN3 1,712; LEAR84 1,952 (escala del mercado). (§4.3 y tabla 2).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://mdpi-res.com/d_attachment/energies/energies-11-01255/article_deploy/energies-11-01255.pdf">Ugurlu et al. (2018)</a> · Texto completo</p></td>
-<td><p>Turquía; Reino Unido / Turquía · precio day-ahead</p></td>
-<td><p>GRU de tres capas; compara ANN, LSTM y CNN</p></td>
-<td><p>Mejor MAE de GRU multicapa: 5,36 EUR/MWh. (Tablas 3–4 y §4.5).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://burjcdigital.urjc.es/server/api/core/bitstreams/584ad847-68b7-4ef1-b8fb-08db68f8eeee/content">Ghimire et al. (2024)</a> · Texto completo</p></td>
-<td><p>Australia; España / Australia · Queensland, media hora</p></td>
-<td><p>VMD–CNN/LSTM con compensación residual VMD–RF</p></td>
-<td><p>DS1, MAE: propuesto 3,057; LSTM 22,781 AUD/MWh. (Tabla C.13, DS1).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://opus.lib.uts.edu.au/bitstream/10453/190017/2/1-s2.0-S2666546825000242-main.pdf">Ghimire et al. (2025)</a> · Texto completo</p></td>
-<td><p>Australia; Alemania; España; Fiyi / Australia · South Australia y Tasmania</p></td>
-<td><p>D3Net: STL/VMD con MLP, RF y TabNet</p></td>
-<td><p>South Australia, MAE: D3Net 3,051; MLP 13,189 AUD/MWh. (Tabla 5).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/2506.11050v1">Bi et al. (2025) · NSW-EPNews</a> · Texto completo</p></td>
-<td><p>Australia / Australia · New South Wales 2015–2024</p></td>
-<td><p>Benchmark de precios, noticias y temperatura con ML/LLM</p></td>
-<td><p>Tramo reciente 50 %, MAE: ARIMA 54,579; GPT-4o 53,646; ablación 52,713 AUD/MWh. (Tabla 2 y definición de ablación en tabla 1).</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
+<section id="metodos-complementarios">
+<h2>8.3. Métodos complementarios<a class="headerlink" href="#metodos-complementarios" title="Link to this heading">#</a></h2>
+<p>Las contribuciones multiescala, de mezcla temporal y de representación documental ofrecen mecanismos de interés para la demanda. Los resultados obtenidos en otros dominios se utilizan como fundamento metodológico y no se incorporan al recuento empírico de comparadores.</p>
 <section id="metodos-generales">
 <h3>Métodos generales<a class="headerlink" href="#metodos-generales" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -652,52 +559,27 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/pdf/2406.08627v2">Liu et al. (2024) · Time-MMD</a> · Texto completo</p></td>
-<td><p>Estados Unidos (afiliación verificable) / Time-MMD · Energy: gasolina semanal; varios dominios</p></td>
-<td><p>Dataset multimodal y MM-TSFlib; DLinear numérico/multimodal</p></td>
-<td><p>Energy, H=12, MSE: 0,26 numérico; 0,22 multimodal. (Tabla 12, p.33, versión 2).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/2406.16964v2">Tan et al. (2024)</a> · Texto completo</p></td>
-<td><p>Estados Unidos / ETTh1 y otros benchmarks numéricos</p></td>
-<td><p>Ablaciones de modelos de lenguaje para series, incluido Time-LLM</p></td>
-<td><p>ETTh1, MSE: Time-LLM 0,417; sin LLM 0,405. (Tabla 3, p.6, versión 2).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/pdf/2606.19413">Nguyen et al. (2026) · REST-TS</a> · Texto completo</p></td>
-<td><p>Australia / Time-MMD y TimeBridge; Energy y Traffic</p></td>
-<td><p>Rama numérica + texto supervisado exclusivamente sobre residuos</p></td>
-<td><p>MSE, TaTS→REST-TS: Energy 0,297→0,261; Traffic 0,160→0,175. (Tabla 1, p.7).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/pdf/2509.00687">Su et al. (2025) · TeR-TSF</a> · Texto completo</p></td>
-<td><p>China; Estados Unidos / Time-MMD · promedio entre dominios</p></td>
-<td><p>Texto reforzado mediante aprendizaje por refuerzo + forecaster multimodal</p></td>
-<td><p>MSE: solo serie 0,771; TeR-TSF 0,631 (promedios reportados). (Tabla 2, p.7).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/pdf/2607.06973">Liu et al. (2026) · TimesX</a> · Texto completo</p></td>
-<td><p>Estados Unidos / TimesX · benchmark de varios dominios</p></td>
-<td><p>Benchmark de contextos y evaluación de pronóstico multimodal</p></td>
-<td><p>MASE geométrica agregada: contexto original 0,906; contexto de autores 0,840. (Tabla 3 y apéndice S).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.1109/IJCNN64981.2025.11229402">Li et al. (2025) · MTS-Mixers</a> · Resumen</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1109/IJCNN64981.2025.11229402">Li et al. (2025) · MTS-Mixers</a> · Resumen</p></td>
 <td><p>China / Benchmark multivariado; geografía no detallada en resumen</p></td>
 <td><p>Mezcla temporal y de canales factorizada</p></td>
 <td><p>Resultados competitivos y mayor eficiencia; sin cifras en el resumen.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1109/BigData66926.2025.11401830">Zhai et al. (2025) · CSConv</a> · Resumen</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.1109/BigData66926.2025.11401830">Zhai et al. (2025) · CSConv</a> · Resumen</p></td>
 <td><p>No verificado / Ocho datasets; países no especificados en resumen</p></td>
 <td><p>Filtrado espectral cruzado + convolución causal dilatada + MLP</p></td>
 <td><p>Resultados competitivos; sin cifras en el resumen.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.1109/iSAI-NLP64410.2024.10799493">Kawano y Kawahara (2024) · DDformer</a> · Resumen</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1109/iSAI-NLP64410.2024.10799493">Kawano y Kawahara (2024) · DDformer</a> · Resumen</p></td>
 <td><p>Japón / Energía, finanzas y clima; países no detallados en resumen</p></td>
 <td><p>Transformer con descomposición y expansión/reducción dimensional</p></td>
 <td><p>Hasta 45,9 % menos error frente a FEDformer, según resumen.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1109/TPWRS.2023.3266369">Qu et al. (2024) · Forwardformer</a> · Resumen</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.1109/TPWRS.2023.3266369">Qu et al. (2024) · Forwardformer</a> · Resumen</p></td>
 <td><p>China / China y EE. UU. · demanda day-ahead</p></td>
 <td><p>Atención multiescala; encoder y doble decoder</p></td>
 <td><p>Mejor precisión y menor tiempo declarados; sin cifras en resumen.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.1109/TSTE.2020.3046098">Sharda et al. (2021) · RSAM</a> · Resumen</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1109/TSTE.2020.3046098">Sharda et al. (2021) · RSAM</a> · Resumen</p></td>
 <td><p>India / Dos sitios NREL; país no explicitado en resumen</p></td>
 <td><p>Transformer multihorizonte + regresión cuantílica</p></td>
 <td><p>Supera RNN en RMSE/MAE/MBE/skill; sin valores en resumen.</p></td>
@@ -705,9 +587,10 @@
 </tbody>
 </table>
 </div>
+<p><a class="reference external" href="https://arxiv.org/pdf/2406.08627v2">Liu et al., Time-MMD</a> aporta un diseño de integración entre series y documentos. <a class="reference external" href="https://arxiv.org/pdf/2406.16964v2">Tan et al.</a> examina el papel del modelo de lenguaje mediante ablaciones. <a class="reference external" href="https://arxiv.org/pdf/2606.19413">Nguyen et al., REST-TS</a> estudia una corrección documental de residuos. Estas referencias orientan los controles del componente textual; sus resultados no se trasladan directamente al pronóstico de demanda del SIN.</p>
 </section>
-<section id="texto-operativo-y-financiero">
-<h3>Texto operativo y financiero<a class="headerlink" href="#texto-operativo-y-financiero" title="Link to this heading">#</a></h3>
+<section id="documentos-operativos">
+<h3>Documentos operativos<a class="headerlink" href="#documentos-operativos" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Estudio y evidencia</p></th>
@@ -727,35 +610,9 @@
 <td><p>Sentimiento con LLM sobre comentarios del operador + predictor</p></td>
 <td><p>Mejora de precisión declarada de 2–3 %, según modelo/experimento.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1109/ACCESS.2021.3124802">Liu y Huang (2021) · AGESL</a> · Resumen</p></td>
-<td><p>China / EE. UU. · petróleo WTI</p></td>
-<td><p>Eventos de noticias + sentimiento + red profunda de fusión</p></td>
-<td><p>Supera comparadores; el resumen no cuantifica la mejora.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.1109/CONF-SPML54095.2021.00034">Chen y Liu (2021)</a> · Resumen</p></td>
-<td><p>Reino Unido; Singapur / EE. UU. · dirección de retornos DJIA</p></td>
-<td><p>Atención jerárquica (HAN) para noticias + LSTM temporal</p></td>
-<td><p>Mejora en clasificación frente a módulos aislados y Bag of Words; sin cifra.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1109/BigData50022.2020.9378345">Dong et al. (2020) · BELT</a> · Resumen</p></td>
-<td><p>China; Estados Unidos / Acciones y noticias de Twitter; país no explicitado en el resumen</p></td>
-<td><p>BERT ajustado + LSTM apilada many-to-many</p></td>
-<td><p>Supera historia sola y StockNet; sin magnitud en el resumen.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.1109/ACCESS.2022.3202960">Cendrero et al. (2022) · TSITM</a> · Resumen</p></td>
-<td><p>España / EE. UU. · desaprobación presidencial; retornos de cuatro empresas</p></td>
-<td><p>LDA acoplada a regresión con prior elastic net</p></td>
-<td><p>Mejora MSE, MAE y R² según autores; sin valores en el resumen.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1109/ICNPCV69434.2026.11708925">Manivannan et al. (2026)</a> · Resumen</p></td>
-<td><p>No verificado / Ventas: 3000 productos y 12 meses; país no especificado</p></td>
-<td><p>BART/LoRA + BGE M3 + Transformer con ponderación dinámica</p></td>
-<td><p>≈20 % menos MAE/RMSE; mejora cold-start ≈79 %, declaradas en resumen.</p></td>
-</tr>
 </tbody>
 </table>
 </div>
-<p>Forwardformer se relaciona directamente con demanda del día siguiente, aunque su evidencia disponible aquí se limita al resumen. Time-MMD aporta una estructura multimodal, pero su serie Energy corresponde a gasolina semanal; NSW-EPNews aborda precios eléctricos. Sus resultados orientan el diseño de integración y no constituyen validación sobre demanda colombiana. Las reducciones de error de modelos híbridos tampoco aíslan la aportación de cada componente sin una ablación equivalente.</p>
 </section>
 <section id="estudios-de-contexto-identificados-en-ieee">
 <h3>Estudios de contexto identificados en IEEE<a class="headerlink" href="#estudios-de-contexto-identificados-en-ieee" title="Link to this heading">#</a></h3>
@@ -805,31 +662,30 @@
 <p>Estos ocho resúmenes amplían las alternativas de representación, eficiencia y análisis ambiental. No se incluyen en el recuento de comparadores revisados en texto completo. Accuracy para lluvia y errores de temperatura no son métricas transferibles al pronóstico de demanda.</p>
 </section>
 </section>
-<section id="matriz-de-evidencia">
-<h2>8.4. Matriz de evidencia<a class="headerlink" href="#matriz-de-evidencia" title="Link to this heading">#</a></h2>
-<p>La matriz identifica qué estudios incluyen demanda u otra variable eléctrica, precio, texto externo, resultados numéricos y revisión de texto completo. Usar un modelo de lenguaje sobre números no equivale a incorporar documentos externos.</p>
+<section id="matriz-de-evidencia-de-demanda">
+<h2>8.4. Matriz de evidencia de demanda<a class="headerlink" href="#matriz-de-evidencia-de-demanda" title="Link to this heading">#</a></h2>
+<p>La matriz distingue el uso de texto externo, la presencia de resultados numéricos y la revisión de texto completo en los seis estudios de demanda. Una revisión bibliográfica y un estudio empírico no aportan el mismo tipo de evidencia.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matriz</span><span class="o">=</span><span class="n">estudios</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'study_id'</span><span class="p">)[[</span><span class="s1">'electricity_price'</span><span class="p">,</span><span class="s1">'other_electricity_variable'</span><span class="p">,</span><span class="s1">'external_text'</span><span class="p">,</span><span class="s1">'numeric_result'</span><span class="p">,</span><span class="s1">'fulltext_result'</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">extra</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'D01 Nti'</span><span class="p">,</span><span class="s1">'D02 News and Load'</span><span class="p">,</span><span class="s1">'D03 Bai LSTM'</span><span class="p">,</span><span class="s1">'D04 Pelekis'</span><span class="p">],</span><span class="n">columns</span><span class="o">=</span><span class="n">matriz</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">extra</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">extra</span><span class="p">,</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'D05 Kathirgamanathan'</span><span class="p">,</span><span class="s1">'D06 Laitsos'</span><span class="p">],</span><span class="n">columns</span><span class="o">=</span><span class="n">matriz</span><span class="o">.</span><span class="n">columns</span><span class="p">)])</span>
-<span class="n">matriz</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">extra</span><span class="p">,</span><span class="n">matriz</span><span class="p">])</span>
-<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span><span class="n">im</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">matriz</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">'Blues'</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="s1">'Precio'</span><span class="p">,</span><span class="s1">'Variable eléctrica'</span><span class="p">,</span><span class="s1">'Texto externo'</span><span class="p">,</span><span class="s1">'Resultado numérico'</span><span class="p">,</span><span class="s1">'Texto completo'</span><span class="p">],</span><span class="n">yticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matriz</span><span class="p">)),</span><span class="n">yticklabels</span><span class="o">=</span><span class="n">matriz</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'x'</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matriz</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'Nti · revisión'</span><span class="p">,</span><span class="s1">'News and Load'</span><span class="p">,</span><span class="s1">'Bai · LSTM'</span><span class="p">,</span><span class="s1">'Pelekis'</span><span class="p">,</span><span class="s1">'Kathirgamanathan'</span><span class="p">,</span><span class="s1">'Laitsos'</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Texto externo'</span><span class="p">,</span><span class="s1">'Resultado numérico'</span><span class="p">,</span><span class="s1">'Texto completo'</span><span class="p">])</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mf">3.7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">matriz</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">'Blues'</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">matriz</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">yticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matriz</span><span class="p">)),</span><span class="n">yticklabels</span><span class="o">=</span><span class="n">matriz</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matriz</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">matriz</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]:</span><span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">'●'</span><span class="p">,</span><span class="n">ha</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span><span class="n">va</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'white'</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span><span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
-<span class="n">textos_completos</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">matriz</span><span class="o">.</span><span class="n">fulltext_result</span><span class="o">.</span><span class="n">sum</span><span class="p">());</span> <span class="n">con_texto</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">matriz</span><span class="o">.</span><span class="n">external_text</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b66878f8594d8fc1f702d5fc94d681ba8218b1de6951c337b2bfb4d553fafda6.png" src="_images/b66878f8594d8fc1f702d5fc94d681ba8218b1de6951c337b2bfb4d553fafda6.png" />
+<img alt="_images/4bcbce921f272efbe7117c69995f83053d7f6069e3deded26b535c35e7f52c7d.png" src="_images/4bcbce921f272efbe7117c69995f83053d7f6069e3deded26b535c35e7f52c7d.png" />
 </div>
 </div>
-<p>De los 29 estudios destacados, 17 cuentan con revisión de texto completo y 14 incorporan texto externo. La matriz separa evidencia sobre variables eléctricas de métodos generales; una alta presencia de texto no prueba su utilidad para demanda. Los identificadores G, P y T remiten a las filas de los CSV y a los estudios de las tablas.</p>
+<p>La síntesis reúne cinco estudios empíricos de demanda y una revisión. Dos estudios empíricos integran información textual. Esta evidencia permite examinar mecanismos de integración, pero su presencia no demuestra una mejora generalizable entre sistemas eléctricos.</p>
 </section>
 <section id="frecuencia-de-uso-como-comparador">
 <h2>8.5. Frecuencia de uso como comparador<a class="headerlink" href="#frecuencia-de-uso-como-comparador" title="Link to this heading">#</a></h2>
@@ -851,156 +707,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/41960f11ccc6900ebd387aacd2650369c0bcb8c2c6c05da3ff777cd2dfb78007.png" src="_images/41960f11ccc6900ebd387aacd2650369c0bcb8c2c6c05da3ff777cd2dfb78007.png" />
+<img alt="_images/b9bb2b9193a98ae9632543e32a531dad701bd1e54859db3e484d946d78a9e1ba.png" src="_images/b9bb2b9193a98ae9632543e32a531dad701bd1e54859db3e484d946d78a9e1ba.png" />
 </div>
 </div>
 <p>LSTM aparece en cuatro de cinco estudios empíricos; MLP en tres; CNN1D y TCN, en dos cada una. CNN-LSTM, N-BEATS y TFT aparecen una vez. CNN1D queda empatada en la tercera frecuencia del corpus dirigido. Este recuento justifica su uso como comparador documentado de demanda, sin estimar prevalencia universal. Los dos artículos de Bai comparten línea de investigación y sistema eléctrico; cuentan como publicaciones, sin constituir replicaciones independientes entre países. Los ensambles y las ramas de compresión textual no se descomponen como baselines individuales.</p>
-</section>
-<section id="precio-electrico-contraste-metodologico-y-sensibilidad">
-<h3>Precio eléctrico: contraste metodológico y sensibilidad<a class="headerlink" href="#precio-electrico-contraste-metodologico-y-sensibilidad" title="Link to this heading">#</a></h3>
-<p>El registro complementario contiene 16 estudios de precio puntual, dos probabilísticos, uno de un mercado relacionado y una revisión. Se conserva el denominador de estudios elegibles aunque alguno no tenga un comparador neuronal. La revisión se excluye del denominador empírico.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="o">=</span><span class="p">[</span><span class="s1">'comparador'</span><span class="p">,</span><span class="s1">'comparador_benchmark'</span><span class="p">]</span>
-<span class="n">base</span><span class="o">=</span><span class="n">extracciones</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">extracciones</span><span class="o">.</span><span class="n">papel</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">roles</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">extracciones</span><span class="o">.</span><span class="n">modelo_neuronal_objetivo</span><span class="o">==</span><span class="mi">1</span><span class="p">),[</span><span class="s1">'study_id'</span><span class="p">,</span><span class="s1">'familia'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-<span class="k">assert</span> <span class="p">(</span><span class="n">extracciones</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">comparadores</span><span class="p">[[</span><span class="s1">'study_id'</span><span class="p">,</span><span class="s1">'sha256'</span><span class="p">]],</span><span class="n">on</span><span class="o">=</span><span class="s1">'study_id'</span><span class="p">,</span><span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s1">'_extraccion'</span><span class="p">,</span><span class="s1">'_estudio'</span><span class="p">))</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s1">'sha256_extraccion == sha256_estudio'</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-<span class="n">cohortes</span><span class="o">=</span><span class="p">{</span><span class="s1">'Puntual (n=16)'</span><span class="p">:</span><span class="nb">set</span><span class="p">(</span><span class="n">comparadores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">comparadores</span><span class="o">.</span><span class="n">estrato</span><span class="o">==</span><span class="s1">'puntual'</span><span class="p">,</span><span class="s1">'study_id'</span><span class="p">]),</span><span class="s1">'Sin preprints (n=14)'</span><span class="p">:</span><span class="nb">set</span><span class="p">(</span><span class="n">comparadores</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">comparadores</span><span class="o">.</span><span class="n">estrato</span><span class="o">==</span><span class="s1">'puntual'</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">comparadores</span><span class="o">.</span><span class="n">preprint</span><span class="o">==</span><span class="mi">0</span><span class="p">),</span><span class="s1">'study_id'</span><span class="p">]),</span><span class="s1">'Ampliado (n=19)'</span><span class="p">:</span><span class="nb">set</span><span class="p">(</span><span class="n">comparadores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">comparadores</span><span class="o">.</span><span class="n">estrato</span><span class="o">!=</span><span class="s1">'contexto_revision'</span><span class="p">,</span><span class="s1">'study_id'</span><span class="p">])}</span>
-<span class="n">frecuencias</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">nombre</span><span class="p">:</span><span class="n">base</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">base</span><span class="o">.</span><span class="n">study_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ids</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'familia'</span><span class="p">)</span><span class="o">.</span><span class="n">study_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="k">for</span> <span class="n">nombre</span><span class="p">,</span><span class="n">ids</span> <span class="ow">in</span> <span class="n">cohortes</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">verificado</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">D</span><span class="o">/</span><span class="s1">'frecuencias_verificadas.csv'</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'familia'</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">frecuencias</span><span class="p">[</span><span class="s1">'Puntual (n=16)'</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">verificado</span><span class="o">.</span><span class="n">estudios_puntuales</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">frecuencias</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'Puntual (n=16)'</span><span class="p">))</span>
-<span class="n">orden</span><span class="o">=</span><span class="n">frecuencias</span><span class="p">[</span><span class="s1">'Puntual (n=16)'</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">'stable'</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mf">4.6</span><span class="p">))</span>
-<span class="n">frecuencias</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">orden</span><span class="p">,</span><span class="s1">'Puntual (n=16)'</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">'#247ba0'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Estudios con comparador'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">'Diez familias más frecuentes; precio puntual'</span><span class="p">)</span>
-<span class="n">seleccion_f</span><span class="o">=</span><span class="p">[</span><span class="s1">'LSTM'</span><span class="p">,</span><span class="s1">'MLP/DNN'</span><span class="p">,</span><span class="s1">'CNN'</span><span class="p">,</span><span class="s1">'CNN-LSTM'</span><span class="p">,</span><span class="s1">'Transformer'</span><span class="p">,</span><span class="s1">'GRU'</span><span class="p">]</span>
-<span class="n">porcentajes</span><span class="o">=</span><span class="n">frecuencias</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">seleccion_f</span><span class="p">]</span><span class="o">.</span><span class="n">div</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cohortes</span><span class="o">.</span><span class="n">values</span><span class="p">()],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
-<span class="n">porcentajes</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">rot</span><span class="o">=</span><span class="mi">25</span><span class="p">);</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'Estudios del estrato (%)'</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">'Sensibilidad al criterio de inclusión'</span><span class="p">);</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span><span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/550b2a7c79b3078f52ab787f133b675e3144bd29d1b388e81df448f708f94616.png" src="_images/550b2a7c79b3078f52ab787f133b675e3144bd29d1b388e81df448f708f94616.png" />
-</div>
-</div>
-<p>En precio puntual, LSTM aparece en 7/16 estudios y MLP/DNN en 6/16. CNN aparece en 2/16, empatada con CNN-LSTM y Transformer; sólo una de las dos comparaciones CNN identifica explícitamente convolución unidimensional. Al excluir preprints, LSTM pasa a 6/14 y MLP permanece en 6/14. El estrato ampliado cambia el denominador a 19 e incorpora problemas probabilísticos y otro mercado, por lo que funciona como sensibilidad, no como estimación principal para demanda.</p>
-<p>El protocolo evita contabilizar GRU de una capa de Ugurlu et al. como baseline porque forma parte de una ablación. Incluirla elevaría GRU de uno a dos estudios puntuales. LSTM-FFEC mantiene su identidad y no se convierte en LSTM simple. Los componentes de descomposición y las ramas de híbridos tampoco se cuentan como modelos independientes.</p>
-</section>
-<section id="evaluacion-critica-de-los-textos-completos">
-<h3>Evaluación crítica de los textos completos<a class="headerlink" href="#evaluacion-critica-de-los-textos-completos" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Estudio</p></th>
-<th class="head"><p>Estrato</p></th>
-<th class="head"><p>Datos y protocolo</p></th>
-<th class="head"><p>Limitación registrada</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://jesuslago.com/wp-content/uploads/Lago2018b.pdf">Lago et al. (2018)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>Mercado belga day-ahead; salida de 24 horas. Comparación de 27 modelos; recalibración diaria; separación de optimización y evaluación.</p></td>
-<td><p>DNN, LSTM-DNN, GRU-DNN y CNN son propuestas del artículo: no se cuentan como baselines. El MLP de la literatura sí. Tamaño y datos afectan el ranking.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://jesuslago.com/wp-content/uploads/1-s2.0-S0306261921004529-main-1.pdf">Lago et al. (2021)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>Nord Pool, PJM, EPEX BE/FR/DE; 24 salidas. Componente empírico del benchmark; cuatro años de calibración, recalibración diaria y validación para parada/HPO.</p></td>
-<td><p>Se incluye únicamente el experimento primario; las menciones del review no aportan presencias. Tamaños, activación y regularización se optimizan por mercado; no hay una única DNN universal.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://mdpi-res.com/d_attachment/energies/energies-11-01255/article_deploy/energies-11-01255.pdf">Ugurlu et al. (2018)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>Mercado turco day-ahead; ventana móvil de tres años. Comparadores estadísticos y neuronales; una y tres capas; MAE y pruebas DM.</p></td>
-<td><p>La propuesta es GRU multicapa; GRU de una capa se registra como control de profundidad. CNN F1–4 difiere entre tablas 2 (9.82) y 3 (8.57): se extrae explícitamente tabla 3. La paciencia se comprueba sobre pérdida de entrenamiento.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://mdpi-res.com/d_attachment/sustainability/sustainability-10-01280/article_deploy/sustainability-10-01280.pdf">Kuo y Huang (2018)</a></p></td>
-<td><p>mercado relacionado</p></td>
-<td><p>Datos PJM 2017, descritos como regulation market capacity clearing price cada media hora. Diez segmentos; tres meses de entrenamiento y uno de prueba por segmento; normalización y shuffle en flujo.</p></td>
-<td><p>No se equipara precio de capacidad/regulación con precio spot de energía; sólo sensibilidad ampliada. Arquitecturas de los comparadores insuficientemente especificadas; posibles ambigüedades de procedencia/unidad.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://burjcdigital.urjc.es/server/api/core/bitstreams/584ad847-68b7-4ef1-b8fb-08db68f8eeee/content">Ghimire et al. (2024; online 2023)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>Queensland AEMO 2014–octubre 2022; modelos estacionales y anual. Ajuste bayesiano, validación para scheduler; comparación con LSTM,DNN,RF,XGB,VMD-CLSTM y CLSTM.</p></td>
-<td><p>No hay CNN sola: CLSTM es híbrido. B.12 reporta range(50,50,5) vacío para tercera capa DNN y repite nombre Filter1: se conservan como defectos de especificación. Causalidad de descomposición y recorte de extremos requieren revisión operativa.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://opus.lib.uts.edu.au/bitstream/10453/190017/2/1-s2.0-S2666546825000242-main.pdf">Ghimire et al. (2025)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>South Australia y Tasmania, AEMO; media hora. Optuna para modelos; compara referencias simples, híbridas y con STL.</p></td>
-<td><p>MLP y DNN aportan una sola familia. Tabla 4 especifica CLSTM pero no hace reproducible la CNN sola. Debe verificarse disponibilidad causal de componentes STL/VMD; frecuencia no acredita validez de todas las ganancias publicadas.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9938466/fullTextXML">Zhang et al. (2023)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>España; conjunto público de generación, demanda, clima y precio horario de cuatro años. Proporción train:test:verification 8:1:1; normalización y descomposición descritas por pasos.</p></td>
-<td><p>Las configuraciones de LSTM/GRU no están detalladas. El orden de normalización y STL necesita comprobar ajuste exclusivo con entrenamiento. TCN y N-BEATS son componentes; TCN-LSTM sí es comparador.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://mdpi-res.com/d_attachment/energies/energies-19-00761/article_deploy/energies-19-00761.pdf">Wang et al. (2026)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>PJM; precio horario. Entrenamiento cronológico; compara TCN, CNN-LSTM-Attention y Transformer con ensamble dinámico.</p></td>
-<td><p>No contiene CNN o LSTM independientes; se conservan separadas la TCN y la arquitectura híbrida. Presupuesto y configuración exacta de cada comparador no completamente reproducibles.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/pdf/2608.17091v1">Elashhab et al. (2026), preprint v1</a></p></td>
-<td><p>puntual</p></td>
-<td><p>DE-LU 2024; entrenamiento desde 2018/2020/2023 según modelo; transferencia entre mercados. Benchmark de seis arquitecturas; MAE, Adam, Optuna; 7 días de entrada y 24 horas de salida.</p></td>
-<td><p>Preprint: cabecera contiene DOI/fechas de plantilla, no se usan como identificador. Distintos presupuestos y ventanas elegidas por modelo; no se infiere igualdad de recursos. Anchos finales no publicados en la tabla comparativa.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://mdpi-res.com/d_attachment/energies/energies-17-01625/article_deploy/energies-17-01625.pdf">Laitsos et al. (2024)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>Precio eléctrico europeo; datos y separación descritos en §3. Compara arquitecturas con atención y ensambles propuestos frente a perceptrón de una capa.</p></td>
-<td><p>Un perceptrón sin capa oculta no es MLP. CNN-GRU-Attention no acredita CNN o GRU independientes. El estudio aporta cero presencias estrictas a las tres familias, aunque es elegible.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://mdpi-res.com/d_attachment/energies/energies-19-00376/article_deploy/energies-19-00376.pdf">Michalakopoulos et al. (2026)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>Grecia, Bélgica e Irlanda; ventanas de 7/14/30/45/60/90 días. Benchmark de ventanas cortas, naive y árboles potenciados.</p></td>
-<td><p>La tabla abrevia LSTM, pero figura 6 y método especifican LSTM con Feed-Forward Error Correction: se cuenta híbrido. Los mejores modelos dependen del mercado y ventana.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://mdpi-res.com/d_attachment/applsci/applsci-16-03865/article_deploy/applsci-16-03865.pdf">Radziukyniene et al. (2026)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>Lituania 2022; alta volatilidad. NN1 recurrente y NN2–6 densas alimentan metarred NN7; comparación de versiones del método.</p></td>
-<td><p>Las redes densas/recurrentes son componentes; tabla 7 es extensión incremental del mismo ensamble. Tabla 6 compara cifras de otras publicaciones, no baselines reentrenados.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://research-repository.griffith.edu.au/server/api/core/bitstreams/f793f553-1e34-4690-ac7a-5822034e7878/content">Mubarak et al. (2024)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>Reino Unido y Alemania; day-ahead. Compara CNN-BiLSTM-AR sin HPO y con RS/GA/PSO.</p></td>
-<td><p>Controles de optimización del mismo híbrido; la tabla 6 cita métricas ajenas. Ningún resultado aislado de CNN/MLP/LSTM se cuenta.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://mdpi-res.com/d_attachment/energies/energies-17-04885/article_deploy/energies-17-04885.pdf">Wang et al. (2024)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>Japón; JEPX, datos meteorológicos y oferta/demanda numéricos. Misma arquitectura CNN-LSTM y diferentes pérdidas; ensamble de inicializaciones.</p></td>
-<td><p>§3.1 declara que no compara MLP,CNN,RNN o LSTM independientes. La referencia de pérdida MAE es un control del mismo híbrido, no un baseline de sus componentes.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/pdf/2506.08113v2">Hornek et al. (2025), preprint v2</a></p></td>
-<td><p>puntual</p></td>
-<td><p>Austria, Bélgica, Alemania, Francia, Países Bajos; prueba 2024. Precio univariado; entrada una semana; modelos clásicos con 12 semanas de ajuste; foundations preentrenados.</p></td>
-<td><p>No compara MLP,CNN o LSTM. Los tamaños de un mismo modelo se colapsan. La transformación cuantil se ajusta en train; riesgo de contaminación de preentrenamiento requiere atención.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://mdpi-res.com/d_attachment/energies/energies-19-02438/article_deploy/energies-19-02438.pdf">Lu et al. (2026)</a></p></td>
-<td><p>probabilístico</p></td>
-<td><p>Shaanxi, enero y abril 2025; 15 minutos; 2016 puntos por conjunto mensual seleccionado. 1824 train y 192 test; pronósticos por intervalos; PICP/MPIW/AIS.</p></td>
-<td><p>Sólo dos meses; no equivalente al problema puntual del E1. No se suman ensamble MLP y MLP simple. Configuración exacta de cada baseline no completamente reproducible.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/pdf/2609.00089v1">Lipiecki y Weron (2026), preprint v1</a></p></td>
-<td><p>probabilístico</p></td>
-<td><p>Alemania, España y Polonia, 2021–2025; precios y covariables. Predicciones de distribución, medianas y arbitraje; DDNN-JSU y LEAR+CP como referencias.</p></td>
-<td><p>DDNN-JSU tiene dos capas densas pero parametriza una distribución Johnson SU: familia separada. Preprint; métricas puntuales no equiparan el entrenamiento distribucional con MLP simple.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://mdpi-res.com/d_attachment/energies/energies-18-06422/article_deploy/energies-18-06422.pdf">Jasiński (2025)</a></p></td>
-<td><p>revisión</p></td>
-<td><p>Revisión de publicaciones de precio eléctrico. Fuente secundaria para rastrear referencias, sin repetir sus conteos como observaciones primarias.</p></td>
-<td><p>Excluida de frecuencias; no es experimento empírico independiente.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7516403/fullTextXML">Khalid et al. (2020; online 2019)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>Demanda y precio horarios; experimentos separados. JLSTM con optimización Jaya frente a LSTM clásico y SVM; horizontes mostrados de semana/mes/trimestre.</p></td>
-<td><p>Se incluye sólo el resultado de precio. Normalización usa mínimos/máximos del conjunto completo según §3.2.3; partición y arquitectura del comparador insuficientes. RMSE menor que MAE en tabla 1: inconsistentes si misma escala/muestra; cifras se conservan sin reinterpretarlas.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://opus.lib.uts.edu.au/bitstream/10453/181427/2/Self-Supervised_Adaptive_Learning_Algorithm_for_Multi-Horizon_Electricity_Price_Forecasting.pdf">Zamee et al. (2024)</a></p></td>
-<td><p>puntual</p></td>
-<td><p>NEPOOL/ISO New England, un año de flujo dentro de fuente 2004–2008; horizontes 1/12/24 h. Selección adaptativa de variables y reentrenamiento; GRNN principal frente a ANN,RNN,LSTM bajo el mismo algoritmo.</p></td>
-<td><p>La comparación evalúa redes dentro del procedimiento adaptativo. El texto confunde capas con neuronas; regla 2/3 del número de entradas no determina por sí sola la profundidad. No hay CNN. Tabla de tiempos es específica del hardware y no transferible a Colombia.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Esta valoración resume comparabilidad, disponibilidad y reporte; no es una escala de calidad validada ni sustituye una evaluación independiente.</p>
 </section>
 </section>
 <section id="arquitecturas-de-interes-y-modelos-numericos">
@@ -1018,7 +728,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/39ea26b557239bd984bb8d1eeda7dccb8c169af4fcdf7061c002f8e9032e1fbe.png" src="_images/39ea26b557239bd984bb8d1eeda7dccb8c169af4fcdf7061c002f8e9032e1fbe.png" />
+<img alt="_images/ae1e38b40ee56971c31564a46355fa5038319b7510213b0b38cd63f3b52045ac.png" src="_images/ae1e38b40ee56971c31564a46355fa5038319b7510213b0b38cd63f3b52045ac.png" />
 </div>
 </div>
 <p>Entre las cuatro familias de demanda/calendario, la MLP presenta la mayor capacidad parametrizada. La CNN1D conserva una salida densa sobre posiciones temporales agrupadas, por lo que su tamaño no depende sólo del número de filtros. Los parámetros no determinan por sí solos precisión ni latencia; el capítulo de modelos contrasta error, variabilidad y tiempo registrado.</p>
@@ -1073,9 +783,9 @@
 </div>
 <p>La robustez no puede ordenarse universalmente desde estudios con distintos datos, épocas y búsquedas. El corpus presenta resultados heterogéneos y reporte desigual de repeticiones; una media publicada sin dispersión limita la comparación. Los diagnósticos propios por año, hora, tipo de día, atípicos y permutación de demanda permiten contrastar mecanismos en el SIN, sin demostrar invariancia causal. Las complejidades teóricas tampoco sustituyen la latencia medida: la implementación, el dispositivo y el tamaño del lote condicionan el costo.</p>
 </section>
-<section id="alcance-del-cumplimiento-bibliografico">
-<h3>Alcance del cumplimiento bibliográfico<a class="headerlink" href="#alcance-del-cumplimiento-bibliografico" title="Link to this heading">#</a></h3>
-<p>El corpus dirigido incluye cinco estudios empíricos de demanda para el recuento de comparadores y una revisión de contexto. Los doce resúmenes son material contextual y no evidencia elegible para ese recuento. No se recuperaron las cadenas ni las fechas originales de Scopus y Web of Science, no existe un flujo PRISMA conciliado entre todas las bases y no hubo un segundo revisor independiente. Las secciones por modelo y la comparación crítica completan la presentación, pero no convierten la revisión dirigida en una revisión sistemática. Se conservan estas carencias como pendientes de §3.</p>
+<section id="alcance-de-la-revision">
+<h3>Alcance de la revisión<a class="headerlink" href="#alcance-de-la-revision" title="Link to this heading">#</a></h3>
+<p>El recuento de comparadores comprende cinco estudios empíricos de demanda revisados en texto completo; la revisión de Nti et al. y los trabajos consultados únicamente mediante resumen aportan contexto. La extracción fue realizada por un solo revisor. La falta de cadenas y fechas originales de Scopus y Web of Science, junto con la conciliación incompleta entre bases, limita la exhaustividad y reproducibilidad de la búsqueda.</p>
 </section>
 <section id="extensiones-respaldadas-por-la-revision">
 <h3>Extensiones respaldadas por la revisión<a class="headerlink" href="#extensiones-respaldadas-por-la-revision" title="Link to this heading">#</a></h3>
@@ -1099,7 +809,7 @@
 <td><p>Medir parámetros, tiempo y error con presupuesto comparable.</p></td>
 </tr>
 <tr class="row-even"><td><p>Texto externo y fusión</p></td>
-<td><p>News and Load, Bai LSTM, AGESL, BELT, TSITM</p></td>
+<td><p>News and Load, Bai LSTM, documentos operativos</p></td>
 <td><p>Representar eventos, sentimiento, documentos o tópicos mediante fusión temprana o tardía.</p></td>
 <td><p>Ablación numérica/texto con mismos orígenes, semillas y presupuesto.</p></td>
 </tr>
@@ -1116,22 +826,21 @@
 </tbody>
 </table>
 </div>
-<p>El capítulo de arquitecturas desarrolla PatchTST numérico, N-HiTS, TFT, TCN e iTransformer, además de TaTS y fusión tardía con documentos oficiales. Cada ficha distingue el mecanismo implementado de su artículo orientador y enlaza el pipeline. Estas incorporaciones no alteran retrospectivamente el denominador de cinco estudios empíricos utilizado para contar comparadores. TGForecaster participa con cinco semillas en cada variante N y N+O.</p>
+<p>Las fichas desarrollan las arquitecturas numéricas y documentales evaluadas, incluidas N-BEATS y TimesNet. Cada ficha distingue el mecanismo implementado de su artículo orientador y enlaza el pipeline. Estas incorporaciones no alteran el denominador de estudios empíricos utilizado para contar comparadores.</p>
 </section>
 </section>
 <section id="sintesis-e-implicaciones-para-el-experimento">
 <h2>8.7. Síntesis e implicaciones para el experimento<a class="headerlink" href="#sintesis-e-implicaciones-para-el-experimento" title="Link to this heading">#</a></h2>
-<p>La evidencia directa favorece comparar redes con inductivos diferentes y referencias estacionales antes de incrementar complejidad. No sostiene que una arquitectura domine en todos los países ni que añadir clima o noticias produzca una mejora automática. Los estudios de precio aportan protocolos y alternativas, pero su volatilidad, unidades y mecanismos económicos difieren de los de demanda.</p>
+<p>La evidencia directa favorece comparar redes con inductivos diferentes y referencias estacionales antes de incrementar complejidad. No sostiene que una arquitectura domine en todos los países ni que añadir clima o noticias produzca una mejora automática.</p>
 <p>Las mejoras documentales requieren disponibilidad anterior al origen de pronóstico. Vocabularios, selección de atributos, tópicos, normalización y descomposiciones se ajustan dentro de entrenamiento; los documentos con fecha de edición pero sin hora verificable se incorporan desde el día siguiente. Los textos cuya disponibilidad histórica no está verificada conservan esa marca y requieren análisis de sensibilidad. Las revisiones de series y las fechas editoriales limitan la reconstrucción retrospectiva.</p>
-<p>La atención o la importancia de una palabra indican asociación dentro del modelo y no causalidad. El deterioro observado en algunas combinaciones de Bai et al. y en algunos casos de REST-TS exige controlar ruido, cobertura y redundancia, además de evaluar ganancias. En NSW-EPNews, una ablación que elimina simultáneamente noticias y temperatura no identifica por sí sola el efecto del texto.</p>
+<p>La atención o la importancia de una palabra indican asociación dentro del modelo y no causalidad. El deterioro observado en algunas combinaciones de Bai et al. y en algunos casos de REST-TS exige controlar ruido, cobertura y redundancia, además de evaluar ganancias. Una ablación que retire simultáneamente texto y covariables numéricas no permite aislar la contribución documental.</p>
 <p>La comparación del proyecto conserva MASE como métrica primaria, margen relativo del 3 %, unidad diaria de 24 errores, α=0,05 y potencia objetivo 0,80. MAE mantiene interpretación en kWh; RMSE caracteriza mayor penalización de extremos. Los valores publicados con métricas diferentes se emplean para comprender sus casos, sin convertirlos a una escala común no observada. La selección y los contrastes siguen la partición temporal y el presupuesto documentados en diseño y modelos.</p>
 <p><strong>Decisión.</strong> Mantener MLP, LSTM y CNN1D como contraste de representaciones densas, recurrentes y convolucionales, junto con ARX y referencias ingenuas. <strong>Impacto.</strong> Permite evaluar capacidad, estacionalidad y costo con resultados ya disponibles. <strong>Riesgo.</strong> El corpus dirigido, la extracción por un revisor, los resultados de otros dominios y la revisión posterior al entrenamiento limitan una justificación basada exclusivamente en frecuencia o en selección prospectiva.</p>
 </section>
 <section id="brecha-de-investigacion-y-pregunta-contrastable">
 <h2>Brecha de investigación y pregunta contrastable<a class="headerlink" href="#brecha-de-investigacion-y-pregunta-contrastable" title="Link to this heading">#</a></h2>
 <p>En el corpus auditado, los estudios con titulares y demanda se concentran en Reino Unido y los benchmarks numéricos utilizan otros sistemas eléctricos. No se identificó en estos estudios una comparación de demanda del SIN colombiano a 24 horas que combine disponibilidad histórica verificable de titulares, control del cambio de cobertura editorial y ablación numérica/documental con los mismos orígenes. La ausencia en este corpus no acredita inexistencia en toda la literatura.</p>
-<p>La brecha operativa del proyecto es determinar si el contexto documental disponible antes del origen añade capacidad predictiva al baseline numérico del SIN bajo cambios de régimen. La hipótesis contrastable es una reducción relativa de MASE de al menos el 3 %, acompañada de incertidumbre pareada por bloques, frente al baseline congelado y con presupuesto comparable. La evaluación contrasta TaTS y fusión tardía frente a PatchTST numérico, y TGForecaster con documentos frente a su variante numérica. Los controles de retirada, contenido cero y contenido histórico de la misma fuente examinan la dependencia del texto con pesos fijos. Permanecen pendientes la variante con prensa, las ablaciones por fuente y una comparación con núcleo e hiperparámetros idénticos para atribuir el efecto exclusivamente al contenido.</p>
-<p>Time-MMD, de Liu et al., y NSW-EPNews, de Bi et al., aportan referencias metodológicas para integrar series y documentos; sus resultados no se agregan a la evidencia empírica de demanda. Los doce resúmenes se mantienen como contexto, fuera del denominador de comparadores de texto completo.</p>
+<p>La brecha operativa del proyecto es determinar si el contexto documental disponible antes del origen añade capacidad predictiva al baseline numérico del SIN bajo cambios de régimen. La hipótesis contrastable es una reducción relativa de MASE de al menos el 3 %, acompañada de incertidumbre pareada por bloques, frente al baseline congelado y con presupuesto comparable. La evaluación contrasta TaTS y fusión tardía frente a PatchTST numérico, y TGForecaster con documentos frente a su variante numérica. Los controles de retirada, contenido cero y contenido histórico de la misma fuente examinan la dependencia del texto con pesos fijos. La atribución específica al contenido requiere controles por fuente y comparaciones con núcleo e hiperparámetros idénticos; la integración de prensa constituye una extensión del diseño.</p>
 </section>
 </section>
 
@@ -1202,27 +911,22 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes-seleccion-y-alcance">8.1. Fuentes, selección y alcance</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolo-de-elegibilidad-y-alcance-de-la-busqueda">Protocolo de elegibilidad y alcance de la búsqueda</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trazabilidad-de-la-busqueda">Trazabilidad de la búsqueda</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consultas-publicas-conservadas-3-de-noviembre-de-2026">Consultas públicas conservadas · 3 de noviembre de 2026</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-de-elegibilidad-y-busqueda">Criterios de elegibilidad y búsqueda</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estudios-directamente-relacionados-con-la-demanda">8.2. Estudios directamente relacionados con la demanda</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparadores-adicionales-de-demanda-revisados-en-texto-completo">Comparadores adicionales de demanda revisados en texto completo</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-de-estudios-complementarios">8.3. Síntesis de estudios complementarios</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-electrico">Precio eléctrico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-complementarios">8.3. Métodos complementarios</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-generales">Métodos generales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#texto-operativo-y-financiero">Texto operativo y financiero</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentos-operativos">Documentos operativos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estudios-de-contexto-identificados-en-ieee">Estudios de contexto identificados en IEEE</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-evidencia">8.4. Matriz de evidencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-evidencia-de-demanda">8.4. Matriz de evidencia de demanda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frecuencia-de-uso-como-comparador">8.5. Frecuencia de uso como comparador</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evidencia-directa-de-demanda">Evidencia directa de demanda</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-electrico-contraste-metodologico-y-sensibilidad">Precio eléctrico: contraste metodológico y sensibilidad</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-critica-de-los-textos-completos">Evaluación crítica de los textos completos</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitecturas-de-interes-y-modelos-numericos">8.6. Arquitecturas de interés y modelos numéricos</a><ul class="nav section-nav flex-column">
@@ -1230,7 +934,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lstm-sobre-secuencias">8.6.2. LSTM sobre secuencias</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn1d-sobre-historia-temporal">8.6.3. CNN1D sobre historia temporal</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-critica-de-robustez-y-escalabilidad">8.6.4. Comparación crítica de robustez y escalabilidad</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-del-cumplimiento-bibliografico">Alcance del cumplimiento bibliográfico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-de-la-revision">Alcance de la revisión</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extensiones-respaldadas-por-la-revision">Extensiones respaldadas por la revisión</a></li>
 </ul>
 </li>

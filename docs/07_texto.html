@@ -246,7 +246,9 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -502,7 +504,7 @@ z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
 <section id="corpus-oficial-utilizado-en-los-modelos">
 <h2>Corpus oficial utilizado en los modelos<a class="headerlink" href="#corpus-oficial-utilizado-en-los-modelos" title="Link to this heading">#</a></h2>
 <p>Las variantes con documentos utilizan un caché E5 de 14.162 registros oficiales, con identificadores únicos y contenidos procedentes del inventario integrado. Incluye boletines IDEAM que solo tienen titular, además de documentos con cuerpo; por ello su tamaño no equivale al de las 7.907 versiones documentales de la ampliación. El EDA léxico de prensa que sigue caracteriza otro conjunto de entradas.</p>
-<p>El encoder conserva la revisión fijada de multilingual-E5-base. Cada fragmento se representa mediante promedio enmascarado y norma L2; los fragmentos admitidos se promedian y normalizan para obtener un vector por documento. La relevancia entre documentos se aprende dentro de la red. Las variantes ejecutadas son N y N+O; la incorporación de prensa permanece pendiente. TGForecaster conserva descripciones estáticas de canales en ambas variantes.</p>
+<p>El encoder conserva la revisión fijada de multilingual-E5-base. Cada fragmento se representa mediante promedio enmascarado y norma L2; los fragmentos admitidos se promedian y normalizan para obtener un vector por documento. La relevancia entre documentos se aprende dentro de la red. Las variantes ejecutadas son N y N+O; el canal documental evaluado se limita a fuentes oficiales. TGForecaster conserva descripciones estáticas de canales en ambas variantes.</p>
 <p>Las listas admiten disponibilidad declarada en [cierre − 72 h, cierre], con extremos inclusivos. En TaTS los cierres son o−6 días,…,o; fusión tardía y TGForecaster consultan el origen o. La regla coincide con el código conservado y no acredita la versión histórica de cada documento.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

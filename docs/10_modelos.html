@@ -246,7 +246,9 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -411,12 +413,11 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modelos-arquitecturas-y-evaluacion">
 <h1>10. Modelos, arquitecturas y evaluación<a class="headerlink" href="#modelos-arquitecturas-y-evaluacion" title="Link to this heading">#</a></h1>
-<p>El capítulo presenta primero la composición matemática de los modelos y sus pipelines de entrenamiento y prueba. Después reúne los resultados, la incertidumbre y los diagnósticos en una evaluación integrada.</p>
-<p>Las familias ARX, MLP, LSTM y CNN1D reciben demanda y calendario. PatchTST, N-HiTS, TFT, TCN e iTransformer utilizan el conjunto numérico ampliado; TaTS, TGForecaster y la fusión tardía evalúan además documentos oficiales. Se comparan trece procedimientos completados y dos referencias estacionales.</p>
+<p>El capítulo presenta primero la composición matemática de los modelos y sus pipelines de entrenamiento y prueba. Después reúne resultados, incertidumbre y diagnósticos en una evaluación integrada.</p>
+<p>Se comparan quince procedimientos completados, 75 realizaciones y dos referencias estacionales. Las fichas distinguen entradas, mecanismos y presupuestos de ajuste.</p>
 <section id="secuencia-de-lectura">
 <h2>Secuencia de lectura<a class="headerlink" href="#secuencia-de-lectura" title="Link to this heading">#</a></h2>
-<p>La <a class="reference internal" href="arquitecturas/fundamentos.html#fundamentos-arquitecturas"><span class="std std-ref">notación y las operaciones compartidas</span></a> introducen las entradas, la normalización, la atención y la optimización. Las fichas que siguen desarrollan cada arquitectura, su esquema y el código correspondiente. La <a class="reference internal" href="10_evaluacion.html#evaluacion-e2"><span class="std std-ref">evaluación integrada</span></a> reúne luego selección, aprendizaje, precisión, inferencia, diagnóstico e importancia de variables.</p>
-<p>La comparación distingue los conjuntos de entrada y los presupuestos de ajuste. Las diferencias de error entre procedimientos no se atribuyen exclusivamente a la arquitectura.</p>
+<p>La <a class="reference internal" href="arquitecturas/fundamentos.html#fundamentos-arquitecturas"><span class="std std-ref">notación y las operaciones compartidas</span></a> introducen entradas, normalización, atención y optimización. Las fichas desarrollan cada arquitectura, su esquema y código. La <a class="reference internal" href="10_evaluacion.html#evaluacion-e2"><span class="std std-ref">evaluación integrada</span></a> reúne selección, aprendizaje, precisión, inferencia, diagnóstico e importancia.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>

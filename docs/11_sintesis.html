@@ -66,7 +66,7 @@
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
     <link rel="next" title="12. Reproducibilidad y procedencia" href="12_reproducibilidad.html" />
-    <link rel="prev" title="10.14. Resultados y evaluación integrada" href="10_evaluacion.html" />
+    <link rel="prev" title="10.16. Resultados y evaluación integrada" href="10_evaluacion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   <meta name="docsearch:version" content="" />
@@ -244,7 +244,9 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Síntesis del análisis exploratorio</a></li>
@@ -485,7 +487,6 @@
 </tbody>
 </table>
 </div>
-<p>La tabla integra decisiones y riesgos; los valores y patrones gráficos se presentan en sus capítulos correspondientes.</p>
 </section>
 <section id="alcance-y-amenazas-a-la-validez">
 <h2>Alcance y amenazas a la validez<a class="headerlink" href="#alcance-y-amenazas-a-la-validez" title="Link to this heading">#</a></h2>
@@ -499,7 +500,8 @@
 </section>
 <section id="evaluacion-conjunta-de-arquitecturas">
 <h2>Evaluación conjunta de arquitecturas<a class="headerlink" href="#evaluacion-conjunta-de-arquitecturas" title="Link to this heading">#</a></h2>
-<p>La <a class="reference internal" href="10_evaluacion.html#evaluacion-e2"><span class="std std-ref">evaluación estadística conjunta</span></a> conserva las cuatro familias base e incorpora las arquitecturas numéricas ampliadas y las variantes con texto oficial. El conjunto de confianza retiene TaTS y su control numérico; no se identifica un ganador único. El aporte de texto en TaTS es equivalente dentro del margen temporal del 3 % bajo las inicializaciones ejecutadas, sin mejora demostrada; la fusión tardía aumenta el error. Las entradas, máscaras y presupuestos distintos limitan una atribución exclusiva a la arquitectura. TGForecaster incorpora N y N+O; el procedimiento con documentos presenta un error medio mayor que su control N.</p>
+<p>La evaluación incluye quince procedimientos aprendidos y 75 realizaciones. El menor MASE medio corresponde a TimesNet · N (0,6429). El MCS al 90 % retiene TimesNet · N. El conjunto está condicionado al periodo de prueba, a las cinco inicializaciones y al protocolo de remuestreo.</p>
+<p>TaTS adaptado · N+O reduce el MAE 0,61 % frente a su control, sin diferencia temporal demostrada; Fusión tardía · N+O aumenta el MAE 4,65 % frente a su control, con diferencia temporal detectada; TGForecaster · N+O aumenta el MAE 12,02 % frente a su control, con diferencia temporal detectada. Las entradas y los presupuestos distintos limitan la atribución exclusiva a la arquitectura. La sensibilidad al contenido y la comparación entre procedimientos mantienen interpretaciones separadas.</p>
 </section>
 </section>
 
@@ -539,7 +541,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">10.14. Resultados y evaluación integrada</p>
+        <p class="prev-next-title">10.16. Resultados y evaluación integrada</p>
       </div>
     </a>
     <a class="right-next"

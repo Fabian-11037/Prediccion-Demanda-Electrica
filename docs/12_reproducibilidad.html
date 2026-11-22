@@ -244,7 +244,9 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -401,10 +403,11 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservacion-y-reconstruccion-de-la-entrega">Conservación y reconstrucción de la entrega</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construccion-y-verificacion-del-libro">Construcción y verificación del libro</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedencia-de-modelos-y-reconstruccion">Procedencia de modelos y reconstrucción</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruccion-y-revision-de-consistencia">Reconstrucción y revisión de consistencia</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproduccion-de-los-diagnosticos-ampliados">Reproducción de los diagnósticos ampliados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproduccion-de-la-evaluacion-y-sus-diagnosticos">Reproducción de la evaluación y sus diagnósticos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-beats-y-timesnet-entradas-y-reproduccion">N-BEATS y TimesNet: entradas y reproducción</a></li>
 </ul>
             </nav>
         </div>
@@ -452,7 +455,7 @@ Name: versión documental, dtype: str
 </div>
 <section id="manifiesto-de-entradas-del-analisis">
 <h2>Manifiesto de entradas del análisis<a class="headerlink" href="#manifiesto-de-entradas-del-analisis" title="Link to this heading">#</a></h2>
-<p>Las huellas SHA-256 identifican el contenido binario exacto. Se incluyen fuentes numéricas, titulares, archivos externos y el panel consolidado; los resultados de modelos se identifican por separado mediante su registro de artefactos. Calcular una huella no deserializa ni evalúa etiquetas de prueba.</p>
+<p>Las huellas SHA-256 identifican el contenido binario exacto. Se incluyen fuentes numéricas, titulares, archivos externos y el panel consolidado; los resultados de modelos se identifican por separado mediante su registro de artefactos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sha256_archivo</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
@@ -497,38 +500,54 @@ Name: versión documental, dtype: str
 </pre></div>
 </div>
 <p>Estos comandos construyen el libro con las salidas conservadas. <code class="docutils literal notranslate"><span class="pre">execute_notebooks:</span> <span class="pre">off</span></code> evita reevaluar las celdas durante esa construcción. Para recalcular los análisis se utiliza <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">scripts/crear_jbook.py</span></code>; para reconstruir solo la evaluación, <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">scripts/reorganizar_capitulo10.py</span></code>. La recalculación requiere las entradas e instantáneas indicadas en la procedencia; los diagnósticos de redes conservan su entorno separado.</p>
-<p>Los análisis se ejecutan por CPU. El entrenamiento conserva sus dependencias en requirements.txt y permite seleccionar dispositivo mediante la interfaz del repositorio: –dispositivo auto, cpu o cuda. La GPU requiere PyTorch compatible con CUDA o ROCm y con su controlador; el entorno documental no lo exige. La compatibilidad de rutas no equivale a una ejecución verificada en ambos sistemas: el entorno efectivamente utilizado queda registrado en entorno.json.</p>
+<p>Los análisis documentales se ejecutan por CPU. El entrenamiento de las configuraciones seleccionadas utiliza <code class="docutils literal notranslate"><span class="pre">requirements-entrenamiento.txt</span></code> y <code class="docutils literal notranslate"><span class="pre">scripts/entrenar_arquitectura.py</span></code>, con <code class="docutils literal notranslate"><span class="pre">--dispositivo</span> <span class="pre">auto</span></code>, <code class="docutils literal notranslate"><span class="pre">cpu</span></code> o <code class="docutils literal notranslate"><span class="pre">cuda</span></code>. La instalación de PyTorch debe ser compatible con el dispositivo y su controlador. El código completo y los comandos por modelo se muestran en el <a class="reference internal" href="arquitecturas/fundamentos.html#entrenamiento-portable"><span class="std std-ref">pipeline compartido</span></a>. La comprobación funcional de las 15 configuraciones se ejecutó en Windows con CPU; Linux y GPU requieren comprobación en sus propios entornos.</p>
 </section>
 </section>
-<section id="conservacion-y-reconstruccion-de-la-entrega">
-<h2>Conservación y reconstrucción de la entrega<a class="headerlink" href="#conservacion-y-reconstruccion-de-la-entrega" title="Link to this heading">#</a></h2>
-<p>El verificador comprueba estructura de cuadernos, celdas ejecutadas, ausencia de errores, interpretaciones junto a las figuras, cobertura del diccionario y enlaces HTML locales. Después copia el HTML construido a docs. No publica ni inicia entrenamiento. Los archivos del libro y sus evidencias se conservan en book, docs y results/jbook; una actualización del sitio requiere una solicitud expresa.</p>
+<section id="construccion-y-verificacion-del-libro">
+<h2>Construcción y verificación del libro<a class="headerlink" href="#construccion-y-verificacion-del-libro" title="Link to this heading">#</a></h2>
+<p>El verificador comprueba estructura de cuadernos, celdas ejecutadas, ausencia de errores, interpretaciones junto a las figuras, cobertura del diccionario y enlaces HTML locales. Después copia el HTML construido a docs. Los archivos del libro y sus evidencias se conservan en book, docs y results/jbook.</p>
 </section>
 <section id="procedencia-de-modelos-y-reconstruccion">
 <h2>Procedencia de modelos y reconstrucción<a class="headerlink" href="#procedencia-de-modelos-y-reconstruccion" title="Link to this heading">#</a></h2>
 <p>Las cuatro familias de demanda/calendario conservan el commit d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3 y su <a class="reference download internal" download="" href="_downloads/bbf8bbb7448964f9a4f6565b48907556/modelos.json"><span class="xref download myst">registro de artefactos</span></a>; el <a class="reference download internal" download="" href="_downloads/8908f8125ee42330f01d4992525e735c/indice_artefactos_v3_v4.csv"><span class="xref download myst">índice SHA-256</span></a> identifica 2.304 archivos. Las arquitecturas ampliadas proceden del commit 66111003f387b8452b1fc690dbc7fc503d5570df y de los paquetes consolidados. El inventario conserva pesos, escaladores, historias, predicciones y métricas por semilla; el control N compartido se cuenta una vez. TFT utiliza el paquete seleccionado por rigor del procedimiento y fidelidad arquitectónica.</p>
-<p>La evaluación integra 65 realizaciones finales de trece procedimientos, con cinco semillas cada uno, y dos referencias deterministas. Las métricas se reconstruyen con predicciones conservadas y orígenes alineados. <a class="reference download internal" download="" href="_downloads/58a23919eb8a36fa4491a5e4d7f4bc5e/metadatos_procedimientos.csv"><span class="xref download myst">Metadatos de ajuste y validación</span></a> y <a class="reference download internal" download="" href="_downloads/c961b05a391d0bba594c7600dbe7ea37/cobertura_diagnosticos.csv"><span class="xref download myst">cobertura de diagnósticos</span></a> identifican el alcance de cada análisis. TGForecaster conserva cinco realizaciones por variante.</p>
+<p>La evaluación integra 75 realizaciones finales de quince procedimientos, con cinco semillas cada uno, y dos referencias deterministas. Las métricas se reconstruyen con predicciones conservadas y orígenes alineados. <a class="reference download internal" download="" href="_downloads/58a23919eb8a36fa4491a5e4d7f4bc5e/metadatos_procedimientos.csv"><span class="xref download myst">Metadatos de ajuste y validación</span></a> y <a class="reference download internal" download="" href="_downloads/c961b05a391d0bba594c7600dbe7ea37/cobertura_diagnosticos.csv"><span class="xref download myst">cobertura de diagnósticos</span></a> identifican el alcance de cada análisis. TGForecaster conserva cinco realizaciones por variante.</p>
 <p>Para reconstruir la evaluación integrada se ejecuta <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">scripts/reorganizar_capitulo10.py</span></code>; después, <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">book</span> <span class="pre">--warningiserror</span> <span class="pre">--keep-going</span></code> y <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">scripts/verificar_jbook.py</span></code>. El generador completo <code class="docutils literal notranslate"><span class="pre">scripts/crear_jbook.py</span></code> integra la misma ampliación al finalizar. Los datos de predicción y las entradas documentales deben conservar su inventario de procedencia. La reproducción del análisis documental usa CPU; la inferencia y el entrenamiento requieren PyTorch compatible con CPU, CUDA o ROCm según el procedimiento y dispositivo. La reconstrucción del libro no inicia entrenamiento.</p>
 </section>
 <section id="reconstruccion-y-revision-de-consistencia">
 <h2>Reconstrucción y revisión de consistencia<a class="headerlink" href="#reconstruccion-y-revision-de-consistencia" title="Link to this heading">#</a></h2>
-<p>El generador integra modelos_actualizados_jbook.py, correcciones_e1_jbook.py y consistencia_jbook.py. La construcción del informe utiliza artefactos guardados; la medición de CPU se conserva en latencia_inferencia.csv y entorno_inferencia.json. Para repetir esa medición se utiliza un entorno separado con requirements-inferencia.lock.txt y scripts/medir_inferencia.py. No se ajustan pesos durante el análisis. La revisión global contrasta terminología, unidades, particiones, margen, cifras, inferencia, referencias y enlaces con los archivos fuente; sus resultados se registran en REVISION_CONSISTENCIA_JBOOK.md.</p>
+<p>La narrativa de resultados se genera mediante <code class="docutils literal notranslate"><span class="pre">scripts/narrativa_resultados.py</span></code> a partir del benchmark, contrastes, MCS, selección y diagnósticos conservados. Las celdas Markdown identifican su función mediante metadatos; las cifras y conclusiones se actualizan durante la reconstrucción.</p>
+<p>La <a class="reference download internal" download="" href="_downloads/44bf95e4a08f8c3a08a7c462f26993f5/revision_consistencia.md"><code class="xref download docutils literal notranslate"><span class="pre">revisión</span> <span class="pre">vigente</span></code></a> y el <a class="reference download internal" download="" href="_downloads/c02c3dccf93f33a9769c45a9f4ead8d6/resumen_documental.json"><span class="xref download myst">resumen con huellas de procedencia</span></a> documentan el inventario y las fuentes utilizadas.</p>
 </section>
-<section id="reproduccion-de-los-diagnosticos-ampliados">
-<h2>Reproducción de los diagnósticos ampliados<a class="headerlink" href="#reproduccion-de-los-diagnosticos-ampliados" title="Link to this heading">#</a></h2>
-<p>La <a class="reference internal" href="10_evaluacion.html"><span class="std std-doc">evaluación integrada</span></a> incluye importancia agrupada, latencia CPU y sensibilidad al contenido de los documentos y a las descripciones estáticas. Sus figuras se reconstruyen con los CSV de <code class="docutils literal notranslate"><span class="pre">results/diagnosticos_ampliados</span></code>, sin cargar redes ni iniciar una evaluación nueva.</p>
-<p>Para repetir las mediciones se utiliza el entorno de inferencia con PyTorch CPU y la carpeta hermana <code class="docutils literal notranslate"><span class="pre">Consolidado-Entrenamientos-20261115</span></code>, cuyo índice identifica los checkpoints, escaladores y vectores congelados. La inferencia conserva los pesos y registra cada realización completada para reanudarla. La latencia debe medirse cuando hayan terminado los procesos de perturbación.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/diagnosticos_ampliados.py<span class="w"> </span>--fase<span class="w"> </span>inferir<span class="w"> </span>--workers<span class="w"> </span><span class="m">4</span>
-python<span class="w"> </span>scripts/diagnosticos_ampliados.py<span class="w"> </span>--fase<span class="w"> </span>latencia
-</pre></div>
-</div>
-<p>Después, en el entorno del JBook, se reconstruye únicamente la presentación a partir de esos resultados:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/actualizar_diagnosticos_jbook.py
+<section id="reproduccion-de-la-evaluacion-y-sus-diagnosticos">
+<h2>Reproducción de la evaluación y sus diagnósticos<a class="headerlink" href="#reproduccion-de-la-evaluacion-y-sus-diagnosticos" title="Link to this heading">#</a></h2>
+<p>Las fuentes de <code class="docutils literal notranslate"><span class="pre">book/</span></code> incluyen los cuadernos con sus salidas, las fichas de arquitectura, los esquemas y los archivos descargables. <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">book</span> <span class="pre">--warningiserror</span> <span class="pre">--keep-going</span></code> construye el HTML desde esas fuentes, con la ejecución de cuadernos desactivada.</p>
+<p>Los CSV y NPZ de <code class="docutils literal notranslate"><span class="pre">results/evaluacion_e2/</span></code> y <code class="docutils literal notranslate"><span class="pre">results/diagnosticos_ampliados/</span></code> contienen las pérdidas, contrastes, curvas y mediciones utilizadas en las figuras. La reconstrucción de la presentación utiliza estos archivos y las predicciones conservadas:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/reorganizar_capitulo10.py
 jupyter-book<span class="w"> </span>build<span class="w"> </span>book<span class="w"> </span>--warningiserror<span class="w"> </span>--keep-going
 python<span class="w"> </span>scripts/verificar_jbook.py
 </pre></div>
 </div>
-<p>El protocolo registra fechas, donantes, grupos, semillas, controles e incertidumbre. <code class="docutils literal notranslate"><span class="pre">reproduccion_semillas.csv</span></code> documenta la correspondencia numérica con las predicciones conservadas; <code class="docutils literal notranslate"><span class="pre">entorno.json</span></code> identifica el ordenador y las condiciones de latencia. El código de restauración y diagnóstico se presenta íntegro al final de la evaluación integrada.</p>
+<p><code class="docutils literal notranslate"><span class="pre">scripts/actualizar_diagnosticos_jbook.py</span></code> actualiza las figuras a partir de las mismas mediciones. <code class="docutils literal notranslate"><span class="pre">scripts/reconstruir_evaluacion.py</span></code> vuelve a ejecutar el código analítico del cuaderno integrado con las entradas verificadas por SHA-256. Ninguno de estos procedimientos reajusta modelos.</p>
+<p>La repetición de inferencia requiere, además, los checkpoints, escaladores y vectores E5 identificados en <code class="docutils literal notranslate"><span class="pre">fuentes_diagnosticos.json</span></code>. Su ubicación se configura mediante <code class="docutils literal notranslate"><span class="pre">DEMANDA_ARTEFACTOS</span></code>, apuntando al directorio que contiene <code class="docutils literal notranslate"><span class="pre">consolidado/indice_modelos.json</span></code> y <code class="docutils literal notranslate"><span class="pre">fuentes/</span></code>. Estos archivos binarios no son necesarios para construir el libro ni reconstruir las gráficas desde las mediciones. Las nuevas mediciones utilizan el entorno <code class="docutils literal notranslate"><span class="pre">requirements-inferencia.lock.txt</span></code> y los comandos siguientes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/diagnosticos_ampliados.py<span class="w"> </span>--fase<span class="w"> </span>inferir<span class="w"> </span>--workers<span class="w"> </span><span class="m">4</span>
+python<span class="w"> </span>scripts/diagnosticos_ampliados.py<span class="w"> </span>--fase<span class="w"> </span>latencia
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">reproduccion_semillas.csv</span></code> documenta la correspondencia con las predicciones conservadas; <code class="docutils literal notranslate"><span class="pre">entorno.json</span></code> identifica las condiciones de la medición de latencia.</p>
+</section>
+<section id="n-beats-y-timesnet-entradas-y-reproduccion">
+<h2>N-BEATS y TimesNet: entradas y reproducción<a class="headerlink" href="#n-beats-y-timesnet-entradas-y-reproduccion" title="Link to this heading">#</a></h2>
+<p>Las claves <code class="docutils literal notranslate"><span class="pre">nuevo_nbeats__N</span></code> y <code class="docutils literal notranslate"><span class="pre">nuevo_timesnet__N</span></code> identifican cinco realizaciones de cada red. Configuraciones, escaladores, historias y predicciones canónicas se conservan en <code class="docutils literal notranslate"><span class="pre">results/evaluacion_e2/entradas/adicionales/</span></code>. TimesNet utiliza <code class="docutils literal notranslate"><span class="pre">yhat_lote1_kwh</span></code> de la reevaluación por origen; N-BEATS conserva sus predicciones originales. Las etiquetas provienen del panel congelado en doble precisión.</p>
+<p>La selección y la parada interna mantienen sus registros de desarrollo. Para TimesNet, la prueba y las perturbaciones reciben un único origen en cada llamada. Los pesos se verifican mediante el <a class="reference download internal" download="" href="_downloads/268f730ec927a47513bbaf1ff17e955b/auditoria_pesos.csv"><span class="xref download myst">inventario SHA-256 de diez checkpoints</span></a>; la <a class="reference download internal" download="" href="_downloads/4f74120343def9de74ca1407a69ab8d6/integracion.json"><span class="xref download myst">procedencia de la integración</span></a> y el <a class="reference download internal" download="" href="_downloads/a3f2cea1aa18585f63fc2735d5479bb4/protocolo_diagnosticos.json"><span class="xref download myst">protocolo de diagnósticos</span></a> acompañan los resultados.</p>
+<p><code class="docutils literal notranslate"><span class="pre">integrar_top10.py</span></code> normaliza las entradas y mantiene la copia de procedencia. <code class="docutils literal notranslate"><span class="pre">estadistica_e2.py</span></code> calcula las familias completas de contrastes sobre las predicciones guardadas. <code class="docutils literal notranslate"><span class="pre">reorganizar_capitulo10.py</span></code> reconstruye la evaluación y las fichas de ambas arquitecturas; la aplicación estática utiliza los mismos resultados mediante su exportador.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python scripts/estadistica_e2.py</span>
+<span class="go">python scripts/reorganizar_capitulo10.py</span>
+<span class="go">python dashboard/scripts/export_data.py</span>
+<span class="go">jupyter-book build book --warningiserror --keep-going</span>
+<span class="go">python scripts/verificar_jbook.py</span>
+</pre></div>
+</div>
+<p>Estos pasos leen los resultados disponibles. Los pipelines de ajuste e inferencia se documentan en las fichas de arquitectura y permanecen separados de la construcción del libro.</p>
 </section>
 </section>
 
@@ -604,10 +623,11 @@ python<span class="w"> </span>scripts/verificar_jbook.py
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservacion-y-reconstruccion-de-la-entrega">Conservación y reconstrucción de la entrega</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construccion-y-verificacion-del-libro">Construcción y verificación del libro</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedencia-de-modelos-y-reconstruccion">Procedencia de modelos y reconstrucción</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruccion-y-revision-de-consistencia">Reconstrucción y revisión de consistencia</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproduccion-de-los-diagnosticos-ampliados">Reproducción de los diagnósticos ampliados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproduccion-de-la-evaluacion-y-sus-diagnosticos">Reproducción de la evaluación y sus diagnósticos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-beats-y-timesnet-entradas-y-reproduccion">N-BEATS y TimesNet: entradas y reproducción</a></li>
 </ul>
   </nav></div>
 

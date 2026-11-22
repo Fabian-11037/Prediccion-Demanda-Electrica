@@ -66,7 +66,7 @@ def main():
   models.append(dict(id=v.clave,name=LABEL[f]+(' · N+O' if v.clave.endswith('N+O') else ' · N' if f=='tgforecaster' else ''),original=v.modelo,family=f,
    group='Referencia clásica' if f=='arx' else 'Baselines E1' if f in ['mlp','lstm','cnn1d'] else 'Control numérico' if v.clave=='adj_modelo7_20261114_0430__N' else 'Top 10',
    inputs='Numéricas + documentos oficiales' if v.clave.endswith('N+O') else 'Demanda + calendario' if v.entradas=='demanda_calendario' else 'Numéricas ampliadas',
-   description=DESCRIPTION[f],architecture_captions=architecture_captions(f),source='./downloads/fichas/'+f+'.md',params=int(m.parametros.iloc[0]),latency=float(lat.loc[v.clave,'mediana_ms']),epochs=float(m.epocas.median()),training_seconds=float(m.segundos.median()),book=BOOK+'arquitecturas/'+f+'.html'))
+   validation=float(m.validacion.mean()),validation_period='; '.join(m.anios_validacion.dropna().astype(str).unique()),description=DESCRIPTION[f],architecture_captions=architecture_captions(f),source='./downloads/fichas/'+f+'.md',params=int(m.parametros.iloc[0]),latency=float(lat.loc[v.clave,'mediana_ms']),epochs=float(m.epocas.median()),training_seconds=float(m.segundos.median()),book=BOOK+'arquitecturas/'+f+'.html'))
  tables={}
  for key,file in {'benchmark':'benchmark','temporal':'comparaciones_temporales','seeds':'comparaciones_semillas','text':'contrastes_texto',
   'horizons':'resultados_horizonte','residuals':'diagnostico_residuos','ranks':'rangos','mcs':'mcs','curves':'curvas_aprendizaje',

@@ -38,3 +38,7 @@ El selector distingue diez familias Top 10, tres baselines E1, ARX y el control 
 Las once tablas exportadas coinciden con las fuentes del benchmark y los 28 esquemas coinciden byte a byte con el JBook. Los 15 procedimientos conservan sus 75 realizaciones, curvas, contrastes, importancia, latencia y predicciones. Se añade la descarga de 14 fichas con ecuaciones y código Python expandido, sin directivas literalinclude pendientes. La navegación desde el pronóstico abre la ficha interna y evita enlaces a páginas de arquitecturas todavía no publicadas en GitHub Pages. Cada esquema muestra la interpretación de su fuente Markdown; el diseño distingue piloto externo de parada interna y presenta el MASE de desarrollo disponible.
 
 Los conteos del resumen y las parejas temporales se obtienen de los resultados. El manifiesto incorpora las huellas de las tablas, protocolos, corpus congelado y fuentes de arquitectura del JBook. La actualización del dashboard no requiere publicar el libro, entrenar redes ni cambiar sus artefactos.
+
+## Resumen al final de Modelos · revisión local
+
+La sección Modelos termina con una tabla de los 15 procedimientos: periodo de validación, MASE de selección y MASE medio de prueba 2022–2025. Los datos se exportan desde metadatos_procedimientos.csv y benchmark.csv; el resumen y su orden se generan sin cifras fijadas manualmente. Incluye el enlace a 10_evaluacion.html del JBook. La publicación conjunta del 22 de noviembre incorpora este resumen en el dashboard y las fuentes actuales del JBook.

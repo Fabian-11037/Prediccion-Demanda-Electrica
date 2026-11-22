@@ -40,6 +40,30 @@ El {ref}`código de exportación de los esquemas <exportacion-esquemas>` forma p
 
 ## Pipeline de entrenamiento y prueba
 
+<!-- entrenamiento-portable:inicio -->
+### Comandos de entrenamiento y evaluación
+
+Validación temporal de la configuración seleccionada:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo nhits --anio 2021 --semilla 1000 --dispositivo auto --salida salidas/nhits_validacion_1000
+```
+
+Comprobación funcional breve:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo nhits --smoke --dispositivo cpu --salida salidas/nhits_funcional
+```
+
+Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo nhits --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/nhits_prueba_1000
+```
+
+El código completo de preparación, optimización, guardado y restauración está en el {ref}`pipeline ejecutable compartido <entrenamiento-portable>`. Cada salida debe ser una carpeta nueva.
+<!-- entrenamiento-portable:fin -->
+
 La preparación conserva 30 variables históricas, 23 de calendario y 30 máscaras. Se usan las mismas ventanas para ajuste, parada y prueba, con imputaciones y escalas estimadas solo en ajuste. El motor recibe el dispositivo explícitamente, guarda el mínimo de parada interna y convierte la salida normalizada a kWh. El código de la arquitectura incluye el motor para PatchTST; N-HiTS comparte ese motor sin compartir su red.
 
 ### Preparación, ajuste y predicción numérica

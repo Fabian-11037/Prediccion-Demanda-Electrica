@@ -31,3 +31,11 @@ export function temporalVerdict(row){
  return row.p_DM_Holm<.05?'Se detecta una diferencia temporal.':'No se detecta una diferencia temporal con este contraste.';
 }
 export function escapeHTML(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+export function validationTestRows(study){
+ return study.models.map(model=>{
+  const result=study.tables.benchmark.find(row=>row.clave===model.id);
+  if(!result||!Number.isFinite(model.validation))throw new Error('Faltan métricas de validación o prueba para '+model.name);
+  return {id:model.id,name:model.name,period:model.validation_period,validation:model.validation,test:result.MASE};
+ }).sort((a,b)=>a.test-b.test);
+}

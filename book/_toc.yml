@@ -29,6 +29,8 @@ chapters:
       - file: arquitecturas/tats
       - file: arquitecturas/tgforecaster
       - file: arquitecturas/fusion
+      - file: arquitecturas/nbeats
+      - file: arquitecturas/timesnet
       - file: 10_evaluacion
   - file: 11_sintesis
   - file: 12_reproducibilidad

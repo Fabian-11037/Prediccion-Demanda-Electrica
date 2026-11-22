@@ -1,14 +1,16 @@
 """Restauración de redes y entradas congeladas; únicamente inferencia CPU."""
 from pathlib import Path
 from types import ModuleType
-import hashlib, importlib.util, json, sys
+import hashlib, importlib.util, json, os, sys
 import numpy as np
 import pandas as pd
 import torch
 
 ROOT=Path(__file__).resolve().parents[1]
 FU=ROOT/'results/arquitecturas_e2/fuentes'
-CON=ROOT.parent/'Consolidado-Entrenamientos-20261115'
+CON=Path(os.environ.get('DEMANDA_ARTEFACTOS',str(ROOT/'artifacts'))).expanduser().resolve()
+if 'DEMANDA_ARTEFACTOS' not in os.environ and not CON.exists():
+    CON=ROOT.parent/'Consolidado-Entrenamientos-20261115'
 Q=215617.90361589016
 PAQUETES={'adj_modelo3':'Modelo3_TFT','adj_modelo4':'Modelo4_TCN',
           'adj_modelo5':'Modelo5_iTransformer','adj_modelo6':'Modelo6_TaTS',

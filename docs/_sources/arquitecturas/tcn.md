@@ -14,7 +14,7 @@ h_{b+1}=\operatorname{ReLU}(S_bh_b+F_b(h_b)).$$
 
 Con dos convoluciones por bloque, el campo receptivo es $R=1+2(k-1)\sum_bd_b=169$ horas, suficiente para las 168 de entrada. El resultado depende de contar ambas convoluciones: una sola por bloque no cubriría la ventana. La representación de la última hora se concatena con una proyección del calendario futuro y una cabeza densa produce las 24 correcciones normalizadas. Hay 169.944 parámetros.
 
-La implementación utiliza únicamente datos anteriores al origen en las convoluciones. El calendario futuro entra por una rama separada porque sí se conoce de antemano. Los 20 candidatos efectivamente evaluados no equivalen a completar el espacio de 1.000 arquitecturas exigido por la pauta cuando no existe una configuración publicada adoptada.
+La implementación utiliza únicamente datos anteriores al origen en las convoluciones. El calendario futuro entra por una rama separada porque sí se conoce de antemano. La selección evaluó 20 candidatos; su alcance depende del espacio y del presupuesto de búsqueda descritos en el diseño experimental.
 
 ### Esquema global
 
@@ -39,6 +39,30 @@ El {ref}`código de exportación de los esquemas <exportacion-esquemas>` forma p
 
 ## Pipeline de entrenamiento y prueba
 
+<!-- entrenamiento-portable:inicio -->
+### Comandos de entrenamiento y evaluación
+
+Validación temporal de la configuración seleccionada:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo tcn --anio 2021 --semilla 1000 --dispositivo auto --salida salidas/tcn_validacion_1000
+```
+
+Comprobación funcional breve:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo tcn --smoke --dispositivo cpu --salida salidas/tcn_funcional
+```
+
+Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo tcn --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/tcn_prueba_1000
+```
+
+El código completo de preparación, optimización, guardado y restauración está en el {ref}`pipeline ejecutable compartido <entrenamiento-portable>`. Cada salida debe ser una carpeta nueva.
+<!-- entrenamiento-portable:fin -->
+
 El pipeline fija el plan y las huellas de entrada, genera ventanas cronológicas, ajusta las transformaciones por pliegue y evalúa 20 candidatos en 2018. Confirma cinco finalistas en 2019–2021, selecciona por MASE medio y reajusta con cinco semillas finales usando la reserva interna anterior a 2022. La lectura de la prueba solo ocurre después de cerrar la selección. El libro muestra las implementaciones y no llama al entrenamiento.
 
 ### Datos, referencias y escaladores por pliegue
@@ -62,12 +86,9 @@ El pipeline fija el plan y las huellas de entrada, genera ventanas cronológicas
 :linenos:
 ```
 
-### Entrada Python y registro de la ejecución
+### Ejecución
 
-```{literalinclude} ../_static/codigo_e2/Modelo4_TCN/ejecutar.py
-:language: python
-:linenos:
-```
+El {ref}`pipeline común <entrenamiento-portable>` utiliza las fuentes de esta ficha y la configuración seleccionada. Los siguientes comandos ejecutan el ajuste y la evaluación.
 
 La configuración exacta del paquete se conserva a continuación. Identifica variantes, candidatos, semillas, parada y presupuesto; se mantiene separada de las métricas calculadas a partir de artefactos.
 

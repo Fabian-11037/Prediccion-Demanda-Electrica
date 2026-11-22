@@ -240,7 +240,9 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.14. Resultados y evaluación integrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
@@ -396,7 +398,7 @@
   <section class="tex2jax_ignore mathjax_ignore" id="problema-y-datos">
 <h1>1. Problema y datos<a class="headerlink" href="#problema-y-datos" title="Link to this heading">#</a></h1>
 <p>El objetivo es pronosticar la demanda real horaria de energía eléctrica del Sistema Interconectado Nacional de Colombia. Se formula un pronóstico de una serie objetivo con covariables, salida directa de 24 intervalos y 168 horas de historia. El origen es diario a las 00:00 de Colombia. El estudio compara procedimientos numéricos y variantes que incorporan documentos oficiales disponibles al emitir el pronóstico.</p>
-<p><strong>Tipo de problema:</strong> series de tiempo, con pronóstico directo de 24 pasos, covariables y rezagos del objetivo. <strong>Pregunta de investigación:</strong> ¿qué precisión y estabilidad presentan las arquitecturas numéricas para anticipar la demanda horaria del SIN colombiano durante las siguientes 24 horas, y qué contribución incremental aporta el texto oficial disponible al emitir el pronóstico? La evaluación compara trece procedimientos completados y dos referencias estacionales; TGForecaster participa con sus variantes N y N+O.</p>
+<p><strong>Tipo de problema:</strong> series de tiempo, con pronóstico directo de 24 pasos, covariables y rezagos del objetivo. <strong>Pregunta de investigación:</strong> ¿qué precisión y estabilidad presentan las arquitecturas numéricas para anticipar la demanda horaria del SIN colombiano durante las siguientes 24 horas, y qué contribución incremental aporta el texto oficial disponible al emitir el pronóstico? La evaluación compara quince procedimientos completados y dos referencias estacionales; TGForecaster participa con sus variantes N y N+O.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>

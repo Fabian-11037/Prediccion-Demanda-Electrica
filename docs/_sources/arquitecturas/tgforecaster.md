@@ -41,6 +41,32 @@ El {ref}`código de exportación de los esquemas <exportacion-esquemas>` forma p
 
 ## Pipeline de entrenamiento y prueba
 
+<!-- entrenamiento-portable:inicio -->
+### Comandos de entrenamiento y evaluación
+
+Validación temporal de la configuración seleccionada:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo tgforecaster --anio 2021 --semilla 1000 --dispositivo auto --salida salidas/tgforecaster_validacion_1000
+```
+
+Comprobación funcional breve:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo tgforecaster --smoke --dispositivo cpu --salida salidas/tgforecaster_funcional
+```
+
+Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+
+```bash
+python scripts/entrenar_arquitectura.py --modelo tgforecaster --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/tgforecaster_prueba_1000
+```
+
+El código completo de preparación, optimización, guardado y restauración está en el {ref}`pipeline ejecutable compartido <entrenamiento-portable>`. Cada salida debe ser una carpeta nueva.
+
+El control numérico con descripciones estáticas se ejecuta con `--modelo tgforecaster_n`; la variante `tgforecaster` incorpora los documentos oficiales.
+<!-- entrenamiento-portable:fin -->
+
 El pipeline fija el plan y las huellas de entrada, genera ventanas cronológicas, ajusta las transformaciones por pliegue y evalúa 20 candidatos en 2018. Confirma cinco finalistas en 2019–2021, selecciona por MASE medio y reajusta con cinco semillas finales usando la reserva interna anterior a 2022. La lectura de la prueba solo ocurre después de cerrar la selección. El libro muestra las implementaciones y no llama al entrenamiento.
 
 ### Datos, referencias y escaladores por pliegue
@@ -71,12 +97,9 @@ El pipeline fija el plan y las huellas de entrada, genera ventanas cronológicas
 :linenos:
 ```
 
-### Entrada Python y registro de la ejecución
+### Ejecución
 
-```{literalinclude} ../_static/codigo_e2/Modelo7_TGForecaster/ejecutar.py
-:language: python
-:linenos:
-```
+El {ref}`pipeline común <entrenamiento-portable>` utiliza las fuentes de esta ficha y la configuración seleccionada. Los siguientes comandos ejecutan el ajuste y la evaluación.
 
 La configuración exacta del paquete se conserva a continuación. Identifica variantes, candidatos, semillas, parada y presupuesto; se mantiene separada de las métricas calculadas a partir de artefactos.
 

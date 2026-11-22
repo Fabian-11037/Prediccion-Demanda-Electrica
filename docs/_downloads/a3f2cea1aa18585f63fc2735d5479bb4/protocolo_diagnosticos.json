@@ -1,0 +1,33 @@
+{
+  "fecha": "2026-11-20",
+  "torch": "2.9.1+cpu",
+  "sistema": "Windows-11-10.0.26200-SP0",
+  "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "origenes_importancia": 192,
+  "semillas": 5,
+  "repeticiones_importancia": 3,
+  "donantes": "Desplazamiento circular dentro del año; semilla 11037 + repetición; separación mínima 28 días",
+  "grupos": [
+    "perfil_demanda",
+    "nivel_ventana",
+    "precio",
+    "reservas",
+    "aportes",
+    "temperatura",
+    "humedad",
+    "precipitacion",
+    "calendario"
+  ],
+  "lote_timesnet": 1,
+  "hilos_latencia": 1,
+  "calentamientos": 20,
+  "repeticiones_latencia": 100,
+  "origenes_latencia": [
+    0,
+    730,
+    1460
+  ],
+  "alcance_latencia": "Forward con entradas preparadas; sin lectura ni escalado",
+  "entrenamiento": false,
+  "publicacion": false
+}

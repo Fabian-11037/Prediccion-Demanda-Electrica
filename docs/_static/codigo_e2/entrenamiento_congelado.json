@@ -1,0 +1,287 @@
+{
+  "mlp": {
+    "clave": "mlp",
+    "grupo": "base",
+    "fuentes": "results/repositorio/d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3",
+    "params": {
+      "capas": 2,
+      "unidades": 128,
+      "dropout": 0.0035459143015831307,
+      "weight_decay": 0.0003827221364333344,
+      "batch_size": 64,
+      "lr": 0.004689628419943547,
+      "scheduler": "plateau",
+      "perdida": "huber",
+      "paciencia": 8
+    },
+    "parametros": 111896,
+    "max_epocas": 60
+  },
+  "lstm": {
+    "clave": "lstm",
+    "grupo": "base",
+    "fuentes": "results/repositorio/d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3",
+    "params": {
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 256,
+      "scheduler": "plateau",
+      "perdida": "huber",
+      "paciencia": 6,
+      "capas": 1,
+      "unidades": 48,
+      "lr": 0.001
+    },
+    "parametros": 28632,
+    "max_epocas": 60
+  },
+  "cnn1d": {
+    "clave": "cnn1d",
+    "grupo": "base",
+    "fuentes": "results/repositorio/d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3",
+    "params": {
+      "capas": 1,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 256,
+      "lr": 0.0003,
+      "scheduler": "plateau",
+      "perdida": "huber",
+      "paciencia": 6,
+      "filtros": 16,
+      "kernel": 5
+    },
+    "parametros": 47464,
+    "max_epocas": 60
+  },
+  "arx_lineal": {
+    "clave": "arx_lineal",
+    "grupo": "base",
+    "fuentes": "results/repositorio/d1ae9a4e09dd1dead4af1329f16aa3e8d0f2c3d3",
+    "params": {
+      "penalizacion": "lasso",
+      "lags": 48,
+      "batch_size": 64,
+      "lr": 0.0006582612236208865,
+      "scheduler": "plateau",
+      "perdida": "mae",
+      "paciencia": 15,
+      "lambda": 1.3733953296838922e-07
+    },
+    "parametros": 14424,
+    "max_epocas": 60
+  },
+  "nhits": {
+    "clave": "repo_nhits_numerico_r1__N",
+    "grupo": "nhits",
+    "fuentes": "results/arquitecturas_e2/fuentes/numerico_repositorio",
+    "variante": "N",
+    "params": {
+      "id": "N14",
+      "lr": 0.00010335986527468987,
+      "batch_size": 64,
+      "dropout": 0.1956080336970198,
+      "weight_decay": 1.4416188128158413e-06
+    },
+    "parametros": 17489442,
+    "max_epocas": 200
+  },
+  "tft": {
+    "clave": "adj_modelo3_20261115_0419__N",
+    "grupo": "ampliado",
+    "fuentes": "results/arquitecturas_e2/fuentes/Modelo3_TFT",
+    "variante": "N",
+    "params": {
+      "id": 1,
+      "d_model": 160,
+      "cabezas": 4,
+      "dropout": 0.1,
+      "lr": 0.001,
+      "weight_decay": 0.0,
+      "lote": 32
+    },
+    "parametros": 11715596,
+    "max_epocas": 200
+  },
+  "tcn": {
+    "clave": "adj_modelo4_20261114_1224__N",
+    "grupo": "ampliado",
+    "fuentes": "results/arquitecturas_e2/fuentes/Modelo4_TCN",
+    "variante": "N",
+    "params": {
+      "id": 7,
+      "kernel": 5,
+      "anchos": [
+        64,
+        64,
+        64
+      ],
+      "patron_dropout": [
+        0,
+        1,
+        0
+      ],
+      "dropout": 0.2,
+      "lr": 0.001,
+      "weight_decay": 0.01,
+      "lote": 64
+    },
+    "parametros": 169944,
+    "max_epocas": 200
+  },
+  "itransformer": {
+    "clave": "adj_modelo5_20261114_1327__N",
+    "grupo": "ampliado",
+    "fuentes": "results/arquitecturas_e2/fuentes/Modelo5_iTransformer",
+    "variante": "N",
+    "params": {
+      "id": 1,
+      "d_model": 128,
+      "capas": 2,
+      "cabezas": 8,
+      "dropout": 0.1,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "lote": 64
+    },
+    "parametros": 321816,
+    "max_epocas": 200
+  },
+  "patchtst": {
+    "clave": "adj_modelo6_20261112_1035__N",
+    "grupo": "ampliado",
+    "fuentes": "results/arquitecturas_e2/fuentes/Modelo6_TaTS",
+    "variante": "N",
+    "params": {
+      "id": 18,
+      "nucleo": "patchtst",
+      "d_model": 64,
+      "capas": 2,
+      "cabezas": 4,
+      "dropout": 0.1,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "lote": 32,
+      "d_texto": 24
+    },
+    "parametros": 466480,
+    "max_epocas": 200
+  },
+  "tats": {
+    "clave": "adj_modelo6_20261112_1035__N+O",
+    "grupo": "ampliado",
+    "fuentes": "results/arquitecturas_e2/fuentes/Modelo6_TaTS",
+    "variante": "N+O",
+    "params": {
+      "id": 12,
+      "nucleo": "patchtst",
+      "d_model": 128,
+      "capas": 3,
+      "cabezas": 16,
+      "dropout": 0.2,
+      "lr": 0.0003,
+      "weight_decay": 0.0001,
+      "lote": 64,
+      "d_texto": 12
+    },
+    "parametros": 1428380,
+    "max_epocas": 200
+  },
+  "fusion_tardia": {
+    "clave": "adj_fusion_tardia_20261113_1728__N+O",
+    "grupo": "ampliado",
+    "fuentes": "results/arquitecturas_e2/fuentes/FusionTardia",
+    "variante": "N+O",
+    "params": {
+      "id": 18,
+      "nucleo": "patchtst",
+      "d_model": 64,
+      "capas": 2,
+      "cabezas": 4,
+      "dropout": 0.1,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "lote": 32,
+      "d_fusion": 128
+    },
+    "parametros": 584649,
+    "max_epocas": 200
+  },
+  "tgforecaster_n": {
+    "clave": "adj_modelo7_20261114_0430__N",
+    "grupo": "ampliado",
+    "fuentes": "results/arquitecturas_e2/fuentes/Modelo7_TGForecaster",
+    "variante": "N",
+    "params": {
+      "id": 19,
+      "d_model": 256,
+      "capas": 3,
+      "capas_mezcla": 2,
+      "cabezas": 8,
+      "dropout": 0.1,
+      "lr": 0.0001,
+      "weight_decay": 0.0001,
+      "lote": 32
+    },
+    "parametros": 2899072,
+    "max_epocas": 200
+  },
+  "tgforecaster": {
+    "clave": "adj_modelo7_20261114_0430__N+O",
+    "grupo": "ampliado",
+    "fuentes": "results/arquitecturas_e2/fuentes/Modelo7_TGForecaster",
+    "variante": "N+O",
+    "params": {
+      "id": 1,
+      "d_model": 64,
+      "capas": 2,
+      "capas_mezcla": 1,
+      "cabezas": 4,
+      "dropout": 0.1,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "lote": 64
+    },
+    "parametros": 326464,
+    "max_epocas": 200
+  },
+  "nbeats": {
+    "clave": "nuevo_nbeats__N",
+    "grupo": "ampliado",
+    "fuentes": "book/_static/codigo_e2/top10_adicionales",
+    "variante": "N",
+    "params": {
+      "id": 16,
+      "pilas": 30,
+      "bloques_por_pila": 1,
+      "capas_fc": 4,
+      "ancho": 512,
+      "dropout": 0.1,
+      "lr": 0.000357243,
+      "weight_decay": 0.0,
+      "lote": 64
+    },
+    "parametros": 49464960,
+    "max_epocas": 200
+  },
+  "timesnet": {
+    "clave": "nuevo_timesnet__N",
+    "grupo": "ampliado",
+    "fuentes": "book/_static/codigo_e2/top10_adicionales",
+    "variante": "N",
+    "params": {
+      "id": 19,
+      "e_layers": 2,
+      "top_k": 5,
+      "num_kernels": 6,
+      "d_model": 16,
+      "d_ff": 16,
+      "dropout": 0.1,
+      "lr": 0.000534428,
+      "weight_decay": 0.0,
+      "lote": 64
+    },
+    "parametros": 328266,
+    "max_epocas": 200
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "fecha": "2026-11-20",
+  "filas_anteriores_preservadas": 1753200,
+  "filas_nuevas": 350640,
+  "procedimientos": 15,
+  "realizaciones": 75,
+  "referencias": 2,
+  "top10": [
+    "PatchTST",
+    "N-HiTS",
+    "TFT",
+    "TCN",
+    "iTransformer",
+    "TaTS",
+    "Fusión tardía",
+    "TGForecaster",
+    "N-BEATS",
+    "TimesNet"
+  ],
+  "timesnet_lote_prueba": 1,
+  "semillas": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004
+  ],
+  "entrenamiento": false,
+  "publicacion": false,
+  "fuente_predicciones_timesnet": "results\\reevaluacion_timesnet_lote1_20261120"
+}

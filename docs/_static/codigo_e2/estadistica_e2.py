@@ -253,7 +253,7 @@ protocolo=dict(n_modelos=K,n_referencias=2,n_origenes=N,n_semillas=5,
     limitaciones=['Entradas, máscaras y presupuestos distintos: compara procedimientos, no efectos puros de arquitectura.',
                   'Semillas emparejadas por índice; no son cinco datasets independientes.',
                   'IC temporal condicionado a las semillas ejecutadas; no integra nuevas inicializaciones.',
-                  'La pauta E2 no queda íntegramente satisfecha: faltan ARIMA/ETS, presupuesto homogéneo, potencia y búsqueda exigida.',
+                  'Los presupuestos de selección son heterogéneos y las cinco semillas no acreditan la potencia objetivo.',
                   'Clark-West no se aplica a pérdidas MAE ni a redes no lineales sin supuestos de su formulación.',
                   'PIT y cobertura probabilística no se calculan con pronósticos puntuales.',
                   'El ingenuo diario respeta rezago de publicación de 1 h: usa 48 h para la última hora del horizonte.'])

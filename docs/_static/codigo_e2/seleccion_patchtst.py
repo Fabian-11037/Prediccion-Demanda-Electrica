@@ -83,3 +83,5 @@ def armonizar(root):
         nb.write(n,path)
     # Dejar el instalador y los activos disponibles para una reconstrucción posterior.
     shutil.copy2(root/'scripts/seleccion_patchtst.py',root/'book/_static/codigo_e2/seleccion_patchtst.py')
+    from consistencia_completitud_jbook import aplicar
+    aplicar(root)

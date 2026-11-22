@@ -118,13 +118,14 @@ def trabajar(m):
     return nombre(m)+' '+str(round(end['segundos']))+' s'
 
 def resumir():
-    models=registro();assert len(models)==50
+    models=registro()
+    assert models and len({(clave(m),m['semilla']) for m in models})==len(models)
     for name in ['reproduccion','importancia','sensibilidad']:
         files=[OUT/'por_semilla'/nombre(m)/(name+'.csv') for m in models]
         data=pd.concat([pd.read_csv(p) for p in files if p.exists()],ignore_index=True)
         data.to_csv(OUT/(name+'_semillas.csv'),index=False)
     imp=pd.read_csv(OUT/'importancia_semillas.csv')
-    assert len(imp)==50*REPS*len(GRUPOS)
+    assert len(imp)==len(models)*REPS*len(GRUPOS)
     # Primero se promedian las cinco semillas para cada desplazamiento; rango p10–p90 entre desplazamientos.
     reps=imp.groupby(['clave','grupo','repeticion']).agg(delta_MASE=('delta_MASE','mean'),
         base=('MAE_base','mean'),pert=('MAE_perturbado','mean')).reset_index()
@@ -207,7 +208,7 @@ def medir_latencia():
                         p95_ms=float(np.quantile(ts,.95)),media_ms=float(np.mean(ts)),repeticiones=100,calentamiento=20,batch=1,hilos=1,
                         documentos=0,cierres_textuales=0,documentos_origen=0,checkpoint_sha256=sha(path)))
             print('Latencia',key,item['semilla'],flush=True)
-    d=pd.DataFrame(rows);assert len(d)==210;d.to_csv(OUT/'latencia_semillas.csv',index=False)
+    d=pd.DataFrame(rows);assert len(d)==(len(models)+sum(len(v['artefactos']) for v in reg.values()))*len(ix);d.to_csv(OUT/'latencia_semillas.csv',index=False)
     d.groupby('clave').agg(mediana_ms=('mediana_ms','median'),p95_ms=('p95_ms','median'),
         minimo_ms=('mediana_ms','min'),maximo_ms=('mediana_ms','max'),mediciones=('mediana_ms','size')).reset_index().to_csv(OUT/'latencia_resumen.csv',index=False)
     (OUT/'entorno.json').write_text(json.dumps(dict(fecha=pd.Timestamp.now(tz='America/Bogota').isoformat(),python=sys.version,
@@ -222,7 +223,7 @@ def main():
         dates=pd.date_range('2022-01-01','2025-12-31',freq='D',tz='America/Bogota');sample=dates[dates.day.isin([1,8,15,22])]
         assert len(sample)==192
         protocol=dict(fecha=pd.Timestamp.now(tz='America/Bogota').isoformat(),escenario='diagnostico_retrospectivo',
-            procedimientos=10,semillas=list(range(1000,1005)),grupos=GRUPOS,repeticiones=REPS,importancia_origenes=192,
+            procedimientos=len({clave(m) for m in registro()}),semillas=list(range(1000,1005)),grupos=GRUPOS,repeticiones=REPS,importancia_origenes=192,
             fechas_importancia=sample.strftime('%Y-%m-%d').tolist(),regla_muestra='Días 1,8,15,22 de cada mes; misma muestra para todos',
             sensibilidad_origenes=1461,donantes_numericos='desplazamiento circular por año, mínimo 28 días; semilla11037+r',
             placebo_texto='Remuestreo con reemplazo dentro de fuente; contenido disponible antes de 2022; lista, volumen y presencia originales',

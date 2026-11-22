@@ -1,4 +1,4 @@
-import {mean,windowMetrics,spearman,calendarProfile,pairRecord,temporalVerdict,escapeHTML as e} from './core.js';
+import {mean,windowMetrics,spearman,calendarProfile,pairRecord,temporalVerdict,validationTestRows,escapeHTML as e} from './core.js?v=resumen-20261121';
 const $=id=>document.getElementById(id),C={teal:'#126c70',blue:'#3b789b',ink:'#24383e',muted:'#65767d',coral:'#af5846',gray:'#96a4ab'};
 const cache=new Map();let S,series,corpus,observed;
 const state={page:'context',eda:'demand',period:'development',start:2000,end:2021,variable:'x_precio_bolsa_cop_kwh',
@@ -9,7 +9,7 @@ const pvalue=v=>v===0?'<1e-300':v<.0001?Number(v).toExponential(2):num(v,4);
 const short=id=>S?.models.find(m=>m.id===id)?.name??S?.tables.benchmark.find(m=>m.clave===id)?.modelo??id;
 const model=()=>S.models.find(m=>m.id===state.model);
 const benchmark=id=>S.tables.benchmark.find(m=>m.clave===id);
-async function load(name){if(!cache.has(name))cache.set(name,fetch('./data/'+name).then(r=>{if(!r.ok)throw new Error('No se pudo cargar '+name);return r.json();}).catch(x=>{cache.delete(name);throw x;}));return cache.get(name);}
+async function load(name){if(!cache.has(name))cache.set(name,fetch('./data/'+name+new URL(import.meta.url).search).then(r=>{if(!r.ok)throw new Error('No se pudo cargar '+name);return r.json();}).catch(x=>{cache.delete(name);throw x;}));return cache.get(name);}
 function metric(label,value,note=''){return `<div class="metric"><span class="metric-label">${label}</span><strong>${value}</strong><small>${note}</small></div>`;}
 function chart(id,cls=''){return `<div id="${id}" class="chart ${cls}"></div>`;}
 function field(label,id,content,cls=''){return `<div class="field ${cls}"><label for="${id}">${label}</label>${content}</div>`;}
@@ -83,8 +83,12 @@ function drawCorpus(){
 }
 function renderModels(a,b){
  const m=model();
- setContent(`${heading('EVALUACIÓN · 2022–2025','Modelos y evidencia predictiva','Pronósticos históricos, cinco inicializaciones y los mismos 1.461 orígenes de prueba.',`<a class="section-link" href="${S.book}10_evaluacion.html" target="_blank" rel="noopener">Evaluación integrada ↗</a>`)}${field('Procedimiento','model',modelSelect('model',state.model),'model-selector')}<div class="model-line"><strong>${e(m.name)}</strong><span class="tag teal">${e(m.inputs)}</span><span class="tag">${num(m.params,0)} parámetros</span><span class="tag">${e(m.group)}</span><span class="fine">${e(m.description)}</span></div>${subnav('sub',[['forecast','Pronósticos'],['benchmark','Benchmark e inferencia'],['diagnostics','Diagnósticos'],['architecture','Arquitectura y pipeline']],state.sub)}<div id="model-content"></div>`);
+ setContent(`${heading('EVALUACIÓN · 2022–2025','Modelos y evidencia predictiva','Pronósticos históricos, cinco inicializaciones y los mismos 1.461 orígenes de prueba.',`<a class="section-link" href="${S.book}10_evaluacion.html" target="_blank" rel="noopener">Evaluación integrada ↗</a>`)}${field('Procedimiento','model',modelSelect('model',state.model),'model-selector')}<div class="model-line"><strong>${e(m.name)}</strong><span class="tag teal">${e(m.inputs)}</span><span class="tag">${num(m.params,0)} parámetros</span><span class="tag">${e(m.group)}</span><span class="fine">${e(m.description)}</span></div>${subnav('sub',[['forecast','Pronósticos'],['benchmark','Benchmark e inferencia'],['diagnostics','Diagnósticos'],['architecture','Arquitectura y pipeline']],state.sub)}<div id="model-content"></div>${modelResultsSummary()}`);
  if(state.sub==='forecast')renderForecast(a,b);else if(state.sub==='benchmark')renderBenchmark();else if(state.sub==='diagnostics')renderDiagnostics();else renderArchitecture();
+}
+function modelResultsSummary(){
+ const rows=validationTestRows(S),bestValidation=rows.reduce((a,b)=>a.validation<b.validation?a:b),leaders=rows.slice(0,3);
+ return `<section class="section" id="model-results-summary" aria-labelledby="model-summary-heading"><h3 id="model-summary-heading">Resumen de resultados en validación y prueba</h3><p>El menor MASE de validación corresponde a ${e(bestValidation.name)} (${num(bestValidation.validation,4)}). En prueba, el orden descriptivo comienza por ${leaders.map(r=>`${e(r.name)} (${num(r.test,4)})`).join(', ')}.</p>${table(['Procedimiento','Periodo de validación','MASE · validación','MASE · prueba'],rows.map(r=>[e(r.name),e(r.period),num(r.validation,4),num(r.test,4)]),['','','number','number'])}<p class="caption">Validación: resultado de selección de la configuración. Prueba: media de las cinco semillas sobre 2022–2025. MASE utiliza la misma escala semanal histórica; un valor menor indica menor error. En TimesNet, el lote de inferencia de validación difiere del lote unitario de prueba.</p><a class="button" href="${S.book}10_evaluacion.html" target="_blank" rel="noopener">Ver resultados detallados en el JBook</a></section>`;
 }
 function renderForecast(pred,comparison){
  const idx=S.dates.indexOf(state.date),valid=idx>=0,score=valid?windowMetrics(pred,idx,state.days,S.protocol.q168):null;

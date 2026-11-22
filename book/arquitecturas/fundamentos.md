@@ -466,6 +466,41 @@ def fijar_semillas(semilla: int, op: Opciones):
         torch.backends.cudnn.benchmark = True
 ```
 
+
+(esquemas-top10-detallados)=
+## Código de los esquemas de N-BEATS y TimesNet
+
+El código representa las dimensiones y conexiones de las configuraciones conservadas. Las cifras del encabezado proceden del benchmark y de los metadatos; la representación gráfica no ejecuta las redes.
+
+```{literalinclude} ../_static/codigo_e2/esquemas_top10_detallados.py
+:language: python
+:linenos:
+```
+
+<!-- entrenamiento-portable:inicio -->
+(entrenamiento-portable)=
+## Pipeline ejecutable de entrenamiento y evaluación
+
+El punto de entrada común instancia las clases completas de cada arquitectura con la configuración seleccionada, verifica el número de parámetros y aplica ventanas cronológicas de 168 horas para predecir 24 horas. Ajusta escalas e imputaciones exclusivamente en entrenamiento, utiliza parada interna y restaura el estado de menor pérdida. Las predicciones se guardan en kWh junto con los escaladores, la configuración, la historia y los pesos. La restauración utiliza las mismas transformaciones guardadas.
+
+La ejecución parte de la raíz del repositorio. Las dependencias están en `requirements-entrenamiento.txt`; los argumentos `--dispositivo cpu`, `--dispositivo cuda` y `--dispositivo auto` seleccionan el dispositivo. Cada arquitectura se ejecuta en un proceso independiente. El corpus y los vectores congelados se encuentran dentro del repositorio y se verifican por SHA-256. Las redes con texto convierten los vectores a `float32`; los checkpoints incluyen los vectores y las listas que las clases originales conservan como buffers no persistentes.
+
+En TimesNet, parada interna, validación y predicción usan un origen por llamada para que la selección de periodos FFT no dependa de otros orígenes del lote. El ajuste mantiene el tamaño de lote de la configuración. La sección de resultados conserva el protocolo de los artefactos evaluados.
+
+El modo `--smoke` comprueba dos épocas sobre ocho orígenes de ajuste y dos de parada y validación, todos anteriores a 2022. Comprueba gradientes finitos, actualización de parámetros y restauración exacta. Estas comprobaciones funcionales no estiman el rendimiento del benchmark. El proceso de construcción del libro muestra el código sin ejecutarlo.
+
+```{literalinclude} ../_static/codigo_e2/entrenar_arquitectura.py
+:language: python
+:linenos:
+```
+
+### Configuraciones seleccionadas
+
+```{literalinclude} ../_static/codigo_e2/entrenamiento_congelado.json
+:language: json
+```
+<!-- entrenamiento-portable:fin -->
+
 (exportacion-esquemas)=
 ## Exportación de los esquemas
 

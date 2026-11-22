@@ -1,0 +1,1020 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10.14. N-BEATS: reconstrucción y pronóstico residual &#8212; Pronóstico de la demanda eléctrica del SIN colombiano</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'arquitecturas/nbeats';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="10.15. TimesNet: variación temporal bidimensional" href="timesnet.html" />
+    <link rel="prev" title="10.13. Fusión tardía de pronósticos numéricos y textuales" href="fusion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Pronóstico de la demanda eléctrica del SIN colombiano</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Pronóstico de la demanda eléctrica del SIN colombiano
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_datos.html">1. Problema y datos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../diccionario.html">Diccionario de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_calidad.html">2. Calidad e integridad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_demanda.html">3. Distribución y evolución de la demanda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_estacionalidad.html">4. Calendario y estacionalidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_covariables.html">6. Covariables y disponibilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_literatura.html">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="fundamentos.html">10.1. Fundamentos y preprocesamiento compartido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arx.html">10.2. ARX lineal regularizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mlp.html">10.3. MLP: perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lstm.html">10.4. LSTM: memoria recurrente con compuertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cnn1d.html">10.5. CNN1D: filtros locales sobre la historia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patchtst.html">10.6. PatchTST numérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nhits.html">10.7. N-HiTS: interpolación jerárquica residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tft.html">10.8. TFT: selección de variables y atención interpretable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcn.html">10.9. TCN: convoluciones causales dilatadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="itransformer.html">10.10. iTransformer: atención entre variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuentes.html">Fuentes y fundamento metodológico</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/arquitecturas/nbeats.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>10.14. N-BEATS: reconstrucción y pronóstico residual</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-y-fundamentos">Arquitectura y fundamentos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esquema-global">Esquema global</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detalle-de-las-operaciones">Detalle de las operaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-la-arquitectura">Código de la arquitectura</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-de-entrenamiento-y-evaluacion">Comandos de entrenamiento y evaluación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-datos">Preparación de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-y-ajuste-con-parada-temprana">Selección y ajuste con parada temprana</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizacion-y-restauracion-del-checkpoint">Optimización y restauración del checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-por-origen-con-pesos-congelados">Prueba por origen con pesos congelados</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="n-beats-reconstruccion-y-pronostico-residual">
+<span id="e2-nbeats"></span><h1>10.14. N-BEATS: reconstrucción y pronóstico residual<a class="headerlink" href="#n-beats-reconstruccion-y-pronostico-residual" title="Link to this heading">#</a></h1>
+<section id="arquitectura-y-fundamentos">
+<h2>Arquitectura y fundamentos<a class="headerlink" href="#arquitectura-y-fundamentos" title="Link to this heading">#</a></h2>
+<p>N-BEATS divide el pronóstico en contribuciones sucesivas. Cada bloque recibe el residuo de la demanda, reconstruye una parte de la historia (<em>backcast</em>) y produce un pronóstico parcial. La reconstrucción se resta de la entrada del bloque siguiente; los pronósticos se suman. Así, los bloques pueden representar estructuras temporales complementarias sin una descomposición estacional impuesta.</p>
+<p>La configuración seleccionada usa 30 bloques independientes, cada uno con cuatro capas densas de 512 unidades, ReLU y dropout 0,1. El residuo contiene las 168 horas de demanda en orden inverso. Cada bloque incorpora además las últimas 24 horas de las 29 covariables y tres máscaras de ausencia, y las 23 variables de calendario para las 24 horas futuras: la entrada tiene dimensión <span class="math notranslate nohighlight">\(168+24\times32+24\times23=1488\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[u_b=[r_b,\operatorname{vec}(X_{exo,24}),\operatorname{vec}(C_f)],\quad
+h_b=\operatorname{MLP}_b(u_b),\quad [\widehat b_b,\widehat f_b]=W_bh_b+a_b,\]</div>
+<div class="math notranslate nohighlight">
+\[r_{b+1}=r_b-\widehat b_b,\qquad
+\widehat{\mathbf y}=\ell_t\left(\mathbf1+\sum_{b=1}^{30}\widehat f_b\right).\]</div>
+<p>La base genérica convierte directamente los coeficientes aprendidos en reconstrucción y pronóstico; no corresponde a las bases interpretables de tendencia y estacionalidad de otra variante de N-BEATS. Las covariables se mantienen en todos los bloques y solo se actualiza el residuo de demanda. El modelo contiene 49.464.960 parámetros. Su coste denso crece aproximadamente como <span class="math notranslate nohighlight">\(O(B[d_{in}w+3w^2+w(L+H)])\)</span>, con <span class="math notranslate nohighlight">\(B=30\)</span> bloques y ancho <span class="math notranslate nohighlight">\(w=512\)</span>.</p>
+<p>La arquitectura sigue el mecanismo de doble residuo de <a class="reference external" href="https://arxiv.org/abs/1905.10437">Oreshkin et al., N-BEATS, ICLR 2020</a>, ampliado con las covariables numéricas y el calendario del proyecto.</p>
+</section>
+<section id="esquema-global">
+<h2>Esquema global<a class="headerlink" href="#esquema-global" title="Link to this heading">#</a></h2>
+<p><a class="reference download internal" download="" href="../_downloads/c120c824e9e260e3e0796b3d5fe08dd1/nbeats_global.png"><span class="xref download myst"><img alt="Arquitectura global de nbeats" src="../_images/nbeats_global.png" /></span></a></p>
+<p>Los bloques reducen sucesivamente el residuo de la demanda y suman sus contribuciones a las siguientes 24 horas.</p>
+</section>
+<section id="detalle-de-las-operaciones">
+<h2>Detalle de las operaciones<a class="headerlink" href="#detalle-de-las-operaciones" title="Link to this heading">#</a></h2>
+<p><a class="reference download internal" download="" href="../_downloads/9203a9d5b2b488ff1d64a823db546d13/nbeats_detalle.png"><span class="xref download myst"><img alt="Operaciones de nbeats" src="../_images/nbeats_detalle.png" /></span></a></p>
+<p>La reconstrucción de 168 valores y el pronóstico de 24 valores son dos salidas del mismo bloque; solo la reconstrucción modifica la entrada del siguiente.</p>
+<p>El <a class="reference internal" href="fundamentos.html#esquemas-top10-detallados"><span class="std std-ref">código de generación de estos esquemas</span></a> conserva sus dimensiones y conexiones.</p>
+</section>
+<section id="codigo-de-la-arquitectura">
+<h2>Código de la arquitectura<a class="headerlink" href="#codigo-de-la-arquitectura" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">class</span><span class="w"> </span><span class="nc">_Base</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="linenos"> 6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">diagnostico</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="linenos"> 7</span>        <span class="k">return</span> <span class="p">{}</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span>    <span class="k">def</span><span class="w"> </span><span class="nf">n_parametros</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="linenos">10</span>        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">class</span><span class="w"> </span><span class="nc">_BloqueNBEATS</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="linenos">13</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_in</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">L</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">H</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ancho</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">capas</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="linenos">14</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<span class="linenos">15</span>        <span class="n">m</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">d_in</span>
+<span class="linenos">16</span>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">capas</span><span class="p">):</span>
+<span class="linenos">17</span>            <span class="n">m</span> <span class="o">+=</span> <span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">ancho</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()]</span> <span class="o">+</span> <span class="p">([</span><span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">)]</span> <span class="k">if</span> <span class="n">dropout</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[])</span>
+<span class="linenos">18</span>            <span class="n">d</span> <span class="o">=</span> <span class="n">ancho</span>
+<span class="linenos">19</span>        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>
+<span class="linenos">20</span>        <span class="bp">self</span><span class="o">.</span><span class="n">theta</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">ancho</span><span class="p">,</span> <span class="n">L</span> <span class="o">+</span> <span class="n">H</span><span class="p">)</span>        <span class="c1"># base genérica: identidad sobre theta</span>
+<span class="linenos">21</span>        <span class="bp">self</span><span class="o">.</span><span class="n">L</span> <span class="o">=</span> <span class="n">L</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entrada</span><span class="p">):</span>
+<span class="linenos">24</span>        <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">entrada</span><span class="p">))</span>
+<span class="linenos">25</span>        <span class="k">return</span> <span class="n">t</span><span class="p">[:,</span> <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">L</span><span class="p">],</span> <span class="n">t</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">L</span><span class="p">:]</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="k">class</span><span class="w"> </span><span class="nc">NBEATS</span><span class="p">(</span><span class="n">_Base</span><span class="p">):</span>
+<span class="linenos">28</span><span class="w">    </span><span class="sd">"""N-BEATS-G (Oreshkin et al., ICLR 2020): 30 pilas de 1 bloque, 4 capas de 512, base genérica, residuo doble.</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="sd">    Adaptación declarada: además del residuo de la demanda (168), cada bloque recibe las últimas 24 h de las demás</span>
+<span class="linenos">31</span><span class="sd">    entradas históricas y sus indicadores de ausencia y el calendario de las 24 h futuras. La salida es la suma de</span>
+<span class="linenos">32</span><span class="sd">    los pronósticos parciales de los bloques (en unidades de demanda / nivel - 1)."""</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">n_x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n_cal</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">L</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">H</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="linenos">35</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<span class="linenos">36</span>        <span class="bp">self</span><span class="o">.</span><span class="n">L</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span> <span class="o">=</span> <span class="n">L</span><span class="p">,</span> <span class="n">H</span>
+<span class="linenos">37</span>        <span class="n">pilas</span><span class="p">,</span> <span class="n">ancho</span><span class="p">,</span> <span class="n">capas</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"pilas"</span><span class="p">,</span> <span class="mi">30</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ancho"</span><span class="p">,</span> <span class="mi">512</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"capas_fc"</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="linenos">38</span>        <span class="n">d_in</span> <span class="o">=</span> <span class="n">L</span> <span class="o">+</span> <span class="mi">24</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">H</span> <span class="o">*</span> <span class="n">n_cal</span>
+<span class="linenos">39</span>        <span class="bp">self</span><span class="o">.</span><span class="n">bloques</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">([</span><span class="n">_BloqueNBEATS</span><span class="p">(</span><span class="n">d_in</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">ancho</span><span class="p">,</span> <span class="n">capas</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s2">"dropout"</span><span class="p">]))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pilas</span><span class="p">)])</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cal_p</span><span class="p">,</span> <span class="n">cal_f</span><span class="p">,</span> <span class="n">dia</span><span class="p">):</span>
+<span class="linenos">42</span>        <span class="n">r</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                                  <span class="c1"># residuo de la demanda (orden inverso como en el artículo)</span>
+<span class="linenos">43</span>        <span class="n">exo</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">24</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">44</span>        <span class="n">fut</span> <span class="o">=</span> <span class="n">cal_f</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">45</span>        <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="linenos">46</span>        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bloques</span><span class="p">:</span>
+<span class="linenos">47</span>            <span class="n">back</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">r</span><span class="p">,</span> <span class="n">exo</span><span class="p">,</span> <span class="n">fut</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos">48</span>            <span class="n">r</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">back</span>
+<span class="linenos">49</span>            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">f</span>
+<span class="linenos">50</span>        <span class="k">return</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+</section>
+<section id="pipeline-de-entrenamiento-y-prueba">
+<h2>Pipeline de entrenamiento y prueba<a class="headerlink" href="#pipeline-de-entrenamiento-y-prueba" title="Link to this heading">#</a></h2>
+<!-- entrenamiento-portable:inicio -->
+<section id="comandos-de-entrenamiento-y-evaluacion">
+<h3>Comandos de entrenamiento y evaluación<a class="headerlink" href="#comandos-de-entrenamiento-y-evaluacion" title="Link to this heading">#</a></h3>
+<p>Validación temporal de la configuración seleccionada:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/entrenar_arquitectura.py<span class="w"> </span>--modelo<span class="w"> </span>nbeats<span class="w"> </span>--anio<span class="w"> </span><span class="m">2021</span><span class="w"> </span>--semilla<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--dispositivo<span class="w"> </span>auto<span class="w"> </span>--salida<span class="w"> </span>salidas/nbeats_validacion_1000
+</pre></div>
+</div>
+<p>Comprobación funcional breve:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/entrenar_arquitectura.py<span class="w"> </span>--modelo<span class="w"> </span>nbeats<span class="w"> </span>--smoke<span class="w"> </span>--dispositivo<span class="w"> </span>cpu<span class="w"> </span>--salida<span class="w"> </span>salidas/nbeats_funcional
+</pre></div>
+</div>
+<p>Evaluación final autorizada, con ajuste y parada anteriores a 2022:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/entrenar_arquitectura.py<span class="w"> </span>--modelo<span class="w"> </span>nbeats<span class="w"> </span>--fase<span class="w"> </span>prueba<span class="w"> </span>--allow-test<span class="w"> </span>--semilla<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--dispositivo<span class="w"> </span>auto<span class="w"> </span>--salida<span class="w"> </span>salidas/nbeats_prueba_1000
+</pre></div>
+</div>
+<p>El código completo de preparación, optimización, guardado y restauración está en el <a class="reference internal" href="fundamentos.html#entrenamiento-portable"><span class="std std-ref">pipeline ejecutable compartido</span></a>. Cada salida debe ser una carpeta nueva.</p>
+<!-- entrenamiento-portable:fin -->
+<p>Se comparan 20 configuraciones en 2018; cinco finalistas se evalúan en 2019–2021 y se selecciona la menor media de los cuatro años. El ajuste final utiliza cinco semillas (1000–1004), máximo de 200 épocas, mínimo de 10 y paciencia de 6. El checkpoint se restaura en el mínimo de parada interna. La reserva contiene 803 orígenes de 2019-10-21 a 2021-12-31; la prueba comprende 1.461 orígenes de 2022–2025. Las imputaciones y escalas se ajustan con el tramo de entrenamiento. Precio, hidrología y clima se usan como historia con sus rezagos de disponibilidad.</p>
+</section>
+<section id="preparacion-de-datos">
+<h3>Preparación de datos<a class="headerlink" href="#preparacion-de-datos" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">"""Datos numéricos del contrato común (30 históricas + 23 de calendario) por pliegue.</span>
+<span class="linenos">  2</span>
+<span class="linenos">  3</span><span class="sd">Reglas que se cumplen aquí:</span>
+<span class="linenos">  4</span><span class="sd">  * el panel y sus rezagos de disponibilidad no se modifican; el clima recibe el rezago</span>
+<span class="linenos">  5</span><span class="sd">    de diseño (168 h) mediante ``demanda.diseno_numerico.preparar_numericas_comunes``;</span>
+<span class="linenos">  6</span><span class="sd">  * medianas de imputación, medias y desviaciones se estiman solo con las filas de</span>
+<span class="linenos">  7</span><span class="sd">    ajuste de cada pliegue (sin parada interna, validación ni prueba);</span>
+<span class="linenos">  8</span><span class="sd">  * la demanda se divide por el nivel de su ventana y se centra con la dispersión de</span>
+<span class="linenos">  9</span><span class="sd">    ajuste, igual que el motor v3; la etiqueta es ``y / nivel``;</span>
+<span class="linenos"> 10</span><span class="sd">  * las entradas ``x_*`` solo se leen en filas anteriores al origen.</span>
+<span class="linenos"> 11</span><span class="sd">"""</span>
+<span class="linenos"> 12</span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span><span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="linenos"> 15</span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="linenos"> 16</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos"> 17</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 20</span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span><span class="kn">from</span><span class="w"> </span><span class="nn">demanda</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span> <span class="k">as</span> <span class="n">C</span>
+<span class="linenos"> 23</span><span class="kn">from</span><span class="w"> </span><span class="nn">demanda</span><span class="w"> </span><span class="kn">import</span> <span class="n">particion</span> <span class="k">as</span> <span class="n">P</span>
+<span class="linenos"> 24</span><span class="kn">from</span><span class="w"> </span><span class="nn">demanda.diseno_numerico</span><span class="w"> </span><span class="kn">import</span> <span class="n">preparar_numericas_comunes</span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span><span class="n">BLOQUES</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"precio"</span><span class="p">:</span> <span class="s2">"x_precio_"</span><span class="p">,</span> <span class="s2">"hidrologia"</span><span class="p">:</span> <span class="s2">"x_hid_"</span><span class="p">,</span> <span class="s2">"clima"</span><span class="p">:</span> <span class="s2">"x_obs_"</span><span class="p">}</span>
+<span class="linenos"> 27</span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span><span class="k">def</span><span class="w"> </span><span class="nf">sha256</span><span class="p">(</span><span class="n">ruta</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="linenos"> 30</span>    <span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
+<span class="linenos"> 31</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ruta</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 32</span>        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">20</span><span class="p">),</span> <span class="sa">b</span><span class="s2">""</span><span class="p">):</span>
+<span class="linenos"> 33</span>            <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="linenos"> 34</span>    <span class="k">return</span> <span class="n">h</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span><span class="nd">@dataclass</span>
+<span class="linenos"> 38</span><span class="k">class</span><span class="w"> </span><span class="nc">Conjunto</span><span class="p">:</span>
+<span class="linenos"> 39</span>    <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>        <span class="c1"># (n, L, n_hist + n_mascaras) normalizado; columna 0 = demanda</span>
+<span class="linenos"> 40</span>    <span class="n">cal_p</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>    <span class="c1"># (n, L, n_cal)</span>
+<span class="linenos"> 41</span>    <span class="n">cal_f</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>    <span class="c1"># (n, H, n_cal)</span>
+<span class="linenos"> 42</span>    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>        <span class="c1"># (n, H) kWh</span>
+<span class="linenos"> 43</span>    <span class="n">nivel</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>    <span class="c1"># (n,) media de la demanda en la ventana</span>
+<span class="linenos"> 44</span>    <span class="n">origen</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span>
+<span class="linenos"> 45</span>    <span class="n">dia</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>      <span class="c1"># (n,) índice del día del origen en la tabla de días de texto</span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 48</span>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos"> 49</span>
+<span class="linenos"> 50</span>    <span class="nd">@property</span>
+<span class="linenos"> 51</span>    <span class="k">def</span><span class="w"> </span><span class="nf">y_norm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="linenos"> 52</span>        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">nivel</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">)</span>
+<span class="linenos"> 53</span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span><span class="k">class</span><span class="w"> </span><span class="nc">DatosNumericos</span><span class="p">:</span>
+<span class="linenos"> 56</span><span class="w">    </span><span class="sd">"""Carga el panel congelado y prepara ventanas bajo el contrato numérico común."""</span>
+<span class="linenos"> 57</span>
+<span class="linenos"> 58</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raiz</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">verificar_hash</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="linenos"> 59</span>        <span class="bp">self</span><span class="o">.</span><span class="n">raiz</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">raiz</span><span class="p">)</span>
+<span class="linenos"> 60</span>        <span class="bp">self</span><span class="o">.</span><span class="n">contrato</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">raiz</span> <span class="o">/</span> <span class="s2">"config"</span> <span class="o">/</span> <span class="s2">"diseno_entrenamiento_texto.json"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">))</span>
+<span class="linenos"> 61</span>        <span class="n">ruta_panel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raiz</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"processed"</span> <span class="o">/</span> <span class="s2">"panel_horario.parquet"</span>
+<span class="linenos"> 62</span>        <span class="bp">self</span><span class="o">.</span><span class="n">hash_panel</span> <span class="o">=</span> <span class="n">sha256</span><span class="p">(</span><span class="n">ruta_panel</span><span class="p">)</span>
+<span class="linenos"> 63</span>        <span class="k">if</span> <span class="n">verificar_hash</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_panel</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">contrato</span><span class="p">[</span><span class="s2">"panel_sha256"</span><span class="p">]:</span>
+<span class="linenos"> 64</span>            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"El panel no coincide con el SHA-256 del contrato; no se entrena con otro archivo"</span><span class="p">)</span>
+<span class="linenos"> 65</span>        <span class="n">panel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">ruta_panel</span><span class="p">)</span>
+<span class="linenos"> 66</span>        <span class="n">registro</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">raiz</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"processed"</span> <span class="o">/</span> <span class="s2">"feature_registry.json"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">))</span>
+<span class="linenos"> 67</span>        <span class="n">out</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">preparar_numericas_comunes</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span> <span class="n">registro</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">contrato</span><span class="p">)</span>
+<span class="linenos"> 68</span>        <span class="bp">self</span><span class="o">.</span><span class="n">hist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contrato</span><span class="p">[</span><span class="s2">"numericas"</span><span class="p">][</span><span class="s2">"historicas"</span><span class="p">])</span>
+<span class="linenos"> 69</span>        <span class="bp">self</span><span class="o">.</span><span class="n">cal</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contrato</span><span class="p">[</span><span class="s2">"numericas"</span><span class="p">][</span><span class="s2">"calendario"</span><span class="p">])</span>
+<span class="linenos"> 70</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"x_"</span> <span class="o">+</span> <span class="n">C</span><span class="o">.</span><span class="n">OBJETIVO</span><span class="p">:</span>
+<span class="linenos"> 71</span>            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"La demanda debe ser la primera variable histórica"</span><span class="p">)</span>
+<span class="linenos"> 72</span>        <span class="bp">self</span><span class="o">.</span><span class="n">indice</span> <span class="o">=</span> <span class="n">panel</span><span class="o">.</span><span class="n">index</span>
+<span class="linenos"> 73</span>        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">hist</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s2">"float64"</span><span class="p">)</span>
+<span class="linenos"> 74</span>        <span class="bp">self</span><span class="o">.</span><span class="n">K</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cal</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s2">"float64"</span><span class="p">)</span>
+<span class="linenos"> 75</span>        <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="n">panel</span><span class="p">[</span><span class="s2">"y_"</span> <span class="o">+</span> <span class="n">C</span><span class="o">.</span><span class="n">OBJETIVO</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s2">"float64"</span><span class="p">)</span>
+<span class="linenos"> 76</span>        <span class="bp">self</span><span class="o">.</span><span class="n">L</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contrato</span><span class="p">[</span><span class="s2">"ventana_h"</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contrato</span><span class="p">[</span><span class="s2">"horizonte_h"</span><span class="p">])</span>
+<span class="linenos"> 77</span>        <span class="bp">self</span><span class="o">.</span><span class="n">q168</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contrato</span><span class="p">[</span><span class="s2">"metrica"</span><span class="p">][</span><span class="s2">"q168_kwh"</span><span class="p">])</span>
+<span class="linenos"> 78</span>        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">K</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+<span class="linenos"> 79</span>            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"El calendario no puede tener ausencias"</span><span class="p">)</span>
+<span class="linenos"> 80</span>        <span class="c1"># Máscaras de ausencia: una por bloque cuando todas sus columnas comparten patrón; si no, una por columna.</span>
+<span class="linenos"> 81</span>        <span class="n">nan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+<span class="linenos"> 82</span>        <span class="bp">self</span><span class="o">.</span><span class="n">nombres_mascara</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="linenos"> 83</span>        <span class="k">for</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">prefijo</span> <span class="ow">in</span> <span class="n">BLOQUES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="linenos"> 84</span>            <span class="n">js</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hist</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefijo</span><span class="p">)]</span>
+<span class="linenos"> 85</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">js</span><span class="p">:</span>
+<span class="linenos"> 86</span>                <span class="k">continue</span>
+<span class="linenos"> 87</span>            <span class="k">if</span> <span class="nb">all</span><span class="p">((</span><span class="n">nan</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">nan</span><span class="p">[:,</span> <span class="n">js</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">js</span><span class="p">):</span>
+<span class="linenos"> 88</span>                <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nan</span><span class="p">[:,</span> <span class="n">js</span><span class="p">[</span><span class="mi">0</span><span class="p">]]);</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombres_mascara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ausente_"</span> <span class="o">+</span> <span class="n">nombre</span><span class="p">)</span>
+<span class="linenos"> 89</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 90</span>                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">js</span><span class="p">:</span>
+<span class="linenos"> 91</span>                    <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nan</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]);</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombres_mascara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ausente_"</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hist</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="linenos"> 92</span>        <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">)</span>
+<span class="linenos"> 93</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dia_base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">indice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+<span class="linenos"> 94</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_off_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">L</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 95</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_off_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">)</span>
+<span class="linenos"> 96</span>
+<span class="linenos"> 97</span>    <span class="c1"># ------------------------------------------------------------------ orígenes</span>
+<span class="linenos"> 98</span>    <span class="k">def</span><span class="w"> </span><span class="nf">elegibles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="linenos"> 99</span><span class="w">        </span><span class="sd">"""Orígenes con demanda completa en la ventana y en la etiqueta. Regla común a todas las variantes."""</span>
+<span class="linenos">100</span>        <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+<span class="linenos">101</span>        <span class="n">ok</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">pos</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_off_l</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">[</span><span class="n">pos</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_off_h</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">102</span>        <span class="k">return</span> <span class="n">pos</span><span class="p">[</span><span class="n">ok</span><span class="p">]</span>
+<span class="linenos">103</span>
+<span class="linenos">104</span>    <span class="k">def</span><span class="w"> </span><span class="nf">pliegues</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+<span class="linenos">105</span>        <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">contrato</span><span class="p">[</span><span class="s2">"validacion"</span><span class="p">]</span>
+<span class="linenos">106</span>        <span class="n">fs</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">folds_forward_chaining</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indice</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="s2">"anios"</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">L</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="s2">"fraccion_parada"</span><span class="p">])</span>
+<span class="linenos">107</span>        <span class="k">return</span> <span class="p">[{</span><span class="n">k</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elegibles</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">"anio"</span> <span class="k">else</span> <span class="n">f</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">f</span><span class="p">}</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fs</span><span class="p">]</span>
+<span class="linenos">108</span>
+<span class="linenos">109</span>    <span class="k">def</span><span class="w"> </span><span class="nf">ajuste_final</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="linenos">110</span>        <span class="n">tr</span><span class="p">,</span> <span class="n">es</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">pretest</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indice</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">L</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">contrato</span><span class="p">[</span><span class="s2">"validacion"</span><span class="p">][</span><span class="s2">"fraccion_parada"</span><span class="p">])</span>
+<span class="linenos">111</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">elegibles</span><span class="p">(</span><span class="n">tr</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">elegibles</span><span class="p">(</span><span class="n">es</span><span class="p">)</span>
+<span class="linenos">112</span>
+<span class="linenos">113</span>    <span class="k">def</span><span class="w"> </span><span class="nf">prueba</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="linenos">114</span><span class="w">        </span><span class="sd">"""Orígenes de la prueba retrospectiva 2022-2025. Solo se llama en la etapa final."""</span>
+<span class="linenos">115</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">elegibles</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">origenes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indice</span><span class="p">,</span> <span class="s2">"test"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">L</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">allow_test</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="linenos">116</span>
+<span class="linenos">117</span>    <span class="k">def</span><span class="w"> </span><span class="nf">dia_de</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="linenos">118</span>        <span class="k">return</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">indice</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">dia_base</span><span class="p">)</span> <span class="o">/</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"int64"</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="linenos">119</span>
+<span class="linenos">120</span>    <span class="c1"># ------------------------------------------------------------------- escalas</span>
+<span class="linenos">121</span>    <span class="k">def</span><span class="w"> </span><span class="nf">ajustar_escalas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos_tr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="linenos">122</span><span class="w">        </span><span class="sd">"""Estadísticos estimados solo con las filas de historia de los orígenes de ajuste."""</span>
+<span class="linenos">123</span>        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pos_tr</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">L</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">pos_tr</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>  <span class="c1"># filas [a, b): historia de todos los orígenes de ajuste</span>
+<span class="linenos">124</span>        <span class="n">Xa</span><span class="p">,</span> <span class="n">Ka</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">a</span><span class="p">:</span><span class="n">b</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">K</span><span class="p">[</span><span class="n">a</span><span class="p">:</span><span class="n">b</span><span class="p">]</span>
+<span class="linenos">125</span>        <span class="n">sin_datos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">Xa</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">126</span>        <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s2">"ignore"</span><span class="p">):</span>
+<span class="linenos">127</span>            <span class="n">mediana</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sin_datos</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sin_datos</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">Xa</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="linenos">128</span>            <span class="n">media</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sin_datos</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sin_datos</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">Xa</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="linenos">129</span>            <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sin_datos</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sin_datos</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">Xa</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos">130</span>        <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">std</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="linenos">131</span>        <span class="n">mc</span><span class="p">,</span> <span class="n">sc</span> <span class="o">=</span> <span class="n">Ka</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">Ka</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">132</span>        <span class="n">sc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sc</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="linenos">133</span>        <span class="n">dem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">pos_tr</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_off_l</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="linenos">134</span>        <span class="n">sigma</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">float</span><span class="p">((</span><span class="n">dem</span> <span class="o">/</span> <span class="n">dem</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span><span class="o">.</span><span class="n">std</span><span class="p">()),</span> <span class="mf">1e-6</span><span class="p">)</span>
+<span class="linenos">135</span>        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">mediana</span><span class="o">=</span><span class="n">mediana</span><span class="p">,</span> <span class="n">media</span><span class="o">=</span><span class="n">media</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="n">std</span><span class="p">,</span> <span class="n">media_cal</span><span class="o">=</span><span class="n">mc</span><span class="p">,</span> <span class="n">std_cal</span><span class="o">=</span><span class="n">sc</span><span class="p">,</span> <span class="n">sigma_demanda</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span>
+<span class="linenos">136</span>                    <span class="n">no_estimables</span><span class="o">=</span><span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hist</span><span class="p">,</span> <span class="n">sin_datos</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span><span class="p">],</span>
+<span class="linenos">137</span>                    <span class="n">inicio_ajuste</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indice</span><span class="p">[</span><span class="n">a</span><span class="p">]),</span> <span class="n">fin_ajuste</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indice</span><span class="p">[</span><span class="n">b</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">filas_ajuste</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">))</span>
+<span class="linenos">138</span>
+<span class="linenos">139</span>    <span class="k">def</span><span class="w"> </span><span class="nf">construir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">esc</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Conjunto</span><span class="p">:</span>
+<span class="linenos">140</span>        <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+<span class="linenos">141</span>        <span class="n">il</span><span class="p">,</span> <span class="n">ih</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_off_l</span><span class="p">,</span> <span class="n">pos</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_off_h</span>
+<span class="linenos">142</span>        <span class="n">xw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">il</span><span class="p">]</span>                                    <span class="c1"># (n, L, n_hist); solo filas anteriores al origen</span>
+<span class="linenos">143</span>        <span class="n">mascara</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="p">[</span><span class="n">il</span><span class="p">]</span>
+<span class="linenos">144</span>        <span class="n">xw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">xw</span><span class="p">),</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"mediana"</span><span class="p">],</span> <span class="n">xw</span><span class="p">)</span>
+<span class="linenos">145</span>        <span class="n">nivel</span> <span class="o">=</span> <span class="n">xw</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">146</span>        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">xw</span> <span class="o">-</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"media"</span><span class="p">])</span> <span class="o">/</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"std"</span><span class="p">]</span>
+<span class="linenos">147</span>        <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">xw</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">nivel</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"sigma_demanda"</span><span class="p">]</span>
+<span class="linenos">148</span>        <span class="n">cal_p</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">K</span><span class="p">[</span><span class="n">il</span><span class="p">]</span> <span class="o">-</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"media_cal"</span><span class="p">])</span> <span class="o">/</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"std_cal"</span><span class="p">]</span>
+<span class="linenos">149</span>        <span class="n">cal_f</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">K</span><span class="p">[</span><span class="n">ih</span><span class="p">]</span> <span class="o">-</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"media_cal"</span><span class="p">])</span> <span class="o">/</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"std_cal"</span><span class="p">]</span>
+<span class="linenos">150</span>        <span class="k">return</span> <span class="n">Conjunto</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">mascara</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">),</span> <span class="n">cal_p</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">),</span> <span class="n">cal_f</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">),</span>
+<span class="linenos">151</span>                        <span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">[</span><span class="n">ih</span><span class="p">],</span> <span class="n">nivel</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">indice</span><span class="p">[</span><span class="n">pos</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">dia_de</span><span class="p">(</span><span class="n">pos</span><span class="p">))</span>
+<span class="linenos">152</span>
+<span class="linenos">153</span>    <span class="c1"># ---------------------------------------------------------------- referencias</span>
+<span class="linenos">154</span>    <span class="k">def</span><span class="w"> </span><span class="nf">ingenuos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="linenos">155</span><span class="w">        </span><span class="sd">"""Ingenuos diario y semanal con la misma disponibilidad que los modelos (kWh)."""</span>
+<span class="linenos">156</span>        <span class="n">lag</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">REZAGO_H</span><span class="p">[</span><span class="s2">"demanda_real"</span><span class="p">]</span>
+<span class="linenos">157</span>        <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">158</span>        <span class="k">for</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">base</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">"ingenuo_24h"</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span> <span class="p">(</span><span class="s2">"ingenuo_168h"</span><span class="p">,</span> <span class="mi">168</span><span class="p">)):</span>
+<span class="linenos">159</span>            <span class="n">pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">))</span>
+<span class="linenos">160</span>            <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">):</span>
+<span class="linenos">161</span>                <span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">h</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">lag</span><span class="p">)</span> <span class="o">/</span> <span class="n">base</span><span class="p">))</span> <span class="k">if</span> <span class="n">base</span> <span class="o">==</span> <span class="mi">24</span> <span class="k">else</span> <span class="mi">1</span>
+<span class="linenos">162</span>                <span class="n">pred</span><span class="p">[:,</span> <span class="n">h</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">[</span><span class="n">pos</span> <span class="o">+</span> <span class="n">h</span> <span class="o">-</span> <span class="n">base</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="linenos">163</span>            <span class="n">out</span><span class="p">[</span><span class="n">nombre</span><span class="p">]</span> <span class="o">=</span> <span class="n">pred</span>
+<span class="linenos">164</span>        <span class="k">return</span> <span class="n">out</span>
+<span class="linenos">165</span>
+<span class="linenos">166</span>    <span class="k">def</span><span class="w"> </span><span class="nf">mase_por_origen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">yhat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="linenos">167</span>        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">yhat</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">q168</span>
+<span class="linenos">168</span>
+<span class="linenos">169</span>
+<span class="linenos">170</span><span class="k">def</span><span class="w"> </span><span class="nf">escalas_a_json</span><span class="p">(</span><span class="n">esc</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">datos</span><span class="p">:</span> <span class="n">DatosNumericos</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="linenos">171</span>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">columnas_historicas</span><span class="o">=</span><span class="n">datos</span><span class="o">.</span><span class="n">hist</span><span class="p">,</span> <span class="n">columnas_calendario</span><span class="o">=</span><span class="n">datos</span><span class="o">.</span><span class="n">cal</span><span class="p">,</span> <span class="n">mascaras</span><span class="o">=</span><span class="n">datos</span><span class="o">.</span><span class="n">nombres_mascara</span><span class="p">,</span>
+<span class="linenos">172</span>                <span class="n">mediana</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">hist</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"mediana"</span><span class="p">]))),</span> <span class="n">media</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">hist</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"media"</span><span class="p">]))),</span>
+<span class="linenos">173</span>                <span class="n">std</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">hist</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"std"</span><span class="p">]))),</span> <span class="n">media_calendario</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">cal</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"media_cal"</span><span class="p">]))),</span>
+<span class="linenos">174</span>                <span class="n">std_calendario</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">cal</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"std_cal"</span><span class="p">]))),</span> <span class="n">sigma_demanda</span><span class="o">=</span><span class="n">esc</span><span class="p">[</span><span class="s2">"sigma_demanda"</span><span class="p">],</span>
+<span class="linenos">175</span>                <span class="n">no_estimables</span><span class="o">=</span><span class="n">esc</span><span class="p">[</span><span class="s2">"no_estimables"</span><span class="p">],</span> <span class="n">inicio_ajuste</span><span class="o">=</span><span class="n">esc</span><span class="p">[</span><span class="s2">"inicio_ajuste"</span><span class="p">],</span> <span class="n">fin_ajuste</span><span class="o">=</span><span class="n">esc</span><span class="p">[</span><span class="s2">"fin_ajuste"</span><span class="p">],</span>
+<span class="linenos">176</span>                <span class="n">filas_ajuste</span><span class="o">=</span><span class="n">esc</span><span class="p">[</span><span class="s2">"filas_ajuste"</span><span class="p">],</span> <span class="n">q168_kwh</span><span class="o">=</span><span class="n">datos</span><span class="o">.</span><span class="n">q168</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="seleccion-y-ajuste-con-parada-temprana">
+<h3>Selección y ajuste con parada temprana<a class="headerlink" href="#seleccion-y-ajuste-con-parada-temprana" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">modelo_estandar</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">configs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="linenos">2</span>    <span class="n">finalistas</span> <span class="o">=</span> <span class="n">PR</span><span class="o">.</span><span class="n">etapa_busqueda</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">configs</span><span class="p">)</span>
+<span class="linenos">3</span>    <span class="n">elegidas</span> <span class="o">=</span> <span class="n">PR</span><span class="o">.</span><span class="n">etapa_pliegues</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">configs</span><span class="p">,</span> <span class="n">finalistas</span><span class="p">)</span>
+<span class="linenos">4</span>    <span class="k">return</span> <span class="n">finales_con_costes</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">configs</span><span class="p">,</span> <span class="n">elegidas</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">corrida</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Contexto</span><span class="p">,</span> <span class="n">variante</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">semilla</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">clave_datos</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">carpeta</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">nombre_ev</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="linenos"> 2</span>            <span class="n">guardar_modelo</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">opciones</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">permutar</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">medir</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="sd">"""Entrena una configuración con una semilla y evalúa en ``pos['ev']``. Reanudable.</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="sd">    ``opciones`` reemplaza el presupuesto (fase 1 de §14); ``permutar`` permuta las etiquetas de ajuste y parada</span>
+<span class="linenos"> 6</span><span class="sd">    (prueba de sanidad de §10); ``medir`` registra FLOPs, memoria pico, energía y latencia (corridas finales)."""</span>
+<span class="linenos"> 7</span>    <span class="n">carpeta</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">carpeta</span><span class="p">)</span>
+<span class="linenos"> 8</span>    <span class="n">rr</span> <span class="o">=</span> <span class="n">carpeta</span> <span class="o">/</span> <span class="s2">"resultado.json"</span>
+<span class="linenos"> 9</span>    <span class="n">etiqueta</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">variante</span><span class="si">}</span><span class="s2"> cfg </span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2"> semilla </span><span class="si">{</span><span class="n">semilla</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">nombre_ev</span><span class="si">}</span><span class="s2">"</span>
+<span class="linenos">10</span>    <span class="k">if</span> <span class="n">rr</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<span class="linenos">11</span>        <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">barra</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">12</span>            <span class="n">ctx</span><span class="o">.</span><span class="n">barra</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">13</span>        <span class="k">return</span> <span class="n">leer_json</span><span class="p">(</span><span class="n">rr</span><span class="p">)</span>
+<span class="linenos">14</span>    <span class="n">carpeta</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">15</span>    <span class="n">datos</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">datos</span>
+<span class="linenos">16</span>    <span class="n">esc</span><span class="p">,</span> <span class="n">conj</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">conjuntos</span><span class="p">(</span><span class="n">clave_datos</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="k">if</span> <span class="n">permutar</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">18</span>        <span class="n">conj</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">conj</span><span class="p">,</span> <span class="n">tr</span><span class="o">=</span><span class="n">_permutar_etiquetas</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"tr"</span><span class="p">],</span> <span class="n">permutar</span><span class="p">),</span> <span class="n">es</span><span class="o">=</span><span class="n">_permutar_etiquetas</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"es"</span><span class="p">],</span> <span class="n">permutar</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="linenos">19</span>    <span class="n">opc</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">opciones</span><span class="p">,</span> <span class="o">**</span><span class="p">(</span><span class="n">opciones</span> <span class="ow">or</span> <span class="p">{}))</span>
+<span class="linenos">20</span>    <span class="n">texto</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">21</span>    <span class="k">if</span> <span class="n">variante</span> <span class="o">==</span> <span class="s2">"N+O"</span><span class="p">:</span>
+<span class="linenos">22</span>        <span class="n">texto</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">vectores</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">texto</span><span class="p">[</span><span class="s2">"vectores"</span><span class="p">]),</span> <span class="n">lista</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">texto</span><span class="p">[</span><span class="s2">"lista"</span><span class="p">]))</span>
+<span class="linenos">23</span>    <span class="n">desc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">descripciones</span><span class="p">)</span> <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">descripciones</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="linenos">24</span>    <span class="n">dispositivos</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctx</span><span class="o">.</span><span class="n">dispositivo</span><span class="p">]</span> <span class="o">+</span> <span class="p">([</span><span class="s2">"cpu"</span><span class="p">]</span> <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">dispositivo</span> <span class="o">!=</span> <span class="s2">"cpu"</span> <span class="k">else</span> <span class="p">[])</span>
+<span class="linenos">25</span>    <span class="k">for</span> <span class="n">intento</span><span class="p">,</span> <span class="n">dev</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dispositivos</span><span class="p">):</span>
+<span class="linenos">26</span>        <span class="k">try</span><span class="p">:</span>
+<span class="linenos">27</span>            <span class="n">motor</span><span class="o">.</span><span class="n">fijar_semilla</span><span class="p">(</span><span class="n">semilla</span><span class="p">)</span>
+<span class="linenos">28</span>            <span class="n">red</span> <span class="o">=</span> <span class="n">redes</span><span class="o">.</span><span class="n">construir</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"paquete"</span><span class="p">][</span><span class="s2">"red"</span><span class="p">],</span> <span class="n">p</span><span class="p">,</span> <span class="n">conj</span><span class="p">[</span><span class="s2">"tr"</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">conj</span><span class="p">[</span><span class="s2">"tr"</span><span class="p">]</span><span class="o">.</span><span class="n">cal_p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">datos</span><span class="o">.</span><span class="n">L</span><span class="p">,</span> <span class="n">datos</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">texto</span><span class="p">,</span> <span class="n">desc</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+<span class="linenos">29</span>            <span class="n">medidor</span> <span class="o">=</span> <span class="n">costes</span><span class="o">.</span><span class="n">Medidor</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span> <span class="k">if</span> <span class="n">medir</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="linenos">30</span>            <span class="n">tens</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">motor</span><span class="o">.</span><span class="n">a_tensores</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dev</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">conj</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span>            <span class="k">def</span><span class="w"> </span><span class="nf">observador</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">_e</span><span class="o">=</span><span class="n">etiqueta</span><span class="p">):</span>
+<span class="linenos">33</span>                <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">barra</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">34</span>                    <span class="n">ctx</span><span class="o">.</span><span class="n">barra</span><span class="o">.</span><span class="n">set_postfix_str</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">_e</span><span class="si">}</span><span class="s2"> | época </span><span class="si">{</span><span class="n">h</span><span class="p">[</span><span class="s1">'epoca'</span><span class="p">]</span><span class="si">}</span><span class="s2"> | parada </span><span class="si">{</span><span class="n">h</span><span class="p">[</span><span class="s1">'perdida_parada'</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">refresh</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span>            <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="linenos">37</span>            <span class="k">if</span> <span class="n">medidor</span><span class="p">:</span>
+<span class="linenos">38</span>                <span class="n">medidor</span><span class="o">.</span><span class="n">iniciar</span><span class="p">()</span>
+<span class="linenos">39</span>            <span class="n">info</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">entrenar</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">tens</span><span class="p">[</span><span class="s2">"tr"</span><span class="p">],</span> <span class="n">tens</span><span class="p">[</span><span class="s2">"es"</span><span class="p">],</span> <span class="n">p</span><span class="p">,</span> <span class="n">semilla</span><span class="p">,</span> <span class="n">opc</span><span class="p">,</span> <span class="n">observador</span><span class="p">)</span>
+<span class="linenos">40</span>            <span class="k">if</span> <span class="n">medidor</span><span class="p">:</span>
+<span class="linenos">41</span>                <span class="n">medidor</span><span class="o">.</span><span class="n">detener</span><span class="p">()</span>
+<span class="linenos">42</span>            <span class="n">le</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">opc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"lote_evaluacion"</span><span class="p">,</span> <span class="mi">256</span><span class="p">))</span>
+<span class="linenos">43</span>            <span class="n">t_inf</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="linenos">44</span>            <span class="n">yhat</span><span class="p">,</span> <span class="n">met</span> <span class="o">=</span> <span class="n">_evaluar</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">conj</span><span class="p">[</span><span class="s2">"ev"</span><span class="p">],</span> <span class="n">tens</span><span class="p">[</span><span class="s2">"ev"</span><span class="p">],</span> <span class="n">le</span><span class="p">)</span>
+<span class="linenos">45</span>            <span class="n">t_inf</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t_inf</span>
+<span class="linenos">46</span>            <span class="n">mase_tr</span> <span class="o">=</span> <span class="n">_evaluar</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">conj</span><span class="p">[</span><span class="s2">"tr"</span><span class="p">],</span> <span class="n">tens</span><span class="p">[</span><span class="s2">"tr"</span><span class="p">],</span> <span class="n">le</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="s2">"MASE"</span><span class="p">]</span>
+<span class="linenos">47</span>            <span class="n">mase_es</span> <span class="o">=</span> <span class="n">_evaluar</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">conj</span><span class="p">[</span><span class="s2">"es"</span><span class="p">],</span> <span class="n">tens</span><span class="p">[</span><span class="s2">"es"</span><span class="p">],</span> <span class="n">le</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="s2">"MASE"</span><span class="p">]</span>
+<span class="linenos">48</span>            <span class="k">break</span>
+<span class="linenos">49</span>        <span class="k">except</span> <span class="n">SIN_MEMORIA</span><span class="p">:</span>
+<span class="linenos">50</span>            <span class="k">if</span> <span class="n">intento</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">dispositivos</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">51</span>                <span class="k">raise</span>
+<span class="linenos">52</span>            <span class="n">ctx</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Memoria de GPU insuficiente en </span><span class="si">{</span><span class="n">etiqueta</span><span class="si">}</span><span class="s2">; esta corrida se repite en CPU."</span><span class="p">)</span>
+<span class="linenos">53</span>            <span class="n">red</span> <span class="o">=</span> <span class="n">tens</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">54</span>            <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">empty_cache</span><span class="p">()</span>
+<span class="linenos">55</span>    <span class="n">res</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">variante</span><span class="o">=</span><span class="n">variante</span><span class="p">,</span> <span class="n">configuracion</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">semilla</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">semilla</span><span class="p">),</span> <span class="n">evaluacion</span><span class="o">=</span><span class="n">nombre_ev</span><span class="p">,</span> <span class="n">dispositivo</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">dev</span><span class="p">),</span>
+<span class="linenos">56</span>               <span class="n">n_parametros</span><span class="o">=</span><span class="n">red</span><span class="o">.</span><span class="n">n_parametros</span><span class="p">(),</span> <span class="n">epocas</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">"epocas"</span><span class="p">],</span> <span class="n">mejor_epoca</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">"mejor_epoca"</span><span class="p">],</span> <span class="n">mejor_perdida_parada</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">"mejor_perdida_parada"</span><span class="p">],</span>
+<span class="linenos">57</span>               <span class="n">segundos</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">n_ajuste</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"tr"</span><span class="p">]),</span> <span class="n">n_parada</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"es"</span><span class="p">]),</span> <span class="n">n_evaluacion</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"ev"</span><span class="p">]),</span>
+<span class="linenos">58</span>               <span class="n">origen_ajuste</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"tr"</span><span class="p">]</span><span class="o">.</span><span class="n">origen</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"tr"</span><span class="p">]</span><span class="o">.</span><span class="n">origen</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])],</span> <span class="n">origen_parada</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"es"</span><span class="p">]</span><span class="o">.</span><span class="n">origen</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"es"</span><span class="p">]</span><span class="o">.</span><span class="n">origen</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])],</span>
+<span class="linenos">59</span>               <span class="n">origen_evaluacion</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"ev"</span><span class="p">]</span><span class="o">.</span><span class="n">origen</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"ev"</span><span class="p">]</span><span class="o">.</span><span class="n">origen</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])],</span>
+<span class="linenos">60</span>               <span class="n">filas_escalas</span><span class="o">=</span><span class="p">[</span><span class="n">esc</span><span class="p">[</span><span class="s2">"inicio_ajuste"</span><span class="p">],</span> <span class="n">esc</span><span class="p">[</span><span class="s2">"fin_ajuste"</span><span class="p">]],</span> <span class="n">MASE_ajuste</span><span class="o">=</span><span class="n">mase_tr</span><span class="p">,</span> <span class="n">MASE_parada</span><span class="o">=</span><span class="n">mase_es</span><span class="p">,</span> <span class="n">metricas</span><span class="o">=</span><span class="n">met</span><span class="p">,</span>
+<span class="linenos">61</span>               <span class="n">mase_por_horizonte</span><span class="o">=</span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">MET</span><span class="o">.</span><span class="n">mase_por_horizonte</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"ev"</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">,</span> <span class="n">datos</span><span class="o">.</span><span class="n">q168</span><span class="p">)],</span> <span class="n">diagnostico</span><span class="o">=</span><span class="n">red</span><span class="o">.</span><span class="n">diagnostico</span><span class="p">(),</span>
+<span class="linenos">62</span>               <span class="n">presupuesto</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">max_epocas</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">opc</span><span class="p">[</span><span class="s2">"max_epocas"</span><span class="p">]),</span> <span class="n">min_epocas</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">opc</span><span class="p">[</span><span class="s2">"min_epocas"</span><span class="p">]),</span> <span class="n">paciencia</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">opc</span><span class="p">[</span><span class="s2">"paciencia"</span><span class="p">])),</span>
+<span class="linenos">63</span>               <span class="n">etiquetas_permutadas</span><span class="o">=</span><span class="n">permutar</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+<span class="linenos">64</span>    <span class="k">if</span> <span class="n">medidor</span><span class="p">:</span>
+<span class="linenos">65</span>        <span class="n">res</span><span class="p">[</span><span class="s2">"costes"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">medidor</span><span class="o">.</span><span class="n">resumen</span><span class="p">(),</span> <span class="o">**</span><span class="n">costes</span><span class="o">.</span><span class="n">flops_por_muestra</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">tens</span><span class="p">[</span><span class="s2">"ev"</span><span class="p">]),</span> <span class="n">latencia_ms_por_origen_lote</span><span class="o">=</span><span class="mi">1000</span> <span class="o">*</span> <span class="n">t_inf</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"ev"</span><span class="p">]))</span>
+<span class="linenos">66</span>    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">"historia"</span><span class="p">])</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">carpeta</span> <span class="o">/</span> <span class="s2">"historia.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">67</span>    <span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span><span class="n">carpeta</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"pred_</span><span class="si">{</span><span class="n">nombre_ev</span><span class="si">}</span><span class="s2">.npz"</span><span class="p">,</span> <span class="n">origen</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"ev"</span><span class="p">]</span><span class="o">.</span><span class="n">origen</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2">"</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">"U10"</span><span class="p">),</span> <span class="n">yhat_kwh</span><span class="o">=</span><span class="n">yhat</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">),</span>
+<span class="linenos">68</span>                        <span class="n">y_kwh</span><span class="o">=</span><span class="n">conj</span><span class="p">[</span><span class="s2">"ev"</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">),</span> <span class="n">mase_por_origen</span><span class="o">=</span><span class="n">datos</span><span class="o">.</span><span class="n">mase_por_origen</span><span class="p">(</span><span class="n">conj</span><span class="p">[</span><span class="s2">"ev"</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">))</span>
+<span class="linenos">69</span>    <span class="k">if</span> <span class="n">guardar_modelo</span><span class="p">:</span>
+<span class="linenos">70</span>        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">red</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="n">carpeta</span> <span class="o">/</span> <span class="s2">"modelo.pt"</span><span class="p">)</span>
+<span class="linenos">71</span>        <span class="n">guardar_json</span><span class="p">(</span><span class="n">carpeta</span> <span class="o">/</span> <span class="s2">"escaladores.json"</span><span class="p">,</span> <span class="n">escalas_a_json</span><span class="p">(</span><span class="n">esc</span><span class="p">,</span> <span class="n">datos</span><span class="p">))</span>
+<span class="linenos">72</span>    <span class="n">guardar_json</span><span class="p">(</span><span class="n">rr</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+<span class="linenos">73</span>    <span class="n">costes</span><span class="o">.</span><span class="n">registrar_mlflow</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">carpeta</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+<span class="linenos">74</span>    <span class="k">del</span> <span class="n">red</span><span class="p">,</span> <span class="n">tens</span>
+<span class="linenos">75</span>    <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">barra</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">76</span>        <span class="n">ctx</span><span class="o">.</span><span class="n">barra</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">77</span>    <span class="n">ctx</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">etiqueta</span><span class="si">}</span><span class="s2">: MASE </span><span class="si">{</span><span class="n">met</span><span class="p">[</span><span class="s1">'MASE'</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> | épocas </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">'epocas'</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">'segundos'</span><span class="p">]</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> s | </span><span class="si">{</span><span class="n">dev</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">consola</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">78</span>    <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+</div>
+</section>
+<section id="optimizacion-y-restauracion-del-checkpoint">
+<h3>Optimización y restauración del checkpoint<a class="headerlink" href="#optimizacion-y-restauracion-del-checkpoint" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">entrenar</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">tr</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">es</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">semilla</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">opciones</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">observador</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="sd">"""Ajusta ``red`` con ``tr`` y detiene con ``es``. Devuelve la historia y deja en ``red`` el mejor estado."""</span>
+<span class="linenos"> 3</span>    <span class="n">dev</span> <span class="o">=</span> <span class="n">tr</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span><span class="o">.</span><span class="n">device</span>
+<span class="linenos"> 4</span>    <span class="n">perdida</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">L1Loss</span><span class="p">()</span>
+<span class="linenos"> 5</span>    <span class="n">opt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">AdamW</span><span class="p">(</span><span class="n">red</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s2">"lr"</span><span class="p">]),</span> <span class="n">weight_decay</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s2">"weight_decay"</span><span class="p">]))</span>
+<span class="linenos"> 6</span>    <span class="n">plan</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">ReduceLROnPlateau</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 7</span>    <span class="n">mejor</span> <span class="o">=</span> <span class="n">referencia</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+<span class="linenos"> 8</span>    <span class="n">estado</span><span class="p">,</span> <span class="n">sin_mejora</span><span class="p">,</span> <span class="n">historia</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[]</span>
+<span class="linenos"> 9</span>    <span class="n">gen</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Generator</span><span class="p">()</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">semilla</span><span class="p">))</span>
+<span class="linenos">10</span>    <span class="n">lote</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s2">"lote"</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">tr</span><span class="p">[</span><span class="s2">"y"</span><span class="p">])</span>
+<span class="linenos">11</span>    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="linenos">12</span>    <span class="k">for</span> <span class="n">ep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">opciones</span><span class="p">[</span><span class="s2">"max_epocas"</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">13</span>        <span class="n">red</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<span class="linenos">14</span>        <span class="n">tot</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="linenos">15</span>        <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">generator</span><span class="o">=</span><span class="n">gen</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">lote</span><span class="p">):</span>
+<span class="linenos">16</span>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>      <span class="c1"># la normalización por lotes necesita más de una muestra</span>
+<span class="linenos">17</span>                <span class="k">continue</span>
+<span class="linenos">18</span>            <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+<span class="linenos">19</span>            <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">(</span><span class="n">set_to_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">20</span>            <span class="n">loss</span> <span class="o">=</span> <span class="n">perdida</span><span class="p">(</span><span class="n">_salida</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">tr</span><span class="p">,</span> <span class="n">ix</span><span class="p">),</span> <span class="n">tr</span><span class="p">[</span><span class="s2">"y"</span><span class="p">][</span><span class="n">ix</span><span class="p">])</span>
+<span class="linenos">21</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">torch</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">loss</span><span class="p">):</span>
+<span class="linenos">22</span>                <span class="k">raise</span> <span class="ne">FloatingPointError</span><span class="p">(</span><span class="s2">"Pérdida no finita"</span><span class="p">)</span>
+<span class="linenos">23</span>            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="linenos">24</span>            <span class="n">nn</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">clip_grad_norm_</span><span class="p">(</span><span class="n">red</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="nb">float</span><span class="p">(</span><span class="n">opciones</span><span class="p">[</span><span class="s2">"recorte_gradiente"</span><span class="p">]))</span>
+<span class="linenos">25</span>            <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="linenos">26</span>            <span class="n">tot</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
+<span class="linenos">27</span>        <span class="n">vl</span> <span class="o">=</span> <span class="n">_perdida</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">es</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">opciones</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"lote_evaluacion"</span><span class="p">,</span> <span class="mi">256</span><span class="p">)))</span>
+<span class="linenos">28</span>        <span class="n">historia</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">epoca</span><span class="o">=</span><span class="n">ep</span><span class="p">,</span> <span class="n">perdida_ajuste</span><span class="o">=</span><span class="n">tot</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span> <span class="n">perdida_parada</span><span class="o">=</span><span class="n">vl</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="n">opt</span><span class="o">.</span><span class="n">param_groups</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"lr"</span><span class="p">],</span> <span class="n">segundos</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="linenos">29</span>        <span class="k">if</span> <span class="n">vl</span> <span class="o">&lt;</span> <span class="n">mejor</span><span class="p">:</span>
+<span class="linenos">30</span>            <span class="n">mejor</span> <span class="o">=</span> <span class="n">vl</span>
+<span class="linenos">31</span>            <span class="n">estado</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">red</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="linenos">32</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">referencia</span><span class="p">)</span> <span class="ow">or</span> <span class="n">vl</span> <span class="o">&lt;</span> <span class="n">referencia</span> <span class="o">-</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">0.002</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">referencia</span><span class="p">)):</span>
+<span class="linenos">33</span>            <span class="n">referencia</span><span class="p">,</span> <span class="n">sin_mejora</span> <span class="o">=</span> <span class="n">vl</span><span class="p">,</span> <span class="mi">0</span>
+<span class="linenos">34</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">35</span>            <span class="n">sin_mejora</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">36</span>        <span class="n">plan</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">vl</span><span class="p">)</span>
+<span class="linenos">37</span>        <span class="k">if</span> <span class="n">observador</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">38</span>            <span class="n">observador</span><span class="p">(</span><span class="n">historia</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">39</span>        <span class="k">if</span> <span class="n">ep</span> <span class="o">&gt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">opciones</span><span class="p">[</span><span class="s2">"min_epocas"</span><span class="p">])</span> <span class="ow">and</span> <span class="n">sin_mejora</span> <span class="o">&gt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">opciones</span><span class="p">[</span><span class="s2">"paciencia"</span><span class="p">]):</span>
+<span class="linenos">40</span>            <span class="k">break</span>
+<span class="linenos">41</span>    <span class="n">red</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">estado</span><span class="p">)</span>
+<span class="linenos">42</span>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">epocas</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">historia</span><span class="p">),</span> <span class="n">mejor_epoca</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="n">h</span><span class="p">[</span><span class="s2">"perdida_parada"</span><span class="p">]</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">historia</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+<span class="linenos">43</span>                <span class="n">mejor_perdida_parada</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">mejor</span><span class="p">),</span> <span class="n">historia</span><span class="o">=</span><span class="n">historia</span><span class="p">,</span> <span class="n">segundos</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="prueba-por-origen-con-pesos-congelados">
+<h3>Prueba por origen con pesos congelados<a class="headerlink" href="#prueba-por-origen-con-pesos-congelados" title="Link to this heading">#</a></h3>
+<p>El siguiente código restaura la configuración y los escaladores del checkpoint y obtiene las métricas sin modificar los pesos. TimesNet se evalúa con lote uno.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="sd">"""Inferencia causal de checkpoints: un origen por llamada."""</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="nn">torch</span>
+<span class="linenos"> 4</span><span class="kn">from</span><span class="w"> </span><span class="nn">entrenamiento.datos</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatosNumericos</span>
+<span class="linenos"> 5</span><span class="kn">from</span><span class="w"> </span><span class="nn">entrenamiento.protocolo_e2</span><span class="w"> </span><span class="kn">import</span> <span class="n">_escalas</span>
+<span class="linenos"> 6</span><span class="kn">from</span><span class="w"> </span><span class="nn">entrenamiento.redes_e2</span><span class="w"> </span><span class="kn">import</span> <span class="n">construir</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">predecir_checkpoint</span><span class="p">(</span><span class="n">raiz_datos</span><span class="p">,</span><span class="n">carpeta_checkpoint</span><span class="p">,</span><span class="n">familia</span><span class="p">,</span><span class="n">origenes</span><span class="p">,</span><span class="n">dispositivo</span><span class="o">=</span><span class="s2">"cpu"</span><span class="p">):</span>
+<span class="linenos"> 9</span>    <span class="n">carpeta</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">carpeta_checkpoint</span><span class="p">)</span>
+<span class="linenos">10</span>    <span class="n">meta</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">carpeta</span><span class="o">/</span><span class="s2">"resultado.json"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf8"</span><span class="p">))</span>
+<span class="linenos">11</span>    <span class="n">escalas</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">carpeta</span><span class="o">/</span><span class="s2">"escaladores.json"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf8"</span><span class="p">))</span>
+<span class="linenos">12</span>    <span class="n">datos</span><span class="o">=</span><span class="n">DatosNumericos</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">raiz_datos</span><span class="p">))</span>
+<span class="linenos">13</span>    <span class="n">posiciones</span><span class="o">=</span><span class="n">datos</span><span class="o">.</span><span class="n">indice</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span><span class="n">origenes</span><span class="p">)</span>
+<span class="linenos">14</span>    <span class="k">assert</span> <span class="p">(</span><span class="n">posiciones</span><span class="o">&gt;=</span><span class="mi">168</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="linenos">15</span>    <span class="n">entradas</span><span class="o">=</span><span class="n">datos</span><span class="o">.</span><span class="n">construir</span><span class="p">(</span><span class="n">posiciones</span><span class="p">,</span><span class="n">_escalas</span><span class="p">(</span><span class="n">escalas</span><span class="p">,</span><span class="n">datos</span><span class="p">))</span>
+<span class="linenos">16</span>    <span class="n">red</span><span class="o">=</span><span class="n">construir</span><span class="p">(</span><span class="n">familia</span><span class="p">,</span><span class="n">meta</span><span class="p">[</span><span class="s2">"configuracion"</span><span class="p">],</span><span class="mi">33</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dispositivo</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="n">red</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">carpeta</span><span class="o">/</span><span class="s2">"modelo.pt"</span><span class="p">,</span><span class="n">map_location</span><span class="o">=</span><span class="n">dispositivo</span><span class="p">,</span><span class="n">weights_only</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span><span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">18</span>    <span class="n">red</span><span class="o">.</span><span class="n">eval</span><span class="p">();</span><span class="n">red</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">19</span>    <span class="n">resultados</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos">20</span>    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">():</span>
+<span class="linenos">21</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">origenes</span><span class="p">)):</span>
+<span class="linenos">22</span>            <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dispositivo</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span>
+<span class="linenos">23</span>                  <span class="p">[</span><span class="n">entradas</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">entradas</span><span class="o">.</span><span class="n">cal_p</span><span class="p">,</span><span class="n">entradas</span><span class="o">.</span><span class="n">cal_f</span><span class="p">,</span><span class="n">entradas</span><span class="o">.</span><span class="n">dia</span><span class="p">]]</span>
+<span class="linenos">24</span>            <span class="n">pred</span><span class="o">=</span><span class="n">red</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">entradas</span><span class="o">.</span><span class="n">nivel</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="linenos">25</span>            <span class="n">resultados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="n">pred</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
+<span class="linenos">27</span>    <span class="n">error</span><span class="o">=</span><span class="n">pred</span><span class="o">-</span><span class="n">entradas</span><span class="o">.</span><span class="n">y</span>
+<span class="linenos">28</span>    <span class="n">metricas</span><span class="o">=</span><span class="p">{</span><span class="s2">"MASE"</span><span class="p">:</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">/</span><span class="n">escalas</span><span class="p">[</span><span class="s2">"q168_kwh"</span><span class="p">]),</span>
+<span class="linenos">29</span>              <span class="s2">"MAE"</span><span class="p">:</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span><span class="s2">"RMSE"</span><span class="p">:</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">error</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()))}</span>
+<span class="linenos">30</span>    <span class="k">return</span> <span class="n">pred</span><span class="p">,</span><span class="n">metricas</span>
+</pre></div>
+</div>
+<p>Los resultados, curvas de cinco semillas, métricas por horizonte y comparaciones están en la <a class="reference internal" href="../10_evaluacion.html#evaluacion-e2"><span class="std std-ref">evaluación integrada</span></a>.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./arquitecturas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fusion.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">10.13. Fusión tardía de pronósticos numéricos y textuales</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="timesnet.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">10.15. TimesNet: variación temporal bidimensional</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-y-fundamentos">Arquitectura y fundamentos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esquema-global">Esquema global</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detalle-de-las-operaciones">Detalle de las operaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-la-arquitectura">Código de la arquitectura</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-de-entrenamiento-y-evaluacion">Comandos de entrenamiento y evaluación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-datos">Preparación de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-y-ajuste-con-parada-temprana">Selección y ajuste con parada temprana</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizacion-y-restauracion-del-checkpoint">Optimización y restauración del checkpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-por-origen-con-pesos-congelados">Prueba por origen con pesos congelados</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Fabian José Manrique Morelos y Gloria Bastidas Rodriguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Maestría en Estadística Aplicada · Universidad del Norte
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
