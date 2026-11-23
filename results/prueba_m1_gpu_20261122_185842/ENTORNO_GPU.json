@@ -1,0 +1,5 @@
+{
+ "nombre": "AMD Radeon Graphics",
+ "torch": "2.9.1+rocm6.4",
+ "rocm": "6.4.43484-123eb5128"
+}

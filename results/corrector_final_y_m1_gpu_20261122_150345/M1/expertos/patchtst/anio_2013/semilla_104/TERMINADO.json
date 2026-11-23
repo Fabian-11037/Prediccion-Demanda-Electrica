@@ -1,0 +1,43 @@
+{
+ "nombre": "patchtst",
+ "configuracion": {
+  "id": 18,
+  "nucleo": "patchtst",
+  "d_model": 64,
+  "capas": 2,
+  "cabezas": 4,
+  "dropout": 0.1,
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "lote": 32,
+  "d_texto": 24
+ },
+ "semilla": 104,
+ "red": "tats",
+ "n_parametros": 466480,
+ "ajuste": [
+  "2000-01-09 00:00:00-05:00",
+  "2011-09-14 00:00:00-05:00"
+ ],
+ "parada": [
+  "2011-09-15 00:00:00-05:00",
+  "2012-12-31 00:00:00-05:00"
+ ],
+ "opciones": {
+  "max_epocas": 200,
+  "min_epocas": 10,
+  "paciencia": 6,
+  "relativa": true,
+  "scheduler": true
+ },
+ "dispositivo": "cuda",
+ "epocas": 44,
+ "mejor_epoca": 38,
+ "mejor_perdida": 0.014591739104298349,
+ "segundos": 114.79138970375061,
+ "metricas": {
+  "MASE": 0.48641627578625163,
+  "MAE_kwh": 104880.05766968025,
+  "RMSE_kwh": 135579.50709027218
+ }
+}

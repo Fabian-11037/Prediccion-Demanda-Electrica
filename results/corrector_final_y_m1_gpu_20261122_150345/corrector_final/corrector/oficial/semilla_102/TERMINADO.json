@@ -1,0 +1,44 @@
+{
+ "variante": "oficial",
+ "desplazamiento": 0,
+ "semilla": 102,
+ "configuracion": {
+  "cabezas": 4,
+  "d": 32,
+  "dropout": 0.3,
+  "lote": 64,
+  "lr": 0.0003,
+  "weight_decay": 0.0001,
+  "id": 4
+ },
+ "fuentes": [
+  "CREG",
+  "Dinero",
+  "El Colombiano",
+  "El Espectador",
+  "El Tiempo",
+  "IDEAM",
+  "La República",
+  "MinEnergia",
+  "Portafolio",
+  "Presidencia",
+  "Semana",
+  "UPME",
+  "XM"
+ ],
+ "ajuste": [
+  "2012-01-01",
+  "2020-12-31"
+ ],
+ "parada": [
+  "2021-01-01",
+  "2021-12-31"
+ ],
+ "n_num": 77,
+ "n_feat": 7,
+ "n_fuentes": 13,
+ "epocas": 28,
+ "mejor_epoca": 20,
+ "mejor_perdida": 0.5270263534702667,
+ "segundos": 9.072406530380249
+}

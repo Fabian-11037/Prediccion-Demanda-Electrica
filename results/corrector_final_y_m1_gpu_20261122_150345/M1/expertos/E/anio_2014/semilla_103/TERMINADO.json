@@ -1,0 +1,21 @@
+{
+ "reutilizado": true,
+ "origen": "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/resultados_corrector_e3/residuos/anio_2014/semilla_103",
+ "sha256": "d5b1bc00534820c31cc2b8d9bcaee24d4b3eaa2538c634d58b8d397c72f8280e",
+ "configuracion": {
+  "id": 7,
+  "nucleo": "patchtst",
+  "d_model": 32,
+  "capas": 3,
+  "cabezas": 4,
+  "dropout": 0.1,
+  "lr": 0.001421,
+  "weight_decay": 0.001,
+  "lote": 32,
+  "rho": 0.02,
+  "ancho_correccion": 32
+ },
+ "semilla": 103,
+ "contrato": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf",
+ "panel": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15"
+}

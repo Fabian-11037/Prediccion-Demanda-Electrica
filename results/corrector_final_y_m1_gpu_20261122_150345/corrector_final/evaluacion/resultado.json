@@ -1,0 +1,39 @@
+{
+ "MASE": {
+  "E": 0.7485923767089844,
+  "C+R": 0.7367928624153137,
+  "num_horario": 0.6784905195236206,
+  "oficial_reciente": 0.677521824836731,
+  "oficial": 0.6770379543304443,
+  "oficial_prensa": 0.6893990635871887,
+  "metadatos": 0.6928949356079102,
+  "desalineado_49": 0.7005418539047241,
+  "desalineado_91": 0.694301187992096,
+  "desalineado_154": 0.6862790584564209,
+  "desalineado_217": 0.6876249313354492,
+  "desalineado_301": 0.6856425404548645,
+  "estricto": 0.6859289407730103,
+  "desalineado": 0.6908779740333557
+ },
+ "veredicto": {
+  "oficial": {
+   "aporte_del_texto_demostrado": false,
+   "reduccion_relevante_frente_a_CR": true,
+   "se_descarta_aporte_de_texto_de_3pct": true,
+   "cota_superior_ic_aporte_texto": 0.6786626219749448
+  },
+  "oficial_prensa": {
+   "aporte_del_texto_demostrado": false,
+   "reduccion_relevante_frente_a_CR": true,
+   "se_descarta_aporte_de_texto_de_3pct": true,
+   "cota_superior_ic_aporte_texto": 0.8011583715677261
+  }
+ },
+ "origenes": 1461,
+ "periodo": "2022-2025",
+ "semillas": [
+  101,
+  102,
+  103
+ ]
+}

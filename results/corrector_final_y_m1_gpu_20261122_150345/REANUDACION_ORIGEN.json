@@ -1,0 +1,7 @@
+{
+  "corrida_origen": "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150122",
+  "motivo": "Ajuste de instrumentación de restauración, ambas pasadas no_grad; misma arquitectura, pérdida, semilla y presupuesto",
+  "checkpoints": {
+    "corrector_final/base/semilla_101/reanudar.pt": "ead15ba21ebf4fea6eed0529dfe98ad2fd41da10e580832948acd4706a266045"
+  }
+}

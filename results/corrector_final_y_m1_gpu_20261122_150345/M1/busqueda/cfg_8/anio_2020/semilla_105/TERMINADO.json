@@ -1,0 +1,26 @@
+{
+ "configuracion": {
+  "id": 8,
+  "ancho": 64,
+  "dropout": 0.1,
+  "lambda_complementariedad": 0.1
+ },
+ "semilla": 105,
+ "auxiliar": true,
+ "n_parametros": 77136,
+ "epocas": 21,
+ "mejor_epoca": 11,
+ "mejor_perdida": 0.4253402243738305,
+ "segundos": 2.31074857711792,
+ "ajuste": [
+  "2011-01-01",
+  "2018-12-30"
+ ],
+ "parada": [
+  "2019-01-01",
+  "2019-12-31"
+ ],
+ "MASE": 0.5777686499826596,
+ "MAE_kwh": 124577.26508424408,
+ "RMSE_kwh": 181149.96260914914
+}

@@ -1,0 +1,9 @@
+{
+ "ventanas_sin_filas_desde_el_origen": true,
+ "escalas_solo_con_filas_de_ajuste": true,
+ "etiqueta_es_el_horizonte": true,
+ "ajuste_final_termina_antes_de_la_prueba": true,
+ "parada_posterior_al_ajuste_con_purga": true,
+ "pliegues_ordenados_en_el_tiempo": true,
+ "clima_en_las_entradas": true
+}

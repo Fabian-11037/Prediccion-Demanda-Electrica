@@ -1,0 +1,18 @@
+{
+ "fecha": "2026-11-22T18:47:32.352743-05:00",
+ "configuracion": {
+  "id": 8,
+  "ancho": 64,
+  "dropout": 0.1,
+  "lambda_complementariedad": 0.1
+ },
+ "semillas": [
+  101,
+  102,
+  103,
+  104,
+  105
+ ],
+ "prueba_m1_ejecutada": false,
+ "oof_anidado_para_M3_M4": "pendiente; no necesario para entrenar M1 sobre OOF de expertos"
+}

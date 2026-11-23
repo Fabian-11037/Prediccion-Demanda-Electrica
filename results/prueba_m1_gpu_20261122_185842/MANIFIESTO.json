@@ -1,0 +1,122 @@
+[
+ {
+  "archivo": "ENTORNO_GPU.json",
+  "bytes": 95,
+  "sha256": "5a31261de917a7ea9765ba49ce13d05565c2ff4c97c654b853218acd5a9103d8"
+ },
+ {
+  "archivo": "FINALIZADO.json",
+  "bytes": 185,
+  "sha256": "a7a9b50896429e5d6ee9ae2eb5e0839e4d873bd5dc36762e5fd43c8543102a6e"
+ },
+ {
+  "archivo": "INFORME.md",
+  "bytes": 3068,
+  "sha256": "935443652c245738dc76cdd4a7eb3127cfa9ef069a43a7f4cfe631c02318cd5b"
+ },
+ {
+  "archivo": "REGISTRO_PREVIO.json",
+  "bytes": 47246,
+  "sha256": "f26e3c735049689689c5cb17ed1759013f20fea2ce28ec8f6795a951492171b7"
+ },
+ {
+  "archivo": "VERIFICACION.json",
+  "bytes": 974,
+  "sha256": "a4d74ae82f3403e43fed369af98c1570660dd82239695b406a8299f6e6b94d68"
+ },
+ {
+  "archivo": "contrastes.csv",
+  "bytes": 1677,
+  "sha256": "a937ba80b9e24075fc897dfaf5ed96c5ccbf97f130ccfbd91e9df50a55767b3b"
+ },
+ {
+  "archivo": "ejecucion.log",
+  "bytes": 1448,
+  "sha256": "cfda041ba4fa7d991c9e21b87ae0701e2a62f3561fe9a01d5832345c0d7bbd92"
+ },
+ {
+  "archivo": "fuentes/e3_gpu_comun.py",
+  "bytes": 10195,
+  "sha256": "96d061911af2c612b5c77b44a24b227685dd6477591f7afc31d8a7515a1cc3a1"
+ },
+ {
+  "archivo": "fuentes/e3_modelo1.py",
+  "bytes": 12883,
+  "sha256": "69bf2675f3f44ce36274ef12f644eae05443cc931c8af5b31694b97ab8a5b74c"
+ },
+ {
+  "archivo": "fuentes/probar_m1_gpu.py",
+  "bytes": 15568,
+  "sha256": "0904809a09d2782aab35b017c4e5f4dfd1e28eef58ca08dc09d1027760ca05f3"
+ },
+ {
+  "archivo": "metricas_por_anio_semilla.csv",
+  "bytes": 10140,
+  "sha256": "a309c0db4981e8d586c20731cd68033200da78107a12d23dee1b9ad695561ddf"
+ },
+ {
+  "archivo": "metricas_por_hora_semilla.csv",
+  "bytes": 58593,
+  "sha256": "c2c84ee0b5ee53caaa7c418fdd4f93dc7a95a670652ec19c2baff61efbe8adeb"
+ },
+ {
+  "archivo": "metricas_por_semilla.csv",
+  "bytes": 2377,
+  "sha256": "f534c7570a6a0a057ec297f577bf5eab768caed8fd6266a39c3da0068f4ae5ff"
+ },
+ {
+  "archivo": "predicciones_semilla_101.csv.gz",
+  "bytes": 1729728,
+  "sha256": "0f09f600b06fd82c1ace51da8bd3608357ad5c9b85f8d302604f408ac83012ee"
+ },
+ {
+  "archivo": "predicciones_semilla_101.npz",
+  "bytes": 1630261,
+  "sha256": "c0ac3d74e060389febe0bd894356b6793fabedee99eacfe517cee9d8bfc1bfd1"
+ },
+ {
+  "archivo": "predicciones_semilla_102.csv.gz",
+  "bytes": 1729343,
+  "sha256": "29846d5fb5a09d101b76bdc390deb28028033c48d2edaf038f9b05877f81a151"
+ },
+ {
+  "archivo": "predicciones_semilla_102.npz",
+  "bytes": 1626919,
+  "sha256": "31a9d6dda79df071fd03f67dca0663fdfd1866256d40381e2e4c2937a217cb20"
+ },
+ {
+  "archivo": "predicciones_semilla_103.csv.gz",
+  "bytes": 1703337,
+  "sha256": "e42a22aaad8e3e19371eb412f8835a0d2c38553ef76db88c0bbcd2b22cc1f44b"
+ },
+ {
+  "archivo": "predicciones_semilla_103.npz",
+  "bytes": 1612909,
+  "sha256": "416e7505ceff82519f7b168b7f792c93b69dc62960c9db8b341a674741d8ff80"
+ },
+ {
+  "archivo": "predicciones_semilla_104.csv.gz",
+  "bytes": 1707923,
+  "sha256": "e61feb7a60932b64049c88c8175f23d623e9af0203eb75fb198556db4c2d9d62"
+ },
+ {
+  "archivo": "predicciones_semilla_104.npz",
+  "bytes": 1621104,
+  "sha256": "0d748906b061537b7ae8caedabb1ec1c352ea901ce0748d7a1dae0d87059c3c6"
+ },
+ {
+  "archivo": "predicciones_semilla_105.csv.gz",
+  "bytes": 1714881,
+  "sha256": "f25f7f9b2249deb164ad108dc1cfdaae8e5a0ca84900bde4db5396267e1f9179"
+ },
+ {
+  "archivo": "predicciones_semilla_105.npz",
+  "bytes": 1623710,
+  "sha256": "35af114c5552d14528b64cf2f841d46e467e6ad8f80bce9954bc471dd2a25081"
+ },
+ {
+  "archivo": "resumen_resultados.csv",
+  "bytes": 622,
+  "sha256": "239c136da95631a1a1e3ae34babeda7ca9c33f15a8e26df1a9efae02f67bf040"
+ }
+]

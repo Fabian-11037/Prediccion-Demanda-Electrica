@@ -1,0 +1,145 @@
+{
+ "version": "corrector-semantico-e3-v1",
+ "nota": "Corrector semántico por hora sobre E + C+R. Partición de desarrollo: ajuste 2012-2016/2017, selección 2018, evaluación 2019-2021. No lee la prueba 2022-2025 (ni su texto).",
+ "comun": {
+  "busqueda": {
+   "pliegue_inicial": 2018,
+   "pliegues_restantes": [
+    2019,
+    2020,
+    2021
+   ],
+   "semilla": 43,
+   "finalistas": 5
+  },
+  "entrenamiento": {
+   "max_epocas": 200,
+   "min_epocas": 10,
+   "paciencia": 6,
+   "recorte_gradiente": 1.0,
+   "lote_evaluacion": 256
+  },
+  "inferencia": {
+   "bloque_dias": 14,
+   "sensibilidad_bloque_dias": [
+    7,
+    28
+   ],
+   "remuestreos": 10000,
+   "semilla_bootstrap": 20261118,
+   "margen_relativo": 0.03
+  },
+  "semilla_base_final": 1000
+ },
+ "base": {
+  "nombre": "E",
+  "red": "original_E",
+  "config": {
+   "id": 7,
+   "nucleo": "patchtst",
+   "d_model": 32,
+   "capas": 3,
+   "cabezas": 4,
+   "dropout": 0.1,
+   "lr": 0.001421,
+   "weight_decay": 0.001,
+   "lote": 32,
+   "rho": 0.02,
+   "ancho_correccion": 32
+  },
+  "origen": "configuración elegida por validación en la etapa ajuste de la parte 1 del Entregable 3"
+ },
+ "semillas": [
+  101,
+  102,
+  103
+ ],
+ "residuos": {
+  "anios": [
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "nota": "E entrenado con los años anteriores a Y y evaluado en Y (forward chaining anual, misma regla de parada y purga)."
+ },
+ "cr": {
+  "alfa_sin_historial": 100.0,
+  "nota": "Para Y = 2012 solo hay un año previo: alfa fijo. Después, alfa elegido con el último año previo como validación."
+ },
+ "texto": {
+  "corpus_sha256": "e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c",
+  "ruta_por_defecto": "D:\\Documents\\Maestria\\Proyecto Final\\Prediccion-Demanda-Electrica-JBook\\data\\processed\\corpus_texto.parquet",
+  "version_corpus": "corpus_oficial_ampliado_20261120",
+  "disponibilidad_principal": "disponible_declarado",
+  "disponibilidad_sensibilidad": "disponible_estricto",
+  "desde": "2010-07-01",
+  "hasta": "2022-01-01",
+  "primer_dia_candidatos": "2010-11-01",
+  "ultimo_dia": "2021-12-31",
+  "caracteres_fragmento": 1500,
+  "solape_caracteres": 200,
+  "max_fragmentos_documento": 16,
+  "max_alineados": 32,
+  "max_oficial": 48,
+  "max_prensa": 48,
+  "ventana_h": 72,
+  "antiguedad_alineados_dias": 120
+ },
+ "corrector": {
+  "primer_anio_ajuste": 2012,
+  "anio_seleccion": 2018,
+  "anios_evaluacion": [
+   2019,
+   2020,
+   2021
+  ],
+  "rejilla": {
+   "d": [
+    32,
+    64
+   ],
+   "dropout": [
+    0.1,
+    0.3
+   ],
+   "lr": [
+    0.001,
+    0.0003
+   ],
+   "cabezas": [
+    4
+   ],
+   "lote": [
+    64
+   ],
+   "weight_decay": [
+    0.0001
+   ]
+  },
+  "max_epocas": 60,
+  "paciencia": 8,
+  "desplazamientos_placebo": [
+   49,
+   91,
+   154,
+   217,
+   301
+  ],
+  "nota": "La rejilla se evalúa solo con oficial_prensa en 2018 (ajuste 2012-2016, parada 2017) y la configuración elegida se usa en todas las variantes y controles. Para cada año Y de evaluación: ajuste 2012..Y-2, parada Y-1. Los desplazamientos del placebo son múltiplos de 7 para conservar el día de la semana de los documentos."
+ },
+ "evaluacion": {
+  "remuestreos": 9999,
+  "bloque_dias": 14,
+  "margen_pct": 3.0,
+  "regla": "Aporte del texto demostrado: oficial (u oficial_prensa) mejora a num_horario y, en el caso de oficial_prensa, también a metadatos y al texto desalineado (media de 5 desplazamientos), con p de Holm < 0,05 en la familia global de 10 contrastes. Reducción relevante: reducción frente a C+R >= 3 % con el límite inferior del IC > 0. Equivalencia: si el límite superior del IC de los contrastes de aporte del texto queda por debajo de 3 %, se descarta un aporte del texto de 3 %. Mismos contrastes en los días con un anuncio oficial alineado (definidos solo por el texto), en una familia aparte."
+ },
+ "transparencia": "Diseñado después de los diagnósticos de texto del 20 y 21 de noviembre y de conocer los resultados de prueba del Entregable 2. La alineación temporal depende de la disponibilidad declarada; la variante estricta es la sensibilidad. Suma 3 propuestas a N_d (oficial, oficial_prensa, oficial_reciente)."
+}

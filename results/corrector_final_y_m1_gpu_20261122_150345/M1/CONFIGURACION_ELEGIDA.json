@@ -1,0 +1,10 @@
+{
+ "configuracion": {
+  "id": 8,
+  "ancho": 64,
+  "dropout": 0.1,
+  "lambda_complementariedad": 0.1
+ },
+ "criterio": "Media de los cuatro folds y cinco semillas con pesos iguales",
+ "prueba_consultada_para_seleccion": false
+}

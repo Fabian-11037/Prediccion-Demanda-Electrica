@@ -1,0 +1,40 @@
+{
+ "semillas": [
+  {
+   "semilla": 101,
+   "rasgos_identicos_a_entrenamiento": true,
+   "invariancia_objetivos_presentes_futuros": true,
+   "restauracion_gpu": true
+  },
+  {
+   "semilla": 102,
+   "rasgos_identicos_a_entrenamiento": true,
+   "invariancia_objetivos_presentes_futuros": true,
+   "restauracion_gpu": true
+  },
+  {
+   "semilla": 103,
+   "rasgos_identicos_a_entrenamiento": true,
+   "invariancia_objetivos_presentes_futuros": true,
+   "restauracion_gpu": true
+  },
+  {
+   "semilla": 104,
+   "rasgos_identicos_a_entrenamiento": true,
+   "invariancia_objetivos_presentes_futuros": true,
+   "restauracion_gpu": true
+  },
+  {
+   "semilla": 105,
+   "rasgos_identicos_a_entrenamiento": true,
+   "invariancia_objetivos_presentes_futuros": true,
+   "restauracion_gpu": true
+  }
+ ],
+ "origenes": 1461,
+ "expertos_y_router_en_gpu": true,
+ "originales_conservados": true,
+ "q168": 215617.90361589016,
+ "n_entrada": 912,
+ "comprobacion_independiente_metricas_npz_csv": true
+}

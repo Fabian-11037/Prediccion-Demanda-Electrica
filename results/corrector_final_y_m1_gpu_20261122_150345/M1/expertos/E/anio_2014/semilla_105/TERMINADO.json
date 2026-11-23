@@ -1,0 +1,44 @@
+{
+ "nombre": "E",
+ "configuracion": {
+  "id": 7,
+  "nucleo": "patchtst",
+  "d_model": 32,
+  "capas": 3,
+  "cabezas": 4,
+  "dropout": 0.1,
+  "lr": 0.001421,
+  "weight_decay": 0.001,
+  "lote": 32,
+  "rho": 0.02,
+  "ancho_correccion": 32
+ },
+ "semilla": 105,
+ "red": "original_E",
+ "n_parametros": 242048,
+ "ajuste": [
+  "2000-01-09 00:00:00-05:00",
+  "2012-08-07 00:00:00-05:00"
+ ],
+ "parada": [
+  "2012-08-08 00:00:00-05:00",
+  "2013-12-31 00:00:00-05:00"
+ ],
+ "opciones": {
+  "max_epocas": 200,
+  "min_epocas": 10,
+  "paciencia": 6,
+  "relativa": true,
+  "scheduler": true
+ },
+ "dispositivo": "cuda",
+ "epocas": 67,
+ "mejor_epoca": 61,
+ "mejor_perdida": 0.014434190060571565,
+ "segundos": 146.39477348327637,
+ "metricas": {
+  "MASE": 0.530193960745555,
+  "MAE_kwh": 114319.31032576213,
+  "RMSE_kwh": 145730.21144827013
+ }
+}

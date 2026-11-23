@@ -1,0 +1,17 @@
+{
+ "salida": "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/prueba_m1_gpu_20261122_185842",
+ "estado": "finalizado",
+ "periodo": [
+  "2022-01-01",
+  "2025-12-31"
+ ],
+ "semillas": [
+  101,
+  102,
+  103,
+  104,
+  105
+ ],
+ "MASE_M1": 0.6349226681204502,
+ "MASE_NNLS": 0.6209035497746552
+}

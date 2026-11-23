@@ -1,0 +1,37 @@
+{
+ "fuentes": [
+  "CREG",
+  "Dinero",
+  "El Colombiano",
+  "El Espectador",
+  "El Tiempo",
+  "IDEAM",
+  "La República",
+  "MinEnergia",
+  "Portafolio",
+  "Presidencia",
+  "Semana",
+  "UPME",
+  "XM"
+ ],
+ "n_fuentes": 13,
+ "reservas": {
+  "alineados": [
+   0,
+   32
+  ],
+  "oficial": [
+   32,
+   80
+  ],
+  "prensa": [
+   80,
+   128
+  ]
+ },
+ "nuevos": 83166,
+ "reutilizados": 379036,
+ "candidatos_pre2022_identicos": true,
+ "disponibilidad_verificada": true,
+ "fuente_desconocida": 0
+}

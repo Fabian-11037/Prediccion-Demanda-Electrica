@@ -1,0 +1,668 @@
+{
+ "fecha": "2026-11-22T15:03:47.299146-05:00",
+ "autorizacion": "Evaluación final del corrector y luego entrenamiento M1; apagado al finalizar autorizado por el usuario.",
+ "corrector": {
+  "fecha": "2026-11-22",
+  "estado": "instrucciones_para_ejecucion_futura_en_gpu_no_iniciada",
+  "autorizacion": "El usuario autorizó el ajuste final y después pidió dejar instrucciones para hacerlo en otro PC con GPU; no ejecutar en este PC.",
+  "alcance": "Corrector como trabajo principal; confirmar si se incluye ensamble exportable o exploración completa antes de ejecutar esas extensiones.",
+  "prueba": {
+   "inicio": "2022-01-01",
+   "fin": "2025-12-31",
+   "origen": "00:00 America/Bogota",
+   "origenes_esperados": 1461,
+   "horizonte_h": 24,
+   "ventana_h": 168,
+   "metrica": "MASE",
+   "q168_kwh": 215617.90361589016,
+   "margen_relativo": 0.03,
+   "alpha": 0.05
+  },
+  "corrector": {
+   "base": {
+    "nombre": "E",
+    "red": "original_E",
+    "config": {
+     "id": 7,
+     "nucleo": "patchtst",
+     "d_model": 32,
+     "capas": 3,
+     "cabezas": 4,
+     "dropout": 0.1,
+     "lr": 0.001421,
+     "weight_decay": 0.001,
+     "lote": 32,
+     "rho": 0.02,
+     "ancho_correccion": 32
+    },
+    "origen": "configuración elegida por validación en la etapa ajuste de la parte 1 del Entregable 3"
+   },
+   "seleccion": {
+    "cabezas": 4,
+    "d": 32,
+    "dropout": 0.3,
+    "lote": 64,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "id": 4
+   },
+   "semillas": [
+    101,
+    102,
+    103
+   ],
+   "max_epocas": 60,
+   "paciencia": 8,
+   "variantes": [
+    "num_horario",
+    "oficial_reciente",
+    "oficial",
+    "oficial_prensa",
+    "metadatos"
+   ],
+   "desplazamientos_placebo": [
+    49,
+    91,
+    154,
+    217,
+    301
+   ],
+   "sha256_configuracion_elegida": "37b854b87b5136802764376bf225a07c4e4166612a2df9e74302f03a5099d74a"
+  },
+  "controles_exploracion": {
+   "patchtst": {
+    "configuracion": {
+     "id": 18,
+     "nucleo": "patchtst",
+     "d_model": 64,
+     "capas": 2,
+     "cabezas": 4,
+     "dropout": 0.1,
+     "lr": 0.001,
+     "weight_decay": 0.0001,
+     "lote": 32,
+     "d_texto": 24
+    },
+    "n_parametros": 466480,
+    "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/patchtst/control/pliegue_2019/semilla_101/resultado.json",
+    "sha256_fuente": "d0d2721f425bb275cf9aa68f360d320c3dd92263ffeb243e8e29545d36e2563c"
+   },
+   "E": {
+    "configuracion": {
+     "id": 7,
+     "nucleo": "patchtst",
+     "d_model": 32,
+     "capas": 3,
+     "cabezas": 4,
+     "dropout": 0.1,
+     "lr": 0.001421,
+     "weight_decay": 0.001,
+     "lote": 32,
+     "rho": 0.02,
+     "ancho_correccion": 32
+    },
+    "n_parametros": 242048,
+    "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/E/control/pliegue_2019/semilla_101/resultado.json",
+    "sha256_fuente": "196dcf856790557c46129954271b94a3bfbf094e82531efc56f34125e48ce29d"
+   },
+   "timesnet": {
+    "configuracion": {
+     "id": 19,
+     "e_layers": 2,
+     "top_k": 5,
+     "num_kernels": 6,
+     "d_model": 16,
+     "d_ff": 16,
+     "dropout": 0.1,
+     "lr": 0.000534428,
+     "weight_decay": 0.0,
+     "lote": 64
+    },
+    "n_parametros": 328266,
+    "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/timesnet/control/pliegue_2019/semilla_101/resultado.json",
+    "sha256_fuente": "e757ccf4777744e8e2617ba73836aa2a9e9671598a6637dd61eadcbcf40cf64f"
+   },
+   "periodica": {
+    "configuracion": {
+     "id": 2,
+     "d_model": 32,
+     "bloques": 2,
+     "dropout": 0.1,
+     "lr": 0.001,
+     "weight_decay": 0.0001,
+     "lote": 32
+    },
+    "n_parametros": 33601,
+    "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/periodica/control/pliegue_2019/semilla_101/resultado.json",
+    "sha256_fuente": "4235b9c592e3671568150e0d7961c2b6f86a2e6ecb656ee993b521fd4cf6fe42"
+   }
+  },
+  "semillas_exploracion": [
+   101,
+   102,
+   103,
+   104,
+   105
+  ],
+  "corpus_sha256": "e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c",
+  "panel_sha256": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+  "codificador": {
+   "ventana_h": 72,
+   "ventanas_sensibilidad_h": [
+    24,
+    168
+   ],
+   "max_documentos_canal": 64,
+   "max_fragmentos_documento": 8,
+   "tokens_max": 512,
+   "solapamiento_tokens": 64,
+   "encoder": "intfloat/multilingual-e5-base",
+   "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+   "prefijo": "query: ",
+   "pooling": "mean_attention_mask",
+   "normalizacion": "L2",
+   "agregacion": "relevancia_aprendida_por_canal",
+   "ausencia": "cero_y_mascara",
+   "filtro_palabras_clave": false
+  },
+  "entrenamiento_iniciado": false,
+  "prueba_ejecutada": false
+ },
+ "diseno_m1": {
+  "version": "cuatro_modelos_originales_e3_gpu_v1",
+  "fecha_diseno": "2026-11-22",
+  "estado": "diseño propuesto; sin implementación validada ni entrenamientos nuevos",
+  "autorizacion_actual": "Subir al repositorio los contextos y diseños para continuar en un PC con GPU. No entrenar, evaluar prueba ni modificar o publicar JBook o dashboard. Una ejecución futura requiere solicitud expresa.",
+  "caracter_originalidad": "hipótesis de contribución; contrastar con MoLE, MoME, RAFT y FreshCast antes de afirmar novedad",
+  "base_configuraciones": "continuidad/CONFIGURACIONES_PRUEBA_E3_GPU.json",
+  "expertos_configuraciones_seleccionadas": {
+   "patchtst": {
+    "configuracion": {
+     "id": 18,
+     "nucleo": "patchtst",
+     "d_model": 64,
+     "capas": 2,
+     "cabezas": 4,
+     "dropout": 0.1,
+     "lr": 0.001,
+     "weight_decay": 0.0001,
+     "lote": 32,
+     "d_texto": 24
+    },
+    "n_parametros": 466480,
+    "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/patchtst/control/pliegue_2019/semilla_101/resultado.json",
+    "sha256_fuente": "d0d2721f425bb275cf9aa68f360d320c3dd92263ffeb243e8e29545d36e2563c"
+   },
+   "E": {
+    "configuracion": {
+     "id": 7,
+     "nucleo": "patchtst",
+     "d_model": 32,
+     "capas": 3,
+     "cabezas": 4,
+     "dropout": 0.1,
+     "lr": 0.001421,
+     "weight_decay": 0.001,
+     "lote": 32,
+     "rho": 0.02,
+     "ancho_correccion": 32
+    },
+    "n_parametros": 242048,
+    "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/E/control/pliegue_2019/semilla_101/resultado.json",
+    "sha256_fuente": "196dcf856790557c46129954271b94a3bfbf094e82531efc56f34125e48ce29d"
+   },
+   "periodica": {
+    "configuracion": {
+     "id": 2,
+     "d_model": 32,
+     "bloques": 2,
+     "dropout": 0.1,
+     "lr": 0.001,
+     "weight_decay": 0.0001,
+     "lote": 32
+    },
+    "n_parametros": 33601,
+    "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/periodica/control/pliegue_2019/semilla_101/resultado.json",
+    "sha256_fuente": "4235b9c592e3671568150e0d7961c2b6f86a2e6ecb656ee993b521fd4cf6fe42"
+   }
+  },
+  "modelos": {
+   "M1": {
+    "nombre": "Ensamble supervisado por complementariedad de errores",
+    "modalidad": "numerica",
+    "arquitectura": "Tres expertos congelados; MLP contextual con cabeza de complementariedad por pareja; pesos softmax por horizonte.",
+    "expertos": [
+     "patchtst",
+     "E",
+     "periodica"
+    ],
+    "rasgos": "calendario, resúmenes numéricos disponibles, pronósticos de expertos, desacuerdo y errores observables con retraso de dos días",
+    "salida": "sum_k w[d,h,k] * pred[d,h,k]; w>=0 y suma_k w=1",
+    "objetivo_auxiliar": "c_ij=(abs(r_i)+abs(r_j)-abs(r_i+r_j))/q168; r de predicciones fuera de muestra",
+    "rejilla": {
+     "ancho": [
+      32,
+      64
+     ],
+     "dropout": [
+      0.0,
+      0.1
+     ],
+     "lambda_complementariedad": [
+      0.01,
+      0.1
+     ]
+    },
+    "lambda_suavidad_horaria_fijo": 0.001,
+    "controles": [
+     "NNLS sin restricción de suma",
+     "mezcla convexa fija",
+     "EWA_retraso2",
+     "router_sin_complementariedad"
+    ]
+   },
+   "M2": {
+    "nombre": "Modelo de energía diaria y distribución horaria",
+    "modalidad": "numerica",
+    "arquitectura": "Codificador numérico PatchTST congelado y dos cabezas entrenables: energía positiva y logits horarios sobre perfil ancla.",
+    "ancla": "patchtst",
+    "salida": "E_hat=escala_E*softplus(MLP_E(z)); s=softmax(log(s_ancla+1e-8)+MLP_s(z)); yhat_h=E_hat*s_h",
+    "escala_E": "media de energía diaria solo en ajuste",
+    "perdida": "MAE_h/q168 + lambda_energia*MAE_energia/(24*q168)",
+    "rejilla": {
+     "ancho": [
+      32,
+      64
+     ],
+     "dropout": [
+      0.0,
+      0.1
+     ],
+     "lambda_energia": [
+      0.0,
+      0.1
+     ]
+    },
+    "controles": [
+     "ancla sin adaptación",
+     "solo energía",
+     "solo distribución",
+     "cabeza directa de 24 salidas con capacidad comparable"
+    ]
+   },
+   "M3": {
+    "nombre": "Ensamble con selección de expertos condicionada por texto",
+    "modalidad": "numerica_y_texto",
+    "base": "M1 congelado por partición y semilla",
+    "arquitectura": "Agregación separada de fragmentos E5 oficiales y prensa, atención condicionada al contexto numérico, y perturbación acotada de logits de M1.",
+    "salida": "w_T=softmax(logits_N + I_hay_texto*g*epsilon*tanh(Delta)); yhat=sum_k w_T*pred_k",
+    "identidad_sin_texto": "sin candidatos válidos, predicción exactamente igual a M1",
+    "rejilla": {
+     "d_texto": [
+      32,
+      64
+     ],
+     "lambda_penalizacion_delta": [
+      0.001,
+      0.01
+     ],
+     "epsilon_logits": [
+      0.25,
+      0.5
+     ]
+    },
+    "dropout_fijo": 0.1,
+    "variantes": [
+     "M3_O",
+     "M3_OP",
+     "M3_metadatos",
+     "M3_desalineado_49",
+     "M3_desalineado_91",
+     "M3_desalineado_154",
+     "M3_desalineado_217",
+     "M3_desalineado_301"
+    ],
+    "seleccion_hiperparametros": "solo M3_OP; después mismos hiperparámetros para variantes y controles",
+    "abstencion": "compuerta aprendida sin promesa de no empeorar el MAE"
+   },
+   "M4": {
+    "nombre": "Memoria de episodios numéricos y textuales para corregir residuos",
+    "modalidad": "numerica_y_texto",
+    "base": "M1 congelado por partición y semilla",
+    "arquitectura": "Proyección de contexto y canales textuales, recuperación de episodios anteriores, atención sobre residuos horarios fuera de muestra y compuerta según respaldo de la memoria.",
+    "salida": "yhat_h=pred_M1_h + q168*g*sum_j alpha_j*((y_jh-pred_OOF_M1_jh)/q168)",
+    "d_proyeccion_fijo": 32,
+    "dropout_fijo": 0.1,
+    "rejilla": {
+     "k_vecinos": [
+      8,
+      16
+     ],
+     "edad_maxima_dias": [
+      365,
+      730
+     ],
+     "ancho_compuerta": [
+      32,
+      64
+     ]
+    },
+    "memoria": "creciente con episodios completos disponibles en d-2 o antes; pesos y métricas de recuperación congelados desde antes de 2022",
+    "variantes": [
+     "M4_N",
+     "M4_O",
+     "M4_OP",
+     "M4_metadatos",
+     "M4_desalineado_49",
+     "M4_desalineado_91",
+     "M4_desalineado_154",
+     "M4_desalineado_217",
+     "M4_desalineado_301"
+    ],
+    "seleccion_hiperparametros": "solo M4_OP; después mismos hiperparámetros para variantes y controles",
+    "ablaciones": [
+     "memoria congelada en 2021",
+     "sin compuerta",
+     "sin texto",
+     "sin contexto numérico"
+    ]
+   }
+  },
+  "datos": {
+   "panel": "data/processed/panel_horario.parquet",
+   "corpus": "data/processed/corpus_texto.parquet",
+   "hashes_entrada": {
+    "data/processed/corpus_texto.parquet": "e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c",
+    "data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+    "data/processed/feature_registry.json": "973b8c2083ec7ee89d1d7462b7c9cb559453d8ca5898750cd6f6cd40c9ce9e17",
+    "results/corrector_semantico_e3_20261122/codigo/config/plan_corrector.json": "9dab04d8993b13ec14bf3f1f44f02dc455036702601f73a9b6c4d71700876246",
+    "results/corrector_semantico_e3_20261122/resultados_corrector_e3/evaluacion/contrastes.csv": "111f0a928066e0d7de10184e306c34150cf256e11b6e93ac4b097f90f56d8a6a",
+    "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/decision/desarrollo_resumen.csv": "48141e275ae02d88ab2e0a3f6de13c1413e39e4dfe447a3985b5efa5f95ba9c6"
+   },
+   "ventana_h": 168,
+   "horizonte_h": 24,
+   "numericas": "contrato común: demanda, calendario, clima rezagado, hidrología y precio; disponibilidad por origen",
+   "escenario_principal": "declarado",
+   "canales_texto": [
+    "oficial",
+    "prensa"
+   ],
+   "relevancia": "aprendida; sin temas ni términos manuales",
+   "encoder": {
+    "ventana_h": 72,
+    "ventanas_sensibilidad_h": [
+     24,
+     168
+    ],
+    "max_documentos_canal": 64,
+    "max_fragmentos_documento": 8,
+    "tokens_max": 512,
+    "solapamiento_tokens": 64,
+    "encoder": "intfloat/multilingual-e5-base",
+    "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+    "prefijo": "query: ",
+    "pooling": "mean_attention_mask",
+    "normalizacion": "L2",
+    "agregacion": "relevancia_aprendida_por_canal",
+    "ausencia": "cero_y_mascara",
+    "filtro_palabras_clave": false
+   }
+  },
+  "validacion": {
+   "folds_externos": [
+    2018,
+    2019,
+    2020,
+    2021
+   ],
+   "meta_ajuste": "OOF 2011..Y-2",
+   "meta_parada": "Y-1",
+   "meta_evaluacion": "Y",
+   "OOF_expertos": "forward chaining anual 2011..2021; ningún modelo ha visto la etiqueta de la fila que predice",
+   "OOF_M1": "OOF anidado por año desde el primer año con historia suficiente; cada selección de hiperparámetros usa solo años anteriores al año predicho. No reutilizar el ganador global de 2018–2021 para generar retrospectivamente datos supuestamente independientes en esos años.",
+   "purga_h": 24,
+   "retraso_errores_dias": 2,
+   "semillas": [
+    101,
+    102,
+    103,
+    104,
+    105
+   ],
+   "candidatos_por_modelo": 8,
+   "criterio_seleccion": "media MASE de folds y semillas, pesos iguales por fold; desempate exacto: menor número de parámetros y luego menor ID",
+   "early_stopping": {
+    "max_epocas": 100,
+    "min_epocas": 10,
+    "paciencia": 10,
+    "mejora_minima_absoluta_mase": 0.0001,
+    "monitor": "MASE de parada, sin términos auxiliares",
+    "restaurar_mejor": true
+   },
+   "optimizador": {
+    "nombre": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "lote": 64,
+    "clip_gradiente": 1.0
+   },
+   "orden": [
+    "bases y OOF",
+    "M1",
+    "OOF anidado de M1",
+    "M2",
+    "M3_OP y M4_OP",
+    "variantes y controles con configuración fijada"
+   ],
+   "no_ejecucion_ahora": true,
+   "seleccion_M1_dentro_de_otros_modelos": "En el fold Y, la configuración de la base M1 se elige solo con años <Y. Su selección final global con 2018–2021 se reserva para el ajuste final anterior a 2022.",
+   "arranque_meta": "OOF de expertos desde 2011; OOF de M1 desde 2013 como pronto (ajuste 2011, parada 2012). Registrar fecha real; sin memoria previa, devolver la base. Usar idénticos orígenes de evaluación para todos.",
+   "interpretacion": "Las métricas de desarrollo usadas para elegir los ocho candidatos no son una estimación independiente del sesgo de selección; la evaluación final se mantiene separada."
+  },
+  "prueba": {
+   "inicio": "2022-01-01",
+   "fin": "2025-12-31",
+   "origen": "00:00 America/Bogota",
+   "origenes_esperados": 1461,
+   "horizonte_h": 24,
+   "ventana_h": 168,
+   "metrica": "MASE",
+   "q168_kwh": 215617.90361589016,
+   "margen_relativo": 0.03,
+   "alpha": 0.05,
+   "politica": "ajuste único anterior a 2022; pesos congelados durante 2022–2025; no selección con prueba",
+   "meta_ajuste": "2011-2020 OOF; usar la primera fecha elegible de cada modelo",
+   "meta_parada": "2021",
+   "basicos": "ajuste_final() con reserva cronológica y purga del contrato",
+   "politica_dinamica": "solo rasgos observables y memoria no paramétrica con retraso de dos días; no optimizador ni reajustes con prueba",
+   "independencia": "2022–2025 ya se consultó para otros modelos; documentar selección informada por esos resultados, sin afirmar prueba virgen"
+  },
+  "estadistica": {
+   "unidad": "origen diario; las 24 horas y las semillas no son réplicas temporales independientes",
+   "remuestreos": 9999,
+   "bloque_dias_principal": 14,
+   "sensibilidad_bloque_dias": [
+    7,
+    28
+   ],
+   "nivel": 0.05,
+   "contrastes_primarios": [
+    [
+     "M1",
+     "NNLS"
+    ],
+    [
+     "M1",
+     "mejor_individual_desarrollo"
+    ],
+    [
+     "M2",
+     "mejor_individual_desarrollo"
+    ],
+    [
+     "M2",
+     "M1"
+    ],
+    [
+     "M3_O",
+     "M1"
+    ],
+    [
+     "M3_OP",
+     "M1"
+    ],
+    [
+     "M3_OP",
+     "M3_metadatos"
+    ],
+    [
+     "M3_OP",
+     "M3_desalineado_promedio"
+    ],
+    [
+     "M4_O",
+     "M4_N"
+    ],
+    [
+     "M4_OP",
+     "M4_N"
+    ],
+    [
+     "M4_OP",
+     "M4_metadatos"
+    ],
+    [
+     "M4_OP",
+     "M4_desalineado_promedio"
+    ],
+    [
+     "M3_OP",
+     "M3_O"
+    ],
+    [
+     "M4_OP",
+     "M4_O"
+    ]
+   ],
+   "cantidad_parejas": 14,
+   "hipotesis_por_pareja": [
+    "ganancia_relativa<=0",
+    "ganancia_relativa<=0.03"
+   ],
+   "cantidad_hipotesis_holm": 28,
+   "ajuste": "Holm conjunto sobre las hipótesis de todas las parejas listadas; sin dividir la familia por resultado",
+   "equivalencia": "TOST ±3 % con dependencia temporal y multiplicidad declaradas; no equivalencia por p>0.05",
+   "metricas": [
+    "MASE",
+    "MAE_kWh",
+    "RMSE_kWh",
+    "MASE_por_horizonte",
+    "MASE_por_anio"
+   ],
+   "resultados_semillas": "métricas por semilla primero; media y DE después; no sustituir por métrica del promedio de pronósticos"
+  },
+  "implementacion_pendiente": [
+   "adaptadores de los cuatro modelos y controles",
+   "generación/carga del OOF anidado y auditoría",
+   "caché versionado de texto y memoria",
+   "entrenamiento GPU y checkpoint completo",
+   "predicción secuencial y evaluación estadística",
+   "restauración, disponibilidad y exportación ONNX verificadas"
+  ],
+  "salida_propuesta": "results/modelos_originales_e3_gpu_<fecha_hora>/",
+  "entrenamiento_iniciado": false,
+  "prueba_ejecutada": false,
+  "publicacion_ejecutada": false,
+  "distribucion": {
+   "contextos_y_diseno": "versionados en continuidad/ y CONTEXTO_PROYECTO.md",
+   "configuraciones_expertos": "incluidas completas en este JSON y CONFIGURACIONES_PRUEBA_E3_GPU.json",
+   "fuentes_exploracion": "referencias de procedencia locales, no incluidas en esta subida; transferir resultados/exploracion_e3_20261122/ para auditar sus archivos originales",
+   "codigo_disponible": "results/corrector_semantico_e3_20261122/codigo/",
+   "implementacion_cuatro_modelos": "pendiente; las guías no son un lanzador ejecutable"
+  }
+ },
+ "huellas": {
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/analisis/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/analisis/estadistica_e3.py": "0b7e1026b1a0710c1d7b2c1893a764123b775f9e611b5d776f98657a43cff018",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/original/mecanismos.py": "bda8ecf1dcd97df4b4741d13775c9bceb15a2a7c3990fc1f45b5aa63b1a159e4",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/original/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/fechas.py": "e7264bf97ab2cd490f3d0c4eda632a1889df5cae57cce0ab269a7781cd3e8d60",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/evaluacion.py": "35ec4c5a0cb7bcd45c344e6850d13bfcfd6e1db45f48165f1244dee3fbd51bb1",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/texto.py": "254d58334d0979a295e52e499248971aa55f52a0a090e2c7e9cd0e4ce84263b8",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/protocolo.py": "49dde298855fa8cec76cfb17e0657bf1483d76ca23448d227470270eeeb26659",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/residuos.py": "2d56a274685bbf4403df616df8a4db7fe6f454d1f432f09f41e11ec510797001",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/modelo.py": "c9bbc511f1373ce1283707d7e25d42f5745b8c536d38527f51517f7baa3d35aa",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/exploracion/mecanismos.py": "824d3306de7d106b8d19993c2b4d26badfc2eea01ed0c695a431d9fe715ee317",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/exploracion/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/exploracion/agregacion.py": "6147b73c4aa1e8b1478d7ff29142f85e56fd16f916c7dd8afc54788762de5cd4",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/exploracion/protocolo.py": "054b6a2e3b2bb985952f76530f27cfe40fadfd1178379347a3e63880c0fdfb41",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/metricas.py": "8f859cb24a3e0f1ac374e5608772af057cb8a9b95d1e0d95223e51142f76892d",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/particion.py": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/corpus.py": "df90f6ffdc9f862975371ffffdd465791d681fb74e47cb8c3b51f71fd0665391",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/config.py": "a1c23f51ff8511785fe04303430420074fcf4f9aed6b038d56372f4e7acbc3c5",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/diseno_numerico.py": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/redes_e3.py": "f1a727eba4d5801a6283ecf97c002af465a96a5f8338f2693295fe84836a1634",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/pruebas.py": "e9609ec95902ba26cfed87047ff5bc3cc4bf3d1c80ffc27f5cade9b1a9b089a1",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/costes.py": "23484847928bc854fbf87a59de123d53180db5dd54dcd8c823258dca62639c71",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/exportacion.py": "4be0896eada0264e3cf0f1add0750213ee6161b6ef42f44e24c3286cf9725496",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/adicionales.py": "9e17feade83244f652c28a7742d7cf95cd26a3a21d5f5b045c7854fe4c4e2c07",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/datos.py": "1f77b12d159e683be10291e0c153261bbf5f4725f76cc97acfda6481a18d9c7f",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/protocolo_e3.py": "e4153d6a6700f62507e1e3219ffb98c772faf893e0c7c87325319680258a6ded",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/clasicos.py": "dbf49d92a7a1059003a9cffd36dcc3b159447a399460843529e56dfeb21419ed",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/texto.py": "94b90d4f985ca04cd3f5fc58c2085c1439d7f4d90501bcaa759fac4f558bc8a8",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/interpretabilidad.py": "87d57ba7d03d92396b48c3640b172786dbcb5fd6e4f983426ade536ac183f814",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/protocolo.py": "f3957746eb990138706743b5b1ef1962fa05ff187489d42d9f7cdf49e32184d7",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/motor.py": "f9c93619a8994411afa896007ade79583feea8c47d72d213427b47238199cbd0",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/protocolo_e2.py": "f55da4ef1180d25b1239940b372e112d205627a06357fdea7620ad86a6d1846a",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/redes_e2.py": "b8aa32ef860c6cdc1912a8281b6d837c4deffe4ff60d738246de7629f7f78555",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/redes.py": "f95f3e67aededbeb944893c53499692f58da3fd48a875890418829a1edf7ba3f",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/nhits/nhits_original.py": "a769bdef26155fe4b0872c45a13e467ea3ef53c914d41bbec535a5fb49d802ed",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/nhits/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/nhits/core.py": "8ab9faac4d31221ee807aeb8290365210d2bd8e5b94a71736111bab86140a05b",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/timesnet/TimesNet.py": "f64c4bed1fd7347090044a0163bd4209c9f9ec1c1b19ceff47842df36b64bba7",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/timesnet/layers/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/timesnet/layers/Conv_Blocks.py": "16d9f2d9e4fa094dc357901e32beecda9839709bcca02625e6447186933ce4e1",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/timesnet/layers/Embed.py": "17e7c3577324c41a0da427a199c955b782fde905aabb1f7cbc3c4e15ebd4ae35",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/config/plan_e3.json": "d829b6c0e2a40528523dc62d61ee2fba68675997b8eedc6d8b9e33e2655bd338",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/config/plan_corrector.json": "9dab04d8993b13ec14bf3f1f44f02dc455036702601f73a9b6c4d71700876246",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/config/diseno_entrenamiento_texto.json": "476f0b7cd81063f63d6804ad4a55fe2effd31bc5dbfaa9019038173b2f8987bf",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/config/descripciones_canal.json": "a377dfd58d9241d063f015a0190b0ec33fb7c28821d4329c858811f36f12de4b",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/config/plan_e2.json": "ebaf5551a505fc56774157cfae7191b0d7978c9a798d8bac9dfdb040a1910dd1",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/e3_corrector_final.py": "c61ae91867c09335b707dc82e16eb44904898291c7d0fb57e35d4fefe5f070d7",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/e3_gpu_comun.py": "96d061911af2c612b5c77b44a24b227685dd6477591f7afc31d8a7515a1cc3a1",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/e3_modelo1.py": "69bf2675f3f44ce36274ef12f644eae05443cc931c8af5b31694b97ab8a5b74c",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/ejecutar_corrector_final_y_m1.py": "6e19afc515466b6fe753aa824c92b17449b095c0f2a6ad23aa720b95c1da42bf",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/test_e3_gpu.py": "82d2aa8673e9294a9671ab64f5efcf1653a33f48371e7cd497ff09a668a85f01",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/e3_progreso.html": "e27c15b983e5c03a8b720b016c42d2f10b4d9f21033de52326f08408da69ac95",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/continuidad/CONFIGURACIONES_PRUEBA_E3_GPU.json": "5652794acfa7beddc99db5d4dd0e4bb691d5556237b70abc31c7bd1e51811d47",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/continuidad/DISENO_CUATRO_MODELOS_GPU.json": "04781d1d0cebe1b8da4b7d59d423b23b74747f6ea6e80ba4d7ec92ac65dd039f",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/continuidad/ENTRENAMIENTO_GPU_E3.md": "567d7161df21e24409ada31050602bc285d5b6941dea00cfdb04d85fb19c6d83",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/continuidad/DISENO_CUATRO_MODELOS_GPU.md": "ede709fa443a9d4b4a66d7bf18ba9722f181c839f33f4344a41333d38f5d759d",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/data/processed/feature_registry.json": "91f016c804162bd65ad101e3f9f0cd995498b3ca356c3e528926cc86a30ab4b0",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/data/processed/corpus_texto.parquet": "e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c"
+ },
+ "apagado": true,
+ "alcance_M1": "Desarrollo: 8 candidatos x 5 semillas x 4 folds, controles y ajuste final anterior a 2022. No se predice prueba de M1 ni se ejecutan M2-M4.",
+ "implementacion_M1": {
+  "capacidad": "MLP de dos capas ocultas, ancho de rejilla; cabeza lineal auxiliar por pareja; logits por hora",
+  "suavidad": "Media del cuadrado de diferencias de pesos entre horas; coeficiente .001",
+  "EWA": "eta=1 fijado antes de ejecutar; errores observables d-2; arranque uniforme",
+  "convexa_fija": "MAE por programación lineal sobre parada previa",
+  "purga_meta": "un día completo entre último objetivo de ajuste e inicio de parada"
+ },
+ "secuencia": [
+  "corrector_ajuste_pre2022",
+  "congelacion_36_checkpoints",
+  "texto_y_prediccion_prueba",
+  "estadistica_corrector",
+  "M1_OOF_expertos",
+  "M1_desarrollo_y_controles",
+  "M1_ajuste_final_preprueba",
+  "integridad_y_apagado"
+ ],
+ "comparacion_informada": "El benchmark 2022–2025 ya fue conocido; no se denomina prueba nunca consultada. Las métricas finales nuevas del corrector no modifican M1."
+}

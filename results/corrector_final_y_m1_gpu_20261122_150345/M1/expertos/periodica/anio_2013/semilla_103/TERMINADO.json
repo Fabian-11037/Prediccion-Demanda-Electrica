@@ -1,0 +1,40 @@
+{
+ "nombre": "periodica",
+ "configuracion": {
+  "id": 2,
+  "d_model": 32,
+  "bloques": 2,
+  "dropout": 0.1,
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "lote": 32
+ },
+ "semilla": 103,
+ "red": "x_periodica",
+ "n_parametros": 33601,
+ "ajuste": [
+  "2000-01-09 00:00:00-05:00",
+  "2011-09-14 00:00:00-05:00"
+ ],
+ "parada": [
+  "2011-09-15 00:00:00-05:00",
+  "2012-12-31 00:00:00-05:00"
+ ],
+ "opciones": {
+  "max_epocas": 200,
+  "min_epocas": 10,
+  "paciencia": 6,
+  "relativa": true,
+  "scheduler": true
+ },
+ "dispositivo": "cuda",
+ "epocas": 37,
+ "mejor_epoca": 31,
+ "mejor_perdida": 0.015087979684587773,
+ "segundos": 17.185715675354004,
+ "metricas": {
+  "MASE": 0.48777844091009276,
+  "MAE_kwh": 105173.76485806155,
+  "RMSE_kwh": 133933.56002310856
+ }
+}
