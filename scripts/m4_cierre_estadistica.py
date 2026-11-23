@@ -41,14 +41,41 @@ def potencia_previa(out):
         alcance='Diagnóstico aproximado condicionado a cinco semillas de piloto. No certifica potencia por rival/dataset ni potencia conjunta. No se infiere potencia a priori de p-valores de prueba. El límite temporal puede impedir 0.90 aun con infinitas semillas.',
         ampliar='No añadir semillas sin evidencia de que resuelve el límite temporal; conservar mínimo10 y reportar si falta potencia. Confirmación prospectiva no disponible hoy.'))
 
+def historicos_colombia(dias,y):
+    ruta=REPO/'results/m4_cierre_gpu_20261123/insumos/perdidas_top10_disponibles.npz'
+    if not ruta.exists():return {},{}
+    incluir=['repo_nhits_numerico_r1__N','adj_modelo3_20261115_0419__N','adj_modelo4_20261114_1224__N','adj_modelo5_20261114_1327__N','adj_modelo6_20261112_1035__N','adj_modelo6_20261112_1035__N+O','adj_fusion_tardia_20261113_1728__N+O','adj_modelo7_20261114_0430__N+O']
+    errores={};info={}
+    with np.load(ruta) as z:
+        dd=pd.to_datetime(z['origen'],utc=True).tz_convert('America/Bogota').strftime('%Y-%m-%d').to_numpy().astype('U10');assert np.array_equal(dd,dias)
+        for nombre in incluir:
+            j=list(z['nombres']).index(nombre);k='historico_'+nombre;errores[k]=z['loss'][:,j][None,:]
+            info[k]=dict(semillas=5,DE_semillas=float(z['semillas'][:,j].std(ddof=1)))
+    adicional=ruta.parent/'top10_adicionales.json'
+    if adicional.exists():
+        for nombre,especificacion in leer(adicional).items():
+            assert nombre in ['TimesNet','NBEATS'];arr=[]
+            for archivo in especificacion['archivos']:
+                with np.load(archivo) as z:
+                    p=z[especificacion['pred']];assert p.shape==y.shape
+                    if 'dia' in z:assert np.array_equal(z['dia'].astype('U10'),dias)
+                    if 'y' in z:assert np.allclose(z['y'],y,atol=4,rtol=0)
+                    arr.append(np.abs(p.astype('float64')-y).mean(-1)/215617.90361589016)
+            assert len(arr)==5,'Cinco semillas históricas completas'
+            k='historico_'+nombre;errores[k]=np.asarray(arr);info[k]=dict(semillas=5,DE_semillas=float(np.asarray(arr).mean(1).std(ddof=1)))
+    return errores,info
+
 def comparar(resultados,out):
     filas=[];metricas=[];variacion=[]
     for dataset,(dias,y,preds,q) in resultados.items():
         errores={k:np.abs(np.asarray(v,dtype='float64')-y).mean(-1)/q for k,v in preds.items()}
+        extra,informacion=historicos_colombia(dias,y) if dataset=='colombia' else ({},{})
+        errores.update(extra)
         # Forma siempre semillas x días; deterministas permanecen con una fila.
         for k,e in errores.items():
-            for s,l in enumerate(e):metricas.append(dict(dataset=dataset,modelo=k,realizacion=s,MASE=float(l.mean())))
-            variacion.append(dict(dataset=dataset,modelo=k,semillas=len(e),MASE=float(e.mean()),DE_semillas=float(e.mean(1).std(ddof=1)) if len(e)>1 else None))
+            if k not in informacion:
+                for s,l in enumerate(e):metricas.append(dict(dataset=dataset,modelo=k,realizacion=s,MASE=float(l.mean())))
+            variacion.append(dict(dataset=dataset,modelo=k,semillas=informacion.get(k,{}).get('semillas',len(e)),MASE=float(e.mean()),DE_semillas=informacion.get(k,{}).get('DE_semillas',float(e.mean(1).std(ddof=1)) if len(e)>1 else None)))
         objetivo=errores['M4_N'].mean(0);n=len(dias)
         idx=estacionario(n);co=np.asarray([np.ones(n),np.r_[0.,objetivo[:-1]]]).T
         for nombre,e in errores.items():
