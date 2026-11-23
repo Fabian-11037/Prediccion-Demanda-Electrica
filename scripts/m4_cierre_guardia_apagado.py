@@ -19,6 +19,10 @@ def ejecutar():
             while not (OUT/'complemento/LISTO_PARA_COLA.json').exists():time.sleep(5)
             if not (OUT/'historicos_nbeats_timesnet/FINALIZADO.json').exists():
                 subprocess.run([sys.executable,str(ROOT/'scripts/m4_cierre_predecir_historicos.py'),'--out',str(OUT)],check=True)
+            historicos=OUT/'historicos_nbeats_timesnet'
+            if not (historicos/'PUBLICADO.json').exists():
+                subprocess.run([sys.executable,str(ROOT/'scripts/publicar_cierre_m4.py'),'--out',str(historicos)],check=True)
+            assert json.loads((historicos/'PUBLICADO.json').read_text())['verificado']
             subprocess.run([sys.executable,str(ROOT/'scripts/m4_cierre_complemento.py'),'--out',str(OUT)],check=True)
             assert json.loads((OUT/'complemento/PUBLICADO.json').read_text())['verificado']
             assert all((OUT/'insumos'/f'{n}.json').exists() for n in ['nuevo_timesnet__N','nuevo_nbeats__N'])

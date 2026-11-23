@@ -4,7 +4,7 @@
  "fuentes": {
   "scripts/m4_cierre_recuperacion.py": "e42cdd6d3b9ec7011fdee1d8e40f11ff9def1cdfd9e33cfb3926073e212afc34",
   "scripts/m4_cierre_predecir_historicos.py": "d5c7497ab015ded6e4a7399ccec1250a48ac869bb318297ea0779953f2a10e61",
-  "scripts/m4_cierre_guardia_apagado.py": "e08ec9e161011d198e1dd3c2fdceeb23eac77621814d27045340c5bab3dd587e",
+  "scripts/m4_cierre_guardia_apagado.py": "35a7f76e22837bdc9e561d366c14ee03c1d0694c8233314adfda96c24dc143e3",
   "scripts/m4_cierre_procedencia.py": "01f452b0a3f35b8883ccf20d9f513de6a51865a0ea90d9fb6be2b31e141a376b",
   "scripts/m4_cierre_colombia.py": "a0908b63b88eafbcb18c964c7fbb764624e6c776be34253f95998079260b4352",
   "scripts/m4_cierre_fuertes.py": "4825748a8f84a057cc6076f95fa26fb2545904b1f6b33fddd5fb0b7a7d494abd",
@@ -79,5 +79,8 @@
    "No se inventa confirmación prospectiva ni originalidad demostrada"
   ],
   "protocolo": "experiments/m4_originalidad/ADENDA_COMPLETAR_PLAN.md"
- }
+ },
+ "version": 2,
+ "fecha_actualizacion": "2026-11-23T14:11:40.757983-05:00",
+ "motivo_v2": "Publicación y recibo remoto independiente de predicciones y pesos históricos antes del complemento; sin cambiar modelos o hipótesis"
 }

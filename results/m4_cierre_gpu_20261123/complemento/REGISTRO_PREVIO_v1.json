@@ -1,0 +1,83 @@
+{
+ "fecha": "2026-11-23T14:08:41.323727-05:00",
+ "autorizado_por_usuario": true,
+ "fuentes": {
+  "scripts/m4_cierre_recuperacion.py": "e42cdd6d3b9ec7011fdee1d8e40f11ff9def1cdfd9e33cfb3926073e212afc34",
+  "scripts/m4_cierre_predecir_historicos.py": "d5c7497ab015ded6e4a7399ccec1250a48ac869bb318297ea0779953f2a10e61",
+  "scripts/m4_cierre_guardia_apagado.py": "e08ec9e161011d198e1dd3c2fdceeb23eac77621814d27045340c5bab3dd587e",
+  "scripts/m4_cierre_procedencia.py": "01f452b0a3f35b8883ccf20d9f513de6a51865a0ea90d9fb6be2b31e141a376b",
+  "scripts/m4_cierre_colombia.py": "a0908b63b88eafbcb18c964c7fbb764624e6c776be34253f95998079260b4352",
+  "scripts/m4_cierre_fuertes.py": "4825748a8f84a057cc6076f95fa26fb2545904b1f6b33fddd5fb0b7a7d494abd",
+  "scripts/m4_cierre_benchmark.py": "cdf93cbb1de3c5caac8e6c3f78d1190f1483e68b18d4f13b303c6be6f13e6a03",
+  "scripts/m4_cierre_completar_top10.py": "20439e11873c820df1b306c25cb38a01ab50b7a3c39fd022b2c21d520d642cba",
+  "scripts/m4_cierre_estadistica.py": "43879c3d212ff827d51142e5ff856c1c024abd74b6cf2b9747813a7de003b29b",
+  "scripts/m4_cierre_datos.py": "5474d44aa22e4260dab2484f030189ef4fec55b7aeb10e270e32704ff42be6ee",
+  "scripts/m4_cierre_diagnosticos.py": "97a20660fedcbd2a42ce20a5ef334f9a3e34391e5e8b33810625f8be1da15ab9",
+  "scripts/m4_cierre_extraer_predicciones.py": "8a8a5721356dbb825a9ef6b418b949be82826e27e2fcffd2a7dbde02c961c3c8",
+  "scripts/m4_cierre_smoke.py": "2bf056ea72b2b0f9566c890964e70a4b6af22b6a0be6d39a8522fa56bfb22559",
+  "scripts/m4_cierre_portabilidad.py": "594c6be8ae61fda5459966fbfdf2184b8cb618bac8e79b6d47ca583e075efd7f",
+  "scripts/m4_cierre_complemento.py": "af36b13a5ab1b7eeab4ff800ec8ba2977d437d5b791b5aba665aaf842777181e",
+  "scripts/m4_cierre_controles.py": "cc9df0eabc96a5fa30c8bb249c043df8f42323dc4b9be02fcd034ca98029e4c7",
+  "scripts/m4_cierre_verificar_paquete.py": "f8d97bce58710965c39e638024d8461171a9d2f403de17ea87799d3e5b3959b4",
+  "scripts/reanudar_cierre_m4.py": "36a3e5a76567e94b7fb83214607ec0d341dc7d075d1cb5ea760d4dc24d527652",
+  "scripts/m4_onnx_congelado.py": "f6a741c3361285ee9d7696701b3e7ddcef39cddc6af0090d5cf498594b0c502f",
+  "scripts/pruebas_m4_congelado.py": "01be0974609b7b3f3816c3f3e2e7eeec9df811e71c6615a6a57941ec7580cd1f",
+  "scripts/publicar_resultados_m2_m3_m4.py": "1c20f307bf289c0a15a68b311046fac49b4bb2ca2ede7736cc9885871375777f",
+  "experiments/m4_originalidad/ADENDA_COMPLETAR_PLAN.md": "602e1a367b07d8abe3428caac5f5c02f7bf56d5ecfe287bd83bd41e445566619",
+  "continuidad/AMPLIACION_PLAN_GPU_20261123.json": "c719755c18d52c2d5adbc5753ec5c0ef62cac9f48f22da9e3c4c38301c8baeae"
+ },
+ "fuentes_principal": "results/m4_cierre_gpu_20261123/REGISTRO_COLA_COMPLETA.json",
+ "archivo_pesos_historicos": "f8851b223bc2aaa216d49556e0b5cca0a5a189ce5d19e323ec3ac4715ccc8242",
+ "nuevas_pruebas_de_cola_principal_aun_no_abiertas": true,
+ "plan": {
+  "version": 1,
+  "fecha": "2026-11-23T14:08:41.323727-05:00",
+  "autorizacion": {
+   "entrenar": true,
+   "evaluar": true,
+   "publicar": true,
+   "apagar_tras_publicacion": true
+  },
+  "fases": [
+   "cola principal reanudada",
+   "inferir cinco pesos originales por familia NBEATS/TimesNet y verificar reproducción",
+   "desarrollo OOF de todos los comparadores",
+   "ablaciones de procedencia residual y canales/placebos",
+   "dimensionamiento con desarrollo; 10/15/20/30 semillas",
+   "ajustes finales y prueba congelada",
+   "auditoría de portabilidad y diagnósticos",
+   "publicar complemento y estadística final; verificar; apagar"
+  ],
+  "ejecucion_gpu": "Secuencial: un único trabajo de cómputo activo",
+  "semillas_iniciales": [
+   101,
+   102,
+   103,
+   104,
+   105,
+   106,
+   107,
+   108,
+   109,
+   110
+  ],
+  "semillas_historicas": [
+   1000,
+   1001,
+   1002,
+   1003,
+   1004
+  ],
+  "limite_semillas": 30,
+  "familia_maxima": 1536,
+  "bootstrap_replicas": 49999,
+  "instrumento_GW_rezago_dias": 2,
+  "limitaciones": [
+   "La potencia simulada Wald condicionada al piloto no certifica potencia F2 de todos los contrastes",
+   "Windows requiere verificación nativa posterior",
+   "Proveedor ONNX GPU sujeto a disponibilidad real",
+   "No se inventa confirmación prospectiva ni originalidad demostrada"
+  ],
+  "protocolo": "experiments/m4_originalidad/ADENDA_COMPLETAR_PLAN.md"
+ }
+}
