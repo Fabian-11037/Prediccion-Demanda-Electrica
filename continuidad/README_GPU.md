@@ -1,20 +1,32 @@
 # Continuidad en un PC con GPU
 
-Documentación actualizada el 22 de noviembre de 2026. Esta entrega publica contextos y diseños; no ejecuta entrenamiento, evaluación de prueba ni despliegue de JBook o dashboard.
+Actualizado el 23 de noviembre de 2026.
 
 ## Orden de lectura
 
-1. `../AGENTS.md` y `../CONTEXTO_PROYECTO.md`, especialmente §48–§50.
-2. `DISENO_CUATRO_MODELOS_GPU.md`: arquitecturas M1–M4, controles, entrenamiento y evaluación.
-3. `DISENO_CUATRO_MODELOS_GPU.json`: parámetros propuestos, configuraciones de expertos, rejillas y familia de contrastes.
-4. `ENTRENAMIENTO_GPU_E3.md`: entorno GPU, datos y trabajo pendiente para la prueba del corrector ya estudiado.
-5. `CONFIGURACIONES_PRUEBA_E3_GPU.json`: configuraciones históricas seleccionadas; no confundirlas con los hiperparámetros propuestos para M1–M4.
+1. [Instrucciones](../AGENTS.md) y [contexto del proyecto](../CONTEXTO_PROYECTO.md), especialmente §53–§54.
+2. [Plan de originalidad y evaluación de M4](PLAN_ORIGINALIDAD_EVALUACION_M4_GPU.md): prioridades, controles, propiedad teórica, dimensionamiento y cierre estadístico del E3.
+3. [Especificación del plan](PLAN_ORIGINALIDAD_EVALUACION_M4_GPU.json) y [matriz inicial de antecedentes](MATRIZ_NOVEDAD_M4.md).
+4. Informes y manifiestos de resultados publicados indicados abajo.
 
-Los cuatro diseños son M1 (ensamble por complementariedad), M2 (energía diaria y forma horaria), M3 (selección de expertos con texto) y M4 (memoria de episodios numéricos y textuales). No hay un lanzador validado para estos cuatro modelos; su implementación es una tarea futura.
+## Estado real de los modelos
 
-## Obtener datos y fuentes
+M1, M2, M3 y M4 ya fueron implementados, entrenados y evaluados con cinco semillas. Los resultados y checkpoints están publicados; los manifiestos distinguen artefactos incluidos de embeddings y estados reconstruibles conservados fuera del repositorio.
 
-Desde la raíz del repositorio, con Git LFS instalado:
+- Corrector y entrenamiento de M1: `results/corrector_final_y_m1_gpu_20261122_150345/`.
+- Prueba de M1: `results/prueba_m1_gpu_20261122_185842/`.
+- M2: `results/m2_gpu_20261122_192625/`.
+- M3: `results/m3_gpu_20261122_193240/`.
+- M4: `results/m4_gpu_20261122_194500/`.
+- Procedencia y alcance: `results/publicacion_e3_20261122/` y `results/publicacion_m2_m3_m4_20261122_194500/`.
+
+Los análisis complementarios de recepción citados en §53 se conservan localmente y no forman parte de esta subida documental. Para continuar en otro PC, usar los resultados y fuentes canónicos de las carpetas anteriores; no depender de una ruta local de recepción como si estuviera publicada.
+
+La prioridad es revisar la novedad de M4 frente a RATL y FreshCast y aislar la contribución de su memoria. No se amplía su búsqueda general de configuraciones. El texto no tiene mejora incremental demostrada. El cierre del E3 requiere nuevas tareas —entre ellas potencia, réplicas comparables y datasets adicionales— que no se resuelven solo con los cinco ajustes disponibles.
+
+## Preparación de archivos
+
+Desde la raíz, con Git LFS instalado:
 
 ```console
 git pull --ff-only
@@ -22,12 +34,12 @@ git lfs install
 git lfs pull --include="data/processed/corpus_texto.parquet"
 ```
 
-Verificar los hashes del corpus y panel indicados en los JSON antes de preparar datos. El archivo LFS debe contener el Parquet de 159.086.185 bytes; un puntero de texto no es el dataset. Los vectores E5 de esta ampliación y los nuevos checkpoints no están incluidos y deben recuperarse o reconstruirse según las guías.
+Comprobar los hashes de corpus, panel y artefactos con los manifiestos vigentes. Un puntero LFS no es el Parquet. No asumir que todas las cachés o embeddings están publicados; seguir las recetas documentadas antes de reconstruirlos.
 
-El código y resultados del corrector están en `results/corrector_semantico_e3_20261122/`. Los adjuntos de la primera exploración, `results/exploracion_e3_20261122/`, permanecen fuera de esta subida documental: trasladarlos por separado si se necesitan predicciones, historiales o comprobación de los archivos originales citados. Las configuraciones completas de los expertos se incluyen en los JSON; las rutas de procedencia locales no impiden consultarlas.
+## Documentos históricos
 
-## Alcance de la continuación
+[Diseño de los cuatro modelos](DISENO_CUATRO_MODELOS_GPU.md), su [JSON](DISENO_CUATRO_MODELOS_GPU.json), [guía del ajuste inicial](ENTRENAMIENTO_GPU_E3.md) y [configuraciones iniciales](CONFIGURACIONES_PRUEBA_E3_GPU.json) conservan el estado del diseño del 22 de noviembre, anterior a los resultados de cierre. Sus menciones a implementación o pesos pendientes deben leerse en esa cronología. Se preservan sus bytes y hashes como procedencia; para el trabajo pendiente prevalecen el contexto actualizado y el plan de M4.
 
-La instrucción vigente es preparar la continuidad documental. Una ejecución futura requiere solicitud expresa. Después de implementarlos y verificar disponibilidad temporal y restauración de checkpoints, seleccionar solo con desarrollo 2018–2021, congelar configuraciones y evaluar 2022–2025 según el protocolo. No utilizar prueba para elegir diseños ni sustituir modelos por pesos de otra ejecución.
+## Alcance autorizado
 
-El MASE es la métrica principal; el margen relativo es 3 %. Se mantienen los controles semánticos, cinco semillas, early stopping, OOF temporal y anidado, memoria observable con retraso y contraste por bloques/Holm. Leer los detalles antes de iniciar un ajuste. No modificar ni publicar JBook o dashboard sin solicitud del usuario.
+Esta actualización es documental. No iniciar entrenamiento, inferencia ni evaluación automáticamente al leer las guías. Los ajustes nuevos requieren solicitud expresa; no sustituir ni sobrescribir pesos o resultados históricos. No modificar ni publicar el JBook o el dashboard sin solicitud del usuario.

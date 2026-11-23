@@ -811,3 +811,54 @@ Resultados locales: `results/prueba_m1_gpu_20261122_185842/`; entrada resumida `
 Entrenamiento y prueba finalizados en GPU con cinco semillas101–105,1.461 días2022–2025 y24 horas. M2: MASE 5.326852; M3_OP: MASE 0.637692; M4_OP: MASE 0.578898. Se publican resultados favorables y desfavorables, predicciones, historiales, pesos, escaladores, fuentes y registros. La base M1 de M3/M4 es OOF anidada con selección por prefijo. M4 reúne las28 hipótesis para Holm conjunto. Evaluación retrospectiva informada por un benchmark conocido.
 
 Entrada de resultados: `results/publicacion_m2_m3_m4_20261122_194500/README.md`. Su alcance y manifiesto distinguen archivos publicados de embeddings/estados reconstruibles conservados localmente. Se preservan los manifiestos originales. No se modifica ni despliega JBook o dashboard.
+
+
+## 53. Recepción y análisis de prueba de E3 y exploración E · 23 de noviembre de 2026
+
+Se descargan del commit `b71c3670665f476da2ca1afb32fc0f70b643f4c2` los resultados, fuentes y pesos del corrector final, M1, M2, M3 y M4: 8,644 archivos efectivamente publicados, incluidos 1,691 archivos .pt, comprobados por SHA-256. Tres .log figuran en los manifiestos pero no están en GitHub; la discrepancia queda registrada y no afecta a las predicciones o checkpoints. Las fuentes adicionales se guardan en results/recepcion_e3_20261123/fuentes_repositorio/, sin reemplazar scripts activos.
+
+Carpetas canónicas: results/corrector_final_y_m1_gpu_20261122_150345/, results/prueba_m1_gpu_20261122_185842/, results/m2_gpu_20261122_192625/, results/m3_gpu_20261122_193240/ y results/m4_gpu_20261122_194500/. Los adjuntos se conservan con originales y 639 archivos extraídos en results/exploracion_E_20261123/; su ZIP denominado pesos solo contiene mlflow.db. No confundir esta segunda exploración con resultados/exploracion_e3_20261122/.
+
+Informe canónico de esta recepción: results/recepcion_e3_20261123/INFORME.md. comparar_top10.py recalcula métricas y contrasta pérdidas guardadas sin redes. Se verificaron 43 filas de tablas originales, fechas, 1.461 orígenes, 24 horas y objetivos contra el panel. Las diez familias del Top 10 usan sus pérdidas canónicas; TimesNet conserva lote uno. Corrector: tres semillas; nuevos modelos: cinco. No se emparejan semillas distintas: la inferencia temporal condiciona a las realizaciones ejecutadas.
+
+| Procedimiento | MASE recalculado |
+|---|---:|
+| Top10_TimesNet | 0.642928 |
+| NNLS | 0.620904 |
+| M1 | 0.634923 |
+| M2 | 5.326852 |
+| M3_OP | 0.637692 |
+| M4_OP | 0.578898 |
+| M4_N | 0.573144 |
+| M4_O | 0.571659 |
+| Corrector_oficial | 0.677038 |
+
+Se añade una comparación exploratoria retrospectiva de once procedimientos con las diez familias: 110 parejas y 220 hipótesis (diferencia bilateral y mejora superior al 3 %), Holm conjunto. Bootstrap pareado por origen, 9.999 réplicas, bloques de 14 días dentro de año y sensibilidad 7/28. IC95 puntuales; incertidumbre condicionada a las semillas guardadas. Las comparaciones originales de M1–M4 mantienen su familia registrada de 28 hipótesis, distinta de esta ampliación con el Top 10.
+
+M4_OP mejora a TimesNet 9,959 %; M4_N, 10,854 %, y M4_O, 11,085 %. Las tres superan significativamente las diez familias y el margen de 3 % con p Holm 0,022 en este análisis. M1 y M3_OP mejoran a nueve familias pero no significativamente a TimesNet. NNLS mejora significativamente a TimesNet 3,426 %, sin demostrar que supere el margen de 3 %. Los efectos se mantienen frente a TimesNet al cambiar el tamaño de bloque.
+
+No se demuestra aporte semántico incremental: en M4, oficial frente a memoria numérica mejora 0,259 % con p Holm 1 en los contrastes registrados; oficial+prensa tiene más error que el control numérico. M3_OP empeora frente a M1. El corrector oficial mejora a C+R, pero frente al corrector numérico la ganancia es 0,214 % con p Holm 0,5292; además es significativamente peor que TimesNet en esta ampliación. M4 es una política con memoria creciente observable: su mejora frente al Top 10 no debe atribuirse solo a arquitectura o texto.
+
+M2 presenta MASE 2,5114 en desarrollo y 5,3269 en prueba, con subestimación de energía diaria media 12,535 %. La ablación solo distribución obtiene 0,657655; solo energía, 5,331279. Auditar la estimación de energía y la coherencia de representaciones anuales/finales antes de extraer una conclusión general sobre el diseño; no se corrigió ni reentrenó.
+
+La exploración E adjunta revisada contiene 14 celdas y 140 ajustes en 2018–2019, cinco semillas. E·recencia obtiene 0,410328 frente a 0,410656 de PatchTST control: mejora 0,0799 %, t pareada p 0,93798, sin evidencia de mejora y sin alcanzar 3 %. No incluye prueba 2022–2025. Sus p publicados son exploratorios, con pares año/semilla; no constituyen evidencia temporal confirmatoria.
+
+Los pesos publicados ahora disponibles corresponden a los nuevos ajustes de GPU; la ausencia de pesos descrita en §47 sigue siendo cierta para los paquetes anteriores. En esta recepción no se entrenaron modelos, no se ejecutó inferencia neuronal y no se modificaron ni publicaron JBook o dashboard. El benchmark anterior permanece intacto.
+
+## 54. Plan de originalidad y cierre de evaluación de M4 en GPU · 23 de noviembre de 2026
+
+Se documenta el plan en `continuidad/PLAN_ORIGINALIDAD_EVALUACION_M4_GPU.md`, con especificación JSON y matriz inicial `continuidad/MATRIZ_NOVEDAD_M4.md`. `continuidad/README_GPU.md` se actualiza al estado real de M1–M4 ya entrenados y con pesos/resultados publicados. Los diseños iniciales del 22 de noviembre conservan sus bytes y hashes como procedencia histórica; no describen el trabajo restante.
+
+Decisión: conservar la configuración 6 de M4_OP, cerrar su búsqueda amplia y separar superioridad predictiva de originalidad metodológica. M4_N y M4_O siguen siendo controles; su menor MASE de prueba no autoriza promoverlos retrospectivamente a variante principal. La mejora del texto oficial frente al control numérico es 0,259 % con p Holm 1; no hay aporte semántico incremental demostrado. La ganancia de M4 frente al Top 10 no debe atribuirse únicamente al texto o a la arquitectura porque la memoria incorpora observaciones nuevas con retraso.
+
+Primero revisar entre cinco y diez textos completos, especialmente RATL (arXiv:2609.03937) y FreshCast (arXiv:2610.07834), que ya proponen recuperación residual o actualización de memoria con base congelada. La matriz inicial distingue lecturas completas de resúmenes. La contribución candidata es la construcción OOF temporal anidada de la memoria y su integración con recuperación aprendida y actualización observable; deberá establecerse una diferencia algorítmica real. Aplicación colombiana, compuerta o cambio de hiperparámetros no bastan. Si la revisión no sustenta esa diferencia, describir una adaptación evaluada sin afirmar originalidad demostrada.
+
+Completar formulación, pseudocódigo, complejidad y una demostración con verificación numérica. Se propone estabilidad local de la corrección bajo memoria fija, residuos acotados y margen que preserve top-k; no se afirma continuidad global ni garantía de no empeorar. Fortalecer las pruebas para verificar cada parámetro activo, causalidad, OOF por prefijo, retraso de dos días, máscara antes de top-k, identidad sin vecinos y restauración.
+
+El plan GPU incluye controles de residuos en muestra/OOF/OOF anidado, recuperación uniforme/similitud/aprendida, memoria fija/creciente, compuerta y canales N/O/OP. Comparar con todo el Top 10 y controles fuertes, además de métodos próximos como RATL y FreshCast, con información observable y presupuestos equiparados. No alterar ni sobreescribir resultados históricos.
+
+Antes de nuevas ejecuciones, registrar con fecha real `experiments/estandar.md`, protocolo, versiones/hashes, familias de hipótesis y etiqueta Git. Conservar MASE y margen relativo 3 %, alfa familiar 0,05; dimensionar con OOF de desarrollo para potencia mínima 0,90 por contraste e informar potencia conjunta. El E3 exige al menos diez semillas independientes —o más según potencia— para modelos estocásticos y comparaciones homogéneas. Cinco semillas existentes no acreditan ese cierre; no crear réplicas a partir de horas, épocas o copias de controles deterministas. Proponer 101–110 sin ejecutar y verificar igualdad de protocolo antes de reutilizar ajustes.
+
+Seleccionar al menos tres datasets adicionales adecuados al pronóstico de demanda antes de mirar sus métricas; candidatos de adquisición UCI ElectricityLoadDiagrams20112014, GEFCom2014 Load e ISO New England, sujetos a comprobar cobertura, independencia y licencia. La prueba colombiana 2022–2025 ya examinada conserva carácter retrospectivo; reservar una confirmación no inspeccionada o prospectiva. Las pruebas F2 propuestas son bootstrap estacionario, DM–HLN y Giacomini–White, con supuestos verificados, Holm de la familia completa y dirección/magnitud de efecto explícitas. Tres tamaños de bloque no equivalen a tres pruebas distintas. Guardar incertidumbre entre días y semillas por separado.
+
+Esta solicitud autoriza únicamente documentación y subida de contexto/plan al repositorio. No se entrenan redes, no se ejecuta inferencia ni se amplía evaluación. La lectura del plan no autoriza automáticamente una cola en GPU: requiere solicitud expresa. No se modifica ni publica JBook o dashboard y no se programa apagado. Los artefactos futuros se guardarán en carpetas nuevas con manifiestos; las conclusiones se generarán desde resultados.

@@ -1,0 +1,154 @@
+{
+  "version": "plan_m4_originalidad_evaluacion_gpu_v1",
+  "fecha": "2026-11-23",
+  "zona_horaria": "America/Bogota",
+  "estado": "documentacion; ejecucion pendiente",
+  "autorizacion_actual": {
+    "editar_documentacion": true,
+    "subir_repositorio": true,
+    "entrenar": false,
+    "inferencia": false,
+    "evaluar": false,
+    "modificar_jbook_dashboard": false,
+    "publicar_jbook_dashboard": false
+  },
+  "solicitud_expresa_futura_requerida": true,
+  "fuentes_historicas": {
+    "commit": "b71c3670665f476da2ca1afb32fc0f70b643f4c2",
+    "resultados_m4": "results/m4_gpu_20261122_194500/",
+    "manifiesto_publicacion": "results/publicacion_m2_m3_m4_20261122_194500/",
+    "seleccion": {
+      "variante": "M4_OP",
+      "id": 6,
+      "k_vecinos": 16,
+      "edad_maxima_dias": 365,
+      "ancho_compuerta": 64,
+      "dimension_proyeccion": 32
+    },
+    "semillas": [
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "desarrollo": [
+      2018,
+      2021
+    ],
+    "prueba_retrospectiva": [
+      2022,
+      2025
+    ],
+    "origenes": 1461,
+    "horizonte_horas": 24,
+    "MASE": {
+      "M4_OP": 0.5788984482098101,
+      "M4_N": 0.5731442332346163,
+      "M4_O": 0.5716589788264704,
+      "sin_compuerta": 0.5720992394181492,
+      "memoria_fija": 0.6300906626663895
+    },
+    "texto_incremental_demostrado": false,
+    "busqueda_amplia": "cerrada; conservar configuracion seleccionada"
+  },
+  "originalidad": {
+    "estado": "hipotesis por demostrar",
+    "textos_completos_objetivo": [
+      5,
+      10
+    ],
+    "prioridad": [
+      "RATL",
+      "FreshCast"
+    ],
+    "otros_antecedentes": [
+      "RAFT",
+      "MoME_2601.21547",
+      "MoLE"
+    ],
+    "contribucion_candidata": "memoria de residuos OOF temporal anidada, recuperacion aprendida y actualizacion observable",
+    "criterio_avance": "diferencia algoritmica verificada frente a antecedentes; no basta aplicacion geografica",
+    "propiedad_propuesta": "estabilidad local con memoria y top-k fijos bajo margen de puntajes",
+    "propiedad_demostrada": false
+  },
+  "evaluacion_propuesta_no_ejecutada": {
+    "metrica_primaria": "MASE",
+    "margen_relativo": 0.03,
+    "alpha_familiar": 0.05,
+    "potencia_minima_por_contraste": 0.9,
+    "reportar_potencia_conjunta": true,
+    "semillas_independientes_minimas": 10,
+    "semillas_candidatas": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110
+    ],
+    "dimensionamiento": "simulacion con OOF de desarrollo, dependencia temporal, variacion entre semillas y familia Holm completa",
+    "unidad_temporal": "origen diario con perdida media de 24 horas",
+    "pruebas_F2_propuestas": [
+      "bootstrap_estacionario_pareado",
+      "Diebold_Mariano_HLN",
+      "Giacomini_White"
+    ],
+    "verificar_supuestos_antes_de_confirmacion": true,
+    "correccion": "Holm para familia completa registrada; conservar separadas familias historicas",
+    "confirmacion_independiente": "periodo no inspeccionado o prospectivo por fijar antes de nuevas metricas",
+    "datasets_adicionales_minimos": 3,
+    "datasets_candidatos_no_descargados": [
+      "UCI ElectricityLoadDiagrams20112014",
+      "GEFCom2014 Load",
+      "ISO New England demanda"
+    ],
+    "datasets_estado": "seleccion pendiente de cobertura, licencia, independencia y protocolo",
+    "comparadores": [
+      "Top10 canonico completo",
+      "ingenuos",
+      "M1",
+      "NNLS",
+      "EWMA residual",
+      "regresion residual",
+      "kNN",
+      "RATL",
+      "FreshCast"
+    ],
+    "familia_comparadores_cerrada": false,
+    "ablaciones": [
+      "residuos en muestra vs OOF vs OOF anidado",
+      "recuperacion uniforme vs similitud vs aprendida",
+      "memoria fija vs creciente",
+      "sin correccion vs sin compuerta vs compuerta",
+      "N vs O vs OP y placebos"
+    ],
+    "retraso_memoria_dias": 2,
+    "mascara_antes_topk": true,
+    "mantener_archivos_historicos": true,
+    "entorno": [
+      "Windows o Linux",
+      "GPU compatible verificada",
+      "PyTorch y controlador registrados"
+    ],
+    "preregistro_futuro": "experiments/estandar.md y etiqueta Git con fecha real antes de ejecutar",
+    "salida_futura": "results/m4_cierre_gpu_<fecha>/"
+  },
+  "orden_trabajo": [
+    "revision_novedad",
+    "formulacion_y_prueba",
+    "registro_y_datasets",
+    "potencia_y_presupuesto",
+    "solicitud_expresa_para_ejecutar",
+    "verificacion_gpu",
+    "ajustes_autorizados",
+    "evaluacion_congelada",
+    "informe"
+  ],
+  "documento_detallado": "continuidad/PLAN_ORIGINALIDAD_EVALUACION_M4_GPU.md",
+  "matriz": "continuidad/MATRIZ_NOVEDAD_M4.md"
+}
