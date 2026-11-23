@@ -879,3 +879,10 @@ ONNX se incorpora como tarea futura con pesos congelados: encoder numérico y co
 Validar cada semilla contra su checkpoint original: CPU Windows/Linux y GPU compatible declarada; ausencia de NaN/Inf, memoria vacía, menos de k vecinos, límites de dos/365 días, empates, causalidad y recorrido temporal. Tolerancia propuesta en escala normalizada por q: atol=rtol=1e−5 y diferencia absoluta de MASE ≤1e−5; sin vecinos, identidad exacta con la base suministrada. Fijar versiones/opset, casos y tolerancias antes de ejecutar; no relajarlas después. Guardar grafos/pesos externos, fuente, escaladores, controlador, contrato, reportes de equivalencia y manifiesto SHA-256 en carpeta nueva. ONNX no almacena automáticamente el historial ni sustituye la auditoría de disponibilidad.
 
 Esta actualización solo modifica y sube documentación. No se han entrenado los controles, generado archivos ONNX ni ejecutado inferencia o nueva evaluación. Los ajustes y comprobaciones futuras requieren solicitud expresa. No se modifica ni publica el JBook ni el dashboard.
+
+
+## Adenda estadística durante la ejecución GPU · 23 de noviembre de 2026
+
+La cola registrada continúa sin cambiar sus fuentes ni pesos. Se registra `experiments/m4_originalidad/ADENDA_RESOLUCION_F2.md` antes de las nuevas pruebas: resolución final de 49.999 réplicas por multiplicidad y GW con instrumento observable de dos días antes. La etapa final publica y verifica su cierre antes del apagado; el paso preliminar se conserva.
+
+Se extraen los pronósticos agregados históricos de TimesNet y N-BEATS en `results/m4_cierre_gpu_20261123/predicciones_historicas_disponibles/`: 35.064 intervalos por modelo, promedio y percentiles entre cinco semillas, con fecha y horizonte. No se reconstruyen realizaciones individuales. Las pérdidas diarias publicadas permiten el contraste temporal con esos procedimientos; su incertidumbre entre semillas no queda reconstruida. Las pruebas del proyecto registran 84 aprobadas. El entrenamiento adicional y la publicación final siguen pendientes; esta adenda no certifica E3, originalidad ni portabilidad.

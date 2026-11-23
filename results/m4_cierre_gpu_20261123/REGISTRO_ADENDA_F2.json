@@ -1,0 +1,12 @@
+{
+  "fecha": "2026-11-23T12:31:25.998377-05:00",
+  "replicas": 49999,
+  "GW_rezago_dias": 2,
+  "familia": 768,
+  "fuentes": {
+    "scripts/m4_cierre_completar_top10.py": "40cc3d3c6b47c035c229cdad9d2b2fb71cf97fd3f02794cd6a731b73b566839d",
+    "scripts/m4_cierre_guardia_apagado.py": "3c5e25206b879e90cfd68c5c762ad622ade2e73aaf583b9d816f5b64401a18e1",
+    "experiments/m4_originalidad/ADENDA_RESOLUCION_F2.md": "22596e525c5247b6e271bd52fc83763996c06090fd2ced7649ebd95bafc879f3"
+  },
+  "nuevas_predicciones_prueba_aun_no_generadas": true
+}

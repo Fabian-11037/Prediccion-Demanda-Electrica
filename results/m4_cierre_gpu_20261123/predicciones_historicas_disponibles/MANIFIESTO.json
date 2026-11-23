@@ -1,0 +1,30 @@
+{
+  "archivos": [
+    {
+      "modelo": "TimesNet",
+      "filas": 35064,
+      "archivo": "TimesNet_promedio_cinco_semillas.csv.gz",
+      "sha256": "ff01dcc12c2d93fe69bbc2c61438d0dcc15c88f550685089e99bfa816cbf69e2",
+      "fuente": "dashboard/site/data/predictions/nuevo_timesnet__N.json",
+      "sha256_fuente": "3f6c30d5263c634532a2f98fa1cb58ce9428b65d4ab08615329c614906ae5f88"
+    },
+    {
+      "modelo": "NBEATS",
+      "filas": 35064,
+      "archivo": "NBEATS_promedio_cinco_semillas.csv.gz",
+      "sha256": "f33eaadbd33be5e38b2e17adc8d3d53f67969fce3cb113288746777e27e0101d",
+      "fuente": "dashboard/site/data/predictions/nuevo_nbeats__N.json",
+      "sha256_fuente": "f363219582d49051e58bf1ad7e151a25f3bd7cba77ccded98d08d725a0d861d1"
+    }
+  ],
+  "periodo": [
+    "2022-01-01",
+    "2025-12-31"
+  ],
+  "zona_horaria": "America/Bogota",
+  "horizonte": "24 intervalos horarios del día de origen",
+  "unidades": "kWh",
+  "precision_publicada_kwh": 0.01,
+  "alcance": "Promedio y percentiles entre cinco semillas; no predicciones individuales.",
+  "advertencia": "Los percentiles entre semillas no constituyen intervalos predictivos. Los agregados no permiten reconstruir las cinco realizaciones. El error del promedio difiere del promedio de errores usado en el benchmark."
+}
