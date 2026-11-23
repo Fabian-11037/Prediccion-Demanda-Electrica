@@ -1,0 +1,286 @@
+{
+ "version": "modelo5_itransformer_paquete_20261114",
+ "modelo": "Modelo 5 (iTransformer)",
+ "paquete": {
+  "clave": "modelo5",
+  "nombre": "Modelo 5 (iTransformer)",
+  "red": "itransformer",
+  "carpeta_resultados": "resultados_modelo5",
+  "usa_descripciones": false,
+  "carpeta": "Modelo5_iTransformer"
+ },
+ "contrato": "config/diseno_entrenamiento_texto.json",
+ "variantes": [
+  "N"
+ ],
+ "busqueda": {
+  "pliegue_inicial": 2018,
+  "pliegues_restantes": [
+   2019,
+   2020,
+   2021
+  ],
+  "semilla": 43,
+  "finalistas": 5,
+  "criterio_finalistas": "menor MASE de validación en el pliegue 2018; empates: menos parámetros y luego menor id",
+  "criterio_seleccion": "menor MASE medio de los cuatro pliegues (igual peso); empates: menos parámetros y luego menor id"
+ },
+ "final": {
+  "semillas": [
+   1000,
+   1001,
+   1002,
+   1003,
+   1004
+  ],
+  "ajuste": "orígenes con objetivo anterior a 2022-01-01; último 10 % como parada interna con purga de 24 h",
+  "prueba": "2022-01-01 a 2025-12-31, retrospectiva"
+ },
+ "entrenamiento": {
+  "optimizador": "AdamW",
+  "perdida": "MAE sobre demanda / nivel de la ventana",
+  "plan": "ReduceLROnPlateau(factor 0.5, paciencia 2)",
+  "max_epocas": 200,
+  "min_epocas": 10,
+  "paciencia": 6,
+  "mejora_relativa_minima": 0.002,
+  "recorte_gradiente": 1.0
+ },
+ "inferencia": {
+  "bloque_dias": 14,
+  "sensibilidad_bloque_dias": [
+   7,
+   28
+  ],
+  "remuestreos": 10000,
+  "semilla_bootstrap": 20261111,
+  "margen_relativo": 0.03
+ },
+ "arquitectura_fija": {
+  "tokens": "uno por variable histórica y por indicador de ausencia (historia de 168 h) y uno por variable de calendario (168 h de historia + 24 h futuras)",
+  "identidad": "embedding aprendido por variable",
+  "d_ff": "2 x d_model",
+  "activacion": "GELU",
+  "normalizacion": "posterior (post-LN) y LayerNorm final",
+  "salida": "proyección lineal del token de la demanda a 24 h; la red devuelve 1 + corrección"
+ },
+ "prueba_rapida": {
+  "configuraciones": [
+   10,
+   18
+  ]
+ },
+ "configuraciones": [
+  {
+   "id": 1,
+   "d_model": 128,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.001,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 2,
+   "d_model": 128,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 3,
+   "d_model": 128,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.001,
+   "weight_decay": 0.001,
+   "lote": 128
+  },
+  {
+   "id": 4,
+   "d_model": 128,
+   "capas": 3,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 5,
+   "d_model": 128,
+   "capas": 3,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.001,
+   "weight_decay": 0.001,
+   "lote": 128
+  },
+  {
+   "id": 6,
+   "d_model": 256,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 7,
+   "d_model": 256,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.0001,
+   "weight_decay": 0.001,
+   "lote": 32
+  },
+  {
+   "id": 8,
+   "d_model": 256,
+   "capas": 3,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0001,
+   "weight_decay": 0.0001,
+   "lote": 32
+  },
+  {
+   "id": 9,
+   "d_model": 256,
+   "capas": 3,
+   "cabezas": 8,
+   "dropout": 0.3,
+   "lr": 0.0003,
+   "weight_decay": 0.01,
+   "lote": 128
+  },
+  {
+   "id": 10,
+   "d_model": 64,
+   "capas": 2,
+   "cabezas": 4,
+   "dropout": 0.1,
+   "lr": 0.001,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 11,
+   "d_model": 512,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0001,
+   "weight_decay": 0.0001,
+   "lote": 32
+  },
+  {
+   "id": 12,
+   "d_model": 512,
+   "capas": 3,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 13,
+   "d_model": 512,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.0003,
+   "weight_decay": 0.001,
+   "lote": 64
+  },
+  {
+   "id": 14,
+   "d_model": 512,
+   "capas": 4,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.0001,
+   "weight_decay": 0.0001,
+   "lote": 32
+  },
+  {
+   "id": 15,
+   "d_model": 256,
+   "capas": 4,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 16,
+   "d_model": 128,
+   "capas": 4,
+   "cabezas": 8,
+   "dropout": 0.2,
+   "lr": 0.001,
+   "weight_decay": 0.0001,
+   "lote": 64
+  },
+  {
+   "id": 17,
+   "d_model": 64,
+   "capas": 3,
+   "cabezas": 4,
+   "dropout": 0.2,
+   "lr": 0.0003,
+   "weight_decay": 0.0001,
+   "lote": 32
+  },
+  {
+   "id": 18,
+   "d_model": 64,
+   "capas": 2,
+   "cabezas": 4,
+   "dropout": 0.3,
+   "lr": 0.001,
+   "weight_decay": 0.001,
+   "lote": 128
+  },
+  {
+   "id": 19,
+   "d_model": 256,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.3,
+   "lr": 0.001,
+   "weight_decay": 0.001,
+   "lote": 128
+  },
+  {
+   "id": 20,
+   "d_model": 128,
+   "capas": 2,
+   "cabezas": 8,
+   "dropout": 0.1,
+   "lr": 0.0001,
+   "weight_decay": 0.0001,
+   "lote": 32
+  }
+ ],
+ "desviaciones_declaradas": [
+  "Presupuesto: el contrato registra 20 configuraciones x 3 semillas (43, 44, 45) x 4 pliegues. Por tiempo y recursos, y antes de entrenar, el autor fijó 20 configuraciones x 1 semilla (43) en el pliegue 2018 y las 5 mejores en los pliegues 2019-2021. La comparación con otros modelos solo es equitativa si reciben el mismo esquema.",
+  "La preselección en un solo pliegue y con una sola semilla está expuesta al ruido de inicialización; el orden de las 20 configuraciones no se interpreta como evidencia.",
+  "Semillas finales: 5 (1000-1004). Es el mínimo de piloto del diseño; no acredita por sí mismo potencia 0,80.",
+  "El bloque 2022-2025 ya fue examinado con otros modelos del proyecto: la prueba es retrospectiva y no constituye evidencia confirmatoria independiente.",
+  "Ausencias numéricas: mediana del ajuste de cada pliegue y un indicador por bloque (precio, hidrología, clima), porque las columnas de cada bloque comparten el patrón de ausencia.",
+  "Modelo solo numérico: se entrena únicamente la variante N. No usa documentos ni codificador de texto.",
+  "iTransformer (Liu et al., ICLR 2024, arXiv:2310.06625) con dos adaptaciones propias: embedding de identidad por variable y calendario futuro dentro de los tokens de calendario. Solo se decodifica el token de la demanda. La demanda se normaliza con el nivel de la ventana, como en el resto del proyecto, en lugar de la normalización por instancia del artículo.",
+  "Las 20 configuraciones incluyen d_model y número de capas además de tasa, lote y regularización; el diseño separa los hiperparámetros no arquitectónicos de la arquitectura publicada. Las configuraciones 1 a 10 son las del núcleo iTransformer del paquete del modelo 6, de modo que coinciden con su variante N.",
+  "Durante la construcción del paquete la red se revisó solo con el ajuste y la parada interna del pliegue 2018 (sin el año de validación ni la prueba)."
+ ]
+}
