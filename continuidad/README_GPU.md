@@ -4,10 +4,11 @@ Actualizado el 23 de noviembre de 2026.
 
 ## Orden de lectura
 
-1. [Instrucciones](../AGENTS.md) y [contexto del proyecto](../CONTEXTO_PROYECTO.md), especialmente §53–§54.
+1. [Instrucciones](../AGENTS.md) y [contexto del proyecto](../CONTEXTO_PROYECTO.md), especialmente §53–§55.
 2. [Plan de originalidad y evaluación de M4](PLAN_ORIGINALIDAD_EVALUACION_M4_GPU.md): prioridades, controles, propiedad teórica, dimensionamiento y cierre estadístico del E3.
 3. [Especificación del plan](PLAN_ORIGINALIDAD_EVALUACION_M4_GPU.json) y [matriz inicial de antecedentes](MATRIZ_NOVEDAD_M4.md).
-4. Informes y manifiestos de resultados publicados indicados abajo.
+4. [Protocolo concreto de capacidad igualada y ONNX de M4_N](PROTOCOLO_CAPACIDAD_ONNX_M4_N.md).
+5. Informes y manifiestos de resultados publicados indicados abajo.
 
 ## Estado real de los modelos
 
@@ -22,7 +23,7 @@ M1, M2, M3 y M4 ya fueron implementados, entrenados y evaluados con cinco semill
 
 Los análisis complementarios de recepción citados en §53 se conservan localmente y no forman parte de esta subida documental. Para continuar en otro PC, usar los resultados y fuentes canónicos de las carpetas anteriores; no depender de una ruta local de recepción como si estuviera publicada.
 
-La prioridad es revisar la novedad de M4 frente a RATL y FreshCast y aislar la contribución de su memoria. No se amplía su búsqueda general de configuraciones. El texto no tiene mejora incremental demostrada. El cierre del E3 requiere nuevas tareas —entre ellas potencia, réplicas comparables y datasets adicionales— que no se resuelven solo con los cinco ajustes disponibles.
+**M4_N es la propuesta retrospectiva vigente**, elegida después de conocer 2022–2025, con configuración y pesos conservados. M4_OP mantiene su papel en la selección histórica; O/OP son sensibilidad al texto. La prioridad es revisar la novedad frente a RATL y FreshCast y aislar la contribución de la memoria numérica con tres datasets adicionales y controles de capacidad activa dentro de ±5 %. MLP_CE y EWMA_MLP_CE están especificados, sin entrenar. La exportación ONNX y su equivalencia CPU/GPU están planificadas, sin archivos exportados. No se amplía su búsqueda general de configuraciones. El texto no tiene mejora incremental demostrada. El cierre del E3 requiere nuevas tareas —entre ellas potencia, réplicas comparables y datasets adicionales— que no se resuelven solo con los cinco ajustes disponibles.
 
 ## Preparación de archivos
 

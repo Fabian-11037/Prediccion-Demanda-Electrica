@@ -1,10 +1,10 @@
-# M4: originalidad y evaluación en GPU
+# M4_N: propuesta retrospectiva, originalidad y evaluación en GPU
 
 Fecha: 23 de noviembre de 2026. Estado: plan de continuidad; ejecución pendiente.
 
 ## 1. Objetivo y alcance
 
-Determinar si la memoria de episodios de M4 constituye una contribución metodológica para el pronóstico de demanda eléctrica y completar su evaluación conforme al Entregable 3. Una mejora de error no demuestra por sí sola originalidad; ambas hipótesis requieren evidencia propia.
+Presentar M4_N como propuesta retrospectiva y determinar si su memoria numérica de episodios constituye una contribución metodológica para el pronóstico de demanda eléctrica; completar su evaluación conforme al Entregable 3. Una mejora de error no demuestra por sí sola originalidad; ambas hipótesis requieren evidencia propia.
 
 La solicitud actual autoriza actualizar y subir documentación. **No autoriza entrenar, ejecutar inferencia, ampliar la evaluación ni modificar o publicar JBook o dashboard.** El agente del PC con GPU deberá obtener una solicitud expresa antes de iniciar ajustes nuevos. Esta guía no es un preregistro de experimentos ya ejecutados ni activa una cola de entrenamiento.
 
@@ -12,11 +12,11 @@ La solicitud actual autoriza actualizar y subir documentación. **No autoriza en
 
 Los pesos, configuraciones, predicciones y fuentes ya están publicados en `results/m4_gpu_20261122_194500/`. Consultar `INFORME.md`, `fuentes/scripts/e3_modelo4.py`, `fuentes/scripts/test_m4_gpu.py` y los manifiestos de `results/publicacion_m2_m3_m4_20261122_194500/`. La base procede de M1 con OOF anidado; M1 y el codificador E5 permanecen congelados.
 
-M4_OP fue la variante principal de selección: oficial más prensa, escenario declarado y canales separados. La configuración elegida es 6: 16 vecinos, edad máxima de 365 días y ancho de compuerta 64; proyección de consulta/clave de dimensión 32. Se cierra la búsqueda amplia de variantes y se conserva esta configuración como referencia histórica.
+M4_OP fue la variante principal de selección: oficial más prensa, escenario declarado y canales separados. La configuración elegida es 6: 16 vecinos, edad máxima de 365 días y ancho de compuerta 64; proyección de consulta/clave de dimensión 32. Se cierra la búsqueda amplia de variantes. **M4_N se adopta como propuesta retrospectiva**, conservando esa configuración heredada y sus pesos. Su elección ocurre después de conocer 2022–2025; M4_OP mantiene su papel en la selección histórica, sin atribuir a M4_N una selección a priori que no tuvo.
 
 Las cinco semillas existentes son 101–105. La prueba comprende 1.461 orígenes diarios de 2022–2025 y 24 horas por origen. MASE: M4_OP 0,578898; M4_N 0,573144; M4_O 0,571659; sin compuerta 0,572099; memoria fija 0,630091; TimesNet con lote uno 0,642928. Las cifras proceden de los resultados guardados, no de ajustes ejecutados en esta actualización.
 
-M4_OP mejora aproximadamente 9,96 % respecto de TimesNet en la comparación temporal retrospectiva disponible. El texto oficial no demuestra una mejora incremental frente al control numérico: reducción de 0,259 % y p Holm 1 en la familia registrada. Oficial más prensa y la compuerta tampoco acreditan un beneficio incremental. No convertir M4_O, M4_N o un placebo en la variante principal por su menor error de prueba.
+M4_OP mejora aproximadamente 9,96 % respecto de TimesNet en la comparación temporal retrospectiva disponible. El texto oficial no demuestra una mejora incremental frente al control numérico: reducción de 0,259 % y p Holm 1 en la familia registrada. Oficial más prensa y la compuerta tampoco acreditan un beneficio incremental. La propuesta vigente es M4_N, con MASE 0,573144 y mejora aproximada de 10,85 % frente a TimesNet en el análisis retrospectivo disponible. M4_O y M4_OP quedan como comparaciones de sensibilidad al texto. La designación de M4_N no demuestra por sí misma originalidad ni superioridad confirmatoria y no modifica las familias históricas de contrastes.
 
 Los contrastes actuales usan bootstrap temporal y cinco semillas; no satisfacen por sí solos las tres pruebas distintas, el mínimo de diez semillas ni la potencia del E3. La prueba 2022–2025 ya fue examinada y seguirá identificada como retrospectiva. Añadir semillas no la convierte en una prueba ciega.
 
@@ -64,7 +64,7 @@ Si g y alpha admiten constantes locales L_g y L_alpha y la base L_b, se obtiene 
 
 ## 5. Controles para identificar el mecanismo
 
-Mantener iguales base, variables, normalización, capacidad, horizonte, presupuesto, semillas y política de acceso a observaciones. Comparar:
+Mantener iguales base, variables, normalización, horizonte, presupuesto, semillas y política de acceso a observaciones. M4_N es el centro de las ablaciones numéricas; N/O/OP es el análisis secundario del texto. El [protocolo de capacidad y ONNX](PROTOCOLO_CAPACIDAD_ONNX_M4_N.md) fija un control MLP sin memoria y otro con resumen EWMA del mismo banco observable, con diferencia máxima de 5 % en parámetros activos. Para Colombia: M4_N 60.993, MLP_CE 60.929 y EWMA_MLP_CE 60.567. Las cifras son conteos de diseño, no nuevos resultados de entrenamiento. Comparar:
 
 | Eje | Comparación controlada | Pregunta |
 |---|---|---|
@@ -74,7 +74,7 @@ Mantener iguales base, variables, normalización, capacidad, horizonte, presupue
 | Combinación | Sin corrección, corrección sin compuerta y compuerta aprendida | ¿La compuerta aporta precisión o estabilidad? |
 | Texto | N, O y OP; metadatos y desplazamientos temporales | ¿Existe información semántica incremental? |
 
-Ejecutar al menos tres ablaciones aisladas del mecanismo central. El control en muestra es un diagnóstico de construcción del banco: nunca permite valores futuros al predecir validación o prueba. No confundir retirar OOF con retirar la máscara causal. La variante sin texto mantiene dimensión/capacidad comparable o informa el cambio de parámetros.
+Ejecutar al menos tres ablaciones aisladas del mecanismo central. El control en muestra es un diagnóstico de construcción del banco: nunca permite valores futuros al predecir validación o prueba. No confundir retirar OOF con retirar la máscara causal. Para los controles de capacidad excluir módulos textuales inactivos y pesos multiplicados siempre por cero; documentar por separado los 144.225 parámetros almacenados en el contenedor histórico. Los anchos se eligen por conteo, sin mirar pérdidas. La igualdad de parámetros no equivale a igualdad de cómputo ni elimina el efecto de la memoria no paramétrica.
 
 Incluir los diez modelos canónicos, los ingenuos y controles fuertes existentes —M1 y NNLS entre ellos—, más corrección por media móvil/EWMA de residuos, regresión residual, kNN y réplicas o adaptaciones documentadas de RATL y FreshCast. Resolver la pertinencia de RAFT y otros antecedentes en la revisión inicial y cerrar la lista completa antes de confirmar resultados. No retirar rivales por su rendimiento.
 
@@ -82,7 +82,7 @@ Todas las políticas que actualicen memoria reciben las mismas observaciones con
 
 ## 6. Registro y datos antes de la evaluación adicional
 
-Crear `experiments/estandar.md` y un registro específico con fecha real y etiqueta Git antes de la nueva ejecución. Incluir pregunta, contribución candidata, variante principal, conjuntos, hashes SHA-256, particiones, escala MASE, variables disponibles, baselines, presupuesto, semillas, regla de parada, familia de hipótesis, análisis de potencia y criterios de éxito. No reconstruir un preregistro para los resultados ya conocidos.
+Crear `experiments/estandar.md` y un registro específico con fecha real y etiqueta Git antes de la nueva ejecución. Registrar M4_N como propuesta elegida retrospectivamente, los controles MLP_CE/EWMA_MLP_CE, la tolerancia de capacidad, la confirmación adicional y el contrato ONNX; no llamar preregistrada a su elección sobre los resultados conocidos. Incluir pregunta, contribución candidata, variante principal, conjuntos, hashes SHA-256, particiones, escala MASE, variables disponibles, baselines, presupuesto, semillas, regla de parada, familia de hipótesis, análisis de potencia y criterios de éxito. No reconstruir un preregistro para los resultados ya conocidos.
 
 Conservar el margen **relativo del 3 % de reducción del MASE del rival**, alpha familiar 0,05 y escala calculada únicamente en entrenamiento. No alternar márgenes absolutos derivados del piloto y de prueba. Registrar pérdidas diarias de 24 horas, además de métricas por horizonte, semilla, año y segmento.
 
@@ -90,7 +90,7 @@ Para Colombia, mantener desarrollo 2018–2021 y prueba histórica 2022–2025 e
 
 Seleccionar **al menos tres datasets adicionales**, independientes del colombiano y adecuados al mismo problema de pronóstico de demanda, antes de mirar su desempeño. Candidatos de adquisición: [ElectricityLoadDiagrams20112014 de UCI](https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014), [GEFCom2014 Load](https://blog.drhongtao.com/2017/03/gefcom2014-load-forecasting-data.html) e [informes de demanda de ISO New England](https://www.iso-ne.com/isoexpress/web/reports/load-and-demand). La selección sigue pendiente de comprobar acceso, licencia, cobertura, independencia y diversidad de escala, calendario o frecuencia; no se han descargado ni evaluado en esta actualización. Tres zonas de una misma tabla no se contarán automáticamente como tres datasets. No sustituir GEFCom2014 Load por GEFCom2014-E y contarlo como independiente de ISO New England: el proveedor advierte que la variante E procede de ISO New England.
 
-Fijar versiones, agregación de unidades, cambios de hora, horizonte, particiones temporales, MASE estacional y covariables realmente disponibles de cada dataset. En ausencia de texto, evaluar el núcleo numérico registrado; esos resultados no prueban generalización del componente semántico. Aplicar a cada dataset la familia completa de comparadores pertinentes fijada en el protocolo. No promediar MAE de unidades diferentes.
+Fijar versiones, agregación de unidades, cambios de hora, horizonte, particiones temporales, MASE estacional y covariables realmente disponibles de cada dataset. Evaluar M4_N como propuesta numérica en cada conjunto adicional. Si se añade texto, tratarlo como contraste secundario separado; los resultados numéricos no prueban generalización del componente semántico. Aplicar a cada dataset la familia completa de comparadores pertinentes fijada en el protocolo. No promediar MAE de unidades diferentes.
 
 ## 7. Semillas, potencia y presupuesto GPU
 
@@ -104,7 +104,7 @@ No ampliar ahora la rejilla de ocho configuraciones de M4. Los controles usan la
 
 ## 8. Contrastes y criterio de cierre
 
-Para cada rival, definir d_t=L_rival,t−L_M4,t y la ganancia relativa 1−MASE_M4/MASE_rival. La unidad temporal es el origen diario, con pérdida media de sus 24 horas; las horas y las semillas no son miles de observaciones independientes. Conservar por separado incertidumbre entre inicializaciones y entre días.
+Para cada rival, definir d_t=L_rival,t−L_M4_N,t y la ganancia relativa 1−MASE_M4_N/MASE_rival. Incluir los controles de capacidad en la familia antes de abrir sus métricas. La unidad temporal es el origen diario, con pérdida media de sus 24 horas; las horas y las semillas no son miles de observaciones independientes. Conservar por separado incertidumbre entre inicializaciones y entre días.
 
 La familia F2 del Cuadro 4 del E3 admite los siguientes tres procedimientos propuestos:
 
@@ -128,6 +128,8 @@ Complementar con Model Confidence Set y comparación entre datasets mediante Fri
 6. Evaluar en orden cronológico con pesos congelados y memoria disponible. Verificar invariancia al tamaño de lote o usar lote uno cuando existan decisiones entre ejemplos. Exportar vecinos, fechas, residuos usados, atenciones y compuertas para auditar causalidad.
 7. Generar tablas, figuras e interpretaciones desde predicciones canónicas: observado/predicho, curvas, error por horizonte/segmento, ganancias, IC, tres pruebas, correcciones, potencia, coste y robustez. Medir latencia mediana/p95 con calentamiento y sincronización GPU, tamaño de lote y hardware declarados. Las atenciones no se presentarán automáticamente como importancia causal.
 
+8. Exportar en una tarea futura los pesos congelados de M4_N a ONNX según el [contrato detallado](PROTOCOLO_CAPACIDAD_ONNX_M4_N.md): encoder numérico y corrector sin estado, controlador cronológico externo y base M1 explícita. Verificar equivalencia por semilla en CPU Windows/Linux y GPU compatible, incluyendo memoria vacía, límites de disponibilidad y top-k. La tolerancia propuesta en escala normalizada es atol=rtol=1e−5 y diferencia de MASE ≤1e−5. No se genera ningún ONNX en esta actualización documental.
+
 No hay un lanzador nuevo validado para este cierre: adaptar y probar los scripts publicados es trabajo pendiente, sujeto a autorización. No usar comandos de ajuste sin verificar sus argumentos y el protocolo final.
 
 ## 10. Entregables y decisiones finales
@@ -137,11 +139,13 @@ No hay un lanzador nuevo validado para este cierre: adaptar y probar los scripts
 | Novedad | Matriz de 5–10 textos completos, búsquedas y diferencia formal | Matriz inicial; revisión pendiente |
 | Teoría | Derivación, supuestos y verificación numérica | Propiedad candidata; pendiente |
 | Diseño | `experiments/estandar.md`, registro y etiqueta con fecha real | Pendiente antes de nuevas ejecuciones |
+| Capacidad | MLP_CE y EWMA_MLP_CE con parámetros activos dentro de ±5 % | Diseño concreto; sin entrenar |
 | Potencia | Simulación de desarrollo, tamaño requerido y presupuesto | Pendiente |
 | GPU | Pruebas, réplicas comparables y ≥3 datasets adicionales | Pendiente; requiere autorización |
 | Evaluación | Predicciones, métricas, tres pruebas y Holm, ablaciones y robustez | Evidencia histórica disponible; ampliación pendiente |
+| ONNX | Encoder/corrector, base/controlador, contrato y equivalencia | Plan definido; sin exportar |
 | Informe | Conclusiones separadas para mecanismo, texto y superioridad | Pendiente de la evidencia ampliada |
 
 Guardar el trabajo futuro, por ejemplo, en `experiments/m4_originalidad/` y `results/m4_cierre_gpu_<fecha>/`, con fuentes, registro, manifiestos y hashes. Los conteos y conclusiones se generarán desde resultados para evitar divergencias documentales. No cambiar los hashes ni el contenido de los artefactos históricos.
 
-**Decisión actual:** conservar M4 y cerrar su búsqueda amplia; invertir primero en demostrar la diferencia metodológica y aislar el mecanismo. El texto sigue siendo una hipótesis sin mejora incremental demostrada. Si las comparaciones cercanas explican toda la contribución o la evaluación no supera a todos los rivales, informar ese resultado sin forzar una conclusión de originalidad o superioridad. El JBook y el dashboard se actualizarán o publicarán únicamente cuando el usuario lo solicite.
+**Decisión actual:** presentar M4_N como propuesta retrospectiva, conservar configuración y pesos y cerrar su búsqueda amplia; invertir primero en demostrar la diferencia metodológica y aislar el mecanismo. El texto sigue siendo una hipótesis sin mejora incremental demostrada. Si las comparaciones cercanas explican toda la contribución o la evaluación no supera a todos los rivales, informar ese resultado sin forzar una conclusión de originalidad o superioridad. El JBook y el dashboard se actualizarán o publicarán únicamente cuando el usuario lo solicite.

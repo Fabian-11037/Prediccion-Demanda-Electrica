@@ -13,3 +13,5 @@ Fecha de consulta: 23-11-2026. Revisión preliminar; no constituye una búsqueda
 Por cada texto completo registrar autores, año/versión, DOI o identificador, dominio/datasets, ecuaciones, construcción del banco, instante de disponibilidad, función objetivo, complejidad, ablations y limitaciones. Guardar páginas/secciones que sustenten cada celda. Incorporar los trabajos adicionales hallados por búsquedas reproducibles; no afirmar ausencia de antecedentes solo por no encontrarlos en esta lista.
 
 La comparación con RATL y FreshCast es prioritaria: la recuperación residual y la actualización de memoria ya tienen antecedentes explícitos. La hipótesis a auditar es la contribución de la construcción OOF temporal anidada y su integración en la política de recuperación disponible, no una supuesta invención de la memoria o de la compuerta.
+
+La propuesta vigente es M4_N, de carácter retrospectivo: centrar la comparación metodológica en la memoria numérica y el control de capacidad de `PROTOCOLO_CAPACIDAD_ONNX_M4_N.md`. Los antecedentes multimodales contextualizan el análisis secundario de O/OP y no prueban originalidad del núcleo numérico.

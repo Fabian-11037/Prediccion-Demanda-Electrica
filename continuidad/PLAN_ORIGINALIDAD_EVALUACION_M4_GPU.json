@@ -1,5 +1,5 @@
 {
-  "version": "plan_m4_originalidad_evaluacion_gpu_v1",
+  "version": "plan_m4_originalidad_evaluacion_gpu_v2",
   "fecha": "2026-11-23",
   "zona_horaria": "America/Bogota",
   "estado": "documentacion; ejecucion pendiente",
@@ -117,11 +117,13 @@
       "regresion residual",
       "kNN",
       "RATL",
-      "FreshCast"
+      "FreshCast",
+      "MLP_CE",
+      "EWMA_MLP_CE"
     ],
     "familia_comparadores_cerrada": false,
     "ablaciones": [
-      "residuos en muestra vs OOF vs OOF anidado",
+      "M4_N: residuos en muestra vs OOF vs OOF anidado",
       "recuperacion uniforme vs similitud vs aprendida",
       "memoria fija vs creciente",
       "sin correccion vs sin compuerta vs compuerta",
@@ -136,19 +138,149 @@
       "PyTorch y controlador registrados"
     ],
     "preregistro_futuro": "experiments/estandar.md y etiqueta Git con fecha real antes de ejecutar",
-    "salida_futura": "results/m4_cierre_gpu_<fecha>/"
+    "salida_futura": "results/m4_cierre_gpu_<fecha>/",
+    "variante_principal_nueva_evaluacion": "M4_N"
   },
   "orden_trabajo": [
     "revision_novedad",
     "formulacion_y_prueba",
     "registro_y_datasets",
+    "registro_capacidad_y_contrato_onnx",
     "potencia_y_presupuesto",
     "solicitud_expresa_para_ejecutar",
     "verificacion_gpu",
     "ajustes_autorizados",
     "evaluacion_congelada",
+    "exportacion_onnx_y_equivalencia_autorizadas",
     "informe"
   ],
   "documento_detallado": "continuidad/PLAN_ORIGINALIDAD_EVALUACION_M4_GPU.md",
-  "matriz": "continuidad/MATRIZ_NOVEDAD_M4.md"
+  "matriz": "continuidad/MATRIZ_NOVEDAD_M4.md",
+  "propuesta_vigente": {
+    "variante": "M4_N",
+    "caracter": "retrospectiva",
+    "eleccion_posterior_a_resultados_2022_2025": true,
+    "configuracion_heredada": 6,
+    "nueva_busqueda": false,
+    "cambiar_pesos_historicos": false,
+    "seleccion_historica": "M4_OP permanece como variante que selecciono la configuracion",
+    "sensibilidad_texto": [
+      "M4_O",
+      "M4_OP"
+    ],
+    "confirmacion_futura": "datasets adicionales y periodo no inspeccionado, registrados antes de evaluar"
+  },
+  "control_capacidad_igualada": {
+    "estado": "diseno; controles sin entrenar",
+    "unidad": "corrector activo sobre la misma M1 congelada",
+    "tolerancia_relativa_maxima": 0.05,
+    "n_num_colombia": 912,
+    "m4_n_parametros_totales_historicos": 144225,
+    "m4_n_parametros_activos": 60993,
+    "formula_parametros_activos": "64*n+2625",
+    "excluir": [
+      "modulos textuales inactivos",
+      "columnas de entrada siempre nulas",
+      "base compartida congelada"
+    ],
+    "controles": [
+      {
+        "nombre": "MLP_CE",
+        "entrada": 912,
+        "ancho": 65,
+        "salida": 24,
+        "parametros": 60929,
+        "arquitectura": "Linear-GELU-Dropout(0.1)-Linear",
+        "memoria": false
+      },
+      {
+        "nombre": "EWMA_MLP_CE",
+        "entrada": 936,
+        "ancho": 63,
+        "salida": 24,
+        "parametros": 60567,
+        "arquitectura": "Linear-GELU-Dropout(0.1)-Linear",
+        "memoria": "resumen EWMA 24 residuos del mismo banco admisible",
+        "semivida_dias": 30
+      }
+    ],
+    "seleccion_ancho": "minimizar |h*(p+25)+24-P_M4_N| para h=1..4096; desempate menor h; sin perdidas",
+    "optim": {
+      "tipo": "AdamW",
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "lote": 64
+    },
+    "parada": {
+      "max_epocas": 100,
+      "min_epocas": 10,
+      "paciencia": 10,
+      "min_delta": 0.0001
+    },
+    "perdida": "MAE/q",
+    "inicializacion_control": "capa final cero; no alterar M4_N historico",
+    "contabilizar_memoria_y_compute_por_separado": true,
+    "top10": "mantener versiones canonicas con capacidad nativa; no declararlas igualadas"
+  },
+  "exportacion_onnx": {
+    "estado": "planificada; ningun archivo ONNX generado",
+    "ejecutada": false,
+    "pesos_congelados": true,
+    "cuantizacion": false,
+    "grafos": [
+      "m4_n_encoder.onnx",
+      "m4_n_corrector.onnx"
+    ],
+    "base": "exportar subgrafos de M1 para paquete completo; mientras no se valide, base externa explicita",
+    "controlador_externo": "pipeline_inferencia.py por implementar; memoria cronologica con retraso de dos dias",
+    "precision": "FP32",
+    "lote": 1,
+    "horizonte": 24,
+    "posiciones_banco": 365,
+    "padding_con_mascara": true,
+    "k": 16,
+    "exportador_propuesto": {
+      "dynamo": true,
+      "report": true,
+      "verify": true
+    },
+    "versiones_opset": "fijar compatibilidad y versiones antes de exportar; no elegir segun metricas",
+    "equivalencia": {
+      "atol": 1e-05,
+      "rtol": 1e-05,
+      "escala_prediccion": "dividir por q",
+      "diferencia_MASE_maxima": 1e-05,
+      "sin_vecinos": "identidad exacta con base suministrada",
+      "plataformas": [
+        "CPU Windows",
+        "CPU Linux",
+        "GPU de proveedor compatible declarado"
+      ],
+      "casos": [
+        "sin vecinos",
+        "menos de k",
+        "al menos k",
+        "limite dos dias",
+        "limite 365 dias",
+        "empates",
+        "padding",
+        "filas futuras",
+        "recorrido cronologico"
+      ]
+    },
+    "rechazar_si_falla_equivalencia": true,
+    "artefactos": [
+      "grafos y pesos externos",
+      "checkpoint original",
+      "wrapper/controlador",
+      "escaladores",
+      "contrato JSON",
+      "versiones fijadas",
+      "reportes de exportacion/equivalencia",
+      "latencia",
+      "manifiesto SHA256"
+    ],
+    "protocolo": "continuidad/PROTOCOLO_CAPACIDAD_ONNX_M4_N.md"
+  },
+  "protocolo_capacidad_onnx": "continuidad/PROTOCOLO_CAPACIDAD_ONNX_M4_N.md"
 }
