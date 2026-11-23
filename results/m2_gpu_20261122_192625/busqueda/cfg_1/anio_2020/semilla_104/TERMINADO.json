@@ -1,0 +1,29 @@
+{
+ "configuracion": {
+  "id": 1,
+  "ancho": 32,
+  "dropout": 0.0,
+  "lambda_energia": 0.0
+ },
+ "modo": "M2",
+ "semilla": 104,
+ "n_parametros": 94617,
+ "ajuste": [
+  "2011-01-01",
+  "2018-12-30"
+ ],
+ "parada": [
+  "2019-01-01",
+  "2019-12-31"
+ ],
+ "epocas": 24,
+ "mejor_epoca": 14,
+ "mejor_perdida": 2.777801698527924,
+ "segundos": 2.450793981552124,
+ "MASE": 2.782986002177906,
+ "MAE_kwh": 600061.6075819673,
+ "RMSE_kwh": 702132.4368567894,
+ "MAE_energia_kwh": 14205932.0,
+ "MASE_energia": 2.7451980113983154,
+ "error_perfil_L1": 0.012027308344841003
+}

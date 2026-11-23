@@ -1,0 +1,26 @@
+{
+ "variante": "M4_desalineado_91",
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "semilla": 104,
+ "n_parametros": 144673,
+ "ajuste": [
+  "2013-01-01",
+  "2018-12-30"
+ ],
+ "parada": [
+  "2019-01-01",
+  "2019-12-31"
+ ],
+ "epocas": 17,
+ "mejor_epoca": 7,
+ "mejor_perdida": 0.41138165233886403,
+ "segundos": 75.04614114761353,
+ "MASE": 0.5635481365693094,
+ "MAE_kwh": 121511.06779371585,
+ "RMSE_kwh": 180518.29211306712
+}

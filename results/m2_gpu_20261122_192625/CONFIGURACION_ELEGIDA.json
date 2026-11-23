@@ -1,0 +1,9 @@
+{
+ "configuracion": {
+  "id": 7,
+  "ancho": 64,
+  "dropout": 0.1,
+  "lambda_energia": 0.0
+ },
+ "seleccion": "Media de MASE de cuatro folds y cinco semillas, sin prueba"
+}

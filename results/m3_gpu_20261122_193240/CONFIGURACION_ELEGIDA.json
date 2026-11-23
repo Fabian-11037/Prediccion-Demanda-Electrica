@@ -1,0 +1,9 @@
+{
+ "configuracion": {
+  "id": 4,
+  "d_texto": 32,
+  "lambda_penalizacion_delta": 0.01,
+  "epsilon_logits": 0.5
+ },
+ "criterio": "MASE medio de folds y semillas, solo M3_OP; sin prueba"
+}

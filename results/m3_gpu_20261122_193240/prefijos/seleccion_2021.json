@@ -1,0 +1,53 @@
+{
+ "anio_predicho": 2021,
+ "configuracion": {
+  "id": 2,
+  "ancho": 32,
+  "dropout": 0.0,
+  "lambda_complementariedad": 0.1
+ },
+ "bootstrap": false,
+ "ultimo_anio_seleccion": 2020,
+ "tabla": [
+  {
+   "cfg": 2,
+   "MASE": 0.4608314220445126,
+   "n_parametros": 40208
+  },
+  {
+   "cfg": 3,
+   "MASE": 0.46141513368902193,
+   "n_parametros": 40208
+  },
+  {
+   "cfg": 4,
+   "MASE": 0.46145980028864136,
+   "n_parametros": 40208
+  },
+  {
+   "cfg": 1,
+   "MASE": 0.4621976689456514,
+   "n_parametros": 40208
+  },
+  {
+   "cfg": 8,
+   "MASE": 0.4626130448747488,
+   "n_parametros": 77136
+  },
+  {
+   "cfg": 6,
+   "MASE": 0.4628905603760824,
+   "n_parametros": 77136
+  },
+  {
+   "cfg": 5,
+   "MASE": 0.46314246526095576,
+   "n_parametros": 77136
+  },
+  {
+   "cfg": 7,
+   "MASE": 0.4632266414363664,
+   "n_parametros": 77136
+  }
+ ]
+}

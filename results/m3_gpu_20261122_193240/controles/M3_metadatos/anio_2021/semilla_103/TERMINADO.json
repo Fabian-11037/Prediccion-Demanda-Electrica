@@ -1,0 +1,26 @@
+{
+ "variante": "M3_metadatos",
+ "configuracion": {
+  "id": 4,
+  "d_texto": 32,
+  "lambda_penalizacion_delta": 0.01,
+  "epsilon_logits": 0.5
+ },
+ "semilla": 103,
+ "n_parametros": 93191,
+ "ajuste": [
+  "2013-01-01",
+  "2019-12-30"
+ ],
+ "parada": [
+  "2020-01-01",
+  "2020-12-31"
+ ],
+ "epocas": 17,
+ "mejor_epoca": 7,
+ "mejor_perdida": 0.6010344959999043,
+ "segundos": 7.081984281539917,
+ "MASE": 0.5216800211164188,
+ "MAE_kwh": 112483.55251141553,
+ "RMSE_kwh": 151573.209252948
+}

@@ -1,0 +1,26 @@
+{
+ "variante": "M4_desalineado_49",
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "semilla": 103,
+ "n_parametros": 144673,
+ "ajuste": [
+  "2013-01-01",
+  "2019-12-30"
+ ],
+ "parada": [
+  "2020-01-01",
+  "2020-12-31"
+ ],
+ "epocas": 14,
+ "mejor_epoca": 4,
+ "mejor_perdida": 0.5584435313125777,
+ "segundos": 81.91412401199341,
+ "MASE": 0.4861934460392012,
+ "MAE_kwh": 104832.01158675799,
+ "RMSE_kwh": 142931.94333002233
+}

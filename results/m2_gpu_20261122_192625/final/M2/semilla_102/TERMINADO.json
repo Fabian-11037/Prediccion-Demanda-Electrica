@@ -1,0 +1,23 @@
+{
+ "configuracion": {
+  "id": 7,
+  "ancho": 64,
+  "dropout": 0.1,
+  "lambda_energia": 0.0
+ },
+ "modo": "M2",
+ "semilla": 102,
+ "n_parametros": 191257,
+ "ajuste": [
+  "2011-01-01",
+  "2020-12-30"
+ ],
+ "parada": [
+  "2021-01-01",
+  "2021-12-31"
+ ],
+ "epocas": 16,
+ "mejor_epoca": 6,
+ "mejor_perdida": 2.2331888551581396,
+ "segundos": 2.064054250717163
+}

@@ -1,0 +1,26 @@
+{
+ "variante": "M4_memoria_fija",
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "semilla": 101,
+ "n_parametros": 144609,
+ "ajuste": [
+  "2013-01-01",
+  "2016-12-30"
+ ],
+ "parada": [
+  "2017-01-01",
+  "2017-12-31"
+ ],
+ "epocas": 12,
+ "mejor_epoca": 5,
+ "mejor_perdida": 0.40896810652458504,
+ "segundos": 23.857619285583496,
+ "MASE": 0.3855624277561991,
+ "MAE_kwh": 83134.16238584474,
+ "RMSE_kwh": 108916.65712203535
+}

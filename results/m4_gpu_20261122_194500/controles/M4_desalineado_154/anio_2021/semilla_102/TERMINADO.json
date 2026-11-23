@@ -1,0 +1,26 @@
+{
+ "variante": "M4_desalineado_154",
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "semilla": 102,
+ "n_parametros": 144673,
+ "ajuste": [
+  "2013-01-01",
+  "2019-12-30"
+ ],
+ "parada": [
+  "2020-01-01",
+  "2020-12-31"
+ ],
+ "epocas": 18,
+ "mejor_epoca": 8,
+ "mejor_perdida": 0.5308944182317765,
+ "segundos": 105.12434673309326,
+ "MASE": 0.5044159979775971,
+ "MAE_kwh": 108761.12003424657,
+ "RMSE_kwh": 146501.42548569216
+}

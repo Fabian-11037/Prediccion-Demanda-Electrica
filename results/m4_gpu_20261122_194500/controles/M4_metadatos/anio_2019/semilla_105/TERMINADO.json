@@ -1,0 +1,26 @@
+{
+ "variante": "M4_metadatos",
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "semilla": 105,
+ "n_parametros": 144609,
+ "ajuste": [
+  "2013-01-01",
+  "2017-12-30"
+ ],
+ "parada": [
+  "2018-01-01",
+  "2018-12-31"
+ ],
+ "epocas": 11,
+ "mejor_epoca": 1,
+ "mejor_perdida": 0.36721073242082986,
+ "segundos": 34.91723704338074,
+ "MASE": 0.42959531599643025,
+ "MAE_kwh": 92628.44143835617,
+ "RMSE_kwh": 125115.21261778228
+}

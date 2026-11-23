@@ -1,0 +1,23 @@
+{
+ "variante": "M3_metadatos",
+ "configuracion": {
+  "id": 4,
+  "d_texto": 32,
+  "lambda_penalizacion_delta": 0.01,
+  "epsilon_logits": 0.5
+ },
+ "semilla": 102,
+ "n_parametros": 93575,
+ "ajuste": [
+  "2013-01-01",
+  "2020-12-30"
+ ],
+ "parada": [
+  "2021-01-01",
+  "2021-12-31"
+ ],
+ "epocas": 33,
+ "mejor_epoca": 23,
+ "mejor_perdida": 0.5014999631333025,
+ "segundos": 15.58557391166687
+}

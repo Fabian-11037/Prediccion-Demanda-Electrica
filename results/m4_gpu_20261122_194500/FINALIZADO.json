@@ -1,0 +1,20 @@
+{
+ "fecha": "2026-11-23T05:15:39.212562-05:00",
+ "entrenamiento": true,
+ "prueba": true,
+ "semillas": [
+  101,
+  102,
+  103,
+  104,
+  105
+ ],
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "checkpoints_finales": 65,
+ "tareas": 465
+}

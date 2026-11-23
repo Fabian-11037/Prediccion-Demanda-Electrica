@@ -1,0 +1,13 @@
+{
+ "fecha": "2026-11-22T19:35:28.664278-05:00",
+ "entrenamiento": true,
+ "prueba": true,
+ "ajustes_neuronales": 240,
+ "extracciones_congeladas": 60,
+ "configuracion": {
+  "id": 7,
+  "ancho": 64,
+  "dropout": 0.1,
+  "lambda_energia": 0.0
+ }
+}

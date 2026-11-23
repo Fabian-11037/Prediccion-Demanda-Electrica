@@ -1,0 +1,20 @@
+{
+ "fecha": "2026-11-22T20:32:54.903918-05:00",
+ "entrenamiento": true,
+ "prueba": true,
+ "configuracion": {
+  "id": 4,
+  "d_texto": 32,
+  "lambda_penalizacion_delta": 0.01,
+  "epsilon_logits": 0.5
+ },
+ "semillas": [
+  101,
+  102,
+  103,
+  104,
+  105
+ ],
+ "checkpoints_finales": 55,
+ "tareas": 665
+}

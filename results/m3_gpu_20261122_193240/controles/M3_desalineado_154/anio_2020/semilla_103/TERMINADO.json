@@ -1,0 +1,26 @@
+{
+ "variante": "M3_desalineado_154",
+ "configuracion": {
+  "id": 4,
+  "d_texto": 32,
+  "lambda_penalizacion_delta": 0.01,
+  "epsilon_logits": 0.5
+ },
+ "semilla": 103,
+ "n_parametros": 93255,
+ "ajuste": [
+  "2013-01-01",
+  "2018-12-30"
+ ],
+ "parada": [
+  "2019-01-01",
+  "2019-12-31"
+ ],
+ "epocas": 34,
+ "mejor_epoca": 24,
+ "mejor_perdida": 0.42682904739902444,
+ "segundos": 12.086930751800537,
+ "MASE": 0.6069109883988135,
+ "MAE_kwh": 130860.875,
+ "RMSE_kwh": 195386.73755172285
+}

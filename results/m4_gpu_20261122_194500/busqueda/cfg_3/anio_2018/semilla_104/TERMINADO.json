@@ -1,0 +1,26 @@
+{
+ "variante": "M4_OP",
+ "configuracion": {
+  "id": 3,
+  "k_vecinos": 8,
+  "edad_maxima_dias": 730,
+  "ancho_compuerta": 32
+ },
+ "semilla": 104,
+ "n_parametros": 143393,
+ "ajuste": [
+  "2013-01-01",
+  "2016-12-30"
+ ],
+ "parada": [
+  "2017-01-01",
+  "2017-12-31"
+ ],
+ "epocas": 12,
+ "mejor_epoca": 2,
+ "mejor_perdida": 0.40833913308300385,
+ "segundos": 23.835296392440796,
+ "MASE": 0.38354256801788034,
+ "MAE_kwh": 82698.64446347032,
+ "RMSE_kwh": 109637.55699991764
+}

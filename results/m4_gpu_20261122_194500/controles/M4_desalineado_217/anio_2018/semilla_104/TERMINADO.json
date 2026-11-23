@@ -1,0 +1,26 @@
+{
+ "variante": "M4_desalineado_217",
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "semilla": 104,
+ "n_parametros": 144609,
+ "ajuste": [
+  "2013-01-01",
+  "2016-12-30"
+ ],
+ "parada": [
+  "2017-01-01",
+  "2017-12-31"
+ ],
+ "epocas": 22,
+ "mejor_epoca": 12,
+ "mejor_perdida": 0.3981693226180664,
+ "segundos": 43.67752504348755,
+ "MASE": 0.39126580862937554,
+ "MAE_kwh": 84363.91341324201,
+ "RMSE_kwh": 112545.81390690818
+}

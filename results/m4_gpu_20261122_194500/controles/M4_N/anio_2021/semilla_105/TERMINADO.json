@@ -1,0 +1,26 @@
+{
+ "variante": "M4_N",
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "semilla": 105,
+ "n_parametros": 144225,
+ "ajuste": [
+  "2013-01-01",
+  "2019-12-30"
+ ],
+ "parada": [
+  "2020-01-01",
+  "2020-12-31"
+ ],
+ "epocas": 13,
+ "mejor_epoca": 3,
+ "mejor_perdida": 0.5379790956856775,
+ "segundos": 2.889721155166626,
+ "MASE": 0.48363860873141956,
+ "MAE_kwh": 104281.14292237443,
+ "RMSE_kwh": 141782.90318571974
+}

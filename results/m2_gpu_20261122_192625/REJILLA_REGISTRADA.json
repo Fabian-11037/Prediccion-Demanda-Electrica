@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "ancho": 32,
+  "dropout": 0.0,
+  "lambda_energia": 0.0
+ },
+ {
+  "id": 2,
+  "ancho": 32,
+  "dropout": 0.0,
+  "lambda_energia": 0.1
+ },
+ {
+  "id": 3,
+  "ancho": 32,
+  "dropout": 0.1,
+  "lambda_energia": 0.0
+ },
+ {
+  "id": 4,
+  "ancho": 32,
+  "dropout": 0.1,
+  "lambda_energia": 0.1
+ },
+ {
+  "id": 5,
+  "ancho": 64,
+  "dropout": 0.0,
+  "lambda_energia": 0.0
+ },
+ {
+  "id": 6,
+  "ancho": 64,
+  "dropout": 0.0,
+  "lambda_energia": 0.1
+ },
+ {
+  "id": 7,
+  "ancho": 64,
+  "dropout": 0.1,
+  "lambda_energia": 0.0
+ },
+ {
+  "id": 8,
+  "ancho": 64,
+  "dropout": 0.1,
+  "lambda_energia": 0.1
+ }
+]

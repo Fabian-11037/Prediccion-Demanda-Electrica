@@ -804,3 +804,10 @@ Bootstrap pareado por origen,9.999 réplicas, bloques14 días dentro de cada añ
 Los rasgos replican bit a bit la receta del entrenamiento y verifican invariancia a objetivos presentes y futuros. Los errores entran con retraso de dos días, inicializados con OOF2011–2021; solo se incorporan resultados de prueba ya disponibles. Se conserva por SHA-256 la totalidad de los artefactos de entrada usados. Las35 métricas MASE por procedimiento y semilla se comprobaron contra las predicciones guardadas. El diseño fue informado por el benchmark conocido: la prueba es retrospectiva, no un holdout nunca consultado. La ablación sin auxiliar no tiene checkpoint final y no se reentrena aquí.
 
 Resultados locales: `results/prueba_m1_gpu_20261122_185842/`; entrada resumida `results/PRUEBA_M1_FINAL.json`. Se guardan predicciones por fecha/hora/semilla, pesos del router, métricas por semilla/año/horizonte, contrastes, registro previo, fuentes, verificaciones y manifiesto. El informe es `INFORME.md`. No se publica GitHub ni se modifica JBook/dashboard. Esta solicitud no programa un nuevo apagado.
+
+
+## Cierre GPU de M2, M3 y M4 · 2026-11-23
+
+Entrenamiento y prueba finalizados en GPU con cinco semillas101–105,1.461 días2022–2025 y24 horas. M2: MASE 5.326852; M3_OP: MASE 0.637692; M4_OP: MASE 0.578898. Se publican resultados favorables y desfavorables, predicciones, historiales, pesos, escaladores, fuentes y registros. La base M1 de M3/M4 es OOF anidada con selección por prefijo. M4 reúne las28 hipótesis para Holm conjunto. Evaluación retrospectiva informada por un benchmark conocido.
+
+Entrada de resultados: `results/publicacion_m2_m3_m4_20261122_194500/README.md`. Su alcance y manifiesto distinguen archivos publicados de embeddings/estados reconstruibles conservados localmente. Se preservan los manifiestos originales. No se modifica ni despliega JBook o dashboard.

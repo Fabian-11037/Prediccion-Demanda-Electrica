@@ -1,0 +1,23 @@
+{
+ "variante": "M3_P",
+ "configuracion": {
+  "id": 4,
+  "d_texto": 32,
+  "lambda_penalizacion_delta": 0.01,
+  "epsilon_logits": 0.5
+ },
+ "semilla": 103,
+ "n_parametros": 93255,
+ "ajuste": [
+  "2013-01-01",
+  "2020-12-30"
+ ],
+ "parada": [
+  "2021-01-01",
+  "2021-12-31"
+ ],
+ "epocas": 34,
+ "mejor_epoca": 24,
+ "mejor_perdida": 0.5134380645947914,
+ "segundos": 15.840801000595093
+}

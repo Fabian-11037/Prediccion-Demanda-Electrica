@@ -1,0 +1,26 @@
+{
+ "variante": "M3_N",
+ "configuracion": {
+  "id": 4,
+  "d_texto": 32,
+  "lambda_penalizacion_delta": 0.01,
+  "epsilon_logits": 0.5
+ },
+ "semilla": 103,
+ "n_parametros": 93134,
+ "ajuste": [
+  "2013-01-01",
+  "2017-12-30"
+ ],
+ "parada": [
+  "2018-01-01",
+  "2018-12-31"
+ ],
+ "epocas": 19,
+ "mejor_epoca": 18,
+ "mejor_perdida": 0.37416043232565055,
+ "segundos": 1.9532091617584229,
+ "MASE": 0.42903296488363707,
+ "MAE_kwh": 92507.18847031964,
+ "RMSE_kwh": 124376.24144283484
+}

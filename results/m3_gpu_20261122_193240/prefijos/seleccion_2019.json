@@ -1,0 +1,53 @@
+{
+ "anio_predicho": 2019,
+ "configuracion": {
+  "id": 2,
+  "ancho": 32,
+  "dropout": 0.0,
+  "lambda_complementariedad": 0.1
+ },
+ "bootstrap": false,
+ "ultimo_anio_seleccion": 2018,
+ "tabla": [
+  {
+   "cfg": 2,
+   "MASE": 0.44627902936734143,
+   "n_parametros": 40208
+  },
+  {
+   "cfg": 3,
+   "MASE": 0.44683139019165663,
+   "n_parametros": 40208
+  },
+  {
+   "cfg": 4,
+   "MASE": 0.44755326997839867,
+   "n_parametros": 40208
+  },
+  {
+   "cfg": 1,
+   "MASE": 0.4476970277546757,
+   "n_parametros": 40208
+  },
+  {
+   "cfg": 6,
+   "MASE": 0.44833004130491716,
+   "n_parametros": 77136
+  },
+  {
+   "cfg": 5,
+   "MASE": 0.4489911358462596,
+   "n_parametros": 77136
+  },
+  {
+   "cfg": 8,
+   "MASE": 0.4492898917307277,
+   "n_parametros": 77136
+  },
+  {
+   "cfg": 7,
+   "MASE": 0.44955550795180393,
+   "n_parametros": 77136
+  }
+ ]
+}

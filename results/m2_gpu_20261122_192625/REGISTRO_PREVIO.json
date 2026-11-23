@@ -1,0 +1,631 @@
+{
+ "fecha": "2026-11-22T19:26:43.652619-05:00",
+ "autorizacion": "Usuario: inicia entrenamiento M2, incluye prueba y apaga cuando termine.",
+ "diseno": {
+  "version": "cuatro_modelos_originales_e3_gpu_v1",
+  "fecha_diseno": "2026-11-22",
+  "estado": "diseño propuesto; sin implementación validada ni entrenamientos nuevos",
+  "autorizacion_actual": "Subir al repositorio los contextos y diseños para continuar en un PC con GPU. No entrenar, evaluar prueba ni modificar o publicar JBook o dashboard. Una ejecución futura requiere solicitud expresa.",
+  "caracter_originalidad": "hipótesis de contribución; contrastar con MoLE, MoME, RAFT y FreshCast antes de afirmar novedad",
+  "base_configuraciones": "continuidad/CONFIGURACIONES_PRUEBA_E3_GPU.json",
+  "expertos_configuraciones_seleccionadas": {
+   "patchtst": {
+    "configuracion": {
+     "id": 18,
+     "nucleo": "patchtst",
+     "d_model": 64,
+     "capas": 2,
+     "cabezas": 4,
+     "dropout": 0.1,
+     "lr": 0.001,
+     "weight_decay": 0.0001,
+     "lote": 32,
+     "d_texto": 24
+    },
+    "n_parametros": 466480,
+    "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/patchtst/control/pliegue_2019/semilla_101/resultado.json",
+    "sha256_fuente": "d0d2721f425bb275cf9aa68f360d320c3dd92263ffeb243e8e29545d36e2563c"
+   },
+   "E": {
+    "configuracion": {
+     "id": 7,
+     "nucleo": "patchtst",
+     "d_model": 32,
+     "capas": 3,
+     "cabezas": 4,
+     "dropout": 0.1,
+     "lr": 0.001421,
+     "weight_decay": 0.001,
+     "lote": 32,
+     "rho": 0.02,
+     "ancho_correccion": 32
+    },
+    "n_parametros": 242048,
+    "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/E/control/pliegue_2019/semilla_101/resultado.json",
+    "sha256_fuente": "196dcf856790557c46129954271b94a3bfbf094e82531efc56f34125e48ce29d"
+   },
+   "periodica": {
+    "configuracion": {
+     "id": 2,
+     "d_model": 32,
+     "bloques": 2,
+     "dropout": 0.1,
+     "lr": 0.001,
+     "weight_decay": 0.0001,
+     "lote": 32
+    },
+    "n_parametros": 33601,
+    "fuente": "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/rejilla/periodica/control/pliegue_2019/semilla_101/resultado.json",
+    "sha256_fuente": "4235b9c592e3671568150e0d7961c2b6f86a2e6ecb656ee993b521fd4cf6fe42"
+   }
+  },
+  "modelos": {
+   "M1": {
+    "nombre": "Ensamble supervisado por complementariedad de errores",
+    "modalidad": "numerica",
+    "arquitectura": "Tres expertos congelados; MLP contextual con cabeza de complementariedad por pareja; pesos softmax por horizonte.",
+    "expertos": [
+     "patchtst",
+     "E",
+     "periodica"
+    ],
+    "rasgos": "calendario, resúmenes numéricos disponibles, pronósticos de expertos, desacuerdo y errores observables con retraso de dos días",
+    "salida": "sum_k w[d,h,k] * pred[d,h,k]; w>=0 y suma_k w=1",
+    "objetivo_auxiliar": "c_ij=(abs(r_i)+abs(r_j)-abs(r_i+r_j))/q168; r de predicciones fuera de muestra",
+    "rejilla": {
+     "ancho": [
+      32,
+      64
+     ],
+     "dropout": [
+      0.0,
+      0.1
+     ],
+     "lambda_complementariedad": [
+      0.01,
+      0.1
+     ]
+    },
+    "lambda_suavidad_horaria_fijo": 0.001,
+    "controles": [
+     "NNLS sin restricción de suma",
+     "mezcla convexa fija",
+     "EWA_retraso2",
+     "router_sin_complementariedad"
+    ]
+   },
+   "M2": {
+    "nombre": "Modelo de energía diaria y distribución horaria",
+    "modalidad": "numerica",
+    "arquitectura": "Codificador numérico PatchTST congelado y dos cabezas entrenables: energía positiva y logits horarios sobre perfil ancla.",
+    "ancla": "patchtst",
+    "salida": "E_hat=escala_E*softplus(MLP_E(z)); s=softmax(log(s_ancla+1e-8)+MLP_s(z)); yhat_h=E_hat*s_h",
+    "escala_E": "media de energía diaria solo en ajuste",
+    "perdida": "MAE_h/q168 + lambda_energia*MAE_energia/(24*q168)",
+    "rejilla": {
+     "ancho": [
+      32,
+      64
+     ],
+     "dropout": [
+      0.0,
+      0.1
+     ],
+     "lambda_energia": [
+      0.0,
+      0.1
+     ]
+    },
+    "controles": [
+     "ancla sin adaptación",
+     "solo energía",
+     "solo distribución",
+     "cabeza directa de 24 salidas con capacidad comparable"
+    ]
+   },
+   "M3": {
+    "nombre": "Ensamble con selección de expertos condicionada por texto",
+    "modalidad": "numerica_y_texto",
+    "base": "M1 congelado por partición y semilla",
+    "arquitectura": "Agregación separada de fragmentos E5 oficiales y prensa, atención condicionada al contexto numérico, y perturbación acotada de logits de M1.",
+    "salida": "w_T=softmax(logits_N + I_hay_texto*g*epsilon*tanh(Delta)); yhat=sum_k w_T*pred_k",
+    "identidad_sin_texto": "sin candidatos válidos, predicción exactamente igual a M1",
+    "rejilla": {
+     "d_texto": [
+      32,
+      64
+     ],
+     "lambda_penalizacion_delta": [
+      0.001,
+      0.01
+     ],
+     "epsilon_logits": [
+      0.25,
+      0.5
+     ]
+    },
+    "dropout_fijo": 0.1,
+    "variantes": [
+     "M3_O",
+     "M3_OP",
+     "M3_metadatos",
+     "M3_desalineado_49",
+     "M3_desalineado_91",
+     "M3_desalineado_154",
+     "M3_desalineado_217",
+     "M3_desalineado_301"
+    ],
+    "seleccion_hiperparametros": "solo M3_OP; después mismos hiperparámetros para variantes y controles",
+    "abstencion": "compuerta aprendida sin promesa de no empeorar el MAE"
+   },
+   "M4": {
+    "nombre": "Memoria de episodios numéricos y textuales para corregir residuos",
+    "modalidad": "numerica_y_texto",
+    "base": "M1 congelado por partición y semilla",
+    "arquitectura": "Proyección de contexto y canales textuales, recuperación de episodios anteriores, atención sobre residuos horarios fuera de muestra y compuerta según respaldo de la memoria.",
+    "salida": "yhat_h=pred_M1_h + q168*g*sum_j alpha_j*((y_jh-pred_OOF_M1_jh)/q168)",
+    "d_proyeccion_fijo": 32,
+    "dropout_fijo": 0.1,
+    "rejilla": {
+     "k_vecinos": [
+      8,
+      16
+     ],
+     "edad_maxima_dias": [
+      365,
+      730
+     ],
+     "ancho_compuerta": [
+      32,
+      64
+     ]
+    },
+    "memoria": "creciente con episodios completos disponibles en d-2 o antes; pesos y métricas de recuperación congelados desde antes de 2022",
+    "variantes": [
+     "M4_N",
+     "M4_O",
+     "M4_OP",
+     "M4_metadatos",
+     "M4_desalineado_49",
+     "M4_desalineado_91",
+     "M4_desalineado_154",
+     "M4_desalineado_217",
+     "M4_desalineado_301"
+    ],
+    "seleccion_hiperparametros": "solo M4_OP; después mismos hiperparámetros para variantes y controles",
+    "ablaciones": [
+     "memoria congelada en 2021",
+     "sin compuerta",
+     "sin texto",
+     "sin contexto numérico"
+    ]
+   }
+  },
+  "datos": {
+   "panel": "data/processed/panel_horario.parquet",
+   "corpus": "data/processed/corpus_texto.parquet",
+   "hashes_entrada": {
+    "data/processed/corpus_texto.parquet": "e82f1b0fccc09ffb4deb9bd8c2dfebb7bedcc3cabc2c0fd355b2ae1d2413898c",
+    "data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+    "data/processed/feature_registry.json": "973b8c2083ec7ee89d1d7462b7c9cb559453d8ca5898750cd6f6cd40c9ce9e17",
+    "results/corrector_semantico_e3_20261122/codigo/config/plan_corrector.json": "9dab04d8993b13ec14bf3f1f44f02dc455036702601f73a9b6c4d71700876246",
+    "results/corrector_semantico_e3_20261122/resultados_corrector_e3/evaluacion/contrastes.csv": "111f0a928066e0d7de10184e306c34150cf256e11b6e93ac4b097f90f56d8a6a",
+    "results/exploracion_e3_20261122/contenido/resultados_exploracion_e3/decision/desarrollo_resumen.csv": "48141e275ae02d88ab2e0a3f6de13c1413e39e4dfe447a3985b5efa5f95ba9c6"
+   },
+   "ventana_h": 168,
+   "horizonte_h": 24,
+   "numericas": "contrato común: demanda, calendario, clima rezagado, hidrología y precio; disponibilidad por origen",
+   "escenario_principal": "declarado",
+   "canales_texto": [
+    "oficial",
+    "prensa"
+   ],
+   "relevancia": "aprendida; sin temas ni términos manuales",
+   "encoder": {
+    "ventana_h": 72,
+    "ventanas_sensibilidad_h": [
+     24,
+     168
+    ],
+    "max_documentos_canal": 64,
+    "max_fragmentos_documento": 8,
+    "tokens_max": 512,
+    "solapamiento_tokens": 64,
+    "encoder": "intfloat/multilingual-e5-base",
+    "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+    "prefijo": "query: ",
+    "pooling": "mean_attention_mask",
+    "normalizacion": "L2",
+    "agregacion": "relevancia_aprendida_por_canal",
+    "ausencia": "cero_y_mascara",
+    "filtro_palabras_clave": false
+   }
+  },
+  "validacion": {
+   "folds_externos": [
+    2018,
+    2019,
+    2020,
+    2021
+   ],
+   "meta_ajuste": "OOF 2011..Y-2",
+   "meta_parada": "Y-1",
+   "meta_evaluacion": "Y",
+   "OOF_expertos": "forward chaining anual 2011..2021; ningún modelo ha visto la etiqueta de la fila que predice",
+   "OOF_M1": "OOF anidado por año desde el primer año con historia suficiente; cada selección de hiperparámetros usa solo años anteriores al año predicho. No reutilizar el ganador global de 2018–2021 para generar retrospectivamente datos supuestamente independientes en esos años.",
+   "purga_h": 24,
+   "retraso_errores_dias": 2,
+   "semillas": [
+    101,
+    102,
+    103,
+    104,
+    105
+   ],
+   "candidatos_por_modelo": 8,
+   "criterio_seleccion": "media MASE de folds y semillas, pesos iguales por fold; desempate exacto: menor número de parámetros y luego menor ID",
+   "early_stopping": {
+    "max_epocas": 100,
+    "min_epocas": 10,
+    "paciencia": 10,
+    "mejora_minima_absoluta_mase": 0.0001,
+    "monitor": "MASE de parada, sin términos auxiliares",
+    "restaurar_mejor": true
+   },
+   "optimizador": {
+    "nombre": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "lote": 64,
+    "clip_gradiente": 1.0
+   },
+   "orden": [
+    "bases y OOF",
+    "M1",
+    "OOF anidado de M1",
+    "M2",
+    "M3_OP y M4_OP",
+    "variantes y controles con configuración fijada"
+   ],
+   "no_ejecucion_ahora": true,
+   "seleccion_M1_dentro_de_otros_modelos": "En el fold Y, la configuración de la base M1 se elige solo con años <Y. Su selección final global con 2018–2021 se reserva para el ajuste final anterior a 2022.",
+   "arranque_meta": "OOF de expertos desde 2011; OOF de M1 desde 2013 como pronto (ajuste 2011, parada 2012). Registrar fecha real; sin memoria previa, devolver la base. Usar idénticos orígenes de evaluación para todos.",
+   "interpretacion": "Las métricas de desarrollo usadas para elegir los ocho candidatos no son una estimación independiente del sesgo de selección; la evaluación final se mantiene separada."
+  },
+  "prueba": {
+   "inicio": "2022-01-01",
+   "fin": "2025-12-31",
+   "origen": "00:00 America/Bogota",
+   "origenes_esperados": 1461,
+   "horizonte_h": 24,
+   "ventana_h": 168,
+   "metrica": "MASE",
+   "q168_kwh": 215617.90361589016,
+   "margen_relativo": 0.03,
+   "alpha": 0.05,
+   "politica": "ajuste único anterior a 2022; pesos congelados durante 2022–2025; no selección con prueba",
+   "meta_ajuste": "2011-2020 OOF; usar la primera fecha elegible de cada modelo",
+   "meta_parada": "2021",
+   "basicos": "ajuste_final() con reserva cronológica y purga del contrato",
+   "politica_dinamica": "solo rasgos observables y memoria no paramétrica con retraso de dos días; no optimizador ni reajustes con prueba",
+   "independencia": "2022–2025 ya se consultó para otros modelos; documentar selección informada por esos resultados, sin afirmar prueba virgen"
+  },
+  "estadistica": {
+   "unidad": "origen diario; las 24 horas y las semillas no son réplicas temporales independientes",
+   "remuestreos": 9999,
+   "bloque_dias_principal": 14,
+   "sensibilidad_bloque_dias": [
+    7,
+    28
+   ],
+   "nivel": 0.05,
+   "contrastes_primarios": [
+    [
+     "M1",
+     "NNLS"
+    ],
+    [
+     "M1",
+     "mejor_individual_desarrollo"
+    ],
+    [
+     "M2",
+     "mejor_individual_desarrollo"
+    ],
+    [
+     "M2",
+     "M1"
+    ],
+    [
+     "M3_O",
+     "M1"
+    ],
+    [
+     "M3_OP",
+     "M1"
+    ],
+    [
+     "M3_OP",
+     "M3_metadatos"
+    ],
+    [
+     "M3_OP",
+     "M3_desalineado_promedio"
+    ],
+    [
+     "M4_O",
+     "M4_N"
+    ],
+    [
+     "M4_OP",
+     "M4_N"
+    ],
+    [
+     "M4_OP",
+     "M4_metadatos"
+    ],
+    [
+     "M4_OP",
+     "M4_desalineado_promedio"
+    ],
+    [
+     "M3_OP",
+     "M3_O"
+    ],
+    [
+     "M4_OP",
+     "M4_O"
+    ]
+   ],
+   "cantidad_parejas": 14,
+   "hipotesis_por_pareja": [
+    "ganancia_relativa<=0",
+    "ganancia_relativa<=0.03"
+   ],
+   "cantidad_hipotesis_holm": 28,
+   "ajuste": "Holm conjunto sobre las hipótesis de todas las parejas listadas; sin dividir la familia por resultado",
+   "equivalencia": "TOST ±3 % con dependencia temporal y multiplicidad declaradas; no equivalencia por p>0.05",
+   "metricas": [
+    "MASE",
+    "MAE_kWh",
+    "RMSE_kWh",
+    "MASE_por_horizonte",
+    "MASE_por_anio"
+   ],
+   "resultados_semillas": "métricas por semilla primero; media y DE después; no sustituir por métrica del promedio de pronósticos"
+  },
+  "implementacion_pendiente": [
+   "adaptadores de los cuatro modelos y controles",
+   "generación/carga del OOF anidado y auditoría",
+   "caché versionado de texto y memoria",
+   "entrenamiento GPU y checkpoint completo",
+   "predicción secuencial y evaluación estadística",
+   "restauración, disponibilidad y exportación ONNX verificadas"
+  ],
+  "salida_propuesta": "results/modelos_originales_e3_gpu_<fecha_hora>/",
+  "entrenamiento_iniciado": false,
+  "prueba_ejecutada": false,
+  "publicacion_ejecutada": false,
+  "distribucion": {
+   "contextos_y_diseno": "versionados en continuidad/ y CONTEXTO_PROYECTO.md",
+   "configuraciones_expertos": "incluidas completas en este JSON y CONFIGURACIONES_PRUEBA_E3_GPU.json",
+   "fuentes_exploracion": "referencias de procedencia locales, no incluidas en esta subida; transferir resultados/exploracion_e3_20261122/ para auditar sus archivos originales",
+   "codigo_disponible": "results/corrector_semantico_e3_20261122/codigo/",
+   "implementacion_cuatro_modelos": "pendiente; las guías no son un lanzador ejecutable"
+  }
+ },
+ "huellas": {
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/analisis/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/analisis/estadistica_e3.py": "0b7e1026b1a0710c1d7b2c1893a764123b775f9e611b5d776f98657a43cff018",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/original/mecanismos.py": "bda8ecf1dcd97df4b4741d13775c9bceb15a2a7c3990fc1f45b5aa63b1a159e4",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/original/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/fechas.py": "e7264bf97ab2cd490f3d0c4eda632a1889df5cae57cce0ab269a7781cd3e8d60",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/evaluacion.py": "35ec4c5a0cb7bcd45c344e6850d13bfcfd6e1db45f48165f1244dee3fbd51bb1",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/texto.py": "254d58334d0979a295e52e499248971aa55f52a0a090e2c7e9cd0e4ce84263b8",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/protocolo.py": "49dde298855fa8cec76cfb17e0657bf1483d76ca23448d227470270eeeb26659",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/residuos.py": "2d56a274685bbf4403df616df8a4db7fe6f454d1f432f09f41e11ec510797001",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/corrector/modelo.py": "c9bbc511f1373ce1283707d7e25d42f5745b8c536d38527f51517f7baa3d35aa",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/exploracion/mecanismos.py": "824d3306de7d106b8d19993c2b4d26badfc2eea01ed0c695a431d9fe715ee317",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/exploracion/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/exploracion/agregacion.py": "6147b73c4aa1e8b1478d7ff29142f85e56fd16f916c7dd8afc54788762de5cd4",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/exploracion/protocolo.py": "054b6a2e3b2bb985952f76530f27cfe40fadfd1178379347a3e63880c0fdfb41",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/metricas.py": "8f859cb24a3e0f1ac374e5608772af057cb8a9b95d1e0d95223e51142f76892d",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/particion.py": "2c57c1ae714ba10d28bef653373175248a81c8e67b4e13f10d41158fd1d39466",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/corpus.py": "df90f6ffdc9f862975371ffffdd465791d681fb74e47cb8c3b51f71fd0665391",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/config.py": "a1c23f51ff8511785fe04303430420074fcf4f9aed6b038d56372f4e7acbc3c5",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/demanda/diseno_numerico.py": "7021ff1e2b238102254650d5dc5c412f02eb897c21c17f53fd470f36ba4e6a04",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/redes_e3.py": "f1a727eba4d5801a6283ecf97c002af465a96a5f8338f2693295fe84836a1634",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/pruebas.py": "e9609ec95902ba26cfed87047ff5bc3cc4bf3d1c80ffc27f5cade9b1a9b089a1",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/costes.py": "23484847928bc854fbf87a59de123d53180db5dd54dcd8c823258dca62639c71",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/exportacion.py": "4be0896eada0264e3cf0f1add0750213ee6161b6ef42f44e24c3286cf9725496",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/adicionales.py": "9e17feade83244f652c28a7742d7cf95cd26a3a21d5f5b045c7854fe4c4e2c07",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/datos.py": "1f77b12d159e683be10291e0c153261bbf5f4725f76cc97acfda6481a18d9c7f",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/protocolo_e3.py": "e4153d6a6700f62507e1e3219ffb98c772faf893e0c7c87325319680258a6ded",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/clasicos.py": "dbf49d92a7a1059003a9cffd36dcc3b159447a399460843529e56dfeb21419ed",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/texto.py": "94b90d4f985ca04cd3f5fc58c2085c1439d7f4d90501bcaa759fac4f558bc8a8",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/interpretabilidad.py": "87d57ba7d03d92396b48c3640b172786dbcb5fd6e4f983426ade536ac183f814",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/protocolo.py": "f3957746eb990138706743b5b1ef1962fa05ff187489d42d9f7cdf49e32184d7",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/motor.py": "f9c93619a8994411afa896007ade79583feea8c47d72d213427b47238199cbd0",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/protocolo_e2.py": "f55da4ef1180d25b1239940b372e112d205627a06357fdea7620ad86a6d1846a",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/redes_e2.py": "b8aa32ef860c6cdc1912a8281b6d837c4deffe4ff60d738246de7629f7f78555",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/entrenamiento/redes.py": "f95f3e67aededbeb944893c53499692f58da3fd48a875890418829a1edf7ba3f",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/nhits/nhits_original.py": "a769bdef26155fe4b0872c45a13e467ea3ef53c914d41bbec535a5fb49d802ed",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/nhits/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/nhits/core.py": "8ab9faac4d31221ee807aeb8290365210d2bd8e5b94a71736111bab86140a05b",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/timesnet/TimesNet.py": "f64c4bed1fd7347090044a0163bd4209c9f9ec1c1b19ceff47842df36b64bba7",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/timesnet/layers/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/timesnet/layers/Conv_Blocks.py": "16d9f2d9e4fa094dc357901e32beecda9839709bcca02625e6447186933ce4e1",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/src/vendor/timesnet/layers/Embed.py": "17e7c3577324c41a0da427a199c955b782fde905aabb1f7cbc3c4e15ebd4ae35",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/e3_gpu_comun.py": "96d061911af2c612b5c77b44a24b227685dd6477591f7afc31d8a7515a1cc3a1",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/e3_modelo1.py": "69bf2675f3f44ce36274ef12f644eae05443cc931c8af5b31694b97ab8a5b74c",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/e3_modelo2.py": "dd1f70fa6cf257241b24b1cfe4d055aa55f853bb2a5048f43c6f4bec7fda908e",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/ejecutar_m2_gpu.py": "21bfb83992b82c0714577cab1bee56ee73eb1d3d2e99f3cf3dd0c733780bab42",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/test_m2_gpu.py": "267cb75336a39143b23237567b2b5bb873c27d27e5f0f28b3ed506f4f15d1ca1",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/scripts/m2_progreso.html": "bd3839ca480b6d988fb650b3f43e4702c381b50dd6c343bd98301a58c6d161c1",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/CONFIGURACION_ELEGIDA.json": "cd26324f7e3cbf14251889570677eff114e06ee404419994fbd1c5eb2b788380",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/prueba_m1_gpu_20261122_185842/REGISTRO_PREVIO.json": "f26e3c735049689689c5cb17ed1759013f20fea2ce28ec8f6795a951492171b7",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/prueba_m1_gpu_20261122_185842/contrastes.csv": "a937ba80b9e24075fc897dfaf5ed96c5ccbf97f130ccfbd91e9df50a55767b3b",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2011/semilla_101/modelo.pt": "ae6728d8738968e732a008181780b64fa299bd80ed48b9486de7726ec83d9a88",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2012/semilla_101/modelo.pt": "4ad717cc402b427511e8a39049105fdf9bde84d789c9e4dca5861607075664f6",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2013/semilla_101/modelo.pt": "b8ddebd60daf3b6011058b7a5dd7e87148f88c25e8d632748f047d1239f31f9c",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2014/semilla_101/modelo.pt": "ea31f9be506edf1b33bb105f06550990e57a7d97e6fb96929a57f16c119905c2",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2015/semilla_101/modelo.pt": "3c3ac06a78a630d7879f74126a9df80bf133ead9868e2afe454bc2279ae9d1f6",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2016/semilla_101/modelo.pt": "4a64f7e7e87488bf3134e70c7c5fa967c4cf9b3112bc1482bf59895723045661",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2017/semilla_101/modelo.pt": "e8d1e0ff728a674262dc8279309524a1f35f07c3f690e1099f37828a3e080345",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2018/semilla_101/modelo.pt": "e16d11f4c4b53a23a0cde6a83ae039ae855637db2c62803c12f86840500f4b20",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2019/semilla_101/modelo.pt": "726aaad4bac316dfa27bcb256e496c56617932285b20b18a79db48506e762bd7",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2020/semilla_101/modelo.pt": "1f8b5c3ae40e81ed488c7bceca475cb0890623df98716d3bc8dc3e6f0727dae9",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2021/semilla_101/modelo.pt": "257990c695e8b0c8a14369b33a7e56f978b05312489035a60408c0daaaf841dd",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2011/semilla_101/predicciones.npz": "540bf36c295ecb615976f060c78b4f3853f2fd0a0b1166713db88ccd104b0fd6",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2012/semilla_101/predicciones.npz": "33486b3355b08324d17d7c5f184fc6326a8406927bc4de2cb0424b53f637bd4d",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2013/semilla_101/predicciones.npz": "4caf717fe511d7536de3864ebc08d1018fde4e567b9dc9d94eeb5bd8a1208e0e",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2014/semilla_101/predicciones.npz": "78d3b8309cc92a622dea8bf76da678f53add9c87258f8a5d2999e21f564153f6",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2015/semilla_101/predicciones.npz": "8680b1018bccd8d6a6b1860686b4f5603d65e2f647703d349b2042e593911a48",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2016/semilla_101/predicciones.npz": "61642cb924ff9d932a1bd69daf5455f34dcf94ec70bdc3104bf246b8b3bfb38e",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2017/semilla_101/predicciones.npz": "e9b920a25aa2a5580bb944e0403cd9c44352689161978c07a78bed7f4937f51a",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2018/semilla_101/predicciones.npz": "1c4b758705071ac6ec866cbec485129ac633b1f2c8e8c07fe052cab7abce21e5",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2019/semilla_101/predicciones.npz": "6b139b6286df358e5c3c5397a6d78e78fc75e0cbf15466fd93335b96448bf9d1",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2020/semilla_101/predicciones.npz": "513c7eca5151fd4b57e4616a5ff04e7e2ad6aef5450f045cf7ef1ed209603f35",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2021/semilla_101/predicciones.npz": "91ca7dc9223b3b5af661e6c2e5ed1fe9cb44eb6a92257c13a4d15c459d17ab8c",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos_finales/patchtst/semilla_101/modelo.pt": "469b9661d77e9a1c4746d3db2856d194ea1b64aecc497aa88a507715df8c45d4",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/prueba_m1_gpu_20261122_185842/predicciones_semilla_101.npz": "c0ac3d74e060389febe0bd894356b6793fabedee99eacfe517cee9d8bfc1bfd1",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2011/semilla_102/modelo.pt": "ecbe493bb4bb4d62b669db9bcc75f1f72a4b0c216d269610ffcf9c129c542a59",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2012/semilla_102/modelo.pt": "fc4945eaa96c50613980a4c5229ac8d039023a6a029afee9db5420a10f21bc26",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2013/semilla_102/modelo.pt": "14e809e103a8aaabea2610462235c7572c95228b72f51178e56e20365e082a48",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2014/semilla_102/modelo.pt": "b4fab65e0ad181b97b3940feb83aa1cfef9eff49413334af504e535874827f66",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2015/semilla_102/modelo.pt": "d64d21eeacff074eb0b3003bbeb6ca540577d607cc1c5cdd4242e970541642bf",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2016/semilla_102/modelo.pt": "c52c79550cc42467e45ed9e0c4441027c0da5cef0b17e45ccadfd2e6a4965b2e",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2017/semilla_102/modelo.pt": "3cff21fb4550b4545784a2c926e7b064c3494f78610fdea34014e7fbbffe745a",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2018/semilla_102/modelo.pt": "2425a2ea5b8a086a1a8ce65eb1cb64e8c42b22c8d67a7b647230230dd96756ea",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2019/semilla_102/modelo.pt": "065b8952ed547afc19cd0dd38a500e4ef7e11890db95cc6b17948c2516152eed",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2020/semilla_102/modelo.pt": "5be3be252ac285b7f9b1e88c32bf64a5254adc37333be2ea25dd5ecd1f2a13cf",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2021/semilla_102/modelo.pt": "6455eb8b74218488f0115f98c99e3e36c1f5edb753b7d88601eb3247777aabd6",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2011/semilla_102/predicciones.npz": "617f53dbc9b3dd1f3dcec4051878d862e74a79cce4377c5585458050821a2255",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2012/semilla_102/predicciones.npz": "725a557611498fac06c0db2fab83b50882fea36e91d0fe0331c99f864013ae94",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2013/semilla_102/predicciones.npz": "b4fb7c6ac33062294de76e176d9b146d0d51bec1104a9dc386d308b354e3133a",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2014/semilla_102/predicciones.npz": "c8526510fe4352466b5a4e2c0822290369e2699de75d8a092e63ccdc626dc53d",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2015/semilla_102/predicciones.npz": "e50ab2870b1a7d099bc265fea593e4095f3532d3e4b423b269cceb089cf5cda4",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2016/semilla_102/predicciones.npz": "4f3636586c11683d9eae8804d1f2ead301bdb153175cea406a6606d8b8e58746",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2017/semilla_102/predicciones.npz": "dcac867ee652689582782bb392f8e1770d66c45808dd825447de22230d97b722",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2018/semilla_102/predicciones.npz": "4ca2617368000b70555987f6e7db1e0d1dfd54890ba0c43d422accdfb75f5985",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2019/semilla_102/predicciones.npz": "b10f18cff14ef8b2d150b29ed8316e4e349ac351c036a9cf59de4e28c93511e9",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2020/semilla_102/predicciones.npz": "08ed25de061d8040490a24abc505e050c788283b2b749be9826ab7a78f27a89f",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2021/semilla_102/predicciones.npz": "751a8898a96fdda742bb8628b0f55aab9c2297ef00672c3aec2cf03ac0b5ccea",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos_finales/patchtst/semilla_102/modelo.pt": "eaa88b5500d4a2153d7a667b49439ad0c6f84a4ee0bf570371005e87478dc40f",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/prueba_m1_gpu_20261122_185842/predicciones_semilla_102.npz": "31a9d6dda79df071fd03f67dca0663fdfd1866256d40381e2e4c2937a217cb20",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2011/semilla_103/modelo.pt": "df1c2fa0a414484527e05b612cd32e34e34b760af04366255dcb85d334affbd2",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2012/semilla_103/modelo.pt": "5754b555a928d3c3d9760e6cf9be8031ceaf34a8e0882e764a20deadb2f7ba71",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2013/semilla_103/modelo.pt": "d4d95477f8bf9cb1d42439e18b76e2d8d40f674d897f596ede8fe8e3f33adca7",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2014/semilla_103/modelo.pt": "ec4faf69573346ba267d3f86cccff5bb16af0deae0b15b6ee7d69cd7bf8e0808",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2015/semilla_103/modelo.pt": "75a356a58d56af0109623610dcae33f1d3a34eb5a2b53f3e3694de4ac29d394a",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2016/semilla_103/modelo.pt": "f5f391f8a82f515d89abea2ae2145d1d6d8e37119fef282a8af970616e2c2880",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2017/semilla_103/modelo.pt": "65de500c9af4773ad8c4641a42fdfb21afe2c37c88bf391879f67b242bd7d2ac",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2018/semilla_103/modelo.pt": "1ad955f55ab85ae7938be7cd6b52e3bd7b92cb8c003b29e40e3bb48d3f61f934",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2019/semilla_103/modelo.pt": "00547c38b5fd36f3bc97634a450a7cd18ff46d76e0ea7485b89fa77d3ceb7fda",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2020/semilla_103/modelo.pt": "93c3e5090bb6792491ee793bdc43340d7251ae17430e6149d1fe0e71b7a8fefb",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2021/semilla_103/modelo.pt": "13148560d143cd688b588bed5b3303047e3614a978e9a1f3ffc3a80248c82a6d",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2011/semilla_103/predicciones.npz": "89a774c1d380a79463ccd32cb6402b38dfd33748123efc83f0389dbb61de4a2e",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2012/semilla_103/predicciones.npz": "c4baea09abe5093258aeb190423212250822a6d703ada0e907791ee5a60d773e",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2013/semilla_103/predicciones.npz": "564024e88b776991d9669cffc0f7595ecc1be5e9c566f4d7307d88ca740e9804",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2014/semilla_103/predicciones.npz": "c9743544659c97ca41661ef053cfbe8eceb0c0d30ada58da5deb8e8b01ebdc2d",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2015/semilla_103/predicciones.npz": "96c903a5dd25ddb239d2c737d49b71fd119e4935479e6cc15008a6a0a44e20a7",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2016/semilla_103/predicciones.npz": "19152e5bf73320633bdff6e73cbacaccf38e0d2aca564d841a58932868e82404",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2017/semilla_103/predicciones.npz": "ec238db211b257399910b0b2c74a1967535c60aa79173866e63d6d61c0b492bb",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2018/semilla_103/predicciones.npz": "c1cba5d789749c6e7332dcad378bceb33a049cfb435e464dbde94dc6170c35b3",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2019/semilla_103/predicciones.npz": "9fd58f9b93220a3f38da3c3172872192f7dcec3189daa8f2b965166ff49bf83e",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2020/semilla_103/predicciones.npz": "a678b0b6da4a15033957c26a92c1177e511d86a9336fdfe9ec339c433e81761e",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2021/semilla_103/predicciones.npz": "7d226a7c261c6fb9157002045c5b298342ba613b9838c0c5b324611726d0312a",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos_finales/patchtst/semilla_103/modelo.pt": "6c870b16c8ca838514af4eb43dee2dc798165f82fee36984c84bdd2d2a3b01d7",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/prueba_m1_gpu_20261122_185842/predicciones_semilla_103.npz": "416e7505ceff82519f7b168b7f792c93b69dc62960c9db8b341a674741d8ff80",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2011/semilla_104/modelo.pt": "55d5d81320eca396479df27b92743cea13bd5390c4c76a117574e930c7a88419",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2012/semilla_104/modelo.pt": "c4f1b33269a16b0bfa0a46fcc92c87e43b23d95fb7b4eca8bf512b1d6dcc5f57",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2013/semilla_104/modelo.pt": "b3f764bde6fca0de89744ffb5e69c0b43253199e508111078d5fb2c6f41be2d2",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2014/semilla_104/modelo.pt": "3a2d6f657d80d28335fc1cffc4e7ce4845d5ac9da8319f718820723f64603bd8",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2015/semilla_104/modelo.pt": "9e95a50fac3983a8c287510e17c4bcb6ff0d68534310fdab0df18e8ad9fdac95",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2016/semilla_104/modelo.pt": "373f942004409f33473cb6af84af05fa1f7def1dbf1e3c9ba9e165cfbd8ec79e",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2017/semilla_104/modelo.pt": "7abe9e75d0f5aaebe9f372d1be7b743c6fb086c017946623212167c8e670a1e5",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2018/semilla_104/modelo.pt": "71c992e50475e71dd125f5b5f7692d8cb5e787c0e245fb8e3e9fba45f40adb9c",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2019/semilla_104/modelo.pt": "8884dfc0d4ce43c5b5cded095207a544708b33147e36a39175dfe9c05a67a1d9",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2020/semilla_104/modelo.pt": "fcae7e248891b759ca59dbf914bb1312abd6af3d0099a13bbc0be9b4bac322a8",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2021/semilla_104/modelo.pt": "14c16b0c94409fdb16d3becbd21a7f3f75a8e28e3a27b0054f2085799c62db84",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2011/semilla_104/predicciones.npz": "026d903abcede2a43d9539a19c751b2ff0732de822d2d7acc8de617795d1958c",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2012/semilla_104/predicciones.npz": "1ec73634f7b371a9a38f6a55821a9c45521e3c6b130a9b6d555bbdcd2529bdbf",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2013/semilla_104/predicciones.npz": "f431b046ae32dde90088ec29c033de8b0430920a5f008742ec58592aff1cfdc2",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2014/semilla_104/predicciones.npz": "d80cc482224b20ccae2082bab3392cb78ea85188d92ec3dd21a13750162cfc8a",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2015/semilla_104/predicciones.npz": "a4bb2b4abf38852d47e777306fee9469134a703ef4470275aed1d2ee28f34911",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2016/semilla_104/predicciones.npz": "9a0a320cc14cb760e2b7f755e5fa9769bdc45bfb57ed0f645b10efcf2a726d10",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2017/semilla_104/predicciones.npz": "53d758a4de09a9704d749fc330f6fad5ed2b94e21396f03d41c53102f0e924e3",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2018/semilla_104/predicciones.npz": "7315310e8ec29713daadd81f8aa6f7884a91494a03993d09d84a5445a0f2f0cb",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2019/semilla_104/predicciones.npz": "c3d7a56a2ecf9e8622a9258e3cea81bb53250b6b66c2158d8e7724c996b7f610",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2020/semilla_104/predicciones.npz": "0727fb91c6dbe95b195c668a0e3dd9547148b8bebe72d6107977fa9b9bc21864",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2021/semilla_104/predicciones.npz": "6c8df5b5965edf96c40811016222cd2cadd2d5534570819290401cb7a3c8a044",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos_finales/patchtst/semilla_104/modelo.pt": "4a3b2c0cc514780792efc34a04d1dec160c11526c577e1ff42eb24cf4b28f14e",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/prueba_m1_gpu_20261122_185842/predicciones_semilla_104.npz": "0d748906b061537b7ae8caedabb1ec1c352ea901ce0748d7a1dae0d87059c3c6",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2011/semilla_105/modelo.pt": "f3c5a3cb51b12e153bc1a8718d6557126c941ad2c6aa9d59501dcf46efc9d7bb",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2012/semilla_105/modelo.pt": "220ac97d9aa395b01ac59c5d297a7d3d8d815ba5256ed7d889f985bc1360df6b",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2013/semilla_105/modelo.pt": "2dd0807b5bd23070f7fed2f102375da2c49687f68d0c169d798708ece932366f",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2014/semilla_105/modelo.pt": "6994190dd00d7d5ea11be37e54989d8d750f2620961a1974973834769921ccec",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2015/semilla_105/modelo.pt": "19406e92ecc1845aa51e53f4b5c856000f6db8f94832b80980d608011025e8ff",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2016/semilla_105/modelo.pt": "78926147c435788de66e7235508ba717e510aba515c3170b3eeab0532fbcb21d",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2017/semilla_105/modelo.pt": "e477a7080820d9f1cefbdd5be75b7e3fb4c5410036fabbf8306c40165b0e9cf5",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2018/semilla_105/modelo.pt": "28a08ebdcf62970983bda5c3ff6f2c2f8b8d852605e9ebd97e35deedbcba4b2b",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2019/semilla_105/modelo.pt": "da3b77fa7fa4515bfb299e1c8ef329b7a68fee58a5c2d4dcf998f667fa2026f9",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2020/semilla_105/modelo.pt": "64c40c66006f6ae32664d31e6e94149a4e8ec839c7ae80b71a06a9bdcb94aefb",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2021/semilla_105/modelo.pt": "bee673f21805d3c9abffdbb79678fe2291d692171fae730b41320c18f71d8870",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2011/semilla_105/predicciones.npz": "0c56d477afa8f9af7eb71b2fd8599c63ec3b4b137ef359bde225fb3af41deada",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2012/semilla_105/predicciones.npz": "ee8c2d8b21b3e7b440dadae38e341d15c276192ace158850e2b8c41f0951c9c5",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2013/semilla_105/predicciones.npz": "2a3d9536eb070124052b982f292e827541f861458a71c8e6d9d3b1765b1871f7",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2014/semilla_105/predicciones.npz": "3535337d588288da8e601803f108025300b1f419639a8a406f595789bec4087b",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2015/semilla_105/predicciones.npz": "9e67a19fb527f5fccf1ad0b789f299d3a06c4aa478a17995b111282f774df869",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2016/semilla_105/predicciones.npz": "0ae98158cdd32ff9b3ac8980610d22faaf819aa571d0ad83904052490ab39c80",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2017/semilla_105/predicciones.npz": "285fbe814834573b60aaf450f92de1b284b25d7c331b6c08b845582540060ddf",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2018/semilla_105/predicciones.npz": "4a6dba259b7b0f6f272e619542f5d8c31f4451504e236924bbf20395d6d6646d",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2019/semilla_105/predicciones.npz": "528fb4606d6000626d2264e0559c3ef6f2fe8d7b475a0bdc636150db6631c71d",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2020/semilla_105/predicciones.npz": "82fc97126e2e5d30d823f9b9fe6e7d25853691a03cf38a3d2580f643ff2ff7ec",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos/patchtst/anio_2021/semilla_105/predicciones.npz": "fd4645546c2194093f754bbaf40ff6ddbc864e8906a58fe37d4bf19671fdcfa2",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/corrector_final_y_m1_gpu_20261122_150345/M1/expertos_finales/patchtst/semilla_105/modelo.pt": "d8b7ae10be857d49391aa646d369708ee4b6d748e64c9dba505ffcbe00ab1926",
+  "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/prueba_m1_gpu_20261122_185842/predicciones_semilla_105.npz": "35af114c5552d14528b64cf2f841d46e467e6ad8f80bce9954bc471dd2a25081",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/data/processed/panel_horario.parquet": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+  "/home/fabian/Documents/DL Project/Corrector_Semantico_E3/data/processed/feature_registry.json": "91f016c804162bd65ad101e3f9f0cd995498b3ca356c3e528926cc86a30ab4b0"
+ },
+ "semillas": [
+  101,
+  102,
+  103,
+  104,
+  105
+ ],
+ "rejilla": "8 candidatos x 5 semillas x 4 folds =160 ajustes",
+ "controles": "3 controles entrenables x5 semillas x4 folds =60; ancla intacta reutilizada",
+ "finales": "M2 y3 controles x5 semillas =20; total240 ajustes;60 extracciones congeladas",
+ "implementacion": {
+  "estado": "Entrada del MLP contextual de PatchTST: media de parches por canal y calendario, congelados por año y semilla",
+  "extras": "Pronóstico ancla/nivel histórico y error ancla d-2/media d-8..d-2",
+  "cabezas": "MLP compartido de dos capas del ancho registrado; energía softplus y logits horarios",
+  "ancla": "recorte inferior1e-6 kWh, normalización por suma, epsilon1e-8 antes de log",
+  "escala_energia": "Media de suma diaria de objetivos exclusivamente en ajuste",
+  "directa24": "Mismo MLP;24 salidas softplus multiplicadas por escala_energia/24; capacidad difiere solo en una salida",
+  "latentes": "Los modelos OOF anuales pueden cambiar de base latente; se declara como limitación"
+ },
+ "seleccion_prueba": false,
+ "prueba": "2022–2025,1461 orígenes diarios; se abre tras congelar20 checkpoints finales",
+ "estadistica": "Familia global28:4 hipótesis previas de M1 +4 nuevas de M2;20 pendientes completadas con1 para cota conservadora de Holm; bootstrap9999,14 días, sensibilidad7/28",
+ "comparadores_primarios": [
+  "M1",
+  "PatchTST mejor individual de desarrollo"
+ ],
+ "comparadores_descriptivos": [
+  "NNLS",
+  "ancla",
+  "solo_energia",
+  "solo_distribucion",
+  "directa_24"
+ ],
+ "retrospectivo": "Benchmark conocido durante el diseño; no prueba nunca consultada",
+ "apagado_al_final": true,
+ "publicacion_automatica": false,
+ "publicacion_previa": "Corrector y M1 publicados en85b35df antes de iniciar esta cola"
+}

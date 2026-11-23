@@ -1,0 +1,26 @@
+{
+ "variante": "M4_sin_compuerta",
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "semilla": 105,
+ "n_parametros": 144673,
+ "ajuste": [
+  "2013-01-01",
+  "2018-12-30"
+ ],
+ "parada": [
+  "2019-01-01",
+  "2019-12-31"
+ ],
+ "epocas": 15,
+ "mejor_epoca": 5,
+ "mejor_perdida": 0.42325402914661253,
+ "segundos": 65.92943835258484,
+ "MASE": 0.5704087559585684,
+ "MAE_kwh": 122990.34016393442,
+ "RMSE_kwh": 179270.28494214598
+}

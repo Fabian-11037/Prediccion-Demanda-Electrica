@@ -1,0 +1,26 @@
+{
+ "variante": "M3_OP",
+ "configuracion": {
+  "id": 5,
+  "d_texto": 64,
+  "lambda_penalizacion_delta": 0.001,
+  "epsilon_logits": 0.25
+ },
+ "semilla": 103,
+ "n_parametros": 210951,
+ "ajuste": [
+  "2013-01-01",
+  "2016-12-30"
+ ],
+ "parada": [
+  "2017-01-01",
+  "2017-12-31"
+ ],
+ "epocas": 11,
+ "mejor_epoca": 1,
+ "mejor_perdida": 0.4144784697931107,
+ "segundos": 2.9036548137664795,
+ "MASE": 0.38001082925901314,
+ "MAE_kwh": 81937.13835616439,
+ "RMSE_kwh": 108484.45870127463
+}

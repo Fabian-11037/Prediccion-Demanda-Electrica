@@ -1,0 +1,26 @@
+{
+ "variante": "M3_OP_estricto",
+ "configuracion": {
+  "id": 4,
+  "d_texto": 32,
+  "lambda_penalizacion_delta": 0.01,
+  "epsilon_logits": 0.5
+ },
+ "semilla": 105,
+ "n_parametros": 92999,
+ "ajuste": [
+  "2013-01-01",
+  "2018-12-30"
+ ],
+ "parada": [
+  "2019-01-01",
+  "2019-12-31"
+ ],
+ "epocas": 11,
+ "mejor_epoca": 3,
+ "mejor_perdida": 0.43307783007621764,
+ "segundos": 4.010271310806274,
+ "MASE": 0.5788818169470269,
+ "MAE_kwh": 124817.28381147541,
+ "RMSE_kwh": 180549.24169970112
+}

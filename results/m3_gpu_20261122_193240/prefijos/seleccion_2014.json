@@ -1,0 +1,53 @@
+{
+ "anio_predicho": 2014,
+ "configuracion": {
+  "id": 8,
+  "ancho": 64,
+  "dropout": 0.1,
+  "lambda_complementariedad": 0.1
+ },
+ "bootstrap": false,
+ "ultimo_anio_seleccion": 2013,
+ "tabla": [
+  {
+   "cfg": 8,
+   "MASE": 0.45808762234544015,
+   "n_parametros": 77136
+  },
+  {
+   "cfg": 6,
+   "MASE": 0.4583115964692971,
+   "n_parametros": 77136
+  },
+  {
+   "cfg": 5,
+   "MASE": 0.4587862606779822,
+   "n_parametros": 77136
+  },
+  {
+   "cfg": 7,
+   "MASE": 0.4588558975935705,
+   "n_parametros": 77136
+  },
+  {
+   "cfg": 2,
+   "MASE": 0.45903437155013876,
+   "n_parametros": 40208
+  },
+  {
+   "cfg": 4,
+   "MASE": 0.45908159981347707,
+   "n_parametros": 40208
+  },
+  {
+   "cfg": 3,
+   "MASE": 0.45994478592128285,
+   "n_parametros": 40208
+  },
+  {
+   "cfg": 1,
+   "MASE": 0.459969207610467,
+   "n_parametros": 40208
+  }
+ ]
+}

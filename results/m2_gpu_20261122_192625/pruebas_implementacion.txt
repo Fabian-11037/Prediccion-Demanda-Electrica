@@ -1,0 +1,12 @@
+......                                                                   [100%]
+=============================== warnings summary ===============================
+../../Machine Learning/mlenv/lib/python3.12/site-packages/dash/testing/plugin.py:104
+  /home/fabian/Documents/Machine Learning/mlenv/lib/python3.12/site-packages/dash/testing/plugin.py:104: PytestRemovedIn10Warning: The hookimpl pytest_addhooks uses old-style configuration options (marks or attributes).
+  Please use the pytest.hookimpl(tryfirst=True) decorator instead
+   to configure the hooks.
+   See https://docs.pytest.org/en/latest/deprecations.html#configuring-hook-specs-impls-using-markers
+    @pytest.mark.tryfirst
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 1 warning in 16.89s
+

@@ -1,0 +1,5404 @@
+{
+ "fecha": "2026-11-23T05:16:14-05:00",
+ "archivos_publicados": 6701,
+ "bytes": 1214817647,
+ "omitidos_locales": [
+  {
+   "archivo": "results/m2_gpu_20261122_192625/APAGADO.json",
+   "bytes": 173
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/bitacora.log",
+   "bytes": 1157
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1546792
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1547880
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1546728
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1549032
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1548520
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1546408
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1546600
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1547496
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1546600
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1546536
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1547688
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1546536
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1546856
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1547304
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1547624
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1546600
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1547048
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1546664
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1546728
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_1/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1546856
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1546728
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1547880
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1546792
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1547688
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1547240
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1546408
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1546920
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1547112
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1546600
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1547048
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1547688
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1546536
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1548072
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1548136
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1547560
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1546600
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1548648
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1546728
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1547304
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_2/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1546856
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1546600
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1548648
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1546728
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1548776
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1547240
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1547048
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1547240
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1547176
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1546472
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1547176
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1546408
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1546536
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1546792
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1548136
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1546792
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1546600
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1549800
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1546536
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1547560
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_3/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1547752
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1546600
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1548136
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1546728
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1547368
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1547048
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1546792
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1547944
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1547368
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1546472
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1547048
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1546472
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1546536
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1546792
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1547176
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1547816
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1546600
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1547432
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1546536
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1548648
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_4/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1547496
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 3092968
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 3094248
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 3092712
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 3092968
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 3094056
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 3092648
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 3092840
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 3093480
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 3093416
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 3093416
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 3093480
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 3092776
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 3092776
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 3095848
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 3093288
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 3092712
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 3093096
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 3093288
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 3093672
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_5/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 3092776
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 3092968
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 3093352
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 3092712
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 3092840
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 3093224
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 3092648
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 3092840
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 3093032
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 3092840
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 3093352
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 3092968
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 3092904
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 3093032
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 3093416
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 3093288
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 3092840
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 3094056
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 3093096
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 3095592
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_6/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 3092968
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 3093224
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 3094120
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 3092712
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 3094056
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 3093288
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 3092776
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 3092904
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 3092712
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 3092712
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 3093288
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 3093096
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 3092904
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 3093096
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 3093928
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 3094696
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 3092840
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 3095592
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 3093416
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 3093992
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_7/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 3093800
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 3092968
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 3093160
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 3092712
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 3094632
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 3093864
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 3092648
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 3092840
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 3092712
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 3092776
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 3093352
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 3093928
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 3093032
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 3092776
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 3095016
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 3092840
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 3093032
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 3095656
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 3092712
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 3095464
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/busqueda/cfg_8/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 3093224
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 3089118
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 3089566
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 3088862
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 3090206
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 3089374
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 3089886
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 3090334
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 3089182
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 3088990
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 3089438
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 3089630
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 3088990
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 3089246
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 3090078
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 3089054
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 3089182
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 3090718
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 3089438
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 3092062
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/directa_24/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 3089822
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 3088862
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 3089054
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 3088862
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 3088990
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 3089374
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 3089118
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 3089246
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 3088990
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 3088862
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 3088990
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 3089054
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 3088990
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 3089566
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 3088862
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 3089118
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 3089118
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 3089054
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 3088990
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 3089054
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_distribucion/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 3089438
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 3065310
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 3065886
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 3065118
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 3065694
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 3066142
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 3065374
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 3065502
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 3065630
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 3065694
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 3065246
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 3065502
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 3065118
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 3065118
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 3065758
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 3065118
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 3065566
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 3065630
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 3066526
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 3065374
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/controles/solo_energia/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 3066142
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/ejecucion.log",
+   "bytes": 1121
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/M2/semilla_101/reanudar.pt",
+   "bytes": 3092648
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/M2/semilla_102/reanudar.pt",
+   "bytes": 3093096
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/M2/semilla_103/reanudar.pt",
+   "bytes": 3093032
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/M2/semilla_104/reanudar.pt",
+   "bytes": 3092648
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/M2/semilla_105/reanudar.pt",
+   "bytes": 3093608
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/directa_24/semilla_101/reanudar.pt",
+   "bytes": 3088862
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/directa_24/semilla_102/reanudar.pt",
+   "bytes": 3089886
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/directa_24/semilla_103/reanudar.pt",
+   "bytes": 3088990
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/directa_24/semilla_104/reanudar.pt",
+   "bytes": 3088798
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/directa_24/semilla_105/reanudar.pt",
+   "bytes": 3089950
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/solo_distribucion/semilla_101/reanudar.pt",
+   "bytes": 3089246
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/solo_distribucion/semilla_102/reanudar.pt",
+   "bytes": 3088990
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/solo_distribucion/semilla_103/reanudar.pt",
+   "bytes": 3089438
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/solo_distribucion/semilla_104/reanudar.pt",
+   "bytes": 3089310
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/solo_distribucion/semilla_105/reanudar.pt",
+   "bytes": 3089374
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/solo_energia/semilla_101/reanudar.pt",
+   "bytes": 3065822
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/solo_energia/semilla_102/reanudar.pt",
+   "bytes": 3066910
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/solo_energia/semilla_103/reanudar.pt",
+   "bytes": 3065182
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/solo_energia/semilla_104/reanudar.pt",
+   "bytes": 3064990
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/final/solo_energia/semilla_105/reanudar.pt",
+   "bytes": 3066078
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/proceso.lock",
+   "bytes": 0
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/progreso/estado.json",
+   "bytes": 549
+  },
+  {
+   "archivo": "results/m2_gpu_20261122_192625/progreso/progreso.html",
+   "bytes": 3257
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/APAGADO_M2_CANCELADO.json",
+   "bytes": 45
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/COLA_ESTADO.json",
+   "bytes": 104
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/M3_PROCESO.json",
+   "bytes": 704
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/PREPARACION_LISTA.json",
+   "bytes": 728
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/bitacora.log",
+   "bytes": 1331
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1557405
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1557213
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1558173
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1557469
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1558045
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1559069
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1558813
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1558365
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1558429
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1558941
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1558301
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1558365
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1557917
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1558237
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_1/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1558109
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1558429
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1557533
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1557149
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1557661
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1558813
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1559069
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1559005
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1558429
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1559005
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1558813
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1559197
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1557917
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_2/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1558109
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1557405
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1557533
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1557725
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1557469
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1558045
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1559069
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1558941
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1558749
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1558749
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1558685
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1558429
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1559773
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1557917
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1558301
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_3/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1558109
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1559965
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1557533
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1557469
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1558301
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1559069
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1559325
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1558877
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1558813
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1559261
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1558685
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1559197
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1558749
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1558301
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_4/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1558109
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 3441949
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 3441629
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 3441053
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 3441373
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 3441053
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 3442397
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 3441437
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 3442077
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 3440989
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 3441949
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 3444061
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 3443485
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 3444381
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 3443293
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 3443613
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 3443229
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 3443485
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 3443485
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 3443805
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_5/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 3443293
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 3442077
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 3441117
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 3441053
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 3441693
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 3441053
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 3441373
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 3441373
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 3441373
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 3440989
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 3441693
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 3443805
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 3444317
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 3446301
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 3443741
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 3443485
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 3443101
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 3443933
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 3443101
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 3444061
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_6/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 3443293
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 3442397
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 3441117
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 3441053
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 3441373
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 3441053
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 3441821
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 3441821
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 3441565
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 3440989
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 3442077
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 3443421
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 3445341
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 3444125
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 3443293
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 3443613
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 3443229
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 3444317
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 3443101
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 3443549
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_7/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 3443293
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 3442589
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 3441117
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 3441053
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 3441373
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 3441053
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 3442589
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 3441373
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 3441565
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 3440989
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 3441885
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 3443997
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 3443933
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 3443613
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 3443933
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 3444061
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 3443229
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 3444125
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 3443101
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 3443549
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/busqueda/cfg_8/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 3443357
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/cola.lock",
+   "bytes": 0
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/cola.log",
+   "bytes": 0
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1517522
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1516434
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1516370
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1518290
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1516434
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1517394
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1517842
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1516818
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1516306
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1516434
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1517714
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1517202
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1518802
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1516754
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1518866
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1516434
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1517522
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1516370
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1517394
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_N/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1517266
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1556637
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1555933
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1555805
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1556125
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1555869
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1557405
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1555933
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1557085
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1555869
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1556445
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1559261
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1558045
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1557789
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1557725
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1558365
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1557469
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1558237
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_O/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1557085
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1552093
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1551837
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1551709
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1551709
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1551773
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1553757
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1553885
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1553757
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1553757
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1553821
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1554077
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1553885
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1553757
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1553757
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1553821
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1553757
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1553885
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1553757
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1554653
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_OP_estricto/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1554397
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1552413
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1551837
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1551709
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1552413
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1551773
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1553629
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1552541
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1552605
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1551773
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1552797
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1552861
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1552733
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1552733
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1552413
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1552285
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1552413
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1553437
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1551709
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1551709
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_P/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1552221
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1558045
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1557213
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1557085
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1557725
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1557405
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1559005
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1559197
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1559517
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1558621
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1558365
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1558045
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1558685
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1558621
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_154/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1558109
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1557661
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1557213
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1558365
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1557469
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1558365
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1559325
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1558877
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1558749
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1558941
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1558045
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1559389
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1557917
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_217/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1558109
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1557661
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1557213
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1557725
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1557405
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1558237
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1559325
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1559261
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1558941
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1559261
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1558045
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1558685
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1557917
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_301/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1558109
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1558173
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1557213
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1557149
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1557789
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1558429
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1558365
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1558557
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1558813
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1559261
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1559709
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1559773
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1557917
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_49/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1558109
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1557597
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1557213
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1557469
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1557981
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1558429
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1559581
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1559197
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1558429
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1559261
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1558045
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1558301
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1558237
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_desalineado_91/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1558109
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1556957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1557213
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1556829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1558045
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1557341
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1557789
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1557725
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1558173
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1556893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1557725
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1557853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/controles/M3_metadatos/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1557085
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/ejecucion.log",
+   "bytes": 1295
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_N/semilla_101/reanudar.pt",
+   "bytes": 1516754
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_N/semilla_102/reanudar.pt",
+   "bytes": 1516626
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_N/semilla_103/reanudar.pt",
+   "bytes": 1517394
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_N/semilla_104/reanudar.pt",
+   "bytes": 1517330
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_N/semilla_105/reanudar.pt",
+   "bytes": 1517522
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_O/semilla_101/reanudar.pt",
+   "bytes": 1557021
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_O/semilla_102/reanudar.pt",
+   "bytes": 1559005
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_O/semilla_103/reanudar.pt",
+   "bytes": 1558109
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_O/semilla_104/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_O/semilla_105/reanudar.pt",
+   "bytes": 1557277
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_OP/semilla_101/reanudar.pt",
+   "bytes": 1565853
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_OP/semilla_102/reanudar.pt",
+   "bytes": 1565597
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_OP/semilla_103/reanudar.pt",
+   "bytes": 1564829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_OP/semilla_104/reanudar.pt",
+   "bytes": 1564445
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_OP/semilla_105/reanudar.pt",
+   "bytes": 1564445
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_OP_estricto/semilla_101/reanudar.pt",
+   "bytes": 1554141
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_OP_estricto/semilla_102/reanudar.pt",
+   "bytes": 1554013
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_OP_estricto/semilla_103/reanudar.pt",
+   "bytes": 1555549
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_OP_estricto/semilla_104/reanudar.pt",
+   "bytes": 1554653
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_OP_estricto/semilla_105/reanudar.pt",
+   "bytes": 1553821
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_P/semilla_101/reanudar.pt",
+   "bytes": 1558685
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_P/semilla_102/reanudar.pt",
+   "bytes": 1559453
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_P/semilla_103/reanudar.pt",
+   "bytes": 1559517
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_P/semilla_104/reanudar.pt",
+   "bytes": 1558237
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_P/semilla_105/reanudar.pt",
+   "bytes": 1559325
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_154/semilla_101/reanudar.pt",
+   "bytes": 1563805
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_154/semilla_102/reanudar.pt",
+   "bytes": 1563549
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_154/semilla_103/reanudar.pt",
+   "bytes": 1564189
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_154/semilla_104/reanudar.pt",
+   "bytes": 1563613
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_154/semilla_105/reanudar.pt",
+   "bytes": 1563613
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_217/semilla_101/reanudar.pt",
+   "bytes": 1561757
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_217/semilla_102/reanudar.pt",
+   "bytes": 1561501
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_217/semilla_103/reanudar.pt",
+   "bytes": 1561885
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_217/semilla_104/reanudar.pt",
+   "bytes": 1561373
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_217/semilla_105/reanudar.pt",
+   "bytes": 1561949
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_301/semilla_101/reanudar.pt",
+   "bytes": 1561757
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_301/semilla_102/reanudar.pt",
+   "bytes": 1561501
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_301/semilla_103/reanudar.pt",
+   "bytes": 1561501
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_301/semilla_104/reanudar.pt",
+   "bytes": 1561373
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_301/semilla_105/reanudar.pt",
+   "bytes": 1561373
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_49/semilla_101/reanudar.pt",
+   "bytes": 1564829
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_49/semilla_102/reanudar.pt",
+   "bytes": 1565405
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_49/semilla_103/reanudar.pt",
+   "bytes": 1564957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_49/semilla_104/reanudar.pt",
+   "bytes": 1564445
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_49/semilla_105/reanudar.pt",
+   "bytes": 1564445
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_91/semilla_101/reanudar.pt",
+   "bytes": 1564509
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_91/semilla_102/reanudar.pt",
+   "bytes": 1564893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_91/semilla_103/reanudar.pt",
+   "bytes": 1564765
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_91/semilla_104/reanudar.pt",
+   "bytes": 1564893
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_desalineado_91/semilla_105/reanudar.pt",
+   "bytes": 1564445
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_metadatos/semilla_101/reanudar.pt",
+   "bytes": 1564381
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_metadatos/semilla_102/reanudar.pt",
+   "bytes": 1564637
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_metadatos/semilla_103/reanudar.pt",
+   "bytes": 1565085
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_metadatos/semilla_104/reanudar.pt",
+   "bytes": 1563357
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/final/M3_metadatos/semilla_105/reanudar.pt",
+   "bytes": 1564957
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2013/semilla_101/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2013/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2013/semilla_103/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2013/semilla_104/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2013/semilla_105/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2014/semilla_101/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2014/semilla_102/reanudar.pt",
+   "bytes": 675622
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2014/semilla_103/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2014/semilla_104/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2014/semilla_105/reanudar.pt",
+   "bytes": 675686
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2015/semilla_101/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2015/semilla_102/reanudar.pt",
+   "bytes": 675878
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2015/semilla_103/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2015/semilla_104/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2015/semilla_105/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2016/semilla_101/reanudar.pt",
+   "bytes": 675750
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2016/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2016/semilla_103/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2016/semilla_104/reanudar.pt",
+   "bytes": 675750
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2016/semilla_105/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2017/semilla_101/reanudar.pt",
+   "bytes": 675622
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2017/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2017/semilla_103/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2017/semilla_104/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_1/anio_2017/semilla_105/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2013/semilla_101/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2013/semilla_102/reanudar.pt",
+   "bytes": 675686
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2013/semilla_103/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2013/semilla_104/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2013/semilla_105/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2014/semilla_101/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2014/semilla_102/reanudar.pt",
+   "bytes": 675878
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2014/semilla_103/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2014/semilla_104/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2014/semilla_105/reanudar.pt",
+   "bytes": 675686
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2015/semilla_101/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2015/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2015/semilla_103/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2015/semilla_104/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2015/semilla_105/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2016/semilla_101/reanudar.pt",
+   "bytes": 675750
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2016/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2016/semilla_103/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2016/semilla_104/reanudar.pt",
+   "bytes": 675238
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2016/semilla_105/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2017/semilla_101/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2017/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2017/semilla_103/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2017/semilla_104/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_2/anio_2017/semilla_105/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2013/semilla_101/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2013/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2013/semilla_103/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2013/semilla_104/reanudar.pt",
+   "bytes": 675238
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2013/semilla_105/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2014/semilla_101/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2014/semilla_102/reanudar.pt",
+   "bytes": 676134
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2014/semilla_103/reanudar.pt",
+   "bytes": 675622
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2014/semilla_104/reanudar.pt",
+   "bytes": 675622
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2014/semilla_105/reanudar.pt",
+   "bytes": 675750
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2015/semilla_101/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2015/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2015/semilla_103/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2015/semilla_104/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2015/semilla_105/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2016/semilla_101/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2016/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2016/semilla_103/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2016/semilla_104/reanudar.pt",
+   "bytes": 675238
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2016/semilla_105/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2017/semilla_101/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2017/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2017/semilla_103/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2017/semilla_104/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_3/anio_2017/semilla_105/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2013/semilla_101/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2013/semilla_102/reanudar.pt",
+   "bytes": 675686
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2013/semilla_103/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2013/semilla_104/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2013/semilla_105/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2014/semilla_101/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2014/semilla_102/reanudar.pt",
+   "bytes": 675878
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2014/semilla_103/reanudar.pt",
+   "bytes": 675622
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2014/semilla_104/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2014/semilla_105/reanudar.pt",
+   "bytes": 675814
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2015/semilla_101/reanudar.pt",
+   "bytes": 675366
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2015/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2015/semilla_103/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2015/semilla_104/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2015/semilla_105/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2016/semilla_101/reanudar.pt",
+   "bytes": 676198
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2016/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2016/semilla_103/reanudar.pt",
+   "bytes": 676070
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2016/semilla_104/reanudar.pt",
+   "bytes": 675238
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2016/semilla_105/reanudar.pt",
+   "bytes": 675302
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2017/semilla_101/reanudar.pt",
+   "bytes": 675878
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2017/semilla_102/reanudar.pt",
+   "bytes": 675494
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2017/semilla_103/reanudar.pt",
+   "bytes": 675558
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2017/semilla_104/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_4/anio_2017/semilla_105/reanudar.pt",
+   "bytes": 675430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2013/semilla_101/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2013/semilla_102/reanudar.pt",
+   "bytes": 1266406
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2013/semilla_103/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2013/semilla_104/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2013/semilla_105/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2014/semilla_101/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2014/semilla_102/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2014/semilla_103/reanudar.pt",
+   "bytes": 1266342
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2014/semilla_104/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2014/semilla_105/reanudar.pt",
+   "bytes": 1266534
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2015/semilla_101/reanudar.pt",
+   "bytes": 1266086
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2015/semilla_102/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2015/semilla_103/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2015/semilla_104/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2015/semilla_105/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2016/semilla_101/reanudar.pt",
+   "bytes": 1266406
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2016/semilla_102/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2016/semilla_103/reanudar.pt",
+   "bytes": 1266534
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2016/semilla_104/reanudar.pt",
+   "bytes": 1266086
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2016/semilla_105/reanudar.pt",
+   "bytes": 1266470
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2017/semilla_101/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2017/semilla_102/reanudar.pt",
+   "bytes": 1266342
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2017/semilla_103/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2017/semilla_104/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_5/anio_2017/semilla_105/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2013/semilla_101/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2013/semilla_102/reanudar.pt",
+   "bytes": 1266470
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2013/semilla_103/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2013/semilla_104/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2013/semilla_105/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2014/semilla_101/reanudar.pt",
+   "bytes": 1266470
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2014/semilla_102/reanudar.pt",
+   "bytes": 1266470
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2014/semilla_103/reanudar.pt",
+   "bytes": 1266342
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2014/semilla_104/reanudar.pt",
+   "bytes": 1266406
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2014/semilla_105/reanudar.pt",
+   "bytes": 1266534
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2015/semilla_101/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2015/semilla_102/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2015/semilla_103/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2015/semilla_104/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2015/semilla_105/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2016/semilla_101/reanudar.pt",
+   "bytes": 1266406
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2016/semilla_102/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2016/semilla_103/reanudar.pt",
+   "bytes": 1266534
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2016/semilla_104/reanudar.pt",
+   "bytes": 1266086
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2016/semilla_105/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2017/semilla_101/reanudar.pt",
+   "bytes": 1266406
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2017/semilla_102/reanudar.pt",
+   "bytes": 1266598
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2017/semilla_103/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2017/semilla_104/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_6/anio_2017/semilla_105/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2013/semilla_101/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2013/semilla_102/reanudar.pt",
+   "bytes": 1266406
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2013/semilla_103/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2013/semilla_104/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2013/semilla_105/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2014/semilla_101/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2014/semilla_102/reanudar.pt",
+   "bytes": 1266342
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2014/semilla_103/reanudar.pt",
+   "bytes": 1266342
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2014/semilla_104/reanudar.pt",
+   "bytes": 1266918
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2014/semilla_105/reanudar.pt",
+   "bytes": 1266534
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2015/semilla_101/reanudar.pt",
+   "bytes": 1266086
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2015/semilla_102/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2015/semilla_103/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2015/semilla_104/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2015/semilla_105/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2016/semilla_101/reanudar.pt",
+   "bytes": 1267046
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2016/semilla_102/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2016/semilla_103/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2016/semilla_104/reanudar.pt",
+   "bytes": 1266086
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2016/semilla_105/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2017/semilla_101/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2017/semilla_102/reanudar.pt",
+   "bytes": 1266598
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2017/semilla_103/reanudar.pt",
+   "bytes": 1266406
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2017/semilla_104/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_7/anio_2017/semilla_105/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2013/semilla_101/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2013/semilla_102/reanudar.pt",
+   "bytes": 1266534
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2013/semilla_103/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2013/semilla_104/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2013/semilla_105/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2014/semilla_101/reanudar.pt",
+   "bytes": 1266598
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2014/semilla_102/reanudar.pt",
+   "bytes": 1267430
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2014/semilla_103/reanudar.pt",
+   "bytes": 1266534
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2014/semilla_104/reanudar.pt",
+   "bytes": 1266790
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2014/semilla_105/reanudar.pt",
+   "bytes": 1266534
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2015/semilla_101/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2015/semilla_102/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2015/semilla_103/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2015/semilla_104/reanudar.pt",
+   "bytes": 1266662
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2015/semilla_105/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2016/semilla_101/reanudar.pt",
+   "bytes": 1266726
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2016/semilla_102/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2016/semilla_103/reanudar.pt",
+   "bytes": 1267046
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2016/semilla_104/reanudar.pt",
+   "bytes": 1266086
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2016/semilla_105/reanudar.pt",
+   "bytes": 1266150
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2017/semilla_101/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2017/semilla_102/reanudar.pt",
+   "bytes": 1266598
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2017/semilla_103/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2017/semilla_104/reanudar.pt",
+   "bytes": 1266214
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/preparacion_m1/cfg_8/anio_2017/semilla_105/reanudar.pt",
+   "bytes": 1266278
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/proceso.lock",
+   "bytes": 0
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/progreso/estado.json",
+   "bytes": 522
+  },
+  {
+   "archivo": "results/m3_gpu_20261122_193240/progreso/progreso.html",
+   "bytes": 3320
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/COLA_ESTADO.json",
+   "bytes": 58
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/M4_PROCESO.json",
+   "bytes": 752
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/PREPARACION_LISTA.json",
+   "bytes": 1900
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/bitacora.log",
+   "bytes": 1291
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2354421
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2354997
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2354677
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2354869
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2354485
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2354869
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2354677
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2354677
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2354549
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2354421
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2356661
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2356021
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2355701
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2355381
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2355829
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2356021
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2355957
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2355765
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2355701
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_1/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2355701
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2374325
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2374517
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2373813
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2375285
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2376181
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2376117
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2374837
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2375285
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2375093
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2375093
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2375349
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2375413
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_2/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2375733
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2354549
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2354549
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2354485
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2354421
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2354485
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2354485
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2354485
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2354805
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2354741
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2354741
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2355509
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2355701
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2356085
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2356085
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2356085
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2355509
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2355957
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2356149
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2355381
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_3/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2355701
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2374325
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2374453
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2374325
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2374581
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2374645
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2373813
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2375349
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2375221
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2375413
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2375349
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2375349
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2375285
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2375605
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2375413
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_4/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2375413
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2354677
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2354805
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2354485
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2354677
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2354421
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2354805
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2354741
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2354549
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2354741
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2354933
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2355893
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2355829
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2355701
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2355957
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2355957
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2355701
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2355573
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2355957
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2356725
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_5/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2357173
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2374325
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2374453
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2375029
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2375157
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2375093
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2375797
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2375477
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2375669
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2375157
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_6/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2375477
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2354421
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2354549
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2354421
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2354869
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2354805
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2354485
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2354677
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2354613
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2354421
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2354613
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2356021
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2356149
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2356213
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2356533
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2355637
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2355509
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2356149
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2356021
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2356725
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_7/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2356021
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2374389
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2375477
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2375669
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2375157
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2376245
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2375093
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2376181
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2375029
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2375285
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/busqueda/cfg_8/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2375477
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/cola.lock",
+   "bytes": 0
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/cola.log",
+   "bytes": 0
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 1722650
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 1721754
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 1721626
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 1722266
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 1721818
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 1721946
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 1721882
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 1721690
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 1721818
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 1721946
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 1721882
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 1722074
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 1722202
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 1722970
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 1722074
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 1722458
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 1722074
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 1721818
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 1721754
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_N/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 1721818
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2372917
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2373173
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2372853
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2372981
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2372917
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2373749
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2373109
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2372981
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2373045
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2373813
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2374453
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2374133
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2374453
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2374389
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2374581
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_O/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2374517
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2368757
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2369589
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2369397
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2369589
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2368757
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2370933
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2370997
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2371445
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2371381
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2371125
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2371381
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2370997
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2371189
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2370805
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2371637
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2371061
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2371125
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2371573
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2370933
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_OP_estricto/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2371509
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2374709
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2374325
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2374773
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2376181
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2375285
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2375477
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2375029
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2375285
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2374901
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2375477
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2375029
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_154/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2375413
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2374325
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2374581
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2374773
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2374517
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2376181
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2375093
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2375157
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2375605
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2375221
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2374901
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2375413
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2375605
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2375029
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_217/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2375221
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2375349
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2375605
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2375413
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2375157
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2375029
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2377653
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2375221
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2375093
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2375733
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_301/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2375733
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2374133
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2374133
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2374133
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2374389
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2374517
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2375093
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2375541
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2375541
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2375797
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2375221
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2375093
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2375413
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_49/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2375157
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2374517
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2374453
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2375221
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2375413
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2375413
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2375285
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2376309
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2374901
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2375285
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2375861
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2375029
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_desalineado_91/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2375157
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2374325
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2374453
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2375029
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2375157
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2375093
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2375797
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2375477
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2375669
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2375157
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_memoria_fija/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2375477
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2374325
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2374389
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2374133
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2374261
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2374453
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2374773
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2374709
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2374133
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2374453
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2374005
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_metadatos/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2352349
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2351517
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2351517
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2351069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2351773
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2352477
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2351197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2351197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2351773
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2351325
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2352541
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2352541
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2352157
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2352413
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2352477
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2352221
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2353117
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2352861
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2352669
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_compuerta/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2352477
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2018/semilla_101/reanudar.pt",
+   "bytes": 2373813
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2018/semilla_102/reanudar.pt",
+   "bytes": 2374645
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2018/semilla_103/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2018/semilla_104/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2018/semilla_105/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2019/semilla_101/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2019/semilla_102/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2019/semilla_103/reanudar.pt",
+   "bytes": 2373941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2019/semilla_104/reanudar.pt",
+   "bytes": 2373813
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2019/semilla_105/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2020/semilla_101/reanudar.pt",
+   "bytes": 2375221
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2020/semilla_102/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2020/semilla_103/reanudar.pt",
+   "bytes": 2375093
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2020/semilla_104/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2020/semilla_105/reanudar.pt",
+   "bytes": 2375349
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2021/semilla_101/reanudar.pt",
+   "bytes": 2374837
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2021/semilla_102/reanudar.pt",
+   "bytes": 2374965
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2021/semilla_103/reanudar.pt",
+   "bytes": 2374901
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2021/semilla_104/reanudar.pt",
+   "bytes": 2375157
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/controles/M4_sin_num/anio_2021/semilla_105/reanudar.pt",
+   "bytes": 2375221
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/ejecucion.log",
+   "bytes": 1288
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_N/semilla_101/reanudar.pt",
+   "bytes": 1721626
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_N/semilla_102/reanudar.pt",
+   "bytes": 1721882
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_N/semilla_103/reanudar.pt",
+   "bytes": 1721818
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_N/semilla_104/reanudar.pt",
+   "bytes": 1721754
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_N/semilla_105/reanudar.pt",
+   "bytes": 1722074
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_O/semilla_101/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_O/semilla_102/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_O/semilla_103/reanudar.pt",
+   "bytes": 2374197
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_O/semilla_104/reanudar.pt",
+   "bytes": 2373877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_O/semilla_105/reanudar.pt",
+   "bytes": 2374069
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_OP/semilla_101/reanudar.pt",
+   "bytes": 2381045
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_OP/semilla_102/reanudar.pt",
+   "bytes": 2381301
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_OP/semilla_103/reanudar.pt",
+   "bytes": 2381301
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_OP/semilla_104/reanudar.pt",
+   "bytes": 2380981
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_OP/semilla_105/reanudar.pt",
+   "bytes": 2381173
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_OP_estricto/semilla_101/reanudar.pt",
+   "bytes": 2370805
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_OP_estricto/semilla_102/reanudar.pt",
+   "bytes": 2370933
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_OP_estricto/semilla_103/reanudar.pt",
+   "bytes": 2370997
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_OP_estricto/semilla_104/reanudar.pt",
+   "bytes": 2370805
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_OP_estricto/semilla_105/reanudar.pt",
+   "bytes": 2370997
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_154/semilla_101/reanudar.pt",
+   "bytes": 2380085
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_154/semilla_102/reanudar.pt",
+   "bytes": 2380213
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_154/semilla_103/reanudar.pt",
+   "bytes": 2380277
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_154/semilla_104/reanudar.pt",
+   "bytes": 2380469
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_154/semilla_105/reanudar.pt",
+   "bytes": 2380469
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_217/semilla_101/reanudar.pt",
+   "bytes": 2378229
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_217/semilla_102/reanudar.pt",
+   "bytes": 2378165
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_217/semilla_103/reanudar.pt",
+   "bytes": 2378165
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_217/semilla_104/reanudar.pt",
+   "bytes": 2377973
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_217/semilla_105/reanudar.pt",
+   "bytes": 2378165
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_301/semilla_101/reanudar.pt",
+   "bytes": 2378229
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_301/semilla_102/reanudar.pt",
+   "bytes": 2378357
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_301/semilla_103/reanudar.pt",
+   "bytes": 2378549
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_301/semilla_104/reanudar.pt",
+   "bytes": 2378037
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_301/semilla_105/reanudar.pt",
+   "bytes": 2378165
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_49/semilla_101/reanudar.pt",
+   "bytes": 2381045
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_49/semilla_102/reanudar.pt",
+   "bytes": 2381237
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_49/semilla_103/reanudar.pt",
+   "bytes": 2381237
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_49/semilla_104/reanudar.pt",
+   "bytes": 2381621
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_49/semilla_105/reanudar.pt",
+   "bytes": 2381173
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_91/semilla_101/reanudar.pt",
+   "bytes": 2381301
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_91/semilla_102/reanudar.pt",
+   "bytes": 2381685
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_91/semilla_103/reanudar.pt",
+   "bytes": 2381301
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_91/semilla_104/reanudar.pt",
+   "bytes": 2381109
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_desalineado_91/semilla_105/reanudar.pt",
+   "bytes": 2381237
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_memoria_fija/semilla_101/reanudar.pt",
+   "bytes": 2381045
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_memoria_fija/semilla_102/reanudar.pt",
+   "bytes": 2381301
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_memoria_fija/semilla_103/reanudar.pt",
+   "bytes": 2381301
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_memoria_fija/semilla_104/reanudar.pt",
+   "bytes": 2380981
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_memoria_fija/semilla_105/reanudar.pt",
+   "bytes": 2381173
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_metadatos/semilla_101/reanudar.pt",
+   "bytes": 2379957
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_metadatos/semilla_102/reanudar.pt",
+   "bytes": 2380277
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_metadatos/semilla_103/reanudar.pt",
+   "bytes": 2380277
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_metadatos/semilla_104/reanudar.pt",
+   "bytes": 2380533
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_metadatos/semilla_105/reanudar.pt",
+   "bytes": 2380277
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_sin_compuerta/semilla_101/reanudar.pt",
+   "bytes": 2358365
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_sin_compuerta/semilla_102/reanudar.pt",
+   "bytes": 2358557
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_sin_compuerta/semilla_103/reanudar.pt",
+   "bytes": 2358685
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_sin_compuerta/semilla_104/reanudar.pt",
+   "bytes": 2358877
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_sin_compuerta/semilla_105/reanudar.pt",
+   "bytes": 2359517
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_sin_num/semilla_101/reanudar.pt",
+   "bytes": 2381493
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_sin_num/semilla_102/reanudar.pt",
+   "bytes": 2381365
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_sin_num/semilla_103/reanudar.pt",
+   "bytes": 2381941
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_sin_num/semilla_104/reanudar.pt",
+   "bytes": 2381749
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/final/M4_sin_num/semilla_105/reanudar.pt",
+   "bytes": 2381301
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/proceso.lock",
+   "bytes": 0
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/progreso/estado.json",
+   "bytes": 551
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/progreso/progreso.html",
+   "bytes": 3405
+  },
+  {
+   "archivo": "results/m4_gpu_20261122_194500/publicacion.log",
+   "bytes": 0
+  }
+ ],
+ "criterio": "Se conservan resultados, predicciones, historiales, checkpoints, escaladores y fuentes. Embeddings NPY y estados reanudables quedan locales. Se omiten servicios, locks y logs temporales. Los manifiestos originales describen también esos archivos excluidos.",
+ "sin_despliegue": [
+  "JBook",
+  "dashboard"
+ ]
+}

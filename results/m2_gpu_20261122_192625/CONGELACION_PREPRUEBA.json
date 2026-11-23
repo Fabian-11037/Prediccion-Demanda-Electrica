@@ -1,0 +1,31 @@
+{
+ "fecha": "2026-11-22T19:35:18.217471-05:00",
+ "configuracion": {
+  "id": 7,
+  "ancho": 64,
+  "dropout": 0.1,
+  "lambda_energia": 0.0
+ },
+ "huellas": {
+  "final/M2/semilla_102/modelo.pt": "917c1748d3d6d6ec37f067dafd9cdf40376e6a3620913ed4dbd70494a2350317",
+  "final/M2/semilla_103/modelo.pt": "e692ba1707caf5b6ea6b1f3e1ee486a8be5cce40fe76b0f64561a5f753481e5b",
+  "final/M2/semilla_104/modelo.pt": "dd7fac3bea0b9dd6eeb1343bc58d26206a59e0f41b44f932596d8b4615dcdb2b",
+  "final/M2/semilla_105/modelo.pt": "020b101b433e7c3c6646fe51ad7bf979283115eacc0947af097c59b106dacf13",
+  "final/M2/semilla_101/modelo.pt": "c1c833cd2634476f156c732caf6b98859f2c2b312fa3c5e62a5b4572fa650c81",
+  "final/directa_24/semilla_102/modelo.pt": "5a39dbe3219108919e3ce292121bbe754b0a1fd7f9c6674105c0f95135567a29",
+  "final/directa_24/semilla_103/modelo.pt": "c5230a8358771eee03a4e634c1cefbe489e4ca5787b09e7578cc903a9c4400bf",
+  "final/directa_24/semilla_104/modelo.pt": "438516567f112d7bef1138c0ac77d9d5b7b234efee4c7f9766a22fa0b555d22a",
+  "final/directa_24/semilla_105/modelo.pt": "eda81da6964718137f0484664576b83ec9e450b50f75e57e9ef7a9bd68d4909c",
+  "final/directa_24/semilla_101/modelo.pt": "523c85848b3723c34afe31b73d808e4b1939f19a98925b8933362a02cbf1893f",
+  "final/solo_energia/semilla_102/modelo.pt": "529e61cae62c2d30ea9635f646d7c582a507d48aac824d584c8ffbb163492487",
+  "final/solo_energia/semilla_103/modelo.pt": "50567b8351f1ec3da71c157886a85946120f255f53aa4c13e7676695b7d1604f",
+  "final/solo_energia/semilla_104/modelo.pt": "ff5a07d24393ec1f6ef3f7c1438db4879e20f0003f1a4002696ed342d82caa0a",
+  "final/solo_energia/semilla_105/modelo.pt": "1367e2199274356b14aab0751a495bc1e198df0094aaa4eb651007a021e6966f",
+  "final/solo_energia/semilla_101/modelo.pt": "29271ff6a012d3ffeb3021650bb9b9908027aa9401e731549b6d9510a3fb602f",
+  "final/solo_distribucion/semilla_102/modelo.pt": "423dd2497ac1cb7c129448414a89562f6e0efbcd9c3c2861540b8d24179b59cd",
+  "final/solo_distribucion/semilla_103/modelo.pt": "c93eccbcf391ecf1d04ee750e30522ebc7884c4cbd10a2e74f9d0e86916ff872",
+  "final/solo_distribucion/semilla_104/modelo.pt": "a04d7428f5de981f61bace8bfc908c8a17decc5468f0619a01a78594a7c10b4e",
+  "final/solo_distribucion/semilla_105/modelo.pt": "87c0cb43d5d4b672316f033a7d6ea578c8274f7f6ef164d45269e911c71acfcc",
+  "final/solo_distribucion/semilla_101/modelo.pt": "7fba33996cfedc7e847fc4ceb746532fe872e80e151547517feac071f196e811"
+ }
+}
