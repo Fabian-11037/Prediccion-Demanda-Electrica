@@ -1,0 +1,10 @@
+{
+  "fecha": "2026-11-23T14:06:00.443056-05:00",
+  "evento": "GPU Hang y recuperaci\u00f3n autom\u00e1tica del controlador; procesos detenidos",
+  "fuentes_originales_intactas": true,
+  "reanudacion": "Mismos pesos, estados de optimizador y RNG guardados por \u00e9poca",
+  "unidad_principal": "demanda-m4-principal",
+  "unidad_barra": "demanda-m4-progreso",
+  "inferencia_historica": "Se ejecutar\u00e1 en secuencia al finalizar la cola principal",
+  "launcher_sha256": "36a3e5a76567e94b7fb83214607ec0d341dc7d075d1cb5ea760d4dc24d527652"
+}

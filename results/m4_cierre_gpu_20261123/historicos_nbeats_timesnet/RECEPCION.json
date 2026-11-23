@@ -1,0 +1,56 @@
+{
+  "archivo_original": "ENVIAR_pesos_NBEATS_TimesNet_20261119_2125.zip",
+  "sha256_zip": "c942aadfd6f2de2810c538710fb10ecb7f4ed87122ac2b58e85dbfc4787200b7",
+  "checkpoints": [
+    {
+      "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1000/modelo.pt",
+      "bytes": 197943093,
+      "sha256": "2cca4801d3587488dab56f1456bcd100c2ff2d954cb63149e729ac8a02a6a8c2"
+    },
+    {
+      "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1001/modelo.pt",
+      "bytes": 197943093,
+      "sha256": "b1378b5d0abf8a1ae025d21ca28e9847066681c889491cdf1a6f2c3ec4b7b135"
+    },
+    {
+      "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1002/modelo.pt",
+      "bytes": 197943093,
+      "sha256": "268a90bb00b7b51222c6abec541effb2b0bc153f3ebe15d0e14c95e08432d5d2"
+    },
+    {
+      "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1003/modelo.pt",
+      "bytes": 197943093,
+      "sha256": "0e42957808c423be7116ad45ac6401dc4d034a78ec887c2bd7acc9a9a444d8ed"
+    },
+    {
+      "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1004/modelo.pt",
+      "bytes": 197943093,
+      "sha256": "a0b77ddfc4128c8627544a037e6cb874dbe52cbcbbd66722652c1b404963da56"
+    },
+    {
+      "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1000/modelo.pt",
+      "bytes": 1647985,
+      "sha256": "9f0b62423e061c8851cbfd3a3ed1d815026dacba026157715c7f89b44a208d54"
+    },
+    {
+      "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1001/modelo.pt",
+      "bytes": 1647985,
+      "sha256": "d47f1ae4fbee6465417b07337e305e96c6c839bdf98f15a08c9de14119021b17"
+    },
+    {
+      "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1002/modelo.pt",
+      "bytes": 1647985,
+      "sha256": "e5ebfc59022cf59417550255025714ae8bdf3ffae0f5661da1f3580364b366c2"
+    },
+    {
+      "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1003/modelo.pt",
+      "bytes": 1647985,
+      "sha256": "3866b3f44103e07c95a2b43cf54f6aefaed46067756477b88fc1415bd168471a"
+    },
+    {
+      "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1004/modelo.pt",
+      "bytes": 1647985,
+      "sha256": "976755fda7aad5f6a72de5580120f00ddad5501a692d24c0ab9d842d0baecdd1"
+    }
+  ]
+}

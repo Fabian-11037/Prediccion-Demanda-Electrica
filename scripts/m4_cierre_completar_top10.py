@@ -11,17 +11,22 @@ def completar_familia(out):
     car=out/'ampliacion_top10';car.mkdir(exist_ok=True);filas=[];B=49999;fuentes=[]
     for archivo in sorted((out/'estadistica').glob('perdidas_*.npz')):
         dataset=archivo.stem.replace('perdidas_','')
+        ampliado=out/'complemento/estadistica_final'/archivo.name
+        if ampliado.exists():archivo=ampliado
         with np.load(archivo) as z:
             dias=z['dia'];errores={k:z[k].mean(0) for k in z.files if k!='dia'}
         if dataset=='colombia':
             for nombre,clave,esperado in [('TimesNet','nuevo_timesnet__N',.642927818004554),('NBEATS','nuevo_nbeats__N',.9533426171053975)]:
-                p=out/'insumos'/f'{clave}.json';d=json.loads(p.read_text());v=np.asarray(d['mae_daily'],dtype='float64')/215617.90361589016
-                assert v.shape==(len(dias),) and abs(v.mean()-esperado)<1e-10
-                errores['historico_'+nombre]=v;fuentes.append(dict(archivo=str(p.relative_to(ROOT)),sha256=sha(p),MASE=float(v.mean()),semillas=5,precision_mae_kwh=1e-6))
-        objetivo=errores['M4_N'];n=len(dias);idx=estacionario(n,B=B);co=np.column_stack([np.ones(n-2),objetivo[:-2]])
-        # Procesar en lotes para limitar RAM sin cambiar los índices pareados.
-        for nombre,rival in errores.items():
-            if nombre=='M4_N':continue
+                p=out/'insumos'/f'{clave}.json';d=json.loads(p.read_text());individuales='historico_'+nombre in errores
+                v=errores['historico_'+nombre] if individuales else np.asarray(d['mae_daily'],dtype='float64')/215617.90361589016
+                assert v.shape==(len(dias),) and abs(v.mean()-esperado)<(1e-5 if individuales else 1e-10)
+                errores['historico_'+nombre]=v;fuentes.append(dict(archivo=str((archivo if individuales else p).relative_to(ROOT)),sha256=sha(archivo if individuales else p),MASE=float(v.mean()),semillas=5,tipo='pérdidas de predicciones individuales restauradas' if individuales else 'pérdidas publicadas promediadas',precision_mae_kwh=None if individuales else 1e-6))
+        parejas=[('M4_N',k) for k in errores if k!='M4_N']
+        if dataset=='colombia' and 'M4_OP' in errores:
+            parejas += [('M4_O','M4_N'),('M4_OP','M4_N'),('M4_OP','M4_O'),('M4_OP','M4_metadatos'),('M4_OP','M4_desalineado_promedio')]
+        n=len(dias);idx=estacionario(n,B=B)
+        for a,nombre in parejas:
+            objetivo=errores[a];rival=errores[nombre];co=np.column_stack([np.ones(n-2),objetivo[:-2]])
             ganancia=1-objetivo.mean()/rival.mean();gb=[]
             for inds in np.array_split(idx,50):gb.append(1-objetivo[inds].mean(1)/rival[inds].mean(1))
             ic=np.quantile(np.concatenate(gb),[.025,.975])
@@ -31,18 +36,18 @@ def completar_familia(out):
                 mayores=sum(int(np.sum(z[inds].mean(1)>=dd.mean())) for inds in np.array_split(idx,50));pb=(1+mayores)/(B+1)
                 g=co*dd[2:,None];media=g.mean(0);cov=hac(g);rango=np.linalg.matrix_rank(cov);pgw=float(stats.chi2.sf((n-2)*media@np.linalg.pinv(cov)@media,rango)) if rango else 1.
                 for metodo,pv in [('bootstrap_estacionario',pb),('DM_HLN',pdm),('GW_bilateral',pgw)]:
-                    filas.append(dict(dataset=dataset,A='M4_N',B=nombre,metodo=metodo,margen_relativo=margen,ganancia_relativa=ganancia,ic95_inf=ic[0],ic95_sup=ic[1],p=pv,favorable=ganancia>margen,replicas_bootstrap=B,rezago_instrumento_GW=2,alcance='retrospectivo' if dataset=='colombia' else 'evaluación adicional condicionada a supuestos'))
+                    filas.append(dict(dataset=dataset,A=a,B=nombre,metodo=metodo,margen_relativo=margen,ganancia_relativa=ganancia,ic95_inf=ic[0],ic95_sup=ic[1],p=pv,favorable=ganancia>margen,replicas_bootstrap=B,rezago_instrumento_GW=2,alcance='retrospectivo' if dataset=='colombia' else 'evaluación adicional condicionada a supuestos'))
         del idx
-    assert len(filas)<=768
-    ajustes=holm([f['p'] for f in filas]+[1.]*(768-len(filas)))[:len(filas)]
-    for f,p in zip(filas,ajustes):f['p_holm_cota_familia768']=float(p)
+    assert len(filas)<=1536
+    ajustes=holm([f['p'] for f in filas]+[1.]*(1536-len(filas)))[:len(filas)]
+    for f,p in zip(filas,ajustes):f['p_holm_cota_familia1536']=float(p)
     pd.DataFrame(filas).to_csv(car/'contrastes_F2_Top10_completo.csv',index=False)
-    guardar(car/'PROCEDENCIA.json',dict(fecha=datetime.datetime.now(ZoneInfo('America/Bogota')).isoformat(),fuentes=fuentes,replicas_bootstrap=B,familia_maxima=768,observadas=len(filas),resolucion_minima_p=1/(B+1),
-        adenda='experiments/m4_originalidad/ADENDA_RESOLUCION_F2.md',no_reconstruccion='Se usan pérdidas diarias publicadas promedio de cinco semillas; no se reconstruyen pronósticos ni realizaciones.',
+    guardar(car/'PROCEDENCIA.json',dict(fecha=datetime.datetime.now(ZoneInfo('America/Bogota')).isoformat(),fuentes=fuentes,replicas_bootstrap=B,familia_maxima=1536,observadas=len(filas),resolucion_minima_p=1/(B+1),
+        adenda='experiments/m4_originalidad/ADENDA_COMPLETAR_PLAN.md',no_reconstruccion='Se usan predicciones individuales restauradas de los cinco pesos originales cuando están disponibles; en su ausencia, pérdidas diarias publicadas. Nunca se reconstruyen realizaciones desde agregados.',
         alcance='La resolución se fijó por multiplicidad antes de nuevas pruebas; no se adaptan datos, modelos ni hipótesis. El paso inicial9999 se conserva como resultado de precisión menor. La inferencia final es este CSV49999.',familias_historicas_intactas=[28,220]))
-    (car/'INFORME.md').write_text('# Evaluación temporal final y Top10 histórico\n\nSe integran TimesNet y N-BEATS con sus pérdidas diarias canónicas. El exportador promedia errores individuales de cinco semillas; no son errores de la predicción ensemble. Sus MASE reproducen el benchmark. No se inventan pronósticos ni réplicas.\n\nEl CSV final utiliza49999 réplicas, tres procedimientos y Holm de la familia máxima768. Sustituye únicamente la resolución Monte Carlo de la nueva evaluación, conservando el paso preliminar y las familias históricas28/220. Colombia sigue siendo retrospectiva. El Top10 histórico conserva cinco semillas, frente a diez de los ajustes nuevos. No se certifica potencia0,90, originalidad ni validez confirmatoria de pruebas cuyos supuestos no estén establecidos.\n',encoding='utf-8')
+    (car/'INFORME.md').write_text('# Evaluación temporal final y Top10 histórico\n\nSe integran TimesNet y N-BEATS con las pérdidas de las predicciones individuales restauradas de sus cinco checkpoints originales; si faltan, se usan las pérdidas diarias publicadas y se identifica la procedencia. Son errores individuales promediados, distintos del error de la predicción ensemble. No se inventan pronósticos ni réplicas.\n\nEl CSV final utiliza49999 réplicas, tres procedimientos y Holm de la familia máxima1536. Sustituye únicamente la resolución Monte Carlo de la nueva evaluación, conservando el paso preliminar y las familias históricas28/220. Colombia sigue siendo retrospectiva. El Top10 histórico conserva cinco semillas, frente a diez de los ajustes nuevos. No se certifica potencia0,90, originalidad ni validez confirmatoria de pruebas cuyos supuestos no estén establecidos.\n',encoding='utf-8')
     with (car/'INFORME.md').open('a') as f:f.write('\nGW utiliza la pérdida observable de dos días antes y excluye los dos orígenes iniciales. El GW preliminar de rezago1 no se interpreta; se conserva como procedencia. Consultar la adenda registrada antes de nuevas pruebas.\n')
-    (out/'RESULTADOS_FINALES.md').write_text('# Resultados finales de la evaluación adicional\n\n- [Métricas, entrenamiento y predicciones](INFORME.md).\n- [Inferencia estadística final y Top10 completo](ampliacion_top10/INFORME.md).\n- [Contrastes finales49999 y Holm](ampliacion_top10/contrastes_F2_Top10_completo.csv).\n- [Auditoría ONNX y rechazo de portabilidad en empates](pruebas_congeladas/RESULTADO.json).\n\nLas tablas de estadistica/ corresponden al paso preliminar9999. Para conclusiones F2 usar la tabla final49999 con instrumento GW observable de rezago2. Las familias históricas28/220 permanecen intactas. La selección colombiana es retrospectiva y esta ejecución no certifica el cierre metodológico del E3.\n',encoding='utf-8')
+    (out/'RESULTADOS_FINALES.md').write_text('# Resultados finales de la evaluación adicional\n\n- [Métricas, entrenamiento y predicciones](INFORME.md).\n- [Evaluación complementaria y pendientes](complemento/INFORME.md).\n- [Inferencia estadística final y Top10 completo](ampliacion_top10/INFORME.md).\n- [Contrastes finales49999 y Holm](ampliacion_top10/contrastes_F2_Top10_completo.csv).\n- [Auditoría ONNX y rechazo de portabilidad en empates](pruebas_congeladas/RESULTADO.json).\n\nLas tablas de estadistica/ corresponden al paso preliminar9999. Para conclusiones F2 usar la tabla final49999 con instrumento GW observable de rezago2. Las familias históricas28/220 permanecen intactas. La selección colombiana es retrospectiva y esta ejecución no certifica el cierre metodológico del E3.\n',encoding='utf-8')
     return car
 
 def publicar(out,car):

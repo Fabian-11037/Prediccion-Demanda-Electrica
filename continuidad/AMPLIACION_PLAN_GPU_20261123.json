@@ -1,0 +1,51 @@
+{
+ "version": 1,
+ "fecha": "2026-11-23T14:08:41.323727-05:00",
+ "autorizacion": {
+  "entrenar": true,
+  "evaluar": true,
+  "publicar": true,
+  "apagar_tras_publicacion": true
+ },
+ "fases": [
+  "cola principal reanudada",
+  "inferir cinco pesos originales por familia NBEATS/TimesNet y verificar reproducción",
+  "desarrollo OOF de todos los comparadores",
+  "ablaciones de procedencia residual y canales/placebos",
+  "dimensionamiento con desarrollo; 10/15/20/30 semillas",
+  "ajustes finales y prueba congelada",
+  "auditoría de portabilidad y diagnósticos",
+  "publicar complemento y estadística final; verificar; apagar"
+ ],
+ "ejecucion_gpu": "Secuencial: un único trabajo de cómputo activo",
+ "semillas_iniciales": [
+  101,
+  102,
+  103,
+  104,
+  105,
+  106,
+  107,
+  108,
+  109,
+  110
+ ],
+ "semillas_historicas": [
+  1000,
+  1001,
+  1002,
+  1003,
+  1004
+ ],
+ "limite_semillas": 30,
+ "familia_maxima": 1536,
+ "bootstrap_replicas": 49999,
+ "instrumento_GW_rezago_dias": 2,
+ "limitaciones": [
+  "La potencia simulada Wald condicionada al piloto no certifica potencia F2 de todos los contrastes",
+  "Windows requiere verificación nativa posterior",
+  "Proveedor ONNX GPU sujeto a disponibilidad real",
+  "No se inventa confirmación prospectiva ni originalidad demostrada"
+ ],
+ "protocolo": "experiments/m4_originalidad/ADENDA_COMPLETAR_PLAN.md"
+}
