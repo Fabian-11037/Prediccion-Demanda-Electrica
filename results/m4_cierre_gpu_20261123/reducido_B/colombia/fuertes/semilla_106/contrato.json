@@ -1,0 +1,9 @@
+{
+ "ridge_lambda": 1,
+ "NNLS_ajuste": "reserva interna anterior a prueba",
+ "EWMA_semivida_dias": 30,
+ "banco_dias": 365,
+ "retraso_dias": 2,
+ "kNN": 16,
+ "estocasticidad": "Solo la de expertos/M1 independientes; controles condicionalmente deterministas"
+}

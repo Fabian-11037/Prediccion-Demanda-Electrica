@@ -1,0 +1,27 @@
+{
+ "opcion": "B",
+ "datasets": [
+  "colombia"
+ ],
+ "semillas": [
+  101,
+  102,
+  103,
+  104,
+  105,
+  106,
+  107,
+  108,
+  109,
+  110
+ ],
+ "certificacion_E3": false,
+ "pendientes": [
+  "UCI, GEFCom y OPSD: diferidos por presupuesto temporal",
+  "Nuevos ajustes y validación ampliada del Top10: diferidos",
+  "Validación externa forward chaining de las nuevas ablaciones residuales y textuales: diferida",
+  "Ampliación de semillas según potencia: diferida; no se acredita potencia 0,90",
+  "Confirmación prospectiva y originalidad metodológica: pendientes",
+  "Windows nativo y ONNX GPU: no ejecutados; se conserva el rechazo histórico en empates"
+ ]
+}

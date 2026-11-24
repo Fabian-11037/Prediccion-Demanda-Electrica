@@ -1,0 +1,23 @@
+{
+ "configuracion": {
+  "id": 8,
+  "ancho": 64,
+  "dropout": 0.1,
+  "lambda_complementariedad": 0.1
+ },
+ "semilla": 108,
+ "auxiliar": true,
+ "n_parametros": 77136,
+ "epocas": 15,
+ "mejor_epoca": 5,
+ "mejor_perdida": 0.4991198817344561,
+ "segundos": 0.8314237594604492,
+ "ajuste": [
+  "2011-01-01",
+  "2014-12-30"
+ ],
+ "parada": [
+  "2015-01-01",
+  "2015-12-31"
+ ]
+}

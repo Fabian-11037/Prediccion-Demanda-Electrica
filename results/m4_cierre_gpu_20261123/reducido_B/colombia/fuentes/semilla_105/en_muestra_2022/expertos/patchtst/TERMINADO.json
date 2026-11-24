@@ -1,0 +1,27 @@
+{
+ "configuracion": {
+  "id": 18,
+  "nucleo": "patchtst",
+  "d_model": 64,
+  "capas": 2,
+  "cabezas": 4,
+  "dropout": 0.1,
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "lote": 32,
+  "d_texto": 24
+ },
+ "semilla": 105,
+ "ajuste": [
+  "2000-01-09 00:00:00-05:00",
+  "2020-12-30 00:00:00-05:00"
+ ],
+ "parada": [
+  "2021-01-01 00:00:00-05:00",
+  "2021-12-31 00:00:00-05:00"
+ ],
+ "epocas": 31,
+ "mejor_epoca": 25,
+ "mejor_perdida": 0.012878251103811885,
+ "segundos": 142.9796073436737
+}

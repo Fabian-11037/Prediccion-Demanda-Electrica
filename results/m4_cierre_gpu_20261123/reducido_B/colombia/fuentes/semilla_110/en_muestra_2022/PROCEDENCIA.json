@@ -1,0 +1,16 @@
+{
+ "tipo": "Pila completa en muestra dentro del prefijo externo",
+ "ajuste_expertos": [
+  "2000-01-09 00:00:00",
+  "2020-12-30 00:00:00"
+ ],
+ "parada_expertos": [
+  "2021-01-01 00:00:00",
+  "2021-12-31 00:00:00"
+ ],
+ "ajuste_router": [
+  "2013-01-01",
+  "2020-12-30"
+ ],
+ "advertencia": "Retropredicciones solo para el banco histórico; no se califican como pronósticos operativos. La consulta conserva la base OOF original."
+}

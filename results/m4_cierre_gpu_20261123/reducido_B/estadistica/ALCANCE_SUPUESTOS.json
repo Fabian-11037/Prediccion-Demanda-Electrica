@@ -1,0 +1,5 @@
+{
+ "inferencia_confirmatoria": false,
+ "diagnosticos": "ADF/KPSS y Ljung-Box exploratorios. Sus no-rechazos no prueban estacionariedad. La memoria creciente y heterogeneidad anual requieren cautela. GW bilateral no acredita dirección.",
+ "potencia": "El dimensionamiento simulado procede exclusivamente de desarrollo; no es potencia observada a partir de p de prueba."
+}

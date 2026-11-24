@@ -1,0 +1,10 @@
+{
+ "variante": "EWMA_MLP_CE",
+ "semilla": 107,
+ "parametros_activos": 60567,
+ "parametros_almacenados": 60567,
+ "epocas": 24,
+ "mejor_epoca": 14,
+ "mejor_perdida": 0.4576814842550722,
+ "segundos": 1.5154650211334229
+}

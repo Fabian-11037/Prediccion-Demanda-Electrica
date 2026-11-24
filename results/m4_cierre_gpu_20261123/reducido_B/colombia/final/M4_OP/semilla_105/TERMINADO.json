@@ -1,0 +1,23 @@
+{
+ "variante": "M4_OP",
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "semilla": 105,
+ "n_parametros": 145057,
+ "ajuste": [
+  "2013-01-01",
+  "2020-12-30"
+ ],
+ "parada": [
+  "2021-01-01",
+  "2021-12-31"
+ ],
+ "epocas": 12,
+ "mejor_epoca": 2,
+ "mejor_perdida": 0.47527370665171376,
+ "segundos": 91.61015915870667
+}

@@ -1,0 +1,32 @@
+{
+ "fecha": "2026-11-23T22:17:16.427872-05:00",
+ "fuentes": [
+  {
+   "archivo": "results/m4_cierre_gpu_20261123/reducido_B/estadistica/perdidas_colombia.npz",
+   "sha256": "9c52c4becf3214b48d04db31e8e4ddf0abdf46e179bd9d71fb842961c6644134",
+   "MASE": 0.6429278710067151,
+   "semillas": 5,
+   "tipo": "pérdidas de predicciones individuales restauradas",
+   "precision_mae_kwh": null
+  },
+  {
+   "archivo": "results/m4_cierre_gpu_20261123/reducido_B/estadistica/perdidas_colombia.npz",
+   "sha256": "9c52c4becf3214b48d04db31e8e4ddf0abdf46e179bd9d71fb842961c6644134",
+   "MASE": 0.953342622882973,
+   "semillas": 5,
+   "tipo": "pérdidas de predicciones individuales restauradas",
+   "precision_mae_kwh": null
+  }
+ ],
+ "replicas_bootstrap": 49999,
+ "familia_maxima": 1536,
+ "observadas": 258,
+ "resolucion_minima_p": 2e-05,
+ "adenda": "experiments/m4_originalidad/ADENDA_COMPLETAR_PLAN.md",
+ "no_reconstruccion": "Se usan predicciones individuales restauradas de los cinco pesos originales cuando están disponibles; en su ausencia, pérdidas diarias publicadas. Nunca se reconstruyen realizaciones desde agregados.",
+ "alcance": "La resolución se fijó por multiplicidad antes de nuevas pruebas; no se adaptan datos, modelos ni hipótesis. El paso inicial9999 se conserva como resultado de precisión menor. La inferencia final es este CSV49999.",
+ "familias_historicas_intactas": [
+  28,
+  220
+ ]
+}

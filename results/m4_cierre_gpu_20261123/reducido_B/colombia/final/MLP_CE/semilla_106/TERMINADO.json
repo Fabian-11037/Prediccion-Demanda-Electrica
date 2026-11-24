@@ -1,0 +1,10 @@
+{
+ "variante": "MLP_CE",
+ "semilla": 106,
+ "parametros_activos": 60929,
+ "parametros_almacenados": 60929,
+ "epocas": 17,
+ "mejor_epoca": 7,
+ "mejor_perdida": 0.45670070860483875,
+ "segundos": 1.0701947212219238
+}

@@ -1,0 +1,32 @@
+{
+ "semilla": 108,
+ "modelos": [
+  "M1",
+  "M4_N",
+  "MLP_CE",
+  "EWMA_MLP_CE",
+  "M4_N_fija",
+  "M4_N_sin_compuerta",
+  "M4_N_uniforme",
+  "M4_N_similitud",
+  "RATL_adaptado",
+  "FreshCast_adaptado",
+  "NNLS",
+  "EWMA_residual",
+  "Ridge_residual",
+  "kNN_residual",
+  "residuos_en_muestra",
+  "residuos_OOF_no_anidado",
+  "M4_O",
+  "M4_OP",
+  "M4_metadatos",
+  "M4_desalineado_49",
+  "M4_desalineado_91",
+  "M4_desalineado_154",
+  "M4_desalineado_217",
+  "M4_desalineado_301",
+  "M4_OP_estricto",
+  "M4_sin_num"
+ ],
+ "prueba": true
+}

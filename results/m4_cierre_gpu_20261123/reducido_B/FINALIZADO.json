@@ -1,0 +1,22 @@
+{
+ "fecha": "2026-11-23T22:17:17.195183-05:00",
+ "opcion": "B",
+ "entrenamiento": true,
+ "prueba": true,
+ "datasets": [
+  "colombia"
+ ],
+ "semillas": [
+  101,
+  102,
+  103,
+  104,
+  105,
+  106,
+  107,
+  108,
+  109,
+  110
+ ],
+ "certificacion_E3": false
+}

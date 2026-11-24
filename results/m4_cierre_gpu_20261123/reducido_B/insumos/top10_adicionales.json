@@ -1,0 +1,22 @@
+{
+ "TimesNet": {
+  "archivos": [
+   "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1000.npz",
+   "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1001.npz",
+   "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1002.npz",
+   "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1003.npz",
+   "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1004.npz"
+  ],
+  "pred": "pred"
+ },
+ "NBEATS": {
+  "archivos": [
+   "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1000.npz",
+   "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1001.npz",
+   "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1002.npz",
+   "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1003.npz",
+   "/home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1004.npz"
+  ],
+  "pred": "pred"
+ }
+}

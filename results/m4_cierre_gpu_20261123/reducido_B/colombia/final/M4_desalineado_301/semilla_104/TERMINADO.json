@@ -1,0 +1,23 @@
+{
+ "variante": "M4_desalineado_301",
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "semilla": 104,
+ "n_parametros": 144865,
+ "ajuste": [
+  "2013-01-01",
+  "2020-12-30"
+ ],
+ "parada": [
+  "2021-01-01",
+  "2021-12-31"
+ ],
+ "epocas": 13,
+ "mejor_epoca": 3,
+ "mejor_perdida": 0.478769724336389,
+ "segundos": 99.22421550750732
+}

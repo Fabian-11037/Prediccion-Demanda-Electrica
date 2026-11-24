@@ -1,0 +1,23 @@
+{
+ "variante": "M4_metadatos",
+ "configuracion": {
+  "id": 6,
+  "k_vecinos": 16,
+  "edad_maxima_dias": 365,
+  "ancho_compuerta": 64
+ },
+ "semilla": 104,
+ "n_parametros": 144993,
+ "ajuste": [
+  "2013-01-01",
+  "2020-12-30"
+ ],
+ "parada": [
+  "2021-01-01",
+  "2021-12-31"
+ ],
+ "epocas": 19,
+ "mejor_epoca": 9,
+ "mejor_perdida": 0.47580628966631955,
+ "segundos": 149.23066639900208
+}
