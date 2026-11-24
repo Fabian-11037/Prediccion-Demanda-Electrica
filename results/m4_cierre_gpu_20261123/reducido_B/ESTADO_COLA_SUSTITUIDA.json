@@ -1,0 +1,21 @@
+{
+ "fecha": "2026-11-23T19:16:53.380530-05:00",
+ "servicios_detenidos": [
+  "demanda-m4-cierre.service",
+  "demanda-m4-principal.service"
+ ],
+ "estado_previo": {
+  "estado": "Ejecutando",
+  "fase": "colombia: controles y ajuste final",
+  "tareas": 187,
+  "total": 470,
+  "gpu": "AMD Radeon Graphics",
+  "actualizado": "2026-11-23T19:12:50.095755-05:00",
+  "etiqueta": "colombia TFT s104",
+  "epoca": 7,
+  "max_epocas": 100,
+  "perdida_parada": 1.2506114327595808
+ },
+ "checkpoints_conservados": true,
+ "opcion": "B"
+}

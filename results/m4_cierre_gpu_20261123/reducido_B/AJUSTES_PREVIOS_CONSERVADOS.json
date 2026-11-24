@@ -1,0 +1,275 @@
+[
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/iTransformer/semilla_102/modelo.pt",
+  "sha256": "6932d8d2816992ec9a22b3081f54483769255d5ab121424f552a9f6d0030f8bd",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/iTransformer/semilla_103/modelo.pt",
+  "sha256": "78c7032cca9cb5096c26eb8ba51211111425e24d6bc3d8fa5741d0e1f075e3e5",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/iTransformer/semilla_104/modelo.pt",
+  "sha256": "185845b5f4bc06fe4da88f60df9d01ca189c155c853e91bb9d2010c15fa994a2",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/iTransformer/semilla_101/modelo.pt",
+  "sha256": "cbd0457f33aa0dbb0a3f8869ec44d8e65552fc83cce28d95e4dee1aabfa85527",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/NHITS/semilla_102/modelo.pt",
+  "sha256": "5dcdb63a1c02c57564cff7a774c8f2cca283210c546288d337fdefb0ec695c4e",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/NHITS/semilla_103/modelo.pt",
+  "sha256": "bc700907988d1258f6873c485bee8159c7da316398757113c60df62cf5a2da41",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/NHITS/semilla_104/modelo.pt",
+  "sha256": "d520eb94507783ddcf6b7aa657500140a39fd85f8194cd973b4da6b7a06290f3",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/NHITS/semilla_101/modelo.pt",
+  "sha256": "8ad5998b8767f1b251a9b371a2455b4e199016d9fb319f5aed8e753d418acf95",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/TFT/semilla_102/modelo.pt",
+  "sha256": "42a75f07f4eed41bd8a36ff68e4269d9500bf1eb520784610557af5f781bfdb0",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/TFT/semilla_103/modelo.pt",
+  "sha256": "99a3c67680d4d7a6905be2c2566b90e83b21dc77a97a23222b34ad22ede07a36",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/TFT/semilla_101/modelo.pt",
+  "sha256": "19697d52f2e86b1bc826f0204a637aa42a2db9996bf06a6c2e116591205c43bf",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/CNN1D/semilla_102/modelo.pt",
+  "sha256": "9b23e2b7cf9550e72398e41de0b1bfd224ae9de9942bc37fff9914f524bd3c1e",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/CNN1D/semilla_103/modelo.pt",
+  "sha256": "10ba03a94ff06d359506946ac8ab3028604f8fcb8329d883ef03577914223abb",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/CNN1D/semilla_104/modelo.pt",
+  "sha256": "2223dc8997b60575f3fbb1c1d1fa3e8bdca79e03965e0e469761caa642ede618",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/CNN1D/semilla_101/modelo.pt",
+  "sha256": "5994aedfe16cfdf59f0c4e156ec9091ce91d6bfc67fea590629624e894628918",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/TCN/semilla_102/modelo.pt",
+  "sha256": "354ae50726f10410189f193f6e2486e9f3cc9c15717ef0de3ba5d6dac4f3d6dd",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/TCN/semilla_103/modelo.pt",
+  "sha256": "206929160606a3bcd2ad469bf293347793453fd7fc34e7f1d42bb97dca8b7b68",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/TCN/semilla_104/modelo.pt",
+  "sha256": "4d81175283c71cfe538f3d1cc612ac206cfe4f5b5cd22692a4d826c7d3db5c59",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/TCN/semilla_101/modelo.pt",
+  "sha256": "f78173dc43fb4506e60273ab5752d54ff6a5defe78fb616a3238dd14a15b562b",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/LSTM/semilla_102/modelo.pt",
+  "sha256": "4b63bacefd9b4ae3d6c9557835c9e2a5630966e7df67ce28505ae610fc2f6268",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/LSTM/semilla_103/modelo.pt",
+  "sha256": "28b11ebd38a12be4d75807d9be06a38be6cf25af856cfc7c0d193b801ff406d5",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/LSTM/semilla_104/modelo.pt",
+  "sha256": "2e77025a02046ae953e6eec6b1dc111f62579f07c15acf94537af2e5ab4794ce",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/LSTM/semilla_101/modelo.pt",
+  "sha256": "579900760c7fd1b9f43471db29414951795ffd871dce9c63b681bfe111cf7420",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/MLP/semilla_102/modelo.pt",
+  "sha256": "ce827cd1572385bfe5d1750378e7a3dae98f83d7bd41da2116e3beb11f687795",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/MLP/semilla_103/modelo.pt",
+  "sha256": "8d1f9e6802dccc110c5769ea5915cb0e898904dbcdda790d21ae99e863ca0250",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/MLP/semilla_104/modelo.pt",
+  "sha256": "b062f81a308e4e7c51e812f5510700a0ffdf709f129a7be340fcfd51c4d2bd5d",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/MLP/semilla_101/modelo.pt",
+  "sha256": "b0e9940d44b432d289741e8cb04f24e76dfdbc14468ebc5989c126b10217130d",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/PatchTST/semilla_102/modelo.pt",
+  "sha256": "a33801b01d33dae9a12c23749d76886cd5d659bb530b955f859c3c524d6bf336",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/PatchTST/semilla_103/modelo.pt",
+  "sha256": "cd2e48398e85f6fdcc35b27b530dbdfff794480d85268cfe07412332eb9eeca6",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/PatchTST/semilla_104/modelo.pt",
+  "sha256": "3015e07b85280bbe079c7a7ed1e59e2dcca0130d2077e6652b91adeb6a9aaee6",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/PatchTST/semilla_101/modelo.pt",
+  "sha256": "6f6b777eef484b0070f672aac754aaec9282cb0955d31a40044f342f9dbd1774",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/NBEATS/semilla_102/modelo.pt",
+  "sha256": "660a8441bb4be14b901f6bcfbe928bfd830128075547153daae3f1acf1445f65",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/NBEATS/semilla_103/modelo.pt",
+  "sha256": "bf1a5c0ecc032f04f99ef3cba05eaeb9dbddde47eaea41a106262a99a54f73a7",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/NBEATS/semilla_104/modelo.pt",
+  "sha256": "fcce92b97e2ab48da8ae9c65a0a8cae500c89b85356125df95566d5723c98380",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/NBEATS/semilla_101/modelo.pt",
+  "sha256": "3d30921689f2e99ec3ae2f8a846f89a72dc3b330b1c8f9054b3dfcf5d4740a96",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/TimesNet/semilla_102/modelo.pt",
+  "sha256": "d6fe1df457c61050041ad8308dac34053d609ef99276b74bd0b236d8f955fad9",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/TimesNet/semilla_103/modelo.pt",
+  "sha256": "1d1a6ae55587e388d615f2eba6ec92cc71ab62ad2ce11a362b6f02e09b2565b7",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/TimesNet/semilla_104/modelo.pt",
+  "sha256": "dca5704e232e35b6ddb7b53089be8a85092c91c08f22e1115ccaee8587ffc627",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/colombia/benchmark/TimesNet/semilla_101/modelo.pt",
+  "sha256": "bd9ae606a760cfb5a69509dbfaabea267d0177f9ec3256e22a2e7837137d354c",
+  "terminado": true,
+  "evaluacion_nueva": false,
+  "estado": "conservado; fuera de cola B"
+ }
+]
