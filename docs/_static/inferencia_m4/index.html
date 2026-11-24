@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inferencia nativa del catálogo</title><link rel="stylesheet" href="widget.css"><script src="widget.js" defer></script></head>
+<body><main>
+<header><span class="eyebrow">PRONÓSTICO DE DEMANDA · PESOS CONGELADOS · CPU</span><h1>Generar un pronóstico</h1><p>El modelo seleccionado se ejecuta en este navegador. Los datos cargados permanecen en tu dispositivo.</p></header>
+<form id="controls"><label>Modelo<select id="model" name="model"></select></label><div class="fields">
+<label>Origen y estado de la memoria<select id="origin" name="origin" required aria-describedby="origin-help"></select></label>
+<label>Cambio en demanda de las últimas 24 h (%)<input id="change" name="change" type="number" value="0" min="-20" max="20" step="0.5" required></label>
+</div><p id="origin-help" class="caption">Cada origen conserva su calendario, documentos disponibles y banco residual de M4. La perturbación modifica la historia de entrada y recalcula el pronóstico; mantiene fijos pesos, escaladores y residuos históricos.</p>
+<label class="upload">Historia propia · CSV de 168 horas<input id="history" type="file" accept=".csv,text/csv"></label>
+<div class="actions"><a id="template" download>Descargar plantilla del origen</a><button type="button" id="reset">Restablecer historia</button><button class="primary" id="run" type="submit">Generar pronóstico</button></div>
+<p class="caption">El CSV debe respetar las 30 variables, las horas anteriores al origen y sus rezagos. Sin archivo se usa la historia incluida. No se descargan nuevas observaciones.</p></form>
+<p id="status" role="status" aria-live="polite">Selecciona un origen y genera el pronóstico.</p>
+<section id="output" hidden aria-label="Pronóstico calculado">
+<div id="metrics" class="metrics"></div>
+<figure><svg id="plot" viewBox="0 0 900 350" role="img" aria-label="Historia de entrada y pronóstico horario"></svg><figcaption>Historia de entrada (gris) y pronóstico del modelo (verde). M4 añade su base M1 en ocre. La línea vertical marca el origen.</figcaption></figure>
+<p id="interpretation"></p><p id="domain" class="caption"></p>
+<div class="actions"><button id="download" type="button">Descargar pronóstico CSV</button></div>
+<details><summary>Episodios recuperados y procedencia</summary><p id="provenance"></p><ol id="neighbors"></ol></details>
+</section><noscript>Activa JavaScript para ejecutar la inferencia en el navegador.</noscript>
+</main></body></html>

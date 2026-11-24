@@ -91,7 +91,7 @@ function drawCorpus(){
 }
 function renderModels(a,b){
  const m=model(),seeds=isProposal()?10:5;
- setContent(`${heading(state.sub==='live'?'INFERENCIA · PESOS CONGELADOS':'EVALUACIÓN · 2022–2025',state.sub==='live'?'Pronóstico interactivo':'Modelos y evidencia predictiva',state.sub==='live'?'Pronóstico de 24 horas a partir de la historia numérica y el calendario, calculado en CPU.':`${seeds} inicializaciones y los mismos 1.461 orígenes diarios de prueba.`,`<a class="section-link" href="${S.book}10_evaluacion.html${isProposal()?'#resultados-m4':''}" target="_blank" rel="noopener">Evaluación integrada ↗</a>`)}${field('Procedimiento','model',modelSelect('model',state.model),'model-selector')}<div class="model-line"><strong>${e(m.name)}</strong><span class="tag teal">${e(m.inputs)}</span><span class="tag">${num(m.params,0)} parámetros${isProposal()?' activos del corrector':''}</span><span class="tag">${e(m.group)}</span><span class="fine">${e(m.description)}</span></div>${subnav('sub',[['forecast','Pronósticos'],['live','Inferencia en vivo'],['benchmark','Benchmark e inferencia'],['diagnostics','Diagnósticos'],['architecture','Arquitectura y pipeline']],state.sub)}<div id="model-content"></div>${modelResultsSummary()}`);
+ setContent(`${heading(state.sub==='live'?'INFERENCIA · PESOS CONGELADOS':'EVALUACIÓN · 2022–2025',state.sub==='live'?'Inferencia con pesos congelados':'Modelos y evidencia predictiva',state.sub==='live'?'Pronóstico de 24 horas a partir de la historia numérica y el calendario, calculado en CPU.':`${seeds} inicializaciones y los mismos 1.461 orígenes diarios de prueba.`,`<a class="section-link" href="${S.book}10_evaluacion.html${isProposal()?'#resultados-m4':''}" target="_blank" rel="noopener">Evaluación integrada ↗</a>`)}${field('Procedimiento','model',modelSelect('model',state.model),'model-selector')}<div class="model-line"><strong>${e(m.name)}</strong><span class="tag teal">${e(m.inputs)}</span><span class="tag">${num(m.params,0)} parámetros${isProposal()?' activos del corrector':''}</span><span class="tag">${e(m.group)}</span><span class="fine">${e(m.description)}</span></div>${subnav('sub',[['forecast','Pronósticos'],['live','Inferencia en vivo'],['benchmark','Benchmark e inferencia'],['diagnostics','Diagnósticos'],['architecture','Arquitectura y pipeline']],state.sub)}<div id="model-content"></div>${modelResultsSummary()}`);
  if(state.sub==='forecast')renderForecast(a,b);
  else if(state.sub==='live')renderLive();
  else if(state.sub==='benchmark'){if(isProposal())m4Views().benchmark();else renderBenchmark();}
@@ -106,9 +106,13 @@ function modelResultsSummary(){
 
 
 function renderLive(){
- const base=['127.0.0.1','localhost'].includes(location.hostname)&&location.port==='8814'?'http://127.0.0.1:8815':location.origin;
+ const local=['127.0.0.1','localhost'].includes(location.hostname);
+ const base=local&&location.port==='8814'?'http://127.0.0.1:8815':location.origin;
  const url=base+'/inferencia/?modelo='+encodeURIComponent(state.model)+'&embed=1';
- $('model-content').innerHTML=`<iframe class="live-frame" title="Inferencia en vivo de ${e(model().name)}" src="${e(url)}" loading="eager"></iframe><a class="section-link" href="${e(url.replace('&embed=1',''))}" target="_blank" rel="noopener">Abrir el panel de inferencia ↗</a>`;
+ const guide=`<a class="button" href="${S.book}13_inferencia.html#inferencia-pesos-congelados" target="_blank" rel="noopener">Generar un pronóstico dentro del JBook</a>`;
+ $('model-content').innerHTML=local
+  ? `${guide}<iframe class="live-frame" title="Inferencia en vivo de ${e(model().name)}" src="${e(url)}" loading="eager"></iframe><a class="section-link" href="${e(url.replace('&embed=1',''))}" target="_blank" rel="noopener">Abrir el panel de inferencia</a>`
+  : `<h3>Inferencia con pesos congelados</h3><p>El panel del JBook ejecuta los dieciséis procedimientos en el navegador. Permite elegir el modelo, modificar la historia, generar las próximas 24 horas y descargar el pronóstico.</p>${guide}`;
 }
 
 function renderForecast(pred,comparison){

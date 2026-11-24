@@ -9,6 +9,8 @@ html:
 parse:
   myst_enable_extensions: [dollarmath, amsmath]
 sphinx:
+  local_extensions:
+    m4_native_assets: _ext
   config:
     language: es
     html_css_files: [estilo_academico.css]

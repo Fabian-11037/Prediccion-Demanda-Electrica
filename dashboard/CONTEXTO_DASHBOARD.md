@@ -96,3 +96,10 @@ Resultados y familias coinciden con el JBook. La interfaz principal sigue siendo
 ## Sincronización editorial con el JBook · 24 de noviembre de 2026
 
 Se incorporan MASE nativo y ONNX del panel prefijado de cuatro fechas y 96 intervalos, diferencia y descarga por fecha. La interpretación de fidelidad distingue la consulta de memoria del pipeline completo y cuantifica la eliminación de dieciséis residuos. Los conteos proceden de CSV; las métricas, imágenes y paquetes se contrastan con el JBook. Exportación y figura de arquitectura se mantienen en el selector común de M4_N. Sin entrenar ni publicar. Registro en results/auditoria_e3_final_20261124/sincronizacion_dashboard.json.
+
+Inferencia nativa en JBook (24/11/2026): el enlace de Inferencia en vivo abre 12_reproducibilidad.html#inferencia-pesos-congelados. Allí M4_N ejecuta cinco módulos ONNX en el navegador mediante WASM; los cinco orígenes preparados admiten cambio de demanda reciente y CSV de historia. El sitio estático muestra acceso al panel del libro; el servidor local conserva la inferencia del catálogo completo. Cambios locales, sin publicar.
+
+
+## Capítulo independiente y catálogo de inferencia · 24 de noviembre de 2026
+
+El enlace de Inferencia en vivo apunta a 13_inferencia.html#inferencia-pesos-congelados. El JBook ejecuta los16 procedimientos del selector con pesos congelados, CPU/WASM y cinco estados preparados; TimesNet selecciona periodos por entrada y los modelos documentales recalculan relevancia. El servidor local mantiene su panel. Estado local, sin publicar; evidencia y límites en CONTEXTO_PROYECTO.md §71.

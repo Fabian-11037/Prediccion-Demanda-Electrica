@@ -1,0 +1,41 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const root=path.resolve(__dirname,'../../book/_static/inferencia_m4');
+const scope={Float32Array,Float64Array,BigInt64Array,Int32Array,Uint8Array,performance,URL,crypto:globalThis.crypto};
+vm.createContext(scope);vm.runInContext(fs.readFileSync(path.join(root,'engine.js'),'utf8'),scope);
+const m=JSON.parse(fs.readFileSync(path.join(root,'manifest.json'),'utf8'));
+const raw=fs.readFileSync(path.join(root,m.presets[4].file));
+const buffer=raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength);
+const state=scope.M4Native.unpack(buffer,m.presets[4]);
+test('La perturbación modifica las últimas24h y conserva el estado causal',()=>{
+ const before=Buffer.from(state.keys.buffer,state.keys.byteOffset,state.keys.byteLength).toString('base64');
+ const p=scope.M4Native.prepare(state,m,3);
+ assert.equal(p.window[0],state.window[0]);
+ assert.equal(p.window[144*30],state.window[144*30]*1.03);
+ assert.equal(p.window[167*30+1],state.window[167*30+1]);
+ assert.ok(p.experts.every(e=>e.x.length===168*33&&e.cp.length===168*23&&e.cf.length===24*23));
+ assert.deepEqual(Array.from(p.context.slice(768)),Array.from(state.contexto.slice(768)));
+ assert.equal(Buffer.from(state.keys.buffer,state.keys.byteOffset,state.keys.byteLength).toString('base64'),before);
+});
+test('Entradas inválidas se rechazan antes de la inferencia',()=>{
+ assert.throws(()=>scope.M4Native.prepare(state,m,21),/20/);
+ const bad=new Float64Array(state.window);bad[0]=NaN;
+ assert.throws(()=>scope.M4Native.prepare(state,m,0,bad),/demanda/);
+ const partial=new Float64Array(state.window);partial[m.grupos_mascara[1][0]]=NaN;
+ assert.throws(()=>scope.M4Native.prepare(state,m,0,partial),/máscaras/);
+ assert.throws(()=>scope.M4Native.prepare(state,m,0,new Float64Array(10)),/168/);
+});
+test('El lector CSV valida fechas, columnas y ausencia de valores infinitos',async()=>{
+ const source=fs.readFileSync(path.join(root,'widget.js'),'utf8');
+ const parser=source.slice(source.indexOf('function csvRows('),source.indexOf('function updateTemplate('));
+ const context={manifest:m,Float64Array,Date,Number,Error};vm.createContext(context);vm.runInContext(parser,context);
+ const text=fs.readFileSync(path.join(root,'historia_4.csv'),'utf8');
+ const file={size:Buffer.byteLength(text),text:async()=>text};
+ const custom=await context.readHistory(file,4);
+ assert.equal(custom.length,168*30);
+ const p=scope.M4Native.prepare(state,m,0,custom),q=scope.M4Native.prepare(state,m,0);
+ assert.deepEqual(Array.from(p.experts[0].x),Array.from(q.experts[0].x));
+ const bad=text.replace('x_demanda_real_kwh','columna_inexistente');
+ await assert.rejects(()=>context.readHistory({size:bad.length,text:async()=>bad},4),/30 columnas/);
+ await assert.rejects(()=>context.readHistory(file,3),/168 horas consecutivas/);
+ await assert.rejects(()=>context.readHistory({size:0,text:async()=>''},4),/vacío/);
+});

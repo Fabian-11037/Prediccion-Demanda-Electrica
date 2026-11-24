@@ -1,0 +1,13 @@
+{
+  "paquete": "onnxruntime-web",
+  "version": "1.31.1",
+  "origen": "https://registry.npmjs.org/onnxruntime-web/-/onnxruntime-web-1.31.1.tgz",
+  "integrity": "sha512-5GeH+bWQ+HxM10z7erGlsWqryrwMbSvm/1tkIsKTT48g0fI19VXVVC435t4t7VsPdSQeS7NmuZPXrQ73k82URw==",
+  "archivos": {
+    "LICENSE": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+    "ort-wasm-simd-threaded.mjs": "30ed0b5cd1182ede931fea448afb567d4dc705ec957af09f108a2be5f770dac3",
+    "ort-wasm-simd-threaded.wasm": "4b884c203b0fa48d057be3332c65513ff85aa3c5bddd6946acc0fab7ecda001d",
+    "ort.wasm.min.js": "b8a78c408c40da65fdc8ba0846f7b2948e92a4c6d6b23cc8e4165e428ad95443",
+    "ThirdPartyNotices.txt": "bf8073fd6a112ac2a656bb60799652127e881689e51d37ad20df446cd5188b2d"
+  }
+}
