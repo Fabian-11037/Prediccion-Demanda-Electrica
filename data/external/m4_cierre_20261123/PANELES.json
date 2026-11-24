@@ -1,0 +1,26 @@
+[
+  {
+    "dataset": "uci",
+    "inicio": "2012-01-01 00:00:00",
+    "fin": "2014-12-31 23:00:00",
+    "filas": 26304,
+    "ausentes": 0,
+    "sha256": "0d7cf7a789edaf0241fd9cff5ca6604f64590e192ba5a44b5b24599e5fa5f6ad"
+  },
+  {
+    "dataset": "gefcom",
+    "inicio": "2005-01-01 00:00:00",
+    "fin": "2011-12-31 23:00:00",
+    "filas": 61344,
+    "ausentes": 0,
+    "sha256": "0929673a3741bbe2984020fb676d9493f401daa7b0a521d8acf4af466bebf571"
+  },
+  {
+    "dataset": "opsd",
+    "inicio": "2015-01-01 00:00:00",
+    "fin": "2019-12-31 23:00:00",
+    "filas": 43824,
+    "ausentes": 0,
+    "sha256": "37735e3602e56569c8abae42be9d41ff6f332a5b786d94baf01b5721ab5ec91c"
+  }
+]

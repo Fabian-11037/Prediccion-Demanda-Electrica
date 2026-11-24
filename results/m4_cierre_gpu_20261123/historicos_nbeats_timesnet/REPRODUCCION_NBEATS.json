@@ -1,0 +1,9 @@
+{
+ "MASE": 0.9533426228829731,
+ "MASE_publicado": 0.9533426171053975,
+ "diferencia_MASE": 5.7775756401312606e-09,
+ "max_error_promedio_kwh": 0.9987744837999344,
+ "reproduccion_aprobada": true,
+ "escalas": "reconstruidas únicamente desde entrenamiento",
+ "lote": 64
+}

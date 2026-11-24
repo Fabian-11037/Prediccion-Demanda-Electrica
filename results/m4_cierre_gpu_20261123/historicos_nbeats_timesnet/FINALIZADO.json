@@ -1,0 +1,14 @@
+{
+ "entrenamiento": false,
+ "prueba": true,
+ "pesos_congelados": true,
+ "semillas": [
+  1000,
+  1001,
+  1002,
+  1003,
+  1004
+ ],
+ "origenes": 1461,
+ "horizonte": 24
+}

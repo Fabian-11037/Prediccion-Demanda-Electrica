@@ -1,0 +1,30 @@
+[
+  {
+    "dataset": "uci",
+    "url": "https://archive.ics.uci.edu/static/public/321/electricityloaddiagrams20112014.zip",
+    "archivo": "uci.zip",
+    "bytes": 261335609,
+    "sha256": "f6c4d0e0df12ecdb9ea008dd6eef3518adb52c559d04a9bac2e1b81dcfc8d4e1"
+  },
+  {
+    "dataset": "gefcom",
+    "url": "https://www.dropbox.com/scl/fi/zwnlfwhds3k2xz0/GEFCom2014.zip?rlkey=oz7unehbwtglp1pbgbnb4wne2&dl=1",
+    "archivo": "gefcom.zip",
+    "bytes": 126360077,
+    "sha256": "d68d957270edd93b26a37d0f9b5e901f942abdf34c75eacbe14e417beb16e154"
+  },
+  {
+    "dataset": "opsd",
+    "url": "https://data.open-power-system-data.org/time_series/2020-10-06/time_series_60min_singleindex.csv",
+    "archivo": "opsd.csv",
+    "bytes": 130339665,
+    "sha256": "6a7f2bc571314cbf9c321cc03437691cd4be95c3a6f075e60ff99e8035c704c8"
+  },
+  {
+    "dataset": "opsd_metadata",
+    "url": "https://data.open-power-system-data.org/time_series/2020-10-06/datapackage.json",
+    "archivo": "opsd_datapackage.json",
+    "bytes": 303438,
+    "sha256": "2f4b7ae48e1352deb1991728e013fe42e742af5e81a5140d87185e470cd0ac36"
+  }
+]

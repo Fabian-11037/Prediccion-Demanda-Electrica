@@ -1,0 +1,197 @@
+[
+ {
+  "archivo": "ESTADO.json",
+  "sha256": "0a87701a874b8de29d40ae322c935de65f5faa1a172691c9d506bfc14310725c",
+  "bytes": 183
+ },
+ {
+  "archivo": "FINALIZADO.json",
+  "sha256": "a7c83ea45ff346f4b29db0a642ac65b46d451b81846bfe5eff02451b623b2e9a",
+  "bytes": 166
+ },
+ {
+  "archivo": "PROCESO.json",
+  "sha256": "7ecca862d0065d55be3509ad93c6c05cbe08eddeda11b426d6363917cffcc4ce",
+  "bytes": 123
+ },
+ {
+  "archivo": "RECEPCION.json",
+  "sha256": "f8851b223bc2aaa216d49556e0b5cca0a5a189ce5d19e323ec3ac4715ccc8242",
+  "bytes": 2401
+ },
+ {
+  "archivo": "REGISTRO_PREINFERENCIA.json",
+  "sha256": "ad0657b5ebf7c2d10a41dadc31b821cec4c886c5f60991f2e0573e7fc083ae47",
+  "bytes": 2800
+ },
+ {
+  "archivo": "REPRODUCCION_NBEATS.json",
+  "sha256": "03d9d53baccc454ef53873afba4f9933fcd61096b28dc68afb37193cbd867d4c",
+  "bytes": 267
+ },
+ {
+  "archivo": "REPRODUCCION_TimesNet.json",
+  "sha256": "93d6cb396b89bd271f168c4ffbb12b04b3a67d2193a8f073e248dd0e43b880b0",
+  "bytes": 263
+ },
+ {
+  "archivo": "escaladores_reconstruidos.json",
+  "sha256": "6eb438de5201a1155aaaa306061d2d0b22fb0ab90482ed3add6b7d8afb01cd8f",
+  "bytes": 9313
+ },
+ {
+  "archivo": "metricas_por_semilla.csv",
+  "sha256": "784f03bde17a6ad8dba88dfcf52d1112faece8ab4ee112f6acb0d297abc15717",
+  "bytes": 730
+ },
+ {
+  "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1000/modelo.pt",
+  "sha256": "2cca4801d3587488dab56f1456bcd100c2ff2d954cb63149e729ac8a02a6a8c2",
+  "bytes": 197943093
+ },
+ {
+  "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1001/modelo.pt",
+  "sha256": "b1378b5d0abf8a1ae025d21ca28e9847066681c889491cdf1a6f2c3ec4b7b135",
+  "bytes": 197943093
+ },
+ {
+  "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1002/modelo.pt",
+  "sha256": "268a90bb00b7b51222c6abec541effb2b0bc153f3ebe15d0e14c95e08432d5d2",
+  "bytes": 197943093
+ },
+ {
+  "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1003/modelo.pt",
+  "sha256": "0e42957808c423be7116ad45ac6401dc4d034a78ec887c2bd7acc9a9a444d8ed",
+  "bytes": 197943093
+ },
+ {
+  "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1004/modelo.pt",
+  "sha256": "a0b77ddfc4128c8627544a037e6cb874dbe52cbcbbd66722652c1b404963da56",
+  "bytes": 197943093
+ },
+ {
+  "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1000/modelo.pt",
+  "sha256": "9f0b62423e061c8851cbfd3a3ed1d815026dacba026157715c7f89b44a208d54",
+  "bytes": 1647985
+ },
+ {
+  "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1001/modelo.pt",
+  "sha256": "d47f1ae4fbee6465417b07337e305e96c6c839bdf98f15a08c9de14119021b17",
+  "bytes": 1647985
+ },
+ {
+  "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1002/modelo.pt",
+  "sha256": "e5ebfc59022cf59417550255025714ae8bdf3ffae0f5661da1f3580364b366c2",
+  "bytes": 1647985
+ },
+ {
+  "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1003/modelo.pt",
+  "sha256": "3866b3f44103e07c95a2b43cf54f6aefaed46067756477b88fc1415bd168471a",
+  "bytes": 1647985
+ },
+ {
+  "archivo": "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1004/modelo.pt",
+  "sha256": "976755fda7aad5f6a72de5580120f00ddad5501a692d24c0ab9d842d0baecdd1",
+  "bytes": 1647985
+ },
+ {
+  "archivo": "predicciones/NBEATS/predicciones_1000.csv.gz",
+  "sha256": "93dcbf9b0722ea473e6e227766c87c02703e97b0c6b446695bcb019015799863",
+  "bytes": 630378
+ },
+ {
+  "archivo": "predicciones/NBEATS/predicciones_1000.npz",
+  "sha256": "0906cdcff176a9cfa2ff5cd0c69c8fbabb5c66c378f64edfaf3dfcfcbf6fc59e",
+  "bytes": 434355
+ },
+ {
+  "archivo": "predicciones/NBEATS/predicciones_1001.csv.gz",
+  "sha256": "f5b27669d1e234d2aae9a59a5910711f1e79f7fc1832a1fdea7d188daf297f23",
+  "bytes": 629476
+ },
+ {
+  "archivo": "predicciones/NBEATS/predicciones_1001.npz",
+  "sha256": "f1f782c650b02d59a92421e4dcac8ee02f08b867859599177a83f01254f14e9e",
+  "bytes": 434416
+ },
+ {
+  "archivo": "predicciones/NBEATS/predicciones_1002.csv.gz",
+  "sha256": "4491880514392a4f60cbb174c41f3ef1021964c18c3314316a0048fc16f46f5f",
+  "bytes": 629438
+ },
+ {
+  "archivo": "predicciones/NBEATS/predicciones_1002.npz",
+  "sha256": "85b4e492f2e751892e73db838f1b48ed49818d54e12828e9f0e905ffc3a20679",
+  "bytes": 434456
+ },
+ {
+  "archivo": "predicciones/NBEATS/predicciones_1003.csv.gz",
+  "sha256": "bdb69df97e50f13f4a4525b6729ad11403a471da0986a1d436a2b51e00bf5b94",
+  "bytes": 629570
+ },
+ {
+  "archivo": "predicciones/NBEATS/predicciones_1003.npz",
+  "sha256": "1a12e74b5de1ab617a18a6ea03946c1753115cc887ae74bdce3e0973a7576f83",
+  "bytes": 434424
+ },
+ {
+  "archivo": "predicciones/NBEATS/predicciones_1004.csv.gz",
+  "sha256": "511038ddf47730a60fcc3de25fa53ec2e17a196254bc3eec982af80ffd540ff5",
+  "bytes": 629361
+ },
+ {
+  "archivo": "predicciones/NBEATS/predicciones_1004.npz",
+  "sha256": "a6955c3c6776ce4d0a3a1d3106e1fb794fae01074cc21520d7a36e1f3571e6cb",
+  "bytes": 434442
+ },
+ {
+  "archivo": "predicciones/TimesNet/predicciones_1000.csv.gz",
+  "sha256": "ba3801da4f23cf2704e1a2f046df66f168037589fc69c7e4c0e568d08dd39344",
+  "bytes": 629456
+ },
+ {
+  "archivo": "predicciones/TimesNet/predicciones_1000.npz",
+  "sha256": "0fdcca9d00d875ac5c1dc8a63bbdd54c4c6524d1767a7dec1f8a4963cffa676d",
+  "bytes": 694615
+ },
+ {
+  "archivo": "predicciones/TimesNet/predicciones_1001.csv.gz",
+  "sha256": "bebf53d3394937e2c5be9066813b9813cd3fce4bf47ee2c68ed4380bf20611bb",
+  "bytes": 628794
+ },
+ {
+  "archivo": "predicciones/TimesNet/predicciones_1001.npz",
+  "sha256": "b4cca5a113f72bad56fb715d8d97079a9e678a36428294b1aed44031beb34ea6",
+  "bytes": 694287
+ },
+ {
+  "archivo": "predicciones/TimesNet/predicciones_1002.csv.gz",
+  "sha256": "091a2d3f8370f4131c14934cc6c443298eef1d05ce14b5879397c9a668bbbb02",
+  "bytes": 628868
+ },
+ {
+  "archivo": "predicciones/TimesNet/predicciones_1002.npz",
+  "sha256": "c2234fc411f641e224f7ba78014f56c7797dfc3e8664aac7d27e941423e6efeb",
+  "bytes": 694615
+ },
+ {
+  "archivo": "predicciones/TimesNet/predicciones_1003.csv.gz",
+  "sha256": "3e8a99fa90635a3d600631188eed62fcbfe4228ef18e7d6554102e40e9b34fc8",
+  "bytes": 628960
+ },
+ {
+  "archivo": "predicciones/TimesNet/predicciones_1003.npz",
+  "sha256": "9861bd76a6539189018c4c5b90f92578c6b734313ab13ace8299526afae212d2",
+  "bytes": 694263
+ },
+ {
+  "archivo": "predicciones/TimesNet/predicciones_1004.csv.gz",
+  "sha256": "d2a0562682302ed4503cc7e0146de366765334e97a07becf0745cabf37e977a9",
+  "bytes": 628847
+ },
+ {
+  "archivo": "predicciones/TimesNet/predicciones_1004.npz",
+  "sha256": "29540a62f3b605d9b42c8b2a71beaaee5feaa0c555684fea1d22cc982cff287c",
+  "bytes": 694371
+ }
+]

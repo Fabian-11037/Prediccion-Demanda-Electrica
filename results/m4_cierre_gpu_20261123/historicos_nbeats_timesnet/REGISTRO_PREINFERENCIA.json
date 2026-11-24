@@ -1,0 +1,67 @@
+{
+ "fecha": "2026-11-23T19:19:06.186693-05:00",
+ "operacion": "Inferencia de checkpoints originales; cero optimizadores y cero actualización de pesos",
+ "reconstruccion_escalas": "Determinista con DatosNumericos.ajuste_final y ajustar_escalas(tr); ZIP sin escaladores",
+ "panel_sha256": "bf81ea9bce7581da75f8da8a9eccf3e0929b4117b5ef509f35bb6bf2216cab15",
+ "fuente_sha256": "d5c7497ab015ded6e4a7399ccec1250a48ac869bb318297ea0779953f2a10e61",
+ "semillas": [
+  1000,
+  1001,
+  1002,
+  1003,
+  1004
+ ],
+ "configuraciones": {
+  "NBEATS": {
+   "id": 16,
+   "pilas": 30,
+   "bloques_por_pila": 1,
+   "capas_fc": 4,
+   "ancho": 512,
+   "dropout": 0.1,
+   "lr": 0.000357243,
+   "weight_decay": 0.0,
+   "lote": 64
+  },
+  "TimesNet": {
+   "id": 19,
+   "e_layers": 2,
+   "top_k": 5,
+   "num_kernels": 6,
+   "d_model": 16,
+   "d_ff": 16,
+   "dropout": 0.1,
+   "lr": 0.000534428,
+   "weight_decay": 0.0,
+   "lote": 64
+  }
+ },
+ "ajuste": [
+  "2000-01-09 00:00:00-05:00",
+  "2019-10-20 00:00:00-05:00"
+ ],
+ "parada": [
+  "2019-10-21 00:00:00-05:00",
+  "2021-12-31 00:00:00-05:00"
+ ],
+ "q": 215617.90361589016,
+ "tolerancias": {
+  "atol_q": 1e-05,
+  "rtol": 1e-05,
+  "diferencia_MASE_maxima": 1e-05
+ },
+ "pesos": {
+  "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1000/modelo.pt": "2cca4801d3587488dab56f1456bcd100c2ff2d954cb63149e729ac8a02a6a8c2",
+  "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1001/modelo.pt": "b1378b5d0abf8a1ae025d21ca28e9847066681c889491cdf1a6f2c3ec4b7b135",
+  "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1002/modelo.pt": "268a90bb00b7b51222c6abec541effb2b0bc153f3ebe15d0e14c95e08432d5d2",
+  "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1003/modelo.pt": "0e42957808c423be7116ad45ac6401dc4d034a78ec887c2bd7acc9a9a444d8ed",
+  "pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1004/modelo.pt": "a0b77ddfc4128c8627544a037e6cb874dbe52cbcbbd66722652c1b404963da56",
+  "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1000/modelo.pt": "9f0b62423e061c8851cbfd3a3ed1d815026dacba026157715c7f89b44a208d54",
+  "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1001/modelo.pt": "d47f1ae4fbee6465417b07337e305e96c6c839bdf98f15a08c9de14119021b17",
+  "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1002/modelo.pt": "e5ebfc59022cf59417550255025714ae8bdf3ffae0f5661da1f3580364b366c2",
+  "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1003/modelo.pt": "3866b3f44103e07c95a2b43cf54f6aefaed46067756477b88fc1415bd168471a",
+  "pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1004/modelo.pt": "976755fda7aad5f6a72de5580120f00ddad5501a692d24c0ab9d842d0baecdd1"
+ },
+ "gpu": "AMD Radeon Graphics",
+ "torch": "2.9.1+rocm6.4"
+}
