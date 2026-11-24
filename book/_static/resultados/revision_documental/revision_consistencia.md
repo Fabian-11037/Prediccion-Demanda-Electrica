@@ -1,10 +1,10 @@
 # Revisión de consistencia y completitud del JBook
 
-Estado local verificado el 2026-11-20. Este informe sustituye el inventario de la revisión del 16 de noviembre de 2026. Los resultados proceden de artefactos conservados; no se ejecuta entrenamiento ni publicación.
+Estado local verificado el 2026-11-23. Este informe sustituye el inventario de la revisión del 16 de noviembre de 2026. Los resultados proceden de artefactos conservados; no se ejecuta entrenamiento ni publicación.
 
 ## Inventario vigente
 
-13 cuadernos, 96 celdas analíticas, 51 gráficas, 47 tablas y 28 esquemas. La evaluación comprende 15 procedimientos aprendidos, 75 realizaciones, 2 referencias, 136 parejas temporales y 105 parejas entre semillas.
+13 cuadernos, 103 celdas analíticas, 56 gráficas, 49 tablas y 32 esquemas. La evaluación comprende 15 procedimientos aprendidos, 75 realizaciones, 2 referencias, 136 parejas temporales y 105 parejas entre semillas.
 
 La precisión distingue 5 pilotos externos y 10 reservas internas, con 50 registros y 45 parejas. La importancia ampliada comprende 11 procedimientos; la latencia, 15.
 

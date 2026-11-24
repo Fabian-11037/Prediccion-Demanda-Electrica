@@ -1,0 +1,259 @@
+{
+  "fecha": "2026-11-24",
+  "intervalo": "Desde inicio de cada índice hasta2026-11-24",
+  "consultas": [
+    {
+      "base": "Crossref",
+      "fecha": "2026-11-24",
+      "consulta_booleana": "(\"load forecasting\" OR \"time series forecasting\") AND (\"residual memory\" OR \"residual retrieval\" OR \"retrieval augmented\")",
+      "traduccion": "residual memory retrieval time series load forecasting",
+      "parametros": {
+        "query": "residual memory retrieval time series load forecasting",
+        "rows": 25,
+        "filter": "until-pub-date:2026-11-24"
+      },
+      "estado_http": 200,
+      "url": "https://api.crossref.org/works?query=residual+memory+retrieval+time+series+load+forecasting&rows=25&filter=until-pub-date%3A2026-11-24",
+      "archivo": "Crossref_mecanismo.txt",
+      "sha256": "11dfb7532dd857e8a6255f773b1d944e5ce8778133e03ec7169cde19c671568c",
+      "total": 4840342,
+      "recibidos": 25
+    },
+    {
+      "base": "Crossref",
+      "fecha": "2026-11-24",
+      "consulta_booleana": "(\"electricity demand\" OR \"load forecasting\") AND (Colombia OR \"Sistema Interconectado Nacional\") AND (residual OR memory OR retrieval)",
+      "traduccion": "Colombia electricity demand residual memory forecasting",
+      "parametros": {
+        "query": "Colombia electricity demand residual memory forecasting",
+        "rows": 25,
+        "filter": "until-pub-date:2026-11-24"
+      },
+      "estado_http": 200,
+      "url": "https://api.crossref.org/works?query=Colombia+electricity+demand+residual+memory+forecasting&rows=25&filter=until-pub-date%3A2026-11-24",
+      "archivo": "Crossref_aplicacion.txt",
+      "sha256": "9ab741f5b0c8ded07976e010bf0f05968cdaab56816a643241ee10eb914ec587",
+      "total": 1243729,
+      "recibidos": 25
+    },
+    {
+      "base": "Crossref",
+      "fecha": "2026-11-24",
+      "consulta_booleana": "\"load forecasting\" AND (memory OR retrieval) AND (gating OR gate OR \"mixture of experts\")",
+      "traduccion": "load forecasting memory retrieval gating",
+      "parametros": {
+        "query": "load forecasting memory retrieval gating",
+        "rows": 25,
+        "filter": "until-pub-date:2026-11-24"
+      },
+      "estado_http": 200,
+      "url": "https://api.crossref.org/works?query=load+forecasting+memory+retrieval+gating&rows=25&filter=until-pub-date%3A2026-11-24",
+      "archivo": "Crossref_compuerta.txt",
+      "sha256": "77ccd06f04a86cc74f4c6f86d6befc4a450915e4777e6e00f62d211d49687d70",
+      "total": 1097378,
+      "recibidos": 25,
+      "reintento_tras_limite": true
+    },
+    {
+      "base": "OpenAlex",
+      "fecha": "2026-11-24",
+      "consulta_booleana": "(\"load forecasting\" OR \"time series forecasting\") AND (\"residual memory\" OR \"residual retrieval\" OR \"retrieval augmented\")",
+      "traduccion": "residual memory retrieval time series load forecasting",
+      "parametros": {
+        "search": "residual memory retrieval time series load forecasting",
+        "per-page": 25,
+        "filter": "to_publication_date:2026-11-24"
+      },
+      "estado_http": 200,
+      "url": "https://api.openalex.org/works?search=residual+memory+retrieval+time+series+load+forecasting&per-page=25&filter=to_publication_date%3A2026-11-24",
+      "archivo": "OpenAlex_mecanismo.txt",
+      "sha256": "5523bd0940c23631096679e9373739de9ace097afc25fbd152d2a3173c5f4974",
+      "total": 5947,
+      "recibidos": 25
+    },
+    {
+      "base": "OpenAlex",
+      "fecha": "2026-11-24",
+      "consulta_booleana": "(\"electricity demand\" OR \"load forecasting\") AND (Colombia OR \"Sistema Interconectado Nacional\") AND (residual OR memory OR retrieval)",
+      "traduccion": "Colombia electricity demand residual memory forecasting",
+      "parametros": {
+        "search": "Colombia electricity demand residual memory forecasting",
+        "per-page": 25,
+        "filter": "to_publication_date:2026-11-24"
+      },
+      "estado_http": 200,
+      "url": "https://api.openalex.org/works?search=Colombia+electricity+demand+residual+memory+forecasting&per-page=25&filter=to_publication_date%3A2026-11-24",
+      "archivo": "OpenAlex_aplicacion.txt",
+      "sha256": "667440ef6a4d727f9e0911098e70fccb32ac0af89fa8253bffe24859e52e29f1",
+      "total": 577,
+      "recibidos": 25
+    },
+    {
+      "base": "OpenAlex",
+      "fecha": "2026-11-24",
+      "consulta_booleana": "\"load forecasting\" AND (memory OR retrieval) AND (gating OR gate OR \"mixture of experts\")",
+      "traduccion": "load forecasting memory retrieval gating",
+      "parametros": {
+        "search": "load forecasting memory retrieval gating",
+        "per-page": 25,
+        "filter": "to_publication_date:2026-11-24"
+      },
+      "estado_http": 200,
+      "url": "https://api.openalex.org/works?search=load+forecasting+memory+retrieval+gating&per-page=25&filter=to_publication_date%3A2026-11-24",
+      "archivo": "OpenAlex_compuerta.txt",
+      "sha256": "9580d634c98519aece7232df9bf15ec9b60ee66d96df79742e72a03416577ea1",
+      "total": 6807,
+      "recibidos": 25
+    },
+    {
+      "base": "arXiv",
+      "fecha": "2026-11-24",
+      "consulta_booleana": "(\"load forecasting\" OR \"time series forecasting\") AND (\"residual memory\" OR \"residual retrieval\" OR \"retrieval augmented\")",
+      "traduccion": "residual memory retrieval time series load forecasting",
+      "parametros": {
+        "search_query": "(all:\"time series forecasting\" OR all:\"load forecasting\") AND (all:\"residual memory\" OR all:\"residual retrieval\" OR all:\"retrieval augmented\")",
+        "start": 0,
+        "max_results": 25,
+        "sortBy": "relevance"
+      },
+      "estado_http": 200,
+      "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22time+series+forecasting%22+OR+all%3A%22load+forecasting%22%29+AND+%28all%3A%22residual+memory%22+OR+all%3A%22residual+retrieval%22+OR+all%3A%22retrieval+augmented%22%29&start=0&max_results=25&sortBy=relevance",
+      "archivo": "arXiv_mecanismo.txt",
+      "sha256": "761ae154da032428869796886b6f471667fd782c1aaa377a50964ece3f16e859",
+      "recibidos": 25
+    },
+    {
+      "base": "arXiv",
+      "fecha": "2026-11-24",
+      "consulta_booleana": "(\"electricity demand\" OR \"load forecasting\") AND (Colombia OR \"Sistema Interconectado Nacional\") AND (residual OR memory OR retrieval)",
+      "traduccion": "Colombia electricity demand residual memory forecasting",
+      "parametros": {
+        "search_query": "(all:Colombia OR all:\"Sistema Interconectado Nacional\") AND (all:\"electricity demand\" OR all:\"load forecasting\")",
+        "start": 0,
+        "max_results": 25,
+        "sortBy": "relevance"
+      },
+      "estado_http": 200,
+      "url": "https://export.arxiv.org/api/query?search_query=%28all%3AColombia+OR+all%3A%22Sistema+Interconectado+Nacional%22%29+AND+%28all%3A%22electricity+demand%22+OR+all%3A%22load+forecasting%22%29&start=0&max_results=25&sortBy=relevance",
+      "archivo": "arXiv_aplicacion.txt",
+      "sha256": "89ba6c177aaf832bb129be5e4826395c9bd98e759fb33400529cab8e991cfb40",
+      "recibidos": 0
+    },
+    {
+      "base": "arXiv",
+      "fecha": "2026-11-24",
+      "consulta_booleana": "\"load forecasting\" AND (memory OR retrieval) AND (gating OR gate OR \"mixture of experts\")",
+      "traduccion": "load forecasting memory retrieval gating",
+      "parametros": {
+        "search_query": "all:\"load forecasting\" AND (all:memory OR all:retrieval) AND (all:gating OR all:gate)",
+        "start": 0,
+        "max_results": 25,
+        "sortBy": "relevance"
+      },
+      "estado_http": 200,
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22load+forecasting%22+AND+%28all%3Amemory+OR+all%3Aretrieval%29+AND+%28all%3Agating+OR+all%3Agate%29&start=0&max_results=25&sortBy=relevance",
+      "archivo": "arXiv_compuerta.txt",
+      "sha256": "1a3109adfdb89c5496e1de4e8b5e3e05c42102b208b6371a838d8a13fbc83d99",
+      "recibidos": 7
+    }
+  ],
+  "documentos": [
+    {
+      "nombre": "RATL",
+      "url": "https://arxiv.org/html/2609.03937v1",
+      "fecha": "2026-11-24",
+      "estado_http": 200,
+      "archivo": "RATL.html",
+      "bytes": 204092,
+      "sha256": "3ace2c468c78c6f9cbc8fc29e6e8917e089e3a83525bed4d91981931ed563b09",
+      "alcance": "texto completo",
+      "acceso_valido": true
+    },
+    {
+      "nombre": "FreshCast",
+      "url": "https://arxiv.org/html/2610.07834v3",
+      "fecha": "2026-11-24",
+      "estado_http": 200,
+      "archivo": "FreshCast.html",
+      "bytes": 502843,
+      "sha256": "638ad4fa8dcb052e825e21c1ab25b882e531fdd5397173c8e01f73d00a6369d3",
+      "alcance": "texto completo",
+      "acceso_valido": true
+    },
+    {
+      "nombre": "ResMem",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/bf0857cb9a41c73639f028a80301cdf0-Paper-Conference.pdf",
+      "fecha": "2026-11-24",
+      "estado_http": 200,
+      "archivo": "ResMem.pdf",
+      "bytes": 1237830,
+      "sha256": "6bb40beddec3df6134e2cd66ad1da7eacac0ddbd4970d57c9b85ae5613b64191",
+      "alcance": "texto completo",
+      "acceso_valido": true
+    },
+    {
+      "nombre": "TE_AG_GRU_RC",
+      "url": "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1935983/full",
+      "fecha": "2026-11-24",
+      "estado_http": 200,
+      "archivo": "TE_AG_GRU_RC.html",
+      "bytes": 1043597,
+      "sha256": "c494ca40e44043a1a4eeec99a8460667f96bcb95c4e3ae32829efc7235ad415b",
+      "alcance": "texto completo",
+      "acceso_valido": true
+    },
+    {
+      "nombre": "Colombia",
+      "url": "https://www.econjournals.com/index.php/ijeep/article/view/17528",
+      "fecha": "2026-11-24",
+      "estado_http": 200,
+      "archivo": "Colombia.html",
+      "bytes": 27795,
+      "sha256": "be238d48d76b22302092090f217d1c398aa8447057775c91689953213d0c5563",
+      "alcance": "resumen editorial y enlace al texto",
+      "acceso_valido": true
+    },
+    {
+      "nombre": "MMEMformer",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0360544225014045",
+      "fecha": "2026-11-24",
+      "estado_http": 403,
+      "archivo": "MMEMformer.html",
+      "bytes": 832981,
+      "sha256": "a29fdfdd49344bdd3a60f5ea5d0356b1edd696b3bad26a94b67ddbb4a511ec83",
+      "alcance": "secciones públicas; texto completo no acreditado",
+      "acceso_valido": false
+    }
+  ],
+  "criterios_inclusion": [
+    "Memoria explícita o corrección residual de pronósticos continuos",
+    "Antecedentes directos de carga eléctrica y demanda colombiana",
+    "Descripción verificable del mecanismo en fuente primaria"
+  ],
+  "criterios_exclusion": [
+    "Memoria solo como estado LSTM sin recuperación explícita",
+    "ResNet sin banco de episodios: antecedente arquitectónico, no equivalente a memoria residual",
+    "Tareas ajenas sin mecanismo transferible",
+    "Resultados posteriores al corte o duplicados por DOI/título"
+  ],
+  "evaluacion": "Un extractor; requiere revisión independiente por tercero",
+  "bases_requeridas": "Las consultas públicas a Crossref, OpenAlex y arXiv no sustituyen exportaciones de Scopus, Web of Science e IEEE Xplore.",
+  "busqueda_web_complementaria": [
+    {
+      "fecha": "2026-11-24",
+      "consulta": "site.ieeexplore.ieee.org (\"load forecasting\") (\"residual\" \"memory\")",
+      "alcance": "Índice web restringido al dominio; no búsqueda nativa acreditada"
+    },
+    {
+      "fecha": "2026-11-24",
+      "consulta": "site.scopus.com (\"load forecasting\") (\"retrieval\" OR \"memory\")",
+      "alcance": "Índice web restringido al dominio; no búsqueda nativa acreditada"
+    },
+    {
+      "fecha": "2026-11-24",
+      "consulta": "site.webofscience.com (\"load forecasting\") (\"residual\" OR \"memory\")",
+      "alcance": "Índice web restringido al dominio; no búsqueda nativa acreditada"
+    }
+  ],
+  "conclusion": "La recuperación y corrección de residuos tiene antecedentes directos. La contribución candidata de M4 reside en la integración temporal OOF de una base de expertos, proyecciones aprendidas y compuerta contextual para el SIN; no se acredita invención del principio general ni prioridad mundial."
+}

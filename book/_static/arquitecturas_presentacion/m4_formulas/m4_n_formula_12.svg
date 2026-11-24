@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="219.42pt" height="59.76pt" viewBox="0 0 219.42 59.76" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-24T10:26:46.724250</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 59.76 
+L 219.42 59.76 
+L 219.42 0 
+L -0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="text_1">
+   <!-- $\alpha_{t,i}=\frac{\exp(s_{t,i})}{\sum_{j\in A_t}\exp(s_{t,j})},\qquad i\in A_t.$ -->
+   <g style="fill: #24383e" transform="translate(10.8 28.8)">
+    <text>
+     <tspan x="0" y="-0.161875" style="font-style: italic; font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">α</tspan>
+     <tspan x="149.752278" y="-0.161875" style="font-style: italic; font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">i</tspan>
+     <tspan x="174.286171" y="-0.161875" style="font-style: italic; font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">A</tspan>
+     <tspan x="9.935944" y="2.538125" style="font-style: italic; font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">t</tspan>
+     <tspan x="19.108699" y="2.538125" style="font-style: italic; font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">i</tspan>
+     <tspan x="76.466447" y="-9.479688" style="font-style: italic; font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">s</tspan>
+     <tspan x="85.990299" y="6.639687" style="font-style: italic; font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">s</tspan>
+     <tspan x="185.284096" y="2.538125" style="font-style: italic; font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">t</tspan>
+     <tspan x="13.438721" y="2.538125" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">,</tspan>
+     <tspan x="49.076402" y="6.639687" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">∑</tspan>
+     <tspan x="54.076402" y="-9.479688" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">e</tspan>
+     <tspan x="59.670762" y="-9.479688" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">x</tspan>
+     <tspan x="63.600253" y="6.639687" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">e</tspan>
+     <tspan x="65.97072" y="-9.479688" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">p</tspan>
+     <tspan x="69.194614" y="6.639687" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">x</tspan>
+     <tspan x="72.270677" y="-9.479688" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">(</tspan>
+     <tspan x="75.494571" y="6.639687" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">p</tspan>
+     <tspan x="81.794528" y="6.639687" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">(</tspan>
+     <tspan x="90.807687" y="-9.479688" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">)</tspan>
+     <tspan x="100.331539" y="6.639687" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">)</tspan>
+     <tspan x="27.021476" y="-0.161875" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">=</tspan>
+     <tspan x="105.652309" y="-0.161875" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">,</tspan>
+     <tspan x="158.356246" y="-0.161875" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">∈</tspan>
+     <tspan x="189.596873" y="-0.161875" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">.</tspan>
+     <tspan x="44.076402" y="18.156875" style="font-style: italic; font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">j</tspan>
+     <tspan x="56.098009" y="18.156875" style="font-style: italic; font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">A</tspan>
+     <tspan x="81.367814" y="-7.589688" style="font-style: italic; font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">t</tspan>
+     <tspan x="87.788743" y="-7.589688" style="font-style: italic; font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">i</tspan>
+     <tspan x="90.891666" y="8.529687" style="font-style: italic; font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">t</tspan>
+     <tspan x="97.312595" y="8.529687" style="font-style: italic; font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">j</tspan>
+     <tspan x="48.292346" y="18.156875" style="font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">∈</tspan>
+     <tspan x="83.819758" y="-7.589688" style="font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">,</tspan>
+     <tspan x="93.34361" y="8.529687" style="font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">,</tspan>
+     <tspan x="61.486993" y="19.479875" style="font-style: italic; font-size: 6.174px; font-family: 'STIXGeneral'; fill: #24383e">t</tspan>
+    </text>
+    <rect x="44.076402" y="-5.099375" width="60.450907" height="1.125"/>
+   </g>
+  </g>
+ </g>
+</svg>

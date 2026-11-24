@@ -1,0 +1,13 @@
+{
+  "n_modelos": 18,
+  "n_dias": 1461,
+  "contrastes_nuevos": 102,
+  "mcs_retenidos": [
+    "m4_n"
+  ],
+  "n_rechazos_ajustados": 102,
+  "familia_historica_preservada": 1536,
+  "familia_adicional": 102,
+  "bootstrap_resolution": 0.0001,
+  "entrenamiento": false
+}

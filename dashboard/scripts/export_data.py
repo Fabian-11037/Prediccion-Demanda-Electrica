@@ -140,5 +140,10 @@ def main():
  write('manifest.json',dict(procedures=len(keys),seeds=int(b.loc[b.clave.isin(keys),'semillas'].sum()),origins=len(truth),horizon=truth.shape[1],history=168,training_executed=False,
   exported_at=datetime.now(timezone.utc).isoformat(),source_sha256={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(set(sources))}))
  print(f'{len(keys)} procedimientos y {int(b.loc[b.clave.isin(keys),"semillas"].sum())} realizaciones exportados; métricas verificadas; sin entrenamiento.')
+ # Sincronizar la ficha teorica de M4_N sin importar ni ejecutar redes.
+ import subprocess,sys
+ subprocess.run([sys.executable,str(ROOT/'scripts/integrar_m4_teoria.py')],check=True)
+ from export_m4_results import main as exportar_m4
+ exportar_m4()
 
 if __name__=='__main__':main()

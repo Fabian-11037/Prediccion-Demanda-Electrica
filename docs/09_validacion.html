@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/estilo_academico.css?v=b05080bc" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -67,7 +68,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="9.1. Diseño de entrenamiento ampliado" href="09_diseno_ampliado.html" />
+    <link rel="next" title="9.1. Datos, modelos y protocolo temporal" href="09_diseno_ampliado.html" />
     <link rel="prev" title="8. Literatura y fundamento del diseño" href="08_literatura.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -229,7 +230,7 @@
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">9. Diseño de evaluación</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Datos, modelos y protocolo temporal</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -248,10 +249,11 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/m4_n.html">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.17. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Conclusiones</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fuentes.html">Fuentes y fundamento metodológico</a></li>
 </ul>
@@ -410,7 +412,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecucion-y-alcance-estadistico">Ejecución y alcance estadístico</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registro-del-diseno-y-cierre-de-seleccion">Registro del diseño y cierre de selección</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identidad-del-conjunto-de-prueba">Identidad del conjunto de prueba</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrato-numerico-de-la-comparacion-con-texto">Contrato numérico de la comparación con texto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrato-numerico-y-estado-de-la-memoria">Contrato numérico y estado de la memoria</a></li>
 </ul>
             </nav>
         </div>
@@ -424,7 +426,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="diseno-de-evaluacion">
 <h1>9. Diseño de evaluación<a class="headerlink" href="#diseno-de-evaluacion" title="Link to this heading">#</a></h1>
-<p>El protocolo fija MASE como métrica primaria y MAE y RMSE como complementarias del benchmark integrado. La diferencia relativa de interés es δ = 3 %, con α = 0,05 y potencia objetivo 0,80. La unidad de evaluación es el origen diario que produce 24 etiquetas.</p>
+<p>MASE es la métrica primaria y MAE y RMSE son complementarias. El margen relativo de interés es δ=3 %, con α=0,05. El benchmark emplea un objetivo de potencia de 0,80; la evaluación de M4ₙ requiere al menos 0,90 por contraste y el reporte de potencia conjunta. La unidad temporal de evaluación es el origen diario, con sus 24 errores relacionados.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
@@ -597,13 +599,13 @@ dtype: float64
 <div class="math notranslate nohighlight">
 \[q_{168}=\frac{1}{T-168}\sum_{t=168}^{T-1}|y_t-y_{t-168}|.\]</div>
 <p>La escala <span class="math notranslate nohighlight">\(q_{168}\)</span> procede del bloque de referencia histórico 2000–2017, anterior a los años externos de validación. MASE es la métrica primaria; MAE se interpreta en kWh por intervalo y RMSE acentúa errores grandes. Un MASE inferior a 1 compara con la escala histórica de entrenamiento; la comparación con el ingenuo en validación requiere calcular también su error sobre los mismos orígenes.</p>
-<p>Persistencia y referencias diaria y semanal deben utilizar la misma disponibilidad que los modelos. El reporte desagrega por hora del horizonte, año y tipo de día, además de media, desviación e intervalos entre semillas. El margen relativo de interés es 3 %; α = 0,05 y potencia objetivo 0,80 son parámetros del diseño inferencial.</p>
-<p>Las métricas se calculan por semilla y se promedian entre las cinco realizaciones. En particular, el RMSE medio entre semillas no es el RMSE del pronóstico promedio. Las dos referencias deterministas conservan una sola realización.</p>
+<p>Persistencia y referencias diaria y semanal deben utilizar la misma disponibilidad que los modelos. El reporte desagrega por hora del horizonte, año y tipo de día, además de media, desviación e intervalos entre semillas. El margen relativo de interés es 3 %; α=0,05 y potencia objetivo 0,80 corresponden al diseño del benchmark.</p>
+<p>Las métricas se calculan por semilla y después se promedian: cinco realizaciones por comparador y diez para M4ₙ. En particular, el RMSE medio entre semillas no es el RMSE del pronóstico promedio. Las dos referencias deterministas conservan una sola realización.</p>
 </section>
 <section id="busqueda-y-prevencion-de-fuga">
 <h2>Búsqueda y prevención de fuga<a class="headerlink" href="#busqueda-y-prevencion-de-fuga" title="Link to this heading">#</a></h2>
-<p>La selección comprende quince procedimientos: cuatro con demanda y calendario y once con entradas ampliadas. Los presupuestos, semillas y periodos de cada procedimiento se conservan en la <a class="reference download internal" download="" href="_downloads/aac7d76abab1aed38d92dd0c3c3b06a4/diseno_seleccion.csv"><span class="xref download myst">tabla de selección</span></a>. La comparación mantiene esas diferencias de diseño.</p>
-<p>El análisis temporal emplea bloques de 14 días, con siete y 28 como sensibilidad; 10.000 réplicas e índices apareados. La evaluación integrada utiliza DM–HLN con covarianza HAC Bartlett de 13 rezagos diarios y h efectivo de un origen no solapado. Las familias de contrastes y sus ajustes de multiplicidad se especifican en el capítulo de evaluación. Los resultados son exploratorios y se distinguen de una confirmación independiente.</p>
+<p>La selección del benchmark de referencia comprende quince procedimientos: cuatro con demanda y calendario y once con entradas ampliadas. Los presupuestos, semillas y periodos de cada procedimiento se conservan en la <a class="reference download internal" download="" href="_downloads/aac7d76abab1aed38d92dd0c3c3b06a4/diseno_seleccion.csv"><span class="xref download myst">tabla de selección</span></a>. La comparación mantiene esas diferencias de diseño.</p>
+<p>El análisis temporal del benchmark de referencia emplea bloques de 14 días, con siete y 28 como sensibilidad; 10.000 réplicas e índices apareados. La evaluación integrada utiliza DM–HLN con covarianza HAC Bartlett de 13 rezagos diarios y h efectivo de un origen no solapado. Las familias de contrastes y sus ajustes de multiplicidad se especifican en el capítulo de evaluación. Los resultados son exploratorios y se distinguen de una confirmación independiente.</p>
 </section>
 <section id="unidad-de-evaluacion-bloques-y-comparaciones">
 <h2>Unidad de evaluación, bloques y comparaciones<a class="headerlink" href="#unidad-de-evaluacion-bloques-y-comparaciones" title="Link to this heading">#</a></h2>
@@ -639,7 +641,7 @@ d_o=\ell_{A,o}-\ell_{B,o}.\]</div>
 <section id="ejecucion-y-alcance-estadistico">
 <h2>Ejecución y alcance estadístico<a class="headerlink" href="#ejecucion-y-alcance-estadistico" title="Link to this heading">#</a></h2>
 <p>Los quince procedimientos conservan cinco realizaciones finales cada uno. La <a class="reference download internal" download="" href="_downloads/aac7d76abab1aed38d92dd0c3c3b06a4/diseno_seleccion.csv"><span class="xref download myst">tabla de selección</span></a> registra máximos de épocas, paciencia y semillas por etapa. Se restaura el mejor estado de la reserva interna. Hay pilotos independientes para cinco procedimientos y precisión retrospectiva de parada para diez. El preprocesamiento se ajusta al tramo de optimización de cada pliegue.</p>
-<p>MASE es la métrica primaria, δ relativo es 3 %, α=0,05 y la potencia objetivo de diseño es 0,80. El tamaño ejecutado de cinco semillas no demuestra esa potencia. Los intervalos por inicialización son condicionales al mismo conjunto de fechas; el remuestreo temporal conserva días completos y bloques de siete, 14 y 28 días. Los contrastes tienen alcance exploratorio.</p>
+<p>MASE es la métrica primaria, δ relativo es 3 %, α=0,05 y la potencia objetivo del benchmark es 0,80. El tamaño ejecutado de cinco semillas no demuestra esa potencia. Los intervalos por inicialización son condicionales al mismo conjunto de fechas; el remuestreo temporal conserva días completos y bloques de siete, 14 y 28 días. Los contrastes tienen alcance exploratorio.</p>
 </section>
 <section id="registro-del-diseno-y-cierre-de-seleccion">
 <h2>Registro del diseño y cierre de selección<a class="headerlink" href="#registro-del-diseno-y-cierre-de-seleccion" title="Link to this heading">#</a></h2>
@@ -669,13 +671,12 @@ d_o=\ell_{A,o}-\ell_{B,o}.\]</div>
 </section>
 <section id="identidad-del-conjunto-de-prueba">
 <h2>Identidad del conjunto de prueba<a class="headerlink" href="#identidad-del-conjunto-de-prueba" title="Link to this heading">#</a></h2>
-<p>La huella visible en el capítulo de evaluación identifica 1.461 orígenes UTC y sus 24 etiquetas, mediante serialización canónica int64/float64 little-endian. Las 75 realizaciones utilizan los mismos 1.461 orígenes y 24 horizontes; la consolidación verifica la alineación y registra diferencias de redondeo float32 en los paquetes. La evaluación utiliza etiquetas canónicas comunes. La huella de contenido permite verificar identidad; por sí sola no acredita la fecha en que se congeló el conjunto. <a class="reference download internal" download="" href="_downloads/b1436e096ddbf8c422932bbf6bf16d50/huella_prueba.json"><span class="xref download myst">Especificación y SHA-256</span></a>.</p>
+<p>La huella visible en el capítulo de evaluación identifica 1.461 orígenes UTC y sus 24 etiquetas, mediante serialización canónica int64/float64 little-endian. Las 75 realizaciones del benchmark y las diez de M4ₙ utilizan los mismos 1.461 orígenes y 24 horizontes; la consolidación verifica la alineación y registra diferencias de redondeo float32 en los paquetes. La evaluación utiliza etiquetas canónicas comunes. La huella de contenido permite verificar identidad; por sí sola no acredita la fecha en que se congeló el conjunto. <a class="reference download internal" download="" href="_downloads/b1436e096ddbf8c422932bbf6bf16d50/huella_prueba.json"><span class="xref download myst">Especificación y SHA-256</span></a>.</p>
 </section>
-<section id="contrato-numerico-de-la-comparacion-con-texto">
-<h2>Contrato numérico de la comparación con texto<a class="headerlink" href="#contrato-numerico-de-la-comparacion-con-texto" title="Link to this heading">#</a></h2>
-<p>El diseño de las variantes numérica, con documentos oficiales y con documentos oficiales más prensa establece como entradas comunes demanda, calendario, clima de ocho ciudades, hidrología y precio. El contrato contiene 30 variables históricas y 23 de calendario. Los modelos ejecutados incorporan el canal oficial; la separación entre oficial y prensa corresponde a la ampliación propuesta.</p>
-<p>El clima pasado se desplaza hasta un rezago efectivo de 168 horas; el diseño prevé una sensibilidad de 90 días. ERA5 es un reanálisis recuperado posteriormente: esta regla no verifica la disponibilidad histórica de cada versión. El precio tiene un rezago de 24 horas; la hidrología diaria se habilita 24 horas después de cerrar el día. Ninguna de estas variables se observa dentro del horizonte pronosticado. El calendario sí se conoce a futuro.</p>
-<p>El <a class="reference internal" href="09_diseno_ampliado.html#diseno-ampliado"><span class="std std-ref">diseño de entrenamiento ampliado</span></a> detalla entradas, presupuesto, controles, inferencia y garantías matemáticas. La siguiente preparación selecciona únicamente desarrollo, conserva ausencias y no estima imputaciones ni escalas. Los resultados se atribuyen a las entradas efectivamente utilizadas: demanda/calendario en las cuatro familias base y conjunto numérico ampliado, con o sin documentos, en los demás procedimientos.</p>
+<section id="contrato-numerico-y-estado-de-la-memoria">
+<h2>Contrato numérico y estado de la memoria<a class="headerlink" href="#contrato-numerico-y-estado-de-la-memoria" title="Link to this heading">#</a></h2>
+<p>Las arquitecturas ampliadas utilizan 30 variables históricas —demanda, precio, cuatro hidrológicas y 24 climáticas—, 23 variables de calendario y sus máscaras. Los modelos documentales añaden el canal oficial. M4ₙ utiliza exclusivamente contexto numérico, pronósticos de sus expertos y residuos habilitados con retraso de dos días. La memoria admite episodios de hasta 365 días; su actualización modifica el banco observable y mantiene congelados los pesos.</p>
+<p>El clima pasado tiene un rezago efectivo de 168 horas. ERA5 es un reanálisis recuperado posteriormente, por lo que la disponibilidad de su versión histórica no queda certificada. Precio e hidrología mantienen los rezagos de publicación especificados en el <a class="reference internal" href="09_diseno_ampliado.html#diseno-ampliado"><span class="std std-ref">contrato de datos y modelos</span></a>. La preparación siguiente selecciona desarrollo, conserva ausencias y deja el ajuste de escalas dentro de cada partición.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""Contrato numérico ampliado; no ajusta transformaciones ni entrena modelos."""</span>
@@ -800,7 +801,7 @@ Máscara de ausencia: (192864, 53); rezago climático: 168 h
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">9.1. Diseño de entrenamiento ampliado</p>
+        <p class="prev-next-title">9.1. Datos, modelos y protocolo temporal</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -833,7 +834,7 @@ Máscara de ausencia: (192864, 53); rezago climático: 168 h
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecucion-y-alcance-estadistico">Ejecución y alcance estadístico</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registro-del-diseno-y-cierre-de-seleccion">Registro del diseño y cierre de selección</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identidad-del-conjunto-de-prueba">Identidad del conjunto de prueba</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrato-numerico-de-la-comparacion-con-texto">Contrato numérico de la comparación con texto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrato-numerico-y-estado-de-la-memoria">Contrato numérico y estado de la memoria</a></li>
 </ul>
   </nav></div>
 

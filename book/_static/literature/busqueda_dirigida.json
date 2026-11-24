@@ -1,0 +1,15 @@
+{
+  "date_colombia": "2026-11-03",
+  "scope": "Directed support for EDA, not systematic database review",
+  "queries": [
+    "Time MMD 2406.08627 full paper electricity multimodal dataset",
+    "Are Language Models Actually Useful for Time Series Forecasting 2406.16964 pdf",
+    "NSW-EPNews dataset electricity price news paper",
+    "Lago De Ridder De Schutter 2021 forecasting day ahead electricity prices review open access benchmark arxiv 2008.08009"
+  ],
+  "source": "public web search; primary papers checked",
+  "institutional_query_strings_available": false,
+  "IEEE_Xplore_executed": false,
+  "second_reviewer": null,
+  "counts_are_inherited_not_new_systematic_results": true
+}

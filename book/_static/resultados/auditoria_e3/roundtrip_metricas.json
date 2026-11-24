@@ -1,0 +1,17 @@
+{
+  "semilla": 101,
+  "n_dias": 4,
+  "n_intervalos": 96,
+  "fechas": [
+    "2022-01-01",
+    "2023-07-01",
+    "2024-02-15",
+    "2025-12-31"
+  ],
+  "MASE_nativo": 0.4271615512949945,
+  "MASE_ONNX": 0.42716145772806574,
+  "diferencia_MASE": -9.356692877625308e-08,
+  "max_diferencia_kwh": 2.0018351525068283,
+  "entrenamiento": false,
+  "alcance": "Panel de verificación de cuatro fechas prefijadas; no es el benchmark completo de1461días ni promedio de diez semillas"
+}

@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/estilo_academico.css?v=b05080bc" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -227,7 +228,7 @@
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Literatura y fundamento del diseño</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Datos, modelos y protocolo temporal</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -246,10 +247,11 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/m4_n.html">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.17. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Conclusiones</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fuentes.html">Fuentes y fundamento metodológico</a></li>
 </ul>
@@ -427,6 +429,12 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-e-implicaciones-para-el-experimento">8.7. Síntesis e implicaciones para el experimento</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brecha-de-investigacion-y-pregunta-contrastable">Brecha de investigación y pregunta contrastable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">8.8. Memoria residual para el pronóstico de demanda</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antecedentes-y-relacion-con-m4">Antecedentes y relación con M4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismo-entrenamiento-y-pregunta-de-investigacion">Mecanismo, entrenamiento y pregunta de investigación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-y-alcance-de-la-evidencia">Búsqueda y alcance de la evidencia</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -834,13 +842,90 @@
 <p>La evidencia directa favorece comparar redes con inductivos diferentes y referencias estacionales antes de incrementar complejidad. No sostiene que una arquitectura domine en todos los países ni que añadir clima o noticias produzca una mejora automática.</p>
 <p>Las mejoras documentales requieren disponibilidad anterior al origen de pronóstico. Vocabularios, selección de atributos, tópicos, normalización y descomposiciones se ajustan dentro de entrenamiento; los documentos con fecha de edición pero sin hora verificable se incorporan desde el día siguiente. Los textos cuya disponibilidad histórica no está verificada conservan esa marca y requieren análisis de sensibilidad. Las revisiones de series y las fechas editoriales limitan la reconstrucción retrospectiva.</p>
 <p>La atención o la importancia de una palabra indican asociación dentro del modelo y no causalidad. El deterioro observado en algunas combinaciones de Bai et al. y en algunos casos de REST-TS exige controlar ruido, cobertura y redundancia, además de evaluar ganancias. Una ablación que retire simultáneamente texto y covariables numéricas no permite aislar la contribución documental.</p>
-<p>La comparación del proyecto conserva MASE como métrica primaria, margen relativo del 3 %, unidad diaria de 24 errores, α=0,05 y potencia objetivo 0,80. MAE mantiene interpretación en kWh; RMSE caracteriza mayor penalización de extremos. Los valores publicados con métricas diferentes se emplean para comprender sus casos, sin convertirlos a una escala común no observada. La selección y los contrastes siguen la partición temporal y el presupuesto documentados en diseño y modelos.</p>
+<p>El benchmark de referencia conserva MASE como métrica primaria, margen relativo del 3 %, unidad diaria de 24 errores, α=0,05 y potencia objetivo 0,80. MAE mantiene interpretación en kWh; RMSE caracteriza mayor penalización de extremos. Los valores publicados con métricas diferentes se emplean para comprender sus casos, sin convertirlos a una escala común no observada. La selección y los contrastes siguen la partición temporal y el presupuesto documentados en diseño y modelos.</p>
 <p><strong>Decisión.</strong> Mantener MLP, LSTM y CNN1D como contraste de representaciones densas, recurrentes y convolucionales, junto con ARX y referencias ingenuas. <strong>Impacto.</strong> Permite evaluar capacidad, estacionalidad y costo con resultados ya disponibles. <strong>Riesgo.</strong> El corpus dirigido, la extracción por un revisor, los resultados de otros dominios y la revisión posterior al entrenamiento limitan una justificación basada exclusivamente en frecuencia o en selección prospectiva.</p>
 </section>
 <section id="brecha-de-investigacion-y-pregunta-contrastable">
 <h2>Brecha de investigación y pregunta contrastable<a class="headerlink" href="#brecha-de-investigacion-y-pregunta-contrastable" title="Link to this heading">#</a></h2>
 <p>En el corpus auditado, los estudios con titulares y demanda se concentran en Reino Unido y los benchmarks numéricos utilizan otros sistemas eléctricos. No se identificó en estos estudios una comparación de demanda del SIN colombiano a 24 horas que combine disponibilidad histórica verificable de titulares, control del cambio de cobertura editorial y ablación numérica/documental con los mismos orígenes. La ausencia en este corpus no acredita inexistencia en toda la literatura.</p>
-<p>La brecha operativa del proyecto es determinar si el contexto documental disponible antes del origen añade capacidad predictiva al baseline numérico del SIN bajo cambios de régimen. La hipótesis contrastable es una reducción relativa de MASE de al menos el 3 %, acompañada de incertidumbre pareada por bloques, frente al baseline congelado y con presupuesto comparable. La evaluación contrasta TaTS y fusión tardía frente a PatchTST numérico, y TGForecaster con documentos frente a su variante numérica. Los controles de retirada, contenido cero y contenido histórico de la misma fuente examinan la dependencia del texto con pesos fijos. La atribución específica al contenido requiere controles por fuente y comparaciones con núcleo e hiperparámetros idénticos; la integración de prensa constituye una extensión del diseño.</p>
+<p>La línea documental del estudio busca determinar si el contexto documental disponible antes del origen añade capacidad predictiva al baseline numérico del SIN bajo cambios de régimen. La hipótesis contrastable es una reducción relativa de MASE de al menos el 3 %, acompañada de incertidumbre pareada por bloques, frente al baseline congelado y con presupuesto comparable. La evaluación contrasta TaTS y fusión tardía frente a PatchTST numérico, y TGForecaster con documentos frente a su variante numérica. Los controles de retirada, contenido cero y contenido histórico de la misma fuente examinan la dependencia del texto con pesos fijos. La atribución específica al contenido requiere controles por fuente y comparaciones con núcleo e hiperparámetros idénticos; la integración de prensa constituye una extensión del diseño.</p>
+</section>
+<section id="memoria-residual-para-el-pronostico-de-demanda">
+<h2>8.8. Memoria residual para el pronóstico de demanda<a class="headerlink" href="#memoria-residual-para-el-pronostico-de-demanda" title="Link to this heading">#</a></h2>
+<p>La corrección residual separa la estimación del nivel de demanda de los errores que persisten después del pronóstico. M4<sub>N</sub> estudia si esos errores pueden transferirse entre episodios con contexto numérico comparable, manteniendo congelada la base. La recuperación de residuos y la actualización de memoria tienen antecedentes; la contribución investigada se concentra en su formulación temporal y en el aprendizaje de la recuperación.</p>
+<section id="antecedentes-y-relacion-con-m4">
+<h3>Antecedentes y relación con M4<a class="headerlink" href="#antecedentes-y-relacion-con-m4" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Estudio</p></th>
+<th class="head"><p>Mecanismo y evidencia consultada</p></th>
+<th class="head"><p>Relación con la propuesta</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/html/2609.03937v1">RATL, He et al. (2026)</a>, prepublicación; texto completo</p></td>
+<td><p>Base congelada, memoria de sus residuos y router por bloques y variables; incluye ECL.</p></td>
+<td><p>Es el trabajo más cercano: la recuperación residual no se presenta como invención de M4. RATL emplea claves de la base y supervisión de un profesor; M4 aprende consulta y claves de contexto y una compuerta por origen.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/html/2610.07834v3">FreshCast, He et al. (2026)</a>, prepublicación; texto completo</p></td>
+<td><p>Memoria actualizada con observaciones reveladas, regresión por kernel y peso calibrado; incluye Electricity.</p></td>
+<td><p>Sustenta la utilidad de referencias recientes sin reajustar el pronosticador. M4 recupera trayectorias de errores fuera de muestra y regula su aportación con una red condicionada al respaldo recuperado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1016/j.energy.2025.135762">MMEMformer (2025)</a>; resumen editorial</p></td>
+<td><p>Atención sobre un banco de patrones históricos y fusión de representaciones para carga de sistemas energéticos integrados.</p></td>
+<td><p>La memoria de patrones ya tiene aplicación en carga; su comparación distingue valores y representaciones históricas de errores de un pronosticador específico. La evidencia pública consultada no permite acreditar la lectura integral.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.3389/frai.2026.1935983">Chandrasekaran y Paramasivan (2026)</a>; texto completo</p></td>
+<td><p>Transformer congelado y corrector residual GRU con atención, para demanda a 24 horas en Tamil Nadu y Panamá.</p></td>
+<td><p>Confirma antecedentes de corrección neuronal posterior al pronóstico. M4 conserva episodios recuperables en lugar de generar toda la corrección mediante un estado recurrente.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/bf0857cb9a41c73639f028a80301cdf0-Abstract-Conference.html">ResMem, Yang et al. (2023)</a>; texto completo</p></td>
+<td><p>Suma un regresor de residuos por vecinos a una base neuronal, con aplicaciones en visión y lenguaje.</p></td>
+<td><p>Antecedente transversal de memorización residual; la adaptación temporal requiere definir cuándo están disponibles las etiquetas y cómo se construyen los residuos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.32479/ijeep.17528">Vargas-Forero et al. (2025)</a>; texto completo</p></td>
+<td><p>LSTM, ARIMA y Prophet para demanda nacional colombiana horaria del día siguiente.</p></td>
+<td><p>Antecedente directo del fenómeno, sistema y horizonte; contextualiza la evaluación del SIN sin equiparar métricas ni periodos entre artículos.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="mecanismo-entrenamiento-y-pregunta-de-investigacion">
+<h3>Mecanismo, entrenamiento y pregunta de investigación<a class="headerlink" href="#mecanismo-entrenamiento-y-pregunta-de-investigacion" title="Link to this heading">#</a></h3>
+<p>El diseño conserva una base M1 formada por PatchTST, E y el experto periódico. Sus residuos se obtienen mediante predicciones fuera del bloque de ajuste, con selección por prefijos y OOF temporal anidado. Dos proyecciones aprendidas representan el origen actual y los episodios históricos; la máscara de disponibilidad se aplica antes de recuperar vecinos. Una compuerta combina contexto, semejanza, dispersión, respaldo y antigüedad para regular la trayectoria residual de 24 horas.</p>
+<p>Frente a RATL, las diferencias se sitúan en la representación aprendida del contexto, el esquema de generación de residuos y la lectura escalar por origen. Frente a FreshCast, se recuperan errores de la base y se aprende una compuerta contextual, en lugar de combinar un pronóstico de memoria mediante calibración cerrada. Los umbrales de antigüedad y el número de vecinos son decisiones de configuración; no constituyen por sí solos una contribución metodológica.</p>
+<p>La pregunta contrastable es si esta integración reduce el error de demanda del SIN colombiano a 24 horas frente al Top 10 y los baselines del benchmark. La evaluación utiliza MASE, MAE y RMSE, una unidad diaria de 24 errores y contrastes temporales con multiplicidad controlada. La novedad investigada corresponde al mecanismo y al entrenamiento; su aplicación geográfica y el desempeño observado no bastan para demostrarla.</p>
+</section>
+<section id="busqueda-y-alcance-de-la-evidencia">
+<h3>Búsqueda y alcance de la evidencia<a class="headerlink" href="#busqueda-y-alcance-de-la-evidencia" title="Link to this heading">#</a></h3>
+<p>La búsqueda dirigida del 24 de noviembre de 2026 emplea tres estrategias: recuperación de residuos, demanda eléctrica colombiana y memoria con compuertas. Las consultas se ejecutan en Crossref, OpenAlex y arXiv, con recuperación de hasta 25 registros por estrategia, ordenados por relevancia. El registro conserva las cadenas, su traducción a cada índice, respuestas y huellas SHA-256.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Índice</p></th>
+<th class="head text-right"><p>Estrategias</p></th>
+<th class="head text-right"><p>Registros recuperados antes de deduplicar</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Crossref</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-right"><p>75</p></td>
+</tr>
+<tr class="row-odd"><td><p>OpenAlex</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-right"><p>75</p></td>
+</tr>
+<tr class="row-even"><td><p>arXiv</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-right"><p>32</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La selección dirigida prioriza recuperación explícita, corrección residual y antecedentes del SIN. La integración de contexto numérico aprendido, residuos OOF de una combinación de expertos y compuerta por origen delimita la contribución candidata de M4. La recuperación de errores y la combinación con una base ya tienen antecedentes.</p>
+<p>La revisión tiene un extractor. Su alcance está limitado por la recuperación por relevancia y por la ausencia de exportaciones nativas de Scopus, Web of Science e IEEE Xplore. La evaluación independiente de novedad permanece abierta. <a class="reference download internal" download="" href="_downloads/696df9c5c00d410c493f71ccd9a8ebf9/m4_revision_ampliada.json"><span class="xref download myst">Estrategias, criterios y procedencia</span></a>.</p>
+</section>
 </section>
 </section>
 
@@ -940,6 +1025,12 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-e-implicaciones-para-el-experimento">8.7. Síntesis e implicaciones para el experimento</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brecha-de-investigacion-y-pregunta-contrastable">Brecha de investigación y pregunta contrastable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">8.8. Memoria residual para el pronóstico de demanda</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antecedentes-y-relacion-con-m4">Antecedentes y relación con M4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismo-entrenamiento-y-pregunta-de-investigacion">Mecanismo, entrenamiento y pregunta de investigación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-y-alcance-de-la-evidencia">Búsqueda y alcance de la evidencia</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

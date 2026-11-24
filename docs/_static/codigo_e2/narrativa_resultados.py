@@ -120,7 +120,7 @@ def textos(s):
     r['latencia']=f"La menor latencia mediana corresponde a {names[low.clave]} ({dec(low.mediana_ms,3)} ms) y la mayor a {names[high.clave]} ({dec(high.mediana_ms,3)} ms). Las mediciones describen el forward en CPU con entradas y vectores preparados; no incluyen lectura, escalado ni codificación de documentos."
     r['cobertura']=f"Los {w(n)} procedimientos tienen benchmark, curvas, observado–predicho, contrastes, importancia y latencia. La importancia ampliada utiliza {s['fechas_importancia']} fechas y {s['repeticiones_importancia']} desplazamientos en {w(s['importancia_ampliada'])} procedimientos; las {w(s['demanda_calendario'])} familias base conservan sus diagnósticos específicos. Hay {w(s['pilotos'])} pilotos independientes y {w(s['procedimientos_parada'])} análisis retrospectivos de parada."
     r['texto']=texto(s)
-    cuerpo=f"{best.modelo} obtiene el menor MASE medio ({dec(best.MASE,4)}); su MAE es {dec(best.MAE/1e6,4)} GWh por intervalo. El orden descriptivo comienza por {ranking}. "+mcs(s)+'\n\n'+texto(s)+f"\n\nLa comparación reúne {w(n)} procedimientos aprendidos, {s['realizaciones']} realizaciones y {w(s['referencias'])} referencias. Las diferencias de entradas, máscaras y presupuestos limitan su atribución exclusiva a la arquitectura. La dispersión de las semillas no acredita por sí sola la potencia objetivo de 0,80."
+    cuerpo=f"En el benchmark de referencia, {best.modelo} obtiene el menor MASE medio ({dec(best.MASE,4)}); su MAE es {dec(best.MAE/1e6,4)} GWh por intervalo. El orden descriptivo comienza por {ranking}. "+mcs(s)+'\n\n'+texto(s)+f"\n\nLa comparación reúne {w(n)} procedimientos aprendidos, {s['realizaciones']} realizaciones y {w(s['referencias'])} referencias. Las diferencias de entradas, máscaras y presupuestos limitan su atribución exclusiva a la arquitectura. La dispersión de las semillas no acredita por sí sola la potencia objetivo de 0,80."
     r['discusion']='## Discusión\n\n'+cuerpo;r['sintesis']='## Evaluación conjunta de arquitecturas\n\n'+cuerpo
     r['timesnet']=f"### Protocolo de inferencia de TimesNet\n\nLa selección y la parada interna conservan las métricas registradas con lote {s['timesnet_lote_desarrollo']}; la prueba y las perturbaciones se calculan por origen con lote {s['timesnet_lote_prueba']}. La selección de frecuencias de TimesBlock depende del lote. Por tanto, la diferencia entre errores de desarrollo y prueba combina cambio de periodo y cambio de condiciones de inferencia. Las curvas describen el ajuste registrado."
     r['seleccion']=f"## Entrenamiento, selección y precisión del piloto\n\nLa tabla reúne los presupuestos de los {w(n)} procedimientos y las semillas finales. Los filtros, finalistas, años externos y condiciones de parada se conservan en los registros de selección. Los {w(s['pilotos'])} pilotos externos y los {w(s['procedimientos_parada'])} análisis de parada interna se identifican por separado; la selección utiliza exclusivamente desarrollo."
@@ -137,7 +137,7 @@ def textos(s):
         status='reduce' if row.relativa_pct<0 else 'aumenta'
         verdict='con diferencia temporal detectada' if row.p_DM_Holm_texto<.05 else 'sin diferencia temporal demostrada'
         changes.append(f"{names[row.A]} {status} el MAE {dec(abs(row.relativa_pct),2)} % frente a su control, {verdict}")
-    r['sintesis']=f"## Evaluación conjunta de arquitecturas\n\nLa evaluación incluye {w(n)} procedimientos aprendidos y {s['realizaciones']} realizaciones. El menor MASE medio corresponde a {best.modelo} ({dec(best.MASE,4)}). "+mcs(s)+'\n\n'+'; '.join(changes)+'. Las entradas y los presupuestos distintos limitan la atribución exclusiva a la arquitectura. La sensibilidad al contenido y la comparación entre procedimientos mantienen interpretaciones separadas.'
+    r['sintesis']=f"## Evaluación conjunta de arquitecturas\n\nEl benchmark de referencia incluye {w(n)} procedimientos aprendidos y {s['realizaciones']} realizaciones. El menor MASE medio corresponde a {best.modelo} ({dec(best.MASE,4)}). "+mcs(s)+'\n\n'+'; '.join(changes)+'. Las entradas y los presupuestos distintos limitan la atribución exclusiva a la arquitectura. La sensibilidad al contenido y la comparación entre procedimientos mantienen interpretaciones separadas.'
     if 'nuevo_nbeats__N' in names and 'mlp' in names:
         bench=t['benchmark'].set_index('clave');nv=bench.loc['nuevo_nbeats__N'];mv=bench.loc['mlp'];rel=100*(nv.MASE/mv.MASE-1)
         direction='mayor' if rel>0 else 'menor'
@@ -172,7 +172,10 @@ def actualizar_celdas(root,cells,capitulo='10_evaluacion',estado=None):
     s=estado or cargar(root);v=textos(s);w=palabras;n=s['procedimientos'];p=s['_p']
     from coherencia_documental import PREFIJOS as prefijos_cobertura,sin_repeticiones,actualizar_descargas,actualizar_codigo
     prefijos={**PREFIJOS,**prefijos_cobertura}
-    evalnum=len(json.loads((Path(root)/'results/arquitecturas_e2/indice_documentacion.json').read_text(encoding='utf8')))+2
+    import yaml
+    toc=yaml.safe_load((Path(root)/'book/_toc.yml').read_text(encoding='utf-8'))
+    model_sections=next(c['sections'] for c in toc['chapters'] if c['file']=='10_modelos')
+    evalnum=next(i for i,section in enumerate(model_sections,1) if section['file']=='10_evaluacion')
     for c in cells:
         if c.cell_type=='code':
             c.source=actualizar_codigo(c.source)
@@ -206,7 +209,7 @@ def actualizar_celdas(root,cells,capitulo='10_evaluacion',estado=None):
                 c.source=f'''(evaluacion-e2)=
 # 10.{evalnum}. Resultados y evaluación integrada
 
-Se comparan {w(n)} procedimientos aprendidos con {w(s['semillas'])} semillas cada uno ({s['realizaciones']} realizaciones), además de {w(s['referencias'])} referencias deterministas. PatchTST se contabiliza una vez y TGForecaster incorpora las variantes N y N+O.
+El benchmark de referencia compara {w(n)} procedimientos aprendidos con {w(s['semillas'])} semillas cada uno ({s['realizaciones']} realizaciones), además de {w(s['referencias'])} referencias deterministas. PatchTST se contabiliza una vez y TGForecaster incorpora las variantes N y N+O.
 
 La evaluación cubre {s['origenes']} orígenes diarios, de {s['inicio_prueba']} a {s['fin_prueba']}. La pérdida por origen promedia el error absoluto de sus {s['horizonte']} horas, dividido por q168={dec(p['q168'],8)} kWh. Se promedian las pérdidas de las {w(s['semillas'])} semillas, conservando el estimando de error individual.
 
@@ -237,7 +240,7 @@ La incertidumbre temporal utiliza bootstrap circular pareado de {p['bloque_dias'
 
 El capítulo presenta primero la composición matemática de los modelos y sus pipelines de entrenamiento y prueba. Después reúne resultados, incertidumbre y diagnósticos en una evaluación integrada.
 
-Se comparan {w(n)} procedimientos completados, {s['realizaciones']} realizaciones y {w(s['referencias'])} referencias estacionales. Las fichas distinguen entradas, mecanismos y presupuestos de ajuste.
+El benchmark de referencia reúne {w(n)} procedimientos completados, {s['realizaciones']} realizaciones y {w(s['referencias'])} referencias estacionales. Las fichas distinguen entradas, mecanismos y presupuestos de ajuste.
 
 ## Secuencia de lectura
 
@@ -251,7 +254,8 @@ La {{ref}}`notación y las operaciones compartidas <fundamentos-arquitecturas>` 
     if capitulo=='10_evaluacion' and not any(c.metadata.get('resultado_documental')=='timesnet' for c in cells):
         i=next((i for i,c in enumerate(cells) if c.cell_type=='markdown' and c.source.startswith('## Validación y generalización')),len(cells))
         cells.insert(i,nb.v4.new_markdown_cell(v['timesnet'],metadata={'resultado_documental':'timesnet'}))
-    return cells
+    from revision_e3_documental import armonizar_celdas
+    return armonizar_celdas(root,cells,capitulo)
 
 
 def revision(root,s):
@@ -373,8 +377,14 @@ La {download}`revisión vigente <_static/resultados/revision_documental/revision
         if nb.writes(n)!=antes:nb.write(n,path)
     intro=root/'book/intro.md';text=intro.read_text(encoding='utf8');text=re.sub(r'(?<=junto con )\w+ procedimientos de pronóstico',f"{palabras(s['procedimientos'])} procedimientos de pronóstico",text);intro.write_text(text,encoding='utf8')
     for script in ['narrativa_resultados.py','integrar_top10.py','coherencia_documental.py']:shutil.copy2(root/'scripts'/script,root/'book/_static/codigo_e2'/script)
+    from integrar_m4_resultados import aplicar as integrar_propuesta_m4
+    integrar_propuesta_m4(root)
     reporte=revision(root,s)
     actualizar_contexto(root,s,reporte)
+    from revision_e3_documental import aplicar as revisar_e3
+    revisar_e3(root)
+    from integrar_cierre_e3 import aplicar as completar_cierre_e3
+    completar_cierre_e3(root)
     return reporte
 
 if __name__=='__main__':

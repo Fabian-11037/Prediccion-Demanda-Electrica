@@ -1,0 +1,11 @@
+{
+  "scopus_current_publication_ids": 615,
+  "wos_current_records": 293,
+  "current_total_before_cross_database_dedup": 908,
+  "inherited_scopus_count": 562,
+  "inherited_wos_count": 293,
+  "inherited_total": 855,
+  "scopus_difference": 53,
+  "reconciled_by_record": false,
+  "note": "Current Scopus export has 615 distinct publication links and 615 ABSTRACT labels; inherited inventory records 562. Do not present inherited PRISMA as a newly reconciled flow."
+}

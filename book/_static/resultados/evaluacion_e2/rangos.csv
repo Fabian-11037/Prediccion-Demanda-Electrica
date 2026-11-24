@@ -1,0 +1,16 @@
+clave,modelo,rango
+repo_nhits_numerico_r1__N,N-HiTS · N,13.0
+adj_modelo3_20261115_0419__N,TFT · N,13.0
+adj_modelo4_20261114_1224__N,TCN · N,10.0
+adj_modelo5_20261114_1327__N,iTransformer · N,5.4
+adj_modelo6_20261112_1035__N,PatchTST · N,2.6
+adj_modelo6_20261112_1035__N+O,TaTS adaptado · N+O,2.2
+adj_fusion_tardia_20261113_1728__N+O,Fusión tardía · N+O,4.4
+adj_modelo7_20261114_0430__N,TGForecaster · N,11.2
+adj_modelo7_20261114_0430__N+O,TGForecaster · N+O,13.4
+nuevo_nbeats__N,N-BEATS · N,10.4
+nuevo_timesnet__N,TimesNet · N,1.2
+mlp,MLP,5.2
+lstm,LSTM,12.6
+cnn1d,CNN1D,7.6
+arx_lineal,ARX,7.8

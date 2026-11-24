@@ -1,0 +1,17 @@
+{
+  "modelo": "nuevo_timesnet__N",
+  "semilla": 1000,
+  "n_mediciones": 100,
+  "mediana_ms": 25.413100025616586,
+  "p95_ms": 29.834439954720438,
+  "parametros_almacenados": 328266,
+  "bytes_parametros": 1313064,
+  "FLOPs_operadores_cubiertos": 574256697,
+  "RSS_base_bytes": 569835520,
+  "RSS_max_observado_bytes": 570454016,
+  "RSS_incremento_observado_bytes": 618496,
+  "frecuencia_muestreo_ms": 1,
+  "threads": 1,
+  "preparacion_incluida": false,
+  "alcance": "Proceso aislado por modelo; forward CPU, batch1 y banco temporal; M4 incluye expertos+M1+memoria; RSS total incluye datos/runtime; FLOPs parciales"
+}

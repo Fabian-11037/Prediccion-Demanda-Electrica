@@ -11,4 +11,5 @@ parse:
 sphinx:
   config:
     language: es
+    html_css_files: [estilo_academico.css]
     suppress_warnings: ["myst.header"]

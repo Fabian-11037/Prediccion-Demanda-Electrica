@@ -1,0 +1,3 @@
+modelo,semilla,n_mediciones,mediana_ms,p95_ms,parametros_almacenados,bytes_parametros,FLOPs_operadores_cubiertos,RSS_base_bytes,RSS_max_observado_bytes,RSS_incremento_observado_bytes,frecuencia_muestreo_ms,threads,preparacion_incluida,alcance
+m4_n,101,100,8.783299999777228,11.4832800172735,963490,3853960,158539752,595935232,596271104,335872,1,1,False,"Proceso aislado por modelo; forward CPU, batch1 y banco temporal; M4 incluye expertos+M1+memoria; RSS total incluye datos/runtime; FLOPs parciales"
+nuevo_timesnet__N,1000,100,25.413100025616586,29.834439954720438,328266,1313064,574256697,569835520,570454016,618496,1,1,False,"Proceso aislado por modelo; forward CPU, batch1 y banco temporal; M4 incluye expertos+M1+memoria; RSS total incluye datos/runtime; FLOPs parciales"

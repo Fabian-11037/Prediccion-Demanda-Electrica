@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>11. Síntesis del análisis exploratorio &#8212; Pronóstico de la demanda eléctrica del SIN colombiano</title>
+    <title>11. Conclusiones &#8212; Pronóstico de la demanda eléctrica del SIN colombiano</title>
   
   
   
@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/estilo_academico.css?v=b05080bc" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -66,7 +67,7 @@
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
     <link rel="next" title="12. Reproducibilidad y procedencia" href="12_reproducibilidad.html" />
-    <link rel="prev" title="10.16. Resultados y evaluación integrada" href="10_evaluacion.html" />
+    <link rel="prev" title="10.17. Resultados y evaluación integrada" href="10_evaluacion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   <meta name="docsearch:version" content="" />
@@ -227,7 +228,7 @@
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Datos, modelos y protocolo temporal</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -246,10 +247,11 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/m4_n.html">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.17. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Síntesis del análisis exploratorio</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Conclusiones</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fuentes.html">Fuentes y fundamento metodológico</a></li>
 </ul>
@@ -387,7 +389,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>11. Síntesis del análisis exploratorio</h1>
+    <h1>11. Conclusiones</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -401,6 +403,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-y-amenazas-a-la-validez">Alcance y amenazas a la validez</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencia-con-demanda-y-calendario">Referencia con demanda y calendario</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-conjunta-de-arquitecturas">Evaluación conjunta de arquitecturas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">Memoria residual para el pronóstico de demanda</a></li>
 </ul>
             </nav>
         </div>
@@ -412,8 +415,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sintesis-del-analisis-exploratorio">
-<h1>11. Síntesis del análisis exploratorio<a class="headerlink" href="#sintesis-del-analisis-exploratorio" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="conclusiones">
+<h1>11. Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
@@ -500,8 +503,14 @@
 </section>
 <section id="evaluacion-conjunta-de-arquitecturas">
 <h2>Evaluación conjunta de arquitecturas<a class="headerlink" href="#evaluacion-conjunta-de-arquitecturas" title="Link to this heading">#</a></h2>
-<p>La evaluación incluye quince procedimientos aprendidos y 75 realizaciones. El menor MASE medio corresponde a TimesNet · N (0,6429). El MCS al 90 % retiene TimesNet · N. El conjunto está condicionado al periodo de prueba, a las cinco inicializaciones y al protocolo de remuestreo.</p>
+<p>El benchmark de referencia incluye quince procedimientos aprendidos y 75 realizaciones. El menor MASE medio corresponde a TimesNet · N (0,6429). El MCS al 90 % retiene TimesNet · N. El conjunto está condicionado al periodo de prueba, a las cinco inicializaciones y al protocolo de remuestreo.</p>
 <p>TaTS adaptado · N+O reduce el MAE 0,61 % frente a su control, sin diferencia temporal demostrada; Fusión tardía · N+O aumenta el MAE 4,65 % frente a su control, con diferencia temporal detectada; TGForecaster · N+O aumenta el MAE 12,02 % frente a su control, con diferencia temporal detectada. Las entradas y los presupuestos distintos limitan la atribución exclusiva a la arquitectura. La sensibilidad al contenido y la comparación entre procedimientos mantienen interpretaciones separadas.</p>
+</section>
+<section id="memoria-residual-para-el-pronostico-de-demanda">
+<h2>Memoria residual para el pronóstico de demanda<a class="headerlink" href="#memoria-residual-para-el-pronostico-de-demanda" title="Link to this heading">#</a></h2>
+<p>M4ₙ alcanza MASE 0,5770 en los 1.461 orígenes de 2022–2025, frente a 0,6429 de TimesNet, el menor error del Top 10. La reducción relativa es 10,25 %. El MCS del 90 % que incorpora dieciocho procedimientos retiene únicamente a M4ₙ. Las tres pruebas temporales respaldan diferencias favorables en las comparaciones presentadas, con control de multiplicidad y pérdidas individuales promediadas entre semillas.</p>
+<p>La actualización causal de cuantiles obtiene una cobertura horaria empírica de 89,51 % al nivel nominal del 90 %, con ancho medio 0,489 GWh. La calibración inicial procede de la reserva utilizada para seleccionar el checkpoint; la cobertura se interpreta como evidencia empírica temporal.</p>
+<p>La demanda histórica domina la importancia por sustitución. La jerarquía de sensibilidad del contexto es más estable que la identidad de los episodios recuperados. La compuerta y la atención permiten examinar cómo interviene la memoria, sin atribuir causalidad a las variables o vecinos. La comparación caracteriza los procedimientos conservados: la desigualdad de presupuestos, las cinco semillas de los comparadores y la selección retrospectiva delimitan su generalización. La <a class="reference internal" href="10_evaluacion.html#evaluacion-m4-ampliada"><span class="std std-ref">evaluación ampliada</span></a> reúne métricas, intervalos, interpretabilidad y eficiencia.</p>
 </section>
 </section>
 
@@ -541,7 +550,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">10.16. Resultados y evaluación integrada</p>
+        <p class="prev-next-title">10.17. Resultados y evaluación integrada</p>
       </div>
     </a>
     <a class="right-next"
@@ -575,6 +584,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-y-amenazas-a-la-validez">Alcance y amenazas a la validez</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencia-con-demanda-y-calendario">Referencia con demanda y calendario</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-conjunta-de-arquitecturas">Evaluación conjunta de arquitecturas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">Memoria residual para el pronóstico de demanda</a></li>
 </ul>
   </nav></div>
 

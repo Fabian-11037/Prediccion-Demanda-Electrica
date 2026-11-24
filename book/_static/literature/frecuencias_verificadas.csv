@@ -1,0 +1,39 @@
+familia,estudios_puntuales,denominador_puntual,porcentaje_puntual,estudios_puntuales_sin_preprints,denominador_sin_preprints,estudios_ampliados,denominador_ampliado,ids_puntuales,ids_ampliados
+LSTM,7,16,43.75,6,14,9,19,crossborder_2026;d3net_2025;ghimire_2024;jaya_2020;selfsupervised_2024;stl_tcn_2023;ugurlu_2018,crossborder_2026;crossep_2026;d3net_2025;ghimire_2024;jaya_2020;kuo_2018;selfsupervised_2024;stl_tcn_2023;ugurlu_2018
+MLP/DNN,6,16,37.5,6,14,8,19,d3net_2025;ghimire_2024;lago_2018;lago_2021;selfsupervised_2024;ugurlu_2018,crossep_2026;d3net_2025;ghimire_2024;kuo_2018;lago_2018;lago_2021;selfsupervised_2024;ugurlu_2018
+CNN,2,16,12.5,2,14,4,19,d3net_2025;ugurlu_2018,crossep_2026;d3net_2025;kuo_2018;ugurlu_2018
+CNN-LSTM,2,16,12.5,2,14,2,19,d3net_2025;ghimire_2024,d3net_2025;ghimire_2024
+Transformer,2,16,12.5,1,14,3,19,crossborder_2026;rl_ensemble_2026,crossborder_2026;crossep_2026;rl_ensemble_2026
+CNN-LSTM-Attention,1,16,6.25,1,14,1,19,rl_ensemble_2026,rl_ensemble_2026
+Chronos Bolt,1,16,6.25,0,14,1,19,pretrained_2025,pretrained_2025
+Chronos T5,1,16,6.25,0,14,1,19,pretrained_2025,pretrained_2025
+Ensamble DNN,1,16,6.25,1,14,2,19,lago_2021,crossep_2026;lago_2021
+GRU,1,16,6.25,1,14,1,19,stl_tcn_2023,stl_tcn_2023
+LSTM-FFEC,1,16,6.25,1,14,1,19,less_more_2026,less_more_2026
+Mamba,1,16,6.25,0,14,1,19,crossborder_2026,crossborder_2026
+Moirai,1,16,6.25,0,14,1,19,pretrained_2025,pretrained_2025
+N-BEATSx,1,16,6.25,0,14,1,19,crossborder_2026,crossborder_2026
+N-HiTS,1,16,6.25,0,14,1,19,crossborder_2026,crossborder_2026
+RNN simple,1,16,6.25,1,14,1,19,selfsupervised_2024,selfsupervised_2024
+STL-CNN,1,16,6.25,1,14,1,19,d3net_2025,d3net_2025
+STL-CNN-LSTM,1,16,6.25,1,14,1,19,d3net_2025,d3net_2025
+STL-LSTM,1,16,6.25,1,14,1,19,d3net_2025,d3net_2025
+STL-MLP/DNN,1,16,6.25,1,14,1,19,d3net_2025,d3net_2025
+STL-TabNet,1,16,6.25,1,14,1,19,d3net_2025,d3net_2025
+TCN,1,16,6.25,1,14,1,19,rl_ensemble_2026,rl_ensemble_2026
+TCN-LSTM,1,16,6.25,1,14,1,19,stl_tcn_2023,stl_tcn_2023
+TFT,1,16,6.25,0,14,1,19,crossborder_2026,crossborder_2026
+TabNet,1,16,6.25,1,14,1,19,d3net_2025,d3net_2025
+TimeGPT,1,16,6.25,0,14,1,19,pretrained_2025,pretrained_2025
+TimeMoE,1,16,6.25,0,14,1,19,pretrained_2025,pretrained_2025
+TimesFM,1,16,6.25,0,14,1,19,pretrained_2025,pretrained_2025
+VMD-CNN-LSTM,1,16,6.25,1,14,1,19,ghimire_2024,ghimire_2024
+Chronos-2,0,16,0.0,0,14,1,19,,arbitrage_2026
+DDNN distribucional,0,16,0.0,0,14,1,19,,arbitrage_2026
+DLinear,0,16,0.0,0,14,1,19,,crossep_2026
+Informer,0,16,0.0,0,14,1,19,,crossep_2026
+Mitra+CP,0,16,0.0,0,14,1,19,,arbitrage_2026
+Moirai-2,0,16,0.0,0,14,1,19,,arbitrage_2026
+TabPFN,0,16,0.0,0,14,1,19,,arbitrage_2026
+TimesFM-2.5,0,16,0.0,0,14,1,19,,arbitrage_2026
+iTransformer,0,16,0.0,0,14,1,19,,crossep_2026

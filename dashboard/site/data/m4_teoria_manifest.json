@@ -1,0 +1,228 @@
+{
+  "fecha": "2026-11-23",
+  "modelo": "M4_N",
+  "alcance": "teoria y codigo; sin nuevos resultados",
+  "propuesta": "retrospectiva",
+  "entrenamiento_ejecutado": false,
+  "inferencia_ejecutada": false,
+  "publicacion_ejecutada": false,
+  "formulas": [
+    {
+      "file": "m4_n_formula_01.svg",
+      "latex": "\\delta_{E,t,h}=\\rho\\,\\mathrm{sigmoid}(g_E(u_{E,t})_h)\\,\\tanh(v_E(u_{E,t})_h),\\qquad\\rho=0.02."
+    },
+    {
+      "file": "m4_n_formula_02.svg",
+      "latex": "p^{(E)}_{t,h}=\\ell_t\\left(o_{E,0,t,h}+\\eta_t\\delta_{E,t,h}\\right)."
+    },
+    {
+      "file": "m4_n_formula_03.svg",
+      "latex": "Z_0=\\mathrm{Conv}_{1\\times1}(U),\\qquad U\\in\\mathbb{R}^{56\\times7\\times24},\\quad Z_0\\in\\mathbb{R}^{32\\times7\\times24}."
+    },
+    {
+      "file": "m4_n_formula_04.svg",
+      "latex": "Z_{b+1}=\\mathrm{GroupNorm}\\left(Z_b+\\mathrm{Conv}_{1\\times5}\\left(D_{0.1}\\left(\\mathrm{GELU}(\\mathrm{Conv}_{3\\times3}(Z_b))\\right)\\right)\\right)."
+    },
+    {
+      "file": "m4_n_formula_05.svg",
+      "latex": "p^{(P)}_{t,h}=\\ell_t\\left(1+\\mathrm{MLP}\\left([Z_{B,\\mathrm{ultimo},h};\\overline{Z}_{B,h};c_{t,h}]\\right)\\right)."
+    },
+    {
+      "file": "m4_n_formula_06.svg",
+      "latex": "b_{t,h}=\\sum_{j=1}^{3}w_{t,h,j}\\,p^{(j)}_{t,h},\\qquad w_{t,h,j}\\geq0,\\quad\\sum_{j=1}^{3}w_{t,h,j}=1."
+    },
+    {
+      "file": "m4_n_formula_07.svg",
+      "latex": "r_{i,h}=\\frac{y_{i,h}-b_{i,h}}{q},\\qquad h=1,\\ldots,24."
+    },
+    {
+      "file": "m4_n_formula_08.svg",
+      "latex": "z_{t,j}=\\frac{u_{t,j}-\\mu_j}{s_j}."
+    },
+    {
+      "file": "m4_n_formula_09.svg",
+      "latex": "a_t=\\mathrm{LN}(W_Qz_t+c_Q),\\qquad k_i=\\mathrm{LN}(W_Kz_i+c_K)."
+    },
+    {
+      "file": "m4_n_formula_10.svg",
+      "latex": "s_{t,i}=\\frac{a_t^\\mathsf{T}k_i}{\\sqrt{32}}."
+    },
+    {
+      "file": "m4_n_formula_11.svg",
+      "latex": "2\\leq t-i\\leq365\\ \\mathrm{dias}."
+    },
+    {
+      "file": "m4_n_formula_12.svg",
+      "latex": "\\alpha_{t,i}=\\frac{\\exp(s_{t,i})}{\\sum_{j\\in A_t}\\exp(s_{t,j})},\\qquad i\\in A_t."
+    },
+    {
+      "file": "m4_n_formula_13.svg",
+      "latex": "m_{t,h}=\\sum_{i\\in A_t}\\alpha_{t,i}r_{i,h}."
+    },
+    {
+      "file": "m4_n_formula_14.svg",
+      "latex": "d_t=\\sqrt{\\max\\left(10^{-12},\\frac{1}{24}\\sum_{h=1}^{24}\\sum_{i\\in A_t}\\alpha_{t,i}(r_{i,h}-m_{t,h})^2\\right)}."
+    },
+    {
+      "file": "m4_n_formula_15.svg",
+      "latex": "v_t=\\mathrm{GELU}(W_1c_t+b_1),\\qquad g_t=\\mathrm{sigmoid}(W_2D_{0.1}(v_t)+b_2)."
+    },
+    {
+      "file": "m4_n_formula_16.svg",
+      "latex": "\\widehat y_{t,h}=b_{t,h}+q\\,g_t\\,m_{t,h}."
+    },
+    {
+      "file": "m4_n_formula_17.svg",
+      "latex": "\\mathcal{L}=\\frac{1}{24|B|}\\sum_{t\\in B}\\sum_{h=1}^{24}\\frac{|y_{t,h}-\\widehat y_{t,h}|}{q}."
+    },
+    {
+      "file": "m4_n_formula_18.svg",
+      "latex": "P_{\\mathrm{activo}}=2(32n+32+64)+(36\\cdot64+64+64+1)=64n+2625."
+    },
+    {
+      "file": "m4_n_formula_19.svg",
+      "latex": "\\|\\Delta(x)-\\Delta(x')\\|_\\infty\\leq qR\\left(|g(x)-g(x')|+\\|\\alpha(x)-\\alpha(x')\\|_1\\right)."
+    },
+    {
+      "file": "m4_n_formula_20.svg",
+      "latex": "\\Delta(x)-\\Delta(x')=q\\,(g(x)-g(x'))\\sum_i\\alpha_i(x)r_i+q\\,g(x')\\sum_i(\\alpha_i(x)-\\alpha_i(x'))r_i."
+    },
+    {
+      "file": "m4_n_formula_21.svg",
+      "latex": "\\frac{\\partial\\mathcal{L}}{\\partial g}=q\\sum_hv_h\\bar{r}_h,\\qquad\n\\frac{\\partial\\bar{r}_h}{\\partial s_i}=\\alpha_i(r_{i,h}-\\bar{r}_h)."
+    },
+    {
+      "file": "m4_n_formula_22.svg",
+      "latex": "\\frac{\\partial\\mathcal{L}}{\\partial s_i}\n=q\\sum_hv_h\\left[g\\alpha_i(r_{i,h}-\\bar{r}_h)+\\bar{r}_h\\frac{\\partial g}{\\partial s_i}\\right]."
+    },
+    {
+      "file": "m4_n_formula_23.svg",
+      "latex": "|\\widehat{y}_h-b_h|\\leq qg\\sum_i\\alpha_i|r_{i,h}|\\leq qg\\max_i|r_{i,h}|."
+    }
+  ],
+  "formulas_en_linea": [
+    {
+      "file": "m4_n_inline_001.svg",
+      "latex": "b_t"
+    },
+    {
+      "file": "m4_n_inline_002.svg",
+      "latex": "o_{E,0,t}"
+    },
+    {
+      "file": "m4_n_inline_003.svg",
+      "latex": "u_{E,t}"
+    },
+    {
+      "file": "m4_n_inline_004.svg",
+      "latex": "v_E"
+    },
+    {
+      "file": "m4_n_inline_005.svg",
+      "latex": "g_E"
+    },
+    {
+      "file": "m4_n_inline_006.svg",
+      "latex": "\\eta_t"
+    },
+    {
+      "file": "m4_n_inline_007.svg",
+      "latex": "\\ell_t"
+    },
+    {
+      "file": "m4_n_inline_008.svg",
+      "latex": "0,02\\,\\eta_t\\,\\ell_t"
+    },
+    {
+      "file": "m4_n_inline_009.svg",
+      "latex": "v_E"
+    },
+    {
+      "file": "m4_n_inline_010.svg",
+      "latex": "b_t"
+    },
+    {
+      "file": "m4_n_inline_011.svg",
+      "latex": "y_i"
+    },
+    {
+      "file": "m4_n_inline_012.svg",
+      "latex": "b_i"
+    },
+    {
+      "file": "m4_n_inline_013.svg",
+      "latex": "u_t"
+    },
+    {
+      "file": "m4_n_inline_014.svg",
+      "latex": "g_t"
+    },
+    {
+      "file": "m4_n_inline_015.svg",
+      "latex": "c_t"
+    },
+    {
+      "file": "m4_n_inline_016.svg",
+      "latex": "g_t"
+    },
+    {
+      "file": "m4_n_inline_017.svg",
+      "latex": "m_{t,h}"
+    },
+    {
+      "file": "m4_n_inline_018.svg",
+      "latex": "g_t"
+    },
+    {
+      "file": "m4_n_inline_019.svg",
+      "latex": "v_h=\\mathrm{sign}(\\widehat{y}_h-y_h)/(24q)"
+    },
+    {
+      "file": "m4_n_inline_020.svg",
+      "latex": "\\bar{r}_h=\\sum_i\\alpha_i r_{i,h}"
+    },
+    {
+      "file": "m4_n_inline_021.svg",
+      "latex": "\\widehat{y}_h=b_h+qg\\bar{r}_h"
+    },
+    {
+      "file": "m4_n_inline_022.svg",
+      "latex": "g=\\sigma(f)"
+    },
+    {
+      "file": "m4_n_inline_023.svg",
+      "latex": "\\partial g/\\partial f=g(1-g)"
+    },
+    {
+      "file": "m4_n_inline_024.svg",
+      "latex": "0\\leq g\\leq1"
+    },
+    {
+      "file": "m4_n_inline_025.svg",
+      "latex": "|\\Delta\\widehat{y}_h|\\leq qg\\max_i|\\Delta r_{i,h}|"
+    },
+    {
+      "file": "m4_n_inline_026.svg",
+      "latex": "\\|W\\|_2\\|\\gamma\\|_\\infty/\\sqrt{\\epsilon}"
+    }
+  ],
+  "sha256_fuentes": {
+    "book/arquitecturas/m4_n.md": "f0dcb6f434cb0ab43c5e63eb208d5188d087318464cf47bf81f7ba174a18bcfd",
+    "book/_toc.yml": "d9e7b27cb8293890c85f3e443d62d5787cb334854ff88b0fc5427c86f8b7f0e9",
+    "book/_static/codigo_e3/m4/e3_gpu_comun.py": "96d061911af2c612b5c77b44a24b227685dd6477591f7afc31d8a7515a1cc3a1",
+    "book/_static/codigo_e3/m4/e3_modelo1.py": "69bf2675f3f44ce36274ef12f644eae05443cc931c8af5b31694b97ab8a5b74c",
+    "book/_static/codigo_e3/m4/e3_modelo3.py": "b25f2c28496e35f38dc3c98dbe7c638620a6415f6382c104fd4ec7d850e1be16",
+    "book/_static/codigo_e3/m4/e3_modelo4.py": "7a473d5419c74561e4ae724a718f2a86d93ccbebc15e15c4e05750b7b6997b58",
+    "book/_static/codigo_e3/m4/esquemas_m4_n.py": "1eef0a804523d11647a99ece3f170bdeed309e7e8da413280f1915138aa7e278",
+    "book/_static/codigo_e3/m4/experto_e.py": "89fcf7793497ec50913a52bc6dca6c4df051f71aef123d0ec597b19cb0f0dea9",
+    "book/_static/codigo_e3/m4/experto_periodico.py": "2312d5e5ac1f6b138083030cb43c44490397d10401b6050f275abce66560db46",
+    "book/_static/codigo_e3/m4/integrar_m4_resultados.py": "630c988e64e1beca5c49f67617c15336ea0b839c5b87fb6145e1b2d309d05a45",
+    "book/_static/codigo_e3/m4/motor_m4_n.py": "4ed9719f035187923f89b65a9045a340d4cb8cda78201f076ca1cf1e57178505",
+    "book/_static/codigo_e3/m4/pipeline_m4_n.py": "083c8d2ab6506e9752cf20c92ad225ae1a9c35d44386cc42558b303c2bbe3255",
+    "book/_static/codigo_e3/m4/test_m4_gpu.py": "032910ad48e1386d1aea4ce21a85df48d17c481bcec7f73af1cc681207bd9b9c",
+    "book/_static/arquitecturas_presentacion/m4_n_global.png": "f2a4d11addb49f253056147b2f79de2840e5d569525bcc739061897c7037e1d8",
+    "book/_static/arquitecturas_presentacion/m4_n_detalle.png": "d339e3f775edb8d382b1dc2d26689d67784b080af7b4e69c972d054d3e0014c0",
+    "book/_static/arquitecturas_presentacion/m4_n_experto_e.png": "72c57540f8677e58c20af080e27d154d1d5e9c685ded1f8a6190ae96620c1bbc",
+    "book/_static/arquitecturas_presentacion/m4_n_experto_periodico.png": "0c67e64d01e510910056a3bca92b22b144da72d83195eee99b2326070ed4e7c6"
+  }
+}

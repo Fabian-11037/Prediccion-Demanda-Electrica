@@ -39,3 +39,13 @@ export function validationTestRows(study){
   return {id:model.id,name:model.name,period:model.validation_period,validation:model.validation,test:result.MASE};
  }).sort((a,b)=>a.test-b.test);
 }
+
+// Regla conjunta: los tres contrastes guardados deben rechazar al mismo nivel.
+export function m4AdjustedP(tests,comparatorId,margin=0){
+ const methods=['bootstrap_estacionario','DM_HLN','GW_bilateral'];
+ const values=methods.map(method=>{
+  const rows=tests.filter(r=>r.comparator_id===comparatorId&&r.metodo===method&&r.margen_relativo===margin);
+  return rows.length===1?(rows[0].p_holm_cota_familia1536??rows[0].p_ajustado):null;
+ });
+ return values.every(p=>Number.isFinite(p)&&p>=0&&p<=1)?Math.max(...values):null;
+}

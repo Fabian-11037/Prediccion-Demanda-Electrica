@@ -1,0 +1,50 @@
+{
+  "fecha": "2026-11-24",
+  "entrenamiento": false,
+  "semilla": 20261124,
+  "block_days": 14,
+  "bootstrap_reps": 9999,
+  "mcs_reps": 10000,
+  "mcs_size": 0.1,
+  "mcs_method": "R",
+  "hac_lags": 13,
+  "margins": [
+    0,
+    0.03
+  ],
+  "calibration_year": 2021,
+  "calibration_role": "Reserva usada para selección de checkpoint; cobertura empírica, sin garantía split-conformal independiente",
+  "interval_levels": [
+    0.8,
+    0.9,
+    0.95
+  ],
+  "rolling_days": 365,
+  "availability_lag_days": 2,
+  "main_interval": "Por horizonte, ventana móvil causal; predicción media de diez semillas",
+  "fixed_interval": "Sensibilidad con cuantiles de 2021 fijos",
+  "correction": "Contrastes históricos Top10: conservar familia1536; familia adicional42: Holm separado",
+  "source_sha256": {
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\prueba\\M4_N_semilla_101.npz": "2f2144dcd766a6fd158d0e8f80933dfb2e7fe4749c08d4738083a1eaa3129c5c",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\prueba\\M4_N_semilla_102.npz": "b5cfd672ea841f37487806a1b6137825dc780f1ce4859a118ab504c21b29baff",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\prueba\\M4_N_semilla_103.npz": "084e199783e1a900a2c26041672873cb3b408e6cf9514abcb6e7d54691a85923",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\prueba\\M4_N_semilla_104.npz": "79f287ca8fa6ea2637e5c0fa13853b27dfe18538d57a4ac3df9f5f0929bfbfad",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\prueba\\M4_N_semilla_105.npz": "2cc924e3c33701c93f777b9e7ef623a419e4be2cbfdb367476c6845f25b86a40",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\prueba\\M4_N_semilla_106.npz": "55a97b92a764960dd6d310cf6cb4a39ab550c5423c93f0b609a8f09babb13f24",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\prueba\\M4_N_semilla_107.npz": "0ca30b1e5e7f82084bf9c5e1a8f5457bc3eb0aa84c22bf48848c0d66012e37ed",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\prueba\\M4_N_semilla_108.npz": "36d94fd016f44c5f72f079df346e61a4d9f1144843e1a493e44e49bdc85b6181",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\prueba\\M4_N_semilla_109.npz": "e4d96df0a980bf53dc43d84703b2025ed8d22a9e8797c2665f65435204c24578",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\prueba\\M4_N_semilla_110.npz": "10116977fff4e94eb2c756a9ad13850f54868ee0342eb6f13457faa948f0d99d",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\final\\M4_N\\semilla_101\\modelo.pt": "59960de2aed91cc921cdf25d8586069c8e855ab046c2e3ec31295f02662a76d7",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\final\\M4_N\\semilla_102\\modelo.pt": "36ffefc91a92436aba78c8bc91da3060b70cf87714264d609884bda6184662eb",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\final\\M4_N\\semilla_103\\modelo.pt": "3a2377fb44237821eadca8ee82bf8ca6b3d33e26a6fd99f9eab2e927f03d32e0",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\final\\M4_N\\semilla_104\\modelo.pt": "b4e2f1bb597c662e60f55498275c61d805fe50a20d3f96647758f7bfe64f3918",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\final\\M4_N\\semilla_105\\modelo.pt": "21681f220d8ef7ba6b4589e7d99e3d12d6860717879d87c938997336763bb442",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\final\\M4_N\\semilla_106\\modelo.pt": "ed77ebd362119a0e77e0f4ef158172ce0589b9053d671fc8272e84d45a779012",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\final\\M4_N\\semilla_107\\modelo.pt": "83444e7930d235f8612c424e228c07bcd8f8501ff3b1e53977f9e05e37105b18",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\final\\M4_N\\semilla_108\\modelo.pt": "e9ad1e256ba91f7700e993845775ed98d735b0835a4cd009a9a8371ec3d68992",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\final\\M4_N\\semilla_109\\modelo.pt": "869a0c7d2be25a9df9ff3e4a917fe3207dc8349ba823f3ae0ef60c555a2dc8a3",
+    "results\\m4_cierre_gpu_20261123\\reducido_B\\colombia\\final\\M4_N\\semilla_110\\modelo.pt": "912a5cef01aa07f2b72180a5cadf3abdd9e821988ebbeed91caba4b8aa5c9274",
+    "results\\evaluacion_e2\\perdidas_y_bootstrap.npz": "53ae3aebb73efad037c348e13aeafff79e823ce9c3cbf8eaa8e08fbea20af23d"
+  }
+}

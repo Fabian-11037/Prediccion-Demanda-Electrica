@@ -1,0 +1,979 @@
+<article class="m4-theory"><p>M4<sub>N</sub> complementa un pronóstico de demanda con los errores que ese mismo sistema cometió en situaciones históricas comparables. La idea es sencilla: si un modelo suele subestimar la demanda ante cierto contexto, esos errores pueden orientar una corrección cuando reaparece un contexto parecido. La semejanza, la combinación de episodios y la intensidad de la corrección se aprenden con datos anteriores al periodo evaluado.</p>
+<h2>Del pronóstico base a la corrección</h2>
+<p>El origen t es el día en que se emite el pronóstico y h identifica una de sus 24 horas. M1 es la combinación aprendida de PatchTST, el experto E y el experto periódico; su pronóstico constituye la base que corrige M4<sub>N</sub>. Entrega una trayectoria <span class="m4-inline"><img src="./architectures/m4_n_inline_001.svg" alt="b_t"></span> de 24 valores en kWh. Los expertos y el combinador permanecen congelados al ajustar la memoria, que aprende a corregir los errores de esa combinación.</p>
+<h3>Experto E: demanda con corrección exógena acotada</h3>
+<p><strong>E</strong> es el identificador del experto numérico que separa el patrón principal de consumo de la contribución de las covariables. Su primera rama procesa únicamente la demanda histórica y el calendario mediante PatchTST. Divide las 168 horas en parches de 16 horas desplazados ocho horas, los proyecta a dimensión 32 y aplica tres capas de atención con cuatro cabezas. La lectura de demanda y una lectura de contexto con calendario producen una trayectoria normalizada de 24 horas, <span class="m4-inline"><img src="./architectures/m4_n_inline_002.svg" alt="o_{E,0,t}"></span>.</p>
+<p>La segunda rama incorpora precio, hidrología, clima y sus indicadores de ausencia. Para cada canal distinto de demanda reúne las últimas 24 horas y las siete medias diarias de la semana; añade el calendario conocido de las 24 horas del horizonte. Este vector, <span class="m4-inline"><img src="./architectures/m4_n_inline_003.svg" alt="u_{E,t}"></span>, resume tanto el estado reciente como el perfil semanal de las covariables.</p>
+<p>Dos perceptrones de ancho 32, con GELU y dropout 0,1, producen un valor propuesto <span class="m4-inline"><img src="./architectures/m4_n_inline_004.svg" alt="v_E"></span> y una compuerta <span class="m4-inline"><img src="./architectures/m4_n_inline_005.svg" alt="g_E"></span> para cada hora. La tangente hiperbólica limita la amplitud del valor propuesto y la sigmoid regula cuánto deja pasar la compuerta:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_01.svg" alt="\delta_{E,t,h}=\rho\,\mathrm{sigmoid}(g_E(u_{E,t})_h)\,\tanh(v_E(u_{E,t})_h),\qquad\rho=0.02."></div>
+<p>El indicador <span class="m4-inline"><img src="./architectures/m4_n_inline_006.svg" alt="\eta_t"></span> es la disponibilidad media que señalan las máscaras de ausencia en las últimas 24 horas. Una menor disponibilidad reduce la contribución exógena completa. Si <span class="m4-inline"><img src="./architectures/m4_n_inline_007.svg" alt="\ell_t"></span> es la demanda media de la ventana histórica en kWh, el pronóstico del experto es:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_02.svg" alt="p^{(E)}_{t,h}=\ell_t\left(o_{E,0,t,h}+\eta_t\delta_{E,t,h}\right)."></div>
+<p>La corrección exógena cambia la salida de la rama de demanda, como máximo, en <span class="m4-inline"><img src="./architectures/m4_n_inline_008.svg" alt="0,02\,\eta_t\,\ell_t"></span> por hora. Es una cota sobre la modificación del pronóstico, no sobre su error. La última capa de <span class="m4-inline"><img src="./architectures/m4_n_inline_009.svg" alt="v_E"></span> comienza en cero, de modo que la corrección exógena inicial es nula. La configuración conservada tiene 242.048 parámetros.</p>
+<p>E aporta a M1 una forma de incorporar las covariables con amplitud controlada. Su corrección depende del contexto numérico presente; la memoria de M4<sub>N</sub> utiliza, además, episodios de errores observados y actúa después de que M1 haya combinado a sus expertos.</p>
+<h4>Esquema del experto E</h4>
+<p><a href="./architectures/m4_n_experto_e.png"><img src="./architectures/m4_n_experto_e.png" alt="Arquitectura del experto E: base de demanda y calendario, valor y compuerta exógenos, disponibilidad y salida acotada" /></a></p>
+<p>La rama superior construye el pronóstico con demanda y calendario. La rama inferior resume las covariables y aprende una corrección de 24 horas, regulada por dos factores: una compuerta por hora y la disponibilidad de las entradas. La amplitud ρ=0,02 limita esa corrección en la escala normalizada; la multiplicación final por el nivel histórico recupera los kWh. El experto E entrega su salida al combinador M1, antes de la corrección de memoria de M4<sub>N</sub>.</p>
+<h3>Experto periódico: convoluciones sobre días y horas</h3>
+<p>El <strong>experto periódico</strong> es la red <code>Periodica7x24</code>. Ordena la historia en una matriz con siete filas —los días anteriores— y 24 columnas —las horas de cada día—. De esta forma, las observaciones de horas próximas y las de días próximos tienen posiciones vecinas y pueden relacionarse mediante filtros bidimensionales.</p>
+<p>Su entrada concatena las 30 variables históricas, tres máscaras de ausencia y las 23 variables de calendario pasado. El tensor resultante tiene 56 canales de 7×24 posiciones. Una convolución 1×1 mezcla los canales y produce 32 mapas de características:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_03.svg" alt="Z_0=\mathrm{Conv}_{1\times1}(U),\qquad U\in\mathbb{R}^{56\times7\times24},\quad Z_0\in\mathbb{R}^{32\times7\times24}."></div>
+<p>Se aplican dos bloques residuales. Cada bloque usa una convolución 3×3, GELU, dropout 0,1 y una convolución 1×5. La primera combina información entre días y horas; la segunda refina patrones a lo largo de las horas. La suma residual conserva la representación que ya existía y GroupNorm normaliza el resultado de cada muestra:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_04.svg" alt="Z_{b+1}=\mathrm{GroupNorm}\left(Z_b+\mathrm{Conv}_{1\times5}\left(D_{0.1}\left(\mathrm{GELU}(\mathrm{Conv}_{3\times3}(Z_b))\right)\right)\right)."></div>
+<p>Para cada hora futura, la lectura reúne dos descripciones de 32 componentes: la fila del último día y la media de las siete filas en esa hora. Añade los 23 valores de calendario futuro, formando 87 entradas. Un perceptrón 87→32→1, con GELU y dropout, genera una desviación respecto del nivel histórico:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_05.svg" alt="p^{(P)}_{t,h}=\ell_t\left(1+\mathrm{MLP}\left([Z_{B,\mathrm{ultimo},h};\overline{Z}_{B,h};c_{t,h}]\right)\right)."></div>
+<p>La salida se calcula para las 24 horas con la misma función de lectura, condicionada al calendario de cada hora. La última capa comienza en cero, por lo que la red inicia pronosticando el nivel de la ventana. La configuración conservada utiliza dos bloques de ancho 32 y tiene 33.601 parámetros. Los periodos diario y semanal se fijan mediante la organización 7×24; la red aprende los filtros y las desviaciones, sin estimar periodos mediante una transformada de Fourier.</p>
+<h4>Esquema del experto periódico</h4>
+<p><a href="./architectures/m4_n_experto_periodico.png"><img src="./architectures/m4_n_experto_periodico.png" alt="Arquitectura del experto periódico: organización 7×24, convoluciones residuales y lectura horaria" /></a></p>
+<p>La organización 7×24 mantiene separadas las posiciones de días y horas. Los bloques residuales conservan esa forma mientras aprenden relaciones locales; la lectura combina el último día, la media semanal por hora y el calendario del horizonte. La misma función de lectura produce las 24 salidas y el nivel histórico las devuelve a kWh.</p>
+<h3>Cómo M1 combina los tres expertos</h3>
+<p>PatchTST, E y el periódico producen cada uno 24 pronósticos de la misma demanda. M1 aprende un peso para cada experto y hora, condicionado al contexto numérico y a sus representaciones de complementariedad. Softmax hace que los tres pesos sean no negativos y sumen uno:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_06.svg" alt="b_{t,h}=\sum_{j=1}^{3}w_{t,h,j}\,p^{(j)}_{t,h},\qquad w_{t,h,j}\geq0,\quad\sum_{j=1}^{3}w_{t,h,j}=1."></div>
+<p>La combinación puede dar mayor peso a E en unas horas y al periódico en otras. Su papel es integrar perspectivas distintas: PatchTST relaciona parches de historia multivariada; E controla la amplitud de la contribución exógena; el periódico organiza explícitamente los ciclos entre días y horas. Esa complementariedad es una motivación de diseño; su utilidad debe establecerse con los resultados.</p>
+<p>M4<sub>N</sub> recibe el pronóstico combinado <span class="m4-inline"><img src="./architectures/m4_n_inline_010.svg" alt="b_t"></span>. Al ajustar la memoria, los tres expertos y el combinador M1 permanecen congelados; solo se aprenden las proyecciones y la compuerta de la memoria.</p>
+<h3>Residuos del pronóstico combinado</h3>
+<p>Para un episodio histórico i, la trayectoria observada es <span class="m4-inline"><img src="./architectures/m4_n_inline_011.svg" alt="y_i"></span> y el pronóstico que la base emitió fuera de muestra es <span class="m4-inline"><img src="./architectures/m4_n_inline_012.svg" alt="b_i"></span>. Su residuo normalizado es:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_07.svg" alt="r_{i,h}=\frac{y_{i,h}-b_{i,h}}{q},\qquad h=1,\ldots,24."></div>
+<p>El signo es importante: un residuo positivo indica que la base predijo menos demanda de la observada; al recuperarlo, la corrección tenderá a elevar el pronóstico. Un residuo negativo orienta una disminución. La escala q es el MAE de la referencia semanal calculado con entrenamiento; normaliza las unidades, pero no cambia el signo del error. En la evaluación colombiana, q=215.617,9036 kWh.</p>
+<p>M4<sub>N</sub> usa residuos de <strong>predicciones fuera de muestra</strong>: el valor observado que se quiere pronosticar no se utiliza para ajustar ni seleccionar la base M1 que emitió ese pronóstico. La estrategia OOF (<em>out-of-fold</em>, fuera del bloque de ajuste) genera esas predicciones con bloques temporales sucesivos. Para construir una fila histórica, la base y su selección se obtienen únicamente con el prefijo temporal disponible en esa fecha. El OOF temporal anidado evita que la memoria aprenda errores artificialmente pequeños de un modelo que ya vio esas mismas etiquetas. Durante evaluación no se reajustan los pesos de M1 ni los de la memoria: únicamente se incorporan episodios cuyo resultado ya puede conocerse.</p>
+<h2>Esquema global</h2>
+<p><a href="./architectures/m4_n_global.png"><img src="./architectures/m4_n_global.png" alt="Arquitectura global de M4_N: base congelada, consulta numérica, memoria causal y corrección de 24 horas" /></a></p>
+<p>La trayectoria base y la corrección siguen caminos diferentes hasta la suma final. El banco aporta ejemplos de errores observados; no reemplaza el pronóstico base ni permite consultar la demanda del día objetivo. Su actualización cambia la información disponible, mientras los parámetros aprendidos permanecen fijos.</p>
+<h2>Representación del contexto y búsqueda de episodios</h2>
+<p>Cada origen se representa mediante un vector numérico <span class="m4-inline"><img src="./architectures/m4_n_inline_013.svg" alt="u_t"></span>. En la implementación colombiana tiene 912 componentes preparados por el pipeline de la base M1. El vector reúne 120 resúmenes de 30 variables históricas —último valor, media semanal, media de 24 horas y fracción ausente—, 552 atributos de calendario conocido (24×23), 72 pronósticos de tres expertos, 24 medidas de dispersión entre expertos y 144 errores históricos: d−2 y media de d−8 a d−2. Los pronósticos se expresan respecto al nivel de la ventana. Las variables históricas incluyen demanda, clima, hidrología y precio disponibles antes del origen. Las medias y desviaciones se calculan exclusivamente en ajuste:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_08.svg" alt="z_{t,j}=\frac{u_{t,j}-\mu_j}{s_j}."></div>
+<p>Si una desviación es prácticamente nula, el código sustituye su denominador por uno. Se reutilizan las mismas estadísticas en parada y prueba. Esto evita que el escalado incorpore el nivel de demanda de periodos futuros.</p>
+<p>Dos proyecciones distintas transforman el contexto: una produce la <strong>consulta</strong> del día que se quiere pronosticar y otra la <strong>clave</strong> de cada episodio. Ambas tienen dimensión 32 y LayerNorm:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_09.svg" alt="a_t=\mathrm{LN}(W_Qz_t+c_Q),\qquad k_i=\mathrm{LN}(W_Kz_i+c_K)."></div>
+<p>Una consulta expresa qué se busca y una clave cómo se describe lo almacenado. Usar matrices distintas permite aprender una semejanza útil para anticipar errores, sin obligarla a coincidir con la distancia geométrica entre los datos originales. LayerNorm normaliza las 32 coordenadas de cada representación; no calcula estadísticas entre días.</p>
+<p>La semejanza se mide con un producto interno escalado:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_10.svg" alt="s_{t,i}=\frac{a_t^\mathsf{T}k_i}{\sqrt{32}}."></div>
+<p>La raíz de la dimensión modera la magnitud de los puntajes. Un valor alto significa que el episodio resulta pertinente para esa consulta según la representación aprendida; no equivale a una probabilidad de que vuelva a ocurrir ni a una relación causal entre variables.</p>
+<h3>Disponibilidad antes de semejanza</h3>
+<p>El algoritmo primero determina qué episodios pueden utilizarse. La edad es la diferencia entre el origen actual y la fecha del episodio. En la configuración conservada:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_11.svg" alt="2\leq t-i\leq365\ \mathrm{dias}."></div>
+<p>El retraso de dos días evita incorporar una trayectoria cuyo resultado todavía no se ha admitido como observable. La edad máxima limita el banco al contexto de aproximadamente un año. La máscara temporal se aplica <strong>antes</strong> de seleccionar vecinos: un episodio futuro no puede desplazar a uno válido en la búsqueda.</p>
+<p>Entre los episodios admisibles se recuperan hasta 16 con mayor puntaje. Si hay menos de 16, los lugares inválidos reciben peso cero. El código utiliza una fila centinela de residuos nulos para impedir que una posición inválida lea accidentalmente un objetivo presente o futuro. Si no hay episodios admisibles, el resultado es exactamente el pronóstico de M1.</p>
+<h2>Cómo se combinan los errores recuperados</h2>
+<p>La función softmax convierte los puntajes de los vecinos válidos en pesos no negativos que suman uno:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_12.svg" alt="\alpha_{t,i}=\frac{\exp(s_{t,i})}{\sum_{j\in A_t}\exp(s_{t,j})},\qquad i\in A_t."></div>
+<p>A_t es el conjunto de vecinos seleccionados y válidos. El promedio ponderado produce una <strong>trayectoria residual completa</strong>, con una corrección potencial distinta para cada hora:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_13.svg" alt="m_{t,h}=\sum_{i\in A_t}\alpha_{t,i}r_{i,h}."></div>
+<p>Por ejemplo, un episodio puede aportar una subestimación en la mañana y una sobreestimación por la noche. Recuperar sus 24 residuos conserva esa forma diaria; no se impone una única cantidad que deba sumarse a todas las horas. La atención reparte el peso entre episodios, mientras las diferencias horarias proceden de las trayectorias almacenadas.</p>
+<h2>La compuerta: cuánto confiar en la memoria</h2>
+<p>El modelo no aplica siempre toda la corrección recuperada. Una compuerta escalar combina la consulta de 32 componentes con cuatro indicadores: mayor semejanza válida, dispersión de residuos, proporción de respaldo y antigüedad ponderada. En total recibe 36 valores.</p>
+<p>La dispersión aumenta cuando los vecinos proponen correcciones diferentes. El respaldo es el número de vecinos válidos dividido por 16. La antigüedad es la edad media ponderada dividida por 365. En la implementación, la dispersión agrega la variación entre vecinos y las 24 horas:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_14.svg" alt="d_t=\sqrt{\max\left(10^{-12},\frac{1}{24}\sum_{h=1}^{24}\sum_{i\in A_t}\alpha_{t,i}(r_{i,h}-m_{t,h})^2\right)}."></div>
+<p>Una red de 36→64→1, con GELU, dropout 0,1 durante ajuste y sigmoid a la salida, obtiene la intensidad <span class="m4-inline"><img src="./architectures/m4_n_inline_014.svg" alt="g_t"></span>:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_15.svg" alt="v_t=\mathrm{GELU}(W_1c_t+b_1),\qquad g_t=\mathrm{sigmoid}(W_2D_{0.1}(v_t)+b_2)."></div>
+<p>Aquí <span class="m4-inline"><img src="./architectures/m4_n_inline_015.svg" alt="c_t"></span> reúne la consulta y los cuatro indicadores; D representa dropout, desactivado en evaluación. La sigmoid sitúa <span class="m4-inline"><img src="./architectures/m4_n_inline_016.svg" alt="g_t"></span> entre cero y uno. El mismo valor controla la trayectoria completa, pero cada hora conserva su propia corrección <span class="m4-inline"><img src="./architectures/m4_n_inline_017.svg" alt="m_{t,h}"></span>. La última capa comienza con pesos cero y sesgo −2, por lo que la intensidad inicial es aproximadamente 0,119 cuando existen vecinos; el modelo comienza privilegiando la base, sin imponer una corrección nula.</p>
+<p>El pronóstico final vuelve a las unidades de demanda:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_16.svg" alt="\widehat y_{t,h}=b_{t,h}+q\,g_t\,m_{t,h}."></div>
+<p>Si la base pronostica 10 GWh, q equivale a aproximadamente 0,2156 GWh, el residuo recuperado normalizado es 0,5 y la compuerta vale 0,4, la corrección de esa hora es 0,0431 GWh y la salida resulta aproximadamente 10,0431 GWh.</p>
+<p>La compuerta limita la magnitud respecto de la corrección recuperada, pero <strong>no garantiza reducir el error</strong> ni impone positividad de la predicción final. Una memoria equivocada puede perjudicar aun con <span class="m4-inline"><img src="./architectures/m4_n_inline_018.svg" alt="g_t"></span> pequeño. Por ello su utilidad se comprueba con ablaciones y controles, no se deduce de la sigmoid.</p>
+<h2>Detalle de las operaciones</h2>
+<p><a href="./architectures/m4_n_detalle.png"><img src="./architectures/m4_n_detalle.png" alt="Detalle matemático de M4_N: proyecciones, máscara, top-k, atención, indicadores, compuerta y suma" /></a></p>
+<p>El detalle separa las proyecciones, el filtrado causal, la atención y cada capa de la compuerta, distinguiendo qué se aprende de qué se observa. Consulta, claves y compuerta tienen parámetros ajustables; fechas, residuos ya conocidos y reglas de disponibilidad forman el estado del banco. En la prueba, ese estado avanza cronológicamente sin modificar los pesos.</p>
+<h2>Función objetivo y entrenamiento temporal</h2>
+<p>Se minimiza el error absoluto de las 24 salidas dividido por q. Si B es un lote de orígenes de ajuste:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_17.svg" alt="\mathcal{L}=\frac{1}{24|B|}\sum_{t\in B}\sum_{h=1}^{24}\frac{|y_{t,h}-\widehat y_{t,h}|}{q}."></div>
+<p>La normalización permite que la pérdida sea comparable con MASE. Los gradientes ajustan las proyecciones y la compuerta. La selección top-k es discreta: los puntajes de los vecinos seleccionados reciben gradiente a través de la atención, pero la pertenencia al conjunto no es una decisión diferenciable continua.</p>
+<p>El pipeline usa AdamW, tasa 0,001, weight decay 0,0001, lotes de 64 y recorte de norma de gradiente en uno. Permite hasta 100 épocas y un mínimo de diez. La paciencia es diez y <code>min_delta</code> es 0,0001 sobre la pérdida normalizada de parada. Se restaura el estado de menor pérdida interna; la referencia que activa la paciencia exige una mejora mayor que min_delta.</p>
+<p>En cada año externo, ajuste utiliza años hasta dos años antes, parada utiliza el inmediatamente anterior y evaluación el año externo. Se purga un día en el borde de ajuste. El OOF anidado de M1 se prepara por prefijo antes de entrenar M4<sub>N</sub>; usar un ganador elegido con todo el periodo para generar sus filas históricas invalidaría esa separación. Se guardan pesos, optimizador y estados aleatorios para restaurar la ejecución.</p>
+<p>La configuración conservada comprende 16 vecinos, edad máxima 365 días, proyección 32 y compuerta 64. La evaluación de M4<sub>N</sub> comprende diez semillas, 101–110, con configuración 6 y restauración del mejor checkpoint interno. Los resultados y las comparaciones frente al Top 10 se presentan en la evaluación integrada.</p>
+<h2>Capacidad y coste computacional</h2>
+<p>El contenedor compartido conserva módulos de texto, aunque M4<sub>N</sub> no los ejecuta, y concatena 64 ceros a las entradas numéricas. Por eso sus 144.225 parámetros almacenados no equivalen a capacidad numérica activa. Descontando módulos inactivos y columnas multiplicadas siempre por cero, la cuenta de las proyecciones, normalizaciones y compuerta es:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_18.svg" alt="P_{\mathrm{activo}}=2(32n+32+64)+(36\cdot64+64+64+1)=64n+2625."></div>
+<p>Con n=912 hay 60.993 parámetros activos del corrector. La base M1 y el banco de episodios se contabilizan aparte: la cantidad de parámetros no incluye el almacenamiento ni el coste de buscar vecinos.</p>
+<p>Para M episodios, proyectar claves requiere trabajo proporcional a M·n·32. Una consulta compara su vector de 32 coordenadas con M claves, selecciona vecinos y agrega hasta 16 trayectorias de 24 valores. Las claves pueden calcularse una vez por episodio con pesos congelados; se debe conservar esa misma política al medir latencia. El coste total comprende la base, el almacenamiento de episodios y la búsqueda de vecinos, además de los parámetros activos del corrector.</p>
+<h2>Fundamento de la memoria y estabilidad local</h2>
+<p>La propuesta relaciona la <a href="https://arxiv.org/abs/2609.03937">recuperación de residuos de una base congelada</a> con la <a href="https://arxiv.org/abs/2610.07834">actualización de memoria mediante observaciones reveladas</a>. Su fundamento metodológico se concentra en la construcción OOF temporal anidada, la recuperación aprendida y la disponibilidad de los episodios. La originalidad de esa integración requiere contrastación bibliográfica y experimental.</p>
+<p>Puede estudiarse la estabilidad local de la corrección cuando el banco y los vecinos seleccionados permanecen fijos. Si cada residuo está acotado por R, la variación de la corrección entre dos consultas satisface:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_19.svg" alt="\|\Delta(x)-\Delta(x&#x27;)\|_\infty\leq qR\left(|g(x)-g(x&#x27;)|+\|\alpha(x)-\alpha(x&#x27;)\|_1\right)."></div>
+<p>Para justificarla, se fija un mismo conjunto de residuos y se supone que su norma máxima es R. La atención pertenece al simplex y la compuerta toma valores entre cero y uno. Al sumar y restar la corrección que usa la compuerta de la segunda consulta y la atención de la primera, se obtiene:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_20.svg" alt="\Delta(x)-\Delta(x&#x27;)=q\,(g(x)-g(x&#x27;))\sum_i\alpha_i(x)r_i+q\,g(x&#x27;)\sum_i(\alpha_i(x)-\alpha_i(x&#x27;))r_i."></div>
+<p>La primera suma tiene norma máxima acotada por R, por ser una combinación convexa. La segunda está acotada por R multiplicado por la distancia L1 entre las atenciones. Aplicar la desigualdad triangular y la cota de la compuerta produce el resultado. La propiedad vincula la variación de la corrección con la de sus pesos; no establece una constante global respecto de las entradas. El cambio de vecinos en top-k o la incorporación de un episodio modifica los supuestos de banco y vecindario fijos.</p>
+<!-- cierre-math-inicio -->
+<h2>Gradientes de la memoria y verificación de la propiedad</h2>
+<p>Para un origen, sea <span class="m4-inline"><img src="./architectures/m4_n_inline_019.svg" alt="v_h=\mathrm{sign}(\widehat{y}_h-y_h)/(24q)"></span> y <span class="m4-inline"><img src="./architectures/m4_n_inline_020.svg" alt="\bar{r}_h=\sum_i\alpha_i r_{i,h}"></span>. En error cero se utiliza la subderivada cero. La salida <span class="m4-inline"><img src="./architectures/m4_n_inline_021.svg" alt="\widehat{y}_h=b_h+qg\bar{r}_h"></span> transmite dos señales: cambiar el residuo recuperado y cambiar cuánto se confía en él. Manteniendo el conjunto de vecinos fijo:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_21.svg" alt="\frac{\partial\mathcal{L}}{\partial g}=q\sum_hv_h\bar{r}_h,\qquad
+\frac{\partial\bar{r}_h}{\partial s_i}=\alpha_i(r_{i,h}-\bar{r}_h)."></div>
+<p>La compuerta depende también de la dispersión y de la semejanza recuperadas. Por eso el gradiente completo del puntaje incluye ambas rutas:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_22.svg" alt="\frac{\partial\mathcal{L}}{\partial s_i}
+=q\sum_hv_h\left[g\alpha_i(r_{i,h}-\bar{r}_h)+\bar{r}_h\frac{\partial g}{\partial s_i}\right]."></div>
+<p>Para <span class="m4-inline"><img src="./architectures/m4_n_inline_022.svg" alt="g=\sigma(f)"></span>, <span class="m4-inline"><img src="./architectures/m4_n_inline_023.svg" alt="\partial g/\partial f=g(1-g)"></span>. El producto interno transmite los gradientes de los puntajes a consulta y claves; LayerNorm y las proyecciones completan la regla de la cadena. El gradiente de pertenencia al top-k no se define como una operación continua: la diferenciación se realiza dentro del conjunto seleccionado. Los expertos y M1 permanecen congelados. AdamW aplica el paso adaptativo y el decaimiento de pesos únicamente a los parámetros activos de la memoria; la evaluación no ejecuta esos pasos.</p>
+<p>Como la atención forma una combinación convexa y <span class="m4-inline"><img src="./architectures/m4_n_inline_024.svg" alt="0\leq g\leq1"></span>, para cada hora se obtiene:</p>
+<div class="m4-equation"><img src="./architectures/m4_n_formula_23.svg" alt="|\widehat{y}_h-b_h|\leq qg\sum_i\alpha_i|r_{i,h}|\leq qg\max_i|r_{i,h}|."></div>
+<p>Esta cota limita la corrección respecto de los residuos recuperados. Con atención y compuerta fijas, una perturbación de los valores satisface <span class="m4-inline"><img src="./architectures/m4_n_inline_025.svg" alt="|\Delta\widehat{y}_h|\leq qg\max_i|\Delta r_{i,h}|"></span>. Si varían las claves, la consulta o la compuerta, intervienen términos adicionales. Para la proyección numérica seguida de LayerNorm, una cota global de su constante de Lipschitz es <span class="m4-inline"><img src="./architectures/m4_n_inline_026.svg" alt="\|W\|_2\|\gamma\|_\infty/\sqrt{\epsilon}"></span>. No se extiende esta propiedad local al cambio discreto del vecindario ni se deduce una reducción garantizada del error.</p>
+<p>Se comprueban 10 condiciones del núcleo y la cota en 128 consultas: violación máxima 0,0 kWh. Las normas espectrales de las proyecciones numéricas son 1,051 y 0,993. Los gradientes locales se contrastan con diferencias finitas, sin actualizar parámetros. La evaluación ampliada conserva código, resultados y supuestos.</p>
+<!-- cierre-math-fin -->
+<h2>Algoritmo temporal</h2>
+<p><strong>Entradas:</strong> historia numérica, calendario del horizonte, pronósticos OOF de M1, residuos con fecha de disponibilidad y configuración 6. <strong>Salida:</strong> trayectoria de 24 horas.</p>
+<ol>
+<li>Generar los pronósticos históricos de M1 mediante bloques temporales y selección por prefijos; calcular sus residuos en escala q.</li>
+<li>Ajustar media y escala del contexto únicamente en optimización. Mantener M1 congelado.</li>
+<li>Para cada origen, formar consulta y claves; aplicar la máscara de edad entre dos y 365 días antes de recuperar hasta 16 episodios.</li>
+<li>Normalizar los puntajes válidos y combinar sus trayectorias residuales. Calcular los cuatro indicadores de respaldo y la compuerta.</li>
+<li>Sumar a M1 la corrección q por compuerta por residuo recuperado. Sin vecinos admisibles, conservar la salida de M1.</li>
+<li>Durante ajuste, minimizar MAE/q con AdamW y detener según la reserva interna, con paciencia diez y máximo cien épocas. Restaurar el estado de menor pérdida interna.</li>
+<li>Durante prueba, conservar pesos y escalas. Incorporar únicamente episodios que hayan alcanzado su fecha de disponibilidad y emitir cada trayectoria desde su origen.</li>
+</ol>
+<h2>Pipeline de entrenamiento y prueba</h2>
+<p>El pipeline desarrolla la preparación temporal de M1, la memoria numérica, el ajuste con parada interna y la evaluación con configuración 6. La clase conserva las dimensiones serializadas y fija en cero las 64 posiciones inactivas de las proyecciones, de acuerdo con los checkpoints utilizados.</p>
+<p>La preparación utiliza las bases OOF anidadas y el paquete <code>entrenamiento</code>. El ajuste conservado requiere GPU; la evaluación del módulo numérico permite indicar CPU o GPU. El perfil de dimensiones inactivas se obtiene de los metadatos del checkpoint. La especialización conserva los pesos. La evaluación complementaria verifica su restauración y el round-trip ONNX del pipeline completo en cinco fechas, con tolerancia relativa registrada.</p>
+<h3>Código de los expertos seleccionados</h3>
+<h4>Experto E</h4>
+<details class="m4-source"><summary>Ver código Python · 102 líneas</summary><pre><code class="language-python">from __future__ import annotations
+import math
+import torch
+from torch import nn
+from entrenamiento import redes as R
+
+class MLP2(nn.Module):
+    &quot;&quot;&quot;Perceptrón de dos capas con GELU; la capa de salida puede iniciar en cero.&quot;&quot;&quot;
+
+    def __init__(self, d_in: int, ancho: int, d_out: int, dropout: float = 0.0, salida_cero: bool = False):
+        super().__init__()
+        self.red = nn.Sequential(nn.Linear(d_in, ancho), nn.GELU(), nn.Dropout(dropout), nn.Linear(ancho, d_out))
+        if salida_cero:
+            nn.init.zeros_(self.red[-1].weight)
+            nn.init.zeros_(self.red[-1].bias)
+
+    def forward(self, u):
+        return self.red(u)
+
+class CorreccionAcotada(nn.Module):
+    &quot;&quot;&quot;Δ(u) = ρ σ(g(u)) ⊙ tanh(v(u)); ``cota`` y ``compuerta`` se pueden retirar para la ablación.&quot;&quot;&quot;
+
+    def __init__(self, d_in: int, H: int, ancho: int, rho: float, cota: bool = True, compuerta: bool = True, dropout: float = 0.0):
+        super().__init__()
+        if rho &lt;= 0:
+            raise ValueError(&quot;ρ debe ser positivo&quot;)
+        self.rho, self.cota, self.compuerta = float(rho), bool(cota), bool(compuerta)
+        self.v = MLP2(d_in, ancho, H, dropout, salida_cero=True)
+        self.g = MLP2(d_in, ancho, H, dropout) if compuerta else None
+
+    def forward(self, u: torch.Tensor) -&gt; torch.Tensor:
+        v = self.v(u)
+        s = torch.sigmoid(self.g(u)) if self.g is not None else 1.0
+        if self.cota:
+            return self.rho * s * torch.tanh(v)
+        return s * v
+
+    def cota_teorica(self) -&gt; float:
+        return self.rho if self.cota else math.inf
+
+class _BaseOriginal(nn.Module):
+    &quot;&quot;&quot;Validación de entradas común: forma (B, L, C) con el número de canales y la longitud con los que se construyó.&quot;&quot;&quot;
+
+    def _forma(self, n_x: int, L: int, H: int, n_cal: int):
+        self._esperado = (int(n_x), int(L), int(H), int(n_cal))
+
+    def _validar(self, x, cal_p, cal_f):
+        n_x, L, H, n_cal = self._esperado
+        if x.dim() != 3 or x.shape[1] != L or x.shape[2] != n_x:
+            raise RuntimeError(f&quot;x debe tener forma (B, {L}, {n_x}); se recibió {tuple(x.shape)}&quot;)
+        if cal_p.shape[1:] != (L, n_cal) or cal_f.shape[1:] != (H, n_cal):
+            raise RuntimeError(f&quot;calendario con forma inválida: {tuple(cal_p.shape)}, {tuple(cal_f.shape)}&quot;)
+
+    def diagnostico(self) -&gt; dict:
+        return {}
+
+    def n_parametros(self) -&gt; int:
+        return sum(v.numel() for v in self.parameters() if v.requires_grad)
+
+class ModeloE(_BaseOriginal):
+    &quot;&quot;&quot;o = o_base(demanda, calendario) + a · Δ(u_exo),  a = fracción de covariables disponibles en las últimas 24 h.
+
+    La base es el codificador por parches del proyecto con un solo canal (la demanda) y el calendario. La rama exógena
+    recibe, por covariable, las 24 últimas horas y las 7 medias diarias de la historia, la ausencia media por bloque y el
+    calendario del horizonte. Proposición 1: cada hora difiere de la base de solo demanda en a lo sumo ρ · nivel,
+    cualesquiera que sean los valores de las covariables (perturbadas, faltantes o desplazadas).
+    Componentes: cota, compuerta y bandera (ponderación por disponibilidad). ``sin_rama`` deja solo la base (ablación).&quot;&quot;&quot;
+
+    def __init__(self, p: dict, n_x: int, n_cal: int, L: int, H: int, n_mascaras: int = 0):
+        super().__init__()
+        self._forma(n_x, L, H, n_cal)
+        self.base = R.NucleoPatchTST(1, n_cal, 0, L, H, p)
+        self.n_mascaras = int(n_mascaras)
+        self.n_exo = n_x - 1 - self.n_mascaras
+        self.bandera = bool(p.get(&quot;bandera&quot;, True))
+        self.dias = L // 24
+        d_in = (n_x - 1) * (24 + self.dias) + H * n_cal
+        self.correccion = CorreccionAcotada(d_in, H, int(p[&quot;ancho_correccion&quot;]), float(p[&quot;rho&quot;]), bool(p.get(&quot;cota&quot;, True)),
+                                            bool(p.get(&quot;compuerta&quot;, True)), float(p[&quot;dropout&quot;])) if n_x &gt; 1 and not p.get(&quot;sin_rama&quot;) else None
+
+    def entrada_exogena(self, x, cal_f):
+        B, L, C = x.shape
+        e = x[:, :, 1:]
+        diario = e.reshape(B, self.dias, L // self.dias, C - 1).mean(2)
+        return torch.cat([e[:, -24:].flatten(1), diario.flatten(1), cal_f.flatten(1)], dim=1)
+
+    def disponibilidad(self, x):
+        if self.n_mascaras == 0:
+            return torch.ones(x.shape[0], 1, device=x.device, dtype=x.dtype)
+        return 1.0 - x[:, -24:, -self.n_mascaras:].mean(dim=(1, 2))[:, None]
+
+    def aporte(self, x, cal_f):
+        a = self.disponibilidad(x) if self.bandera else 1.0
+        return a * self.correccion(self.entrada_exogena(x, cal_f))
+
+    def forward(self, x, cal_p, cal_f, dia):
+        self._validar(x, cal_p, cal_f)
+        o = self.base(x[:, :, :1], cal_p, cal_f, None)
+        return o if self.correccion is None else o + self.aporte(x, cal_f)
+
+    def cota(self) -&gt; float:
+        return 0.0 if self.correccion is None else self.correccion.cota_teorica()
+</code></pre></details>
+<h4>Experto periódico</h4>
+<details class="m4-source"><summary>Ver código Python · 40 líneas</summary><pre><code class="language-python">from __future__ import annotations
+import torch
+from torch import nn
+
+def _n_parametros(m: nn.Module) -&gt; int:
+    return sum(v.numel() for v in m.parameters() if v.requires_grad)
+
+class Periodica7x24(nn.Module):
+    &quot;&quot;&quot;Idea I: codificador periódico fijo. Entrada (B, L, C) y calendario pasado -&gt; imagen (B, C', L/24, 24).&quot;&quot;&quot;
+
+    def __init__(self, p: dict, n_x: int, n_cal: int, L: int, H: int):
+        super().__init__()
+        if L % 24 or H % 24:
+            raise ValueError(&quot;La historia y el horizonte deben ser múltiplos de 24 h&quot;)
+        d, nb, dp = int(p[&quot;d_model&quot;]), int(p[&quot;bloques&quot;]), float(p[&quot;dropout&quot;])
+        self.dias, self.H = L // 24, H
+        self.entrada = nn.Conv2d(n_x + n_cal, d, 1)
+        self.bloques = nn.ModuleList([nn.Sequential(nn.Conv2d(d, d, (3, 3), padding=1), nn.GELU(), nn.Dropout(dp),
+                                                    nn.Conv2d(d, d, (1, 5), padding=(0, 2))) for _ in range(nb)])
+        self.normas = nn.ModuleList([nn.GroupNorm(1, d) for _ in range(nb)])
+        self.lectura = nn.Sequential(nn.Linear(2 * d + n_cal, d), nn.GELU(), nn.Dropout(dp), nn.Linear(d, 1))
+        nn.init.zeros_(self.lectura[-1].weight)
+        nn.init.zeros_(self.lectura[-1].bias)
+        self.register_buffer(&quot;hora&quot;, torch.arange(H) % 24, persistent=False)
+
+    def forward(self, x, cal_p, cal_f, dia):
+        B, L, _ = x.shape
+        u = torch.cat([x, cal_p], dim=2).transpose(1, 2).reshape(B, -1, self.dias, 24)
+        z = self.entrada(u)
+        for b, n in zip(self.bloques, self.normas):
+            z = n(z + b(z))
+        ultimo, medio = z[:, :, -1, :], z.mean(2)                              # (B, d, 24)
+        f = torch.cat([ultimo.index_select(2, self.hora), medio.index_select(2, self.hora)], dim=1).transpose(1, 2)   # (B, H, 2d)
+        return 1.0 + self.lectura(torch.cat([f, cal_f], dim=2)).squeeze(-1)
+
+    def diagnostico(self) -&gt; dict:
+        return {}
+
+    def n_parametros(self) -&gt; int:
+        return _n_parametros(self)
+</code></pre></details>
+<!-- m4-codigo:inicio -->
+<h3>Preparación numérica y rezagos observables</h3>
+<p>Fuente: <code>e3_gpu_comun.py</code>.</p>
+<details class="m4-source"><summary>Ver código Python · 6 líneas</summary><pre><code class="language-python">def lags_diarios(dias, errores):
+    &quot;&quot;&quot;Rasgos causales: errores d−2 y media d−8..d−2; nunca el objetivo actual.&quot;&quot;&quot;
+    dias=np.asarray(dias,dtype='datetime64[D]'); z=np.zeros(errores.shape[1:],dtype='float32'); mapa={d:i for i,d in enumerate(dias)}; un=np.timedelta64(1,'D')
+    l2=np.stack([errores[mapa[d-2*un]] if d-2*un in mapa else z for d in dias])
+    m7=np.stack([np.mean([errores[mapa[d-k*un]] for k in range(2,9) if d-k*un in mapa] or [z],axis=0) for d in dias])
+    return np.concatenate([l2.reshape(len(dias),-1),m7.reshape(len(dias),-1)],axis=1)
+</code></pre></details>
+<h3>Contexto de M1, combinación y separación temporal</h3>
+<p>Fuente: <code>e3_modelo1.py</code>.</p>
+<details class="m4-source"><summary>Ver código Python · 45 líneas</summary><pre><code class="language-python">class Router(nn.Module):
+    def __init__(self,n,p):
+        super().__init__();w=p['ancho']
+        self.contexto=nn.Sequential(nn.Linear(n,w),nn.GELU(),nn.Dropout(p['dropout']),nn.Linear(w,w),nn.GELU())
+        self.complemento=nn.Linear(w,24*3)
+        self.logits=nn.Linear(w+24*3,24*3)
+    def forward(self,x,pred):
+        z=self.contexto(x);c=self.complemento(z).reshape(-1,24,3)
+        w=self.logits(torch.cat([z,c.flatten(1)],1)).reshape(-1,24,3).softmax(-1)
+        return (w*pred).sum(-1),c,w
+
+def datos_meta(datos,car,semilla):
+    partes=[]
+    for anio in range(2011,2022):
+        z=[np.load(car/'expertos'/k/f'anio_{anio}'/f'semilla_{semilla}'/'predicciones.npz') for k in EXPERTOS]
+        assert all(np.array_equal(z[0]['dia'],x['dia']) and np.array_equal(z[0]['y'],x['y']) for x in z[1:])
+        partes.append(dict(dia=z[0]['dia'],y=z[0]['y'],pred=np.stack([x['pred'] for x in z],-1)))
+    dias=np.concatenate([x['dia'] for x in partes]);y=np.concatenate([x['y'] for x in partes]);pred=np.concatenate([x['pred'] for x in partes])
+    assert len(np.unique(dias))==len(dias)
+    fechas=pd.DatetimeIndex(dias).tz_localize('America/Bogota');pos=datos.indice.get_indexer(fechas);assert (pos&gt;=0).all()
+    # Rasgos brutos disponibles por origen. Solo el escalador de cada fold aprende parámetros.
+    ii=pos[:,None]+np.arange(-datos.L,0);xx=datos.X[ii]
+    # Ausencias se codifican con 0 y máscaras explícitas; no hay imputación estimada global.
+    valid=np.isfinite(xx);limpio=np.where(valid,xx,0.)
+    medias=limpio.sum(1)/np.maximum(valid.sum(1),1)
+    ultimo=limpio[:,-1];m24=limpio[:,-24:].sum(1)/np.maximum(valid[:,-24:].sum(1),1)
+    ausente=1-valid.mean(1)
+    nivel=xx[:,:,0].mean(1);assert (nivel&gt;0).all()
+    cf=datos.K[pos[:,None]+np.arange(24)]
+    resumen=np.concatenate([ultimo,medias,m24,ausente],1)
+    resumen[:,[0,len(datos.hist),2*len(datos.hist)]]/=nivel[:,None]
+    errores=(y[:,:,None]-pred)/datos.q168
+    lag=lags_diarios(dias,errores)
+    x=np.concatenate([resumen,cf.reshape(len(dias),-1),(pred/nivel[:,None,None]).reshape(len(dias),-1),
+                      pred.std(-1)/nivel[:,None],lag],1).astype('float32')
+    assert np.isfinite(x).all()
+    return dict(dia=dias,anio=fechas.year.to_numpy(),x=x,y=y,pred=pred,c=complementariedad(y,pred,datos.q168),nivel=nivel)
+
+def dividir(meta,anio):
+    a=np.flatnonzero(meta['anio']&lt;=anio-2);es=np.flatnonzero(meta['anio']==anio-1);ev=np.flatnonzero(meta['anio']==anio)
+    # Purga explícita de un día entre bloques de objetivos; no elimina orígenes de evaluación.
+    corte=np.datetime64(meta['dia'][es[0]],'D')-np.timedelta64(1,'D')
+    a=a[np.asarray(meta['dia'][a],dtype='datetime64[D]')&lt;corte]
+    assert len(a) and len(es) and (len(ev) or anio==2022)
+    return a,es,ev
+</code></pre></details>
+<h3>Base OOF anidada y selección por prefijo</h3>
+<p>Fuente: <code>e3_modelo3.py</code>.</p>
+<details class="m4-source"><summary>Ver código Python · 61 líneas</summary><pre><code class="language-python">def elegir_prefijo(filas,anio,rejilla):
+    &quot;&quot;&quot;No consulta resultados del año predicho ni de años posteriores.&quot;&quot;&quot;
+    prev=[f for f in filas if f['anio']&lt;anio]
+    if not prev:return rejilla[0],dict(bootstrap=True,regla='cfg1 predefinida antes del primer fold elegible',ultimo_anio_seleccion=None)
+    t=pd.DataFrame(prev).groupby('cfg').agg(MASE=('MASE','mean'),n_parametros=('n_parametros','first')).reset_index().sort_values(['MASE','n_parametros','cfg'])
+    return next(p for p in rejilla if p['id']==int(t.iloc[0]['cfg'])),dict(bootstrap=False,ultimo_anio_seleccion=max(f['anio'] for f in prev),tabla=t.to_dict('records'))
+
+def inferir_base(meta,ix,modelo,car):
+    if car.exists():
+        with np.load(car) as z:return {k:z[k] for k in z.files}
+    ck=cargar(modelo);red=Router(ck['n_entrada'],ck['configuracion']).cuda().eval();red.load_state_dict(ck['modelo']);red.requires_grad_(False)
+    x=torch.as_tensor((meta['x'][ix]-ck['media'])/ck['escala'],device='cuda')
+    pr=torch.as_tensor(meta['pred'][ix],device='cuda');pp=[];cc=[];ll=[]
+    def capturar(mod,entrada,salida):ll.append(salida.detach().reshape(-1,24,3).cpu().numpy())
+    h=red.logits.register_forward_hook(capturar)
+    try:
+        with torch.no_grad():
+            for i in range(0,len(ix),256):
+                p,c,_=red(x[i:i+256],pr[i:i+256]);pp.append(p.cpu().numpy());cc.append(c.cpu().numpy())
+    finally:h.remove()
+    r=dict(dia=meta['dia'][ix],y=meta['y'][ix],pred_base=np.concatenate(pp),c_num=np.concatenate(cc),
+           logits=np.concatenate(ll),expertos=meta['pred'][ix],num=meta['x'][ix],c_real=meta['c'][ix])
+    car.parent.mkdir(parents=True,exist_ok=True);np.savez_compressed(car,**r)
+    del red,x,pr;torch.cuda.empty_cache()
+    return r
+
+def preparar_oof(datos,run,out,semillas,progreso,completar,log):
+    rejilla=leer(run/'rejilla_registrada.json');filas=[]
+    metas={s:datos_meta(datos,run,s) for s in semillas}
+    # Las decisiones se escriben antes de incorporar las métricas del año Y.
+    for anio in range(2013,2022):
+        cfg,decision=elegir_prefijo(filas,anio,rejilla)
+        guardar(out/'prefijos'/f'seleccion_{anio}.json',dict(anio_predicho=anio,configuracion=cfg,**decision))
+        for s in semillas:
+            meta=metas[s];a,es,ev=dividir(meta,anio)
+            for p in rejilla:
+                if anio&gt;=2018:
+                    car=run/'busqueda'/f'cfg_{p[&quot;id&quot;]}'/f'anio_{anio}'/f'semilla_{s}'
+                    r=leer(car/'TERMINADO.json')
+                    assert r['configuracion']==p and r['semilla']==s
+                else:
+                    car=out/'preparacion_m1'/f'cfg_{p[&quot;id&quot;]}'/f'anio_{anio}'/f'semilla_{s}'
+                    progreso(fase='oof_anidado_m1',etiqueta=f'Prefijo M1 cfg{p[&quot;id&quot;]} {anio} s{s}')
+                    r=entrenar_router(meta,p,s,a,es,ev,car,progreso,datos.q168);completar()
+                assert str(r['ajuste'][-1])&lt;f'{anio-1}-01-01' and str(r['parada'][-1])&lt;f'{anio}-01-01'
+                filas.append(dict(cfg=p['id'],anio=anio,semilla=s,MASE=r['MASE'],n_parametros=r['n_parametros']))
+            elegido=(run/'busqueda' if anio&gt;=2018 else out/'preparacion_m1')/f'cfg_{cfg[&quot;id&quot;]}'/f'anio_{anio}'/f'semilla_{s}'/'modelo.pt'
+            progreso(fase='oof_anidado_m1',etiqueta=f'M1 OOF {anio} s{s}, selección con años anteriores',epoca=None)
+            inferir_base(meta,ev,elegido,out/'base_oof'/f'anio_{anio}_semilla_{s}.npz');completar()
+        pd.DataFrame(filas).to_csv(out/'seleccion_m1_por_prefijo.csv',index=False)
+    guardar(out/'BASE_OOF_LISTA.json',dict(inicio='2013-01-01',fin='2021-12-31',seleccion_por_prefijo=True,ajustes_nuevos=200,modelos_oof=45))
+    del metas;torch.cuda.empty_cache();log('OOF anidado de M1 completado, sin configuración elegida con años futuros.')
+
+def leer_base(out,s):
+    partes=[]
+    for a in range(2013,2022):
+        with np.load(out/'base_oof'/f'anio_{a}_semilla_{s}.npz') as z:partes.append({k:z[k] for k in z.files})
+    r={k:np.concatenate([p[k] for p in partes]) for k in partes[0]}
+    r['anio']=pd.DatetimeIndex(r['dia']).year.to_numpy()
+    assert len(np.unique(r['dia']))==len(r['dia'])
+    return r
+</code></pre></details>
+<h3>Arquitectura, ajuste y evaluación de M4_N</h3>
+<details class="m4-source"><summary>Ver código Python · 147 líneas</summary><pre><code class="language-python">&quot;&quot;&quot;Pipeline numérico de M4_N: configuración 6, entrenamiento y prueba temporal.
+
+Las matrices inactivas mantienen la disposición de los checkpoints conservados.
+El perfil de dimensiones inactivas se toma del checkpoint, sin elegir un modelo.
+&quot;&quot;&quot;
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import torch
+from torch import nn
+from motor_m4_n import ajustar, checkpoint, cargar, guardar
+from entrenamiento import motor
+
+CONFIGURACION = dict(id=6, k_vecinos=16, edad_maxima_dias=365, ancho_compuerta=64)
+
+class Banco:
+    def __init__(self, meta, media, escala, q, device):
+        self.num=torch.as_tensor((meta['num']-media)/escala,device=device)
+        self.base=torch.as_tensor(meta['pred_base'],device=device)
+        self.residuos=torch.as_tensor((meta['y']-meta['pred_base'])/q,device=device)
+        self.dias=torch.as_tensor(np.asarray(meta['dia'],dtype='datetime64[D]').astype('int64'),device=device)
+        self.limite=None
+
+class Memoria(nn.Module):
+
+    def __init__(self, n, n_feat, n_fuentes, cfg, variante='M4_N'):
+        super().__init__()
+        self.cfg = cfg
+        self.variante = variante
+        d = 32
+        self.consulta_texto = nn.Linear(n, d)
+        self.proy = nn.ModuleList([nn.Linear(768, d) for _ in range(2)])
+        self.rasgo = nn.ModuleList([nn.Linear(n_feat, d) for _ in range(2)])
+        self.fuente = nn.ModuleList([nn.Embedding(n_fuentes + 1, d) for _ in range(2)])
+        self.norma = nn.ModuleList([nn.LayerNorm(d) for _ in range(2)])
+        self.proy_q = nn.Sequential(nn.Linear(n + 2 * d, d), nn.LayerNorm(d))
+        self.proy_k = nn.Sequential(nn.Linear(n + 2 * d, d), nn.LayerNorm(d))
+        w = cfg['ancho_compuerta']
+        self.compuerta = nn.Sequential(nn.Linear(d + 4, w), nn.GELU(), nn.Dropout(0.1), nn.Linear(w, 1))
+        nn.init.zeros_(self.compuerta[-1].weight)
+        nn.init.constant_(self.compuerta[-1].bias, -2.0)
+
+    def codificar(self, banco, limite):
+        &quot;&quot;&quot;Relevancia aprendida por fragmento y canal; sin reducción entre fechas.&quot;&quot;&quot;
+        partes = []
+        for i in range(0, limite, 64):
+            ix = slice(i, min(i + 64, limite))
+            num = banco.num[ix]
+            texto = num.new_zeros((len(num), 64))
+            partes.append(torch.cat([num, texto], 1))
+        x = torch.cat(partes, 0)
+        return (self.proy_q(x), self.proy_k(x))
+
+    def recuperar(self, q, k, dias, residuos, j, base, limite=None):
+        &quot;&quot;&quot;La máscara temporal se aplica ANTES de top-k y de consultar valores.&quot;&quot;&quot;
+        edad = dias[j, None] - dias[None, :]
+        valido = (edad &gt;= 2) &amp; (edad &lt;= self.cfg['edad_maxima_dias'])
+        if limite is not None:
+            valido &amp;= dias[None, :] &lt;= limite
+        scores = q[j] @ k.T / 32 ** 0.5
+        scores = scores.masked_fill(~valido, -1000000000.0)
+        kk = min(self.cfg['k_vecinos'], k.shape[0])
+        valor, ids = scores.topk(kk, -1)
+        ok = valido.gather(1, ids)
+        hay = ok.any(-1)
+        alfa = valor.softmax(-1) * ok
+        alfa = alfa / alfa.sum(-1, keepdim=True).clamp_min(1e-08)
+        valores = torch.cat([residuos, residuos.new_zeros((1, 24))], 0)
+        seguros = torch.where(ok, ids, torch.full_like(ids, len(residuos)))
+        rr = valores[seguros]
+        media = (alfa[:, :, None] * rr).sum(1)
+        dispersion = ((rr - media[:, None]).square() * alfa[:, :, None]).sum(1).mean(-1).clamp_min(1e-12).sqrt()
+        apoyo = ok.sum(-1).to(q.dtype) / self.cfg['k_vecinos']
+        maxsim = torch.where(hay, valor[:, 0], torch.zeros_like(valor[:, 0]))
+        edades = edad.gather(1, ids).to(q.dtype)
+        antig = (alfa * edades).sum(-1) / self.cfg['edad_maxima_dias']
+        features = torch.cat([q[j], maxsim[:, None], dispersion[:, None], apoyo[:, None], antig[:, None]], 1)
+        g = torch.sigmoid(self.compuerta(features))[:, 0]
+        g = g * hay
+        pred = base + 215617.90361589016 * g[:, None] * media
+        pred = torch.where(hay[:, None], pred, base)
+        assert (~ok | (edad.gather(1, ids) &gt;= 2)).all()
+        return (pred, g, ids, alfa, ok)
+
+    def forward(self, banco, j, representaciones=None):
+        limite = int(j.max().item()) + 1
+        q, k = self.codificar(banco, limite) if representaciones is None else representaciones
+        n = len(k)
+        return self.recuperar(q, k, banco.dias[:n], banco.residuos[:n], j, banco.base[j], banco.limite)
+
+def construir(ck, device='cuda'):
+    return Memoria(ck['n_num'],ck['n_feat'],ck['n_fuentes'],ck['configuracion'],'M4_N').to(device)
+
+def ajustar_m4_n(meta, semilla, ajuste, parada, carpeta, perfil, progreso, q=215617.90361589016):
+    &quot;&quot;&quot;Ajuste del corrector con base OOF preparada y configuración conservada.
+
+    perfil contiene n_feat y n_fuentes de la estructura serializada original.
+    ajuste y parada son índices cronológicos disjuntos anteriores a 2022.
+    &quot;&quot;&quot;
+    carpeta=Path(carpeta)
+    assert not (carpeta/'modelo.pt').exists(), 'Utilizar una carpeta de salida nueva'
+    assert np.max(meta['dia'][ajuste]) &lt; np.min(meta['dia'][parada])
+    assert np.max(meta['dia'][parada]) &lt; '2022-01-01'
+    motor.fijar_semilla(semilla)
+    media=meta['num'][ajuste].mean(0)
+    escala=meta['num'][ajuste].std(0)
+    escala=np.where(escala&gt;1e-6,escala,1.)
+    ck=dict(n_num=meta['num'].shape[1],n_feat=perfil['n_feat'],n_fuentes=perfil['n_fuentes'],
+        configuracion=CONFIGURACION,semilla=semilla,media=media,escala=escala,variante='M4_N')
+    banco=Banco(meta,media,escala,q,'cuda');red=construir(ck)
+    y=torch.as_tensor(meta['y'],device='cuda')
+    indices=torch.as_tensor(ajuste,device='cuda')
+    def perdida(ix):
+        j=indices[ix]
+        return (red(banco,j)[0]-y[j]).abs().mean()/q
+    def evaluar():
+        representaciones=red.codificar(banco,int(parada[-1])+1)
+        total=0.
+        for i in range(0,len(parada),128):
+            j=torch.as_tensor(parada[i:i+128],device='cuda')
+            pred=red(banco,j,representaciones)[0]
+            total+=float((pred-y[j]).abs().mean()/q)*len(j)
+        return total/len(parada)
+    info=ajustar(red,len(ajuste),perdida,evaluar,dict(lr=.001,weight_decay=.0001,lote=64),
+        dict(max_epocas=100,min_epocas=10,paciencia=10,min_delta=.0001),semilla,carpeta,progreso,'M4_N')
+    ck['modelo']=red.state_dict();checkpoint(carpeta/'modelo.pt',ck)
+    guardar(carpeta/'TERMINADO.json',{k:v for k,v in info.items() if k!='historia'})
+    return ck
+
+def evaluar_m4_n(meta, indices, checkpoint_path, device='cuda', q=215617.90361589016):
+    &quot;&quot;&quot;Pesos y escalas congelados; elegibilidad d−2…d−365 por consulta.&quot;&quot;&quot;
+    ck=cargar(checkpoint_path);red=construir(ck,device)
+    red.load_state_dict(ck['modelo']);red.eval();red.requires_grad_(False)
+    banco=Banco(meta,ck['media'],ck['escala'],q,device)
+    predicciones=[]
+    with torch.no_grad():
+        rep=red.codificar(banco,len(meta['dia']))
+        for i in range(0,len(indices),128):
+            j=torch.as_tensor(indices[i:i+128],device=device)
+            pred,gate,vecinos,atencion,elegibles=red(banco,j,rep)
+            edades=banco.dias[j,None]-banco.dias[vecinos]
+            assert ((~elegibles)|((edades&gt;=2)&amp;(edades&lt;=365))).all()
+            assert torch.equal(pred[~elegibles.any(-1)],banco.base[j][~elegibles.any(-1)])
+            predicciones.append(pred.cpu().numpy())
+    pred=np.concatenate(predicciones);err=pred-meta['y'][indices]
+    return pred,dict(MASE=float(np.abs(err).mean()/q),MAE_kwh=float(np.abs(err).mean()),
+                     RMSE_kwh=float(np.sqrt(np.square(err).mean())))
+</code></pre></details>
+<h3>Optimización, checkpoint y restauración</h3>
+<details class="m4-source"><summary>Ver código Python · 77 líneas</summary><pre><code class="language-python">&quot;&quot;&quot;Optimización y serialización conservadas de M4_N.&quot;&quot;&quot;
+from pathlib import Path
+import copy, json, time, random
+import numpy as np
+import pandas as pd
+import torch
+from torch import nn
+from entrenamiento import motor
+
+def cpu(obj):
+    if torch.is_tensor(obj): return obj.detach().cpu().clone()
+    if isinstance(obj, dict): return {k: cpu(v) for k, v in obj.items()}
+    if isinstance(obj, list): return [cpu(v) for v in obj]
+    if isinstance(obj, tuple): return tuple(cpu(v) for v in obj)
+    return copy.deepcopy(obj)
+
+def checkpoint(p, valor):
+    p = Path(p); p.parent.mkdir(parents=True, exist_ok=True)
+    t = p.with_name(p.name + '.tmp'); torch.save(cpu(valor), t); t.replace(p)
+
+def cargar(p):
+    return torch.load(p, map_location='cpu', weights_only=False)
+
+def guardar(p, valor):
+    p = Path(p); p.parent.mkdir(parents=True, exist_ok=True)
+    t = p.with_name(p.name + '.tmp')
+    t.write_text(json.dumps(valor, ensure_ascii=False, indent=1, default=str), encoding='utf-8'); t.replace(p)
+
+def ajustar(red, n, perdida, evaluar, p, opciones, semilla, carpeta, progreso, etiqueta):
+    &quot;&quot;&quot;Pérdida/evaluador solo reciben índices de ajuste o parada. Checkpoint completo por época.&quot;&quot;&quot;
+    assert next(red.parameters()).is_cuda, 'No se permite ajuste neuronal en CPU'
+    carpeta = Path(carpeta); carpeta.mkdir(parents=True, exist_ok=True)
+    opt = torch.optim.AdamW(red.parameters(), lr=p['lr'], weight_decay=p['weight_decay'])
+    sch = torch.optim.lr_scheduler.ReduceLROnPlateau(opt, factor=.5, patience=2) if opciones.get('scheduler') else None
+    gen = torch.Generator().manual_seed(semilla)
+    historia, inicio, mejor, referencia, sin = [], 1, float('inf'), float('inf'), 0
+    mejor_estado = None
+    parcial = carpeta / 'reanudar.pt'
+    if parcial.exists():
+        r = cargar(parcial); red.load_state_dict(r['ultimo_modelo']); opt.load_state_dict(r['optimizador'])
+        if sch: sch.load_state_dict(r['scheduler'])
+        historia, inicio, mejor, referencia, sin = r['historia'], r['epoca']+1, r['mejor'], r['referencia'], r['sin_mejora']
+        mejor_estado = r['mejor_modelo']; gen.set_state(r['generador'])
+        torch.set_rng_state(r['rng_torch']); torch.cuda.set_rng_state_all(r['rng_cuda']); np.random.set_state(r['rng_numpy']); random.setstate(r['rng_python'])
+        if sin&gt;=opciones['paciencia'] and r['epoca']&gt;=opciones.get('min_epocas',1):inicio=opciones['max_epocas']+1
+    t0 = time.time()
+    for ep in range(inicio, opciones['max_epocas']+1):
+        red.train(); total = 0.; vistos = 0
+        for ix in torch.randperm(n, generator=gen).split(p['lote']):
+            if len(ix)&lt;2: continue
+            opt.zero_grad(set_to_none=True)
+            loss = perdida(ix.to('cuda'))
+            if not torch.isfinite(loss): raise FloatingPointError(etiqueta + ': pérdida no finita')
+            loss.backward(); nn.utils.clip_grad_norm_(red.parameters(), 1.); opt.step()
+            total += float(loss.detach())*len(ix); vistos += len(ix)
+        red.eval()
+        with torch.no_grad(): vl = float(evaluar())
+        if not np.isfinite(vl): raise FloatingPointError('Parada no finita')
+        h = dict(epoca=ep, perdida_ajuste=total/max(vistos,1), perdida_parada=vl, lr=opt.param_groups[0]['lr'], segundos=time.time()-t0)
+        historia.append(h)
+        if vl &lt; mejor:
+            mejor = vl; mejor_estado = cpu(red.state_dict())
+        delta = max(1e-6, .002*abs(referencia)) if opciones.get('relativa') and np.isfinite(referencia) else opciones.get('min_delta', 1e-6)
+        if vl &lt; referencia-delta: referencia, sin = vl, 0
+        else: sin += 1
+        if sch: sch.step(vl)
+        checkpoint(parcial, dict(ultimo_modelo=red.state_dict(), mejor_modelo=mejor_estado, optimizador=opt.state_dict(),
+                  scheduler=sch.state_dict() if sch else None, historia=historia, epoca=ep, mejor=mejor, referencia=referencia,
+                  sin_mejora=sin, generador=gen.get_state(), rng_torch=torch.get_rng_state(), rng_cuda=torch.cuda.get_rng_state_all(),
+                  rng_numpy=np.random.get_state(), rng_python=random.getstate(), configuracion=p, opciones=opciones, semilla=semilla))
+        pd.DataFrame(historia).to_csv(carpeta/'historia.csv', index=False)
+        progreso(etiqueta=etiqueta, epoca=ep, max_epocas=opciones['max_epocas'], perdida_parada=vl)
+        if ep &gt;= opciones.get('min_epocas',1) and sin &gt;= opciones['paciencia']: break
+    if mejor_estado is None: raise RuntimeError('No hay estado óptimo')
+    red.load_state_dict(mejor_estado); red.eval()
+    return dict(epocas=len(historia), mejor_epoca=int(np.argmin([x['perdida_parada'] for x in historia])+1), mejor_perdida=mejor,
+                segundos=time.time()-t0, historia=historia)
+</code></pre></details>
+<!-- m4-codigo:fin -->
+<h2>Código de los esquemas</h2>
+<!-- m4-esquemas:inicio -->
+<details class="m4-source"><summary>Ver código Python · 354 líneas</summary><pre><code class="language-python">&quot;&quot;&quot;Esquemas de M4_N con el formato del resto de arquitecturas; no ejecuta redes.&quot;&quot;&quot;
+from pathlib import Path
+import argparse
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from matplotlib import font_manager
+from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Circle, Rectangle
+
+P={'data':('#A9DDD6','#1CA497'),'layer':('#E2F0D9','#7BA85B'),
+   'weight':('#FFE6C2','#FF9817'),'op':('#FBCACA','#F34C54'),
+   'act':('#FFD5B3','#F58025'),'cal':('#FFF2C6','#EFB916'),
+   'vector':('#E7E8E9','#949494'),'union':('#0C4052','#0C4052'),
+   'output':('#EEE5F5','#B59BD5')}
+CARDS=[('#E3EFFB','#A8C8ED'),('#E8F2DE','#AED197'),
+       ('#EEE5F5','#B69BD3'),('#FFF8DD','#E9CB5B')]
+INK='#25333F';WIRE='#43515F';TEXT=[]
+fonts=set(font_manager.get_font_names())
+SANS='Calibri' if 'Calibri' in fonts else 'DejaVu Sans'
+SERIF='Cambria' if 'Cambria' in fonts else 'DejaVu Serif'
+plt.rcParams.update({'font.family':SANS,'mathtext.fontset':'stix','svg.fonttype':'none'})
+
+def text(ax,x,y,label,fs=11,bold=False,ha='center',color=INK):
+    return ax.text(x,y,label,fontsize=fs,fontweight='bold' if bold else 'normal',
+                   ha=ha,va='center',color=color,zorder=5,linespacing=1.28)
+
+def box(ax,x,y,w,h,label,kind='layer',fs=11,bold=False):
+    fc,ec=P[kind]
+    ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle='round,pad=0,rounding_size=8',
+                 fc=fc,ec=ec,lw=1.4,zorder=3))
+    t=text(ax,x+w/2,y+h/2,label,fs,bold,color='white' if kind=='union' else INK)
+    TEXT.append((t,x,y,w,h))
+
+def circle(ax,x,y,label,r=19,kind='op',fs=18):
+    fc,ec=P[kind];ax.add_patch(Circle((x,y),r,fc=fc,ec=ec,lw=1.5,zorder=3))
+    text(ax,x,y,label,fs)
+
+def pipe(ax,points,dash=False,color=WIRE,arrow=True):
+    xs,ys=zip(*points);ax.plot(xs,ys,color=color,lw=1.45,
+                 ls=(0,(5,3)) if dash else '-',zorder=2)
+    if arrow:ax.add_patch(FancyArrowPatch(points[-2],points[-1],arrowstyle='-|&gt;',
+            mutation_scale=11,lw=1.45,color=color,shrinkA=0,shrinkB=0,zorder=2))
+
+def group(ax,x,y,w,h,label,color=0):
+    fc,ec=CARDS[color]
+    ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle='round,pad=0,rounding_size=10',
+                 fc=fc,ec=ec,lw=1.2,zorder=0))
+    text(ax,x+9,y+15,label,11,bold=True,ha='left')
+
+def frame(ax,x,y,w,h,label):
+    ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle='round,pad=0,rounding_size=15',
+                 fc='white',ec=WIRE,lw=1.4,ls=(0,(5,4)),zorder=0))
+    text(ax,x+w/2,y+23,label,14,bold=True)
+
+def canvas(kind):
+    TEXT.clear();fig,ax=plt.subplots(figsize=(16,9),dpi=200)
+    fig.subplots_adjust(left=0,right=1,bottom=0,top=1)
+    ax.set(xlim=(0,1600),ylim=(900,0));ax.axis('off')
+    title=r'M4$_{\mathrm{N}}$: '+('arquitectura global' if kind=='global' else 'detalle de la memoria y la compuerta')
+    text(ax,58,72,title,30,bold=True,ha='left',color='#0C4052').set_fontfamily(SERIF)
+    text(ax,60,146,'Propuesta retrospectiva · 60 993 parámetros activos del corrector',11,ha='left',color='#61717B')
+    for i,(kind2,label) in enumerate([('data','Datos'),('layer','Capa'),('weight','Pesos'),
+                 ('op','Operación'),('act','Activación'),('cal','Disponibilidad'),('vector','Vector'),('union','Unión')]):
+        x=656+i*114;fc,ec=P[kind2]
+        if kind2 in ['data','op']:ax.add_patch(Circle((x,146),7,fc=fc,ec=ec,lw=1))
+        else:ax.add_patch(Rectangle((x-7,139),14,14,fc=fc,ec=ec,lw=1))
+        text(ax,x+12,146,label,8.3,ha='left',color='#61717B')
+    return fig,ax
+
+def cards(ax,entries):
+    for i,(heading,formula,note) in enumerate(entries):
+        x=45+i*385;fc,ec=CARDS[i]
+        ax.add_patch(FancyBboxPatch((x,665),360,194,boxstyle='round,pad=0,rounding_size=11',
+                    fc=fc,ec=ec,lw=1.3,zorder=0))
+        t=text(ax,x+180,697,heading,13,bold=True);TEXT.append((t,x+7,674,346,45))
+        t=text(ax,x+180,755,formula,17);TEXT.append((t,x+8,722,344,70))
+        t=text(ax,x+180,821,note,10.5);TEXT.append((t,x+8,796,344,50))
+
+def save(fig,ax,out,kind):
+    for _ in range(4):
+        fig.canvas.draw();renderer=fig.canvas.get_renderer();changed=False
+        for t,x,y,w,h in TEXT:
+            bb=t.get_window_extent(renderer)
+            a=ax.transData.transform((x+6,y+4));b=ax.transData.transform((x+w-6,y+h-4))
+            ratio=min(abs(b[0]-a[0])/max(bb.width,1),abs(b[1]-a[1])/max(bb.height,1))
+            if ratio&lt;.98:t.set_fontsize(max(8.5,t.get_fontsize()*ratio*.98));changed=True
+        if not changed:break
+    fig.canvas.draw();renderer=fig.canvas.get_renderer()
+    for t,x,y,w,h in TEXT:
+        bb=t.get_window_extent(renderer);a=ax.transData.transform((x,y));b=ax.transData.transform((x+w,y+h))
+        assert bb.width&lt;=abs(b[0]-a[0])+1 and bb.height&lt;=abs(b[1]-a[1])+1,t.get_text()
+    for ext in ['png','svg']:fig.savefig(Path(out)/f'm4_n_{kind}.{ext}',dpi=200,facecolor='white')
+    plt.close(fig)
+
+def global_diagram(out):
+    fig,ax=canvas('global')
+    frame(ax,45,193,1510,447,'Base congelada + recuperación causal de residuos + corrección aprendida')
+    group(ax,66,239,570,128,'Base M1: expertos y combinador congelados',0)
+    for x,label in [(80,'PatchTST'),(213,'E: demanda\n+ exógenas'),(346,'Periódico\nConv2D 7 × 24')]:
+        box(ax,x,278,115,35,label,'layer',10.5)
+        pipe(ax,[(x+57,313),(x+57,330),(510,330)],arrow=False)
+    box(ax,499,275,120,65,'Combinación\nconvexa\npor hora','union',10.5)
+    pipe(ax,[(510,330),(499,330)])
+    pipe(ax,[(619,305),(660,305),(660,248),(1541,248),(1541,403),(1446,403),(1446,433)],dash=True)
+    text(ax,1040,236,r'$b_t\in\mathbb{R}^{24}$'+' · trayectoria base, sin ajuste de pesos',10.5)
+
+    group(ax,870,253,665,118,'Compuerta: consulta + evidencia del respaldo',2)
+    box(ax,884,291,132,52,'Concat\n32 + 4 = 36','union',10.5)
+    box(ax,1032,291,121,52,'Linear\n36 → 64','weight',10.5)
+    box(ax,1169,291,108,52,'GELU\nDropout 0,1','act',10.5)
+    box(ax,1293,291,112,52,'Linear\n64 → 1','weight',10.5)
+    box(ax,1421,291,98,52,'Sigmoid\n0 ≤ g ≤ 1','act',10.5)
+    for a,b in [(1016,1032),(1153,1169),(1277,1293),(1405,1421)]:pipe(ax,[(a,317),(b,317)])
+    pipe(ax,[(1470,343),(1470,394),(1373,394),(1373,433)])
+    text(ax,1411,382,r'$g_t$'+' · escalar',10)
+
+    box(ax,67,411,165,85,'Contexto numérico\n912 atributos\nEscalar con ajuste','vector',11)
+    box(ax,258,424,86,60,r'$W_Q,c_Q$'+'\n912 → 32','weight',11)
+    box(ax,369,424,94,60,'LayerNorm\n32','layer',11)
+    box(ax,507,424,135,60,'Producto interno\n÷ √32','op',10.5)
+    box(ax,674,424,138,60,'Máscara causal\n2 ≤ edad ≤ 365','cal',10.5)
+    box(ax,844,424,90,60,'Top-k\nk = 16','op',11)
+    box(ax,961,424,140,60,'Softmax válido\n+ renormalizar','act',10.5)
+    box(ax,1131,424,139,60,'Mezcla residual\n16 × 24 → 24','layer',10.5)
+    circle(ax,1373,454,'×');circle(ax,1446,454,'+')
+    circle(ax,1521,454,r'$\widehat y_t$',24,'output',20)
+    for a,b in [(232,258),(344,369),(463,507),(642,674),(812,844),(934,961),(1101,1131),(1270,1354),(1392,1427),(1465,1497)]:
+        pipe(ax,[(a,454),(b,454)])
+    text(ax,487,439,r'$a_t$',10);text(ax,1116,439,r'$\alpha_t$',10)
+    text(ax,1312,438,r'$q\,m_t$',11)
+    text(ax,1521,498,'24 horas\nkWh',10)
+
+    group(ax,66,531,748,88,'Banco de episodios · predicciones fuera de muestra / OOF anidado',1)
+    box(ax,80,565,120,39,r'$z_i$'+' · contexto','vector',10.5)
+    box(ax,219,565,130,39,r'$W_K,c_K$'+' → LN','weight',10.5)
+    box(ax,371,565,113,39,r'$k_i\in\mathbb{R}^{32}$','vector',12)
+    box(ax,505,565,124,39,'Fecha del\nepisodio i','cal',10)
+    box(ax,651,565,148,39,r'$r_i=(y_i-b_i)/q$','vector',11)
+    for a,b in [(200,219),(349,371)]:pipe(ax,[(a,584),(b,584)])
+    pipe(ax,[(428,565),(428,517),(575,517),(575,484)])
+    pipe(ax,[(567,565),(567,524),(743,524),(743,484)])
+    pipe(ax,[(725,604),(725,628),(1200,628),(1200,484)])
+    text(ax,980,616,'Residuos recuperados solo de vecinos válidos',10)
+    pipe(ax,[(416,424),(416,387),(849,387),(849,317),(884,317)])
+    pipe(ax,[(1200,424),(1200,388),(950,388),(950,343)])
+    text(ax,682,377,'Consulta de 32 + semejanza, dispersión, respaldo y edad',9.6)
+    text(ax,1390,551,'Sin vecinos válidos:',10.5,bold=True)
+    text(ax,1390,577,r'$g_t=0\quad\Longrightarrow\quad\widehat y_t=b_t$',15)
+    cards(ax,[
+      ('Entrada y representación',r'$z_t=(u_t-\mu)/s$','912 atributos numéricos\nConsulta y claves de dimensión 32'),
+      ('Memoria observable',r'$r_i=(y_i-b_i)/q$','Residuos OOF de 24 horas\nRetraso 2 días; edad máxima 365'),
+      ('Atención entre episodios',r'$m_t=\sum_i\alpha_{ti}r_i$','Hasta 16 vecinos\nPeso nulo para posiciones inválidas'),
+      ('Pronóstico corregido',r'$\widehat y_t=b_t+qg_tm_t$','La compuerta es escalar\nLa corrección cambia en cada hora')])
+    save(fig,ax,out,'global')
+
+def detail_diagram(out):
+    fig,ax=canvas('detalle')
+    frame(ax,45,193,748,446,'Proyecciones, disponibilidad y atención')
+    frame(ax,815,193,740,446,'Trayectoria residual y compuerta aprendida')
+    for y,who in [(267,'t'),(348,'i')]:
+        box(ax,66,y,94,49,f'$z_{who}$\n912','vector',11)
+        box(ax,186,y,115,49,('$W_Q,c_Q$' if who=='t' else '$W_K,c_K$')+'\n912 → 32','weight',11)
+        box(ax,325,y,111,49,'LayerNorm\n32','layer',11)
+        box(ax,462,y,70,49,('$a_t$' if who=='t' else '$k_i$'),'vector',16)
+        for a,b in [(160,186),(301,325),(436,462)]:pipe(ax,[(a,y+24),(b,y+24)])
+    circle(ax,580,332,'·',19)
+    pipe(ax,[(532,291),(580,291),(580,313)])
+    pipe(ax,[(532,372),(580,372),(580,351)])
+    box(ax,628,304,142,56,'Dividir por √32\nPuntaje s(t,i)','op',10.5)
+    pipe(ax,[(599,332),(628,332)])
+    box(ax,66,458,133,59,'Edad y validez\n2 ≤ t − i ≤ 365','cal',10.5)
+    box(ax,230,458,144,59,'Enmascarar\ninválidos: −10⁹','op',10.5)
+    box(ax,404,458,104,59,'Top-k\n16 lugares','op',11)
+    box(ax,538,458,146,59,'Softmax\n× validez\nRenormalizar','act',10.5)
+    circle(ax,743,487,r'$\alpha_t$',23,'data',18)
+    for a,b in [(199,230),(374,404),(508,538),(684,720)]:pipe(ax,[(a,487),(b,487)])
+    pipe(ax,[(699,360),(699,423),(302,423),(302,458)])
+    text(ax,411,568,'La máscara precede a top-k; las posiciones vacías',11)
+    text(ax,411,595,'leen un residuo centinela cero, no un objetivo futuro.',11)
+
+    box(ax,839,265,125,57,'Residuos vecinos\nhasta 16 × 24','vector',10.5)
+    circle(ax,1000,294,'Σ',20)
+    pipe(ax,[(964,294),(980,294)])
+    pipe(ax,[(766,487),(807,487),(807,239),(1000,239),(1000,274)])
+    text(ax,893,231,r'$\alpha_t$'+' · pesos de episodios',9.7)
+    box(ax,1035,266,106,56,r'$m_t$'+'\n24 valores','vector',11)
+    pipe(ax,[(1020,294),(1035,294)])
+    box(ax,1172,266,126,56,'Dispersión d(t)\nentre residuos','op',10.5)
+    pipe(ax,[(1141,294),(1172,294)])
+    box(ax,1322,266,209,56,'Semejanza máxima\nRespaldo: n/16 · Edad: /365','cal',10.5)
+    text(ax,1187,349,'Consulta 32 + cuatro indicadores de evidencia',10.8)
+    box(ax,839,389,120,57,'Concat\n36 valores','union',11)
+    box(ax,984,389,97,57,'Linear\n36 → 64','weight',10.5)
+    box(ax,1106,389,87,57,'GELU','act',11)
+    box(ax,1218,389,99,57,'Dropout\np = 0,1','act',10.5)
+    box(ax,1342,389,93,57,'Linear\n64 → 1','weight',10.5)
+    box(ax,1460,389,72,57,'Sigmoid','act',10.5)
+    for a,b in [(959,984),(1081,1106),(1193,1218),(1317,1342),(1435,1460)]:pipe(ax,[(a,417),(b,417)])
+    pipe(ax,[(1235,322),(1235,367),(899,367),(899,389)])
+    pipe(ax,[(1426,322),(1426,367),(899,367)],arrow=False)
+    pipe(ax,[(497,267),(497,242),(798,242),(798,367),(899,367)],dash=True,arrow=False)
+    pipe(ax,[(456,517),(456,538),(782,538),(782,252),(1426,252),(1426,266)],dash=True)
+    text(ax,1158,468,'En evaluación, dropout se desactiva',10)
+
+    box(ax,839,540,121,55,r'$q\,m_t$'+'\n24 valores','vector',12)
+    pipe(ax,[(1088,322),(1088,337),(824,337),(824,567),(839,567)],dash=True)
+    circle(ax,1040,567,'×',20)
+    pipe(ax,[(960,567),(1020,567)])
+    pipe(ax,[(1496,446),(1496,503),(1040,503),(1040,547)])
+    text(ax,1272,492,r'$g_t\in[0,1]$'+' · una intensidad por origen',10.5)
+    circle(ax,1255,567,'+',20)
+    box(ax,1190,512,130,29,r'$b_t$'+' · base M1','vector',11)
+    pipe(ax,[(1255,541),(1255,547)])
+    pipe(ax,[(1060,567),(1235,567)])
+    circle(ax,1481,567,r'$\widehat y_t$',27,'output',20)
+    pipe(ax,[(1275,567),(1454,567)])
+    text(ax,1370,602,'24 pronósticos en kWh',10.5)
+    cards(ax,[
+      ('Evidencia de los vecinos',r'$c_t=[a_t;s_{\max};d_t;n/16;\bar a_t/365]$',
+       '32 + 4 = 36 valores\nDispersión y antigüedad ponderadas'),
+      ('Compuerta de dos capas',r'$g_t=\sigma(W_2D_{.1}(\mathrm{GELU}(W_1c_t+b_1))+b_2)$',
+       'Inicialización: W₂ = 0; b₂ = −2\ng inicial ≈ 0,119 si hay vecinos'),
+      ('Aprendizaje temporal',r'$\mathcal{L}=\mathrm{MAE}(y,\widehat y)/q$',
+       'AdamW: lr 0,001 · lote 64\nParada interna y restauración del mínimo'),
+      ('Capacidad numérica activa',r'$P=64n+2625=60993$',
+       'n = 912; se excluye texto inactivo\nM1 y el banco se contabilizan aparte')])
+    save(fig,ax,out,'detalle')
+
+def experto_e_diagram(out):
+    fig,ax=canvas('experto_e')
+    title=ax.texts[0];title.set_text('Experto E: demanda y corrección exógena acotada')
+    ax.texts[1].set_text('Configuración seleccionada · 242 048 parámetros · horizonte de 24 horas')
+    frame(ax,45,193,1510,448,'Una base de demanda y calendario recibe una contribución exógena con amplitud limitada')
+    group(ax,65,240,938,169,'Rama de demanda y calendario',0)
+    box(ax,80,289,120,72,'Demanda\n168 horas','vector',11)
+    box(ax,224,289,120,72,'Parches 16 h\nPaso 8 h\n21 parches','layer',10.5)
+    box(ax,368,289,112,72,'Proyección\n16 → 32\n+ posición','weight',10.5)
+    box(ax,504,278,255,95,'3 bloques Transformer\nAtención: 4 cabezas\nBatchNorm + FF 32→64→32\n+ conexiones residuales','layer',10.5)
+    box(ax,783,278,204,95,'Lecturas: demanda 672→24\nContexto 745→128→24\nCalendario pasado/futuro\n+ nivel normalizado 1','union',10.2)
+    for a,b in [(200,224),(344,368),(480,504),(759,783)]:pipe(ax,[(a,325),(b,325)])
+    circle(ax,1180,325,'+',21)
+    pipe(ax,[(987,325),(1159,325)])
+    text(ax,1075,305,r'$o_{E,0}\in\mathbb{R}^{24}$',11)
+    circle(ax,1375,325,'×',21)
+    circle(ax,1495,325,r'$p^{(E)}_t$',29,'output',20)
+    pipe(ax,[(1201,325),(1354,325)]);pipe(ax,[(1396,325),(1466,325)])
+    box(ax,1307,247,136,42,'Nivel histórico ℓ(t)\nMedia de 168 h','vector',10.5)
+    pipe(ax,[(1375,289),(1375,304)])
+    text(ax,1495,378,'24 horas\nkWh',10.5)
+
+    group(ax,65,431,938,193,'Rama exógena: valor propuesto y compuerta por hora',1)
+    box(ax,80,484,135,91,'29 covariables\n+ 3 máscaras\nSolo historia','vector',10.8)
+    box(ax,239,484,185,91,'Últimas 24 h\n+ 7 medias diarias\n+ calendario 24×23\nVector u(E): 1544','union',10.5)
+    pipe(ax,[(215,529),(239,529)])
+    box(ax,477,469,190,55,'MLP de valor v(E)\n1544 → 32 → 24','layer',10.5)
+    box(ax,477,549,190,55,'MLP de compuerta g(E)\n1544 → 32 → 24','layer',10.2)
+    box(ax,698,469,92,55,'tanh\n[−1,1]','act',11)
+    box(ax,698,549,92,55,'Sigmoid\n[0,1]','act',11)
+    pipe(ax,[(424,529),(449,529),(449,496),(477,496)])
+    pipe(ax,[(449,529),(449,576),(477,576)])
+    pipe(ax,[(667,496),(698,496)]);pipe(ax,[(667,576),(698,576)])
+    circle(ax,842,534,r'$\odot$',20)
+    pipe(ax,[(790,496),(842,496),(842,514)])
+    pipe(ax,[(790,576),(842,576),(842,554)])
+    box(ax,891,507,95,55,'Amplitud ρ\n0,02','weight',11)
+    pipe(ax,[(862,534),(891,534)])
+
+    circle(ax,1180,534,'×',21)
+    pipe(ax,[(986,534),(1159,534)])
+    box(ax,1051,438,258,61,'Disponibilidad η(t)\n1 − media de máscaras\nÚltimas 24 horas','cal',10.5)
+    pipe(ax,[(1180,499),(1180,513)])
+    pipe(ax,[(1201,534),(1320,534),(1320,410),(1180,410),(1180,346)])
+    text(ax,1247,395,r'$\eta_t\,\delta_{E,t}$',12)
+    text(ax,1071,578,'MLP: GELU y dropout 0,1',10.3)
+    text(ax,1320,604,'Sin aporte exógeno si η(t) = 0',10.3)
+    cards(ax,[
+      ('Resumen exógeno',r'$u_E\in\mathbb{R}^{1544}$',
+       '32×24 + 32×7 + 24×23\nCovariables, máscaras y calendario'),
+      ('Corrección por hora',r'$\delta_E=0.02\,\sigma(g_E(u_E))\odot\tanh(v_E(u_E))$',
+       'Dos MLP con ancho 32 y salida 24\nLa rama de valor inicia en cero'),
+      ('Disponibilidad y cota',r'$|\eta_t\delta_{E,t,h}|\leq0.02\,\eta_t$',
+       'Se acota la corrección normalizada\nLa cota no es un límite del error'),
+      ('Pronóstico del experto',r'$p^{(E)}_{t,h}=\ell_t(o_{E,0,t,h}+\eta_t\delta_{E,t,h})$',
+       'El experto E aporta 24 valores a M1\nM4$_{N}$ corrige después la combinación')])
+    save(fig,ax,out,'experto_e')
+
+
+def experto_periodico_diagram(out):
+    fig,ax=canvas('experto_periodico')
+    ax.texts[0].set_text('Experto periódico: convoluciones sobre la semana 7 × 24')
+    ax.texts[1].set_text('Configuración seleccionada · 33 601 parámetros · horizonte de 24 horas')
+    frame(ax,45,193,1510,447,'Organizar días y horas, aprender patrones locales y leer una predicción por hora')
+    box(ax,67,267,177,74,'Historia: 168 × 33\n30 variables + 3 máscaras\nCalendario: 168 × 23','vector',10.3)
+    box(ax,269,267,113,74,'Concatenar\n168 × 56','union',11)
+    box(ax,407,267,151,74,'Reorganizar\n56 × 7 × 24\ndías × horas','op',11)
+    box(ax,583,267,157,74,'Conv2D 1 × 1\n56 → 32 canales','weight',11)
+    box(ax,765,267,132,74,'Mapas\n32 × 7 × 24','vector',11)
+    box(ax,922,267,164,74,'Bloque residual 1\nancho 32','layer',11)
+    box(ax,1111,267,164,74,'Bloque residual 2\nancho 32','layer',11)
+    box(ax,1300,267,178,74,r'$Z_B$'+'\n32 × 7 × 24','vector',13)
+    for a,b in [(244,269),(382,407),(558,583),(740,765),(897,922),(1086,1111),(1275,1300)]:
+        pipe(ax,[(a,304),(b,304)])
+
+    group(ax,65,371,1035,135,'Detalle del bloque residual · dos repeticiones con parámetros propios',1)
+    circle(ax,99,432,r'$Z_b$',20,'data',15)
+    box(ax,139,407,131,51,'Conv2D 3 × 3\n32 → 32','weight',10.5)
+    box(ax,295,407,85,51,'GELU','act',11)
+    box(ax,405,407,105,51,'Dropout\np = 0,1','act',10.5)
+    box(ax,535,407,131,51,'Conv2D 1 × 5\n32 → 32','weight',10.5)
+    circle(ax,725,432,'+',19)
+    box(ax,778,407,154,51,'GroupNorm\n1 grupo, 32 canales','layer',10.5)
+    circle(ax,1037,432,r'$Z_{b+1}$',24,'output',16)
+    for a,b in [(119,139),(270,295),(380,405),(510,535),(666,706),(744,778),(932,1013)]:
+        pipe(ax,[(a,432),(b,432)])
+    pipe(ax,[(99,452),(99,484),(725,484),(725,451)],dash=True)
+    text(ax,440,476,'Conexión residual',9.4)
+
+    group(ax,1123,371,390,135,'Lectura para cada hora del horizonte',2)
+    box(ax,1140,408,356,72,'Último día: 32 componentes\nMedia de 7 días: 32 componentes\nCalendario futuro: 23 componentes','vector',11)
+    pipe(ax,[(1389,341),(1389,408)])
+    pipe(ax,[(1318,480),(1318,520),(175,520),(175,541)])
+    box(ax,67,541,208,61,'Concatenar por hora\n32 + 32 + 23 = 87','union',11)
+    box(ax,315,541,135,61,'Linear\n87 → 32','weight',11)
+    box(ax,490,541,95,61,'GELU','act',11)
+    box(ax,625,541,120,61,'Dropout\np = 0,1','act',11)
+    box(ax,785,541,135,61,'Linear\n32 → 1','weight',11)
+    circle(ax,1005,571,'+1',21)
+    circle(ax,1215,571,'×',21)
+    circle(ax,1455,571,r'$p_t^{(P)}$',27,'output',20)
+    for a,b in [(275,315),(450,490),(585,625),(745,785),(920,984),(1026,1194),(1236,1428)]:
+        pipe(ax,[(a,571),(b,571)])
+    text(ax,1095,552,'Razón respecto del nivel',9.8)
+    text(ax,1455,615,'24 horas · kWh',10.5)
+    text(ax,1215,620,r'$\ell_t$'+' · nivel de la ventana',10.5)
+    pipe(ax,[(1215,608),(1215,592)])
+    cards(ax,[
+      ('Organización periódica',r'$U\in\mathbb{R}^{56\times7\times24}$',
+       'Periodos fijos de 24 y 168 horas\nCalendario e historia anteriores al origen'),
+      ('Bloque convolucional',r'$Z_{b+1}=\mathrm{GN}(Z_b+\mathrm{Conv}_{1\times5}(D(\mathrm{GELU}(\mathrm{Conv}_{3\times3}(Z_b)))))$',
+       'Filtros entre días y horas\nPadding conserva la forma 7 × 24'),
+      ('Lectura horaria',r'$f_{t,h}=[Z_{B,-1,h};\overline{Z}_{B,h};c_{t,h}]$',
+       '87 atributos por hora\nLa misma MLP se aplica a las 24 horas'),
+      ('Pronóstico del experto',r'$p_{t,h}^{(P)}=\ell_t(1+\mathrm{MLP}(f_{t,h}))$',
+       'Última capa inicializada en cero\nSu trayectoria se combina dentro de M1')])
+    save(fig,ax,out,'experto_periodico')
+
+
+def main(out):
+    out=Path(out);out.mkdir(parents=True,exist_ok=True)
+    global_diagram(out);detail_diagram(out);experto_e_diagram(out);experto_periodico_diagram(out)
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--salida',type=Path,required=True)
+    main(parser.parse_args().salida)
+</code></pre></details>
+<!-- m4-esquemas:fin -->
+</article>

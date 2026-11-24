@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/estilo_academico.css?v=b05080bc" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -226,7 +227,7 @@
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Datos, modelos y protocolo temporal</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -245,10 +246,11 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/m4_n.html">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.17. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Conclusiones</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fuentes.html">Fuentes y fundamento metodológico</a></li>
 </ul>
@@ -402,8 +404,10 @@
 <h1>Pronóstico de la demanda eléctrica del SIN colombiano<a class="headerlink" href="#pronostico-de-la-demanda-electrica-del-sin-colombiano" title="Link to this heading">#</a></h1>
 <p><strong>Fabian José Manrique Morelos y Gloria Bastidas Rodriguez</strong><br />
 Maestría en Estadística Aplicada · Universidad del Norte</p>
-<p>El estudio caracteriza la demanda real horaria y su relación con el calendario, las condiciones ambientales y la información documental disponible. El análisis exploratorio fundamenta la representación temporal y el diseño de evaluación de pronósticos diarios de 24 horas.</p>
-<p>El libro presenta los datos, su calidad, distribución, estacionalidad, dependencia, covariables, titulares y protocolo temporal, junto con quince procedimientos de pronóstico: redes densas, recurrentes, convolucionales, multiescala y de atención, variantes con texto oficial y el modelo ARX, además de dos referencias estacionales. Cada sección incluye el código analítico y las implicaciones de los resultados. El análisis integra calidad de medición, cambios de régimen, transferencia del vocabulario y estabilidad de tópicos, junto con una síntesis metodológica y una guía de reproducción.</p>
+<p>Este estudio evalúa el pronóstico horario de la demanda real del Sistema Interconectado Nacional de Colombia. Utiliza 168 horas de historia para anticipar las siguientes 24 horas, con demanda, calendario, clima, hidrología, precio y documentos oficiales según la arquitectura. El análisis exploratorio caracteriza los cambios de régimen, la dependencia temporal y la cobertura documental.</p>
+<p>La propuesta M4<sub>N</sub> recupera errores de episodios históricos mediante una memoria numérica aprendida sobre una combinación congelada de expertos. En 1.461 orígenes diarios de 2022–2025 y diez semillas obtiene MASE 0,5770, MAE 0,1244 GWh y RMSE 0,1660 GWh por intervalo. Reduce el error un 10,25 % frente a TimesNet, el comparador de menor MASE del Top 10. Los contrastes temporales ajustados respaldan mejoras superiores al 3 % frente a sus diez arquitecturas, dentro del alcance retrospectivo del estudio.</p>
+<p>Las contribuciones comprenden la caracterización reproducible del conjunto de datos, un benchmark de quince procedimientos con 75 realizaciones y dos referencias estacionales, y la evaluación de una memoria residual con diez realizaciones adicionales. El libro desarrolla datos y EDA, literatura, diseño temporal, arquitecturas, resultados y conclusiones. Cada figura integra su interpretación y el código analítico acompaña los resultados.</p>
+<p><a class="reference external" href="https://demanda-electrica-dashboard.onrender.com/index.html">Dashboard</a> · <a class="reference internal" href="arquitecturas/m4_n.html#m4-n"><span class="std std-ref">Fundamento de M4</span></a> · <a class="reference internal" href="10_evaluacion.html#resultados-m4"><span class="std std-ref">Evaluación integrada</span></a>.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>

@@ -1,0 +1,43 @@
+{
+  "fecha": "2026-11-23",
+  "alcance": "Búsqueda dirigida de fuentes primarias; no certifica revisión sistemática exhaustiva.",
+  "consultas": [
+    "\"load forecasting\" \"residual retrieval\"",
+    "\"Colombia\" \"load forecasting\" \"error correction\"",
+    "\"time series forecasting\" \"residual memory\"",
+    "\"load forecasting\" \"memory bank\" attention gating",
+    "\"Colombia\" \"electricity demand\" \"24 h\""
+  ],
+  "fuentes": [
+    {
+      "titulo": "RATL",
+      "url": "https://arxiv.org/html/2609.03937v1",
+      "evidencia": "Texto completo"
+    },
+    {
+      "titulo": "FreshCast",
+      "url": "https://arxiv.org/html/2610.07834v3",
+      "evidencia": "Texto completo"
+    },
+    {
+      "titulo": "MMEMformer",
+      "url": "https://doi.org/10.1016/j.energy.2025.135762",
+      "evidencia": "Resumen editorial"
+    },
+    {
+      "titulo": "TE-AG-GRU-RC",
+      "url": "https://doi.org/10.3389/frai.2026.1935983",
+      "evidencia": "Texto completo"
+    },
+    {
+      "titulo": "ResMem",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/bf0857cb9a41c73639f028a80301cdf0-Abstract-Conference.html",
+      "evidencia": "Resumen oficial"
+    },
+    {
+      "titulo": "Demanda nacional colombiana",
+      "url": "https://doi.org/10.32479/ijeep.17528",
+      "evidencia": "Texto completo"
+    }
+  ]
+}

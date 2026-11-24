@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="257.04pt" height="46.98pt" viewBox="0 0 257.04 46.98" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-24T10:26:46.461551</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 46.98 
+L 257.04 46.98 
+L 257.04 0 
+L -0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="text_1">
+   <!-- $r_{i,h}=\frac{y_{i,h}-b_{i,h}}{q},\qquad h=1,\ldots,24.$ -->
+   <g style="fill: #24383e" transform="translate(10.8 28.8)">
+    <text>
+     <tspan x="0" y="-0.074375" style="font-style: italic; font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">r</tspan>
+     <tspan x="137.525625" y="-0.074375" style="font-style: italic; font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">h</tspan>
+     <tspan x="7.001953" y="2.625625" style="font-style: italic; font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">i</tspan>
+     <tspan x="16.174709" y="2.625625" style="font-style: italic; font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">h</tspan>
+     <tspan x="43.939592" y="-9.392188" style="font-style: italic; font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">y</tspan>
+     <tspan x="64.939592" y="4.650625" style="font-style: italic; font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">q</tspan>
+     <tspan x="74.602799" y="-9.392188" style="font-style: italic; font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">b</tspan>
+     <tspan x="10.50473" y="2.625625" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">,</tspan>
+     <tspan x="63.451851" y="-9.392188" style="font-size: 12.6px; font-family: 'STIXGeneral'; fill: #24383e">−</tspan>
+     <tspan x="26.884666" y="-0.074375" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">=</tspan>
+     <tspan x="93.425655" y="-0.074375" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">,</tspan>
+     <tspan x="150.125564" y="-0.074375" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">=</tspan>
+     <tspan x="166.055489" y="-0.074375" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">1</tspan>
+     <tspan x="175.055428" y="-0.074375" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">,</tspan>
+     <tspan x="183.155398" y="-0.074375" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">…</tspan>
+     <tspan x="201.155291" y="-0.074375" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">,</tspan>
+     <tspan x="209.25526" y="-0.074375" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">2</tspan>
+     <tspan x="218.255199" y="-0.074375" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">4</tspan>
+     <tspan x="227.255138" y="-0.074375" style="font-size: 18px; font-family: 'STIXGeneral'; fill: #24383e">.</tspan>
+     <tspan x="49.533952" y="-7.502188" style="font-style: italic; font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">i</tspan>
+     <tspan x="55.954881" y="-7.502188" style="font-style: italic; font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">h</tspan>
+     <tspan x="80.902756" y="-7.502188" style="font-style: italic; font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">i</tspan>
+     <tspan x="87.323685" y="-7.502188" style="font-style: italic; font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">h</tspan>
+     <tspan x="51.985896" y="-7.502188" style="font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">,</tspan>
+     <tspan x="83.3547" y="-7.502188" style="font-size: 8.82px; font-family: 'STIXGeneral'; fill: #24383e">,</tspan>
+    </text>
+    <rect x="43.939592" y="-5.011875" width="48.361064" height="1.125"/>
+   </g>
+  </g>
+ </g>
+</svg>

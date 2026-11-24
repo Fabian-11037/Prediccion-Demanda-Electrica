@@ -1,0 +1,254 @@
+{
+  "version": "m4_top10_20261123",
+  "semillas_m4": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110
+  ],
+  "comparadores": [
+    {
+      "clave": "repo_nhits_numerico_r1__N",
+      "nombre": "N-HiTS",
+      "grupo": "Top 10"
+    },
+    {
+      "clave": "adj_modelo3_20261115_0419__N",
+      "nombre": "TFT",
+      "grupo": "Top 10"
+    },
+    {
+      "clave": "adj_modelo4_20261114_1224__N",
+      "nombre": "TCN",
+      "grupo": "Top 10"
+    },
+    {
+      "clave": "adj_modelo5_20261114_1327__N",
+      "nombre": "iTransformer",
+      "grupo": "Top 10"
+    },
+    {
+      "clave": "adj_modelo6_20261112_1035__N",
+      "nombre": "PatchTST",
+      "grupo": "Top 10"
+    },
+    {
+      "clave": "adj_modelo6_20261112_1035__N+O",
+      "nombre": "TaTS · N+O",
+      "grupo": "Top 10"
+    },
+    {
+      "clave": "adj_fusion_tardia_20261113_1728__N+O",
+      "nombre": "Fusión tardía · N+O",
+      "grupo": "Top 10"
+    },
+    {
+      "clave": "adj_modelo7_20261114_0430__N+O",
+      "nombre": "TGForecaster · N+O",
+      "grupo": "Top 10"
+    },
+    {
+      "clave": "nuevo_nbeats__N",
+      "nombre": "N-BEATS",
+      "grupo": "Top 10"
+    },
+    {
+      "clave": "nuevo_timesnet__N",
+      "nombre": "TimesNet",
+      "grupo": "Top 10"
+    },
+    {
+      "clave": "mlp",
+      "nombre": "MLP",
+      "grupo": "Baselines E1"
+    },
+    {
+      "clave": "lstm",
+      "nombre": "LSTM",
+      "grupo": "Baselines E1"
+    },
+    {
+      "clave": "cnn1d",
+      "nombre": "CNN1D",
+      "grupo": "Baselines E1"
+    },
+    {
+      "clave": "arx_lineal",
+      "nombre": "ARX",
+      "grupo": "Referencia clásica"
+    }
+  ],
+  "archivos": [
+    {
+      "archivo": "results/evaluacion_e2/benchmark.csv",
+      "sha256": "7d9a8bfde927c8a9cf54ad07ba486e8c55d8ebfc05a2428fe620a7bada2f7813"
+    },
+    {
+      "archivo": "results/evaluacion_e2/protocolo.json",
+      "sha256": "9ddac2d4eab6cc7bf70ac15e5222771601cf11ce453e32ab54d578cc9dce231b"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/metricas_por_semilla.csv",
+      "sha256": "6dc6bda340a3d463bd6aaca9361cf01a72409967fb05f77051c5de33e1826694"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/ampliacion_top10/contrastes_F2_Top10_completo.csv",
+      "sha256": "c0cc4f26a83841fd2c5514f1d2aa4ad45fb622b236adfc7cd9c6b5b2beec1bb9"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_101/historia.csv",
+      "sha256": "f0ce3f18f28194ac87b2dc5ac429f0a29f5084725ab955b4d2cc25cac680c0bf"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_102/historia.csv",
+      "sha256": "980d541af2022fb0a003ea7826a2e42f5a25d1d41b28f063725f41e1888b3fa1"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_103/historia.csv",
+      "sha256": "f67d36f5453b322f80ce44ccc59b2d341426346dc8b5c947fe93835e3ee7cf0d"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_104/historia.csv",
+      "sha256": "a78691e76dedbc4cec201384d400f2ccaada1674dca9de233077dd623c31b63e"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_105/historia.csv",
+      "sha256": "02e55c8b6576e9f837ff69c433d63b360ab4f9e8122ef0cedb6c56c3abce25ae"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_106/historia.csv",
+      "sha256": "7f9043d453ae23d99ebfad80f02b8d343504728ef4a15a51f898e55784c375b3"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_107/historia.csv",
+      "sha256": "6f3329fdea3bf2ff2b285d0b9ad420b5decc1924b3a17cfeb564c93d54d25982"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_108/historia.csv",
+      "sha256": "e44427449ddb01cdbf1a6693315e70c8a4b99c38ffd722c5f31e0db644d0a211"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_109/historia.csv",
+      "sha256": "db4a45eddf02ad25a4721e15d4cbc2f71de9679a76c889a19f76b5069ee22d91"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_110/historia.csv",
+      "sha256": "e9b168f15c1d445846fe407ae937341c6c01a7bd6c9c41fdef0bcf14cc012261"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_101/TERMINADO.json",
+      "sha256": "a827c3891078eeb1408c3925942ce49949f6cb82f55317e098adcc22e3e53927"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_102/TERMINADO.json",
+      "sha256": "dc9139c90ed0117d1a350ebb755b76d73914323bf89129030e826950803b1bf0"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_103/TERMINADO.json",
+      "sha256": "1bee2b631bb569fc4e2c4a1a62e77492dae86b41b5106584b699a8fc07e08bb8"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_104/TERMINADO.json",
+      "sha256": "be2924b3e78d8e2e2499b49154b654263657865c0bb286bec066ca7baf6f7dac"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_105/TERMINADO.json",
+      "sha256": "d5529c938b49e33a2aa77cbb5a9ccfe4074dcd43574f9e8fd7c141dd71e933d8"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_106/TERMINADO.json",
+      "sha256": "47d255270900222682937756f79272cf2cc859b88b036496bc51b90c2ce628c7"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_107/TERMINADO.json",
+      "sha256": "4d3751718c7517e20e3561bcf3415226c8bf21063568b11c42bbee4c743e1fbb"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_108/TERMINADO.json",
+      "sha256": "ed7b1b4b489965620c432f8ba7ebfbe788f03b437917d157d32debab1af357d1"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_109/TERMINADO.json",
+      "sha256": "4cb2c44d73e59d58b01f6723dc234c0c6234537873fcdb02b2aaa029e1b3725a"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_110/TERMINADO.json",
+      "sha256": "5b193a286e1219c13c890e7778f871581b86e5fd749587d5716c96448de781a6"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_101.npz",
+      "sha256": "2f2144dcd766a6fd158d0e8f80933dfb2e7fe4749c08d4738083a1eaa3129c5c"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_102.npz",
+      "sha256": "b5cfd672ea841f37487806a1b6137825dc780f1ce4859a118ab504c21b29baff"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_103.npz",
+      "sha256": "084e199783e1a900a2c26041672873cb3b408e6cf9514abcb6e7d54691a85923"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_104.npz",
+      "sha256": "79f287ca8fa6ea2637e5c0fa13853b27dfe18538d57a4ac3df9f5f0929bfbfad"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_105.npz",
+      "sha256": "2cc924e3c33701c93f777b9e7ef623a419e4be2cbfdb367476c6845f25b86a40"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_106.npz",
+      "sha256": "55a97b92a764960dd6d310cf6cb4a39ab550c5423c93f0b609a8f09babb13f24"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_107.npz",
+      "sha256": "0ca30b1e5e7f82084bf9c5e1a8f5457bc3eb0aa84c22bf48848c0d66012e37ed"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_108.npz",
+      "sha256": "36d94fd016f44c5f72f079df346e61a4d9f1144843e1a493e44e49bdc85b6181"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_109.npz",
+      "sha256": "e4d96df0a980bf53dc43d84703b2025ed8d22a9e8797c2665f65435204c24578"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_110.npz",
+      "sha256": "10116977fff4e94eb2c756a9ad13850f54868ee0342eb6f13457faa948f0d99d"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1000.npz",
+      "sha256": "0fdcca9d00d875ac5c1dc8a63bbdd54c4c6524d1767a7dec1f8a4963cffa676d"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1001.npz",
+      "sha256": "b4cca5a113f72bad56fb715d8d97079a9e678a36428294b1aed44031beb34ea6"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1002.npz",
+      "sha256": "c2234fc411f641e224f7ba78014f56c7797dfc3e8664aac7d27e941423e6efeb"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1003.npz",
+      "sha256": "9861bd76a6539189018c4c5b90f92578c6b734313ab13ace8299526afae212d2"
+    },
+    {
+      "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1004.npz",
+      "sha256": "29540a62f3b605d9b42c8b2a71beaaee5feaa0c555684fea1d22cc982cff287c"
+    }
+  ],
+  "contrastes_top10": 60,
+  "entrenamiento": false,
+  "inferencia_redes": false,
+  "publicacion": false,
+  "MASE_M4_N": 0.5770369087419158,
+  "MAE_GWh": 0.12441948857192563,
+  "RMSE_GWh": 0.1660419417545531,
+  "rechazos_top10_bootstrap": 10,
+  "rechazos_top10_margen3": 10
+}

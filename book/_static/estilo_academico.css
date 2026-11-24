@@ -1,0 +1,15 @@
+/* Alineacion de la prosa en todos los capitulos del JBook. */
+.bd-article p {
+    text-align: justify;
+    text-align-last: start;
+    text-justify: inter-word;
+    hyphens: auto;
+}
+.bd-article table p {
+    text-align: inherit;
+    hyphens: manual;
+}
+.bd-article .admonition-title,
+.bd-article .rubric {
+    text-align: start;
+}

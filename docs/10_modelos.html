@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/estilo_academico.css?v=b05080bc" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -68,7 +69,7 @@
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
     <link rel="next" title="10.1. Fundamentos y preprocesamiento compartido" href="arquitecturas/fundamentos.html" />
-    <link rel="prev" title="9.1. Diseño de entrenamiento ampliado" href="09_diseno_ampliado.html" />
+    <link rel="prev" title="9.1. Datos, modelos y protocolo temporal" href="09_diseno_ampliado.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   <meta name="docsearch:version" content="" />
@@ -229,7 +230,7 @@
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Diseño de entrenamiento ampliado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Datos, modelos y protocolo temporal</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">10. Modelos, arquitecturas y evaluación</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -248,10 +249,11 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.16. Resultados y evaluación integrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arquitecturas/m4_n.html">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.17. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Síntesis del análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_sintesis.html">11. Conclusiones</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fuentes.html">Fuentes y fundamento metodológico</a></li>
 </ul>
@@ -400,6 +402,7 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secuencia-de-lectura">Secuencia de lectura</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propuesta-numerica-con-memoria">Propuesta numérica con memoria</a></li>
 </ul>
             </nav>
         </div>
@@ -414,10 +417,14 @@
   <section class="tex2jax_ignore mathjax_ignore" id="modelos-arquitecturas-y-evaluacion">
 <h1>10. Modelos, arquitecturas y evaluación<a class="headerlink" href="#modelos-arquitecturas-y-evaluacion" title="Link to this heading">#</a></h1>
 <p>El capítulo presenta primero la composición matemática de los modelos y sus pipelines de entrenamiento y prueba. Después reúne resultados, incertidumbre y diagnósticos en una evaluación integrada.</p>
-<p>Se comparan quince procedimientos completados, 75 realizaciones y dos referencias estacionales. Las fichas distinguen entradas, mecanismos y presupuestos de ajuste.</p>
+<p>El benchmark de referencia reúne quince procedimientos completados, 75 realizaciones y dos referencias estacionales. Las fichas distinguen entradas, mecanismos y presupuestos de ajuste.</p>
 <section id="secuencia-de-lectura">
 <h2>Secuencia de lectura<a class="headerlink" href="#secuencia-de-lectura" title="Link to this heading">#</a></h2>
 <p>La <a class="reference internal" href="arquitecturas/fundamentos.html#fundamentos-arquitecturas"><span class="std std-ref">notación y las operaciones compartidas</span></a> introducen entradas, normalización, atención y optimización. Las fichas desarrollan cada arquitectura, su esquema y código. La <a class="reference internal" href="10_evaluacion.html#evaluacion-e2"><span class="std std-ref">evaluación integrada</span></a> reúne selección, aprendizaje, precisión, inferencia, diagnóstico e importancia.</p>
+</section>
+<section id="propuesta-numerica-con-memoria">
+<h2>Propuesta numérica con memoria<a class="headerlink" href="#propuesta-numerica-con-memoria" title="Link to this heading">#</a></h2>
+<p>La <a class="reference internal" href="arquitecturas/m4_n.html#m4-n"><span class="std std-ref">arquitectura de M4ₙ</span></a> desarrolla la memoria de errores y sus expertos. La <a class="reference internal" href="10_evaluacion.html#resultados-m4"><span class="std std-ref">evaluación de la propuesta</span></a> reúne sus diez semillas, curvas de aprendizaje y comparación con el Top 10 y los baselines. En prueba, M4ₙ obtiene MASE 0,5770; el benchmark de referencia conserva quince procedimientos y cinco semillas por procedimiento.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -459,7 +466,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">9.1. Diseño de entrenamiento ampliado</p>
+        <p class="prev-next-title">9.1. Datos, modelos y protocolo temporal</p>
       </div>
     </a>
     <a class="right-next"
@@ -490,6 +497,7 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secuencia-de-lectura">Secuencia de lectura</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propuesta-numerica-con-memoria">Propuesta numérica con memoria</a></li>
 </ul>
   </nav></div>
 

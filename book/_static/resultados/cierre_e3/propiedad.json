@@ -1,0 +1,22 @@
+{
+  "tests": {
+    "cota_correccion": true,
+    "compuerta_0_1": true,
+    "atencion_simplex": true,
+    "edad_2_365": true,
+    "sin_vecinos_igual_base": true,
+    "invarianza_valores_no_disponibles": true,
+    "cota_convexidad_valores": true,
+    "cota_estabilidad_atencion_compuerta": true,
+    "gradcheck_atencion_compuerta": true,
+    "gradcheck_proyeccion_LayerNorm": true
+  },
+  "n_queries": 128,
+  "max_violation_kwh": 0.0,
+  "minimum_slack_kwh": 17939.45703125,
+  "query_weight_spectral_norm": 1.05118446461488,
+  "key_weight_spectral_norm": 0.9928827766507226,
+  "LN_global_bound_query": 347.31787059533855,
+  "scope": "Banco y vecindario fijos; top-k no se supone continuo globalmente; gradientes comprobados sin optimización",
+  "entrenamiento": false
+}

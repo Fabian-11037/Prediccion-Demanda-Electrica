@@ -31,6 +31,7 @@ chapters:
       - file: arquitecturas/fusion
       - file: arquitecturas/nbeats
       - file: arquitecturas/timesnet
+      - file: arquitecturas/m4_n
       - file: 10_evaluacion
   - file: 11_sintesis
   - file: 12_reproducibilidad

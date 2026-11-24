@@ -1,0 +1,50 @@
+{
+  "opset": 18,
+  "provider": "CPUExecutionProvider",
+  "semilla": 101,
+  "modulos": 5,
+  "resultados": [
+    {
+      "origen": "2022-01-01",
+      "max_error_kwh": 1.0678745741024613,
+      "max_error_relativo": 1.5638531768595467e-07
+    },
+    {
+      "origen": "2023-07-01",
+      "max_error_kwh": 1.7760858219116926,
+      "max_error_relativo": 1.8146706603955336e-07
+    },
+    {
+      "origen": "2024-02-15",
+      "max_error_kwh": 1.9458697084337473,
+      "max_error_relativo": 2.2874828410270897e-07
+    },
+    {
+      "origen": "2025-12-31",
+      "max_error_kwh": 1.428553344681859,
+      "max_error_relativo": 1.6953237948792757e-07
+    },
+    {
+      "origen": "2026-01-01",
+      "max_error_kwh": 1.7335040820762515,
+      "max_error_relativo": 2.188706365767354e-07
+    }
+  ],
+  "tolerancia_relativa": 0.0001,
+  "entrenamiento": false,
+  "alcance": "Tres expertos + M1 + memoria; entradas preparadas sin datos futuros. Banco relleno hasta365 episodios, máscara causal conservada.",
+  "archivos": {
+    "modelos/experto_0.onnx": "b1b22fa88f47dd17485451b9256b0e8c9d3cb0310f1b062c98bab3844f19bd7d",
+    "modelos/experto_1.onnx": "3b3718290b2bc2d8ab0848eda4d84a5f84b498eebac08c1fc917d70aa81a3e64",
+    "modelos/experto_2.onnx": "201cb11e49e98e693cf52a84a7fdef744afc9dc9cc5493243805c7dae771ec3d",
+    "modelos/memoria.onnx": "78623da0649e499c2949aac78b1dcc0aa25217dcd68d8a860e7855a9e69055f0",
+    "modelos/router.onnx": "e6c99c3bb29fcfcdabb14b38e98cc19757e71462b018a70b3f52221d2ef78f30"
+  },
+  "sha256_checkpoints": {
+    "patchtst": "469b9661d77e9a1c4746d3db2856d194ea1b64aecc497aa88a507715df8c45d4",
+    "E": "d25029d0e50df42d7e24cb26a703a0e39e9e8c4d45422c4e64abeec0d956ae32",
+    "periodica": "5f58dcd4a5e96d310e8d97096b9142ab43de0e7cee891e2d3e145af80fa527ff",
+    "M1": "aa3ac82f56f19be0443d9d3c04a4bee4676cc1613c9f0b12fadb3ece2c1f4ace",
+    "M4_N": "59960de2aed91cc921cdf25d8586069c8e855ab046c2e3ec31295f02662a76d7"
+  }
+}

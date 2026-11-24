@@ -1,0 +1,8 @@
+{
+  "programado": "2026-11-16T01:05:58.7661798-05:00",
+  "espera_segundos": 45,
+  "proceso": 49360,
+  "comando": "shutdown.exe /s /t 0",
+  "entrenamiento": false,
+  "publicacion": false
+}

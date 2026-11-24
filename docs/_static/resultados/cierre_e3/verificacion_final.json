@@ -1,0 +1,17 @@
+{
+  "paginas_html": 38,
+  "enlaces_rotos": 0,
+  "celdas_analiticas_nuevas": 8,
+  "figuras_nuevas": 5,
+  "comprobaciones_nucleo": 10,
+  "hashes_originales_verificados": 21,
+  "python_tests": 15,
+  "dashboard_tests": 11,
+  "entrenamiento": false,
+  "publicacion": false,
+  "zip_bytes": 5908081,
+  "pendientes_externos": [
+    "Exportaciones nativas y revisión bibliográfica independiente",
+    "Contenedor Linux sin Docker ni WSL en el equipo"
+  ]
+}
