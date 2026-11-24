@@ -13,12 +13,16 @@ import m4_cierre_colombia as COL
 import m4_cierre_controles as C
 import m4_cierre_recuperacion as REC
 import m4_cierre_fuertes as FU
-import m4_cierre_procedencia as PRO
+import m4_cierre_procedencia_b as PRO
 import m4_cierre_complemento as EXTRA
 import m4_cierre_diagnosticos as DIA
 import m4_cierre_estadistica as EST
 from e3_modelo1 import dividir
 from ejecutar_cierre_m4 import guardar_pred, traza
+
+# El complemento conserva sus bytes registrados; solo esta cola usa el adaptador
+# de fechas, con la misma lógica de entrenamiento y las mismas particiones.
+EXTRA.PRO = PRO
 
 SEMILLAS = list(range(101, 111))
 ARCHIVOS_AJUSTE = {'modelo.pt', 'historia.csv', 'escaladores.json',
