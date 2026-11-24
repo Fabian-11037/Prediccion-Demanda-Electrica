@@ -1,0 +1,8 @@
+{
+ "omitidos": [
+  "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/inferencia.log"
+ ],
+ "datos_brutos_terceros": "conservados locales; se publican recetas y SHA256",
+ "optimizadores": "reanudar.pt permanece local; checkpoints seleccionados publicados completos",
+ "fragmentos": "Concatenar partes en orden y verificar SHA256 original; no cuantización"
+}

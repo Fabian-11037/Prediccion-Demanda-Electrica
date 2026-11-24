@@ -1,0 +1,502 @@
+[
+ {
+  "archivo": "config/m4_cierre_benchmark/Modelo3_TFT.json",
+  "sha256": "345eb781134c934a3c4ee6dd4257e96c1aea804783c92d626c7e513108b4c7a9",
+  "bytes": 7279
+ },
+ {
+  "archivo": "config/m4_cierre_benchmark/Modelo4_TCN.json",
+  "sha256": "63d172e42921b600dd7da61e45bb5da5c29acf4e2fa185162b41c26ef32d62df",
+  "bytes": 8456
+ },
+ {
+  "archivo": "config/m4_cierre_benchmark/Modelo5_iTransformer.json",
+  "sha256": "f488ed0c5a07a20b310ab993c091f8f75f6723a8b3245241852a4a762e61a018",
+  "bytes": 6946
+ },
+ {
+  "archivo": "data/external/m4_cierre_20261123/FUENTES.json",
+  "sha256": "f2873a9ae3369ff11a061fa3e6614b6467324551ac6d087597379c174d073ecf",
+  "bytes": 1093
+ },
+ {
+  "archivo": "data/external/m4_cierre_20261123/PANELES.json",
+  "sha256": "c67d5c33d4d0691d8a8dab51cec2e49403ea871eddc0d369c410dfe6fbc9c7de",
+  "bytes": 672
+ },
+ {
+  "archivo": "experiments/m4_originalidad/ADENDA_B_FECHAS_NUMPY_20261123.md",
+  "sha256": "a1744d07a5cf81470b175ffde55705dab0ad6233c1336c6329ba3f12d28f705a",
+  "bytes": 1006
+ },
+ {
+  "archivo": "experiments/m4_originalidad/ADENDA_COMPLETAR_PLAN.md",
+  "sha256": "602e1a367b07d8abe3428caac5f5c02f7bf56d5ecfe287bd83bd41e445566619",
+  "bytes": 7998
+ },
+ {
+  "archivo": "experiments/m4_originalidad/ADENDA_RESOLUCION_F2.md",
+  "sha256": "22596e525c5247b6e271bd52fc83763996c06090fd2ced7649ebd95bafc879f3",
+  "bytes": 2592
+ },
+ {
+  "archivo": "experiments/m4_originalidad/PROPIEDAD_LOCAL.md",
+  "sha256": "023b1de967aca16ab3f3c20bba8bdca54cf056ad56e03315f1ae52f3f3cb9f02",
+  "bytes": 2418
+ },
+ {
+  "archivo": "experiments/m4_originalidad/REDUCCION_B_COLOMBIA_20261123.md",
+  "sha256": "63486fc5f2541a7e9566e1e61af7baf28271cdccee4c4d8b373f4b82fc0b5837",
+  "bytes": 3560
+ },
+ {
+  "archivo": "experiments/m4_originalidad/REVISION_Y_ADAPTACIONES.md",
+  "sha256": "21890f34f4af07f02c62bfb9dfe1dd16bae958269c1436e49fbe96be53c6346c",
+  "bytes": 4039
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/ESTADO.json",
+  "sha256": "133bf820f524fd86bce91767a782be727269ebd53982871276a1257f9dfbcb3e",
+  "bytes": 214
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/FINALIZADO.json",
+  "sha256": "a7c83ea45ff346f4b29db0a642ac65b46d451b81846bfe5eff02451b623b2e9a",
+  "bytes": 166
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/MANIFIESTO_FINAL.json",
+  "sha256": "6d030cb13f84c2a55e924e4d6c080e222032cca6f5cfa0b232d448b5337f59b3",
+  "bytes": 6609
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/PROCESO.json",
+  "sha256": "7ecca862d0065d55be3509ad93c6c05cbe08eddeda11b426d6363917cffcc4ce",
+  "bytes": 123
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/RECEPCION.json",
+  "sha256": "f8851b223bc2aaa216d49556e0b5cca0a5a189ce5d19e323ec3ac4715ccc8242",
+  "bytes": 2401
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/REGISTRO_PREINFERENCIA.json",
+  "sha256": "ad0657b5ebf7c2d10a41dadc31b821cec4c886c5f60991f2e0573e7fc083ae47",
+  "bytes": 2800
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/REPRODUCCION_NBEATS.json",
+  "sha256": "03d9d53baccc454ef53873afba4f9933fcd61096b28dc68afb37193cbd867d4c",
+  "bytes": 267
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/REPRODUCCION_TimesNet.json",
+  "sha256": "93d6cb396b89bd271f168c4ffbb12b04b3a67d2193a8f073e248dd0e43b880b0",
+  "bytes": 263
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/escaladores_reconstruidos.json",
+  "sha256": "6eb438de5201a1155aaaa306061d2d0b22fb0ab90482ed3add6b7d8afb01cd8f",
+  "bytes": 9313
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/metricas_por_semilla.csv",
+  "sha256": "784f03bde17a6ad8dba88dfcf52d1112faece8ab4ee112f6acb0d297abc15717",
+  "bytes": 730
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1000/modelo.pt",
+  "sha256": "2cca4801d3587488dab56f1456bcd100c2ff2d954cb63149e729ac8a02a6a8c2",
+  "bytes": 197943093,
+  "fragmentado": true,
+  "indice": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1000/modelo.pt.partes.json",
+  "partes": [
+   {
+    "archivo": "modelo.pt.parte_0000",
+    "sha256": "1df2face387a064cbb9fb32691b81c838dbd8bd8b381c26960cfdf5f3628287b",
+    "bytes": 67108864
+   },
+   {
+    "archivo": "modelo.pt.parte_0001",
+    "sha256": "0848d888f464762a1c28807a097b59b6c5e27bbdbce5387a32b53510ae13dec0",
+    "bytes": 67108864
+   },
+   {
+    "archivo": "modelo.pt.parte_0002",
+    "sha256": "f58c9af7dbb27cd59e843a9b5122c0e66ca17118ee7c4fe11751a0701a83bc48",
+    "bytes": 63725365
+   }
+  ]
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1001/modelo.pt",
+  "sha256": "b1378b5d0abf8a1ae025d21ca28e9847066681c889491cdf1a6f2c3ec4b7b135",
+  "bytes": 197943093,
+  "fragmentado": true,
+  "indice": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1001/modelo.pt.partes.json",
+  "partes": [
+   {
+    "archivo": "modelo.pt.parte_0000",
+    "sha256": "10edaf32570ba985315a2065e5b52d6934e8b3a2df0db1d82aad6fd242645e0b",
+    "bytes": 67108864
+   },
+   {
+    "archivo": "modelo.pt.parte_0001",
+    "sha256": "d6085e43f8d398cd0c1917a1fea9ceb06939b1f1e233d11c3c31f581926b82da",
+    "bytes": 67108864
+   },
+   {
+    "archivo": "modelo.pt.parte_0002",
+    "sha256": "4438053a0a8c36cd6f808aecad41b9a5956cc15e2767686e68f6212abc0608c1",
+    "bytes": 63725365
+   }
+  ]
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1002/modelo.pt",
+  "sha256": "268a90bb00b7b51222c6abec541effb2b0bc153f3ebe15d0e14c95e08432d5d2",
+  "bytes": 197943093,
+  "fragmentado": true,
+  "indice": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1002/modelo.pt.partes.json",
+  "partes": [
+   {
+    "archivo": "modelo.pt.parte_0000",
+    "sha256": "a114219d27416f5104e216a8a75ef93bd545d2254d624cd1c8081e19da9be1eb",
+    "bytes": 67108864
+   },
+   {
+    "archivo": "modelo.pt.parte_0001",
+    "sha256": "e4622ec6603e664bf217110e3a2c05eecf4cb799b720efecc91bc58a36d37fcf",
+    "bytes": 67108864
+   },
+   {
+    "archivo": "modelo.pt.parte_0002",
+    "sha256": "1ed9274d05eaff1f7f474dec0ea1ad8c40c6b23d257889b90404270b0656c2e0",
+    "bytes": 63725365
+   }
+  ]
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1003/modelo.pt",
+  "sha256": "0e42957808c423be7116ad45ac6401dc4d034a78ec887c2bd7acc9a9a444d8ed",
+  "bytes": 197943093,
+  "fragmentado": true,
+  "indice": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1003/modelo.pt.partes.json",
+  "partes": [
+   {
+    "archivo": "modelo.pt.parte_0000",
+    "sha256": "df54fe6023b65a3d040799f83554d8f4cebbf29619c367c66f68b855a5b33345",
+    "bytes": 67108864
+   },
+   {
+    "archivo": "modelo.pt.parte_0001",
+    "sha256": "b46d08a27c5cbc9e1d64256b1030915e4c7bb79ac98bbaab8a25280fb36ac3c8",
+    "bytes": 67108864
+   },
+   {
+    "archivo": "modelo.pt.parte_0002",
+    "sha256": "f49e0cca33698b9299a1ad817240952c0c29e72f130855e10a348c736f1c2233",
+    "bytes": 63725365
+   }
+  ]
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1004/modelo.pt",
+  "sha256": "a0b77ddfc4128c8627544a037e6cb874dbe52cbcbbd66722652c1b404963da56",
+  "bytes": 197943093,
+  "fragmentado": true,
+  "indice": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_nbeats/final/N/semilla_1004/modelo.pt.partes.json",
+  "partes": [
+   {
+    "archivo": "modelo.pt.parte_0000",
+    "sha256": "082471d236091852f37a3f2d9518c501698fc8400ddfa1699b7d0d5073bf6af6",
+    "bytes": 67108864
+   },
+   {
+    "archivo": "modelo.pt.parte_0001",
+    "sha256": "6da2dd20521ead6760e89cc05b7f8f60fe3d17d387045f93a596eed6d157b617",
+    "bytes": 67108864
+   },
+   {
+    "archivo": "modelo.pt.parte_0002",
+    "sha256": "3ec653ba9f123ef468f76129966e19207a2248c3f3accc5a12f54790c0856573",
+    "bytes": 63725365
+   }
+  ]
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1000/modelo.pt",
+  "sha256": "9f0b62423e061c8851cbfd3a3ed1d815026dacba026157715c7f89b44a208d54",
+  "bytes": 1647985
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1001/modelo.pt",
+  "sha256": "d47f1ae4fbee6465417b07337e305e96c6c839bdf98f15a08c9de14119021b17",
+  "bytes": 1647985
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1002/modelo.pt",
+  "sha256": "e5ebfc59022cf59417550255025714ae8bdf3ffae0f5661da1f3580364b366c2",
+  "bytes": 1647985
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1003/modelo.pt",
+  "sha256": "3866b3f44103e07c95a2b43cf54f6aefaed46067756477b88fc1415bd168471a",
+  "bytes": 1647985
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pesos/resultados_e2_nbeats_timesnet/nuevo_timesnet/final/N/semilla_1004/modelo.pt",
+  "sha256": "976755fda7aad5f6a72de5580120f00ddad5501a692d24c0ab9d842d0baecdd1",
+  "bytes": 1647985
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1000.csv.gz",
+  "sha256": "93dcbf9b0722ea473e6e227766c87c02703e97b0c6b446695bcb019015799863",
+  "bytes": 630378
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1000.npz",
+  "sha256": "0906cdcff176a9cfa2ff5cd0c69c8fbabb5c66c378f64edfaf3dfcfcbf6fc59e",
+  "bytes": 434355
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1001.csv.gz",
+  "sha256": "f5b27669d1e234d2aae9a59a5910711f1e79f7fc1832a1fdea7d188daf297f23",
+  "bytes": 629476
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1001.npz",
+  "sha256": "f1f782c650b02d59a92421e4dcac8ee02f08b867859599177a83f01254f14e9e",
+  "bytes": 434416
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1002.csv.gz",
+  "sha256": "4491880514392a4f60cbb174c41f3ef1021964c18c3314316a0048fc16f46f5f",
+  "bytes": 629438
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1002.npz",
+  "sha256": "85b4e492f2e751892e73db838f1b48ed49818d54e12828e9f0e905ffc3a20679",
+  "bytes": 434456
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1003.csv.gz",
+  "sha256": "bdb69df97e50f13f4a4525b6729ad11403a471da0986a1d436a2b51e00bf5b94",
+  "bytes": 629570
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1003.npz",
+  "sha256": "1a12e74b5de1ab617a18a6ea03946c1753115cc887ae74bdce3e0973a7576f83",
+  "bytes": 434424
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1004.csv.gz",
+  "sha256": "511038ddf47730a60fcc3de25fa53ec2e17a196254bc3eec982af80ffd540ff5",
+  "bytes": 629361
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/NBEATS/predicciones_1004.npz",
+  "sha256": "a6955c3c6776ce4d0a3a1d3106e1fb794fae01074cc21520d7a36e1f3571e6cb",
+  "bytes": 434442
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1000.csv.gz",
+  "sha256": "ba3801da4f23cf2704e1a2f046df66f168037589fc69c7e4c0e568d08dd39344",
+  "bytes": 629456
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1000.npz",
+  "sha256": "0fdcca9d00d875ac5c1dc8a63bbdd54c4c6524d1767a7dec1f8a4963cffa676d",
+  "bytes": 694615
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1001.csv.gz",
+  "sha256": "bebf53d3394937e2c5be9066813b9813cd3fce4bf47ee2c68ed4380bf20611bb",
+  "bytes": 628794
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1001.npz",
+  "sha256": "b4cca5a113f72bad56fb715d8d97079a9e678a36428294b1aed44031beb34ea6",
+  "bytes": 694287
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1002.csv.gz",
+  "sha256": "091a2d3f8370f4131c14934cc6c443298eef1d05ce14b5879397c9a668bbbb02",
+  "bytes": 628868
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1002.npz",
+  "sha256": "c2234fc411f641e224f7ba78014f56c7797dfc3e8664aac7d27e941423e6efeb",
+  "bytes": 694615
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1003.csv.gz",
+  "sha256": "3e8a99fa90635a3d600631188eed62fcbfe4228ef18e7d6554102e40e9b34fc8",
+  "bytes": 628960
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1003.npz",
+  "sha256": "9861bd76a6539189018c4c5b90f92578c6b734313ab13ace8299526afae212d2",
+  "bytes": 694263
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1004.csv.gz",
+  "sha256": "d2a0562682302ed4503cc7e0146de366765334e97a07becf0745cabf37e977a9",
+  "bytes": 628847
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/predicciones/TimesNet/predicciones_1004.npz",
+  "sha256": "29540a62f3b605d9b42c8b2a71beaaee5feaa0c555684fea1d22cc982cff287c",
+  "bytes": 694371
+ },
+ {
+  "archivo": "results/m4_cierre_gpu_20261123/historicos_nbeats_timesnet/pytest_publicacion.txt",
+  "sha256": "019565dd7c0ca5a9672c45396f3be76c2ab55d5788c1ca9cdb52999779830f8e",
+  "bytes": 1307
+ },
+ {
+  "archivo": "scripts/adquirir_datasets_cierre_m4.py",
+  "sha256": "fd9da3cf68a500d5f81c2b5a2ba566daf644cf2e33bd0b4a8d8e9ee9cd26a15b",
+  "bytes": 4298
+ },
+ {
+  "archivo": "scripts/auditar_capacidad_soporte_m4.py",
+  "sha256": "43a0b4b4c95c644c96a7f6d555cc2a22fe968bf7221aed70e7e0a9504f3771a4",
+  "bytes": 1825
+ },
+ {
+  "archivo": "scripts/ejecutar_cierre_m4.py",
+  "sha256": "9b68d945e1e830834a49519985a7357e8d19af54d20feb5475d47712f60ca4e9",
+  "bytes": 12670
+ },
+ {
+  "archivo": "scripts/fase_capacidad_colombia_m4.py",
+  "sha256": "ca424e093c9c982a2fee5480b38b75104ee38fdaff2f8ceea57d052fa756965b",
+  "bytes": 2421
+ },
+ {
+  "archivo": "scripts/m4_cierre_benchmark.py",
+  "sha256": "cdf93cbb1de3c5caac8e6c3f78d1190f1483e68b18d4f13b303c6be6f13e6a03",
+  "bytes": 4487
+ },
+ {
+  "archivo": "scripts/m4_cierre_colombia.py",
+  "sha256": "a0908b63b88eafbcb18c964c7fbb764624e6c776be34253f95998079260b4352",
+  "bytes": 3333
+ },
+ {
+  "archivo": "scripts/m4_cierre_complemento.py",
+  "sha256": "af36b13a5ab1b7eeab4ff800ec8ba2977d437d5b791b5aba665aaf842777181e",
+  "bytes": 17319
+ },
+ {
+  "archivo": "scripts/m4_cierre_completar_top10.py",
+  "sha256": "20439e11873c820df1b306c25cb38a01ab50b7a3c39fd022b2c21d520d642cba",
+  "bytes": 9232
+ },
+ {
+  "archivo": "scripts/m4_cierre_controles.py",
+  "sha256": "cc9df0eabc96a5fa30c8bb249c043df8f42323dc4b9be02fcd034ca98029e4c7",
+  "bytes": 9425
+ },
+ {
+  "archivo": "scripts/m4_cierre_datos.py",
+  "sha256": "5474d44aa22e4260dab2484f030189ef4fec55b7aeb10e270e32704ff42be6ee",
+  "bytes": 9782
+ },
+ {
+  "archivo": "scripts/m4_cierre_diagnosticos.py",
+  "sha256": "97a20660fedcbd2a42ce20a5ef334f9a3e34391e5e8b33810625f8be1da15ab9",
+  "bytes": 6265
+ },
+ {
+  "archivo": "scripts/m4_cierre_estadistica.py",
+  "sha256": "43879c3d212ff827d51142e5ff856c1c024abd74b6cf2b9747813a7de003b29b",
+  "bytes": 8113
+ },
+ {
+  "archivo": "scripts/m4_cierre_extraer_predicciones.py",
+  "sha256": "8a8a5721356dbb825a9ef6b418b949be82826e27e2fcffd2a7dbde02c961c3c8",
+  "bytes": 3836
+ },
+ {
+  "archivo": "scripts/m4_cierre_fuertes.py",
+  "sha256": "4825748a8f84a057cc6076f95fa26fb2545904b1f6b33fddd5fb0b7a7d494abd",
+  "bytes": 2034
+ },
+ {
+  "archivo": "scripts/m4_cierre_guardia_apagado.py",
+  "sha256": "35a7f76e22837bdc9e561d366c14ee03c1d0694c8233314adfda96c24dc143e3",
+  "bytes": 2981
+ },
+ {
+  "archivo": "scripts/m4_cierre_portabilidad.py",
+  "sha256": "594c6be8ae61fda5459966fbfdf2184b8cb618bac8e79b6d47ca583e075efd7f",
+  "bytes": 9791
+ },
+ {
+  "archivo": "scripts/m4_cierre_predecir_historicos.py",
+  "sha256": "d5c7497ab015ded6e4a7399ccec1250a48ac869bb318297ea0779953f2a10e61",
+  "bytes": 5559
+ },
+ {
+  "archivo": "scripts/m4_cierre_procedencia.py",
+  "sha256": "01f452b0a3f35b8883ccf20d9f513de6a51865a0ea90d9fb6be2b31e141a376b",
+  "bytes": 7923
+ },
+ {
+  "archivo": "scripts/m4_cierre_procedencia_b.py",
+  "sha256": "0c26732a8de45f17601067c9ebb73071b91cc1539e081b86f1f1148a8bf2b63a",
+  "bytes": 8079
+ },
+ {
+  "archivo": "scripts/m4_cierre_recuperacion.py",
+  "sha256": "e42cdd6d3b9ec7011fdee1d8e40f11ff9def1cdfd9e33cfb3926073e212afc34",
+  "bytes": 8437
+ },
+ {
+  "archivo": "scripts/m4_cierre_reducido_b.py",
+  "sha256": "bea86150d7a16f1a52c0f37eeed25ccbb7543c3f067739a2a4519ad8c7eb386c",
+  "bytes": 17662
+ },
+ {
+  "archivo": "scripts/m4_cierre_smoke.py",
+  "sha256": "2bf056ea72b2b0f9566c890964e70a4b6af22b6a0be6d39a8522fa56bfb22559",
+  "bytes": 1682
+ },
+ {
+  "archivo": "scripts/m4_cierre_verificar_paquete.py",
+  "sha256": "f8d97bce58710965c39e638024d8461171a9d2f403de17ea87799d3e5b3959b4",
+  "bytes": 2436
+ },
+ {
+  "archivo": "scripts/m4_onnx_congelado.py",
+  "sha256": "f6a741c3361285ee9d7696701b3e7ddcef39cddc6af0090d5cf498594b0c502f",
+  "bytes": 3742
+ },
+ {
+  "archivo": "scripts/pruebas_m4_congelado.py",
+  "sha256": "01be0974609b7b3f3816c3f3e2e7eeec9df811e71c6615a6a57941ec7580cd1f",
+  "bytes": 11837
+ },
+ {
+  "archivo": "scripts/publicar_cierre_m4.py",
+  "sha256": "6499af4716cd2a1218fc487532877f59480d255b6eb8b019d86e1bc545efc035",
+  "bytes": 7055
+ },
+ {
+  "archivo": "scripts/reconstruir_artefactos_m4.py",
+  "sha256": "cd76bbfeb7e32c43f373c9016aa440256594f0c52c5f37401fe3cff2d4aba7ad",
+  "bytes": 1017
+ },
+ {
+  "archivo": "scripts/verificar_onnx_portable.py",
+  "sha256": "907354d97878863542f7ddb2b0bfc6bbe12ed458a52f8a0d83d9289cb3927d6a",
+  "bytes": 2979
+ },
+ {
+  "archivo": "scripts/verificar_propiedad_m4.py",
+  "sha256": "0c673eb88fcf43e81da2caa086fecdfb97516765b2879b92bbfc03852c866080",
+  "bytes": 2587
+ }
+]

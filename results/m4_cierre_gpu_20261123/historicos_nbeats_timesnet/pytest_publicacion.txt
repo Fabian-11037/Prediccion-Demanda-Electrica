@@ -1,0 +1,16 @@
+.................................................s...................... [ 83%]
+..............                                                           [100%]
+=============================== warnings summary ===============================
+../../Machine Learning/mlenv/lib/python3.12/site-packages/dash/testing/plugin.py:104
+  /home/fabian/Documents/Machine Learning/mlenv/lib/python3.12/site-packages/dash/testing/plugin.py:104: PytestRemovedIn10Warning: The hookimpl pytest_addhooks uses old-style configuration options (marks or attributes).
+  Please use the pytest.hookimpl(tryfirst=True) decorator instead
+   to configure the hooks.
+   See https://docs.pytest.org/en/latest/deprecations.html#configuring-hook-specs-impls-using-markers
+    @pytest.mark.tryfirst
+
+tests/test_reentrenamiento_v3.py: 12 warnings
+  /home/fabian/Documents/DL Project/Prediccion-Demanda-Electrica/tests/test_reentrenamiento_v3.py:15: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '999999.0' has dtype incompatible with int8, please explicitly cast to a compatible dtype first.
+    futuro.loc[futuro.index>=corte,cols]=999999.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+85 passed, 1 skipped, 13 warnings in 24.72s

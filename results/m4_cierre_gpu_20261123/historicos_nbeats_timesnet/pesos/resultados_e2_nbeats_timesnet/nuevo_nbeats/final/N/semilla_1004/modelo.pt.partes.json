@@ -1,0 +1,22 @@
+{
+ "original": "modelo.pt",
+ "sha256": "a0b77ddfc4128c8627544a037e6cb874dbe52cbcbbd66722652c1b404963da56",
+ "bytes": 197943093,
+ "partes": [
+  {
+   "archivo": "modelo.pt.parte_0000",
+   "sha256": "082471d236091852f37a3f2d9518c501698fc8400ddfa1699b7d0d5073bf6af6",
+   "bytes": 67108864
+  },
+  {
+   "archivo": "modelo.pt.parte_0001",
+   "sha256": "6da2dd20521ead6760e89cc05b7f8f60fe3d17d387045f93a596eed6d157b617",
+   "bytes": 67108864
+  },
+  {
+   "archivo": "modelo.pt.parte_0002",
+   "sha256": "3ec653ba9f123ef468f76129966e19207a2248c3f3accc5a12f54790c0856573",
+   "bytes": 63725365
+  }
+ ]
+}
