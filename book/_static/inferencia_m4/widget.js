@@ -2,7 +2,7 @@
 const $=id=>document.getElementById(id),number=(v,n=3)=>Number(v).toLocaleString('es-CO',{maximumFractionDigits:n,minimumFractionDigits:n});
 let manifest,worker,last,custom=null;
 function status(text,error=false){$('status').textContent=text;$('status').classList.toggle('error',error);}
-function busy(value){for(const id of ['model','origin','change','history','reset','run'])$(id).disabled=value;}
+function busy(value){for(const id of ['model','origin','change','history','reset','run','coverage','interval-scope'])$(id).disabled=value;}
 function invalidate(){last=null;$('output').hidden=true;status('Entradas modificadas. Genera el pronóstico para calcular la nueva trayectoria.');}
 function csvRows(text){
  const rows=[];let row=[],cell='',quoted=false;
@@ -39,7 +39,9 @@ async function readHistory(file,index){
 function updateTemplate(){const i=Number($('origin').value);$('template').href=`historia_${i}.csv`;$('template').download=`historia_${manifest.presets[i].origin}.csv`;}
 function plot(r){
  const history=r.historia_kwh.slice(-24).map(x=>x/1e6),pred=r.prediccion_kwh.map(x=>x/1e6),base=(r.base_kwh||[]).map(x=>x/1e6);
- const all=[...history,...pred,...base],low=Math.floor((Math.min(...all)-.2)*2)/2,high=Math.ceil((Math.max(...all)+.2)*2)/2;
+ const interval=r.interval?.available?r.interval:null;
+ $('plot-caption').textContent='Historia de entrada (gris) y pronóstico del modelo (verde). '+(r.base_kwh?'La base M1 se muestra en ocre. ':'')+(interval?'La banda representa el intervalo calibrado del checkpoint. ':'')+'La línea vertical marca el origen.';
+ const all=[...history,...pred,...base,...(interval?interval.lower_kwh.map(x=>x/1e6):[]),...(interval?interval.upper_kwh.map(x=>x/1e6):[])],low=Math.floor((Math.min(...all)-.2)*2)/2,high=Math.ceil((Math.max(...all)+.2)*2)/2;
  const x=i=>65+i*800/47,y=v=>295-(v-low)*245/(high-low),path=(a,offset)=>a.map((v,i)=>(i?'L':'M')+x(i+offset).toFixed(2)+','+y(v).toFixed(2)).join(' ');
  const ns='http://www.w3.org/2000/svg',svg=$('plot');svg.replaceChildren();
  function el(name,attrs,text){const n=document.createElementNS(ns,name);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(text)n.textContent=text;svg.append(n);}
@@ -48,6 +50,11 @@ function plot(r){
  }
  el('text',{x:65,y:23,'font-size':12,fill:'#52636a'},'GWh por intervalo');
  el('line',{x1:x(23.5),x2:x(23.5),y1:40,y2:295,stroke:'#809196','stroke-dasharray':'5 4'});
+ if(interval){
+  const upper=interval.upper_kwh.map(v=>v/1e6),lower=interval.lower_kwh.map(v=>v/1e6);
+  const band=path(upper,24)+' '+lower.slice().reverse().map((v,i)=>'L'+x(47-i).toFixed(2)+','+y(v).toFixed(2)).join(' ')+' Z';
+  el('path',{d:band,fill:'#126c70','fill-opacity':.17,stroke:'none'});
+ }
  for(const [a,offset,color] of [[history,0,'#596c75'],[base,24,'#bd803b'],[pred,24,'#126c70']].filter(v=>v[0].length))el('path',{d:path(a,offset),fill:'none',stroke:color,'stroke-width':2.4});
  for(let h=0;h<24;h++){
   const dot=document.createElementNS(ns,'circle');dot.setAttribute('cx',x(h+24));dot.setAttribute('cy',y(pred[h]));dot.setAttribute('r',3);dot.setAttribute('fill','#126c70');
@@ -64,7 +71,7 @@ function show(r){
  }
  plot(r);
  const delta=r.base_kwh?r.prediccion_kwh.reduce((sum,v,i)=>sum+v-r.base_kwh[i],0)/24/1e6:null;
- $('interpretation').textContent=`${r.name} sitúa el pico pronosticado a las ${String(hour).padStart(2,'0')}:00.`+(delta!==null?` La memoria modifica el nivel horario medio de M1 en ${delta>=0?'+':''}${number(delta,4)} GWh, con ${r.vecinos.length} episodios disponibles.`:'')+` La trayectoria corresponde a la semilla ${r.semilla} y no incluye un intervalo predictivo calibrado.`+(r.texto_documentos!==null&&r.texto_documentos!==undefined?' La ponderación documental se recalcula con la historia numérica y los vectores disponibles del origen.':'');
+ $('interpretation').textContent=`${r.name} sitúa el pico pronosticado a las ${String(hour).padStart(2,'0')}:00.`+(delta!==null?` La memoria modifica el nivel horario medio de M1 en ${delta>=0?'+':''}${number(delta,4)} GWh, con ${r.vecinos.length} episodios disponibles.`:'')+` La trayectoria corresponde a la semilla ${r.semilla}. `+(r.interval?.available?`Banda nominal del ${number(100*r.interval.level,0)} % (${r.interval.scope==='horario'?'por hora':'conjunta de 24 horas'}), calibrada con ${r.interval.n} días hasta ${r.interval.end}. La cobertura es empírica bajo dependencia temporal.`:r.interval?.reason||'Sin calibración disponible.')+(r.texto_documentos!==null&&r.texto_documentos!==undefined?' La ponderación documental se recalcula con la historia numérica y los vectores disponibles del origen.':'');
  $('domain').textContent=r.fuera_rango.length?'Entradas fuera del rango de 2000–2021: '+r.fuera_rango.join(', ')+'.':'Las entradas finitas están dentro de los rangos registrados de 2000–2021.';
  $('provenance').textContent=`${r.motor}. Semilla ${r.semilla}; pesos y escaladores congelados.`+(r.model==='m4_n'?' Episodios de dos a 365 días de edad, disponibles antes del origen. Las entradas modificadas conservan el banco histórico del origen seleccionado.':'')+(r.periodos?' Periodos seleccionados por bloque: '+JSON.stringify(r.periodos)+'.':'');
  $('neighbors').replaceChildren();for(const v of r.vecinos){const li=document.createElement('li');li.textContent=v.fecha+' · '+number(v.peso*100,2)+' %';$('neighbors').append(li);}
@@ -93,15 +100,16 @@ $('controls').addEventListener('submit',async e=>{
   custom=file?await readHistory(file,index):null;
   worker??=new Worker('./worker.js');worker.onmessage=onMessage;
   worker.onerror=e=>{busy(false);status('No se pudo iniciar el motor del navegador: '+e.message,true);worker.terminate();worker=null;};
-  worker.postMessage({model:$('model').value,index,change:Number($('change').value),window:custom});
+  worker.postMessage({model:$('model').value,index,change:Number($('change').value),window:custom,coverage:Number($('coverage').value),scope:$('interval-scope').value});
  }catch(error){busy(false);status(error.message,true);}
 });
 $('model').addEventListener('change',()=>{if(worker){worker.terminate();worker=null;}invalidate();});
 $('origin').addEventListener('change',()=>{$('history').value='';custom=null;updateTemplate();invalidate();});
+$('coverage').addEventListener('change',invalidate);$('interval-scope').addEventListener('change',invalidate);
 $('history').addEventListener('change',invalidate);$('change').addEventListener('input',invalidate);
 $('reset').addEventListener('click',()=>{$('history').value='';$('change').value=0;custom=null;invalidate();});
 $('download').addEventListener('click',()=>{
- if(!last)return;const content='fecha,prediccion_kwh'+(last.base_kwh?',base_m1_kwh':'')+'\n'+last.prediccion_kwh.map((v,h)=>`${last.origen}T${String(h).padStart(2,'0')}:00:00-05:00,${v}${last.base_kwh?','+last.base_kwh[h]:''}`).join('\n');
+ if(!last)return;const interval=last.interval?.available?last.interval:null;const content='fecha,prediccion_kwh'+(interval?',inferior_kwh,superior_kwh,cobertura_nominal,alcance':'')+(last.base_kwh?',base_m1_kwh':'')+'\n'+last.prediccion_kwh.map((v,h)=>`${last.origen}T${String(h).padStart(2,'0')}:00:00-05:00,${v}${interval?','+interval.lower_kwh[h]+','+interval.upper_kwh[h]+','+interval.level+','+interval.scope:''}${last.base_kwh?','+last.base_kwh[h]:''}`).join('\n');
  const url=URL.createObjectURL(new Blob(['\uFEFF'+content],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download=`${last.name}_${last.origen}.csv`;a.click();URL.revokeObjectURL(url);
 });
 start();

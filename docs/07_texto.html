@@ -464,8 +464,8 @@
 <h3>Canales y relevancia aprendida<a class="headerlink" href="#canales-y-relevancia-aprendida" title="Link to this heading">#</a></h3>
 <p>Los documentos oficiales y la prensa producen representaciones agregadas independientes, <span class="math notranslate nohighlight">\(z_{\mathrm{oficial},t}\)</span> y <span class="math notranslate nohighlight">\(z_{\mathrm{prensa},t}\)</span>, con un indicador de ausencia para cada canal. La representación vacía se fija en cero y su indicador permite distinguirla de un embedding observado. La ausencia describe el corpus recuperado, sin implicar que no ocurrieran eventos.</p>
 <p>Dentro de cada canal, una ponderación aprendida agrega los documentos disponibles:</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eq-07-texto-001">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-07-texto-001" title="Link to this equation">#</a></span>\[
 z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
 \alpha_{c,t,j}=\operatorname{softmax}_{j}\!\left(s_{\theta_c}(e_{c,j},q_t)\right).
 \]</div>

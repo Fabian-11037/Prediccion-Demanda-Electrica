@@ -454,8 +454,10 @@
 <section id="formulacion-y-entradas">
 <h2>Formulación y entradas<a class="headerlink" href="#formulacion-y-entradas" title="Link to this heading">#</a></h2>
 <p>Para un origen diario <span class="math notranslate nohighlight">\(o\)</span>, la salida es <span class="math notranslate nohighlight">\(\mathbf{y}_o=(y_o,\ldots,y_{o+23})\)</span>. El pronóstico directo se expresa como</p>
-<div class="math notranslate nohighlight">
-\[\widehat{\mathbf{y}}_o=f_\theta(\mathbf{X}_{o-168:o-1},\mathbf{K}_{o:o+23}),\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-09-validacion-001">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-09-validacion-001" title="Link to this equation">#</a></span>\[
+\widehat{\mathbf{y}}_o=f_\theta(\mathbf{X}_{o-168:o-1},\mathbf{K}_{o:o+23}),
+\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> contiene observaciones pasadas alineadas por disponibilidad y <span class="math notranslate nohighlight">\(\mathbf{K}\)</span> contiene calendario conocido. Las cuatro familias base utilizan demanda y calendario. Las arquitecturas ampliadas incorporan precio, hidrología y clima histórico; TaTS, fusión tardía y TGForecaster contrastan además documentos oficiales.</p>
 <p>La unidad de evaluación es el origen diario, con 24 errores relacionados. Las semillas describen variación del ajuste y no hacen independientes los errores de un mismo día.</p>
 <p>La selección utiliza cuatro pliegues anuales: 2018, 2019, 2020 y 2021. El entrenamiento se amplía cronológicamente. El último 10 % de los orígenes anteriores a cada año se reserva para parada temprana. El diagrama utiliza únicamente desarrollo 2000–2021; las métricas de prueba 2022–2025 se presentan en el capítulo 10. El denominador de MASE permanece fijo en la referencia histórica 2000–2017: permite comparar valores en la misma escala, aunque los periodos pueden tener distinto nivel y dificultad de pronóstico.</p>
@@ -592,13 +594,19 @@ dtype: float64
 <section id="metricas-y-comparacion">
 <h2>Métricas y comparación<a class="headerlink" href="#metricas-y-comparacion" title="Link to this heading">#</a></h2>
 <p>Para <span class="math notranslate nohighlight">\(N\)</span> orígenes y <span class="math notranslate nohighlight">\(H=24\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\operatorname{MAE}=\frac{1}{NH}\sum_o\sum_{h=0}^{H-1}|y_{o+h}-\widehat y_{o+h}|,\]</div>
-<div class="math notranslate nohighlight">
-\[\operatorname{RMSE}=\sqrt{\frac{1}{NH}\sum_o\sum_{h=0}^{H-1}(y_{o+h}-\widehat y_{o+h})^2},\qquad
-\operatorname{MASE}=\frac{\operatorname{MAE}}{q_{168}},\]</div>
-<div class="math notranslate nohighlight">
-\[q_{168}=\frac{1}{T-168}\sum_{t=168}^{T-1}|y_t-y_{t-168}|.\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-09-validacion-002">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-09-validacion-002" title="Link to this equation">#</a></span>\[
+\operatorname{MAE}=\frac{1}{NH}\sum_o\sum_{h=0}^{H-1}|y_{o+h}-\widehat y_{o+h}|,
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-09-validacion-003">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-09-validacion-003" title="Link to this equation">#</a></span>\[
+\operatorname{RMSE}=\sqrt{\frac{1}{NH}\sum_o\sum_{h=0}^{H-1}(y_{o+h}-\widehat y_{o+h})^2},\qquad
+\operatorname{MASE}=\frac{\operatorname{MAE}}{q_{168}},
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-09-validacion-004">
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-09-validacion-004" title="Link to this equation">#</a></span>\[
+q_{168}=\frac{1}{T-168}\sum_{t=168}^{T-1}|y_t-y_{t-168}|.
+\]</div>
 <p>La escala <span class="math notranslate nohighlight">\(q_{168}\)</span> procede del bloque de referencia histórico 2000–2017, anterior a los años externos de validación. MASE es la métrica primaria; MAE se interpreta en kWh por intervalo y RMSE acentúa errores grandes. Un MASE inferior a 1 compara con la escala histórica de entrenamiento; la comparación con el ingenuo en validación requiere calcular también su error sobre los mismos orígenes.</p>
 <p>Persistencia y referencias diaria y semanal deben utilizar la misma disponibilidad que los modelos. El reporte desagrega por hora del horizonte, año y tipo de día, además de media, desviación e intervalos entre semillas. El margen relativo de interés es 3 %; α=0,05 y potencia objetivo 0,80 corresponden al diseño del benchmark.</p>
 <p>Las métricas se calculan por semilla y después se promedian: cinco realizaciones por comparador y diez para M4ₙ. En particular, el RMSE medio entre semillas no es el RMSE del pronóstico promedio. Las dos referencias deterministas conservan una sola realización.</p>
@@ -611,9 +619,11 @@ dtype: float64
 <section id="unidad-de-evaluacion-bloques-y-comparaciones">
 <h2>Unidad de evaluación, bloques y comparaciones<a class="headerlink" href="#unidad-de-evaluacion-bloques-y-comparaciones" title="Link to this heading">#</a></h2>
 <p>Para dos métodos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>, se define una pérdida por origen</p>
-<div class="math notranslate nohighlight">
-\[\ell_{m,o}=\frac{1}{24q_{168}}\sum_{h=0}^{23}|y_{o+h}-\widehat y_{m,o+h}|,\qquad
-d_o=\ell_{A,o}-\ell_{B,o}.\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-09-validacion-005">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-09-validacion-005" title="Link to this equation">#</a></span>\[
+\ell_{m,o}=\frac{1}{24q_{168}}\sum_{h=0}^{23}|y_{o+h}-\widehat y_{m,o+h}|,\qquad
+d_o=\ell_{A,o}-\ell_{B,o}.
+\]</div>
 <p>El apareamiento exige los mismos días y horizontes; las 24 horas no se tratan como réplicas independientes. El intervalo temporal se estima con bloques contiguos de días para conservar dependencia serial. La variación entre semillas se reporta separadamente: no se concatenan como si multiplicaran el número de días observados.</p>
 <p>Se incluyen 136 parejas temporales entre quince procedimientos aprendidos y dos referencias, y 105 parejas entre los quince procedimientos con cinco semillas. Holm se aplica por tipo de prueba a su familia completa. Los tres contrastes textuales constituyen una familia exploratoria específica. El margen relativo es ±3 % respecto de la referencia de la pareja, o del control N en los contrastes textuales. No se infiere equivalencia por ausencia de significación.</p>
 <p>El dimensionamiento usa diferencias de MASE entre semillas piloto, agregadas primero sobre los cuatro años externos. El resultado se interpreta como planificación aproximada condicionada al piloto; no convierte las fechas compartidas en réplicas independientes.</p>

@@ -1,0 +1,71 @@
+clave,control,semilla,MASE
+M1,Base M1 sin memoria,101,0.6331796504439957
+M1,Base M1 sin memoria,102,0.6260888081505024
+M1,Base M1 sin memoria,103,0.6522153016438739
+M1,Base M1 sin memoria,104,0.6323919388964973
+M1,Base M1 sin memoria,105,0.6307376788938431
+M1,Base M1 sin memoria,106,0.6199368391742202
+M1,Base M1 sin memoria,107,0.6233605302717586
+M1,Base M1 sin memoria,108,0.6067271860326089
+M1,Base M1 sin memoria,109,0.6368263979462325
+M1,Base M1 sin memoria,110,0.6543381471203125
+M4_N_fija,Banco sin actualización,101,0.6287585833403876
+M4_N_fija,Banco sin actualización,102,0.6218059404150486
+M4_N_fija,Banco sin actualización,103,0.6473432744035936
+M4_N_fija,Banco sin actualización,104,0.626380905634116
+M4_N_fija,Banco sin actualización,105,0.6253819693191787
+M4_N_fija,Banco sin actualización,106,0.6177718292625063
+M4_N_fija,Banco sin actualización,107,0.6170963233765216
+M4_N_fija,Banco sin actualización,108,0.599684584805384
+M4_N_fija,Banco sin actualización,109,0.6322139280292111
+M4_N_fija,Banco sin actualización,110,0.6471384188988
+M4_N_sin_compuerta,Sin compuerta,101,0.568761386494968
+M4_N_sin_compuerta,Sin compuerta,102,0.5729321499944073
+M4_N_sin_compuerta,Sin compuerta,103,0.5839260160655513
+M4_N_sin_compuerta,Sin compuerta,104,0.5686377852403969
+M4_N_sin_compuerta,Sin compuerta,105,0.5725606200679254
+M4_N_sin_compuerta,Sin compuerta,106,0.5757647576056311
+M4_N_sin_compuerta,Sin compuerta,107,0.5874296940191494
+M4_N_sin_compuerta,Sin compuerta,108,0.5650011292221929
+M4_N_sin_compuerta,Sin compuerta,109,0.5781096509854181
+M4_N_sin_compuerta,Sin compuerta,110,0.5827960972243093
+M4_N_uniforme,Recientes con pesos iguales,101,0.5946355210291359
+M4_N_uniforme,Recientes con pesos iguales,102,0.593661360256705
+M4_N_uniforme,Recientes con pesos iguales,103,0.6159655762936096
+M4_N_uniforme,Recientes con pesos iguales,104,0.6008236184158771
+M4_N_uniforme,Recientes con pesos iguales,105,0.601864638451063
+M4_N_uniforme,Recientes con pesos iguales,106,0.5989927154106263
+M4_N_uniforme,Recientes con pesos iguales,107,0.6023489482580119
+M4_N_uniforme,Recientes con pesos iguales,108,0.5897402746903556
+M4_N_uniforme,Recientes con pesos iguales,109,0.6093503463899486
+M4_N_uniforme,Recientes con pesos iguales,110,0.6185049918982641
+M4_N_similitud,Distancia numérica sin aprendizaje,101,0.5573577215276567
+M4_N_similitud,Distancia numérica sin aprendizaje,102,0.5572942424976316
+M4_N_similitud,Distancia numérica sin aprendizaje,103,0.5638297017975926
+M4_N_similitud,Distancia numérica sin aprendizaje,104,0.5562625978757336
+M4_N_similitud,Distancia numérica sin aprendizaje,105,0.5656839365881129
+M4_N_similitud,Distancia numérica sin aprendizaje,106,0.5589498693888398
+M4_N_similitud,Distancia numérica sin aprendizaje,107,0.5652243495964839
+M4_N_similitud,Distancia numérica sin aprendizaje,108,0.554755466087103
+M4_N_similitud,Distancia numérica sin aprendizaje,109,0.5767567254800601
+M4_N_similitud,Distancia numérica sin aprendizaje,110,0.5714687657052508
+MLP_CE,Control de capacidad igualada,101,0.6047952416253815
+MLP_CE,Control de capacidad igualada,102,0.582690433699293
+MLP_CE,Control de capacidad igualada,103,0.61996014417264
+MLP_CE,Control de capacidad igualada,104,0.5882106708854488
+MLP_CE,Control de capacidad igualada,105,0.5953764761621229
+MLP_CE,Control de capacidad igualada,106,0.5996198541236948
+MLP_CE,Control de capacidad igualada,107,0.6002358957242345
+MLP_CE,Control de capacidad igualada,108,0.5905186510868466
+MLP_CE,Control de capacidad igualada,109,0.6148977153455738
+MLP_CE,Control de capacidad igualada,110,0.6253436153410578
+m4_n,M4,101,0.5732170466061707
+m4_n,M4,102,0.5683986570723839
+m4_n,M4,103,0.5845245378256773
+m4_n,M4,104,0.563529839196159
+m4_n,M4,105,0.5760511262190707
+m4_n,M4,106,0.5887775087914456
+m4_n,M4,107,0.5735611347462681
+m4_n,M4,108,0.5628924642797025
+m4_n,M4,109,0.5898019214427175
+m4_n,M4,110,0.5896148512395634

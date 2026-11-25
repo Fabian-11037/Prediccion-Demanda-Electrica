@@ -9,8 +9,10 @@ El MLP trata la historia y el calendario como un vector. A diferencia de una reg
 
 Los 168 valores de demanda normalizados por el nivel y los $24\times23=552$ valores de calendario futuro forman un vector de 720 atributos. Después de estandarizarlo con entrenamiento, se aplican dos capas de 128 unidades, ReLU y dropout. La salida lineal produce simultáneamente 24 razones de demanda respecto del nivel de la ventana.
 
-$$h^{(j)}=D_{p}\!\left[\max(0,W_jh^{(j-1)}+b_j)\right],\quad j=1,2,
-\qquad \widehat{\mathbf y}=\ell_t(W_3h^{(2)}+b_3).$$
+$$
+h^{(j)}=D_{p}\!\left[\max(0,W_jh^{(j-1)}+b_j)\right],\quad j=1,2,
+\qquad \widehat{\mathbf y}=\ell_t(W_3h^{(2)}+b_3).
+$$ (eq-arquitecturas-mlp-001)
 
 $D_p$ apaga aleatoriamente unidades durante entrenamiento y se desactiva en evaluación. La tasa seleccionada es aproximadamente 0,00355. Las matrices tienen dimensiones $128\times720$, $128\times128$ y $24\times128$, para 111.896 parámetros. La red aprende qué combinaciones de rezagos son útiles, pero su aplanamiento exige parámetros separados para patrones desplazados en el tiempo.
 

@@ -9,9 +9,11 @@ N-HiTS construye el pronóstico por contribuciones de distinta resolución. Un b
 
 La implementación tiene tres bloques oficiales de N-HiTS con MLP de ancho 512, agrupamientos temporales 2, 2 y 1 y factores de reducción de salida 4, 2 y 1. Para 24 horas se predicen respectivamente 6, 12 y 24 nodos. Una matriz fija realiza interpolación lineal equivalente a `interpolate(..., align_corners=False)`. Cada bloque usa la historia residual, 59 exógenas históricas —29 variables distintas de demanda y 30 máscaras— y las 23 variables de calendario conocidas.
 
-$$\theta_b=f_b(\operatorname{pool}_b(r_b),X_{exo},F),\quad
+$$
+\theta_b=f_b(\operatorname{pool}_b(r_b),X_{exo},F),\quad
 \widehat b_b=\theta_b^{back},\quad \widehat f_b=I_b\theta_b^{for},\qquad
-r_{b+1}=r_b-\widehat b_b.$$
+r_{b+1}=r_b-\widehat b_b.
+$$ (eq-arquitecturas-nhits-001)
 
 El pronóstico normalizado empieza en el último valor de demanda de la ventana y suma $\sum_b\widehat f_b$. El *backcast* reconstruye historia; no es una etiqueta futura ni una segunda serie objetivo. El modelo devuelve $\widehat{\mathbf y}=\ell_t\widehat{\mathbf r}$. Su configuración seleccionada N14 contiene 17.489.442 parámetros. Este tamaño se explica por las entradas multivariadas aplanadas de los bloques y no implica, por sí mismo, mayor capacidad predictiva efectiva.
 

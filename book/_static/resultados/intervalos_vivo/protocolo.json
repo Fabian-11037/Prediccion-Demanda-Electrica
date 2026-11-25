@@ -1,0 +1,27 @@
+{
+  "fecha": "2026-11-25",
+  "semilla_M4": 101,
+  "semilla_comparadores": 1000,
+  "calibracion_inicial": [
+    "2022-01-01",
+    "2022-12-30"
+  ],
+  "inicio_intervalos": "2023-01-01",
+  "metodo": "365 últimos días disponibles con edades2…366; mínimo60 observaciones, estadístico de orden ceil((n+1)*nivel)",
+  "escala_conjunta": "Mediana del error absoluto por horizonte en los364días iniciales; piso1kWh, congelada",
+  "niveles": [
+    0.8,
+    0.9,
+    0.95
+  ],
+  "alcances": [
+    "horario",
+    "trayectoria24"
+  ],
+  "escenarios": "Mismo checkpoint del panel; distinto de la media de semillas del benchmark",
+  "disponibilidad": "No emplear el error del día objetivo ni de d−1. Sin reserva elegible no emitir intervalos.",
+  "precision": "Errores almacenados FP32 en kWh; cortes y cuantiles reproducibles entrePython yJavaScript",
+  "alcance": "Cobertura empírica con dependencia temporal; no garantía exacta ni calibración condicional para historias intervenidas.",
+  "entrenamiento": false,
+  "publicacion": false
+}

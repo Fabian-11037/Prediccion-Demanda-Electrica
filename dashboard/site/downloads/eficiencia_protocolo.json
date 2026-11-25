@@ -1,0 +1,15 @@
+{
+  "fecha": "2026-11-25",
+  "procesador": "Intel Core Ultra7 155U",
+  "gpu": "PyTorch2.9.1+cpu; CUDA no disponible; adaptadorIntelGraphics",
+  "FLOPs": "Conteo analítico de forward completo de la red; M4 incluye tres expertos, M1 y memoria. Matriz/convolución:2 operaciones por multiplicación-acumulación; fórmulas explícitas para normalización, activaciones, LSTM, atención yFFT.",
+  "exclusiones": "Indexación,comparaciones y movimiento de memoria:0FLOPs. PreprocesamientoNumPy y creación de embeddings no incluidos enFLOPs, sí preparación numérica en latenciaCPU conservada.",
+  "validacion": "Desactivar solo kernels MHA fusionados para contar sus operaciones; paridad de24salidas <1e-5relativo o2kWh. Sin modificar pesos.",
+  "latencia": "MedianaCPU y p95 del protocolo común conservado:1hilo,lote1,300repeticiones,3orígenes.",
+  "memoria": "Pico global de memoria residente del proceso registrado por elSO; incluye carga,datos,framework ycontabilización, no memoria exclusiva del modelo.",
+  "energia": "E(P)=P×t, dos escenarios constantes15W y57W del procesador; no medida energética, intervalo de confianza ni límites físicos del consumo real.",
+  "fuente_potencia": "https://www.intel.com/content/www/us/en/products/sku/237327/intel-core-ultra-7-processor-155u-12m-cache-up-to-4-80-ghz/specifications.html",
+  "Pareto": "Dominancia descriptiva sobre MASE medio y coste puntual; no prueba estadística de dominancia.",
+  "entrenamiento": false,
+  "publicacion": false
+}

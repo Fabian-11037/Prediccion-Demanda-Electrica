@@ -436,10 +436,12 @@
 <h2>Arquitectura y fundamentos<a class="headerlink" href="#arquitectura-y-fundamentos" title="Link to this heading">#</a></h2>
 <p>iTransformer invierte el significado habitual de los tokens: cada ficha representa una variable completa, no una hora. Así, la atención relaciona la historia de demanda con la del precio, el clima y la hidrología. La estructura temporal de cada variable se comprime mediante una proyección lineal antes de la atención.</p>
 <p>Las 30 variables históricas y tres indicadores producen 33 tokens de longitud 168. Cada variable de calendario usa historia y futuro conocidos, 192 valores, y genera uno de los 23 tokens adicionales. Las proyecciones llevan ambos tipos a dimensión 128 y se suman embeddings de identidad de variable. Las mismas matrices se comparten dentro de cada tipo; <span class="math notranslate nohighlight">\(p_j\)</span> distingue los canales.</p>
-<div class="math notranslate nohighlight">
-\[e_j=W_Hx_{1:168,j}+p_j,\quad
+<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-itransformer-001">
+<span class="eqno">(19)<a class="headerlink" href="#equation-eq-arquitecturas-itransformer-001" title="Link to this equation">#</a></span>\[
+e_j=W_Hx_{1:168,j}+p_j,\quad
 e_c=W_C[F_{pas,c};F_{fut,c}]+p_c,\quad
-Z=\operatorname{TransformerEncoder}([e_1,\ldots,e_{56}]).\]</div>
+Z=\operatorname{TransformerEncoder}([e_1,\ldots,e_{56}]).
+\]</div>
 <p>El codificador tiene dos capas, ocho cabezas, red interna de ancho 256, GELU y normalización posterior con LayerNorm final. La atención compara consultas y claves de variables: <span class="math notranslate nohighlight">\(A=\operatorname{softmax}(QK^\top/\sqrt{d_k})\)</span>, seguido de <span class="math notranslate nohighlight">\(AV\)</span>. Solo el token de demanda alimenta la cabeza de 24 salidas: <span class="math notranslate nohighlight">\(\widehat{\mathbf y}=\ell_t[\mathbf1+W_OZ_0+b_O]\)</span>. La configuración 1 contiene 321.816 parámetros.</p>
 <p>El calendario futuro puede relacionarse con las variables históricas dentro de la atención, pero no se crean tokens de clima o precio realizados durante el horizonte. La identidad por variable y la integración del calendario constituyen adaptaciones explícitas del experimento.</p>
 <section id="esquema-global">

@@ -433,9 +433,11 @@
 <h2>Arquitectura y fundamentos<a class="headerlink" href="#arquitectura-y-fundamentos" title="Link to this heading">#</a></h2>
 <p>El MLP trata la historia y el calendario como un vector. A diferencia de una regresión, sus capas pueden combinar no linealmente una hora pasada con un festivo o una estación del año. La posición temporal se conserva por el orden fijo de los rezagos; la red no tiene memoria recurrente ni un filtro compartido entre horas.</p>
 <p>Los 168 valores de demanda normalizados por el nivel y los <span class="math notranslate nohighlight">\(24\times23=552\)</span> valores de calendario futuro forman un vector de 720 atributos. Después de estandarizarlo con entrenamiento, se aplican dos capas de 128 unidades, ReLU y dropout. La salida lineal produce simultáneamente 24 razones de demanda respecto del nivel de la ventana.</p>
-<div class="math notranslate nohighlight">
-\[h^{(j)}=D_{p}\!\left[\max(0,W_jh^{(j-1)}+b_j)\right],\quad j=1,2,
-\qquad \widehat{\mathbf y}=\ell_t(W_3h^{(2)}+b_3).\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-mlp-001">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-arquitecturas-mlp-001" title="Link to this equation">#</a></span>\[
+h^{(j)}=D_{p}\!\left[\max(0,W_jh^{(j-1)}+b_j)\right],\quad j=1,2,
+\qquad \widehat{\mathbf y}=\ell_t(W_3h^{(2)}+b_3).
+\]</div>
 <p><span class="math notranslate nohighlight">\(D_p\)</span> apaga aleatoriamente unidades durante entrenamiento y se desactiva en evaluación. La tasa seleccionada es aproximadamente 0,00355. Las matrices tienen dimensiones <span class="math notranslate nohighlight">\(128\times720\)</span>, <span class="math notranslate nohighlight">\(128\times128\)</span> y <span class="math notranslate nohighlight">\(24\times128\)</span>, para 111.896 parámetros. La red aprende qué combinaciones de rezagos son útiles, pero su aplanamiento exige parámetros separados para patrones desplazados en el tiempo.</p>
 <p>La pérdida de ajuste es Huber normalizada con transición 0,05: es cuadrática cerca de cero y lineal para errores grandes. AdamW añade decaimiento de pesos de aproximadamente 0,000383; la tasa inicial es 0,00469. El mínimo de la pérdida de parada interna determina los pesos restaurados; el MAE/MASE de prueba se calcula después en kWh.</p>
 <section id="esquema-global">

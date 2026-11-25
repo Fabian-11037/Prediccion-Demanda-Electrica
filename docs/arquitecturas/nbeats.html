@@ -431,12 +431,16 @@
 <h2>Arquitectura y fundamentos<a class="headerlink" href="#arquitectura-y-fundamentos" title="Link to this heading">#</a></h2>
 <p>N-BEATS divide el pronóstico en contribuciones sucesivas. Cada bloque recibe el residuo de la demanda, reconstruye una parte de la historia (<em>backcast</em>) y produce un pronóstico parcial. La reconstrucción se resta de la entrada del bloque siguiente; los pronósticos se suman. Así, los bloques pueden representar estructuras temporales complementarias sin una descomposición estacional impuesta.</p>
 <p>La configuración seleccionada usa 30 bloques independientes, cada uno con cuatro capas densas de 512 unidades, ReLU y dropout 0,1. El residuo contiene las 168 horas de demanda en orden inverso. Cada bloque incorpora además las últimas 24 horas de las 29 covariables y tres máscaras de ausencia, y las 23 variables de calendario para las 24 horas futuras: la entrada tiene dimensión <span class="math notranslate nohighlight">\(168+24\times32+24\times23=1488\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[u_b=[r_b,\operatorname{vec}(X_{exo,24}),\operatorname{vec}(C_f)],\quad
-h_b=\operatorname{MLP}_b(u_b),\quad [\widehat b_b,\widehat f_b]=W_bh_b+a_b,\]</div>
-<div class="math notranslate nohighlight">
-\[r_{b+1}=r_b-\widehat b_b,\qquad
-\widehat{\mathbf y}=\ell_t\left(\mathbf1+\sum_{b=1}^{30}\widehat f_b\right).\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-nbeats-001">
+<span class="eqno">(23)<a class="headerlink" href="#equation-eq-arquitecturas-nbeats-001" title="Link to this equation">#</a></span>\[
+u_b=[r_b,\operatorname{vec}(X_{exo,24}),\operatorname{vec}(C_f)],\quad
+h_b=\operatorname{MLP}_b(u_b),\quad [\widehat b_b,\widehat f_b]=W_bh_b+a_b,
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-nbeats-002">
+<span class="eqno">(24)<a class="headerlink" href="#equation-eq-arquitecturas-nbeats-002" title="Link to this equation">#</a></span>\[
+r_{b+1}=r_b-\widehat b_b,\qquad
+\widehat{\mathbf y}=\ell_t\left(\mathbf1+\sum_{b=1}^{30}\widehat f_b\right).
+\]</div>
 <p>La base genérica convierte directamente los coeficientes aprendidos en reconstrucción y pronóstico; no corresponde a las bases interpretables de tendencia y estacionalidad de otra variante de N-BEATS. Las covariables se mantienen en todos los bloques y solo se actualiza el residuo de demanda. El modelo contiene 49.464.960 parámetros. Su coste denso crece aproximadamente como <span class="math notranslate nohighlight">\(O(B[d_{in}w+3w^2+w(L+H)])\)</span>, con <span class="math notranslate nohighlight">\(B=30\)</span> bloques y ancho <span class="math notranslate nohighlight">\(w=512\)</span>.</p>
 <p>La arquitectura sigue el mecanismo de doble residuo de <a class="reference external" href="https://arxiv.org/abs/1905.10437">Oreshkin et al., N-BEATS, ICLR 2020</a>, ampliado con las covariables numéricas y el calendario del proyecto.</p>
 </section>

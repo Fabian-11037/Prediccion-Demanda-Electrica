@@ -9,7 +9,9 @@ ARX relaciona la demanda futura con sus propios rezagos y con variables externas
 
 La entrada contiene los últimos 48 valores de demanda divididos por el nivel de la ventana y las 23 variables de calendario de cada una de las 24 horas futuras: $48+24\times23=600$ atributos. Aunque la ventana que calcula el nivel tiene 168 horas, la regresión utiliza directamente 48 rezagos. Cada atributo se estandariza con la media y desviación del tramo de ajuste.
 
-$$z_j=\frac{u_j-\mu_j}{s_j},\qquad \widehat{\mathbf r}=Wz+b,\qquad \widehat{\mathbf y}=\ell_t\widehat{\mathbf r}.$$
+$$
+z_j=\frac{u_j-\mu_j}{s_j},\qquad \widehat{\mathbf r}=Wz+b,\qquad \widehat{\mathbf y}=\ell_t\widehat{\mathbf r}.
+$$ (eq-arquitecturas-arx-001)
 
 Aquí $W\in\mathbb R^{24\times600}$ y $b\in\mathbb R^{24}$; hay 14.424 parámetros entrenables. La configuración seleccionada utiliza Lasso, con $\lambda=1,3734\times10^{-7}$. Se minimiza el MAE normalizado más $\lambda\sum_{h,j}|W_{hj}|$, lo que favorece coeficientes pequeños o nulos. La penalización actúa sobre los pesos, no sobre los sesgos. Los valores de escalado se conservan junto al checkpoint; no se vuelven a estimar en prueba.
 

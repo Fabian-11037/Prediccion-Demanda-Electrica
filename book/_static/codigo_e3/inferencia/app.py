@@ -2,6 +2,7 @@
 from pathlib import Path
 from urllib.parse import parse_qs
 import base64,io,json,os,time
+import numpy as np
 from flask import Flask,send_from_directory,redirect,request,jsonify,Response
 from dash import Dash,html,dcc,Input,Output,State,no_update
 from dash.exceptions import PreventUpdate
@@ -29,7 +30,7 @@ def api():
         data=request.get_json(force=False,silent=False)
         if not isinstance(data,dict):raise ValueError('Se espera un objeto JSON.')
         started=time.perf_counter()
-        result=get_runtime().predict(data.get('model'),data.get('origin'),data.get('demand_pct',0),data.get('csv'),bool(data.get('explain',False)))
+        result=get_runtime().predict(data.get('model'),data.get('origin'),data.get('demand_pct',0),data.get('csv'),bool(data.get('explain',False)),data.get('coverage',.9),data.get('interval_scope','horario'))
         result['latency_ms']=1000*(time.perf_counter()-started)
         return jsonify(result)
     except (ValueError,KeyError,TypeError) as error:return jsonify(error=str(error)),400
@@ -59,6 +60,7 @@ dash.layout=html.Main([
         html.Div([html.Label('Origen · Colombia'),dcc.DatePickerSingle(id='live-date',date='2026-01-01',min_date_allowed='2022-01-01',max_date_allowed='2035-12-31',display_format='YYYY-MM-DD')],className='field'),
         html.Div([html.Label('Cambio de demanda histórica (%)',htmlFor='live-demand'),dcc.Input(id='live-demand',type='number',min=-20,max=20,step=.5,value=0)],className='field')
     ],className='control-row'),
+    html.Div([html.Label('Cobertura nominal'),dcc.Dropdown(id='live-coverage',options=[{'label':str(int(p*100))+' %','value':p}for p in [.8,.9,.95]],value=.9,clearable=False),html.Label('Alcance'),dcc.Dropdown(id='live-interval-scope',options=[{'label':'Por hora','value':'horario'},{'label':'Trayectoria24h','value':'trayectoria24'}],value='horario',clearable=False)],className='control-row'),
     dcc.Upload(id='live-upload',children=html.Div(['Cargar historia propia · CSV de 168 horas']),multiple=False,
         style={'border':'1px dashed #78969b','padding':'15px','borderRadius':'5px','margin':'10px 0'}),
     html.P('El CSV usa fecha y las 30 variables históricas del contrato, ya alineadas por disponibilidad. Sin archivo se utiliza la historia local; el último origen disponible es 2026-01-01.',className='caption'),
@@ -81,16 +83,16 @@ def selected(search):
 
 @dash.callback(Output('live-result','data'),Output('live-message','children'),Input('live-run','n_clicks'),
     State('live-model','value'),State('live-date','date'),State('live-demand','value'),
-    State('live-upload','contents'),State('live-explain','value'),prevent_initial_call=True,
+    State('live-upload','contents'),State('live-explain','value'),State('live-coverage','value'),State('live-interval-scope','value'),prevent_initial_call=True,
     running=[(Output('live-run','disabled'),True,False)])
-def compute(clicks,model,date,change,upload,explain):
+def compute(clicks,model,date,change,upload,explain,coverage=.9,interval_scope="horario"):
     if not clicks:raise PreventUpdate
     try:
         csv=None
         if upload:
             _,body=upload.split(',',1);csv=base64.b64decode(body,validate=True).decode('utf-8-sig')
         started=time.perf_counter()
-        result=get_runtime().predict(model,date,0 if change is None else change,csv,'yes' in (explain or []))
+        result=get_runtime().predict(model,date,0 if change is None else change,csv,'yes' in (explain or []),coverage,interval_scope)
         result['latency_ms']=1000*(time.perf_counter()-started)
         return result,html.P('Pronóstico calculado con los pesos congelados.',className='outcome')
     except Exception as error:
@@ -109,6 +111,10 @@ def display(result):
     r=result;fig=go.Figure()
     def dec(value,digits=2):return f'{value:.{digits}f}'.replace('.',',')
     fig.add_trace(go.Scatter(x=r['history_dates'][-48:],y=r['history_gwh'][-48:],name='Demanda de entrada',line={'color':'#596c75'}))
+    band=r.get('interval',{})
+    if band.get('available'):
+        fig.add_trace(go.Scatter(x=r['dates'],y=np.array(band['lower_kwh'])/1e6,mode='lines',line={'width':0},showlegend=False,hoverinfo='skip'))
+        fig.add_trace(go.Scatter(x=r['dates'],y=np.array(band['upper_kwh'])/1e6,mode='lines',line={'width':0},fill='tonexty',fillcolor='rgba(18,108,112,0.17)',name=f"Intervalo {100*band['level']:.0f}%"))
     fig.add_trace(go.Scatter(x=r['dates'],y=r['prediction_gwh'],name=r['name'],line={'color':'#126c70','width':3}))
     if r['detail'].get('base_gwh'):
         fig.add_trace(go.Scatter(x=r['dates'],y=r['detail']['base_gwh'],name='Base M1',line={'color':'#bd803b','dash':'dash'}))
@@ -120,6 +126,8 @@ def display(result):
         metric('Tiempo de respuesta',dec(r['latency_ms'],1)+' ms','Preparación e inferencia; sin ajuste'),
         metric('Semilla',str(r['seed']),'Inicialización prefijada')]
     text=[html.P('La trayectoria se calcula al solicitarla. El nivel y la forma del pronóstico dependen de la historia cargada y del calendario del horizonte. Las métricas del benchmark promedian inicializaciones; esta vista utiliza el checkpoint identificado.')]
+    if band.get('available'):text.append(html.P(f"Banda nominal del {100*band['level']:.0f} %, alcance {band['scope']}, calibrada con {band['n']} días hasta {band['end']}. Cobertura empírica bajo dependencia temporal."))
+    elif band.get('reason'):text.append(html.P(band['reason']))
     if r['outside_domain']:
         text.append(html.P('Fuera de rango de entrenamiento: '+', '.join(r['outside_domain'])+'. La extrapolación puede reducir la precisión.',className='outcome'))
     if min(r['prediction_gwh'])<0:text.append(html.P('El modelo ha producido valores negativos; el resultado requiere revisión.',className='error'))
@@ -136,7 +144,9 @@ def display(result):
 @dash.callback(Output('live-csv','data'),Input('live-download','n_clicks'),State('live-result','data'),prevent_initial_call=True)
 def download(clicks,result):
     if not result:raise PreventUpdate
-    body='fecha,prediccion_gwh\n'+'\n'.join(f'{d},{p:.9f}' for d,p in zip(result['dates'],result['prediction_gwh']))
+    band=result.get('interval',{});available=band.get('available',False)
+    header='fecha,prediccion_gwh'+(',inferior_gwh,superior_gwh,nivel,alcance'if available else'')
+    body=header+'\n'+'\n'.join(f'{d},{p:.9f}'+(f",{band['lower_kwh'][h]/1e6:.9f},{band['upper_kwh'][h]/1e6:.9f},{band['level']},{band['scope']}"if available else'')for h,(d,p)in enumerate(zip(result['dates'],result['prediction_gwh'])))
     return dict(content=body,filename=f"pronostico_{result['model']}_{result['origin']}.csv")
 
 if __name__=='__main__':

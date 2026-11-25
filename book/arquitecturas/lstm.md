@@ -9,11 +9,13 @@ Una LSTM recorre la historia hora por hora y conserva un estado de memoria. Sus 
 
 La implementación seleccionada recibe 168 pasos con 24 variables por paso: demanda normalizada y 23 variables de calendario pasado. Tiene una capa recurrente de 48 unidades. El estado oculto final se concatena con los 552 atributos de calendario futuro y una capa lineal de 24 salidas aprende desviaciones respecto de uno. Hay 28.632 parámetros.
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 f_s&=\sigma(W_f x_s+U_fh_{s-1}+b_f),&i_s&=\sigma(W_i x_s+U_ih_{s-1}+b_i),\\
 \tilde c_s&=\tanh(W_c x_s+U_ch_{s-1}+b_c),&c_s&=f_s\odot c_{s-1}+i_s\odot\tilde c_s,\\
 o_s&=\sigma(W_o x_s+U_oh_{s-1}+b_o),&h_s&=o_s\odot\tanh(c_s).
-\end{aligned}$$
+\end{aligned}
+$$ (eq-arquitecturas-lstm-001)
 
 La memoria $c_s$ y la salida $h_s$ son distintas; $\odot$ representa producto componente a componente. El decodificador usado es directo: $\widehat{\mathbf y}=\ell_t[\mathbf1+W_o'[D(h_{168});\operatorname{vec}(F)]+b_o']$. No realimenta una predicción para obtener la siguiente. El dropout de 0,1 se aplica al estado antes de la salida; no hay dropout entre capas recurrentes porque solo existe una. El entrenamiento utiliza Huber, AdamW y parada interna.
 

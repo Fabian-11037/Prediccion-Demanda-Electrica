@@ -257,7 +257,7 @@ class Runtime:
             p=IA.forward(red,d,np.array([0]),repo).numpy()[0].astype(float)*d['nivel'][0]
         return p,{'modelo':h},{}
 
-    def predict(self,key,origin,demand_pct=0.,csv=None,explain=False):
+    def predict(self,key,origin,demand_pct=0.,csv=None,explain=False,interval_level=.9,interval_scope="horario"):
         if key not in MODELS:raise ValueError('Modelo fuera del catálogo.')
         with LOCK,torch.inference_mode():
             t=time.perf_counter();self.inputs.configure(origin,float(demand_pct),csv)
@@ -268,7 +268,9 @@ class Runtime:
                 old=self.inputs.window.copy();self.inputs.window[-24:,0]*=1.01
                 try:other,_,_=self.forward(key);delta=float((other-p).mean()/1e6)
                 finally:self.inputs.window=old
-            return dict(model=key,name=MODELS[key],origin=origin,seed=101 if key=='m4_n' else 1000,
+            from intervalos_vivo import interval
+            band=interval(key,origin,p,interval_level,interval_scope)
+            return dict(interval=band,model=key,name=MODELS[key],origin=origin,seed=101 if key=='m4_n' else 1000,
                 dates=pd.date_range(self.inputs.origin,periods=24,freq='h').astype(str).tolist(),
                 prediction_gwh=(p/1e6).tolist(),history_dates=pd.date_range(self.inputs.origin-pd.Timedelta(hours=168),periods=168,freq='h').astype(str).tolist(),
                 history_gwh=(self.inputs.window[:,0]/1e6).tolist(),latency_ms=1000*(time.perf_counter()-t),

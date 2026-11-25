@@ -1,0 +1,37 @@
+clave,control,margen,metodo,estadistico,p,p_Holm,rechaza_005
+M1,Base M1 sin memoria,0.0,bootstrap,0.05454333911546865,0.0001,0.0021000000000000003,True
+M1,Base M1 sin memoria,0.0,DM_HLN,7.29611900456157,2.4210159994024566e-13,7.26304799820737e-12,True
+M1,Base M1 sin memoria,0.0,GW_bilateral,180.55904856596877,6.19584828798201e-40,2.2305053836735237e-38,True
+M1,Base M1 sin memoria,0.03,bootstrap,0.0355959316797471,0.0002,0.0034000000000000002,True
+M1,Base M1 sin memoria,0.03,DM_HLN,4.993515281738883,3.321171768222474e-07,8.635046597378433e-06,True
+M1,Base M1 sin memoria,0.03,GW_bilateral,44.6869062934551,1.978616341930181e-10,5.737987391597525e-09,True
+M4_N_fija,Banco sin actualización,0.0,bootstrap,0.04932066700655888,0.0001,0.0021000000000000003,True
+M4_N_fija,Banco sin actualización,0.0,DM_HLN,6.090070215093097,7.202731633030867e-10,2.0167648572486427e-08,True
+M4_N_fija,Banco sin actualización,0.0,GW_bilateral,97.96660764599176,5.331156653909882e-22,1.81259326232936e-20,True
+M4_N_fija,Banco sin actualización,0.03,bootstrap,0.03052993973410462,0.0019,0.0304,True
+M4_N_fija,Banco sin actualización,0.03,DM_HLN,3.98457646243813,3.546754045527933e-05,0.0008512209709267039,True
+M4_N_fija,Banco sin actualización,0.03,GW_bilateral,18.743286728413754,8.51034175295741e-05,0.0018722751856506301,True
+M4_N_sin_compuerta,Sin compuerta,0.0,bootstrap,-0.0014449800499209125,0.7385,1.0,False
+M4_N_sin_compuerta,Sin compuerta,0.0,DM_HLN,-0.6999177822551671,0.7579549218438439,1.0,False
+M4_N_sin_compuerta,Sin compuerta,0.0,GW_bilateral,4.135998740495748,0.12643848543322406,1.0,False
+M4_N_sin_compuerta,Sin compuerta,0.03,bootstrap,-0.018712737910680777,1.0,1.0,False
+M4_N_sin_compuerta,Sin compuerta,0.03,DM_HLN,-9.028566970853715,1.0,1.0,False
+M4_N_sin_compuerta,Sin compuerta,0.03,GW_bilateral,82.47805264443774,1.2306043026154651e-18,4.060994198631035e-17,True
+M4_N_uniforme,Recientes con pesos iguales,0.0,bootstrap,0.02555189036744381,0.0001,0.0021000000000000003,True
+M4_N_uniforme,Recientes con pesos iguales,0.0,DM_HLN,7.457064388155333,7.552718295910533e-14,2.341342671732265e-12,True
+M4_N_uniforme,Recientes con pesos iguales,0.0,GW_bilateral,60.67293279904904,6.684055421678321e-14,2.138897734937063e-12,True
+M4_N_uniforme,Recientes con pesos iguales,0.03,bootstrap,0.007474226394162999,0.0098,0.147,False
+M4_N_uniforme,Recientes con pesos iguales,0.03,DM_HLN,2.235662291968664,0.012762274721853626,0.16590957138409715,False
+M4_N_uniforme,Recientes con pesos iguales,0.03,GW_bilateral,8.97467647792323,0.011250550266370578,0.1575077037291881,False
+M4_N_similitud,Distancia numérica sin aprendizaje,0.0,bootstrap,-0.014278571087469384,0.9999,1.0,False
+M4_N_similitud,Distancia numérica sin aprendizaje,0.0,DM_HLN,-4.264890347754827,0.9999893575985901,1.0,False
+M4_N_similitud,Distancia numérica sin aprendizaje,0.0,GW_bilateral,20.00221140178904,4.534975876170702e-05,0.0010430444515192613,True
+M4_N_similitud,Distancia numérica sin aprendizaje,0.03,bootstrap,-0.03116132121710279,1.0,1.0,False
+M4_N_similitud,Distancia numérica sin aprendizaje,0.03,DM_HLN,-9.32241801733777,1.0,1.0,False
+M4_N_similitud,Distancia numérica sin aprendizaje,0.03,GW_bilateral,121.64213763177354,3.852524682046188e-27,1.3483836387161658e-25,True
+MLP_CE,Control de capacidad igualada,0.0,bootstrap,0.0251279610747135,0.0001,0.0021000000000000003,True
+MLP_CE,Control de capacidad igualada,0.0,DM_HLN,5.003151807796889,3.1619723044386506e-07,8.537325221984356e-06,True
+MLP_CE,Control de capacidad igualada,0.0,GW_bilateral,28.350856468993012,6.977337635697675e-07,1.7443344089244187e-05,True
+MLP_CE,Control de capacidad igualada,0.03,bootstrap,0.007063014980214598,0.0609,0.7308,False
+MLP_CE,Control de capacidad igualada,0.03,DM_HLN,1.510775977729738,0.06553096443019855,0.7308,False
+MLP_CE,Control de capacidad igualada,0.03,GW_bilateral,3.010043123462544,0.22201250680633053,1.0,False

@@ -9,9 +9,11 @@ iTransformer invierte el significado habitual de los tokens: cada ficha represen
 
 Las 30 variables históricas y tres indicadores producen 33 tokens de longitud 168. Cada variable de calendario usa historia y futuro conocidos, 192 valores, y genera uno de los 23 tokens adicionales. Las proyecciones llevan ambos tipos a dimensión 128 y se suman embeddings de identidad de variable. Las mismas matrices se comparten dentro de cada tipo; $p_j$ distingue los canales.
 
-$$e_j=W_Hx_{1:168,j}+p_j,\quad
+$$
+e_j=W_Hx_{1:168,j}+p_j,\quad
 e_c=W_C[F_{pas,c};F_{fut,c}]+p_c,\quad
-Z=\operatorname{TransformerEncoder}([e_1,\ldots,e_{56}]).$$
+Z=\operatorname{TransformerEncoder}([e_1,\ldots,e_{56}]).
+$$ (eq-arquitecturas-itransformer-001)
 
 El codificador tiene dos capas, ocho cabezas, red interna de ancho 256, GELU y normalización posterior con LayerNorm final. La atención compara consultas y claves de variables: $A=\operatorname{softmax}(QK^\top/\sqrt{d_k})$, seguido de $AV$. Solo el token de demanda alimenta la cabeza de 24 salidas: $\widehat{\mathbf y}=\ell_t[\mathbf1+W_OZ_0+b_O]$. La configuración 1 contiene 321.816 parámetros.
 

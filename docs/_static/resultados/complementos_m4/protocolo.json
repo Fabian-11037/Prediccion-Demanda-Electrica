@@ -1,0 +1,41 @@
+{
+  "fecha": "2026-11-25",
+  "tipo": "Análisis complementario de artefactos existentes",
+  "periodo": [
+    "2022-01-01",
+    "2025-12-31"
+  ],
+  "unidad": "Origen diario con 24 errores; pérdidas individuales promedio entre semillas",
+  "Q_kWh": 215617.90361589016,
+  "replicas": 9999,
+  "bloque_medio_dias": 56,
+  "HAC": 55,
+  "semilla": 20261125,
+  "margenes": [
+    0,
+    0.03
+  ],
+  "escenarios": [
+    "todas",
+    "primeras_3",
+    "ultimas_3"
+  ],
+  "ablations": [
+    "M1",
+    "M4_N_fija",
+    "M4_N_sin_compuerta",
+    "M4_N_uniforme",
+    "M4_N_similitud",
+    "MLP_CE"
+  ],
+  "familia_ablaciones": 36,
+  "familia_sensibilidad": 408,
+  "efecto": "d_z temporal=media de L_ref−L_M4 / DE muestral diaria de ese diferencial. IC puntual mediante bloques56; no se supone independencia de días ni se emparejan identificadores de semillas.",
+  "RMSE": "Promedio entre semillas de sqrt(promedio de errores cuadrados en todas las horas y días). El bootstrap recalcula esta operación no lineal en cada réplica.",
+  "tests": "MASE: bootstrap unilateral, DM-HLN unilateral y GW bilateral. RMSE global: bootstrap unilateral de la métrica exacta. Holm36 para ablaciones; Holm408 para escenarios×márgenes×métricas/métodos.",
+  "selecciones": "Primeras/últimas3 por orden de semilla; los ingenuos conservan su única realización. Sin selección por desempeño.",
+  "controles": "Banco, compuerta y presencia de memoria: intervenciones específicas. Recientes uniformes y distancia L2 cambian recuperación y compuerta conjuntamente. No interpretarlos como retirada aislada de una capa.",
+  "actualizacion": false,
+  "entrenamiento": false,
+  "publicacion": false
+}

@@ -8,6 +8,14 @@
 | Archivos de titulares y cobertura | Diagnóstico documental | Disponibilidad declarada o versión archivada verificada |
 | Preregistro y configuración del repositorio | Horizonte, partición, métricas y control temporal | Versiones experimentales conservadas |
 
-[Hyndman y Athanasopoulos, *Forecasting: Principles and Practice*, capítulo 5](https://otexts.com/fpp3/toolbox.html) fundamentan las referencias estacionales, los errores escalados y la validación temporal. MASE divide el error absoluto del pronóstico por la escala de una referencia estacional calculada en entrenamiento. La comparación entre particiones requiere considerar el cambio del nivel de demanda. La validación temporal evalúa observaciones posteriores a la historia de ajuste.
+[Hyndman y Athanasopoulos, *Forecasting: Principles and Practice*, capítulo 5](https://otexts.com/fpp3/toolbox.html) {cite:p}`fpp3` fundamentan las referencias estacionales, los errores escalados y la validación temporal. MASE divide el error absoluto del pronóstico por la escala de una referencia estacional calculada en entrenamiento. La comparación entre particiones requiere considerar el cambio del nivel de demanda. La validación temporal evalúa observaciones posteriores a la historia de ajuste.
 
 La síntesis de textos completos sobre demanda y noticias se presenta en el capítulo de literatura. Los enlaces identifican las versiones consultadas; las cifras reproducidas se atribuyen a sus tablas originales.
+
+
+## Referencias bibliográficas
+
+```{bibliography}
+:all:
+:style: plain
+```

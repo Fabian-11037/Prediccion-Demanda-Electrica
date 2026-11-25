@@ -1,0 +1,27 @@
+{
+  "ablaciones": 6,
+  "familia_ablaciones": 36,
+  "familia_sensibilidad": 408,
+  "d_z_TimesNet": {
+    "clave": "nuevo_timesnet__N",
+    "comparador": "TimesNet",
+    "d_z": 0.4522766430189728,
+    "ic95_inf": 0.3740542442011057,
+    "ic95_sup": 0.5358972323217855,
+    "diferencia_MASE": 0.06589090926268014,
+    "DE_diferencial": 0.14568718124122992,
+    "probabilidad_mejora_diaria": 0.7063655030800822,
+    "supera_02": true
+  },
+  "efectos_mayores_02": 17,
+  "sensibilidad_respaldo_0": 102,
+  "sensibilidad_respaldo_3": 102,
+  "sensibilidad_combinaciones": 102,
+  "ablaciones_respaldo_0": 4,
+  "ablaciones_respaldo_3": 2,
+  "parametros_M4": 60993,
+  "parametros_control": 60929,
+  "diferencia_capacidad_pct": -0.10493007394291043,
+  "entrenamiento": false,
+  "publicacion": false
+}

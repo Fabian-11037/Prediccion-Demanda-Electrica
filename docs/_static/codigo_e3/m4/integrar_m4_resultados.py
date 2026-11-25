@@ -231,7 +231,9 @@ La propuesta numérica conserva la configuración 6 y se evalúa con diez inicia
 
 La pérdida diaria del procedimiento promedia primero los errores individuales de sus semillas:
 
-$$L_{m,t}=\frac{1}{S_m\,24\,q_{168}}\sum_{s=1}^{S_m}\sum_{h=1}^{24}|y_{t,h}-\widehat y_{m,s,t,h}|.$$
+$$
+L_{m,t}=\frac{1}{S_m\,24\,q_{168}}\sum_{s=1}^{S_m}\sum_{h=1}^{24}|y_{t,h}-\widehat y_{m,s,t,h}|.
+$$ (eq-10-evaluacion-001)
 
 M4ₙ utiliza diez semillas; el Top 10 y los baselines aprendidos conservan cinco. No se emparejan semillas por su identificador: la comparación temporal utiliza los mismos días y promedia las pérdidas entre inicializaciones. La evaluación es retrospectiva. Los resultados de la propuesta se distinguen de los diagnósticos del benchmark de referencia presentados después.
 
@@ -319,7 +321,10 @@ El banco se actualiza con resultados ya observables y los parámetros permanecen
         if c.cell_type=='markdown':
             c.source=c.source.replace('La brecha operativa del proyecto es determinar si el contexto documental', 'La línea documental del estudio busca determinar si el contexto documental')
             c.source=c.source.replace('La comparación del proyecto conserva MASE como métrica primaria', 'El benchmark de referencia conserva MASE como métrica primaria')
-    n.cells+=literatura();nb.write(n,p)
+    n.cells+=literatura()
+    from priorizar_top10 import integrar_celdas as integrar_priorizacion
+    n.cells=integrar_priorizacion(root,n.cells)
+    nb.write(n,p)
     for stem,text in [('10_modelos',f'''## Propuesta numérica con memoria
 
 La {{ref}}`arquitectura de M4ₙ <m4-n>` desarrolla la memoria de errores y sus expertos. La {{ref}}`evaluación de la propuesta <resultados-m4>` reúne sus diez semillas, curvas de aprendizaje y comparación con el Top 10 y los baselines. En prueba, M4ₙ obtiene MASE {dec(m4)}; el benchmark de referencia conserva quince procedimientos y cinco semillas por procedimiento.'''),('11_sintesis',f'''## Memoria residual para el pronóstico de demanda

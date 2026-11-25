@@ -19,8 +19,10 @@ El dropout utiliza durante entrenamiento una máscara $m_i\sim\operatorname{Bern
 
 La atención compara una consulta con las claves de los elementos disponibles y mezcla sus valores. La consulta expresa qué información busca una representación; la clave permite medir afinidad; el valor contiene la información que se transmite. Son proyecciones aprendidas:
 
-$$Q=ZW_Q,\qquad K=MW_K,\qquad V=MW_V,\qquad
-A=\operatorname{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}+\mathcal M\right),\qquad O=AV.$$
+$$
+Q=ZW_Q,\qquad K=MW_K,\qquad V=MW_V,\qquad
+A=\operatorname{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}+\mathcal M\right),\qquad O=AV.
+$$ (eq-arquitecturas-fundamentos-001)
 
 El softmax se aplica por consulta, $\alpha_j=\exp(s_j)/\sum_k\exp(s_k)$, por lo que los pesos de los elementos permitidos suman uno. La máscara $\mathcal M$ vale cero donde se permite consultar y menos infinito donde se prohíbe. En atención propia, $Z=M$; en atención cruzada, las consultas y la memoria proceden de representaciones distintas.
 
@@ -32,9 +34,11 @@ Los pesos de atención son componentes del cálculo, no estimaciones de efectos 
 
 Para un lote, el MAE normalizado es $\mathcal L=(BH)^{-1}\sum_{b,h}|r_{b,h}-\widehat r_{b,h}|$. Algunas familias base utilizan Huber con transición $\eta=0,05$:
 
-$$\ell_\eta(e)=\begin{cases}\frac12e^2,& |e|\le\eta,\\
+$$
+\ell_\eta(e)=\begin{cases}\frac12e^2,& |e|\le\eta,\\
 \eta\left(|e|-\frac12\eta\right),& |e|>\eta.
-\end{cases}$$
+\end{cases}
+$$ (eq-arquitecturas-fundamentos-002)
 
 AdamW actualiza los pesos utilizando promedios de gradientes y de sus cuadrados, con decaimiento de pesos separado. El recorte limita la norma global del gradiente a uno. La reducción de tasa en meseta y la paciencia de parada son reglas distintas: la primera modifica la tasa de aprendizaje y la segunda termina el ajuste. Las fichas conservan la paciencia efectiva del motor correspondiente. El estado restaurado es el mínimo absoluto observado en la reserva de parada interna, aunque el contador de paciencia exija una mejora mínima para reiniciarse.
 

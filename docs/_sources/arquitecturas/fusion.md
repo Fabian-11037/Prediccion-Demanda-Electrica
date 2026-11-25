@@ -9,8 +9,10 @@ La fusión tardía mantiene dos caminos hasta la salida: uno produce un pronóst
 
 El núcleo seleccionado es PatchTST de dimensión 64, dos capas y cuatro cabezas, con cabeza lineal de demanda y MLP de contexto. Los documentos oficiales disponibles en las 72 horas anteriores al origen se ponderan por relevancia aprendida. El resumen de dimensión 64 pasa por una capa de 128, GELU, dropout y una salida de 24. Un escalar $\alpha$ aprendido combina las ramas:
 
-$$\widehat{\mathbf r}=b(X,F)+\alpha\,m_t\,g(z_t),\qquad
-\widehat{\mathbf y}=\ell_t\widehat{\mathbf r}.$$
+$$
+\widehat{\mathbf r}=b(X,F)+\alpha\,m_t\,g(z_t),\qquad
+\widehat{\mathbf y}=\ell_t\widehat{\mathbf r}.
+$$ (eq-arquitecturas-fusion-001)
 
 La última capa textual se inicializa en cero y $\alpha$ en 0,5; el modelo empieza con el pronóstico numérico. Sin documentos, $m_t=0$ y la contribución textual es exactamente cero para los mismos pesos del núcleo. Ambas ramas se entrenan conjuntamente: no se congela la base. Por ello, esa identidad no garantiza igualdad con un checkpoint numérico entrenado por separado.
 

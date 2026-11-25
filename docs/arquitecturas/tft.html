@@ -437,9 +437,11 @@
 <p>TFT combina selección de variables, memoria recurrente y atención. Primero decide qué variables ponderar en cada hora; después resume la secuencia y permite que cada hora del horizonte consulte los pasos relevantes de la historia. Las compuertas residuales regulan cuánto de cada transformación se incorpora.</p>
 <p>La configuración seleccionada tiene ancho 160 y cuatro cabezas. Recibe 56 variables pasadas: 30 históricas, tres indicadores de ausencia por bloque y 23 de calendario. El futuro contiene únicamente 23 variables de calendario. Cada variable continua tiene un embedding lineal y una GRN propia. Una segunda GRN produce pesos softmax <span class="math notranslate nohighlight">\(v_{s,j}\)</span>; su suma es uno y la representación seleccionada es <span class="math notranslate nohighlight">\(z_s=\sum_jv_{s,j}\operatorname{GRN}_j(e_{s,j})\)</span>.</p>
 <p>Una GRN utiliza una transformación no lineal, una compuerta y un atajo:</p>
-<div class="math notranslate nohighlight">
-\[\operatorname{GRN}(a)=\operatorname{LayerNorm}\!\left(Sa+\operatorname{GLU}(W_1\operatorname{ELU}(W_2a+b_2)+b_1)\right),\quad
-\operatorname{GLU}(u)=\sigma(W_gu+b_g)\odot(W_vu+b_v).\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-tft-001">
+<span class="eqno">(17)<a class="headerlink" href="#equation-eq-arquitecturas-tft-001" title="Link to this equation">#</a></span>\[
+\operatorname{GRN}(a)=\operatorname{LayerNorm}\!\left(Sa+\operatorname{GLU}(W_1\operatorname{ELU}(W_2a+b_2)+b_1)\right),\quad
+\operatorname{GLU}(u)=\sigma(W_gu+b_g)\odot(W_vu+b_v).
+\]</div>
 <p>El codificador LSTM procesa las 168 horas y su estado inicializa al decodificador que recibe el calendario futuro. El enriquecimiento GRN precede a la atención interpretable: las cabezas comparten la proyección de valores y se promedian. La máscara impide que la consulta de la hora <span class="math notranslate nohighlight">\(h\)</span> utilice representaciones del decodificador posteriores a ella. Las GRN por posición y las compuertas finales producen una salida escalar por hora. El total es de 11.715.596 parámetros.</p>
 <p>Se omiten codificadores estáticos porque se estudia una sola serie. Se entrena un pronóstico puntual con MAE normalizado, no todos los cuantiles del artículo. Los pesos de selección describen el mecanismo del modelo; no son efectos causales de las variables. Esta documentación y los resultados usan la configuración TFT seleccionada del paquete, identificada por sus fuentes y checkpoints.</p>
 <section id="esquema-global">

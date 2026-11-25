@@ -11,8 +11,10 @@ La configuración seleccionada tiene ancho 160 y cuatro cabezas. Recibe 56 varia
 
 Una GRN utiliza una transformación no lineal, una compuerta y un atajo:
 
-$$\operatorname{GRN}(a)=\operatorname{LayerNorm}\!\left(Sa+\operatorname{GLU}(W_1\operatorname{ELU}(W_2a+b_2)+b_1)\right),\quad
-\operatorname{GLU}(u)=\sigma(W_gu+b_g)\odot(W_vu+b_v).$$
+$$
+\operatorname{GRN}(a)=\operatorname{LayerNorm}\!\left(Sa+\operatorname{GLU}(W_1\operatorname{ELU}(W_2a+b_2)+b_1)\right),\quad
+\operatorname{GLU}(u)=\sigma(W_gu+b_g)\odot(W_vu+b_v).
+$$ (eq-arquitecturas-tft-001)
 
 El codificador LSTM procesa las 168 horas y su estado inicializa al decodificador que recibe el calendario futuro. El enriquecimiento GRN precede a la atención interpretable: las cabezas comparten la proyección de valores y se promedian. La máscara impide que la consulta de la hora $h$ utilice representaciones del decodificador posteriores a ella. Las GRN por posición y las compuertas finales producen una salida escalar por hora. El total es de 11.715.596 parámetros.
 

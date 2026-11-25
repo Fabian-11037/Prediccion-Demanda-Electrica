@@ -433,8 +433,10 @@
 <h2>Arquitectura y fundamentos<a class="headerlink" href="#arquitectura-y-fundamentos" title="Link to this heading">#</a></h2>
 <p>ARX relaciona la demanda futura con sus propios rezagos y con variables externas conocidas: aquí, el calendario. Cada una de las 24 horas tiene una combinación lineal distinta de los mismos atributos. Una subida de un rezago produce un cambio proporcional determinado por su coeficiente; no hay capas ocultas ni interacciones aprendidas entre atributos. Es una referencia de complejidad baja para valorar si las redes justifican su coste.</p>
 <p>La entrada contiene los últimos 48 valores de demanda divididos por el nivel de la ventana y las 23 variables de calendario de cada una de las 24 horas futuras: <span class="math notranslate nohighlight">\(48+24\times23=600\)</span> atributos. Aunque la ventana que calcula el nivel tiene 168 horas, la regresión utiliza directamente 48 rezagos. Cada atributo se estandariza con la media y desviación del tramo de ajuste.</p>
-<div class="math notranslate nohighlight">
-\[z_j=\frac{u_j-\mu_j}{s_j},\qquad \widehat{\mathbf r}=Wz+b,\qquad \widehat{\mathbf y}=\ell_t\widehat{\mathbf r}.\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-arx-001">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-arquitecturas-arx-001" title="Link to this equation">#</a></span>\[
+z_j=\frac{u_j-\mu_j}{s_j},\qquad \widehat{\mathbf r}=Wz+b,\qquad \widehat{\mathbf y}=\ell_t\widehat{\mathbf r}.
+\]</div>
 <p>Aquí <span class="math notranslate nohighlight">\(W\in\mathbb R^{24\times600}\)</span> y <span class="math notranslate nohighlight">\(b\in\mathbb R^{24}\)</span>; hay 14.424 parámetros entrenables. La configuración seleccionada utiliza Lasso, con <span class="math notranslate nohighlight">\(\lambda=1,3734\times10^{-7}\)</span>. Se minimiza el MAE normalizado más <span class="math notranslate nohighlight">\(\lambda\sum_{h,j}|W_{hj}|\)</span>, lo que favorece coeficientes pequeños o nulos. La penalización actúa sobre los pesos, no sobre los sesgos. Los valores de escalado se conservan junto al checkpoint; no se vuelven a estimar en prueba.</p>
 <section id="esquema-global">
 <h3>Esquema global<a class="headerlink" href="#esquema-global" title="Link to this heading">#</a></h3>

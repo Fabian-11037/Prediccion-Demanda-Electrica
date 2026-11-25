@@ -1,3 +1,4 @@
+import {renderM4Complement} from './m4_complement_views.js?v=complementos-20261125';
 import {temporalSensitivityView} from './m4_temporal_sensitivity_views.js?v=sensibilidad-20261125';
 import {renderSavedM4Diagnostic} from './m4_diagnostics_views.js?v=significados-20261125';
 import {closureBenchmark,renderClosureDiagnostic} from './m4_closure_views.js?v=incertidumbre-20261125';
@@ -20,9 +21,10 @@ export function createM4Views(api){
   temporalView.draw();
  }
  function diagnostics(){
-  const options=[['learning','Curvas de aprendizaje'],['dispersion','Dispersión entre semillas'],['residuals','Residuos y calibración'],['day_segments','Segmentos de demanda y calendario'],['observed','Observado frente a predicho'],['segments','Error por horizonte y año'],['uncertainty','Intervalos predictivos'],['importance','Importancia y estabilidad'],['efficiency','Latencia y memoria'],['verification','Propiedad y exportación']];
+  const options=[['components','Contribución y capacidad'],['effect_sensitivity','Efecto y sensibilidad'],['checkpoint_gap','Brecha del checkpoint'],['learning','Curvas de aprendizaje'],['dispersion','Dispersión entre semillas'],['residuals','Residuos y calibración'],['day_segments','Segmentos de demanda y calendario'],['observed','Observado frente a predicho'],['segments','Error por horizonte y año'],['uncertainty','Intervalos predictivos'],['importance','Importancia y estabilidad'],['efficiency','Latencia y memoria'],['verification','Propiedad y exportación']];
   if(!options.some(([id])=>id===st.diag))st.diag='learning';
   $('model-content').innerHTML=`<div class="control-row">${field('Diagnóstico','diagnostic',select('diagnostic',options,st.diag))}</div><div id="diagnostic-content"></div>`;
+  if(renderM4Complement(api,st.diag))return;
   if(renderSavedM4Diagnostic(api,st.diag))return;
   if(renderClosureDiagnostic(api,st.diag))return;
   if(st.diag==='learning'){

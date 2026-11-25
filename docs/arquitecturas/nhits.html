@@ -436,10 +436,12 @@
 <h2>Arquitectura y fundamentos<a class="headerlink" href="#arquitectura-y-fundamentos" title="Link to this heading">#</a></h2>
 <p>N-HiTS construye el pronóstico por contribuciones de distinta resolución. Un bloque explica una parte de la historia y propone una parte de la salida; el siguiente trabaja con el residuo que queda. La interpolación permite que un bloque describa el horizonte con pocos nodos, mientras otro añade variaciones más finas.</p>
 <p>La implementación tiene tres bloques oficiales de N-HiTS con MLP de ancho 512, agrupamientos temporales 2, 2 y 1 y factores de reducción de salida 4, 2 y 1. Para 24 horas se predicen respectivamente 6, 12 y 24 nodos. Una matriz fija realiza interpolación lineal equivalente a <code class="docutils literal notranslate"><span class="pre">interpolate(...,</span> <span class="pre">align_corners=False)</span></code>. Cada bloque usa la historia residual, 59 exógenas históricas —29 variables distintas de demanda y 30 máscaras— y las 23 variables de calendario conocidas.</p>
-<div class="math notranslate nohighlight">
-\[\theta_b=f_b(\operatorname{pool}_b(r_b),X_{exo},F),\quad
+<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-nhits-001">
+<span class="eqno">(16)<a class="headerlink" href="#equation-eq-arquitecturas-nhits-001" title="Link to this equation">#</a></span>\[
+\theta_b=f_b(\operatorname{pool}_b(r_b),X_{exo},F),\quad
 \widehat b_b=\theta_b^{back},\quad \widehat f_b=I_b\theta_b^{for},\qquad
-r_{b+1}=r_b-\widehat b_b.\]</div>
+r_{b+1}=r_b-\widehat b_b.
+\]</div>
 <p>El pronóstico normalizado empieza en el último valor de demanda de la ventana y suma <span class="math notranslate nohighlight">\(\sum_b\widehat f_b\)</span>. El <em>backcast</em> reconstruye historia; no es una etiqueta futura ni una segunda serie objetivo. El modelo devuelve <span class="math notranslate nohighlight">\(\widehat{\mathbf y}=\ell_t\widehat{\mathbf r}\)</span>. Su configuración seleccionada N14 contiene 17.489.442 parámetros. Este tamaño se explica por las entradas multivariadas aplanadas de los bloques y no implica, por sí mismo, mayor capacidad predictiva efectiva.</p>
 <p>El modelo reutiliza el preparador y el optimizador numérico de PatchTST, pero la red es diferente y no incorpora su lectura afín. Se conserva el procesamiento multiescala, el esquema residual y la interpolación. Las fuentes, licencia y revisión de NeuralForecast acompañan al código.</p>
 <section id="esquema-global">

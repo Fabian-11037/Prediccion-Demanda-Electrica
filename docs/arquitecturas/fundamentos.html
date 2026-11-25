@@ -445,9 +445,11 @@
 <section id="que-significan-consulta-clave-y-valor">
 <h2>Qué significan consulta, clave y valor<a class="headerlink" href="#que-significan-consulta-clave-y-valor" title="Link to this heading">#</a></h2>
 <p>La atención compara una consulta con las claves de los elementos disponibles y mezcla sus valores. La consulta expresa qué información busca una representación; la clave permite medir afinidad; el valor contiene la información que se transmite. Son proyecciones aprendidas:</p>
-<div class="math notranslate nohighlight">
-\[Q=ZW_Q,\qquad K=MW_K,\qquad V=MW_V,\qquad
-A=\operatorname{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}+\mathcal M\right),\qquad O=AV.\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-fundamentos-001">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-arquitecturas-fundamentos-001" title="Link to this equation">#</a></span>\[
+Q=ZW_Q,\qquad K=MW_K,\qquad V=MW_V,\qquad
+A=\operatorname{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}+\mathcal M\right),\qquad O=AV.
+\]</div>
 <p>El softmax se aplica por consulta, <span class="math notranslate nohighlight">\(\alpha_j=\exp(s_j)/\sum_k\exp(s_k)\)</span>, por lo que los pesos de los elementos permitidos suman uno. La máscara <span class="math notranslate nohighlight">\(\mathcal M\)</span> vale cero donde se permite consultar y menos infinito donde se prohíbe. En atención propia, <span class="math notranslate nohighlight">\(Z=M\)</span>; en atención cruzada, las consultas y la memoria proceden de representaciones distintas.</p>
 <p>La atención multicabeza repite el cálculo con proyecciones distintas. Habitualmente concatena las salidas y aplica otra proyección: <span class="math notranslate nohighlight">\(\operatorname{MultiHead}=\operatorname{Concat}(O_1,\ldots,O_a)W_O\)</span>. TFT utiliza la variante interpretable descrita en su ficha, con valores compartidos y promedio entre cabezas. Un bloque Transformer añade conexiones residuales, normalización y una red por posición, <span class="math notranslate nohighlight">\(\operatorname{FFN}(z)=W_2\phi(W_1z+b_1)+b_2\)</span>. La posición y el tipo de token determinan qué relación modela: entre parches en PatchTST, entre variables en iTransformer y entre consultas del horizonte y memoria en TGForecaster.</p>
 <p>Los pesos de atención son componentes del cálculo, no estimaciones de efectos causales. Tampoco identifican por sí solos la importancia global de una variable.</p>
@@ -455,10 +457,12 @@ A=\operatorname{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}+\mathcal M\right),\qq
 <section id="perdida-optimizacion-y-parada">
 <h2>Pérdida, optimización y parada<a class="headerlink" href="#perdida-optimizacion-y-parada" title="Link to this heading">#</a></h2>
 <p>Para un lote, el MAE normalizado es <span class="math notranslate nohighlight">\(\mathcal L=(BH)^{-1}\sum_{b,h}|r_{b,h}-\widehat r_{b,h}|\)</span>. Algunas familias base utilizan Huber con transición <span class="math notranslate nohighlight">\(\eta=0,05\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\ell_\eta(e)=\begin{cases}\frac12e^2,&amp; |e|\le\eta,\\
+<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-fundamentos-002">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-arquitecturas-fundamentos-002" title="Link to this equation">#</a></span>\[\begin{split}
+\ell_\eta(e)=\begin{cases}\frac12e^2,&amp; |e|\le\eta,\\
 \eta\left(|e|-\frac12\eta\right),&amp; |e|&gt;\eta.
-\end{cases}\end{split}\]</div>
+\end{cases}
+\end{split}\]</div>
 <p>AdamW actualiza los pesos utilizando promedios de gradientes y de sus cuadrados, con decaimiento de pesos separado. El recorte limita la norma global del gradiente a uno. La reducción de tasa en meseta y la paciencia de parada son reglas distintas: la primera modifica la tasa de aprendizaje y la segunda termina el ajuste. Las fichas conservan la paciencia efectiva del motor correspondiente. El estado restaurado es el mínimo absoluto observado en la reserva de parada interna, aunque el contador de paciencia exija una mejora mínima para reiniciarse.</p>
 <p>El MASE usado para comparar se calcula después de invertir a kWh y divide el MAE por la escala fija q168. No se confunden pérdida de optimización normalizada y métrica de evaluación. La dispersión entre cinco semillas caracteriza inicialización; los intervalos por bloques caracterizan variación temporal condicional a esas semillas.</p>
 </section>

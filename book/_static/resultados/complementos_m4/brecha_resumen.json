@@ -1,0 +1,84 @@
+{
+  "MASE_ajuste": 0.4192777688693599,
+  "MASE_parada": 0.4786035096891154,
+  "brecha_MASE": 0.0593257408197555,
+  "brecha_relativa_pct": 14.149507850066922,
+  "ic95_inf_pct": -2.516179557472463,
+  "ic95_sup_pct": 31.03442954988033,
+  "n_ajuste": 2921,
+  "n_parada": 365,
+  "inicio_ajuste": "2013-01-01",
+  "fin_ajuste": "2020-12-30",
+  "inicio_parada": "2021-01-01",
+  "fin_parada": "2021-12-31",
+  "semillas": 10,
+  "max_diferencia_parada": 3.15323112065613e-08,
+  "modo": "eval(), dropout desactivado, inference_mode, pesos/escalas congelados; mismo cálculo MAE/Q",
+  "IC": "Bootstrap estacionario56,9999 réplicas; periodos remuestreados por separado, diez inicializaciones fijas. IC puntual de la razón de pérdidas medias.",
+  "interpretacion": "La diferencia entre periodos combina ajuste del corrector y cambio temporal. La pérdida online de cada época promedia pesos cambiantes y dropout activo; no es la pérdida del checkpoint restaurado.",
+  "entrenamiento": false,
+  "publicacion": false,
+  "checkpoints_sin_cambios": true,
+  "fuentes": [
+    {
+      "checkpoint": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_101/modelo.pt",
+      "sha256": "59960de2aed91cc921cdf25d8586069c8e855ab046c2e3ec31295f02662a76d7",
+      "base": "results/m4_cierre_gpu_20261123/reducido_B/colombia/base_oof_semilla_101.npz",
+      "base_sha256": "15e76c549790481a75e3c53eb58b309ee72e9d07fb461ebf91fc7af2f298e510"
+    },
+    {
+      "checkpoint": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_102/modelo.pt",
+      "sha256": "36ffefc91a92436aba78c8bc91da3060b70cf87714264d609884bda6184662eb",
+      "base": "results/m4_cierre_gpu_20261123/reducido_B/colombia/base_oof_semilla_102.npz",
+      "base_sha256": "35791e75cf10d3b1769eb998c54cf49148c18fe90ab7f6dc3be593414747d6e2"
+    },
+    {
+      "checkpoint": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_103/modelo.pt",
+      "sha256": "3a2377fb44237821eadca8ee82bf8ca6b3d33e26a6fd99f9eab2e927f03d32e0",
+      "base": "results/m4_cierre_gpu_20261123/reducido_B/colombia/base_oof_semilla_103.npz",
+      "base_sha256": "63b4c693fd69ed988d795f06278277803a265428669aa0fffacc51635adfd2ac"
+    },
+    {
+      "checkpoint": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_104/modelo.pt",
+      "sha256": "b4e2f1bb597c662e60f55498275c61d805fe50a20d3f96647758f7bfe64f3918",
+      "base": "results/m4_cierre_gpu_20261123/reducido_B/colombia/base_oof_semilla_104.npz",
+      "base_sha256": "2d7c59d0eb9e252bbc46565016fd0d13a09c3ec1533c07a5db7acda394038f40"
+    },
+    {
+      "checkpoint": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_105/modelo.pt",
+      "sha256": "21681f220d8ef7ba6b4589e7d99e3d12d6860717879d87c938997336763bb442",
+      "base": "results/m4_cierre_gpu_20261123/reducido_B/colombia/base_oof_semilla_105.npz",
+      "base_sha256": "11513a47e00438eb03f9451569a52f6454d795b6b9e2b63cc002140cdf57d8b3"
+    },
+    {
+      "checkpoint": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_106/modelo.pt",
+      "sha256": "ed77ebd362119a0e77e0f4ef158172ce0589b9053d671fc8272e84d45a779012",
+      "base": "results/m4_cierre_gpu_20261123/reducido_B/colombia/base_oof_semilla_106.npz",
+      "base_sha256": "fc05d313c9cb4d50d90347adff12c71556d10dbe8c13dfce356d505af83d9215"
+    },
+    {
+      "checkpoint": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_107/modelo.pt",
+      "sha256": "83444e7930d235f8612c424e228c07bcd8f8501ff3b1e53977f9e05e37105b18",
+      "base": "results/m4_cierre_gpu_20261123/reducido_B/colombia/base_oof_semilla_107.npz",
+      "base_sha256": "e31f3c4ce9a444b7af04203e8796927ed0caca197d9cb3eee19004ae7e720e3f"
+    },
+    {
+      "checkpoint": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_108/modelo.pt",
+      "sha256": "e9ad1e256ba91f7700e993845775ed98d735b0835a4cd009a9a8371ec3d68992",
+      "base": "results/m4_cierre_gpu_20261123/reducido_B/colombia/base_oof_semilla_108.npz",
+      "base_sha256": "10c61a8d5417eb4e05ef41f1e07c225bc41ea14a9efbdf142cdcb65c5ecfab6c"
+    },
+    {
+      "checkpoint": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_109/modelo.pt",
+      "sha256": "869a0c7d2be25a9df9ff3e4a917fe3207dc8349ba823f3ae0ef60c555a2dc8a3",
+      "base": "results/m4_cierre_gpu_20261123/reducido_B/colombia/base_oof_semilla_109.npz",
+      "base_sha256": "e280bc9cbc350bc680f19124371481e30c4958ceb32a94fffea07bd7841104d9"
+    },
+    {
+      "checkpoint": "results/m4_cierre_gpu_20261123/reducido_B/colombia/final/M4_N/semilla_110/modelo.pt",
+      "sha256": "912a5cef01aa07f2b72180a5cadf3abdd9e821988ebbeed91caba4b8aa5c9274",
+      "base": "results/m4_cierre_gpu_20261123/reducido_B/colombia/base_oof_semilla_110.npz",
+      "base_sha256": "3be7ca4278ff57084fa33d8f0de067890acc30dcf98d51d38d9d0ca6b0ecfdfc"
+    }
+  ]
+}

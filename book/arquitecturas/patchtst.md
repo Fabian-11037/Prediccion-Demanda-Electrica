@@ -9,12 +9,16 @@ PatchTST divide la historia de cada variable en segmentos superpuestos y procesa
 
 La configuración seleccionada recibe 30 variables históricas y tres máscaras de ausencia: 33 canales. La ventana contiene 168 horas, con ocho copias adicionales del último valor para formar 21 parches de 16 horas y paso ocho. Cada parche se proyecta a dimensión 64 y recibe una posición aprendida. Se utilizan dos bloques de atención, cuatro cabezas, red interna de ancho 128, conexiones residuales, BatchNorm y dropout de 0,1.
 
-$$P_c=\operatorname{patch}_{16,8}(X_c),\quad E_c=P_cW_P+E_{pos},\qquad Z_c=\operatorname{Encoder}(E_c).$$
+$$
+P_c=\operatorname{patch}_{16,8}(X_c),\quad E_c=P_cW_P+E_{pos},\qquad Z_c=\operatorname{Encoder}(E_c).
+$$ (eq-arquitecturas-patchtst-001)
 
 La salida combina dos vías. La primera aplana los 21 parches del canal de demanda: $21\times64=1.344$ atributos, proyectados a 24 correcciones. La segunda promedia los parches de cada canal y concatena $33\times64=2.112$ atributos con 552 de calendario futuro y 161 de calendario pasado agregado por día. El vector de contexto tiene 2.825 componentes y atraviesa un MLP $2825\rightarrow128\rightarrow24$, con GELU y dropout.
 
-$$c=[\operatorname{vec}(\overline Z);\operatorname{vec}(F);\operatorname{vec}(Cal_p)],\qquad
-\widehat{\mathbf y}=\ell_t\left[\mathbf1+W_0\operatorname{vec}(Z_0)+b_0+g(c)\right].$$
+$$
+c=[\operatorname{vec}(\overline Z);\operatorname{vec}(F);\operatorname{vec}(Cal_p)],\qquad
+\widehat{\mathbf y}=\ell_t\left[\mathbf1+W_0\operatorname{vec}(Z_0)+b_0+g(c)\right].
+$$ (eq-arquitecturas-patchtst-002)
 
 La normalización externa se ajusta con entrenamiento y restituye la salida mediante el nivel de la ventana; este núcleo no aplica RevIN. La configuración 18 tiene 466.480 parámetros y se ajusta con MAE normalizado, AdamW y parada interna. Es el control numérico común de TaTS y fusión tardía, contabilizado una sola vez.
 

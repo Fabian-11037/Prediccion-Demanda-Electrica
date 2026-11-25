@@ -7,15 +7,19 @@ TimesNet representa una serie en dos dimensiones: posición dentro de un ciclo y
 
 La entrada contiene 168 horas y 33 canales: 30 variables históricas y tres máscaras. Se normaliza cada canal con la media y desviación de su propia ventana; esta operación usa exclusivamente historia disponible. Una convolución de valores, una representación posicional y una proyección del calendario histórico producen vectores de dimensión 16. Una capa lineal extiende el eje temporal de 168 a 192 posiciones.
 
-$$Z=(X-\mu_t)/\sqrt{\sigma_t^2+10^{-5}},\qquad
-E=\operatorname{Conv1D}(Z)+P+W_cC_p.$$
+$$
+Z=(X-\mu_t)/\sqrt{\sigma_t^2+10^{-5}},\qquad
+E=\operatorname{Conv1D}(Z)+P+W_cC_p.
+$$ (eq-arquitecturas-timesnet-001)
 
 Cada uno de los dos TimesBlock selecciona cinco frecuencias dominantes. Para $T=192$, la frecuencia $f_i$ determina $p_i=\lfloor T/f_i\rfloor$. El relleno permite reorganizar los vectores como una matriz de ciclos por periodo; un módulo Inception con seis tamaños de núcleo extrae patrones bidimensionales.
 
-$$U_i=\operatorname{reshape}_{p_i}(E),\quad
+$$
+U_i=\operatorname{reshape}_{p_i}(E),\quad
 V_i=\operatorname{restore}(\operatorname{Inception2D}(U_i)),\quad
 E'=\operatorname{LayerNorm}\left(E+\sum_{i=1}^{5}w_iV_i\right),\quad
-w=\operatorname{softmax}(A).$$
+w=\operatorname{softmax}(A).
+$$ (eq-arquitecturas-timesnet-002)
 
 La proyección final recupera 33 canales y revierte la normalización por ventana. El canal de demanda de las últimas 24 posiciones se combina con el calendario futuro mediante una lectura lineal compartida, y el nivel de demanda $\ell_t$ restituye las unidades: $\widehat y_{t+h}=\ell_t[1+W_o(d_{t+h},C_{t+h})]$. Hay 328.266 parámetros entrenables. El coste combina FFT $O(Td\log T)$ y convoluciones sobre cinco representaciones periódicas por bloque.
 

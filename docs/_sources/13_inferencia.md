@@ -24,13 +24,46 @@ M4<sub>N</sub> recalcula PatchTST, el experto E, el experto periódico, la combi
 
 La curva verde muestra la trayectoria calculada y la gris, las últimas 24 horas de la historia de entrada. La energía diaria suma los 24 intervalos y el pico identifica la mayor demanda horaria prevista. En M4<sub>N</sub>, la curva ocre corresponde a M1; su separación respecto del pronóstico revela la corrección residual. La compuerta indica cuánto del residuo recuperado se incorpora y los episodios muestran su distribución de atención.
 
-Los cambios de la trayectoria ante una perturbación describen sensibilidad local, manteniendo las otras entradas y el estado del origen. Cada consulta utiliza una inicialización y no incorpora un intervalo predictivo calibrado. El tiempo medido corresponde al dispositivo del lector y no sustituye las mediciones homogéneas del benchmark.
+Los cambios de la trayectoria ante una perturbación describen sensibilidad local, manteniendo las otras entradas y el estado del origen. Cada consulta utiliza una inicialización e incorpora intervalos calibrados para ese mismo checkpoint, cuando existe una reserva anterior al origen. El tiempo medido corresponde al dispositivo del lector y no sustituye las mediciones homogéneas del benchmark.
+
+<!-- intervalos-vivo-inicio -->
+(intervalos-vivo)=
+## Intervalos del checkpoint en vivo
+
+El panel permite elegir niveles nominales del 80 %, 90 % y 95 %, por hora o para la trayectoria completa de 24 horas. La banda se centra en la predicción calculada por la semilla 101 de M4 o la 1000 de cada comparador. Se calibra con los errores de esa misma realización; no se reutilizan los intervalos del promedio de semillas del benchmark.
+
+Solo se admiten errores de días s≤t−2. La ventana conserva hasta 365 días recientes, con un mínimo de 60 observaciones, y utiliza el estadístico de orden ⌈(n+1)(1−α)⌉. El intervalo horario emplea errores absolutos por horizonte. La banda conjunta utiliza el máximo diario del error normalizado por una escala horaria congelada en la reserva inicial de 2022.
+
+$$
+C_{t,h}^{1-\alpha}=[\widehat y_{t,h}-q_{t,h}^{1-\alpha},\;\widehat y_{t,h}+q_{t,h}^{1-\alpha}].
+$$ (eq-13-inferencia-001)
+
+La calibración comienza en 2022 y las bandas se emiten desde 2023. Para 2022-01-01 se conserva el pronóstico puntual sin banda, porque todavía no existe esa reserva. Las historias intervenidas conservan la calibración histórica: no se atribuye cobertura condicional garantizada a una historia nueva. La dependencia temporal limita las garantías de intercambiabilidad.
+
+En los 1.096 orígenes de 2023–2025, el checkpoint de M4 obtiene cobertura horaria 88,80 % y conjunta 88,59 % al nivel nominal del 90 %. Estas coberturas empíricas caracterizan esa realización y periodo.
+
+La descarga CSV incorpora los límites, el nivel y el alcance. El servicio Python utiliza las mismas ventanas y cuantiles que el navegador. [Cobertura de los 16 checkpoints en 2023–2025](_static/resultados/intervalos_vivo/cobertura_checkpoint.csv) · [Protocolo](_static/resultados/intervalos_vivo/protocolo.json).
+
+```{literalinclude} _static/inferencia_m4/calibration.js
+:language: javascript
+```
+
+```{literalinclude} _static/codigo_e3/inferencia/intervalos_vivo.py
+:language: python
+```
+
+```{literalinclude} _static/codigo_e3/mejoras_456/preparar_intervalos_vivo.py
+:language: python
+```
+<!-- intervalos-vivo-fin -->
 
 ## Ejecución fiel de TimesNet
 
 TimesNet utiliza lote uno y vuelve a seleccionar los periodos para cada historia y cada bloque. La ejecución conserva la transformada discreta de Fourier y la ponderación por amplitudes:
 
-$$X_{k,c}=\sum_{t=0}^{T-1}x_{t,c}e^{-2\pi i kt/T},\qquad s_k=\frac{1}{C}\sum_{c=1}^{C}|X_{k,c}|,\qquad p_k=\lfloor T/k\rfloor.$$
+$$
+X_{k,c}=\sum_{t=0}^{T-1}x_{t,c}e^{-2\pi i kt/T},\qquad s_k=\frac{1}{C}\sum_{c=1}^{C}|X_{k,c}|,\qquad p_k=\lfloor T/k\rfloor.
+$$ (eq-13-inferencia-002)
 
 Las frecuencias de mayor amplitud determinan los periodos; cada rama reorganiza la serie, aplica las convoluciones congeladas y recupera su longitud. La combinación utiliza pesos softmax y suma la conexión residual antes de la normalización del bloque. La selección se recalcula en JavaScript y las operaciones aprendidas se ejecutan en ONNX, conservando la arquitectura.
 
@@ -126,7 +159,7 @@ plt.show()
 pronostico.to_csv("pronostico_m4.csv", index=False)
 ```
 
-La trayectoria representa la respuesta del checkpoint a la historia suministrada. Su perfil horario permite examinar el nivel y la localización del pico; la sensibilidad activada cuantifica el cambio ante una perturbación de la demanda de entrada. Se utiliza una sola inicialización, sin intervalos predictivos calibrados. La fecha seleccionada no descarga nuevas observaciones.
+La trayectoria representa la respuesta del checkpoint a la historia suministrada. Su perfil horario permite examinar el nivel y la localización del pico; la sensibilidad activada cuantifica el cambio ante una perturbación de la demanda de entrada. Se utiliza una sola inicialización, con intervalos calibrados a partir de sus propios errores históricos. La fecha seleccionada no descarga nuevas observaciones.
 
 ### Ejecución portable de M4ₙ
 

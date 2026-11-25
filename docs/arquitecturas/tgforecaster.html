@@ -438,9 +438,11 @@
 <p>TGForecaster utiliza descripciones textuales de los canales para orientar la relación entre información documental y señales numéricas. La atención cruzada distingue qué se pregunta —tokens del horizonte— de dónde se busca la respuesta —la memoria de la historia—. La variante N conserva las descripciones estáticas de canales y no incorpora documentos que cambien por origen; N+O añade el contexto documental oficial disponible.</p>
 <p>Cada uno de los 33 canales históricos se divide en 21 parches de 16 horas con paso ocho. Sus embeddings se codifican y se suman a una proyección de la descripción E5 del canal; siete tokens adicionales representan el calendario diario pasado. La memoria reúne así <span class="math notranslate nohighlight">\(33\times21+7=700\)</span> tokens. No se aplica RevIN dentro de este codificador; la normalización externa del contrato permanece.</p>
 <p>El horizonte de 24 horas se divide en cinco parches de ocho con paso cuatro. La consulta de cada parche combina descripción de demanda, calendario futuro conocido, posición y resumen de documentos oficiales disponibles en el origen:</p>
-<div class="math notranslate nohighlight">
-\[q_k=W_DE_{dem}+W_FF_k+p_k+m_tW_Tz_t,\quad
-H=\operatorname{softmax}\!\left(\frac{QK_M^\top}{\sqrt{d_k}}\right)V_M.\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-tgforecaster-001">
+<span class="eqno">(21)<a class="headerlink" href="#equation-eq-arquitecturas-tgforecaster-001" title="Link to this equation">#</a></span>\[
+q_k=W_DE_{dem}+W_FF_k+p_k+m_tW_Tz_t,\quad
+H=\operatorname{softmax}\!\left(\frac{QK_M^\top}{\sqrt{d_k}}\right)V_M.
+\]</div>
 <p>El texto participa como parte de la consulta; las claves y valores proceden de la memoria numérica. Cada token decodifica ocho correcciones. Para las horas cubiertas por varios parches se aprende una combinación convexa: <span class="math notranslate nohighlight">\(\omega_{k,h}=\operatorname{softmax}_{k:h\in k}(a_{k,h})\)</span>, de modo que <span class="math notranslate nohighlight">\(\sum_k\omega_{k,h}=1\)</span>. La salida es <span class="math notranslate nohighlight">\(\ell_t[1+\sum_k\omega_{k,h}o_{k,h}]\)</span>.</p>
 <p>El paquete adapta el artículo a una sola serie objetivo y a documentos disponibles al emitir el pronóstico; no incorpora texto realizado durante el horizonte. Las descripciones y los embeddings son extractores congelados; la selección documental y la fusión son entrenables. La variante N selecciona dimensión256, tres capas temporales, dos de mezcla y ocho cabezas; N+O selecciona dimensión64, dos capas temporales, una de mezcla y cuatro cabezas. Sus configuraciones distintas hacen que el contraste estime el procedimiento completo de selección, además de la incorporación de documentos.</p>
 <section id="esquema-global">

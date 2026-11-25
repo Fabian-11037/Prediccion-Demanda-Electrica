@@ -1,0 +1,40 @@
+{
+  "fecha": "2026-11-25",
+  "procedimientos": 18,
+  "mediciones": 5400,
+  "origenes_coste": 3,
+  "realizaciones_coste_por_procedimiento": 1,
+  "fuentes_verificadas": 47,
+  "pesos_y_escaladores_sin_cambios": 34,
+  "activos_protegidos_sin_cambios": 6,
+  "paridad_predicciones": true,
+  "metricas_originales_conservadas": true,
+  "CI_bootstrap_verificados": true,
+  "construccion_jbook": "correcta, warningiserror",
+  "pruebas_dashboard": 32,
+  "fallos": 0,
+  "errores_javascript": 0,
+  "revision_navegador": [
+    "tabla final sustituida",
+    "filtro Top10:10 filas",
+    "ordenación de latencia ascendente y descendente",
+    "vistas resumen/coste/completa",
+    "enlace eficiencia a tabla maestra",
+    "JBook18filas"
+  ],
+  "contexto_sincronizado": true,
+  "entrenamiento": false,
+  "publicacion": false,
+  "sha256": {
+    "book/10_evaluacion.ipynb": "f2c5a3ba4fad348b9d8a5e0b07893982dfa70f5c29a370a7a42237678e8ea000",
+    "book/11_sintesis.ipynb": "d94682b2529ca0c1d0b4cb3becfb0bf59c3e98f6b9acf2f4c2d86c81d6c840ca",
+    "dashboard/site/app.js": "401b13f9b66ca020f972a7fa242968fffe6c75fe3d70ff0b57a6b65298095089",
+    "dashboard/site/tabla_maestra_views.js": "4096e0426e053578735f1cb9dd9ed91ff83242ddef88b04eabc1ea62c2b21274",
+    "dashboard/site/data/tabla_maestra.json": "74a180f70369e8cd0309618e3b7a37851fad5b30908f968fd9bc30ff8094e706",
+    "CONTEXTO_PROYECTO.md": "46851905a9189de811f884eded6d2806cb6a1783f957ef4f86d0db67e938f54f",
+    "dashboard/CONTEXTO_DASHBOARD.md": "b497ee62a2da7fc1dd14cb6ca9dcc80109dcaf36d69e1bfcb0fa1ac83304d860",
+    "scripts/medir_tabla_maestra.py": "2c8c14ae9a39f0d0f5073096384b76f98f0c0ed7ab8c99b37daf86a42d964752",
+    "scripts/consolidar_tabla_maestra.py": "fb3389fdaa0067ab4603d3855e9b5fb2bd9b9ac744dee9c9b7dc3ee04713583c",
+    "scripts/integrar_tabla_maestra.py": "e10604adbe4c634246061c921cfc1d087ca5f7aa0ac59f52c47616cf774dc410"
+  }
+}

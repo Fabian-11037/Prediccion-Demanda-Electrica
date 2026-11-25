@@ -11,8 +11,10 @@ Cada uno de los 33 canales históricos se divide en 21 parches de 16 horas con p
 
 El horizonte de 24 horas se divide en cinco parches de ocho con paso cuatro. La consulta de cada parche combina descripción de demanda, calendario futuro conocido, posición y resumen de documentos oficiales disponibles en el origen:
 
-$$q_k=W_DE_{dem}+W_FF_k+p_k+m_tW_Tz_t,\quad
-H=\operatorname{softmax}\!\left(\frac{QK_M^\top}{\sqrt{d_k}}\right)V_M.$$
+$$
+q_k=W_DE_{dem}+W_FF_k+p_k+m_tW_Tz_t,\quad
+H=\operatorname{softmax}\!\left(\frac{QK_M^\top}{\sqrt{d_k}}\right)V_M.
+$$ (eq-arquitecturas-tgforecaster-001)
 
 El texto participa como parte de la consulta; las claves y valores proceden de la memoria numérica. Cada token decodifica ocho correcciones. Para las horas cubiertas por varios parches se aprende una combinación convexa: $\omega_{k,h}=\operatorname{softmax}_{k:h\in k}(a_{k,h})$, de modo que $\sum_k\omega_{k,h}=1$. La salida es $\ell_t[1+\sum_k\omega_{k,h}o_{k,h}]$.
 
