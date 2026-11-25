@@ -51,7 +51,7 @@ Comprobación funcional breve:
 python scripts/entrenar_arquitectura.py --modelo arx_lineal --smoke --dispositivo cpu --salida salidas/arx_lineal_funcional
 ```
 
-Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+Evaluación final, con ajuste y parada anteriores a 2022:
 
 ```bash
 python scripts/entrenar_arquitectura.py --modelo arx_lineal --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/arx_lineal_prueba_1000

@@ -62,6 +62,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '08_literatura';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Índice" href="genindex.html" />
@@ -428,9 +430,15 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extensiones-respaldadas-por-la-revision">Extensiones respaldadas por la revisión</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-e-implicaciones-para-el-experimento">8.7. Síntesis e implicaciones para el experimento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#priorizacion-del-top-10-y-paper-guia">8.7. Priorización del Top 10 y paper guía</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puntuaciones-por-criterio">Puntuaciones por criterio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-bibliografico-y-aportacion-de-cada-arquitectura">Fundamento bibliográfico y aportación de cada arquitectura</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-guia-comparacion-de-demanda-a-24-horas">Paper guía: comparación de demanda a 24 horas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-e-implicaciones-para-el-experimento">8.8. Síntesis e implicaciones para el experimento</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brecha-de-investigacion-y-pregunta-contrastable">Brecha de investigación y pregunta contrastable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">8.8. Memoria residual para el pronóstico de demanda</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">8.9. Memoria residual para el pronóstico de demanda</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antecedentes-y-relacion-con-m4">Antecedentes y relación con M4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismo-entrenamiento-y-pregunta-de-investigacion">Mecanismo, entrenamiento y pregunta de investigación</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-y-alcance-de-la-evidencia">Búsqueda y alcance de la evidencia</a></li>
@@ -838,8 +846,265 @@
 <p>Las fichas desarrollan las arquitecturas numéricas y documentales evaluadas, incluidas N-BEATS y TimesNet. Cada ficha distingue el mecanismo implementado de su artículo orientador y enlaza el pipeline. Estas incorporaciones no alteran el denominador de estudios empíricos utilizado para contar comparadores.</p>
 </section>
 </section>
+<section id="priorizacion-del-top-10-y-paper-guia">
+<span id="priorizacion-top10"></span><h2>8.7. Priorización del Top 10 y paper guía<a class="headerlink" href="#priorizacion-del-top-10-y-paper-guia" title="Link to this heading">#</a></h2>
+<p>La priorización documental valora cinco criterios con el mismo peso (20 % cada uno): citación ajustada por antigüedad (<span class="math notranslate nohighlight">\(C\)</span>), actualidad (<span class="math notranslate nohighlight">\(R\)</span>), evidencia de desempeño comparable (<span class="math notranslate nohighlight">\(D\)</span>), disponibilidad de implementación (<span class="math notranslate nohighlight">\(I\)</span>) y representatividad de familias (<span class="math notranslate nohighlight">\(F\)</span>). La fecha de corte es el <strong>24 de noviembre de 2026</strong>. El universo de esta tabla son las diez arquitecturas implementadas; sus puntuaciones no utilizan los errores de validación ni de prueba del proyecto.</p>
+<p>Para un artículo con <span class="math notranslate nohighlight">\(c_i\)</span> citas y antigüedad <span class="math notranslate nohighlight">\(a_i=\max(1,\text{días desde su primera versión pública}/365{,}25)\)</span>, se calcula:</p>
+<div class="math notranslate nohighlight">
+\[C_i=\frac{\log(1+c_i/a_i)}{\max_j\log(1+c_j/a_j)},\qquad
+R_i=2^{-a_i/5},\qquad F_i=\frac{\min_f n_f}{n_{f(i)}},\qquad
+S_i=100\sum_{k\in\{C,R,D,I,F\}}0{,}20\,k_i.\]</div>
+<p>La transformación logarítmica modera la influencia de los artículos muy citados; la actualidad tiene una semivida de cinco años. La clasificación principal asigna dos arquitecturas a MLP residual (N-BEATS y N-HiTS), dos a convolución (TCN y TimesNet), tres a atención (TFT, PatchTST e iTransformer) y tres a integración multimodal (TaTS, fusión tardía y TGForecaster). Se usa un grupo principal por arquitectura; los mecanismos híbridos se detallan en sus fichas.</p>
+<p>La evidencia <span class="math notranslate nohighlight">\(D\)</span> recibe 1 cuando existe evaluación de demanda nacional horaria a 24 h, 0,75 para consumo eléctrico multiserie u otros horizontes, 0,50 para energía a otra frecuencia, 0,25 para pronóstico en otros dominios y 0 si falta evaluación bibliográfica independiente. Las métricas reportadas se interpretan dentro de cada estudio. La implementación <span class="math notranslate nohighlight">\(I\)</span> recibe 1 si se localiza código de los autores del método de referencia con entradas de ejecución, 0,50 si solo se dispone de una adaptación implementada en este estudio y 0 si no se localiza código. Estos pesos, escalas y semivida son reglas de esta síntesis documental.</p>
+<p>Las citas proceden de una captura de <strong>OpenAlex</strong>. La antigüedad se toma de la primera versión pública de arXiv, sin mezclar fechas de preprint y publicación editorial. Los contadores pertenecen al registro bibliográfico resuelto y pueden agregar versiones. Para TGForecaster se conserva el artículo v2, aunque el registro del índice tenga un título posterior. Un valor no disponible se indica como <strong>ND</strong>: no se sustituye por cero ni se calcula una puntuación total incompleta.</p>
+<section id="puntuaciones-por-criterio">
+<h3>Puntuaciones por criterio<a class="headerlink" href="#puntuaciones-por-criterio" title="Link to this heading">#</a></h3>
+<p>Cada columna C, R, D, I y F expresa su contribución sobre 20 puntos; el total está expresado sobre 100.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"_static/literature/priorizacion_top10"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">base</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"book"</span><span class="p">)</span> <span class="o">/</span> <span class="n">base</span>
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">base</span> <span class="o">/</span> <span class="s2">"evidencia_top10.csv"</span><span class="p">)</span>
+<span class="n">reglas</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">"json"</span><span class="p">)</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">base</span> <span class="o">/</span> <span class="s2">"protocolo.json"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">))</span>
+<span class="n">corte</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">reglas</span><span class="p">[</span><span class="s2">"fecha_corte"</span><span class="p">])</span>
+<span class="n">tabla</span><span class="p">[</span><span class="s2">"edad_anos"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">corte</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">tabla</span><span class="p">[</span><span class="s2">"primera_publicacion"</span><span class="p">]))</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span> <span class="o">/</span> <span class="mf">365.25</span>
+<span class="n">tabla</span><span class="p">[</span><span class="s2">"edad_anos"</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[</span><span class="s2">"edad_anos"</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tabla</span><span class="p">[</span><span class="s2">"citas_por_ano"</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[</span><span class="s2">"citas"</span><span class="p">]</span> <span class="o">/</span> <span class="n">tabla</span><span class="p">[</span><span class="s2">"edad_anos"</span><span class="p">]</span>
+<span class="n">tabla</span><span class="p">[</span><span class="s2">"C"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">tabla</span><span class="p">[</span><span class="s2">"citas_por_ano"</span><span class="p">])</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">tabla</span><span class="p">[</span><span class="s2">"citas_por_ano"</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">tabla</span><span class="p">[</span><span class="s2">"R"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">tabla</span><span class="p">[</span><span class="s2">"edad_anos"</span><span class="p">]</span> <span class="o">/</span> <span class="n">reglas</span><span class="p">[</span><span class="s2">"semivida_actualidad_anos"</span><span class="p">])</span>
+<span class="n">tabla</span><span class="p">[</span><span class="s2">"D"</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[</span><span class="s2">"evidencia_comparable"</span><span class="p">]</span>
+<span class="n">tabla</span><span class="p">[</span><span class="s2">"I"</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[</span><span class="s2">"implementacion"</span><span class="p">]</span>
+<span class="n">tamano</span> <span class="o">=</span> <span class="n">tabla</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"familia"</span><span class="p">)[</span><span class="s2">"modelo"</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s2">"size"</span><span class="p">)</span>
+<span class="n">tabla</span><span class="p">[</span><span class="s2">"F"</span><span class="p">]</span> <span class="o">=</span> <span class="n">tamano</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">/</span> <span class="n">tamano</span>
+<span class="n">criterios</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reglas</span><span class="p">[</span><span class="s2">"pesos"</span><span class="p">])</span>
+<span class="n">pesos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">reglas</span><span class="p">[</span><span class="s2">"pesos"</span><span class="p">])</span>
+<span class="n">tabla</span><span class="p">[</span><span class="s2">"cobertura_criterios"</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[</span><span class="n">criterios</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tabla</span><span class="p">[</span><span class="s2">"puntuacion"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">tabla</span><span class="p">[</span><span class="n">criterios</span><span class="p">]</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">pesos</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">criterios</span><span class="p">))</span>
+<span class="n">tabla</span><span class="p">[</span><span class="s2">"prioridad"</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[</span><span class="s2">"puntuacion"</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">"min"</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"Int64"</span><span class="p">)</span>
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">tabla</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">"puntuacion"</span><span class="p">,</span> <span class="s2">"modelo"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="n">na_position</span><span class="o">=</span><span class="s2">"last"</span><span class="p">)</span>
+<span class="n">vista</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[[</span><span class="s2">"prioridad"</span><span class="p">,</span> <span class="s2">"modelo"</span><span class="p">,</span> <span class="s2">"citas_por_ano"</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">criterio</span> <span class="ow">in</span> <span class="n">criterios</span><span class="p">:</span>
+    <span class="n">vista</span><span class="p">[</span><span class="n">criterio</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">pesos</span><span class="p">[</span><span class="n">criterio</span><span class="p">]</span> <span class="o">*</span> <span class="n">tabla</span><span class="p">[</span><span class="n">criterio</span><span class="p">]</span>
+<span class="n">vista</span><span class="p">[</span><span class="s2">"Total / 100"</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[</span><span class="s2">"puntuacion"</span><span class="p">]</span>
+<span class="n">vista</span> <span class="o">=</span> <span class="n">vista</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"prioridad"</span><span class="p">:</span> <span class="s2">"Prioridad"</span><span class="p">,</span> <span class="s2">"modelo"</span><span class="p">:</span> <span class="s2">"Arquitectura"</span><span class="p">,</span> <span class="s2">"citas_por_ano"</span><span class="p">:</span> <span class="s2">"Citas/año"</span><span class="p">})</span>
+<span class="n">vista</span><span class="p">[</span><span class="s2">"Prioridad"</span><span class="p">]</span> <span class="o">=</span> <span class="n">vista</span><span class="p">[</span><span class="s2">"Prioridad"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">vista</span><span class="p">[</span><span class="s2">"Prioridad"</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">(),</span> <span class="s2">"ND"</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">vista</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s2">"ND"</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Prioridad</th>
+      <th>Arquitectura</th>
+      <th>Citas/año</th>
+      <th>C</th>
+      <th>R</th>
+      <th>D</th>
+      <th>I</th>
+      <th>F</th>
+      <th>Total / 100</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>TCN</td>
+      <td>1228.35</td>
+      <td>19.32</td>
+      <td>5.97</td>
+      <td>20.00</td>
+      <td>20.00</td>
+      <td>20.00</td>
+      <td>85.29</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>TimesNet</td>
+      <td>925.57</td>
+      <td>18.55</td>
+      <td>11.27</td>
+      <td>15.00</td>
+      <td>20.00</td>
+      <td>20.00</td>
+      <td>84.82</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>N-BEATS</td>
+      <td>311.02</td>
+      <td>15.60</td>
+      <td>7.07</td>
+      <td>20.00</td>
+      <td>20.00</td>
+      <td>20.00</td>
+      <td>82.66</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>N-HiTS</td>
+      <td>243.78</td>
+      <td>14.94</td>
+      <td>10.26</td>
+      <td>15.00</td>
+      <td>20.00</td>
+      <td>20.00</td>
+      <td>80.20</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>iTransformer</td>
+      <td>1034.93</td>
+      <td>18.85</td>
+      <td>12.97</td>
+      <td>15.00</td>
+      <td>20.00</td>
+      <td>13.33</td>
+      <td>80.16</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>PatchTST</td>
+      <td>1578.49</td>
+      <td>20.00</td>
+      <td>11.50</td>
+      <td>15.00</td>
+      <td>20.00</td>
+      <td>13.33</td>
+      <td>79.83</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>TFT</td>
+      <td>755.46</td>
+      <td>18.00</td>
+      <td>7.65</td>
+      <td>20.00</td>
+      <td>20.00</td>
+      <td>13.33</td>
+      <td>78.98</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>TGForecaster · N+O</td>
+      <td>15.95</td>
+      <td>7.69</td>
+      <td>14.13</td>
+      <td>15.00</td>
+      <td>20.00</td>
+      <td>13.33</td>
+      <td>70.15</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Fusión tardía · N+O</td>
+      <td>96.72</td>
+      <td>12.44</td>
+      <td>14.24</td>
+      <td>10.00</td>
+      <td>20.00</td>
+      <td>13.33</td>
+      <td>70.02</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>TaTS · N+O</td>
+      <td>24.20</td>
+      <td>8.76</td>
+      <td>15.63</td>
+      <td>10.00</td>
+      <td>20.00</td>
+      <td>13.33</td>
+      <td>67.73</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+<p>TCN presenta la mayor puntuación documental (85.29/100) entre las arquitecturas con los cinco criterios disponibles. La posición combina impacto bibliográfico, actualidad, pertinencia empírica, acceso al código y diversidad. El orden de precisión predictiva se establece por separado en la evaluación temporal.</p>
+<p>La fusión tardía se fundamenta en <a class="reference external" href="https://arxiv.org/html/2406.08627v4#S3.SS2">MM-TSFlib, de Liu et al.</a>. Obtiene 70.02/100 y ocupa la posición 9. La citación corresponde a esa referencia metodológica; la combinación específica con PatchTST se desarrolla en su ficha.</p>
+<p><a class="reference download internal" download="" href="_downloads/04e82803ca9328b0f194fb6128e06311/puntuaciones_top10.csv"><span class="xref download myst">Descargar puntuaciones y datos de entrada</span></a> · <a class="reference download internal" download="" href="_downloads/5b9a088be5df26e9a0b44d9585d927a3/protocolo.json"><span class="xref download myst">Reglas y paper guía</span></a> · <a class="reference download internal" download="" href="_downloads/f4a6d7d88ba064aa5d31a712bb78a150/openalex_snapshot.json"><span class="xref download myst">Captura bibliométrica</span></a>.</p>
+</section>
+<section id="fundamento-bibliografico-y-aportacion-de-cada-arquitectura">
+<h3>Fundamento bibliográfico y aportación de cada arquitectura<a class="headerlink" href="#fundamento-bibliografico-y-aportacion-de-cada-arquitectura" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Arquitectura / familia</p></th>
+<th class="head"><p>Paper de referencia</p></th>
+<th class="head"><p>Evidencia de desempeño y alcance</p></th>
+<th class="head"><p>Implementación y aportación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>N-HiTS</strong> · MLP residual</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/2201.12886v6">Challu et al.: NHITS: Neural Hierarchical Interpolation for Time Series Forecasting</a> · arXiv:2201.12886v6</p></td>
+<td><p>Electricity: pronóstico multiserie de consumo, horizontes 96–720; tablas de evaluación de largo horizonte. El artículo compara MSE y MAE y estudia interpolación multirresolución.</p></td>
+<td><p><a class="reference external" href="https://github.com/Nixtla/neuralforecast">Código</a>. Descomposición residual e interpolación jerárquica a distintas escalas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>TFT</strong> · Atención</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/1912.09363v3">Lim et al.: Temporal Fusion Transformers for interpretable multi-horizon time series forecasting</a> · arXiv:1912.09363v3</p></td>
+<td><p>Pelekis et al., tabla 2: demanda nacional portuguesa, resolución horaria y horizonte de 24 h; ensamble con MAPE 2,17 %. El artículo de TFT estudia pronósticos multihorizonte con covariables. <a class="reference external" href="https://arxiv.org/html/2302.12168v2#S3.T2">Paper guía</a>.</p></td>
+<td><p><a class="reference external" href="https://github.com/google-research/google-research/tree/master/tft">Código</a>. Selección de variables, procesamiento recurrente y atención temporal interpretable.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>TCN</strong> · Convolucional</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/1803.01271v2">Bai, Kolter y Koltun: An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling</a> · arXiv:1803.01271v2</p></td>
+<td><p>Pelekis et al., tabla 2: demanda nacional portuguesa a 24 h; ensamble con MAPE 2,22 %. Bai et al. fundamentan la convolución causal dilatada y la evalúan frente a redes recurrentes. <a class="reference external" href="https://arxiv.org/html/2302.12168v2#S3.T2">Paper guía</a>.</p></td>
+<td><p><a class="reference external" href="https://github.com/locuslab/TCN">Código</a>. Convoluciones causales dilatadas para dependencias temporales.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>iTransformer</strong> · Atención</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/2310.06625v4">Liu et al.: iTransformer: Inverted Transformers Are Effective for Time Series Forecasting</a> · arXiv:2310.06625v4</p></td>
+<td><p>Tabla 1 y apéndice de datos: ECL, consumo eléctrico horario multiserie; horizontes 96, 192, 336 y 720, evaluados con MSE y MAE. No es demanda nacional a 24 h.</p></td>
+<td><p><a class="reference external" href="https://github.com/thuml/iTransformer">Código</a>. Atención entre variables mediante tokens de series completas.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PatchTST</strong> · Atención</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/2211.14730v2">Nie et al.: A Time Series is Worth 64 Words: Long-term Forecasting with Transformers</a> · arXiv:2211.14730v2</p></td>
+<td><p>Tabla 3: Electricity y otros conjuntos de pronóstico largo, con MSE y MAE; horizontes 96–720. Las comparaciones y ablaciones examinan parches e independencia de canales.</p></td>
+<td><p><a class="reference external" href="https://github.com/yuqinie98/PatchTST">Código</a>. Parches temporales y parámetros compartidos entre canales.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>TaTS · N+O</strong> · Multimodal</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/2502.08942v3">Li et al.: Language in the Flow of Time: Time-Series-Paired Texts Weaved into a Unified Temporal Narrative</a> · arXiv:2502.08942v3</p></td>
+<td><p>Tablas 15 y 20: Time-MMD, incluido Energy semanal; comparación de MAE/MSE con y sin texto sobre varios núcleos. Energy no representa demanda eléctrica horaria.</p></td>
+<td><p><a class="reference external" href="https://github.com/iDEA-iSAIL-Lab-UIUC/TaTS">Código</a>. Texto como variables auxiliares que preservan su secuencia temporal.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>TGForecaster · N+O</strong> · Multimodal</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/2405.13522v2">Xu et al.: Beyond Trend and Periodicity: Guiding Time Series Forecasting with Textual Cues</a> · arXiv:2405.13522v2</p></td>
+<td><p>Sección 6.2 y tabla de Electricity-Captioned: consumo eléctrico con descripciones de calendario; comparación con modelos numéricos. El texto de calendario no equivale a boletines oficiales.</p></td>
+<td><p><a class="reference external" href="https://github.com/VEWOXIC/TGTSF">Código</a>. Atención guiada por texto y descripciones sincronizadas con la serie.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>N-BEATS</strong> · MLP residual</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/1905.10437v4">Oreshkin et al.: N-BEATS: Neural basis expansion analysis for interpretable time series forecasting</a> · arXiv:1905.10437v4</p></td>
+<td><p>Pelekis et al., tabla 2: demanda nacional portuguesa a 24 h; ensamble con MAPE 1,90 %. El trabajo original evalúa expansión de bases sobre M3, M4 y Tourism. <a class="reference external" href="https://arxiv.org/html/2302.12168v2#S3.T2">Paper guía</a>.</p></td>
+<td><p><a class="reference external" href="https://github.com/ServiceNow/N-BEATS">Código</a>. Bloques densos con salidas de reconstrucción y pronóstico residual.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>TimesNet</strong> · Convolucional</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/2210.02186v3">Wu et al.: TimesNet: Temporal 2D-Variation Modeling for General Time Series Analysis</a> · arXiv:2210.02186v3</p></td>
+<td><p>Sección 4.1 y tabla de pronóstico largo: Electricity, horizontes 96–720 y métricas MSE/MAE. La evaluación abarca además otras tareas temporales.</p></td>
+<td><p><a class="reference external" href="https://github.com/thuml/TimesNet">Código</a>. Periodos espectrales y convoluciones 2D sobre variaciones intra e interperiodo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fusión tardía · N+O</strong> · Multimodal</p></td>
+<td><p><a class="reference external" href="https://arxiv.org/abs/2406.08627v4">Liu et al.: Time-MMD: Multi-Domain Multimodal Dataset for Time Series Analysis</a> · arXiv:2406.08627v4</p></td>
+<td><p>Time-MMD, sección 3.2 y apéndices J/O: MM-TSFlib combina linealmente salidas numéricas y textuales con pesos aprendidos; reporta MSE en nueve dominios, incluido precio de gasolina semanal.</p></td>
+<td><p><a class="reference external" href="https://github.com/AdityaLab/MM-TSFlib/tree/e789ce78c9bafd8e3ba0d8850f9ad2becbe83548">Código</a>. Adaptación de la fusión tardía aditiva a PatchTST, documentos oficiales e indicador de ausencia.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="paper-guia-comparacion-de-demanda-a-24-horas">
+<h3>Paper guía: comparación de demanda a 24 horas<a class="headerlink" href="#paper-guia-comparacion-de-demanda-a-24-horas" title="Link to this heading">#</a></h3>
+<p><strong>Pelekis, S., Seisopoulos, I.-K., Spiliotis, E., Pountridis, T., Karakolis, E., Mouzakitis, S. y Askounis, D. (2023).</strong> <em>A comparative assessment of deep learning models for day-ahead load forecasting: Investigating key accuracy drivers</em>. <a class="reference external" href="https://arxiv.org/html/2302.12168v2">Texto completo, versión 2</a> · <a class="reference external" href="https://doi.org/10.48550/arXiv.2302.12168">DOI: 10.48550/arXiv.2302.12168</a>.</p>
+<p>Se adopta como guía por estudiar demanda nacional portuguesa horaria a 24 horas. Compara cinco familias con separación cronológica, búsqueda de hiperparámetros, distintas inicializaciones y referencias estacionales. Fundamenta el protocolo comparativo; los artículos originales respaldan las otras arquitecturas. No constituye una undécima arquitectura.</p>
+<p>El artículo utiliza MAPE y ensambles de 30 redes. El proyecto emplea MASE, datos del SIN colombiano y el diseño temporal documentado en este libro; sus magnitudes de error se interpretan en ese contexto.</p>
+</section>
+</section>
 <section id="sintesis-e-implicaciones-para-el-experimento">
-<h2>8.7. Síntesis e implicaciones para el experimento<a class="headerlink" href="#sintesis-e-implicaciones-para-el-experimento" title="Link to this heading">#</a></h2>
+<h2>8.8. Síntesis e implicaciones para el experimento<a class="headerlink" href="#sintesis-e-implicaciones-para-el-experimento" title="Link to this heading">#</a></h2>
 <p>La evidencia directa favorece comparar redes con inductivos diferentes y referencias estacionales antes de incrementar complejidad. No sostiene que una arquitectura domine en todos los países ni que añadir clima o noticias produzca una mejora automática.</p>
 <p>Las mejoras documentales requieren disponibilidad anterior al origen de pronóstico. Vocabularios, selección de atributos, tópicos, normalización y descomposiciones se ajustan dentro de entrenamiento; los documentos con fecha de edición pero sin hora verificable se incorporan desde el día siguiente. Los textos cuya disponibilidad histórica no está verificada conservan esa marca y requieren análisis de sensibilidad. Las revisiones de series y las fechas editoriales limitan la reconstrucción retrospectiva.</p>
 <p>La atención o la importancia de una palabra indican asociación dentro del modelo y no causalidad. El deterioro observado en algunas combinaciones de Bai et al. y en algunos casos de REST-TS exige controlar ruido, cobertura y redundancia, además de evaluar ganancias. Una ablación que retire simultáneamente texto y covariables numéricas no permite aislar la contribución documental.</p>
@@ -852,7 +1117,7 @@
 <p>La línea documental del estudio busca determinar si el contexto documental disponible antes del origen añade capacidad predictiva al baseline numérico del SIN bajo cambios de régimen. La hipótesis contrastable es una reducción relativa de MASE de al menos el 3 %, acompañada de incertidumbre pareada por bloques, frente al baseline congelado y con presupuesto comparable. La evaluación contrasta TaTS y fusión tardía frente a PatchTST numérico, y TGForecaster con documentos frente a su variante numérica. Los controles de retirada, contenido cero y contenido histórico de la misma fuente examinan la dependencia del texto con pesos fijos. La atribución específica al contenido requiere controles por fuente y comparaciones con núcleo e hiperparámetros idénticos; la integración de prensa constituye una extensión del diseño.</p>
 </section>
 <section id="memoria-residual-para-el-pronostico-de-demanda">
-<h2>8.8. Memoria residual para el pronóstico de demanda<a class="headerlink" href="#memoria-residual-para-el-pronostico-de-demanda" title="Link to this heading">#</a></h2>
+<h2>8.9. Memoria residual para el pronóstico de demanda<a class="headerlink" href="#memoria-residual-para-el-pronostico-de-demanda" title="Link to this heading">#</a></h2>
 <p>La corrección residual separa la estimación del nivel de demanda de los errores que persisten después del pronóstico. M4<sub>N</sub> estudia si esos errores pueden transferirse entre episodios con contexto numérico comparable, manteniendo congelada la base. La recuperación de residuos y la actualización de memoria tienen antecedentes; la contribución investigada se concentra en su formulación temporal y en el aprendizaje de la recuperación.</p>
 <section id="antecedentes-y-relacion-con-m4">
 <h3>Antecedentes y relación con M4<a class="headerlink" href="#antecedentes-y-relacion-con-m4" title="Link to this heading">#</a></h3>
@@ -1024,9 +1289,15 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extensiones-respaldadas-por-la-revision">Extensiones respaldadas por la revisión</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-e-implicaciones-para-el-experimento">8.7. Síntesis e implicaciones para el experimento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#priorizacion-del-top-10-y-paper-guia">8.7. Priorización del Top 10 y paper guía</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puntuaciones-por-criterio">Puntuaciones por criterio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-bibliografico-y-aportacion-de-cada-arquitectura">Fundamento bibliográfico y aportación de cada arquitectura</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-guia-comparacion-de-demanda-a-24-horas">Paper guía: comparación de demanda a 24 horas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-e-implicaciones-para-el-experimento">8.8. Síntesis e implicaciones para el experimento</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brecha-de-investigacion-y-pregunta-contrastable">Brecha de investigación y pregunta contrastable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">8.8. Memoria residual para el pronóstico de demanda</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">8.9. Memoria residual para el pronóstico de demanda</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antecedentes-y-relacion-con-m4">Antecedentes y relación con M4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismo-entrenamiento-y-pregunta-de-investigacion">Mecanismo, entrenamiento y pregunta de investigación</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-y-alcance-de-la-evidencia">Búsqueda y alcance de la evidencia</a></li>

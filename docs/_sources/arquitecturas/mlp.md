@@ -54,7 +54,7 @@ Comprobación funcional breve:
 python scripts/entrenar_arquitectura.py --modelo mlp --smoke --dispositivo cpu --salida salidas/mlp_funcional
 ```
 
-Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+Evaluación final, con ajuste y parada anteriores a 2022:
 
 ```bash
 python scripts/entrenar_arquitectura.py --modelo mlp --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/mlp_prueba_1000

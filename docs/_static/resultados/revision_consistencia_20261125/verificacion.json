@@ -1,0 +1,30 @@
+{
+  "fecha": "2026-11-25",
+  "cuadernos": 13,
+  "inventario": {
+    "figura": 75,
+    "esquema": 32,
+    "tabla_calculada": 31,
+    "tabla_markdown": 25
+  },
+  "procedimientos_integrados": 18,
+  "arquitecturas_top10": 10,
+  "procedimientos_aprendidos": 16,
+  "referencias": 2,
+  "realizaciones": 85,
+  "filas_incertidumbre": 864,
+  "comparadores_WIS": 17,
+  "descargas_identicas": 24,
+  "menciones_descartados": [],
+  "entrenamiento": false,
+  "inferencia_neuronal": false,
+  "publicacion": false,
+  "paginas_HTML": 37,
+  "enlaces_locales_verificados": 4059,
+  "enlaces_rotos": [],
+  "artefactos_numericos_conservados": 21,
+  "artefactos_dashboard_protegidos": 6,
+  "pruebas_python": 36,
+  "pruebas_dashboard": 32,
+  "construccion_sin_advertencias": true
+}

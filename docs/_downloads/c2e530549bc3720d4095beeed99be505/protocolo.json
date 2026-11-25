@@ -1,0 +1,51 @@
+{
+  "fecha": "2026-11-25",
+  "calibracion": [
+    "2022-01-01",
+    "2022-12-30"
+  ],
+  "dias_calibracion_inicial": 364,
+  "evaluacion": [
+    "2023-01-01",
+    "2025-12-31"
+  ],
+  "dias_evaluacion": 1096,
+  "origen": "00:00 America/Bogota",
+  "disponibilidad": "Solo errores de días s≤t−2; el 31-dic-2022 entra en la ventana móvil desde2-ene-2023.",
+  "metodos": [
+    "fijo_2022",
+    "movil_365"
+  ],
+  "principal": "movil_365",
+  "ventana": "Últimos365 errores diarios disponibles;364 en el primer origen",
+  "centro": "Media de predicciones guardadas:10semillas M4,5por comparador aprendido y1por ingenuo; no es la media de pérdidas del benchmark puntual.",
+  "niveles": [
+    0.8,
+    0.9,
+    0.95
+  ],
+  "alcances": [
+    "horario",
+    "trayectoria24"
+  ],
+  "horario": "Cuantil separado de error absoluto por horizonte; rango ceil((n+1)*nivel).",
+  "trayectoria": "Cuantil del máximo diario de |error_h|/escala_h; escala_h=mediana de |error_h| en reserva2022, piso1e-6GWh, congelada. Radio_h=cuantil×escala_h.",
+  "incertidumbre": "Cobertura empírica bajo dependencia temporal; no se supone intercambiabilidad ni se certifica cobertura exacta.",
+  "puntuaciones": "IS_alpha=ancho+2/alpha×distancia fuera del intervalo; WIS=(0.5×error absoluto+sum(alpha/2×IS_alpha))/(3+0.5). WIS solo para intervalos marginales horarios.",
+  "bootstrap": {
+    "replicas": 9999,
+    "bloque_medio_dias": 56,
+    "semilla": 20261125,
+    "unidad": "día;24h agregadas antes de remuestrear",
+    "IC": "Percentiles95% puntuales, condicionados a calibración, pesos y semillas conservados"
+  },
+  "contrastes": "WIS diario del método móvil horario: M4 frente a17comparadores, bootstrap unilateral y DM–HLN HAC55,h=1. Holm sobre34, margen0. No modifica inferencia deMASE.",
+  "seleccion": false,
+  "entrenamiento": false,
+  "inferencia_neuronal": false,
+  "publicacion": false,
+  "referencias": [
+    "https://arxiv.org/abs/2005.12881",
+    "https://arxiv.org/abs/2107.07511"
+  ]
+}

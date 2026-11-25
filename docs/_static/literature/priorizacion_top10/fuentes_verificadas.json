@@ -1,0 +1,60 @@
+{
+  "nhits": {
+    "url": "https://arxiv.org/pdf/2201.12886v6",
+    "archivo": "nhits.pdf",
+    "sha256": "d8450c02ec3026fca6064769904ff4faa59808ac2daf9d226565ec0a57acec5b",
+    "bytes": 2260584,
+    "status": 200
+  },
+  "itransformer": {
+    "url": "https://arxiv.org/pdf/2310.06625v4",
+    "archivo": "itransformer.pdf",
+    "sha256": "83e889795af52c672090255493266e3ea93e7b2a32c528f58074f2f9f757ffc5",
+    "bytes": 6345202,
+    "status": 200
+  },
+  "patchtst": {
+    "url": "https://arxiv.org/pdf/2211.14730v2",
+    "archivo": "patchtst.pdf",
+    "sha256": "ffd4021d25b4959883242f256b0fe4ec42f477f66db78c61bfacf7baa7848b0e",
+    "bytes": 4027069,
+    "status": 200
+  },
+  "timesnet": {
+    "url": "https://arxiv.org/pdf/2210.02186v3",
+    "archivo": "timesnet.pdf",
+    "sha256": "a45cb3d35c7b4db7091439ee714fd43dd6cd9e8f2fb1867f5463ae0433aebbd1",
+    "bytes": 4106684,
+    "status": 200
+  },
+  "guia": {
+    "url": "https://arxiv.org/pdf/2302.12168v2",
+    "archivo": "guia.pdf",
+    "sha256": "c3d94600924f921f93940eadf1a2f1c7680c7ff6d3380366e632ce0a9e7d9940",
+    "bytes": 5424050,
+    "status": 200
+  },
+  "tats": {
+    "url": "https://arxiv.org/html/2502.08942v3",
+    "archivo": "tats.html",
+    "sha256": "a55a57d4fc77ffb27a00ca7a815cfa26cf6d9adca5032cddeaf0526b5b28a494",
+    "bytes": 1954920,
+    "status": 200
+  },
+  "tgforecaster": {
+    "url": "https://arxiv.org/html/2405.13522v2",
+    "archivo": "tgforecaster.html",
+    "sha256": "3fcd0fdfbc3f76f7967c2c317a702a0d345f97f7399433729162e5c1022ba5c4",
+    "bytes": 272633,
+    "status": 200
+  },
+  "fusion": {
+    "url": "https://arxiv.org/pdf/2406.08627v4",
+    "archivo": "fusion_20261124/articulo.pdf",
+    "sha256": "63248d92d827b39defce5e50c87c2ca80e84c91fdc28a9b38d8b1840131b3737",
+    "bytes": 1330782,
+    "status": 200,
+    "codigo_commit": "e789ce78c9bafd8e3ba0d8850f9ad2becbe83548",
+    "validacion": "fusion_20261124/validacion_fuentes.json"
+  }
+}

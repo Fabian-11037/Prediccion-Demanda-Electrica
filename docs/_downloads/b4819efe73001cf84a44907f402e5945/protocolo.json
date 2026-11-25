@@ -1,0 +1,44 @@
+{
+  "periodo": [
+    "2022-01-01",
+    "2025-12-31"
+  ],
+  "dias": 1461,
+  "configuraciones": [
+    {
+      "bloque_dias": 14,
+      "lag_HAC": 13
+    },
+    {
+      "bloque_dias": 28,
+      "lag_HAC": 27
+    },
+    {
+      "bloque_dias": 56,
+      "lag_HAC": 55
+    }
+  ],
+  "familia_Holm": 306,
+  "replicas": 49999,
+  "semilla": 20261125,
+  "fecha": "2026-11-25",
+  "unidad": "origen diario; pérdidas individuales promedio entre semillas",
+  "metrica": "MAE / Q de entrenamiento",
+  "Q_kWh": 215617.90361589016,
+  "margenes": [
+    0,
+    0.03
+  ],
+  "bootstrap": "Estacionario pareado; medias de bloque14/28/56; mismos días para todos los procedimientos",
+  "intervalos": "Percentiles95% puntuales de la reducción relativa, no intervalos simultáneos",
+  "DM": "Unilateral, Bartlett HAC13/27/55, h efectivo HLN=1 origen, referencia t con N−1 grados de libertad",
+  "GW": "Bilateral χ²2, HAC Bartlett13/27/55, instrumentos constante y diferencial disponible de d−2",
+  "criterio": "Ambas pruebas unilaterales respaldan el margen; respaldo de tres exige además rechazo GW bilateral y dirección favorable observada",
+  "control_multiple": "Holm único sobre17comparadores×2márgenes×3métodos×3configuraciones=306",
+  "diagnosticos": "Ljung–Box de los diferenciales; Holm separado sobre102 diagnósticos, no sobre residuos del modelo",
+  "fuente_semillas": "Diez realizaciones M4, cinco por comparador aprendido; no emparejar identificadores de semillas",
+  "alcance": "Sensibilidad temporal condicionada a pesos y semillas conservados; no cambia selección ni configura modelos",
+  "entrenamiento": false,
+  "inferencia_neuronal": false,
+  "publicacion": false
+}

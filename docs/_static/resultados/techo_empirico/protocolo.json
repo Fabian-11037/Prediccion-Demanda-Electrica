@@ -1,0 +1,48 @@
+{
+  "fecha": "2026-11-24",
+  "periodo": [
+    "2022-01-01",
+    "2025-12-31"
+  ],
+  "dias": 1461,
+  "procedimientos": 18,
+  "escala_Q_kWh": 215617.90361589016,
+  "baseline": "ingenuo_168h",
+  "mejor": "m4_n",
+  "referencia_MASE": 0.46754069388467356,
+  "referencia_MAE_kWh": 100810.14427053195,
+  "referencia_ic95_MASE": [
+    0.44252798704325275,
+    0.4921507421861221
+  ],
+  "referencia_sin_M4_MASE": 0.4880119772583051,
+  "mejor_MASE": 0.5770369087419159,
+  "baseline_MASE": 1.354906444254724,
+  "gamma_mejor": 0.1233946823072449,
+  "gamma_mejor_ic95": [
+    0.10748031198360085,
+    0.14135067567432644
+  ],
+  "fraccion_brecha_cerrada": 0.8766053176927551,
+  "reduccion_adicional_relativa": 0.18975599861709255,
+  "diferencia_MAE_kWh": 23609.344301393685,
+  "horizonte_horas": 24,
+  "unidad": "origen diario",
+  "perdida": "Media de MAE por semilla y origen, dividida por Q fijo de entrenamiento",
+  "referencia": "Media temporal del mínimo entre las 18 pérdidas diarias promedio de semillas",
+  "formula_gamma": "(E_modelo-E_referencia)/(E_ingenuo_semanal-E_referencia)",
+  "sentido": "Menor gamma indica menor margen restante; baseline semanal=1; referencia empírica=0",
+  "bootstrap": {
+    "tipo": "estacionario pareado",
+    "replicas": 9999,
+    "longitud_media_bloque_dias": 14,
+    "semilla": 20261124,
+    "nivel": 0.95,
+    "intervalo": "percentil puntual",
+    "remuestreo_semillas": false
+  },
+  "alcance": "Referencia retrospectiva condicionada a los procedimientos, pesos, semillas y fechas conservados; no estima el error de Bayes ni constituye un predictor implementable",
+  "entrenamiento": false,
+  "inferencia_neuronal": false,
+  "seleccion_arquitecturas": false
+}

@@ -1,0 +1,274 @@
+{
+  "date": "2026-11-24",
+  "criteria": [
+    {
+      "id": "C",
+      "label": "Citación ajustada",
+      "description": "Citas por año, con transformación logarítmica y normalización respecto al mayor valor."
+    },
+    {
+      "id": "R",
+      "label": "Actualidad",
+      "description": "Antigüedad desde la primera versión pública; semivida de cinco años."
+    },
+    {
+      "id": "D",
+      "label": "Evidencia comparable",
+      "description": "Correspondencia de dominio, resolución y horizonte de los resultados publicados."
+    },
+    {
+      "id": "I",
+      "label": "Implementación",
+      "description": "Disponibilidad del código de los autores del método de referencia y entradas de ejecución."
+    },
+    {
+      "id": "F",
+      "label": "Diversidad de familias",
+      "description": "Representatividad de la familia principal dentro de las diez arquitecturas."
+    }
+  ],
+  "weights": {
+    "C": 0.2,
+    "R": 0.2,
+    "D": 0.2,
+    "I": 0.2,
+    "F": 0.2
+  },
+  "rows": [
+    {
+      "priority": 1,
+      "model": "TCN",
+      "family": "Convolucional",
+      "key": "tcn",
+      "points": {
+        "C": 19.319422790727714,
+        "R": 5.966239958593148,
+        "D": 20.0,
+        "I": 20.0,
+        "F": 20.0
+      },
+      "total": 85.28566274932086,
+      "reference": "Bai, Kolter y Koltun",
+      "title": "An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling",
+      "paper_url": "https://arxiv.org/abs/1803.01271v2",
+      "doi": "10.48550/arXiv.1803.01271",
+      "implementation_url": "https://github.com/locuslab/TCN",
+      "citations": 10718,
+      "first_publication": "2018-03-04",
+      "evidence": "Pelekis et al., tabla 2: demanda nacional portuguesa a 24 h; ensamble con MAPE 2,22 %. Bai et al. fundamentan la convolución causal dilatada y la evalúan frente a redes recurrentes."
+    },
+    {
+      "priority": 2,
+      "model": "TimesNet",
+      "family": "Convolucional",
+      "key": "timesnet",
+      "points": {
+        "C": 18.551596757503003,
+        "R": 11.271046642956385,
+        "D": 15.0,
+        "I": 20.0,
+        "F": 20.0
+      },
+      "total": 84.8226434004594,
+      "reference": "Wu et al.",
+      "title": "TimesNet: Temporal 2D-Variation Modeling for General Time Series Analysis",
+      "paper_url": "https://arxiv.org/abs/2210.02186v3",
+      "doi": "10.48550/arXiv.2210.02186",
+      "implementation_url": "https://github.com/thuml/TimesNet",
+      "citations": 3829,
+      "first_publication": "2022-10-05",
+      "evidence": "Sección 4.1 y tabla de pronóstico largo: Electricity, horizontes 96–720 y métricas MSE/MAE. La evaluación abarca además otras tareas temporales."
+    },
+    {
+      "priority": 3,
+      "model": "N-BEATS",
+      "family": "MLP residual",
+      "key": "nbeats",
+      "points": {
+        "C": 15.595827693365006,
+        "R": 7.066707980635115,
+        "D": 20.0,
+        "I": 20.0,
+        "F": 20.0
+      },
+      "total": 82.66253567400013,
+      "reference": "Oreshkin et al.",
+      "title": "N-BEATS: Neural basis expansion analysis for interpretable time series forecasting",
+      "paper_url": "https://arxiv.org/abs/1905.10437v4",
+      "doi": "10.48550/arXiv.1905.10437",
+      "implementation_url": "https://github.com/ServiceNow/N-BEATS",
+      "citations": 2334,
+      "first_publication": "2019-05-24",
+      "evidence": "Pelekis et al., tabla 2: demanda nacional portuguesa a 24 h; ensamble con MAPE 1,90 %. El trabajo original evalúa expansión de bases sobre M3, M4 y Tourism."
+    },
+    {
+      "priority": 4,
+      "model": "N-HiTS",
+      "family": "MLP residual",
+      "key": "nhits",
+      "points": {
+        "C": 14.936735956201954,
+        "R": 10.258530560833092,
+        "D": 15.0,
+        "I": 20.0,
+        "F": 20.0
+      },
+      "total": 80.19526651703505,
+      "reference": "Challu et al.",
+      "title": "NHITS: Neural Hierarchical Interpolation for Time Series Forecasting",
+      "paper_url": "https://arxiv.org/abs/2201.12886v6",
+      "doi": "10.48550/arXiv.2201.12886",
+      "implementation_url": "https://github.com/Nixtla/neuralforecast",
+      "citations": 1174,
+      "first_publication": "2022-01-30",
+      "evidence": "Electricity: pronóstico multiserie de consumo, horizontes 96–720; tablas de evaluación de largo horizonte. El artículo compara MSE y MAE y estudia interpolación multirresolución."
+    },
+    {
+      "priority": 5,
+      "model": "iTransformer",
+      "family": "Atención",
+      "key": "itransformer",
+      "points": {
+        "C": 18.854547320475636,
+        "R": 12.97039530862736,
+        "D": 15.0,
+        "I": 20.0,
+        "F": 13.333333333333332
+      },
+      "total": 80.15827596243633,
+      "reference": "Liu et al.",
+      "title": "iTransformer: Inverted Transformers Are Effective for Time Series Forecasting",
+      "paper_url": "https://arxiv.org/abs/2310.06625v4",
+      "doi": "10.48550/arXiv.2310.06625",
+      "implementation_url": "https://github.com/thuml/iTransformer",
+      "citations": 3233,
+      "first_publication": "2023-10-10",
+      "evidence": "Tabla 1 y apéndice de datos: ECL, consumo eléctrico horario multiserie; horizontes 96, 192, 336 y 720, evaluados con MSE y MAE. No es demanda nacional a 24 h."
+    },
+    {
+      "priority": 6,
+      "model": "PatchTST",
+      "family": "Atención",
+      "key": "patchtst",
+      "points": {
+        "C": 20.0,
+        "R": 11.500070539711762,
+        "D": 15.0,
+        "I": 20.0,
+        "F": 13.333333333333332
+      },
+      "total": 79.8334038730451,
+      "reference": "Nie et al.",
+      "title": "A Time Series is Worth 64 Words: Long-term Forecasting with Transformers",
+      "paper_url": "https://arxiv.org/abs/2211.14730v2",
+      "doi": "10.48550/arXiv.2211.14730",
+      "implementation_url": "https://github.com/yuqinie98/PatchTST",
+      "citations": 6301,
+      "first_publication": "2022-11-27",
+      "evidence": "Tabla 3: Electricity y otros conjuntos de pronóstico largo, con MSE y MAE; horizontes 96–720. Las comparaciones y ablaciones examinan parches e independencia de canales."
+    },
+    {
+      "priority": 7,
+      "model": "TFT",
+      "family": "Atención",
+      "key": "tft",
+      "points": {
+        "C": 18.000738412077826,
+        "R": 7.650109809067114,
+        "D": 20.0,
+        "I": 20.0,
+        "F": 13.333333333333332
+      },
+      "total": 78.98418155447827,
+      "reference": "Lim et al.",
+      "title": "Temporal Fusion Transformers for interpretable multi-horizon time series forecasting",
+      "paper_url": "https://arxiv.org/abs/1912.09363v3",
+      "doi": "10.48550/arXiv.1912.09363",
+      "implementation_url": "https://github.com/google-research/google-research/tree/master/tft",
+      "citations": 5237,
+      "first_publication": "2019-12-19",
+      "evidence": "Pelekis et al., tabla 2: demanda nacional portuguesa, resolución horaria y horizonte de 24 h; ensamble con MAPE 2,17 %. El artículo de TFT estudia pronósticos multihorizonte con covariables."
+    },
+    {
+      "priority": 8,
+      "model": "TGForecaster · N+O",
+      "family": "Multimodal",
+      "key": "tgforecaster",
+      "points": {
+        "C": 7.685837038826341,
+        "R": 14.126712187217883,
+        "D": 15.0,
+        "I": 20.0,
+        "F": 13.333333333333332
+      },
+      "total": 70.14588255937755,
+      "reference": "Xu et al.",
+      "title": "Beyond Trend and Periodicity: Guiding Time Series Forecasting with Textual Cues",
+      "paper_url": "https://arxiv.org/abs/2405.13522v2",
+      "doi": "10.48550/arXiv.2405.13522",
+      "implementation_url": "https://github.com/VEWOXIC/TGTSF",
+      "citations": 40,
+      "first_publication": "2024-05-22",
+      "evidence": "Sección 6.2 y tabla de Electricity-Captioned: consumo eléctrico con descripciones de calendario; comparación con modelos numéricos. El texto de calendario no equivale a boletines oficiales."
+    },
+    {
+      "priority": 9,
+      "model": "Fusión tardía · N+O",
+      "family": "Multimodal",
+      "key": "fusion",
+      "points": {
+        "C": 12.44315770703855,
+        "R": 14.239758796707145,
+        "D": 10.0,
+        "I": 20.0,
+        "F": 13.333333333333332
+      },
+      "total": 70.01624983707903,
+      "reference": "Liu et al.",
+      "title": "Time-MMD: Multi-Domain Multimodal Dataset for Time Series Analysis",
+      "paper_url": "https://arxiv.org/abs/2406.08627v4",
+      "doi": "10.48550/arXiv.2406.08627",
+      "implementation_url": "https://github.com/AdityaLab/MM-TSFlib/tree/e789ce78c9bafd8e3ba0d8850f9ad2becbe83548",
+      "citations": 237,
+      "first_publication": "2024-06-12",
+      "evidence": "Time-MMD, sección 3.2 y apéndices J/O: MM-TSFlib combina linealmente salidas numéricas y textuales con pesos aprendidos; reporta MSE en nueve dominios, incluido precio de gasolina semanal."
+    },
+    {
+      "priority": 10,
+      "model": "TaTS · N+O",
+      "family": "Multimodal",
+      "key": "tats",
+      "points": {
+        "C": 8.762805475976505,
+        "R": 15.633350084058264,
+        "D": 10.0,
+        "I": 20.0,
+        "F": 13.333333333333332
+      },
+      "total": 67.7294888933681,
+      "reference": "Li et al.",
+      "title": "Language in the Flow of Time: Time-Series-Paired Texts Weaved into a Unified Temporal Narrative",
+      "paper_url": "https://arxiv.org/abs/2502.08942v3",
+      "doi": "10.48550/arXiv.2502.08942",
+      "implementation_url": "https://github.com/iDEA-iSAIL-Lab-UIUC/TaTS",
+      "citations": 43,
+      "first_publication": "2025-02-13",
+      "evidence": "Tablas 15 y 20: Time-MMD, incluido Energy semanal; comparación de MAE/MSE con y sin texto sobre varios núcleos. Energy no representa demanda eléctrica horaria."
+    }
+  ],
+  "guide": {
+    "titulo": "A comparative assessment of deep learning models for day-ahead load forecasting: Investigating key accuracy drivers",
+    "autores": "Sotiris Pelekis; Ioannis-Konstantinos Seisopoulos; Evangelos Spiliotis; Theodosios Pountridis; Evangelos Karakolis; Spiros Mouzakitis; Dimitris Askounis",
+    "url": "https://arxiv.org/abs/2302.12168v2",
+    "doi": "10.48550/arXiv.2302.12168",
+    "openalex_id": "https://openalex.org/W4386758828",
+    "citas": 49,
+    "rol": "Guía metodológica de comparación de demanda; no constituye una undécima arquitectura."
+  },
+  "book_section": "08_literatura.html#priorizacion-top10",
+  "source_sha256": {
+    "puntuaciones_top10.csv": "4e31e9b034e1529a85ba9c4c418e7ccad7c64fde00b54882582c7f37c4b7f6c9",
+    "protocolo.json": "c61d8f0e1953b57ad5b179ec628d0b6dc5373fa46c1ebadbe80b8233baca74fc",
+    "openalex_snapshot.json": "47f07121cdceffcadee477181b28760aad1a32508d6c16cba489c8f50d888c70"
+  }
+}

@@ -1,0 +1,2352 @@
+{
+  "nhits": {
+    "id": "https://openalex.org/W4382239356",
+    "title": "NHITS: Neural Hierarchical Interpolation for Time Series Forecasting",
+    "publication_date": "2023-06-26",
+    "cited_by_count": 1174,
+    "doi": "https://doi.org/10.1609/aaai.v37i6.25854",
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5082473589",
+          "display_name": "Cristian Challú",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-7589-2475",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-7589-2475"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I74973139",
+            "display_name": "Carnegie Mellon University",
+            "ror": "https://ror.org/05x2bcf33",
+            "country_code": "US",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I74973139"
+            ]
+          }
+        ],
+        "countries": [
+          "US"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Cristian Challu",
+        "raw_affiliation_strings": [
+          "Carnegie Mellon University"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Carnegie Mellon University",
+            "institution_ids": [
+              "https://openalex.org/I74973139"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5008738614",
+          "display_name": "Kin G. Olivares",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-1706-7135",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-1706-7135"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I74973139",
+            "display_name": "Carnegie Mellon University",
+            "ror": "https://ror.org/05x2bcf33",
+            "country_code": "US",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I74973139"
+            ]
+          }
+        ],
+        "countries": [
+          "US"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Kin G. Olivares",
+        "raw_affiliation_strings": [
+          "Carnegie Mellon University"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Carnegie Mellon University",
+            "institution_ids": [
+              "https://openalex.org/I74973139"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5012459174",
+          "display_name": "Boris N. Oreshkin",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-1869-2004",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-1869-2004"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Boris N. Oreshkin",
+        "raw_affiliation_strings": [
+          "Unity Technologies"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Unity Technologies",
+            "institution_ids": []
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5035183858",
+          "display_name": "Federico Garza Ramírez",
+          "type": null,
+          "orcid": null,
+          "observed_orcids": []
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Federico Garza Ramirez",
+        "raw_affiliation_strings": [
+          "Nixtla"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Nixtla",
+            "institution_ids": []
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5009789441",
+          "display_name": "Max Mergenthaler",
+          "type": null,
+          "orcid": null,
+          "observed_orcids": []
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Max Mergenthaler Canseco",
+        "raw_affiliation_strings": [
+          "Nixtla"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Nixtla",
+            "institution_ids": []
+          }
+        ]
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5037154494",
+          "display_name": "Artur W. Dubrawski",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-2372-0831",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-2372-0831"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I74973139",
+            "display_name": "Carnegie Mellon University",
+            "ror": "https://ror.org/05x2bcf33",
+            "country_code": "US",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I74973139"
+            ]
+          }
+        ],
+        "countries": [
+          "US"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Artur Dubrawski",
+        "raw_affiliation_strings": [
+          "Carnegie Mellon University"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Carnegie Mellon University",
+            "institution_ids": [
+              "https://openalex.org/I74973139"
+            ]
+          }
+        ]
+      }
+    ],
+    "updated_date": "2026-11-24T14:10:38.155754"
+  },
+  "tft": {
+    "id": "https://openalex.org/W2996331899",
+    "title": "Temporal Fusion Transformers for interpretable multi-horizon time series forecasting",
+    "publication_date": "2021-06-16",
+    "cited_by_count": 5237,
+    "doi": "https://doi.org/10.1016/j.ijforecast.2021.03.012",
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5102777271",
+          "display_name": "Bryan Y. Lim",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0003-2779-4122",
+          "observed_orcids": [
+            "https://orcid.org/0000-0003-2779-4122"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I40120149",
+            "display_name": "University of Oxford",
+            "ror": "https://ror.org/052gg0110",
+            "country_code": "GB",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I40120149"
+            ]
+          }
+        ],
+        "countries": [
+          "GB"
+        ],
+        "is_corresponding": true,
+        "contributor_roles": [],
+        "raw_author_name": "Bryan Lim",
+        "raw_affiliation_strings": [
+          "University of Oxford, UK",
+          "University of Oxford"
+        ],
+        "raw_orcid": "https://orcid.org/0000-0003-2779-4122",
+        "affiliations": [
+          {
+            "raw_affiliation_string": "University of Oxford, UK",
+            "institution_ids": [
+              "https://openalex.org/I40120149"
+            ]
+          },
+          {
+            "raw_affiliation_string": "University of Oxford",
+            "institution_ids": [
+              "https://openalex.org/I40120149"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5037420650",
+          "display_name": "Sercan Ö. Arık",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-6333-1729",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-6333-1729"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I1291425158",
+            "display_name": "Google (United States)",
+            "ror": "https://ror.org/00njsd438",
+            "country_code": "US",
+            "type": "company",
+            "lineage": [
+              "https://openalex.org/I1291425158",
+              "https://openalex.org/I4210128969"
+            ]
+          }
+        ],
+        "countries": [
+          "US"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Sercan Ö. Arık",
+        "raw_affiliation_strings": [
+          "Google Cloud AI, USA",
+          "Google,,,,,"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Google Cloud AI, USA",
+            "institution_ids": [
+              "https://openalex.org/I1291425158"
+            ]
+          },
+          {
+            "raw_affiliation_string": "Google,,,,,",
+            "institution_ids": [
+              "https://openalex.org/I1291425158"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5027801271",
+          "display_name": "Nicolas Loeff",
+          "type": null,
+          "orcid": null,
+          "observed_orcids": []
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I1291425158",
+            "display_name": "Google (United States)",
+            "ror": "https://ror.org/00njsd438",
+            "country_code": "US",
+            "type": "company",
+            "lineage": [
+              "https://openalex.org/I1291425158",
+              "https://openalex.org/I4210128969"
+            ]
+          }
+        ],
+        "countries": [
+          "US"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Nicolas Loeff",
+        "raw_affiliation_strings": [
+          "Google Cloud AI, USA",
+          "Google,,,,,"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Google Cloud AI, USA",
+            "institution_ids": [
+              "https://openalex.org/I1291425158"
+            ]
+          },
+          {
+            "raw_affiliation_string": "Google,,,,,",
+            "institution_ids": [
+              "https://openalex.org/I1291425158"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5101265241",
+          "display_name": "Tomas Pfister",
+          "type": null,
+          "orcid": null,
+          "observed_orcids": []
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I1291425158",
+            "display_name": "Google (United States)",
+            "ror": "https://ror.org/00njsd438",
+            "country_code": "US",
+            "type": "company",
+            "lineage": [
+              "https://openalex.org/I1291425158",
+              "https://openalex.org/I4210128969"
+            ]
+          }
+        ],
+        "countries": [
+          "US"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Tomas Pfister",
+        "raw_affiliation_strings": [
+          "Google Cloud AI, USA",
+          "Google,,,,,"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Google Cloud AI, USA",
+            "institution_ids": [
+              "https://openalex.org/I1291425158"
+            ]
+          },
+          {
+            "raw_affiliation_string": "Google,,,,,",
+            "institution_ids": [
+              "https://openalex.org/I1291425158"
+            ]
+          }
+        ]
+      }
+    ],
+    "updated_date": "2026-11-24T14:10:38.155754"
+  },
+  "tcn": {
+    "id": "https://openalex.org/W2792764867",
+    "title": "An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling",
+    "publication_date": "2018-03-04",
+    "cited_by_count": 10718,
+    "doi": "https://doi.org/10.48550/arxiv.1803.01271",
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5037832036",
+          "display_name": "Shaojie Bai",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-7434-8841",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-7434-8841"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Bai, Shaojie",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5075035644",
+          "display_name": "J. Zico Kolter",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-8106-5759",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-8106-5759"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Kolter, J. Zico",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5006181255",
+          "display_name": "Vladlen Koltun",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0003-0858-0970",
+          "observed_orcids": [
+            "https://orcid.org/0000-0003-0858-0970"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Koltun, Vladlen",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      }
+    ],
+    "updated_date": "2026-11-24T14:10:38.155754"
+  },
+  "itransformer": {
+    "id": "https://openalex.org/W4387561305",
+    "title": "iTransformer: Inverted Transformers Are Effective for Time Series Forecasting",
+    "publication_date": "2024-05-31",
+    "cited_by_count": 3233,
+    "doi": "https://doi.org/10.48550/arxiv.2310.06625",
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5100724297",
+          "display_name": "Yong Liu",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0003-4822-8939",
+          "observed_orcids": [
+            "https://orcid.org/0000-0003-4822-8939"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I4405270328",
+            "display_name": "Ant Group (China)",
+            "ror": "https://ror.org/00g5w7n47",
+            "country_code": "CN",
+            "type": "company",
+            "lineage": [
+              "https://openalex.org/I4405270328"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Liu, Yong",
+        "raw_affiliation_strings": [
+          "Ant Group , Hangzhou , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Ant Group , Hangzhou , China",
+            "institution_ids": [
+              "https://openalex.org/I4405270328"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5005488081",
+          "display_name": "Tengge Hu",
+          "type": null,
+          "orcid": null,
+          "observed_orcids": []
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I4405270328",
+            "display_name": "Ant Group (China)",
+            "ror": "https://ror.org/00g5w7n47",
+            "country_code": "CN",
+            "type": "company",
+            "lineage": [
+              "https://openalex.org/I4405270328"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Hu, Tengge",
+        "raw_affiliation_strings": [
+          "Ant Group , Hangzhou , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Ant Group , Hangzhou , China",
+            "institution_ids": [
+              "https://openalex.org/I4405270328"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5092169928",
+          "display_name": "Haoran Zhang",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0003-4981-7065",
+          "observed_orcids": [
+            "https://orcid.org/0000-0003-4981-7065",
+            "https://orcid.org/0000-0002-8163-7649"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I4405270328",
+            "display_name": "Ant Group (China)",
+            "ror": "https://ror.org/00g5w7n47",
+            "country_code": "CN",
+            "type": "company",
+            "lineage": [
+              "https://openalex.org/I4405270328"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Zhang, Haoran",
+        "raw_affiliation_strings": [
+          "Ant Group , Hangzhou , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Ant Group , Hangzhou , China",
+            "institution_ids": [
+              "https://openalex.org/I4405270328"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5002224926",
+          "display_name": "Haixu Wu",
+          "type": null,
+          "orcid": "https://orcid.org/0009-0007-5715-0527",
+          "observed_orcids": [
+            "https://orcid.org/0009-0007-5715-0527",
+            "https://orcid.org/0000-0003-4644-0354",
+            "https://orcid.org/0009-0003-7261-0705"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I4405270328",
+            "display_name": "Ant Group (China)",
+            "ror": "https://ror.org/00g5w7n47",
+            "country_code": "CN",
+            "type": "company",
+            "lineage": [
+              "https://openalex.org/I4405270328"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Wu, Haixu",
+        "raw_affiliation_strings": [
+          "Ant Group , Hangzhou , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Ant Group , Hangzhou , China",
+            "institution_ids": [
+              "https://openalex.org/I4405270328"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5100437621",
+          "display_name": "Shiyu Wang",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-7747-1028",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-7747-1028",
+            "https://orcid.org/0000-0003-2096-5013"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I99065089",
+            "display_name": "Tsinghua University",
+            "ror": "https://ror.org/03cve4549",
+            "country_code": "CN",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Wang, Shiyu",
+        "raw_affiliation_strings": [
+          "School of Software , BNRist , Tsinghua University , Beijing 100084 , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "School of Software , BNRist , Tsinghua University , Beijing 100084 , China",
+            "institution_ids": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5026486057",
+          "display_name": "Lintao Ma",
+          "type": null,
+          "orcid": "https://orcid.org/0009-0006-8471-2014",
+          "observed_orcids": [
+            "https://orcid.org/0009-0006-8471-2014"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I99065089",
+            "display_name": "Tsinghua University",
+            "ror": "https://ror.org/03cve4549",
+            "country_code": "CN",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Ma, Lintao",
+        "raw_affiliation_strings": [
+          "School of Software , BNRist , Tsinghua University , Beijing 100084 , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "School of Software , BNRist , Tsinghua University , Beijing 100084 , China",
+            "institution_ids": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5019241553",
+          "display_name": "Mingsheng Long",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-9421-463X",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-9421-463X"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I4405270328",
+            "display_name": "Ant Group (China)",
+            "ror": "https://ror.org/00g5w7n47",
+            "country_code": "CN",
+            "type": "company",
+            "lineage": [
+              "https://openalex.org/I4405270328"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Long, Mingsheng",
+        "raw_affiliation_strings": [
+          "Ant Group , Hangzhou , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Ant Group , Hangzhou , China",
+            "institution_ids": [
+              "https://openalex.org/I4405270328"
+            ]
+          }
+        ]
+      }
+    ],
+    "updated_date": "2026-11-24T14:10:38.155754"
+  },
+  "patchtst": {
+    "id": "https://openalex.org/W4310416691",
+    "title": "A Time Series is Worth 64 Words: Long-term Forecasting with Transformers",
+    "publication_date": "2022-11-27",
+    "cited_by_count": 6301,
+    "doi": "https://doi.org/10.48550/arxiv.2211.14730",
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5014340244",
+          "display_name": "Yuqi Nie",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-1163-9526",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-1163-9526"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I20089843",
+            "display_name": "Princeton University",
+            "ror": "https://ror.org/00hx57361",
+            "country_code": "US",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I20089843"
+            ]
+          }
+        ],
+        "countries": [
+          "US"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Nie, Yuqi",
+        "raw_affiliation_strings": [
+          "Princeton University"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Princeton University",
+            "institution_ids": [
+              "https://openalex.org/I20089843"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5103324660",
+          "display_name": "Nam H. Nguyen",
+          "type": null,
+          "orcid": "https://orcid.org/0009-0008-6981-4463",
+          "observed_orcids": [
+            "https://orcid.org/0009-0008-6981-4463"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I1341412227",
+            "display_name": "IBM (United States)",
+            "ror": "https://ror.org/05hh8d621",
+            "country_code": "US",
+            "type": "company",
+            "lineage": [
+              "https://openalex.org/I1341412227"
+            ]
+          }
+        ],
+        "countries": [
+          "US"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Nguyen, Nam H.",
+        "raw_affiliation_strings": [
+          "IBM Research"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "IBM Research",
+            "institution_ids": [
+              "https://openalex.org/I1341412227"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5074096341",
+          "display_name": "Phanwadee Sinthong",
+          "type": null,
+          "orcid": "https://orcid.org/0009-0006-4423-3860",
+          "observed_orcids": [
+            "https://orcid.org/0009-0006-4423-3860"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I1341412227",
+            "display_name": "IBM (United States)",
+            "ror": "https://ror.org/05hh8d621",
+            "country_code": "US",
+            "type": "company",
+            "lineage": [
+              "https://openalex.org/I1341412227"
+            ]
+          }
+        ],
+        "countries": [
+          "US"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Sinthong, Phanwadee",
+        "raw_affiliation_strings": [
+          "IBM Research"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "IBM Research",
+            "institution_ids": [
+              "https://openalex.org/I1341412227"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5057936833",
+          "display_name": "Jayant Kalagnanam",
+          "type": null,
+          "orcid": "https://orcid.org/0009-0009-5051-2606",
+          "observed_orcids": [
+            "https://orcid.org/0009-0009-5051-2606"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I1341412227",
+            "display_name": "IBM (United States)",
+            "ror": "https://ror.org/05hh8d621",
+            "country_code": "US",
+            "type": "company",
+            "lineage": [
+              "https://openalex.org/I1341412227"
+            ]
+          }
+        ],
+        "countries": [
+          "US"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Kalagnanam, Jayant",
+        "raw_affiliation_strings": [
+          "IBM Research"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "IBM Research",
+            "institution_ids": [
+              "https://openalex.org/I1341412227"
+            ]
+          }
+        ]
+      }
+    ],
+    "updated_date": "2026-11-24T14:10:38.155754"
+  },
+  "tats": {
+    "id": "https://openalex.org/W4407571440",
+    "title": "Language in the Flow of Time: Time-Series-Paired Texts Weaved into a Unified Temporal Narrative",
+    "publication_date": "2026-04-20",
+    "cited_by_count": 43,
+    "doi": "https://doi.org/10.48550/arxiv.2502.08942",
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5003386825",
+          "display_name": "Zihao Li",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-7987-1770",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-7987-1770",
+            "https://orcid.org/0009-0007-7367-8284"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Li, Zihao",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5101591468",
+          "display_name": "Lin Xiao",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-4803-6593",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-4803-6593"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Lin, Xiao",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5101641278",
+          "display_name": "Zhining Liu",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-5798-0589",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-5798-0589"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Liu, Zhining",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5051330767",
+          "display_name": "Jiaru Zou",
+          "type": null,
+          "orcid": null,
+          "observed_orcids": []
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Zou, Jiaru",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": null,
+          "display_name": "Wu, Ziwei",
+          "type": null,
+          "orcid": null,
+          "observed_orcids": []
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Wu, Ziwei",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5018530326",
+          "display_name": "Lecheng Zheng",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-6869-3320",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-6869-3320"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Zheng, Lecheng",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5028848091",
+          "display_name": "Dongqi Fu",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-8726-9234",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-8726-9234"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Fu, Dongqi",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5101792548",
+          "display_name": "Yada Zhu",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-3338-6371",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-3338-6371"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Zhu, Yada",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5048701479",
+          "display_name": "Hendrik F. Hamann",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-9049-1330",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-9049-1330"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Hamann, Hendrik",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5068043486",
+          "display_name": "Hanghang Tong",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0003-4405-3887",
+          "observed_orcids": [
+            "https://orcid.org/0000-0003-4405-3887"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Tong, Hanghang",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5073158087",
+          "display_name": "Jingrui He",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-6429-6272",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-6429-6272"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "He, Jingrui",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      }
+    ],
+    "updated_date": "2026-11-24T14:10:38.155754"
+  },
+  "tgforecaster": {
+    "id": "https://openalex.org/W4398795597",
+    "title": "Intervention-Aware Forecasting: Breaking Historical Limits from a System Perspective",
+    "publication_date": "2024-05-22",
+    "cited_by_count": 40,
+    "doi": "https://doi.org/10.48550/arxiv.2405.13522",
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5100512419",
+          "display_name": "Zhijian Xu",
+          "type": null,
+          "orcid": "https://orcid.org/0009-0006-0527-1442",
+          "observed_orcids": [
+            "https://orcid.org/0009-0006-0527-1442"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I177725633",
+            "display_name": "Chinese University of Hong Kong",
+            "ror": "https://ror.org/00t33hh48",
+            "country_code": "HK",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I177725633"
+            ]
+          }
+        ],
+        "countries": [
+          "HK"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Xu, Zhijian",
+        "raw_affiliation_strings": [
+          "Department of Computer Science and Engineering , CUHK"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Department of Computer Science and Engineering , CUHK",
+            "institution_ids": [
+              "https://openalex.org/I177725633"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": null,
+          "display_name": "Wang, Hao",
+          "type": null,
+          "orcid": null,
+          "observed_orcids": []
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I76130692",
+            "display_name": "Zhejiang University",
+            "ror": "https://ror.org/00a2xv884",
+            "country_code": "CN",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I76130692"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Wang, Hao",
+        "raw_affiliation_strings": [
+          "ZJU"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "ZJU",
+            "institution_ids": [
+              "https://openalex.org/I76130692"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5109301404",
+          "display_name": "Qiang Xu",
+          "type": null,
+          "orcid": null,
+          "observed_orcids": []
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I177725633",
+            "display_name": "Chinese University of Hong Kong",
+            "ror": "https://ror.org/00t33hh48",
+            "country_code": "HK",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I177725633"
+            ]
+          }
+        ],
+        "countries": [
+          "HK"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Xu, Qiang",
+        "raw_affiliation_strings": [
+          "Department of Computer Science and Engineering , CUHK"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Department of Computer Science and Engineering , CUHK",
+            "institution_ids": [
+              "https://openalex.org/I177725633"
+            ]
+          }
+        ]
+      }
+    ],
+    "updated_date": "2026-11-24T14:10:38.155754"
+  },
+  "nbeats": {
+    "id": "https://openalex.org/W2946709941",
+    "title": "N-BEATS: Neural basis expansion analysis for interpretable time series forecasting",
+    "publication_date": "2019-05-24",
+    "cited_by_count": 2334,
+    "doi": "https://doi.org/10.48550/arxiv.1905.10437",
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5012459174",
+          "display_name": "Boris N. Oreshkin",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-1869-2004",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-1869-2004"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I5023651",
+            "display_name": "McGill University",
+            "ror": "https://ror.org/01pxwe438",
+            "country_code": "CA",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I5023651"
+            ]
+          }
+        ],
+        "countries": [
+          "CA"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Oreshkin, Boris N.",
+        "raw_affiliation_strings": [
+          "McGill University, Montreal, Canada"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "McGill University, Montreal, Canada",
+            "institution_ids": [
+              "https://openalex.org/I5023651"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5045849243",
+          "display_name": "Dmitri Carpov",
+          "type": null,
+          "orcid": null,
+          "observed_orcids": []
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Carpov, Dmitri",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5039831068",
+          "display_name": "Nicolas Chapados",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0003-0249-7607",
+          "observed_orcids": [
+            "https://orcid.org/0000-0003-0249-7607"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I70931966",
+            "display_name": "Université de Montréal",
+            "ror": "https://ror.org/0161xgx34",
+            "country_code": "CA",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I70931966"
+            ]
+          }
+        ],
+        "countries": [
+          "CA"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Chapados, Nicolas",
+        "raw_affiliation_strings": [
+          "Université de Montréal, Montreal, Canada"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Université de Montréal, Montreal, Canada",
+            "institution_ids": [
+              "https://openalex.org/I70931966"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5086198262",
+          "display_name": "Yoshua Bengio",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-9322-3515",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-9322-3515"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I70931966",
+            "display_name": "Université de Montréal",
+            "ror": "https://ror.org/0161xgx34",
+            "country_code": "CA",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I70931966"
+            ]
+          }
+        ],
+        "countries": [
+          "CA"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Bengio, Yoshua",
+        "raw_affiliation_strings": [
+          "Université de Montréal, Montreal, Canada"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Université de Montréal, Montreal, Canada",
+            "institution_ids": [
+              "https://openalex.org/I70931966"
+            ]
+          }
+        ]
+      }
+    ],
+    "updated_date": "2026-11-24T14:10:38.155754"
+  },
+  "timesnet": {
+    "id": "https://openalex.org/W4303438998",
+    "title": "TimesNet: Temporal 2D-Variation Modeling for General Time Series Analysis",
+    "publication_date": "2022-10-05",
+    "cited_by_count": 3829,
+    "doi": "https://doi.org/10.48550/arxiv.2210.02186",
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5002224926",
+          "display_name": "Haixu Wu",
+          "type": null,
+          "orcid": "https://orcid.org/0009-0007-5715-0527",
+          "observed_orcids": [
+            "https://orcid.org/0009-0007-5715-0527",
+            "https://orcid.org/0000-0003-4644-0354",
+            "https://orcid.org/0009-0003-7261-0705"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I99065089",
+            "display_name": "Tsinghua University",
+            "ror": "https://ror.org/03cve4549",
+            "country_code": "CN",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Wu, Haixu",
+        "raw_affiliation_strings": [
+          "School of Software , BNRist , Tsinghua University , Beijing 100084 , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "School of Software , BNRist , Tsinghua University , Beijing 100084 , China",
+            "institution_ids": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5005488081",
+          "display_name": "Tengge Hu",
+          "type": null,
+          "orcid": null,
+          "observed_orcids": []
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I99065089",
+            "display_name": "Tsinghua University",
+            "ror": "https://ror.org/03cve4549",
+            "country_code": "CN",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Hu, Tengge",
+        "raw_affiliation_strings": [
+          "School of Software , BNRist , Tsinghua University , Beijing 100084 , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "School of Software , BNRist , Tsinghua University , Beijing 100084 , China",
+            "institution_ids": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5100371160",
+          "display_name": "Yong Liu",
+          "type": null,
+          "orcid": "https://orcid.org/0009-0007-4553-9316",
+          "observed_orcids": [
+            "https://orcid.org/0009-0007-4553-9316"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I99065089",
+            "display_name": "Tsinghua University",
+            "ror": "https://ror.org/03cve4549",
+            "country_code": "CN",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Liu, Yong",
+        "raw_affiliation_strings": [
+          "School of Software , BNRist , Tsinghua University , Beijing 100084 , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "School of Software , BNRist , Tsinghua University , Beijing 100084 , China",
+            "institution_ids": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5100707855",
+          "display_name": "Hang Zhou",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-2616-923X",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-2616-923X"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I99065089",
+            "display_name": "Tsinghua University",
+            "ror": "https://ror.org/03cve4549",
+            "country_code": "CN",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Zhou, Hang",
+        "raw_affiliation_strings": [
+          "School of Software , BNRist , Tsinghua University , Beijing 100084 , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "School of Software , BNRist , Tsinghua University , Beijing 100084 , China",
+            "institution_ids": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5100373517",
+          "display_name": "Jianmin Wang",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-6841-7943",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-6841-7943"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I99065089",
+            "display_name": "Tsinghua University",
+            "ror": "https://ror.org/03cve4549",
+            "country_code": "CN",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Wang, Jianmin",
+        "raw_affiliation_strings": [
+          "School of Software , BNRist , Tsinghua University , Beijing 100084 , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "School of Software , BNRist , Tsinghua University , Beijing 100084 , China",
+            "institution_ids": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5019241553",
+          "display_name": "Mingsheng Long",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-9421-463X",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-9421-463X"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I99065089",
+            "display_name": "Tsinghua University",
+            "ror": "https://ror.org/03cve4549",
+            "country_code": "CN",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ],
+        "countries": [
+          "CN"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Long, Mingsheng",
+        "raw_affiliation_strings": [
+          "School of Software , BNRist , Tsinghua University , Beijing 100084 , China"
+        ],
+        "raw_orcid": null,
+        "affiliations": [
+          {
+            "raw_affiliation_string": "School of Software , BNRist , Tsinghua University , Beijing 100084 , China",
+            "institution_ids": [
+              "https://openalex.org/I99065089"
+            ]
+          }
+        ]
+      }
+    ],
+    "updated_date": "2026-11-24T14:10:38.155754"
+  },
+  "guia": {
+    "id": "https://openalex.org/W4386758828",
+    "title": "A comparative assessment of deep learning models for day-ahead load forecasting: Investigating key accuracy drivers",
+    "publication_date": "2023-09-15",
+    "cited_by_count": 49,
+    "doi": "https://doi.org/10.1016/j.segan.2023.101171",
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5036925558",
+          "display_name": "Sotiris Pelekis",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-9259-9115",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-9259-9115"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I174458059",
+            "display_name": "National Technical University of Athens",
+            "ror": "https://ror.org/03cx6bg69",
+            "country_code": "GR",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ],
+        "countries": [
+          "GR"
+        ],
+        "is_corresponding": true,
+        "contributor_roles": [],
+        "raw_author_name": "Sotiris Pelekis",
+        "raw_affiliation_strings": [
+          "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece"
+        ],
+        "raw_orcid": "https://orcid.org/0000-0002-9259-9115",
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece",
+            "institution_ids": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5005301829",
+          "display_name": "Ioannis-Konstantinos Seisopoulos",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0003-1518-5565",
+          "observed_orcids": [
+            "https://orcid.org/0000-0003-1518-5565"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I174458059",
+            "display_name": "National Technical University of Athens",
+            "ror": "https://ror.org/03cx6bg69",
+            "country_code": "GR",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ],
+        "countries": [
+          "GR"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Ioannis-Konstantinos Seisopoulos",
+        "raw_affiliation_strings": [
+          "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece"
+        ],
+        "raw_orcid": "https://orcid.org/0000-0003-1518-5565",
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece",
+            "institution_ids": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5015832946",
+          "display_name": "Evangelos Spiliotis",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-1854-1206",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-1854-1206"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I174458059",
+            "display_name": "National Technical University of Athens",
+            "ror": "https://ror.org/03cx6bg69",
+            "country_code": "GR",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ],
+        "countries": [
+          "GR"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Evangelos Spiliotis",
+        "raw_affiliation_strings": [
+          "Forecasting & Strategy Unit, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece"
+        ],
+        "raw_orcid": "https://orcid.org/0000-0002-1854-1206",
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Forecasting & Strategy Unit, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece",
+            "institution_ids": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5073031645",
+          "display_name": "Theodosios Pountridis",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-9769-7665",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-9769-7665"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I174458059",
+            "display_name": "National Technical University of Athens",
+            "ror": "https://ror.org/03cx6bg69",
+            "country_code": "GR",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ],
+        "countries": [
+          "GR"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Theodosios Pountridis",
+        "raw_affiliation_strings": [
+          "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece"
+        ],
+        "raw_orcid": "https://orcid.org/0000-0001-9769-7665",
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece",
+            "institution_ids": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5023924916",
+          "display_name": "Evangelos Karakolis",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0003-2833-3088",
+          "observed_orcids": [
+            "https://orcid.org/0000-0003-2833-3088"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I174458059",
+            "display_name": "National Technical University of Athens",
+            "ror": "https://ror.org/03cx6bg69",
+            "country_code": "GR",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ],
+        "countries": [
+          "GR"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Evangelos Karakolis",
+        "raw_affiliation_strings": [
+          "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece"
+        ],
+        "raw_orcid": "https://orcid.org/0000-0003-2833-3088",
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece",
+            "institution_ids": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5047316196",
+          "display_name": "Spiros Mouzakitis",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-9616-447X",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-9616-447X"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I174458059",
+            "display_name": "National Technical University of Athens",
+            "ror": "https://ror.org/03cx6bg69",
+            "country_code": "GR",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ],
+        "countries": [
+          "GR"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Spiros Mouzakitis",
+        "raw_affiliation_strings": [
+          "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece"
+        ],
+        "raw_orcid": "https://orcid.org/0000-0001-9616-447X",
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece",
+            "institution_ids": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ]
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5015748230",
+          "display_name": "Dimitris Askounis",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-2618-5715",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-2618-5715"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [
+          {
+            "id": "https://openalex.org/I174458059",
+            "display_name": "National Technical University of Athens",
+            "ror": "https://ror.org/03cx6bg69",
+            "country_code": "GR",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ],
+        "countries": [
+          "GR"
+        ],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Dimitris Askounis",
+        "raw_affiliation_strings": [
+          "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece"
+        ],
+        "raw_orcid": "https://orcid.org/0000-0002-2618-5715",
+        "affiliations": [
+          {
+            "raw_affiliation_string": "Decision Support Systems Laboratory, School of Electrical and Computer Engineering, National Technical University of Athens, Iroon Politechneiou 9, Zografou, 15772, Attica, Greece",
+            "institution_ids": [
+              "https://openalex.org/I174458059"
+            ]
+          }
+        ]
+      }
+    ],
+    "updated_date": "2026-11-24T14:10:38.155754"
+  },
+  "fusion": {
+    "id": "https://openalex.org/W4415797235",
+    "title": "Time-MMD: Multi-Domain Multimodal Dataset for Time Series Analysis",
+    "publication_date": "2024-01-01",
+    "cited_by_count": 237,
+    "doi": "https://doi.org/10.52202/079017-2476",
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5101437511",
+          "display_name": "Haoxin Liu",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-3051-0517",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-3051-0517"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Haoxin Liu",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5078309844",
+          "display_name": "Shangqing Xu",
+          "type": null,
+          "orcid": "https://orcid.org/0009-0005-5619-1381",
+          "observed_orcids": [
+            "https://orcid.org/0009-0005-5619-1381"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Shangqing Xu",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5079531245",
+          "display_name": "Zhiyuan Zhao",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-1227-5058",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-1227-5058"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Zhiyuan Zhao",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5102018639",
+          "display_name": "Lingkai Kong",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0001-6480-513X",
+          "observed_orcids": [
+            "https://orcid.org/0000-0001-6480-513X"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Lingkai Kong",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5023953489",
+          "display_name": "Harshavardhan Kamarthi",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-2901-7127",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-2901-7127"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Harshavardhan Kamarthi",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5099137229",
+          "display_name": "Aditya B. Sasanur",
+          "type": null,
+          "orcid": "https://orcid.org/0009-0004-5758-9298",
+          "observed_orcids": [
+            "https://orcid.org/0009-0004-5758-9298"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Aditya Sasanur",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5102002267",
+          "display_name": "Megha Sharma",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0003-2311-007X",
+          "observed_orcids": [
+            "https://orcid.org/0000-0003-2311-007X"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Megha Sharma",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5001813016",
+          "display_name": "Jiaming Cui",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-2685-2776",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-2685-2776",
+            "https://orcid.org/0009-0002-6139-5731",
+            "https://orcid.org/0009-0004-3178-0350",
+            "https://orcid.org/0009-0006-4487-692X"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Jiaming Cui",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5048346353",
+          "display_name": "Qingsong Wen",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0003-4516-2524",
+          "observed_orcids": [
+            "https://orcid.org/0000-0003-4516-2524"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Qingsong Wen",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5100460193",
+          "display_name": "Chao Zhang",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-6519-3371",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-6519-3371"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "Chao Zhang",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5061110232",
+          "display_name": "B. Aditya Prakash",
+          "type": null,
+          "orcid": "https://orcid.org/0000-0002-3252-455X",
+          "observed_orcids": [
+            "https://orcid.org/0000-0002-3252-455X"
+          ]
+        },
+        "acted_on_behalf_of": [],
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "contributor_roles": [],
+        "raw_author_name": "B. Prakash",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      }
+    ],
+    "updated_date": "2026-11-24T14:10:38.155754"
+  }
+}

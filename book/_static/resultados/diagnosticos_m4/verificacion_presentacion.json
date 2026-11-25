@@ -1,0 +1,34 @@
+{
+  "fecha_verificacion": "2026-11-25",
+  "construccion_jbook": "correcta, warningiserror",
+  "pruebas_dashboard": 20,
+  "fallos": 0,
+  "celdas_analiticas": 6,
+  "figuras_jbook": 5,
+  "tabla_globales": 10,
+  "contrastes_Holm": 34,
+  "segmentos_procedimientos": 18,
+  "precision_p_JSON_CSV": true,
+  "revision_navegador": [
+    "dispersion y filtro de fecha",
+    "residuos, calibracion y 10 contrastes globales",
+    "segmentos y cambio de comparador a ingenuo semanal"
+  ],
+  "errores_javascript": 0,
+  "contexto_sincronizado": true,
+  "fuentes_originales_verificadas_sin_cambios": 34,
+  "entrenamiento": false,
+  "inferencia_neuronal": false,
+  "publicacion": false,
+  "sha256": {
+    "book/10_evaluacion.ipynb": "c5bd3e15330d37df7dffb10b6bea4f40958f8b80b751fdd87833300e6cab7a4e",
+    "book/11_sintesis.ipynb": "2c5ba4b7eef270e8028315abc20d7f324dbad4091d01331e8e75c661737575c2",
+    "CONTEXTO_PROYECTO.md": "a00a6e57e1300508eba38e1a2bbcda69673a62a1257033683584da2f11339ee6",
+    "dashboard/CONTEXTO_DASHBOARD.md": "801e046521f5ec755b84357887ef07257b5fc8580f0c60b2278f18139f3ec794",
+    "dashboard/site/app.js": "a7ae5bda3b4339efc011f128d4a917f672a496e61c3792d63bb064e899397989",
+    "dashboard/site/m4_diagnostics_views.js": "2691dfaffb5958162faa9fb9a034d9c043d5409205da2655bfc7a7b1d5d4c579",
+    "dashboard/site/data/m4_diagnostics.json": "564104486a2491e0b88bf55155c8d695d85f89304592eadb1a3dc780030f24c8",
+    "scripts/diagnosticar_m4_guardado.py": "fa91bca34e7111a82337a5b0441de4523f05804825f63076ec9d36e5d2c811b5",
+    "scripts/integrar_diagnosticos_m4.py": "ff09ee6f9cb99e1f077ac758f25a10def925678216771c1dca3006a9bcb74d6b"
+  }
+}

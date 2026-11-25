@@ -1,0 +1,386 @@
+{
+  "fecha": "2026-11-24",
+  "origenes": [
+    "2022-01-01",
+    "2022-01-15",
+    "2022-02-01",
+    "2022-02-15",
+    "2022-03-01",
+    "2022-03-15",
+    "2022-04-01",
+    "2022-04-15",
+    "2022-05-01",
+    "2022-05-15",
+    "2022-06-01",
+    "2022-06-15",
+    "2022-07-01",
+    "2022-07-15",
+    "2022-08-01",
+    "2022-08-15",
+    "2022-09-01",
+    "2022-09-15",
+    "2022-10-01",
+    "2022-10-15",
+    "2022-11-01",
+    "2022-11-15",
+    "2022-12-01",
+    "2022-12-15",
+    "2023-01-01",
+    "2023-01-15",
+    "2023-02-01",
+    "2023-02-15",
+    "2023-03-01",
+    "2023-03-15",
+    "2023-04-01",
+    "2023-04-15",
+    "2023-05-01",
+    "2023-05-15",
+    "2023-06-01",
+    "2023-06-15",
+    "2023-07-01",
+    "2023-07-15",
+    "2023-08-01",
+    "2023-08-15",
+    "2023-09-01",
+    "2023-09-15",
+    "2023-10-01",
+    "2023-10-15",
+    "2023-11-01",
+    "2023-11-15",
+    "2023-12-01",
+    "2023-12-15",
+    "2024-01-01",
+    "2024-01-15",
+    "2024-02-01",
+    "2024-02-15",
+    "2024-03-01",
+    "2024-03-15",
+    "2024-04-01",
+    "2024-04-15",
+    "2024-05-01",
+    "2024-05-15",
+    "2024-06-01",
+    "2024-06-15",
+    "2024-07-01",
+    "2024-07-15",
+    "2024-08-01",
+    "2024-08-15",
+    "2024-09-01",
+    "2024-09-15",
+    "2024-10-01",
+    "2024-10-15",
+    "2024-11-01",
+    "2024-11-15",
+    "2024-12-01",
+    "2024-12-15",
+    "2025-01-01",
+    "2025-01-15",
+    "2025-02-01",
+    "2025-02-15",
+    "2025-03-01",
+    "2025-03-15",
+    "2025-04-01",
+    "2025-04-15",
+    "2025-05-01",
+    "2025-05-15",
+    "2025-06-01",
+    "2025-06-15",
+    "2025-07-01",
+    "2025-07-15",
+    "2025-08-01",
+    "2025-08-15",
+    "2025-09-01",
+    "2025-09-15",
+    "2025-10-01",
+    "2025-10-15",
+    "2025-11-01",
+    "2025-11-15",
+    "2025-12-01",
+    "2025-12-15"
+  ],
+  "tipos": {
+    "ruido": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "interrupcion": [
+      6,
+      24,
+      48
+    ],
+    "atipicos": [
+      1.0,
+      3.0,
+      5.0
+    ],
+    "perdida_texto": [
+      0.25,
+      0.5,
+      0.75
+    ]
+  },
+  "casos": [
+    {
+      "id": "original",
+      "tipo": "original",
+      "nivel": 0,
+      "severidad": 0.0,
+      "repeticion": 0
+    },
+    {
+      "id": "ruido_1_0",
+      "tipo": "ruido",
+      "nivel": 1,
+      "severidad": 0.1,
+      "repeticion": 0
+    },
+    {
+      "id": "ruido_1_1",
+      "tipo": "ruido",
+      "nivel": 1,
+      "severidad": 0.1,
+      "repeticion": 1
+    },
+    {
+      "id": "ruido_1_2",
+      "tipo": "ruido",
+      "nivel": 1,
+      "severidad": 0.1,
+      "repeticion": 2
+    },
+    {
+      "id": "ruido_2_0",
+      "tipo": "ruido",
+      "nivel": 2,
+      "severidad": 0.25,
+      "repeticion": 0
+    },
+    {
+      "id": "ruido_2_1",
+      "tipo": "ruido",
+      "nivel": 2,
+      "severidad": 0.25,
+      "repeticion": 1
+    },
+    {
+      "id": "ruido_2_2",
+      "tipo": "ruido",
+      "nivel": 2,
+      "severidad": 0.25,
+      "repeticion": 2
+    },
+    {
+      "id": "ruido_3_0",
+      "tipo": "ruido",
+      "nivel": 3,
+      "severidad": 0.5,
+      "repeticion": 0
+    },
+    {
+      "id": "ruido_3_1",
+      "tipo": "ruido",
+      "nivel": 3,
+      "severidad": 0.5,
+      "repeticion": 1
+    },
+    {
+      "id": "ruido_3_2",
+      "tipo": "ruido",
+      "nivel": 3,
+      "severidad": 0.5,
+      "repeticion": 2
+    },
+    {
+      "id": "interrupcion_1_0",
+      "tipo": "interrupcion",
+      "nivel": 1,
+      "severidad": 6,
+      "repeticion": 0
+    },
+    {
+      "id": "interrupcion_2_0",
+      "tipo": "interrupcion",
+      "nivel": 2,
+      "severidad": 24,
+      "repeticion": 0
+    },
+    {
+      "id": "interrupcion_3_0",
+      "tipo": "interrupcion",
+      "nivel": 3,
+      "severidad": 48,
+      "repeticion": 0
+    },
+    {
+      "id": "atipicos_1_0",
+      "tipo": "atipicos",
+      "nivel": 1,
+      "severidad": 1.0,
+      "repeticion": 0
+    },
+    {
+      "id": "atipicos_1_1",
+      "tipo": "atipicos",
+      "nivel": 1,
+      "severidad": 1.0,
+      "repeticion": 1
+    },
+    {
+      "id": "atipicos_1_2",
+      "tipo": "atipicos",
+      "nivel": 1,
+      "severidad": 1.0,
+      "repeticion": 2
+    },
+    {
+      "id": "atipicos_2_0",
+      "tipo": "atipicos",
+      "nivel": 2,
+      "severidad": 3.0,
+      "repeticion": 0
+    },
+    {
+      "id": "atipicos_2_1",
+      "tipo": "atipicos",
+      "nivel": 2,
+      "severidad": 3.0,
+      "repeticion": 1
+    },
+    {
+      "id": "atipicos_2_2",
+      "tipo": "atipicos",
+      "nivel": 2,
+      "severidad": 3.0,
+      "repeticion": 2
+    },
+    {
+      "id": "atipicos_3_0",
+      "tipo": "atipicos",
+      "nivel": 3,
+      "severidad": 5.0,
+      "repeticion": 0
+    },
+    {
+      "id": "atipicos_3_1",
+      "tipo": "atipicos",
+      "nivel": 3,
+      "severidad": 5.0,
+      "repeticion": 1
+    },
+    {
+      "id": "atipicos_3_2",
+      "tipo": "atipicos",
+      "nivel": 3,
+      "severidad": 5.0,
+      "repeticion": 2
+    },
+    {
+      "id": "perdida_texto_1_0",
+      "tipo": "perdida_texto",
+      "nivel": 1,
+      "severidad": 0.25,
+      "repeticion": 0
+    },
+    {
+      "id": "perdida_texto_1_1",
+      "tipo": "perdida_texto",
+      "nivel": 1,
+      "severidad": 0.25,
+      "repeticion": 1
+    },
+    {
+      "id": "perdida_texto_1_2",
+      "tipo": "perdida_texto",
+      "nivel": 1,
+      "severidad": 0.25,
+      "repeticion": 2
+    },
+    {
+      "id": "perdida_texto_2_0",
+      "tipo": "perdida_texto",
+      "nivel": 2,
+      "severidad": 0.5,
+      "repeticion": 0
+    },
+    {
+      "id": "perdida_texto_2_1",
+      "tipo": "perdida_texto",
+      "nivel": 2,
+      "severidad": 0.5,
+      "repeticion": 1
+    },
+    {
+      "id": "perdida_texto_2_2",
+      "tipo": "perdida_texto",
+      "nivel": 2,
+      "severidad": 0.5,
+      "repeticion": 2
+    },
+    {
+      "id": "perdida_texto_3_0",
+      "tipo": "perdida_texto",
+      "nivel": 3,
+      "severidad": 0.75,
+      "repeticion": 0
+    },
+    {
+      "id": "perdida_texto_3_1",
+      "tipo": "perdida_texto",
+      "nivel": 3,
+      "severidad": 0.75,
+      "repeticion": 1
+    },
+    {
+      "id": "perdida_texto_3_2",
+      "tipo": "perdida_texto",
+      "nivel": 3,
+      "severidad": 0.75,
+      "repeticion": 2
+    }
+  ],
+  "semillas_benchmark": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004
+  ],
+  "semillas_M4": [
+    101,
+    102,
+    103,
+    104,
+    105
+  ],
+  "replicas_estocasticas": 3,
+  "escala_ruido": "DE por variable del bloque 2008–2017, calculada solo para definir severidad; no modifica escaladores de modelos",
+  "atipicos": "9 de 168 horas con impulso ± severidad × DE; mismas filas y signos entre modelos, semillas y severidades",
+  "interrupcion": "Últimas 6/24/48 horas: demanda con último valor anterior; covariables NaN y tratamiento congelado del checkpoint",
+  "perdida_texto": "Eliminación Bernoulli anidada por documento con probabilidad 0,25/0,50/0,75; conserva fechas y contenido de documentos restantes",
+  "calendario": "Sin perturbaciones: conocido al origen",
+  "memoria": "Banco histórico y errores ya observables conservados; se perturba la historia de la consulta y se recalculan expertos, M1 y recuperación",
+  "marco": "Diagnóstico de entradas con pesos fijos; no modifica el benchmark global de prueba",
+  "semilla_M4_alcance": "Se evalúan 101–105, con los tres expertos y M1 disponibles para cada semilla; no se mezclan con las otras cinco realizaciones del benchmark de M4",
+  "inferencia": "CPU un hilo; lote uno en todos los modelos, en particular TimesNet",
+  "q168": 215617.90361589016,
+  "bootstrap": {
+    "reps": 9999,
+    "bloque_meses": 3,
+    "unidad": "Mes calendario: dos orígenes; promedio previo de réplicas",
+    "semillas": "Remuestreo de cinco realizaciones dentro de cada modelo"
+  },
+  "comparaciones": {
+    "degradacion": "18 procedimientos × 12 condiciones; Holm sobre 216 hipótesis de deterioro",
+    "M4": "17 comparadores × 12 condiciones; Holm sobre 204 hipótesis de mejora relativa superior al 3 %"
+  },
+  "entrenamiento": false,
+  "publicacion": false,
+  "seleccion_por_resultados": false,
+  "entorno": {
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.9.1+cpu",
+    "numpy": "2.5.4",
+    "sistema": "Windows-11-10.0.26200-SP0"
+  }
+}

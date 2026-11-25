@@ -1,0 +1,41 @@
+{
+  "unidad_remuestreo": "origen diario de 24 horas",
+  "dispersion": "DE muestral entre diez semillas (ddof=1)",
+  "bootstrap": {
+    "tipo": "estacionario pareado",
+    "replicas": 9999,
+    "longitud_media_bloque_dias": 14,
+    "semilla": 20261124,
+    "nivel": 0.95,
+    "intervalos": "percentiles puntuales",
+    "remuestreo_semillas": false
+  },
+  "estimando_benchmark": "Media de las pérdidas individuales por semilla",
+  "estimando_residuos": "Observado menos media de diez predicciones; agregado por día para contrastes globales",
+  "familia_Holm": 34,
+  "alfa": 0.05,
+  "periodo": [
+    "2022-01-01",
+    "2025-12-31"
+  ],
+  "BDS": {
+    "dimension": 2,
+    "epsilon": "1.5 desviaciones del residuo diario"
+  },
+  "calibracion": "Mincer–Zarnowitz, Wald conjunto intercepto=0 y pendiente=1, HAC13",
+  "segmentos": {
+    "tipo_dia": "Festivo tiene prioridad sobre fin de semana; categorías excluyentes",
+    "nivel": "Cuartiles de demanda horaria observada de 2013–2020; solo diagnóstico posterior",
+    "umbrales_kWh": [
+      6594053.6425,
+      7641389.9,
+      8522076.372499999
+    ],
+    "intervalos": false
+  },
+  "bandas_semillas": "p10–p90 describe inicializaciones, no cobertura predictiva nominal",
+  "atencion": "Su estabilidad se estudió en 13 consultas de 2021; no se correlaciona directamente con las salidas de prueba de otros días",
+  "entrenamiento": false,
+  "inferencia_neuronal": false,
+  "modificacion_benchmark": false
+}

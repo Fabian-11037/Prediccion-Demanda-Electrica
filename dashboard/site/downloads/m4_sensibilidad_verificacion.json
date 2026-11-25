@@ -1,0 +1,29 @@
+{
+  "fechas_completas_unicas": true,
+  "paridad_benchmark": true,
+  "paridad_perdidas_M4": true,
+  "n_hipotesis": 306,
+  "n_resumenes": 102,
+  "fuentes_sha256": {
+    "results/cierre_e3_sin_entrenar_20261124/perdidas_diarias.csv": "3cbf9d53f6bfdf4d9e89ef92c7c76b87b57fa4f3832965f4099868ee4af6a025",
+    "results/evaluacion_e2/perdidas_y_bootstrap.npz": "53ae3aebb73efad037c348e13aeafff79e823ce9c3cbf8eaa8e08fbea20af23d",
+    "results/evaluacion_e2/benchmark.csv": "7d9a8bfde927c8a9cf54ad07ba486e8c55d8ebfc05a2428fe620a7bada2f7813",
+    "dashboard/site/data/study.json": "9f508abd0823950f2464ccaf269b1306eb34e6ce11d8e576f73cefc315019f49",
+    "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_101.npz": "2f2144dcd766a6fd158d0e8f80933dfb2e7fe4749c08d4738083a1eaa3129c5c",
+    "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_102.npz": "b5cfd672ea841f37487806a1b6137825dc780f1ce4859a118ab504c21b29baff",
+    "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_103.npz": "084e199783e1a900a2c26041672873cb3b408e6cf9514abcb6e7d54691a85923",
+    "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_104.npz": "79f287ca8fa6ea2637e5c0fa13853b27dfe18538d57a4ac3df9f5f0929bfbfad",
+    "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_105.npz": "2cc924e3c33701c93f777b9e7ef623a419e4be2cbfdb367476c6845f25b86a40",
+    "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_106.npz": "55a97b92a764960dd6d310cf6cb4a39ab550c5423c93f0b609a8f09babb13f24",
+    "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_107.npz": "0ca30b1e5e7f82084bf9c5e1a8f5457bc3eb0aa84c22bf48848c0d66012e37ed",
+    "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_108.npz": "36d94fd016f44c5f72f079df346e61a4d9f1144843e1a493e44e49bdc85b6181",
+    "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_109.npz": "e4d96df0a980bf53dc43d84703b2025ed8d22a9e8797c2665f65435204c24578",
+    "results/m4_cierre_gpu_20261123/reducido_B/colombia/prueba/M4_N_semilla_110.npz": "10116977fff4e94eb2c756a9ad13850f54868ee0342eb6f13457faa948f0d99d"
+  },
+  "resultados_sha256": {
+    "contrastes_sensibilidad.csv": "ee568f85a864be9dd6d7ff398926071d6f052f9729c6ba5bb05e6141d4c98d94",
+    "diagnosticos_diferenciales.csv": "28361d037a0062141dc8a76f0dfc777723a93d44d882fe4da613dd9494ad11fc",
+    "intervalos_ganancia.csv": "0c18d9c9c9ed24d8c6ff03da9e53783686d48001bf3853f0a009772e9260f146",
+    "resumen_comparaciones.csv": "ca31790b05260bb03b708f5a53fb83890c95ccdaf12e799d55d6806ff620779a"
+  }
+}

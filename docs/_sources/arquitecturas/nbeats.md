@@ -55,7 +55,7 @@ Comprobación funcional breve:
 python scripts/entrenar_arquitectura.py --modelo nbeats --smoke --dispositivo cpu --salida salidas/nbeats_funcional
 ```
 
-Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+Evaluación final, con ajuste y parada anteriores a 2022:
 
 ```bash
 python scripts/entrenar_arquitectura.py --modelo nbeats --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/nbeats_prueba_1000

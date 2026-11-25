@@ -1,0 +1,50 @@
+{
+  "fecha_corte": "2026-11-24",
+  "alcance": "Priorización documental de las diez arquitecturas implementadas; no reconstruye una selección a priori ni un cribado exhaustivo.",
+  "pesos": {
+    "C": 0.2,
+    "R": 0.2,
+    "D": 0.2,
+    "I": 0.2,
+    "F": 0.2
+  },
+  "semivida_actualidad_anos": 5,
+  "edad": "max(1, días entre primera versión pública arXiv y fecha de corte / 365.25)",
+  "C": "log(1+citas/edad) / max log(1+citas/edad), entre los registros identificados",
+  "R": "2 ** (-edad/5)",
+  "D": {
+    "1": "Demanda nacional horaria a 24 h, evaluada en el paper guía",
+    ".75": "Consumo eléctrico multiserie u horizonte distinto, con errores reportados",
+    ".5": "Energía a otra frecuencia y tarea multimodal, con errores reportados",
+    ".25": "Solo otro dominio con resultados de pronóstico",
+    "0": "Sin evaluación bibliográfica independiente de la arquitectura"
+  },
+  "I": {
+    "1": "Código del autor verificable con implementación y entradas de ejecución",
+    ".5": "Implementación de la adaptación disponible en este estudio",
+    "0": "Sin implementación localizada"
+  },
+  "F": "Tamaño de la familia menos numerosa / tamaño de la familia; agrupación principal excluyente entre las diez arquitecturas",
+  "datos_ausentes": "No se imputa cero ni se renormalizan pesos; total y prioridad ND si falta un criterio. Cada componente aporta como máximo 20 puntos.",
+  "citacion": "OpenAlex: contador del registro resuelto, que puede agrupar publicaciones/versiones. No sumar versiones ni usar fecha OpenAlex como antigüedad.",
+  "versiones": "TGForecaster se documenta con v2. El registro OpenAlex contiene el título posterior; sus citas no se atribuyen exclusivamente a v2. TaTS conserva v3 para concordancia con la ficha.",
+  "fusion": {
+    "referencia": "Liu et al., Time-MMD, arXiv:2406.08627v4, sección 3.2 y apéndices J/O",
+    "alcance": "Las citas y la antigüedad corresponden al artículo que propone MM-TSFlib; no son citas de la adaptación del proyecto ni se toman de PatchTST.",
+    "evidencia_comparable": 0.5,
+    "implementacion": 1.0,
+    "codigo_commit": "e789ce78c9bafd8e3ba0d8850f9ad2becbe83548",
+    "correspondencia": "Dos ramas con combinación lineal de salidas y ajuste conjunto; adaptación con coeficiente numérico fijo a 1, un escalar textual aprendido, pooling e indicador de ausencia.",
+    "criterio_implementacion": "Se evalúa la disponibilidad del código del método de referencia, con el mismo criterio aplicado a las demás arquitecturas; no exige identidad entre el código original y la adaptación.",
+    "auditoria_codigo": "El artículo describe pesos aprendidos; la ruta activa del commit público inspeccionado utiliza prompt_weight configurado. La adaptación del proyecto aprende alfa. Ver fusion_20261124/validacion_fuentes.json."
+  },
+  "paper_guia": {
+    "titulo": "A comparative assessment of deep learning models for day-ahead load forecasting: Investigating key accuracy drivers",
+    "autores": "Sotiris Pelekis; Ioannis-Konstantinos Seisopoulos; Evangelos Spiliotis; Theodosios Pountridis; Evangelos Karakolis; Spiros Mouzakitis; Dimitris Askounis",
+    "url": "https://arxiv.org/abs/2302.12168v2",
+    "doi": "10.48550/arXiv.2302.12168",
+    "openalex_id": "https://openalex.org/W4386758828",
+    "citas": 49,
+    "rol": "Guía metodológica de comparación de demanda; no constituye una undécima arquitectura."
+  }
+}

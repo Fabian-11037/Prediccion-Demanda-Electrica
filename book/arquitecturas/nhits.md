@@ -55,7 +55,7 @@ Comprobación funcional breve:
 python scripts/entrenar_arquitectura.py --modelo nhits --smoke --dispositivo cpu --salida salidas/nhits_funcional
 ```
 
-Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+Evaluación final, con ajuste y parada anteriores a 2022:
 
 ```bash
 python scripts/entrenar_arquitectura.py --modelo nhits --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/nhits_prueba_1000

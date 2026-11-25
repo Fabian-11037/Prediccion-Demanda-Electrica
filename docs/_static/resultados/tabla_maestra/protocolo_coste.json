@@ -1,0 +1,21 @@
+{
+  "fecha": "2026-11-25",
+  "origenes": [
+    "2022-01-01",
+    "2023-07-01",
+    "2025-12-31"
+  ],
+  "semillas": "101 M4; 1000 comparadores, prefijadas",
+  "dispositivo": "CPU",
+  "hilos": 1,
+  "lote": 1,
+  "calentamiento": 20,
+  "repeticiones_por_origen": 100,
+  "alcance": "Pipeline preparado: normalización y máscaras, forward, desnormalización; M4 incluye tres expertos, M1, recuperación y corrección. Excluye lectura de disco, construcción inicial de índices y generación de embeddings.",
+  "memoria": "RSS total del proceso con datos y runtime, muestreado cada 1 ms; informar además tamaño de parámetros. La RSS observada no es memoria exclusiva del modelo ni pico garantizado.",
+  "agregacion": "Mediana y percentil95 sobre 300 mediciones, tres orígenes con el mismo peso; una realización prefijada por procedimiento.",
+  "parametros": "Total almacenado de módulos del pipeline, incluidos parámetros inactivos del checkpoint; sin confundir con parámetros entrenados del corrector M4.",
+  "paridad": "24 salidas finitas, error relativo máximo menor que1e-4 respecto a referencias congeladas del mismo origen y semilla.",
+  "entrenamiento": false,
+  "publicacion": false
+}

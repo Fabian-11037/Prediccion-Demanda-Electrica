@@ -1,0 +1,84 @@
+{
+  "fecha": "2026-11-24",
+  "referencia": "Liu et al., Time-MMD (NeurIPS 2024), arXiv:2406.08627v4",
+  "primera_publicacion": "2024-06-12",
+  "paginas_pdf": 46,
+  "fuentes": {
+    "articulo.pdf": {
+      "url": "https://arxiv.org/pdf/2406.08627v4",
+      "archivo": "articulo.pdf",
+      "status": 200,
+      "bytes": 1330782,
+      "sha256": "63248d92d827b39defce5e50c87c2ca80e84c91fdc28a9b38d8b1840131b3737",
+      "fecha_consulta": "2026-11-24"
+    },
+    "articulo.html": {
+      "url": "https://arxiv.org/html/2406.08627v4",
+      "archivo": "articulo.html",
+      "status": 200,
+      "bytes": 801816,
+      "sha256": "9e2567f8b086feceb8390874dcdfe3943d254c8c860df73a8687eda1da363f09",
+      "fecha_consulta": "2026-11-24"
+    },
+    "ficha_arxiv.html": {
+      "url": "https://arxiv.org/abs/2406.08627v4",
+      "archivo": "ficha_arxiv.html",
+      "status": 200,
+      "bytes": 44000,
+      "sha256": "682abe508d0e2a094d2ff7b736cf6f4006427ca66f34defb15930131fa5fa5db",
+      "fecha_consulta": "2026-11-24"
+    },
+    "exp_long_term_forecasting.py": {
+      "url": "https://raw.githubusercontent.com/AdityaLab/MM-TSFlib/e789ce78c9bafd8e3ba0d8850f9ad2becbe83548/exp/exp_long_term_forecasting.py",
+      "archivo": "exp_long_term_forecasting.py",
+      "status": 200,
+      "bytes": 38035,
+      "sha256": "0e40c5aa37dea5640cbf45c389a7fc3fbd7386de71acd62ebad5bf32fe30271b",
+      "fecha_consulta": "2026-11-24"
+    },
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/AdityaLab/MM-TSFlib/e789ce78c9bafd8e3ba0d8850f9ad2becbe83548/README.md",
+      "archivo": "README.md",
+      "status": 200,
+      "bytes": 3929,
+      "sha256": "6c5dc9d10c8b2e45d85d3acd767adbde6ca623d2b236340992b7b2969b263c43",
+      "fecha_consulta": "2026-11-24"
+    },
+    "openalex.json": {
+      "url": "https://api.openalex.org/works/https://doi.org/10.48550/arxiv.2406.08627",
+      "archivo": "openalex.json",
+      "status": 200,
+      "bytes": 22540,
+      "sha256": "e4fd43db26aef49a49cf506ea733397a059ffefc171dbcdc6ecb4038c4f79a69",
+      "fecha_consulta": "2026-11-24"
+    }
+  },
+  "evidencia_paper": "Sección 3.2; apéndice J; tabla 1 y apéndice O",
+  "codigo_commit": "e789ce78c9bafd8e3ba0d8850f9ad2becbe83548",
+  "combinacion_oficial": [
+    {
+      "linea": 461,
+      "codigo": "outputs=(1-self.prompt_weight)*outputs+self.prompt_weight*prompt_y"
+    },
+    {
+      "linea": 579,
+      "codigo": "outputs=(1-self.prompt_weight)*outputs+self.prompt_weight*prompt_y"
+    },
+    {
+      "linea": 711,
+      "codigo": "outputs=(1-self.prompt_weight)*outputs+self.prompt_weight*prompt_y"
+    }
+  ],
+  "correspondencia": "Procesamiento numérico/textual separado, proyección textual al horizonte, combinación lineal de salidas y ajuste conjunto de ramas.",
+  "diferencia_paper_codigo": "El artículo describe ponderación aprendida. En el commit inspeccionado, la ruta activa utiliza prompt_weight de configuración en (1-p)*outputs+p*prompt_y; los módulos weight1/weight2 están declarados pero no intervienen en esa ruta. La implementación local sí aprende alfa. No afirmar identidad de implementaciones ni reproducción experimental del paper.",
+  "diferencias": "La adaptación fija a 1 el coeficiente numérico, usa un escalar textual compartido entre horizontes, embeddings E5, pooling aprendido, máscara de ausencia e inicialización textual cero.",
+  "codigo_local_sha256": "546129d719d25a1e1d137643868aaa41bc56a8b378a1bf4f420235599cab30fb",
+  "desempeno_comparable": 0.5,
+  "implementacion": 1.0,
+  "motivo_desempeno": "Energy representa gasolina semanal; evidencia de energía a otra frecuencia, no demanda eléctrica horaria.",
+  "motivo_implementacion": "Código de los autores con proyección, combinación y scripts de ejecución; disponibilidad de la referencia metodológica.",
+  "citas": 237,
+  "openalex_id": "https://openalex.org/W4415797235",
+  "entrenamiento": false,
+  "publicacion": false
+}

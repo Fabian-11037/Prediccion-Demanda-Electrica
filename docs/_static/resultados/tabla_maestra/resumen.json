@@ -1,0 +1,15 @@
+{
+  "procedimientos": 18,
+  "semillas_prueba": 87,
+  "mediciones": 5400,
+  "M4_MASE": 0.5770369087419158,
+  "M4_latencia_ms": 12.981349999999999,
+  "TimesNet_latencia_ms": 34.83925,
+  "reduccion_MASE_TimesNet_pct": 10.248570277637082,
+  "ratio_latencia_M4_TimesNet": 0.372607045214808,
+  "parametros_M4": 963490,
+  "procedimiento_aprendido_menor_latencia": "ARX",
+  "rechazo_estable_comparadores": 17,
+  "entrenamiento": false,
+  "publicacion": false
+}

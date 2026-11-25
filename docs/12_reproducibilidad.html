@@ -416,6 +416,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correspondencia-metrica-de-la-exportacion">Correspondencia métrica de la exportación</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedencia-de-los-analisis-integrados">Procedencia de los análisis integrados</a></li>
 </ul>
             </nav>
         </div>
@@ -429,7 +430,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reproducibilidad-y-procedencia">
 <span id="reproducibilidad-inferencia"></span><h1>12. Reproducibilidad y procedencia<a class="headerlink" href="#reproducibilidad-y-procedencia" title="Link to this heading">#</a></h1>
-<p>El libro se reconstruye desde los datos del repositorio y conserva las salidas de cada análisis. El entorno documental se separa del entrenamiento. Las rutas se resuelven a partir de la raíz del repositorio y las fechas se interpretan en America/Bogota.</p>
+<p>Las fuentes del libro conservan el código y las salidas de cada análisis. El entorno documental se separa del entrenamiento. Las rutas se resuelven a partir de la raíz del repositorio y las fechas se interpretan en America/Bogota.</p>
 <p>La <a class="reference internal" href="13_inferencia.html#inferencia-en-vivo"><span class="std std-ref">sección de inferencia en vivo</span></a> permite ejecutar los modelos en el navegador, modificar su historia y descargar las trayectorias.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -514,7 +515,7 @@ Name: versión documental, dtype: str
 </section>
 <section id="construccion-y-verificacion-del-libro">
 <h2>Construcción y verificación del libro<a class="headerlink" href="#construccion-y-verificacion-del-libro" title="Link to this heading">#</a></h2>
-<p>El verificador comprueba estructura de cuadernos, celdas ejecutadas, ausencia de errores, interpretaciones junto a las figuras, cobertura del diccionario y enlaces HTML locales. Después copia el HTML construido a docs. Los archivos del libro y sus evidencias se conservan en book, docs y results/jbook.</p>
+<p>La construcción local utiliza los cuadernos con sus salidas, las fichas de arquitectura y los recursos de <code class="docutils literal notranslate"><span class="pre">book/</span></code>. La revisión comprueba la estructura de los cuadernos, las interpretaciones junto a las figuras y los enlaces internos del HTML generado. El directorio de salida se especifica con <code class="docutils literal notranslate"><span class="pre">--path-output</span></code>.</p>
 </section>
 <section id="procedencia-de-modelos-y-reconstruccion">
 <h2>Procedencia de modelos y reconstrucción<a class="headerlink" href="#procedencia-de-modelos-y-reconstruccion" title="Link to this heading">#</a></h2>
@@ -525,7 +526,7 @@ Name: versión documental, dtype: str
 <section id="reconstruccion-y-revision-de-consistencia">
 <h2>Reconstrucción y revisión de consistencia<a class="headerlink" href="#reconstruccion-y-revision-de-consistencia" title="Link to this heading">#</a></h2>
 <p>La narrativa de resultados se genera mediante <code class="docutils literal notranslate"><span class="pre">scripts/narrativa_resultados.py</span></code> a partir del benchmark, contrastes, MCS, selección y diagnósticos conservados. Las celdas Markdown identifican su función mediante metadatos; las cifras y conclusiones se actualizan durante la reconstrucción.</p>
-<p>La <a class="reference download internal" download="" href="_downloads/44bf95e4a08f8c3a08a7c462f26993f5/revision_consistencia.md"><code class="xref download docutils literal notranslate"><span class="pre">revisión</span> <span class="pre">vigente</span></code></a> y el <a class="reference download internal" download="" href="_downloads/c02c3dccf93f33a9769c45a9f4ead8d6/resumen_documental.json"><span class="xref download myst">resumen con huellas de procedencia</span></a> documentan el inventario y las fuentes utilizadas.</p>
+<p>La <a class="reference download internal" download="" href="_downloads/c1f02d42f9513806827be476375e3f4d/revision.md"><code class="xref download docutils literal notranslate"><span class="pre">revisión</span> <span class="pre">vigente</span></code></a> y el <a class="reference download internal" download="" href="_downloads/3f56e1a4c152d796b36636372d8b29dc/verificacion.json"><span class="xref download myst">resumen con huellas de procedencia</span></a> documentan el inventario y las fuentes utilizadas.</p>
 </section>
 <section id="reproduccion-de-la-evaluacion-y-sus-diagnosticos">
 <h2>Reproducción de la evaluación y sus diagnósticos<a class="headerlink" href="#reproduccion-de-la-evaluacion-y-sus-diagnosticos" title="Link to this heading">#</a></h2>
@@ -565,7 +566,7 @@ python<span class="w"> </span>scripts/diagnosticos_ampliados.py<span class="w"> 
 </section>
 <section id="evaluacion-complementaria-e-inferencia-portable">
 <span id="inferencia-portable"></span><h2>Evaluación complementaria e inferencia portable<a class="headerlink" href="#evaluacion-complementaria-e-inferencia-portable" title="Link to this heading">#</a></h2>
-<p>Los archivos de <code class="docutils literal notranslate"><span class="pre">results/cierre_e3_sin_entrenar_20261124/</span></code> conservan las pérdidas diarias, las 102 comparaciones complementarias, el MCS, los intervalos y los diagnósticos del núcleo y de eficiencia. <code class="docutils literal notranslate"><span class="pre">scripts/integrar_cierre_e3.py</span></code> reconstruye tablas y figuras desde estos resultados; los módulos de medición y exportación se muestran completos en la evaluación.</p>
+<p>Los archivos de <code class="docutils literal notranslate"><span class="pre">results/cierre_e3_sin_entrenar_20261124/</span></code> conservan las pérdidas diarias, las 102 comparaciones complementarias, el MCS y los diagnósticos del núcleo. La calibración común vigente utiliza <code class="docutils literal notranslate"><span class="pre">results/incertidumbre_comun_20261125/</span></code>; la tabla de coste utiliza <code class="docutils literal notranslate"><span class="pre">results/tabla_maestra_20261125/</span></code>. <code class="docutils literal notranslate"><span class="pre">scripts/integrar_cierre_e3.py</span></code> reconstruye tablas y figuras desde estos resultados; los módulos de medición y exportación se muestran completos en la evaluación.</p>
 <p>El <a class="reference download internal" download="" href="_downloads/e72b69d8c62a06b43fe9d02e5419f4ae/M4_inferencia_CPU_portable.zip"><span class="xref download myst">paquete CPU</span></a> contiene los tres expertos, M1 y la memoria en cinco módulos ONNX, escaladores, contrato de entradas preparadas, ejemplos y manifiesto. Se verificó en un entorno Windows nuevo con Python 3.13, NumPy y ONNX Runtime. Los datos propios deben respetar la alineación temporal y las transformaciones del contrato. El contenedor Linux queda preparado mediante Dockerfile y su ejecución requiere verificación en esa plataforma.</p>
 <p>Después de extraer el paquete, su comprobación se ejecuta con:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python -m pip install -r requirements.txt</span>
@@ -613,6 +614,49 @@ python<span class="w"> </span>scripts/diagnosticos_ampliados.py<span class="w"> 
 </pre></div>
 </div>
 </section>
+</section>
+<section id="procedencia-de-los-analisis-integrados">
+<h2>Procedencia de los análisis integrados<a class="headerlink" href="#procedencia-de-los-analisis-integrados" title="Link to this heading">#</a></h2>
+<p>Los análisis siguientes reutilizan las predicciones, mediciones y protocolos conservados. Sus integradores reconstruyen las tablas, figuras e interpretaciones del libro.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Análisis</p></th>
+<th class="head"><p>Artefactos de origen</p></th>
+<th class="head"><p>Integrador</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dispersión y residuos de M4</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results/diagnosticos_m4_20261124/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scripts/integrar_diagnosticos_m4.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sensibilidad de la inferencia temporal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results/sensibilidad_temporal_m4_20261125/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scripts/integrar_sensibilidad_temporal_m4.py</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Rendimiento y coste</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results/tabla_maestra_20261125/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scripts/integrar_tabla_maestra.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Incertidumbre: calibración 2022 y evaluación 2023–2025</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results/incertidumbre_comun_20261125/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scripts/integrar_incertidumbre_comun.py</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Robustez controlada</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results/robustez_congelada_20261124/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scripts/integrar_robustez_congelada.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Techo empírico</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results/techo_empirico_20261124/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scripts/integrar_techo_empirico.py</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La revisión documental se reproduce con:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python scripts/revision_editorial_actual.py</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -698,6 +742,7 @@ python<span class="w"> </span>scripts/diagnosticos_ampliados.py<span class="w"> 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correspondencia-metrica-de-la-exportacion">Correspondencia métrica de la exportación</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedencia-de-los-analisis-integrados">Procedencia de los análisis integrados</a></li>
 </ul>
   </nav></div>
 

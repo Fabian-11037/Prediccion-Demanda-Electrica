@@ -414,7 +414,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transferencia-del-vocabulario-y-estabilidad-de-los-topicos">Transferencia del vocabulario y estabilidad de los tópicos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cobertura-del-historial-documental-por-pliegue">Cobertura del historial documental por pliegue</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-los-canales-por-origen">Preparación de los canales por origen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-y-controles">Comparación y controles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparabilidad-de-las-entradas-textuales">Comparabilidad de las entradas textuales</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entradas-comunes-del-diseno-predictivo">Entradas comunes del diseño predictivo</a></li>
@@ -1060,11 +1060,10 @@ z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
 </div>
 </div>
 </div>
-<p>La función separa los canales después de seleccionar por disponibilidad y conserva los identificadores para auditoría. El límite se aplica dentro de cada canal, de modo que un aumento de prensa no desplaza documentos oficiales. Este bloque prepara ambos canales. Los modelos evaluados utilizan embeddings E5 y ponderación aprendida para el canal oficial; la rama de prensa pertenece al diseño de ampliación.</p>
-<section id="comparacion-y-controles">
-<h3>Comparación y controles<a class="headerlink" href="#comparacion-y-controles" title="Link to this heading">#</a></h3>
-<p>La comparación principal contrasta N frente a N+O; la variante con prensa no cuenta con resultados. La diferencia entre texto oficial y texto oficial más prensa estimará el aporte adicional de la prensa. Se conservarán los días sin documentos, las predicciones apareadas, el presupuesto de búsqueda y el protocolo de evaluación. Se reportarán el volumen recibido, los descartes, la cobertura por fuente, los parámetros adicionales y el coste de inferencia. Los controles de volumen y las ablaciones por fuente se especificarán con desarrollo.</p>
-<p>Las nuevas comparaciones se registrarán antes de su ejecución. El bloque 2022–2025 ya fue examinado en el estudio numérico, por lo que una nueva comparación sobre ese bloque tendrá alcance retrospectivo. Una evaluación prospectiva requiere fechas posteriores a la congelación efectiva del protocolo y del modelo. La falta de mejora de la prensa se interpretará para el corpus y procedimiento evaluados.</p>
+<p>La función separa los canales después de seleccionar por disponibilidad y conserva los identificadores para auditoría. El límite se aplica dentro de cada canal, de modo que un aumento de prensa no desplaza documentos oficiales. Los modelos evaluados utilizan embeddings E5 y ponderación aprendida para el canal oficial.</p>
+<section id="comparabilidad-de-las-entradas-textuales">
+<h3>Comparabilidad de las entradas textuales<a class="headerlink" href="#comparabilidad-de-las-entradas-textuales" title="Link to this heading">#</a></h3>
+<p>La comparación N frente a N+O utiliza los mismos orígenes diarios y conserva los días sin documentos mediante indicadores de ausencia. La cobertura por fuente, el volumen disponible y la longitud de los documentos permiten interpretar las diferencias entre particiones. La relevancia documental se aprende dentro del modelo; las agrupaciones léxicas del EDA describen el corpus y no se incorporan como etiquetas de entrenamiento.</p>
 </section>
 </section>
 <section id="entradas-comunes-del-diseno-predictivo">
@@ -1151,7 +1150,7 @@ z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transferencia-del-vocabulario-y-estabilidad-de-los-topicos">Transferencia del vocabulario y estabilidad de los tópicos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cobertura-del-historial-documental-por-pliegue">Cobertura del historial documental por pliegue</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-los-canales-por-origen">Preparación de los canales por origen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-y-controles">Comparación y controles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparabilidad-de-las-entradas-textuales">Comparabilidad de las entradas textuales</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entradas-comunes-del-diseno-predictivo">Entradas comunes del diseño predictivo</a></li>

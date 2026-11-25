@@ -405,6 +405,12 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencia-con-demanda-y-calendario">Referencia con demanda y calendario</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-conjunta-de-arquitecturas">Evaluación conjunta de arquitecturas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">Memoria residual para el pronóstico de demanda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robustez-de-las-entradas">Robustez de las entradas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#margen-empirico-de-mejora">Margen empírico de mejora</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estabilidad-predictiva-y-estructura-residual-de-m4">Estabilidad predictiva y estructura residual de M4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensibilidad-a-la-dependencia-temporal">Sensibilidad a la dependencia temporal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rendimiento-y-coste-del-pipeline">Rendimiento y coste del pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incertidumbre-con-calibracion-comun">Incertidumbre con calibración común</a></li>
 </ul>
             </nav>
         </div>
@@ -496,7 +502,7 @@
 <h2>Alcance y amenazas a la validez<a class="headerlink" href="#alcance-y-amenazas-a-la-validez" title="Link to this heading">#</a></h2>
 <p>La demanda es nacional, mientras el clima resume ocho puntos urbanos; esa diferencia espacial limita la atribución de asociaciones a usos concretos. Los pesos de población de 2018 son estáticos y proceden de una fuente secundaria. El reanálisis meteorológico caracteriza retrospectivamente el tiempo observado, sin reconstruir por sí solo lo disponible en operación.</p>
 <p>Las series administrativas y los titulares pueden contener revisiones. La disponibilidad declarada de noticias no acredita una versión histórica exacta; el escenario estricto ofrece mayor trazabilidad con menor cobertura. La ausencia de titulares recuperados no debe convertirse en una señal de ausencia de eventos.</p>
-<p>La validación 2018–2021 combina regímenes distintos y participa en selección. Las limitaciones de independencia de la prueba retrospectiva permanecen en el preregistro. El EDA caracteriza asociaciones y cobertura, sin establecer causalidad ni una ganancia atribuible al texto. Los resultados predictivos y sus diagnósticos se presentan en el capítulo de modelos.</p>
+<p>La validación 2018–2021 combina regímenes distintos y participa en selección. La selección retrospectiva limita la independencia de las comparaciones sobre prueba. El EDA caracteriza asociaciones y cobertura, sin establecer causalidad ni una ganancia atribuible al texto.</p>
 </section>
 <section id="referencia-con-demanda-y-calendario">
 <h2>Referencia con demanda y calendario<a class="headerlink" href="#referencia-con-demanda-y-calendario" title="Link to this heading">#</a></h2>
@@ -510,8 +516,32 @@
 <section id="memoria-residual-para-el-pronostico-de-demanda">
 <h2>Memoria residual para el pronóstico de demanda<a class="headerlink" href="#memoria-residual-para-el-pronostico-de-demanda" title="Link to this heading">#</a></h2>
 <p>M4ₙ alcanza MASE 0,5770 en los 1.461 orígenes de 2022–2025, frente a 0,6429 de TimesNet, el menor error del Top 10. La reducción relativa es 10,25 %. El MCS del 90 % que incorpora dieciocho procedimientos retiene únicamente a M4ₙ. Las tres pruebas temporales respaldan diferencias favorables en las comparaciones presentadas, con control de multiplicidad y pérdidas individuales promediadas entre semillas.</p>
-<p>La actualización causal de cuantiles obtiene una cobertura horaria empírica de 89,51 % al nivel nominal del 90 %, con ancho medio 0,489 GWh. La calibración inicial procede de la reserva utilizada para seleccionar el checkpoint; la cobertura se interpreta como evidencia empírica temporal.</p>
 <p>La demanda histórica domina la importancia por sustitución. La jerarquía de sensibilidad del contexto es más estable que la identidad de los episodios recuperados. La compuerta y la atención permiten examinar cómo interviene la memoria, sin atribuir causalidad a las variables o vecinos. La comparación caracteriza los procedimientos conservados: la desigualdad de presupuestos, las cinco semillas de los comparadores y la selección retrospectiva delimitan su generalización. La <a class="reference internal" href="10_evaluacion.html#evaluacion-m4-ampliada"><span class="std std-ref">evaluación ampliada</span></a> reúne métricas, intervalos, interpretabilidad y eficiencia.</p>
+</section>
+<section id="robustez-de-las-entradas">
+<h2>Robustez de las entradas<a class="headerlink" href="#robustez-de-las-entradas" title="Link to this heading">#</a></h2>
+<p>El diagnóstico de estrés de 96 fechas y cinco realizaciones por procedimiento cuantifica la respuesta a ruido, interrupciones, valores atípicos y pérdida documental en tres severidades. El panel no acredita una mejora superior al 3 % de M4 frente a TimesNet después del ajuste de Holm. Bajo las perturbaciones impuestas, la ventaja descriptiva de M4 frente a TimesNet se invierte en 6 de las nueve condiciones numéricas. Las interrupciones y los valores atípicos de mayor amplitud incrementan especialmente su error. Las curvas y los intervalos delimitan la estabilidad del pipeline; los procedimientos sin canal textual mantienen su salida al retirar documentos. La memoria utiliza el archivo histórico disponible mientras se perturba la consulta. El benchmark con datos originales constituye la evaluación principal; la frecuencia real de fallos no se deduce de los escenarios simulados. El <a class="reference internal" href="10_evaluacion.html#robustez-congelada"><span class="std std-ref">análisis de robustez</span></a> desarrolla estos resultados y su alcance temporal.</p>
+</section>
+<section id="margen-empirico-de-mejora">
+<h2>Margen empírico de mejora<a class="headerlink" href="#margen-empirico-de-mejora" title="Link to this heading">#</a></h2>
+<p>El selector retrospectivo de la menor pérdida diaria entre 18 procedimientos obtiene MASE 0,4675. M4 registra γ = 0,1234, con IC95 % [0,1075; 0,1414], y cierra el 87,66 % de la brecha desde el ingenuo semanal. La diversidad de los mínimos diarios muestra complementariedad entre procedimientos. Esta referencia optimista delimita el margen del conjunto evaluado sin identificar el error irreducible ni garantizar que la selección pueda realizarse en tiempo real. El <a class="reference internal" href="10_evaluacion.html#techo-empirico"><span class="std std-ref">análisis del techo empírico</span></a> conserva el cálculo y su incertidumbre temporal.</p>
+</section>
+<section id="estabilidad-predictiva-y-estructura-residual-de-m4">
+<h2>Estabilidad predictiva y estructura residual de M4<a class="headerlink" href="#estabilidad-predictiva-y-estructura-residual-de-m4" title="Link to this heading">#</a></h2>
+<p>La desviación media entre diez semillas es 0,0511 GWh, equivalente al 0,56 % del nivel pronosticado. La asociación diaria entre dispersión y error es positiva y de magnitud limitada (ρ = 0,227). Los desacuerdos se concentran en ciertas fechas y horizontes; la atención de recuerdos y la estabilidad de la salida representan propiedades distintas.</p>
+<p>El sesgo global es -0,0075 GWh y se detecta autocorrelación en 22 de 24 horizontes tras Holm. La banda p10–p90 entre semillas contiene el 30,02 % de las observaciones y no sustituye un intervalo predictivo calibrado. La evaluación por festivos y niveles horarios complementa el promedio global. El <a class="reference internal" href="10_evaluacion.html#diagnosticos-m4"><span class="std std-ref">diagnóstico propio de M4</span></a> conserva las matrices, pruebas y segmentación comparada.</p>
+</section>
+<section id="sensibilidad-a-la-dependencia-temporal">
+<h2>Sensibilidad a la dependencia temporal<a class="headerlink" href="#sensibilidad-a-la-dependencia-temporal" title="Link to this heading">#</a></h2>
+<p>La superioridad de M4 se mantiene con bloques de 14, 28 y 56 días y covarianzas HAC de 13, 27 y 55 rezagos. Frente a TimesNet, la reducción del MASE es 10,25 %; el IC95 % con bloques de 56 días es [8,64 %; 11,94 %]. La mejora superior al 3 % conserva respaldo tras Holm sobre 306 hipótesis. La <a class="reference internal" href="10_evaluacion.html#sensibilidad-temporal-m4"><span class="std std-ref">sensibilidad temporal</span></a> utiliza las pérdidas guardadas y complementa el diagnóstico de dependencia residual.</p>
+</section>
+<section id="rendimiento-y-coste-del-pipeline">
+<h2>Rendimiento y coste del pipeline<a class="headerlink" href="#rendimiento-y-coste-del-pipeline" title="Link to this heading">#</a></h2>
+<p>La <a class="reference internal" href="10_evaluacion.html#tabla-maestra"><span class="std std-ref">tabla maestra</span></a> reúne 18 procedimientos bajo un protocolo común de coste. M4 obtiene el menor MASE de prueba (0,5770) y una latencia mediana de 12,98 ms por origen; TimesNet requiere 34,84 ms. La comparación incluye la preparación numérica y todos los componentes de cada pipeline. Los costes corresponden a realizaciones prefijadas y tres fechas; las métricas de precisión conservan las cinco o diez semillas de prueba. El tamaño de los parámetros se distingue de la memoria residente del proceso.</p>
+</section>
+<section id="incertidumbre-con-calibracion-comun">
+<h2>Incertidumbre con calibración común<a class="headerlink" href="#incertidumbre-con-calibracion-comun" title="Link to this heading">#</a></h2>
+<p>En los 1.096 orígenes de 2023–2025, M4 obtiene el menor WIS (0,05080 GWh). La reducción frente a TimesNet es 10,20 %, con respaldo de bootstrap temporal y DM–HLN después de Holm(34). La calibración móvil se inicia con errores disponibles de 2022 y conserva los pesos. Al nivel nominal del 90 %, las coberturas observadas de M4 son 88,91 % por hora y 87,86 % por trayectoria, con anchos medios de 0,512 y 0,881 GWh. La menor puntuación combina precisión y amplitud; la cobertura nominal se verifica empíricamente. Véase la <a class="reference internal" href="10_evaluacion.html#incertidumbre-comun"><span class="std std-ref">evaluación común de incertidumbre</span></a> para resultados de los 18 procedimientos.</p>
 </section>
 </section>
 
@@ -586,6 +616,12 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencia-con-demanda-y-calendario">Referencia con demanda y calendario</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-conjunta-de-arquitecturas">Evaluación conjunta de arquitecturas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">Memoria residual para el pronóstico de demanda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robustez-de-las-entradas">Robustez de las entradas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#margen-empirico-de-mejora">Margen empírico de mejora</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estabilidad-predictiva-y-estructura-residual-de-m4">Estabilidad predictiva y estructura residual de M4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensibilidad-a-la-dependencia-temporal">Sensibilidad a la dependencia temporal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rendimiento-y-coste-del-pipeline">Rendimiento y coste del pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incertidumbre-con-calibracion-comun">Incertidumbre con calibración común</a></li>
 </ul>
   </nav></div>
 

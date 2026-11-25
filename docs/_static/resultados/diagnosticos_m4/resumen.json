@@ -1,0 +1,59 @@
+{
+  "dias": 1461,
+  "horizontes": 24,
+  "semillas": 10,
+  "Q_kWh": 215617.90361589016,
+  "MASE_individual": 0.5770369087419159,
+  "MASE_DE_semillas": 0.01054000955669371,
+  "DE_media_GWh": 0.05113111837027092,
+  "DE_mediana_GWh": 0.046618254664056495,
+  "DE_p95_GWh": 0.09467002791587413,
+  "CV_medio_pct": 0.5582516100921251,
+  "CV_p95_pct": 1.0274969896017077,
+  "DE_media_ic95_GWh": [
+    0.048356452107370114,
+    0.05390308972441787
+  ],
+  "dia_mayor_dispersion": "2025-12-31",
+  "DE_horaria_media_dia_max_GWh": 0.16693724160496787,
+  "maxima_DE_GWh": 0.3703376958939113,
+  "dia_maxima_DE": "2024-07-21",
+  "horizonte_maxima_DE": 18,
+  "correlacion_dispersion_error_diario": 0.2266118911807053,
+  "correlacion_dispersion_error_ic95": [
+    0.14862013552788786,
+    0.300542743666882
+  ],
+  "rho_MAE_diario_entre_semillas_mediana": 0.8120650816628016,
+  "cobertura_banda_semillas_p10_p90": 0.30016541181838924,
+  "ancho_medio_banda_semillas_GWh": 0.10882194176505816,
+  "MAE_media_predicciones_GWh": 0.11713793187314622,
+  "RMSE_media_predicciones_GWh": 0.15718895539654804,
+  "sesgo_GWh": -0.007454471277093313,
+  "sesgo_ic95_GWh": [
+    -0.013681095402834813,
+    -0.0014067138408481678
+  ],
+  "intercepto_calibracion_GWh": 0.0909620029307691,
+  "pendiente_calibracion": 0.9892662883556708,
+  "MSE_individual_kWh2": 27575526227.06838,
+  "MSE_media_predicciones_kWh2": 24708367698.657963,
+  "contribucion_inicializacion_MSE_kWh2": 2867158528.4104204,
+  "porcentaje_MSE_asociado_dispersion": 10.397475300384269,
+  "contrastes": 34,
+  "rechazos_Holm": 30,
+  "horizontes_con_autocorrelacion": 22,
+  "umbrales_demanda_kWh": [
+    6594053.6425,
+    7641389.9,
+    8522076.372499999
+  ],
+  "periodo_umbrales": [
+    "2013-01-01",
+    "2020-12-31"
+  ],
+  "periodo": [
+    "2022-01-01",
+    "2025-12-31"
+  ]
+}

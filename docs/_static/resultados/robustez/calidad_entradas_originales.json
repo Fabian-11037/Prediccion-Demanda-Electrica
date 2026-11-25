@@ -1,0 +1,12 @@
+{
+  "origenes": 96,
+  "horas_por_ventana": 168,
+  "variables": 30,
+  "celdas": 483840,
+  "celdas_ausentes": 0,
+  "porcentaje_ausente": 0.0,
+  "ventanas_con_ausencias": 0,
+  "horas_impulsadas_simuladas": 9,
+  "porcentaje_horas_impulsadas": 5.357142857142857,
+  "alcance": "Ausencias en las entradas originales de las 96 ventanas, con los rezagos del contrato; no estima frecuencia natural de atípicos."
+}

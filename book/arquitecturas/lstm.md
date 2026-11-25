@@ -55,7 +55,7 @@ Comprobación funcional breve:
 python scripts/entrenar_arquitectura.py --modelo lstm --smoke --dispositivo cpu --salida salidas/lstm_funcional
 ```
 
-Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+Evaluación final, con ajuste y parada anteriores a 2022:
 
 ```bash
 python scripts/entrenar_arquitectura.py --modelo lstm --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/lstm_prueba_1000

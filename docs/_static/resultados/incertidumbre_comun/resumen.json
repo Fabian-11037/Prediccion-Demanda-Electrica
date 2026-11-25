@@ -1,0 +1,66 @@
+{
+  "procedimientos": 18,
+  "dias_evaluacion": 1096,
+  "dias_calibracion_inicial": 364,
+  "principal": "movil_365",
+  "mejor_WIS": "M4ₙ",
+  "WIS_M4_GWh": 0.050803548907140686,
+  "WIS_TimesNet_GWh": 0.056576062454865204,
+  "comparadores_con_menor_WIS_M4": 17,
+  "familia_Holm": 34,
+  "M4_90": [
+    {
+      "clave": "m4_n",
+      "modelo": "M4ₙ",
+      "metodo": "movil_365",
+      "alcance": "horario",
+      "nivel": 0.9,
+      "segmento": "total",
+      "n_dias": 1096,
+      "cobertura": 0.8891043187347931,
+      "cobertura24": 0.531934306569343,
+      "ancho_GWh": 0.5121667360523114,
+      "IS_GWh": 0.7180469789431265,
+      "cobertura_IC95_inf": 0.8682329683698297,
+      "cobertura_IC95_sup": 0.9100136861313868,
+      "cobertura24_IC95_inf": 0.4598540145985399,
+      "cobertura24_IC95_sup": 0.60492700729927,
+      "ancho_GWh_IC95_inf": 0.47881503483884585,
+      "ancho_GWh_IC95_sup": 0.5433144156086145,
+      "IS_GWh_IC95_inf": 0.6654657881703921,
+      "IS_GWh_IC95_sup": 0.7718856666378877
+    },
+    {
+      "clave": "m4_n",
+      "modelo": "M4ₙ",
+      "metodo": "movil_365",
+      "alcance": "trayectoria24",
+      "nivel": 0.9,
+      "segmento": "total",
+      "n_dias": 1096,
+      "cobertura": 0.9803071776155718,
+      "cobertura24": 0.8786496350364964,
+      "ancho_GWh": 0.8812130300596716,
+      "IS_GWh": null,
+      "cobertura_IC95_inf": 0.9740343673965939,
+      "cobertura_IC95_sup": 0.9866940389294409,
+      "cobertura24_IC95_inf": 0.8448905109489051,
+      "cobertura24_IC95_sup": 0.9124087591240874,
+      "ancho_GWh_IC95_inf": 0.8217102983702195,
+      "ancho_GWh_IC95_sup": 0.937551822924451,
+      "IS_GWh_IC95_inf": null,
+      "IS_GWh_IC95_sup": null
+    }
+  ],
+  "calibracion_inicial": [
+    "2022-01-01",
+    "2022-12-30"
+  ],
+  "evaluacion": [
+    "2023-01-01",
+    "2025-12-31"
+  ],
+  "entrenamiento": false,
+  "inferencia_neuronal": false,
+  "publicacion": false
+}

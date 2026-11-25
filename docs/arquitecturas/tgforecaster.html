@@ -636,7 +636,7 @@ H=\operatorname{softmax}\!\left(\frac{QK_M^\top}{\sqrt{d_k}}\right)V_M.\]</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/entrenar_arquitectura.py<span class="w"> </span>--modelo<span class="w"> </span>tgforecaster<span class="w"> </span>--smoke<span class="w"> </span>--dispositivo<span class="w"> </span>cpu<span class="w"> </span>--salida<span class="w"> </span>salidas/tgforecaster_funcional
 </pre></div>
 </div>
-<p>Evaluación final autorizada, con ajuste y parada anteriores a 2022:</p>
+<p>Evaluación final, con ajuste y parada anteriores a 2022:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/entrenar_arquitectura.py<span class="w"> </span>--modelo<span class="w"> </span>tgforecaster<span class="w"> </span>--fase<span class="w"> </span>prueba<span class="w"> </span>--allow-test<span class="w"> </span>--semilla<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--dispositivo<span class="w"> </span>auto<span class="w"> </span>--salida<span class="w"> </span>salidas/tgforecaster_prueba_1000
 </pre></div>
 </div>

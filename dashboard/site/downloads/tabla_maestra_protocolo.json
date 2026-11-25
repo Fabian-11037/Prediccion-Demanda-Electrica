@@ -1,0 +1,44 @@
+{
+  "fecha": "2026-11-25",
+  "procedimientos": 18,
+  "top10": 10,
+  "baselines": 4,
+  "control_numerico": 1,
+  "propuesta": 1,
+  "referencias_ingenuas": 2,
+  "periodo_prueba": [
+    "2022-01-01",
+    "2025-12-31"
+  ],
+  "origenes": 1461,
+  "horizontes": 24,
+  "Q_kWh": 215617.90361589016,
+  "rendimiento": "MASE y MAE: promedio de errores individuales de semillas; RMSE: media de RMSE individuales conservados. No puntuar el ensamble medio como si fuera la misma métrica.",
+  "desarrollo": "Validación de selección de cada arquitectura y sus años; M4 utiliza media de mejores pérdidas internas de 2021 de diez semillas. No ordenar estos valores como validación homogénea.",
+  "IC_MASE": "Percentiles puntuales del bootstrap estacionario pareado, 49.999 réplicas, bloque medio14 días, condicionado a semillas conservadas; misma familia de remuestreo para18procedimientos.",
+  "significancia": "p conjunto es el máximo de bootstrap unilateral, DM–HLN unilateral y GW bilateral en las configuraciones14/13,28/27,56/55, margen0, ya ajustados conjuntamente porHolm(306). No es un nuevo test ómnibus; se exige rechazo en los nueve contrastes para resumir respaldo estable. M4 no se compara consigo mismo.",
+  "coste": {
+    "fecha": "2026-11-25",
+    "origenes": [
+      "2022-01-01",
+      "2023-07-01",
+      "2025-12-31"
+    ],
+    "semillas": "101 M4; 1000 comparadores, prefijadas",
+    "dispositivo": "CPU",
+    "hilos": 1,
+    "lote": 1,
+    "calentamiento": 20,
+    "repeticiones_por_origen": 100,
+    "alcance": "Pipeline preparado: normalización y máscaras, forward, desnormalización; M4 incluye tres expertos, M1, recuperación y corrección. Excluye lectura de disco, construcción inicial de índices y generación de embeddings.",
+    "memoria": "RSS total del proceso con datos y runtime, muestreado cada 1 ms; informar además tamaño de parámetros. La RSS observada no es memoria exclusiva del modelo ni pico garantizado.",
+    "agregacion": "Mediana y percentil95 sobre 300 mediciones, tres orígenes con el mismo peso; una realización prefijada por procedimiento.",
+    "parametros": "Total almacenado de módulos del pipeline, incluidos parámetros inactivos del checkpoint; sin confundir con parámetros entrenados del corrector M4.",
+    "paridad": "24 salidas finitas, error relativo máximo menor que1e-4 respecto a referencias congeladas del mismo origen y semilla.",
+    "entrenamiento": false,
+    "publicacion": false
+  },
+  "tiempo_ajuste": "Registro del ajuste final de la semilla de coste:1000 por comparador,101 M4. M4 suma tres expertos, M1 y memoria; excluye búsqueda y generación de bases OOF. Hardware de origen heterogéneo: no usar estos segundos como comparación controlada de entrenamiento.",
+  "entrenamiento": false,
+  "publicacion": false
+}

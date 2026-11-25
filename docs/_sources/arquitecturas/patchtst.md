@@ -56,7 +56,7 @@ Comprobación funcional breve:
 python scripts/entrenar_arquitectura.py --modelo patchtst --smoke --dispositivo cpu --salida salidas/patchtst_funcional
 ```
 
-Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+Evaluación final, con ajuste y parada anteriores a 2022:
 
 ```bash
 python scripts/entrenar_arquitectura.py --modelo patchtst --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/patchtst_prueba_1000

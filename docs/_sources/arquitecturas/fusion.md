@@ -54,7 +54,7 @@ Comprobación funcional breve:
 python scripts/entrenar_arquitectura.py --modelo fusion_tardia --smoke --dispositivo cpu --salida salidas/fusion_tardia_funcional
 ```
 
-Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+Evaluación final, con ajuste y parada anteriores a 2022:
 
 ```bash
 python scripts/entrenar_arquitectura.py --modelo fusion_tardia --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/fusion_tardia_prueba_1000
@@ -110,4 +110,4 @@ Los resultados de esta familia se integran en la {ref}`evaluación estadística 
 
 ## Fuentes
 
-La formulación y las dimensiones se verifican en las clases del código mostrado.. La descripción corresponde a la implementación del experimento; las adaptaciones se identifican en el texto.
+[Liu et al. (2024), *Time-MMD: Multi-Domain Multimodal Dataset for Time Series Analysis*](https://arxiv.org/html/2406.08627v4#S3.SS2), sección 3.2 y apéndice J, proponen MM-TSFlib con salidas numéricas y textuales combinadas linealmente. Su [código oficial](https://github.com/AdityaLab/MM-TSFlib/blob/e789ce78c9bafd8e3ba0d8850f9ad2becbe83548/exp/exp_long_term_forecasting.py) implementa la combinación. Aquí se adapta mediante coeficiente numérico unitario, escalar textual aprendido, embeddings E5 e indicador de ausencia. Las dimensiones corresponden al código de esta ficha.

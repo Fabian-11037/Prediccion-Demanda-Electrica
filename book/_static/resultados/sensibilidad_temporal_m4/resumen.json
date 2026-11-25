@@ -1,0 +1,143 @@
+{
+  "periodo": [
+    "2022-01-01",
+    "2025-12-31"
+  ],
+  "dias": 1461,
+  "comparadores": 17,
+  "modelos_top10": 10,
+  "semillas_M4": 10,
+  "semillas_comparadores_aprendidos": 5,
+  "referencias_deterministas": 2,
+  "MASE_M4": 0.5770369087419158,
+  "MASE_TimesNet": 0.6429278180045961,
+  "ganancia_TimesNet_pct": 10.248570277637171,
+  "configuraciones": [
+    {
+      "bloque_dias": 14,
+      "lag_HAC": 13
+    },
+    {
+      "bloque_dias": 28,
+      "lag_HAC": 27
+    },
+    {
+      "bloque_dias": 56,
+      "lag_HAC": 55
+    }
+  ],
+  "familia_Holm": 306,
+  "replicas": 49999,
+  "semilla": 20261125,
+  "contrastes_rechazados": 306,
+  "comparaciones_respaldadas": 102,
+  "comparaciones": 102,
+  "comparaciones_top10_respaldadas": 60,
+  "comparaciones_top10": 60,
+  "TimesNet": [
+    {
+      "comparator_id": "nuevo_timesnet__N",
+      "Comparador": "TimesNet · N",
+      "grupo": "Top 10",
+      "bloque_dias": 14,
+      "lag_HAC": 13,
+      "margen_relativo": 0.0,
+      "ganancia_pct": 10.248570277637171,
+      "ic95_inf_pct": 8.907673627791214,
+      "ic95_sup_pct": 11.621081510599954,
+      "p_bootstrap": 0.00204,
+      "p_DM_HLN": 2.835626496496929e-43,
+      "p_GW_bilateral": 8.383862753477416e-53,
+      "p_max_ajustado": 0.00204,
+      "mejora_media_respaldada": true,
+      "respaldo_tres_contrastes": true
+    },
+    {
+      "comparator_id": "nuevo_timesnet__N",
+      "Comparador": "TimesNet · N",
+      "grupo": "Top 10",
+      "bloque_dias": 14,
+      "lag_HAC": 13,
+      "margen_relativo": 0.03,
+      "ganancia_pct": 10.248570277637171,
+      "ic95_inf_pct": 8.907673627791214,
+      "ic95_sup_pct": 11.621081510599954,
+      "p_bootstrap": 0.00204,
+      "p_DM_HLN": 7.527853930090361e-24,
+      "p_GW_bilateral": 8.401534732994092e-25,
+      "p_max_ajustado": 0.00204,
+      "mejora_media_respaldada": true,
+      "respaldo_tres_contrastes": true
+    },
+    {
+      "comparator_id": "nuevo_timesnet__N",
+      "Comparador": "TimesNet · N",
+      "grupo": "Top 10",
+      "bloque_dias": 28,
+      "lag_HAC": 27,
+      "margen_relativo": 0.0,
+      "ganancia_pct": 10.248570277637171,
+      "ic95_inf_pct": 8.764776205000542,
+      "ic95_sup_pct": 11.769872028992163,
+      "p_bootstrap": 0.00204,
+      "p_DM_HLN": 4.4144630800354505e-37,
+      "p_GW_bilateral": 6.823359990134288e-50,
+      "p_max_ajustado": 0.00204,
+      "mejora_media_respaldada": true,
+      "respaldo_tres_contrastes": true
+    },
+    {
+      "comparator_id": "nuevo_timesnet__N",
+      "Comparador": "TimesNet · N",
+      "grupo": "Top 10",
+      "bloque_dias": 28,
+      "lag_HAC": 27,
+      "margen_relativo": 0.03,
+      "ganancia_pct": 10.248570277637171,
+      "ic95_inf_pct": 8.764776205000542,
+      "ic95_sup_pct": 11.769872028992163,
+      "p_bootstrap": 0.00204,
+      "p_DM_HLN": 6.0121232093608705e-21,
+      "p_GW_bilateral": 4.546432046552833e-23,
+      "p_max_ajustado": 0.00204,
+      "mejora_media_respaldada": true,
+      "respaldo_tres_contrastes": true
+    },
+    {
+      "comparator_id": "nuevo_timesnet__N",
+      "Comparador": "TimesNet · N",
+      "grupo": "Top 10",
+      "bloque_dias": 56,
+      "lag_HAC": 55,
+      "margen_relativo": 0.0,
+      "ganancia_pct": 10.248570277637171,
+      "ic95_inf_pct": 8.635958437777788,
+      "ic95_sup_pct": 11.938243562107901,
+      "p_bootstrap": 0.00204,
+      "p_DM_HLN": 3.1450178535663808e-27,
+      "p_GW_bilateral": 6.661874602154866e-41,
+      "p_max_ajustado": 0.00204,
+      "mejora_media_respaldada": true,
+      "respaldo_tres_contrastes": true
+    },
+    {
+      "comparator_id": "nuevo_timesnet__N",
+      "Comparador": "TimesNet · N",
+      "grupo": "Top 10",
+      "bloque_dias": 56,
+      "lag_HAC": 55,
+      "margen_relativo": 0.03,
+      "ganancia_pct": 10.248570277637171,
+      "ic95_inf_pct": 8.635958437777788,
+      "ic95_sup_pct": 11.938243562107901,
+      "p_bootstrap": 0.00204,
+      "p_DM_HLN": 1.6099224931561056e-15,
+      "p_GW_bilateral": 6.670790508989156e-18,
+      "p_max_ajustado": 0.00204,
+      "mejora_media_respaldada": true,
+      "respaldo_tres_contrastes": true
+    }
+  ],
+  "entrenamiento": false,
+  "modificacion_resultados_historicos": false
+}
