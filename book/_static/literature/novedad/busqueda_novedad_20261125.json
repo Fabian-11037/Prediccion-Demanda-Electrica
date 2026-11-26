@@ -1,0 +1,3501 @@
+{
+ "fecha": "2026-11-25",
+ "consultas": [
+  {
+   "cadena": "C1",
+   "base": "OpenAlex",
+   "consulta": "(\"load forecasting\" OR \"electricity demand forecasting\" OR \"power demand forecasting\") AND (\"retrieval\" OR \"retrieval-augmented\" OR \"nearest neighbor\" OR \"nearest neighbour\") AND (\"residual\" OR \"forecast error\" OR \"error correction\")",
+   "resultados": 15,
+   "registros": [
+    {
+     "titulo": "Application of the Weighted K-Nearest Neighbor Algorithm for Short-Term Load Forecasting",
+     "anio": 2019,
+     "doi": "https://doi.org/10.3390/en12050916",
+     "id": "https://openalex.org/W2920938851",
+     "citas": 186
+    },
+    {
+     "titulo": "A composite k-nearest neighbor model for day-ahead load forecasting with limited temperature forecasts",
+     "anio": 2016,
+     "doi": "https://doi.org/10.1109/pesgm.2016.7741097",
+     "id": "https://openalex.org/W2553165053",
+     "citas": 73
+    },
+    {
+     "titulo": "An adaptive hybrid ensemble with pattern similarity analysis and error correction for short-term load forecasting",
+     "anio": 2022,
+     "doi": "https://doi.org/10.1016/j.apenergy.2022.119525",
+     "id": "https://openalex.org/W4283641686",
+     "citas": 40
+    },
+    {
+     "titulo": "Adjusted Feature-Aware k-Nearest Neighbors: Utilizing Local Permutation-Based Error for Short-Term Residential Building Load Forecasting",
+     "anio": 2018,
+     "doi": "https://doi.org/10.1109/smartgridcomm.2018.8587534",
+     "id": "https://openalex.org/W2908474983",
+     "citas": 8
+    },
+    {
+     "titulo": "A Performance Comparison of Machine Learning Algorithms for Load Forecasting in Smart Grid",
+     "anio": 2022,
+     "doi": "https://doi.org/10.1109/access.2022.3171270",
+     "id": "https://openalex.org/W4226054541",
+     "citas": 142
+    },
+    {
+     "titulo": "Comparison of short-term electrical load forecasting methods for different building types",
+     "anio": 2021,
+     "doi": "https://doi.org/10.1186/s42162-021-00172-6",
+     "id": "https://openalex.org/W3201109720",
+     "citas": 83
+    },
+    {
+     "titulo": "An Adaptive Residual-Attention Stacked Ensemble for Real-Time Smart Grid Load Forecasting and Anomaly-Aware Demand Monitoring",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/iceca70594.2026.11790133",
+     "id": "https://openalex.org/W7238769488",
+     "citas": 0
+    },
+    {
+     "titulo": "Use of Sensors and Analyzers Data for Load Forecasting: A Two Stage Approach",
+     "anio": 2020,
+     "doi": "https://doi.org/10.3390/s20123524",
+     "id": "https://openalex.org/W3036012043",
+     "citas": 18
+    },
+    {
+     "titulo": "Short-Term Load Forecasting with Temporal Fusion Transformers for Power Distribution Networks",
+     "anio": 2022,
+     "doi": "https://doi.org/10.1109/ispec54162.2022.10033079",
+     "id": "https://openalex.org/W4319430632",
+     "citas": 24
+    },
+    {
+     "titulo": "A Performance Comparison of Machine Learning Algorithms for Load Forecasting in Smart Grid",
+     "anio": 2025,
+     "doi": "https://doi.org/10.22214/ijraset.2025.68428",
+     "id": "https://openalex.org/W4409312614",
+     "citas": 0
+    },
+    {
+     "titulo": "Ensemble Learning by Stacking for Deterministic and Probabilistic Short-term Load Forecasting",
+     "anio": 2023,
+     "doi": "https://doi.org/10.21203/rs.3.rs-3697164/v1",
+     "id": "https://openalex.org/W4389392748",
+     "citas": 3
+    },
+    {
+     "titulo": "A Load Forecasting Method of Power Grid Host Based on SARIMA-GRU Model",
+     "anio": 2021,
+     "doi": "https://doi.org/10.1007/978-981-16-7443-3_9",
+     "id": "https://openalex.org/W3214716722",
+     "citas": 3
+    },
+    {
+     "titulo": "Permutation-Based Residential Short-term Load Forecasting in the Context of Energy Management Optimization Objectives",
+     "anio": 2020,
+     "doi": "https://doi.org/10.1145/3396851.3397731",
+     "id": "https://openalex.org/W3036708958",
+     "citas": 6
+    },
+    {
+     "titulo": "A hybrid attention-based Seq2Seq framework for EV charging load forecasting integrating meteorological factors and price elasticity",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1016/j.apenergy.2026.128421",
+     "id": "https://openalex.org/W7168136278",
+     "citas": 0
+    },
+    {
+     "titulo": "Research on Refined Bus Load Prediction Based on Computer Data Integration and Model Fusion",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1109/incsst64791.2025.11210330",
+     "id": "https://openalex.org/W4415625262",
+     "citas": 0
+    }
+   ]
+  },
+  {
+   "cadena": "C1",
+   "base": "arXiv",
+   "consulta": "(abs:\"load forecasting\" OR abs:\"electricity demand forecasting\") AND (abs:retrieval OR abs:\"nearest neighbor\") AND (abs:residual OR abs:\"error correction\" OR abs:\"forecast error\")",
+   "resultados": 0,
+   "registros": []
+  },
+  {
+   "cadena": "C1",
+   "base": "Semantic Scholar",
+   "consulta": "(\"load forecasting\" | \"electricity demand forecasting\" | \"power demand forecasting\") + (retrieval | \"retrieval-augmented\" | \"nearest neighbor\") + (residual | \"forecast error\" | \"error correction\")",
+   "resultados": 10,
+   "registros": [
+    {
+     "titulo": "A composite k-nearest neighbor model for day-ahead load forecasting with limited temperature forecasts",
+     "anio": 2016,
+     "doi": "10.1109/PESGM.2016.7741097",
+     "id": "0d29e0e269e87b6d7446c6e28ef8424b3a6b22c6",
+     "citas": 66
+    },
+    {
+     "titulo": "Application of the Weighted K-Nearest Neighbor Algorithm for Short-Term Load Forecasting",
+     "anio": 2019,
+     "doi": "10.3390/EN12050916",
+     "id": "0e5b51c59ae8bdf96e62ddb148c473f11e2521de",
+     "citas": 146
+    },
+    {
+     "titulo": "Permutation-Based Residential Short-term Load Forecasting in the Context of Energy Management Optimization Objectives",
+     "anio": 2020,
+     "doi": "10.1145/3396851.3397731",
+     "id": "3be9957b897b879e891c4cf2cd1eb937a1c53e09",
+     "citas": 4
+    },
+    {
+     "titulo": "Comparison of short-term electrical load forecasting methods for different building types",
+     "anio": 2021,
+     "doi": "10.1186/s42162-021-00172-6",
+     "id": "7b909b6e4957c96a6ccbc034a58d15282e324239",
+     "citas": 62
+    },
+    {
+     "titulo": "A Performance Comparison of Machine Learning Algorithms for Load Forecasting in Smart Grid",
+     "anio": 2025,
+     "doi": "10.22214/ijraset.2025.68428",
+     "id": "7c2865fbee2b523616624580e386dbc49d2b6669",
+     "citas": 6
+    },
+    {
+     "titulo": "Research on Refined Bus Load Prediction Based on Computer Data Integration and Model Fusion",
+     "anio": 2025,
+     "doi": "10.1109/INCSST64791.2025.11210330",
+     "id": "848623629c8cb3a4a5a4a42b90c4a5ce79bb5d29",
+     "citas": 0
+    },
+    {
+     "titulo": "Adjusted Feature-Aware k-Nearest Neighbors: Utilizing Local Permutation-Based Error for Short-Term Residential Building Load Forecasting",
+     "anio": 2018,
+     "doi": "10.1109/SmartGridComm.2018.8587534",
+     "id": "a472203bc615c41ca633634a83d28934ecb98c0b",
+     "citas": 5
+    },
+    {
+     "titulo": "Short-Term Load Forecasting with Temporal Fusion Transformers for Power Distribution Networks",
+     "anio": 2022,
+     "doi": "10.1109/iSPEC54162.2022.10033079",
+     "id": "b3812528a3dbfaf8b09d1d7a3bbd7988ffa8f809",
+     "citas": 13
+    },
+    {
+     "titulo": "A Performance Comparison of Machine Learning Algorithms for Load Forecasting in Smart Grid",
+     "anio": 2022,
+     "doi": "10.1109/access.2022.3171270",
+     "id": "dfd03be3a209c276b98081830d01a014310dbdc5",
+     "citas": 97
+    },
+    {
+     "titulo": "Use of Sensors and Analyzers Data for Load Forecasting: A Two Stage Approach",
+     "anio": 2020,
+     "doi": "10.3390/s20123524",
+     "id": "f1177601fe74f40bdb25b8b9b11166dce2a7bb89",
+     "citas": 13
+    }
+   ]
+  },
+  {
+   "cadena": "C2",
+   "base": "OpenAlex",
+   "consulta": "(\"load forecasting\" OR \"electricity demand forecasting\") AND (\"analog ensemble\" OR \"analogue ensemble\" OR \"analog forecasting\" OR \"similar day\") AND (\"error correction\" OR \"bias correction\" OR \"residual\")",
+   "resultados": 8,
+   "registros": [
+    {
+     "titulo": "Short-term electrical load forecasting based on error correction using dynamic mode decomposition",
+     "anio": 2019,
+     "doi": "https://doi.org/10.1016/j.apenergy.2019.114368",
+     "id": "https://openalex.org/W2997320470",
+     "citas": 99
+    },
+    {
+     "titulo": "A Parallel Framework Based on Similar-Day Attention and Multi-Scale Weighted Causal Convolution for EV Charging Load Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.2139/ssrn.6546462",
+     "id": "https://openalex.org/W7151894797",
+     "citas": 0
+    },
+    {
+     "titulo": "A Two-stage Short-term Load Forecasting Method Based on Comprehensive Similarity Day Selection and CEEMDAN-XGBoost Error Correction",
+     "anio": 2023,
+     "doi": "https://doi.org/10.1109/fes57669.2023.10183307",
+     "id": "https://openalex.org/W4384833616",
+     "citas": 4
+    },
+    {
+     "titulo": "Short-term load forecasting scheme based on improved deep residual network and LSTM",
+     "anio": 2020,
+     "doi": "https://doi.org/10.1049/oap-cired.2021.0257",
+     "id": "https://openalex.org/W3196864457",
+     "citas": 11
+    },
+    {
+     "titulo": "The Delicate Analysis of Short–Term Load Forecasting",
+     "anio": 2017,
+     "doi": "https://doi.org/10.1088/1757-899x/199/1/012097",
+     "id": "https://openalex.org/W2615251669",
+     "citas": 1
+    },
+    {
+     "titulo": "A Unifying Framework of Attention-Based Neural Load Forecasting",
+     "anio": 2023,
+     "doi": "https://doi.org/10.1109/access.2023.3275095",
+     "id": "https://openalex.org/W4376122633",
+     "citas": 8
+    },
+    {
+     "titulo": "Hybrid Model Based on an SD Selection, CEEMDAN, and Deep Learning for Short-Term Load Forecasting of an Electric Vehicle Fleet",
+     "anio": 2022,
+     "doi": "https://doi.org/10.3390/app12189288",
+     "id": "https://openalex.org/W4296312576",
+     "citas": 14
+    },
+    {
+     "titulo": "Combining the strengths of different load modeling methods in short–term load forecasting of a distribution grid area with active demand",
+     "anio": 2019,
+     "doi": null,
+     "id": "https://openalex.org/W2988261260",
+     "citas": 1
+    }
+   ]
+  },
+  {
+   "cadena": "C2",
+   "base": "arXiv",
+   "consulta": "(abs:\"load forecasting\" OR abs:\"electricity demand forecasting\") AND (abs:\"analog ensemble\" OR abs:\"similar day\" OR abs:analog) AND (abs:\"error correction\" OR abs:residual OR abs:\"bias correction\")",
+   "resultados": 1,
+   "registros": [
+    {
+     "titulo": "A Unifying Framework of Attention-based Neural Load Forecasting",
+     "anio": 2023,
+     "doi": "http://arxiv.org/abs/2305.05082v1"
+    }
+   ]
+  },
+  {
+   "cadena": "C2",
+   "base": "Semantic Scholar",
+   "consulta": "(\"load forecasting\" | \"electricity demand forecasting\") + (\"analog ensemble\" | \"analogue ensemble\" | \"similar day\") + (\"error correction\" | \"bias correction\" | residual)",
+   "resultados": 6,
+   "registros": [
+    {
+     "titulo": "A Unifying Framework of Attention-Based Neural Load Forecasting",
+     "anio": 2023,
+     "doi": "10.1109/ACCESS.2023.3275095",
+     "id": "464875fe66bffe66a16f976567ae02b40447378e",
+     "citas": 8
+    },
+    {
+     "titulo": "A Two-stage Short-term Load Forecasting Method Based on Comprehensive Similarity Day Selection and CEEMDAN-XGBoost Error Correction",
+     "anio": 2023,
+     "doi": "10.1109/FES57669.2023.10183307",
+     "id": "61fedf185916e91b146e174eec146209f5b8e0bd",
+     "citas": 1
+    },
+    {
+     "titulo": "The Delicate Analysis of Short–Term Load Forecasting",
+     "anio": 2017,
+     "doi": "10.1088/1757-899X/199/1/012097",
+     "id": "6d4f8c8b5fc6303eaaa0e9a6999f44bc3d50598b",
+     "citas": 1
+    },
+    {
+     "titulo": "Short-term electrical load forecasting based on error correction using dynamic mode decomposition",
+     "anio": 2020,
+     "doi": "10.1016/j.apenergy.2019.114368",
+     "id": "d29f65b215f393982b02295601d3b4dd4fd6e8f2",
+     "citas": 84
+    },
+    {
+     "titulo": "Hybrid Model Based on an SD Selection, CEEMDAN, and Deep Learning for Short-Term Load Forecasting of an Electric Vehicle Fleet",
+     "anio": 2022,
+     "doi": "10.3390/app12189288",
+     "id": "d5758f33692cf1ccd929144b71c1a4fa1c165f5b",
+     "citas": 9
+    },
+    {
+     "titulo": "Short-term load forecasting scheme based on improved deep residual network and LSTM",
+     "anio": 2020,
+     "doi": "10.1049/OAP-CIRED.2021.0257",
+     "id": "e399066eb34d87e56ed904b9f33f65c8a9b0aee9",
+     "citas": 10
+    }
+   ]
+  },
+  {
+   "cadena": "C3",
+   "base": "OpenAlex",
+   "consulta": "(\"load forecasting\" OR \"electricity demand forecasting\") AND (\"memory-augmented\" OR \"external memory\" OR \"memory bank\" OR \"episodic memory\")",
+   "resultados": 4,
+   "registros": [
+    {
+     "titulo": "Memory-Augmented LLMs for Sustainable Urban Energy Management via Weather-Energy Pattern Learning",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1145/3714394.3750593",
+     "id": "https://openalex.org/W7117468668",
+     "citas": 3
+    },
+    {
+     "titulo": "GRAFT: Grid-Aware Load Forecasting with Multi-Source Textual Alignment and Fusion",
+     "anio": 2025,
+     "doi": "https://doi.org/10.48550/arxiv.2512.14400",
+     "id": "https://openalex.org/W4417468019",
+     "citas": 0
+    },
+    {
+     "titulo": "CausalGraphMemoryNet: Jointly Learning Causal Structures and Temporal Patterns for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/3scea68071.2026.11603192",
+     "id": "https://openalex.org/W7169535404",
+     "citas": 0
+    },
+    {
+     "titulo": "Anomaly Detection and Imputation Method for Residential Electricity Consumption Data Using a Temperature-Clustered Memory Network",
+     "anio": 2026,
+     "doi": "https://doi.org/10.22541/au.177518203.39225137/v1",
+     "id": "https://openalex.org/W7148340854",
+     "citas": 0
+    }
+   ]
+  },
+  {
+   "cadena": "C3",
+   "base": "arXiv",
+   "consulta": "(abs:\"load forecasting\" OR abs:\"electricity demand forecasting\") AND (abs:\"memory-augmented\" OR abs:\"external memory\" OR abs:\"memory bank\" OR abs:\"episodic memory\")",
+   "resultados": 1,
+   "registros": [
+    {
+     "titulo": "GRAFT: Grid-Aware Load Forecasting with Multi-Source Textual Alignment and Fusion",
+     "anio": 2025,
+     "doi": "http://arxiv.org/abs/2512.14400v2"
+    }
+   ]
+  },
+  {
+   "cadena": "C3",
+   "base": "Semantic Scholar",
+   "consulta": "(\"load forecasting\" | \"electricity demand forecasting\") + (\"memory-augmented\" | \"external memory\" | \"memory bank\" | \"episodic memory\")",
+   "resultados": 3,
+   "registros": [
+    {
+     "titulo": "GRAFT: Grid-Aware Load Forecasting with Multi-Source Textual Alignment and Fusion",
+     "anio": 2025,
+     "doi": "10.48550/arXiv.2512.14400",
+     "id": "93d582ffdad179451f1a6bb12fdfa018ea86fe82",
+     "citas": 0
+    },
+    {
+     "titulo": "Memory-Augmented LLMs for Sustainable Urban Energy Management via Weather-Energy Pattern Learning",
+     "anio": 2025,
+     "doi": "10.1145/3714394.3750593",
+     "id": "94fb63d3a2de24fbff8b30ac3fffabbde5ee24fa",
+     "citas": 3
+    },
+    {
+     "titulo": "CausalGraphMemoryNet: Jointly Learning Causal Structures and Temporal Patterns for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "10.1109/3SCEA68071.2026.11603192",
+     "id": "ab7793dd49cb5fe1765410ecd121621b735a8367",
+     "citas": 0
+    }
+   ]
+  },
+  {
+   "cadena": "C4",
+   "base": "OpenAlex",
+   "consulta": "(\"load forecasting\" OR \"electricity demand forecasting\") AND (\"residual correction\" OR \"error correction\" OR \"error compensation\") AND (\"attention\" OR \"gate\" OR \"gating\")",
+   "resultados": 49,
+   "registros": [
+    {
+     "titulo": "GMA-STLF: Short-Term Load Forecasting Based on Explicit Causal Decomposition and Gating-First Modulated Attention",
+     "anio": 2026,
+     "doi": "https://doi.org/10.2139/ssrn.6668958",
+     "id": "https://openalex.org/W7159610381",
+     "citas": 0
+    },
+    {
+     "titulo": "GMA-STLF: Short-Term Load Forecasting Based on Explicit Causal Decomposition and Gating-First Modulated Attention",
+     "anio": 2026,
+     "doi": "https://doi.org/10.2139/ssrn.6626021",
+     "id": "https://openalex.org/W7155221038",
+     "citas": 0
+    },
+    {
+     "titulo": "Two-stage transformer encoder and attention-guided GRU-based residual correction for short-term load forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.3389/frai.2026.1935983",
+     "id": "https://openalex.org/W7222932593",
+     "citas": 0
+    },
+    {
+     "titulo": "Multivariate Load Forecasting for Regional Integrated Energy Systems Based on Error Compensation",
+     "anio": 2022,
+     "doi": "https://doi.org/10.1109/cac57257.2022.10055376",
+     "id": "https://openalex.org/W4324118985",
+     "citas": 0
+    },
+    {
+     "titulo": "Evidence-Gated Compact Continuous-Time Modeling for Calibrated Multi-Energy Load Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/access.2026.3751293",
+     "id": "https://openalex.org/W7225656184",
+     "citas": 0
+    },
+    {
+     "titulo": "Enhancing Load Forecasting for Large Industrial Users Through Feature Preference and Error Correction",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1109/access.2024.3409440",
+     "id": "https://openalex.org/W4399345009",
+     "citas": 7
+    },
+    {
+     "titulo": "Prototype-routed exponential-gated residual learning for multi-horizon regional electricity-load forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1016/j.compeleceng.2026.111557",
+     "id": "https://openalex.org/W7214750017",
+     "citas": 0
+    },
+    {
+     "titulo": "Multi-step Short-term Load Forecasting Based on Attention Mechanism, TCN-BiLSTM Network and Decomposition-based Error Correction",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1109/aceee62329.2024.10651918",
+     "id": "https://openalex.org/W4402219046",
+     "citas": 1
+    },
+    {
+     "titulo": "Multi-step electric vehicles charging loads forecasting: An autoformer variant with feature extraction, frequency enhancement, and error correction blocks",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1016/j.apenergy.2024.124308",
+     "id": "https://openalex.org/W4401900250",
+     "citas": 61
+    },
+    {
+     "titulo": "Electric vehicle charging load forecasting based on temporal feature classification and error correction",
+     "anio": 2026,
+     "doi": "https://doi.org/10.19585/j.zjdl.202605007",
+     "id": "https://openalex.org/W7163567767",
+     "citas": 0
+    },
+    {
+     "titulo": "Short-Term Power Load Forecasting Based on ICEEMDAN-GRA-SVDE-BiGRU and Error Correction Model",
+     "anio": 2023,
+     "doi": "https://doi.org/10.1109/access.2023.3322272",
+     "id": "https://openalex.org/W4387385642",
+     "citas": 16
+    },
+    {
+     "titulo": "Multi-step electric load forecasting based on improved dual decomposition and error correction strategy",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1007/s11227-026-08260-8",
+     "id": "https://openalex.org/W7127426578",
+     "citas": 2
+    },
+    {
+     "titulo": "A Unifying Framework of Attention-Based Neural Load Forecasting",
+     "anio": 2023,
+     "doi": "https://doi.org/10.1109/access.2023.3275095",
+     "id": "https://openalex.org/W4376122633",
+     "citas": 8
+    },
+    {
+     "titulo": "PatchTST-based short-term load forecasting with sliding-window residual correction for distribution networks",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1117/12.3133541",
+     "id": "https://openalex.org/W7225861474",
+     "citas": 0
+    },
+    {
+     "titulo": "Probabilistic Load Forecasting via CEEMDAN-Enhanced Multi-Scale Residual Correction and Adaptive Conformal Inference⋆",
+     "anio": 2026,
+     "doi": "https://doi.org/10.2139/ssrn.6113908",
+     "id": "https://openalex.org/W7125409882",
+     "citas": 0
+    },
+    {
+     "titulo": "Ultra-Short-Term Power Load Forecasting Based on Multi-Scale Decomposition Clustering and Heterogeneous Gated Fusion",
+     "anio": 2026,
+     "doi": "https://doi.org/10.3390/app16115707",
+     "id": "https://openalex.org/W7163661432",
+     "citas": 0
+    },
+    {
+     "titulo": "Electricity demand error corrections with attention bi-directional neural networks",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1016/j.energy.2023.129938",
+     "id": "https://openalex.org/W4390571313",
+     "citas": 24
+    },
+    {
+     "titulo": "Probabilistic electric vehicle charging-load forecasting with a strong temporal backbone and dynamic behavior-graph residual correction",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1016/j.energy.2026.142629",
+     "id": "https://openalex.org/W7221310213",
+     "citas": 0
+    },
+    {
+     "titulo": "Enhancing accuracy in point-interval load forecasting: A new strategy based on data augmentation, customized deep learning, and weighted linear error correction",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1016/j.eswa.2025.126686",
+     "id": "https://openalex.org/W4407133941",
+     "citas": 32
+    },
+    {
+     "titulo": "A short-term power load forecasting system based on data decomposition, deep learning and weighted linear error correction with feedback mechanism",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1016/j.asoc.2024.111863",
+     "id": "https://openalex.org/W4399708560",
+     "citas": 36
+    },
+    {
+     "titulo": "Stacking a BiLSTM-Attention Network With a Pretrained Time-Series Foundation Model and Gradient-Boosted Residual Correction for Short-Term Electricity Load Forecasting: A Comparative Evaluation on the Tetouan City Dataset",
+     "anio": 2026,
+     "doi": "https://doi.org/10.7759/s44389-026-00383-6",
+     "id": "https://openalex.org/W7237356583",
+     "citas": 0
+    },
+    {
+     "titulo": "Interpretable AI Hybrid Model for Electricity Demand Forecasting: Combining TFT and XGBoost in Smart Grid Data",
+     "anio": 2026,
+     "doi": "https://doi.org/10.32604/cmes.2026.076217",
+     "id": "https://openalex.org/W7151849488",
+     "citas": 3
+    },
+    {
+     "titulo": "LAF-Net: A Deep Residual and Cross-Attention Framework for Day-Ahead Load Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/pesgm58988.2026.11693149",
+     "id": "https://openalex.org/W7214178931",
+     "citas": 0
+    },
+    {
+     "titulo": "A primary-auxiliary collaborative power load forecasting method based on RBKA-PG-Mamba with weather feature-enhanced error correction under small sample datasets",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1016/j.epsr.2025.112558",
+     "id": "https://openalex.org/W4416783603",
+     "citas": 3
+    },
+    {
+     "titulo": "MGGF-Net: Code and Reproducibility Materials for Electricity Load Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.5281/zenodo.23446048",
+     "id": "https://openalex.org/W7222874346",
+     "citas": 0
+    },
+    {
+     "titulo": "ST-MRC: A Service-Oriented Probabilistic Forecasting Method for Virtual Power Plant Aggregated Coupled Loads Based on Set Attention Encoding and Multi-Scale Residual Correction",
+     "anio": 2026,
+     "doi": "https://doi.org/10.21203/rs.3.rs-11325566/v1",
+     "id": "https://openalex.org/W7225737896",
+     "citas": 0
+    },
+    {
+     "titulo": "Short Term Load Forecasting Based on SBiGRU and CEEMDAN-SBiGRU Combined Model",
+     "anio": 2020,
+     "doi": "https://doi.org/10.1109/access.2020.3043043",
+     "id": "https://openalex.org/W3111102925",
+     "citas": 19
+    },
+    {
+     "titulo": "Two-stage forecasting of TCN-GRU short-term load considering error compensation and real-time decomposition",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1007/s12145-024-01456-7",
+     "id": "https://openalex.org/W4401866375",
+     "citas": 10
+    },
+    {
+     "titulo": "Short-Term Heat Load Forecasting Based on ExED-CWALSTM-TCN",
+     "anio": 2026,
+     "doi": "https://doi.org/10.2139/ssrn.6555967",
+     "id": "https://openalex.org/W7153299574",
+     "citas": 0
+    },
+    {
+     "titulo": "Research on regional load forecasting integrating GIS and UAV remote sensing",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1117/12.3134460",
+     "id": "https://openalex.org/W7236828257",
+     "citas": 0
+    },
+    {
+     "titulo": "Forecasting the Short-term Regional Electric Vehicle Charging Load Based on Hybrid Model and Residual Correction",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/isctis70043.2026.11572161",
+     "id": "https://openalex.org/W7166584977",
+     "citas": 0
+    },
+    {
+     "titulo": "Short-Term Load Forecasting for Typical Buildings Based on VMD-Informer-DMD Model",
+     "anio": 2023,
+     "doi": "https://doi.org/10.1109/oncon60463.2023.10431370",
+     "id": "https://openalex.org/W4391948485",
+     "citas": 1
+    },
+    {
+     "titulo": "Power load forecasting combining deep learning models and improved CLPO algorithm",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1371/journal.pone.0351428",
+     "id": "https://openalex.org/W7166562835",
+     "citas": 0
+    },
+    {
+     "titulo": "Short-term electric load forecasting based on improved black-winged kite algorithm",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/icma69663.2026.11647480",
+     "id": "https://openalex.org/W7203618887",
+     "citas": 0
+    },
+    {
+     "titulo": "Multi-Task Learning Based Joint Source-Load Forecasting Model for Integrated Energy System",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1109/iciea65512.2025.11148741",
+     "id": "https://openalex.org/W4414140668",
+     "citas": 1
+    },
+    {
+     "titulo": "Impacts of Wind Assimilation on Error Correction of Forecasted Dynamic Loads from Wind, Wave, and Current for Offshore Wind Turbines",
+     "anio": 2025,
+     "doi": "https://doi.org/10.3390/jmse13071211",
+     "id": "https://openalex.org/W4411565048",
+     "citas": 2
+    },
+    {
+     "titulo": "A Method for Electricity Load Forecasting Error Modeling Based on Influential Factor Selection and Uncertainty Analysis",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1109/sges66701.2025.11156023",
+     "id": "https://openalex.org/W4414348940",
+     "citas": 0
+    },
+    {
+     "titulo": "A hybrid temporal fusion transformer and LightGBM framework for accurate multi-horizon industrial electricity load forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.3389/fenrg.2026.1715418",
+     "id": "https://openalex.org/W7171967755",
+     "citas": 2
+    },
+    {
+     "titulo": "A Novel Hybrid Framework for Day-Ahead Load Forecasting Integrating CBAM, TCN, and XGBoost for Developing Regions",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1109/reacs67479.2025.11413383",
+     "id": "https://openalex.org/W7133507819",
+     "citas": 0
+    },
+    {
+     "titulo": "Two-Stage Short-Term Power Load Forecasting Based on RFECV Feature Selection Algorithm and a TCN–ECA–LSTM Neural Network",
+     "anio": 2023,
+     "doi": "https://doi.org/10.3390/en16041925",
+     "id": "https://openalex.org/W4320919696",
+     "citas": 25
+    },
+    {
+     "titulo": "A new framework for ultra-short-term electricity load forecasting model using IVMD–SGMD two–layer decomposition and INGO–BiLSTM–TPA–TCN",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1016/j.asoc.2024.112311",
+     "id": "https://openalex.org/W4403290978",
+     "citas": 28
+    },
+    {
+     "titulo": "SPEHDSTCN: A statistical prior error-corrected heterogeneous depthwise separable temporal convolutional network for building air-conditioning cooling load forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1016/j.jobe.2026.116484",
+     "id": "https://openalex.org/W7162997326",
+     "citas": 0
+    },
+    {
+     "titulo": "Energy efficient adaptive multi-scale learning for renewable-integrated rural power load forecasting using temporal fusion and residual gradient optimization",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1080/23737484.2026.2753104",
+     "id": "https://openalex.org/W7239395558",
+     "citas": 0
+    },
+    {
+     "titulo": "Short-Term EV Charging Load Forecasting via Adaptive MSSA Decomposition and Dual-Branch Deep Learning with V2G Impact Analysis",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/appeec67771.2026.11750295",
+     "id": "https://openalex.org/W7225075657",
+     "citas": 0
+    },
+    {
+     "titulo": "U-STS-LLM: A Unified Spatio-Temporal Steered Large Language Model for Traffic Prediction and Imputation",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2605.11735",
+     "id": "https://openalex.org/W7161046203",
+     "citas": 0
+    },
+    {
+     "titulo": "ADDF: Multi-Step Load Interval Forecasting for Sustainable Power Systems",
+     "anio": 2026,
+     "doi": "https://doi.org/10.3390/su18126255",
+     "id": "https://openalex.org/W7164994066",
+     "citas": 1
+    },
+    {
+     "titulo": "Forecasting Residential EV Charging Pile Capacity in Urban Power Systems: A Cointegration–BiLSTM Hybrid Approach",
+     "anio": 2025,
+     "doi": "https://doi.org/10.3390/su17146356",
+     "id": "https://openalex.org/W4412198983",
+     "citas": 9
+    },
+    {
+     "titulo": "Research on Refined Bus Load Prediction Based on Computer Data Integration and Model Fusion",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1109/incsst64791.2025.11210330",
+     "id": "https://openalex.org/W4415625262",
+     "citas": 0
+    },
+    {
+     "titulo": "Editorial: Demand side management in microgrids",
+     "anio": 2025,
+     "doi": "https://doi.org/10.3389/fenrg.2025.1567808",
+     "id": "https://openalex.org/W4410525511",
+     "citas": 2
+    }
+   ]
+  },
+  {
+   "cadena": "C4",
+   "base": "arXiv",
+   "consulta": "(abs:\"load forecasting\" OR abs:\"electricity demand forecasting\") AND (abs:\"residual correction\" OR abs:\"error correction\" OR abs:\"error compensation\") AND (abs:attention OR abs:gate OR abs:gating)",
+   "resultados": 2,
+   "registros": [
+    {
+     "titulo": "A Unifying Framework of Attention-based Neural Load Forecasting",
+     "anio": 2023,
+     "doi": "http://arxiv.org/abs/2305.05082v1"
+    },
+    {
+     "titulo": "U-STS-LLM: A Unified Spatio-Temporal Steered Large Language Model for Traffic Prediction and Imputation",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2605.11735v2"
+    }
+   ]
+  },
+  {
+   "cadena": "C4",
+   "base": "Semantic Scholar",
+   "consulta": "(\"load forecasting\" | \"electricity demand forecasting\") + (\"residual correction\" | \"error correction\" | \"error compensation\") + (attention | gate | gating)",
+   "resultados": 31,
+   "registros": [
+    {
+     "titulo": "Forecasting the Short-term Regional Electric Vehicle Charging Load Based on Hybrid Model and Residual Correction",
+     "anio": 2026,
+     "doi": "10.1109/ISCTIS70043.2026.11572161",
+     "id": "1d6a03376f8b759fbd032983980ab1d68c95a759",
+     "citas": 0
+    },
+    {
+     "titulo": "LAF-Net: A Deep Residual and Cross-Attention Framework for Day-Ahead Load Forecasting",
+     "anio": 2026,
+     "doi": "10.1109/PESGM58988.2026.11693149",
+     "id": "30d9e2109bfe4f307ce74a965a076c682498aab3",
+     "citas": 0
+    },
+    {
+     "titulo": "Power load forecasting combining deep learning models and improved CLPO algorithm",
+     "anio": 2026,
+     "doi": "10.1371/journal.pone.0351428",
+     "id": "32ab286b36a96ef58687b98d9036b2bdbae5cc4a",
+     "citas": 0
+    },
+    {
+     "titulo": "Multi-step Short-term Load Forecasting Based on Attention Mechanism, TCN-BiLSTM Network and Decomposition-based Error Correction",
+     "anio": 2024,
+     "doi": "10.1109/ACEEE62329.2024.10651918",
+     "id": "32eab468d9873baadefa45bf259134beea1bdf48",
+     "citas": 1
+    },
+    {
+     "titulo": "PatchTST-based short-term load forecasting with sliding-window residual correction for distribution networks",
+     "anio": 2026,
+     "doi": "10.1117/12.3133541",
+     "id": "3809f4307b074513179da1928b2fa23f8f65fb3f",
+     "citas": 0
+    },
+    {
+     "titulo": "Short Term Load Forecasting Based on SBiGRU and CEEMDAN-SBiGRU Combined Model",
+     "anio": 2020,
+     "doi": "10.1109/access.2020.3043043",
+     "id": "38b6180b66c2984ca5ec0f9cf7af893b9339a733",
+     "citas": 17
+    },
+    {
+     "titulo": "Ultra-Short-Term Power Load Forecasting Based on Multi-Scale Decomposition Clustering and Heterogeneous Gated Fusion",
+     "anio": 2026,
+     "doi": "10.3390/app16115707",
+     "id": "3ba9569c603ec1174f94962fb8a3abc703f6dacd",
+     "citas": 0
+    },
+    {
+     "titulo": "A Unifying Framework of Attention-Based Neural Load Forecasting",
+     "anio": 2023,
+     "doi": "10.1109/ACCESS.2023.3275095",
+     "id": "464875fe66bffe66a16f976567ae02b40447378e",
+     "citas": 8
+    },
+    {
+     "titulo": "A Method for Electricity Load Forecasting Error Modeling Based on Influential Factor Selection and Uncertainty Analysis",
+     "anio": 2025,
+     "doi": "10.1109/SGES66701.2025.11156023",
+     "id": "4c0afe6c24c17c3f48dd59db3ad6a0ca0f2f4afe",
+     "citas": 0
+    },
+    {
+     "titulo": "Forecasting Residential EV Charging Pile Capacity in Urban Power Systems: A Cointegration–BiLSTM Hybrid Approach",
+     "anio": 2025,
+     "doi": "10.3390/su17146356",
+     "id": "59e076114e1129943f5238cc8d6c0800cec7bf6e",
+     "citas": 8
+    },
+    {
+     "titulo": "Research on regional load forecasting integrating GIS and UAV remote sensing",
+     "anio": 2026,
+     "doi": "10.1117/12.3134460",
+     "id": "64f2aed892b2041f6cdb224c3db44479c633a4dc",
+     "citas": 0
+    },
+    {
+     "titulo": "Optimized design and implementation of a power grid load forecasting model for renewable energy integration scenarios",
+     "anio": 2026,
+     "doi": "10.1117/12.3122091",
+     "id": "660c3e0b86fd4e844529d80b8d246e285ed098a6",
+     "citas": 0
+    },
+    {
+     "titulo": "ADDF: Multi-Step Load Interval Forecasting for Sustainable Power Systems",
+     "anio": 2026,
+     "doi": "10.3390/su18126255",
+     "id": "676b26c8a85b3d29dac568191a02aa9622f940b4",
+     "citas": 0
+    },
+    {
+     "titulo": "Short-term electric load forecasting based on improved black-winged kite algorithm",
+     "anio": 2026,
+     "doi": "10.1109/icma69663.2026.11647480",
+     "id": "6cfe64ff8d4e071dcaaa32e45072175a8c73f59b",
+     "citas": 0
+    },
+    {
+     "titulo": "Multi-Task Learning Based Joint Source-Load Forecasting Model for Integrated Energy System",
+     "anio": 2025,
+     "doi": "10.1109/ICIEA65512.2025.11148741",
+     "id": "7b6f64b94e0feef6db1d256725bfb941b8e5a61a",
+     "citas": 0
+    },
+    {
+     "titulo": "U-STS-LLM: A Unified Spatio-Temporal Steered Large Language Model for Traffic Prediction and Imputation",
+     "anio": 2026,
+     "doi": null,
+     "id": "7c7ceeb86e83dc7cf477e22e9168b4289d1834e5",
+     "citas": 0
+    },
+    {
+     "titulo": "Stacking a BiLSTM-Attention Network With a Pretrained Time-Series Foundation Model and Gradient-Boosted Residual Correction for Short-Term Electricity Load Forecasting: A Comparative Evaluation on the Tetouan City Dataset",
+     "anio": 2026,
+     "doi": "10.7759/s44389-026-00383-6",
+     "id": "8089337e69759df96ee96ca6d4cbd13178d25f35",
+     "citas": 0
+    },
+    {
+     "titulo": "A hybrid temporal fusion transformer and LightGBM framework for accurate multi-horizon industrial electricity load forecasting",
+     "anio": 2026,
+     "doi": "10.3389/fenrg.2026.1715418",
+     "id": "810038f67e324e4776522f0147bef9700ec7a3bc",
+     "citas": 2
+    },
+    {
+     "titulo": "Two-Stage Short-Term Power Load Forecasting Based on RFECV Feature Selection Algorithm and a TCN–ECA–LSTM Neural Network",
+     "anio": 2023,
+     "doi": "10.3390/en16041925",
+     "id": "832326bd8885f198c9bd3ee8346137f0a5b1d933",
+     "citas": 21
+    },
+    {
+     "titulo": "Research on Refined Bus Load Prediction Based on Computer Data Integration and Model Fusion",
+     "anio": 2025,
+     "doi": "10.1109/INCSST64791.2025.11210330",
+     "id": "848623629c8cb3a4a5a4a42b90c4a5ce79bb5d29",
+     "citas": 0
+    },
+    {
+     "titulo": "Enhancing Load Forecasting for Large Industrial Users Through Feature Preference and Error Correction",
+     "anio": 2024,
+     "doi": "10.1109/ACCESS.2024.3409440",
+     "id": "8cfdcf85a598642844b3f829380c42963e599747",
+     "citas": 5
+    },
+    {
+     "titulo": "Two-stage transformer encoder and attention-guided GRU-based residual correction for short-term load forecasting",
+     "anio": 2026,
+     "doi": "10.3389/frai.2026.1935983",
+     "id": "8ddff5bbd09af43d1579720b4f799469cd87987c",
+     "citas": 0
+    },
+    {
+     "titulo": "Impacts of Wind Assimilation on Error Correction of Forecasted Dynamic Loads from Wind, Wave, and Current for Offshore Wind Turbines",
+     "anio": 2025,
+     "doi": "10.3390/jmse13071211",
+     "id": "990055d366c74379479f19b0e63fdf7664f52b9b",
+     "citas": 2
+    },
+    {
+     "titulo": "Multi-step electric load forecasting based on improved dual decomposition and error correction strategy",
+     "anio": 2026,
+     "doi": "10.1007/s11227-026-08260-8",
+     "id": "ad78ff9f5c15f7a7ee2677cbd33b64d3cd15a0c4",
+     "citas": 1
+    },
+    {
+     "titulo": "Short-Term EV Charging Load Forecasting via Adaptive MSSA Decomposition and Dual-Branch Deep Learning with V2G Impact Analysis",
+     "anio": 2026,
+     "doi": "10.1109/APPEEC67771.2026.11750295",
+     "id": "ae5ec7c95104497f1a12b5dbdc0e33775b231596",
+     "citas": 0
+    },
+    {
+     "titulo": "Two-stage forecasting of TCN-GRU short-term load considering error compensation and real-time decomposition",
+     "anio": 2024,
+     "doi": "10.1007/s12145-024-01456-7",
+     "id": "b1554821df3842fb6c3c07a66fff8de5bcdf6f4b",
+     "citas": 9
+    },
+    {
+     "titulo": "Multivariate Load Forecasting for Regional Integrated Energy Systems Based on Error Compensation",
+     "anio": 2022,
+     "doi": "10.1109/CAC57257.2022.10055376",
+     "id": "b36833923c2cdde5049228018e51babe4d298f94",
+     "citas": 0
+    },
+    {
+     "titulo": "A Novel Hybrid Framework for Day-Ahead Load Forecasting Integrating CBAM, TCN, and XGBoost for Developing Regions",
+     "anio": 2025,
+     "doi": "10.1109/REACS67479.2025.11413383",
+     "id": "c9b07d1a3b112e55baa9a5937144d6c55129b084",
+     "citas": 0
+    },
+    {
+     "titulo": "Short-Term Load Forecasting for Typical Buildings Based on VMD-Informer-DMD Model",
+     "anio": 2023,
+     "doi": "10.1109/ONCON60463.2023.10431370",
+     "id": "e88fa3efe5799f21f5b5a9d9ef8edf6571d5443a",
+     "citas": 1
+    },
+    {
+     "titulo": "Short-Term Power Load Forecasting Based on ICEEMDAN-GRA-SVDE-BiGRU and Error Correction Model",
+     "anio": 2023,
+     "doi": "10.1109/ACCESS.2023.3322272",
+     "id": "f54ddc648cf25486a950a036b7bde809e6a39905",
+     "citas": 14
+    },
+    {
+     "titulo": "Data-Driven Load Prediction for Hospitals: Evaluating ML Models for Energy Management",
+     "anio": 2026,
+     "doi": "10.1109/ACCESS.2026.3662567",
+     "id": "f8bae7c92a8e51b8a3e273915f3b4e0eee9bb59b",
+     "citas": 0
+    }
+   ]
+  },
+  {
+   "cadena": "C5",
+   "base": "OpenAlex",
+   "consulta": "(\"pronóstico de demanda\" OR \"pronóstico de carga\" OR \"predicción de carga\" OR \"predicción de la demanda eléctrica\") AND (\"corrección de errores\" OR \"residuos\" OR \"memoria\")",
+   "resultados": 14,
+   "registros": [
+    {
+     "titulo": "Modelado y predicción de la demanda eléctrica: comparación de enfoques estadísticos y de aprendizaje automático",
+     "anio": 2025,
+     "doi": "https://doi.org/10.24215/15146774e067",
+     "id": "https://openalex.org/W4409141718",
+     "citas": 3
+    },
+    {
+     "titulo": "Análisis y mejora de la predicción de la demanda eléctrica en periodos de alto ECM",
+     "anio": 2016,
+     "doi": null,
+     "id": "https://openalex.org/W2553836220",
+     "citas": 2
+    },
+    {
+     "titulo": "Pronóstico de demanda desagregada para una empresa de productos de consumo masivo",
+     "anio": 2015,
+     "doi": null,
+     "id": "https://openalex.org/W2336282693",
+     "citas": 2
+    },
+    {
+     "titulo": "Implementación de un modelo híbrido CNN-LSTM con HGB para pronóstico de demanda eléctrica de corto plazo en una distribuidora local",
+     "anio": 2026,
+     "doi": "https://doi.org/10.33414/ajea.2088.2026",
+     "id": "https://openalex.org/W7220695976",
+     "citas": 0
+    },
+    {
+     "titulo": "Integración de modelos ARIMA y simulación Monte Carlo en R para el pronóstico de demanda y la planificación productiva en cadenas de suministro",
+     "anio": 2026,
+     "doi": "https://doi.org/10.61347/ei.v5i1.319",
+     "id": "https://openalex.org/W7165780873",
+     "citas": 0
+    },
+    {
+     "titulo": null,
+     "anio": 2026,
+     "doi": "https://doi.org/10.37116/revistaenergia.v22.n2.2026",
+     "id": "https://openalex.org/W7148584992",
+     "citas": 0
+    },
+    {
+     "titulo": "Análisis comparativo de modelos tradicionales y modernos para pronóstico de la demanda: enfoques y características",
+     "anio": 2022,
+     "doi": "https://doi.org/10.23913/ride.v12i24.1203",
+     "id": "https://openalex.org/W4281626854",
+     "citas": 21
+    },
+    {
+     "titulo": "Número completo (Agosto)",
+     "anio": 2026,
+     "doi": null,
+     "id": "https://openalex.org/W7223485480",
+     "citas": 0
+    },
+    {
+     "titulo": "Predictive system for inventory management of SMEs in the retail sector based on machine learning algorithms.",
+     "anio": 2026,
+     "doi": null,
+     "id": "https://openalex.org/W7225921968",
+     "citas": 0
+    },
+    {
+     "titulo": "Software prototype for energy demand forecasting at the Electrificadora de Santander",
+     "anio": 2024,
+     "doi": null,
+     "id": "https://openalex.org/W7133396257",
+     "citas": 0
+    },
+    {
+     "titulo": "Editorial",
+     "anio": 2026,
+     "doi": null,
+     "id": "https://openalex.org/W7204505356",
+     "citas": 0
+    },
+    {
+     "titulo": "Data Preprocessing for Short-Term Demand Forecasting Based on Deep Learning Neural Networks in Four Commercial Markets in Colombia",
+     "anio": 2026,
+     "doi": null,
+     "id": "https://openalex.org/W7237323074",
+     "citas": 0
+    },
+    {
+     "titulo": "Comparación de métodos estadísticos y redes neuronales para la toma de decisiones en la asignación de ubicación del almacenamiento",
+     "anio": 2025,
+     "doi": null,
+     "id": "https://openalex.org/W7155271526",
+     "citas": 0
+    },
+    {
+     "titulo": "From optimisation to artificial intelligence solutions for modern power systems",
+     "anio": 2026,
+     "doi": "https://doi.org/10.5821/dissertation-2117-480632",
+     "id": "https://openalex.org/W7225886941",
+     "citas": 0
+    }
+   ]
+  },
+  {
+   "cadena": "C5",
+   "base": "Semantic Scholar",
+   "consulta": "(\"pronóstico de demanda\" | \"pronóstico de carga\" | \"predicción de carga\") + (\"corrección de errores\" | residuos | memoria)",
+   "resultados": 5,
+   "registros": [
+    {
+     "titulo": "Implementación de un modelo híbrido CNN-LSTM con HGB para pronóstico de demanda eléctrica de corto plazo en una distribuidora local",
+     "anio": 2026,
+     "doi": "10.33414/ajea.2088.2026",
+     "id": "807503be6d532677b7ac914960af0d54add9004b",
+     "citas": 0
+    },
+    {
+     "titulo": "Integración de modelos ARIMA y simulación Monte Carlo en R para el pronóstico de demanda y la planificación productiva en cadenas de suministro",
+     "anio": 2026,
+     "doi": "10.61347/ei.v5i1.319",
+     "id": "83727e0c7c862d45c90bfbd8692673bcefa915cf",
+     "citas": 0
+    },
+    {
+     "titulo": "Pronóstico de demanda desagregada para una empresa de productos de consumo masivo",
+     "anio": 2015,
+     "doi": null,
+     "id": "8e370ec288fa22bc5137729c8b841e10eb356daf",
+     "citas": 2
+    },
+    {
+     "titulo": "Análisis comparativo de modelos tradicionales y modernos para pronóstico de la demanda: enfoques y características",
+     "anio": 2022,
+     "doi": "10.23913/ride.v12i24.1203",
+     "id": "ad79c84d0cfa7607330b6cbb1fbbcebb339cfa06",
+     "citas": 4
+    },
+    {
+     "titulo": "Criterios financieros en el diseño de cadenas de suministro. ¿Una necesidad?",
+     "anio": 2022,
+     "doi": "10.25100/cdea.v38i73.12438",
+     "id": "c08d2055e0090a1d962398e74d8725a2b9cef648",
+     "citas": 0
+    }
+   ]
+  },
+  {
+   "cadena": "C6",
+   "base": "OpenAlex",
+   "consulta": "(\"analog ensemble\" OR \"analogue ensemble\") AND (\"forecast\") AND (\"error\" OR \"bias\")",
+   "resultados": 85,
+   "registros": [
+    {
+     "titulo": "An analog ensemble for short-term probabilistic solar power forecast",
+     "anio": 2015,
+     "doi": "https://doi.org/10.1016/j.apenergy.2015.08.011",
+     "id": "https://openalex.org/W1120922828",
+     "citas": 407
+    },
+    {
+     "titulo": "A Solar Time Based Analog Ensemble Method for Regional Solar Power Forecasting",
+     "anio": 2018,
+     "doi": "https://doi.org/10.1109/tste.2018.2832634",
+     "id": "https://openalex.org/W2801973365",
+     "citas": 243
+    },
+    {
+     "titulo": "Improving the Analog Ensemble Wind Speed Forecasts for Rare Events",
+     "anio": 2019,
+     "doi": "https://doi.org/10.1175/mwr-d-19-0006.1",
+     "id": "https://openalex.org/W2945035998",
+     "citas": 44
+    },
+    {
+     "titulo": "Optimizing Analog Ensembles for Sub-Daily Precipitation Forecasts",
+     "anio": 2022,
+     "doi": "https://doi.org/10.3390/atmos13101662",
+     "id": "https://openalex.org/W4304806917",
+     "citas": 11
+    },
+    {
+     "titulo": "Analogue Ensemble Averaging Method for Bias Correction of 2-m Temperature of the Medium-Range Forecasts in China",
+     "anio": 2022,
+     "doi": "https://doi.org/10.3390/atmos13122097",
+     "id": "https://openalex.org/W4311364431",
+     "citas": 1
+    },
+    {
+     "titulo": "Quantile mapping correction of analog ensemble forecast for solar irradiance",
+     "anio": 2022,
+     "doi": "https://doi.org/10.1016/j.solener.2022.03.015",
+     "id": "https://openalex.org/W4226164034",
+     "citas": 10
+    },
+    {
+     "titulo": "Observation-Based Analog Ensemble Solar Forecast in Coastal California",
+     "anio": 2019,
+     "doi": "https://doi.org/10.1109/pvsc40753.2019.8980546",
+     "id": "https://openalex.org/W3005221326",
+     "citas": 7
+    },
+    {
+     "titulo": "Improved Analog Ensemble Formulation for 3-Hourly Precipitation Forecasts",
+     "anio": 2023,
+     "doi": "https://doi.org/10.1175/waf-d-23-0018.1",
+     "id": "https://openalex.org/W4381736486",
+     "citas": 3
+    },
+    {
+     "titulo": "A Hybrid NWP–Analog Ensemble",
+     "anio": 2016,
+     "doi": "https://doi.org/10.1175/mwr-d-15-0096.1",
+     "id": "https://openalex.org/W2189756375",
+     "citas": 47
+    },
+    {
+     "titulo": "Analog Ensemble Probabilistic Forecasting using Deep Generative Models",
+     "anio": 2020,
+     "doi": "https://doi.org/10.1002/essoar.10501903.1",
+     "id": "https://openalex.org/W3198046156",
+     "citas": 2
+    },
+    {
+     "titulo": "Analog Ensemble Forecasting System for Low-Visibility Conditions over the Main Airports of Morocco",
+     "anio": 2022,
+     "doi": "https://doi.org/10.3390/atmos13101704",
+     "id": "https://openalex.org/W4306652301",
+     "citas": 18
+    },
+    {
+     "titulo": "Analog ensemble technique to post-process WRF-CAMx ozone and particulate matter forecasts",
+     "anio": 2021,
+     "doi": "https://doi.org/10.1016/j.atmosenv.2021.118439",
+     "id": "https://openalex.org/W3157421212",
+     "citas": 15
+    },
+    {
+     "titulo": "Improving Wind Forecasts in the Lower Stratosphere by Distilling an Analog Ensemble Into a Deep Neural Network",
+     "anio": 2020,
+     "doi": "https://doi.org/10.1029/2020gl089098",
+     "id": "https://openalex.org/W3044055657",
+     "citas": 15
+    },
+    {
+     "titulo": "Designing a Revenue Forecast Scheme for Analog Ensemble Method Applied Solar PV Forecasting in South Korea",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1155/er/5529459",
+     "id": "https://openalex.org/W4406871704",
+     "citas": 4
+    },
+    {
+     "titulo": "A hybrid analog-ensemble, convolutional-neural-network method for post-processing precipitation forecasts",
+     "anio": 2022,
+     "doi": "https://doi.org/10.1175/mwr-d-21-0154.1",
+     "id": "https://openalex.org/W4225553680",
+     "citas": 15
+    },
+    {
+     "titulo": "Corrigendum to “Designing a Revenue Forecast Scheme for Analog Ensemble Method Applied Solar PV Forecasting in South Korea”",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1155/er/9872638",
+     "id": "https://openalex.org/W4413435357",
+     "citas": 1
+    },
+    {
+     "titulo": "Surface Weather Parameters Forecasting Using Analog Ensemble Method over the Main Airports of Morocco",
+     "anio": 2022,
+     "doi": "https://doi.org/10.1007/s13351-022-2019-0",
+     "id": "https://openalex.org/W4315488157",
+     "citas": 8
+    },
+    {
+     "titulo": "Probabilistic Prediction of Tropical Cyclone Intensity with an Analog Ensemble",
+     "anio": 2018,
+     "doi": "https://doi.org/10.1175/mwr-d-17-0314.1",
+     "id": "https://openalex.org/W2796642430",
+     "citas": 41
+    },
+    {
+     "titulo": "Air Quality Predictions with an Analog Ensemble",
+     "anio": 2018,
+     "doi": "https://doi.org/10.5194/acp-2017-1214",
+     "id": "https://openalex.org/W2801828426",
+     "citas": 6
+    },
+    {
+     "titulo": "Probabilistic Day-Ahead Forecasting Using an Analog Ensemble Approach for Wind Farm Grid Services",
+     "anio": 2021,
+     "doi": null,
+     "id": "https://openalex.org/W4286963157",
+     "citas": 1
+    },
+    {
+     "titulo": "Space Analog’s Searching to Improve Deterministic Forecasting Using Analog Ensemble Method Over Morocco",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1007/978-3-031-47079-0_36",
+     "id": "https://openalex.org/W4392965085",
+     "citas": 1
+    },
+    {
+     "titulo": "Analog Ensemble for Short Term Temperature Forecasts in the Sierra Nevada with Effects on Snowmelt Streamflow and Water Storage",
+     "anio": 2025,
+     "doi": "https://doi.org/10.71465/ajbd3438",
+     "id": "https://openalex.org/W7118371089",
+     "citas": 0
+    },
+    {
+     "titulo": "Experiment with the dynamical–statistical–analog ensemble forecast model for landfalling typhoon gale over South China",
+     "anio": 2022,
+     "doi": "https://doi.org/10.3389/feart.2022.987001",
+     "id": "https://openalex.org/W4297229647",
+     "citas": 1
+    },
+    {
+     "titulo": "Sichuan Rainfall Prediction Using an Analog Ensemble",
+     "anio": 2023,
+     "doi": "https://doi.org/10.3390/atmos14081223",
+     "id": "https://openalex.org/W4385399761",
+     "citas": 2
+    },
+    {
+     "titulo": "Improving Air Quality Predictions over the United States with an Analog Ensemble",
+     "anio": 2020,
+     "doi": "https://doi.org/10.1175/waf-d-19-0148.1",
+     "id": "https://openalex.org/W3012466862",
+     "citas": 36
+    },
+    {
+     "titulo": "Using the analog ensemble method as a proxy measurement for wind power predictability",
+     "anio": 2019,
+     "doi": "https://doi.org/10.1016/j.renene.2019.06.132",
+     "id": "https://openalex.org/W2965217691",
+     "citas": 29
+    },
+    {
+     "titulo": "Short Term Temperature Forecast Correction in the Sierra Nevada with Analog Ensemble Method for Snowmelt Streamflow and Water Storage Prediction",
+     "anio": 2025,
+     "doi": "https://doi.org/10.20944/preprints202511.0622.v1",
+     "id": "https://openalex.org/W4416062950",
+     "citas": 0
+    },
+    {
+     "titulo": "Refining the Selection of Historical Period in Analog Ensemble Technique",
+     "anio": 2023,
+     "doi": "https://doi.org/10.3390/en16227630",
+     "id": "https://openalex.org/W4388761470",
+     "citas": 3
+    },
+    {
+     "titulo": "Predicting rare events of solar power production with the analog ensemble",
+     "anio": 2021,
+     "doi": "https://doi.org/10.1016/j.solener.2021.11.033",
+     "id": "https://openalex.org/W3216572517",
+     "citas": 14
+    },
+    {
+     "titulo": "Predicting particulate matter ($${{\\varvec{P}}{\\varvec{M}}}_{10}$$) levels in Morocco: a 5-day forecast using the analog ensemble method",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1007/s10661-024-13434-z",
+     "id": "https://openalex.org/W4404905086",
+     "citas": 5
+    },
+    {
+     "titulo": "Analog ensemble (AE) systems for real time quantitative precipitation forecasts (QPFs) for different forecast lead times at local scale over the north-west Himalaya (NWH), India",
+     "anio": 2020,
+     "doi": "https://doi.org/10.1007/s00703-020-00763-0",
+     "id": "https://openalex.org/W3097637783",
+     "citas": 6
+    },
+    {
+     "titulo": "Enhancing Weeks 1-2 Forecasts of 2-m Temperature in the Sierra Nevada, California through Analog Ensemble post-processing",
+     "anio": 2025,
+     "doi": "https://doi.org/10.5194/ems2025-34",
+     "id": "https://openalex.org/W4411806463",
+     "citas": 0
+    },
+    {
+     "titulo": "Analog Ensemble Methods for Improving Satellite-Based Intensity Estimates of Tropical Cyclones",
+     "anio": 2021,
+     "doi": "https://doi.org/10.3390/atmos12070830",
+     "id": "https://openalex.org/W3175416754",
+     "citas": 2
+    },
+    {
+     "titulo": "MASS-UMAP: Fast and Accurate Analog Ensemble Search in Weather Radar Archives",
+     "anio": 2019,
+     "doi": "https://doi.org/10.3390/rs11242922",
+     "id": "https://openalex.org/W2993357746",
+     "citas": 13
+    },
+    {
+     "titulo": "Statistical-dynamical analog ensemble system for real time quantitative precipitation forecasts (QPFs) at local scale in the north-west Himalaya (NWH), India",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1007/s00703-024-01048-6",
+     "id": "https://openalex.org/W4404347455",
+     "citas": 0
+    },
+    {
+     "titulo": "New AI based weighting strategy for 2m temperature and 10m wind speed forecasting over Moroccan airports using the analog ensemble method.",
+     "anio": 2022,
+     "doi": "https://doi.org/10.5194/egusphere-egu22-2450",
+     "id": "https://openalex.org/W4220891874",
+     "citas": 0
+    },
+    {
+     "titulo": "Using machine learning techniques to generate analog ensembles for data assimilation",
+     "anio": 2021,
+     "doi": "https://doi.org/10.5194/egusphere-egu21-6036",
+     "id": "https://openalex.org/W3173993841",
+     "citas": 0
+    },
+    {
+     "titulo": "Improving Weeks 1–2 Temperature Forecasts in the Sierra Nevada Region Using Analog Ensemble Postprocessing with Implications for Better Prediction of Snowmelt, Water Storage, and Streamflow",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1175/jhm-d-25-0012.1",
+     "id": "https://openalex.org/W4414596371",
+     "citas": 5
+    },
+    {
+     "titulo": "Enhancing High Wind Speed Event Prediction through Adaptive Analog Ensemble Sizing",
+     "anio": 2024,
+     "doi": "https://doi.org/10.5194/ems2024-843",
+     "id": "https://openalex.org/W4400363758",
+     "citas": 0
+    },
+    {
+     "titulo": "A Gridded Solar Irradiance Ensemble Prediction System Based on WRF-Solar EPS and the Analog Ensemble",
+     "anio": 2023,
+     "doi": "https://doi.org/10.3390/atmos14030567",
+     "id": "https://openalex.org/W4327741495",
+     "citas": 9
+    },
+    {
+     "titulo": "Improving NOAA NAQFC PM2.5 Predictions with a Bias Correction Approach",
+     "anio": 2017,
+     "doi": "https://doi.org/10.1175/waf-d-16-0118.1",
+     "id": "https://openalex.org/W2564173216",
+     "citas": 74
+    },
+    {
+     "titulo": "Hourly probabilistic forecasting of solar power",
+     "anio": 2017,
+     "doi": "https://doi.org/10.1109/naps.2017.8107270",
+     "id": "https://openalex.org/W2769304616",
+     "citas": 18
+    },
+    {
+     "titulo": "The Sun4Cast® Solar Power Forecasting System: The Result of the Public-Private-Academic Partnership to Advance Solar Power Forecasting",
+     "anio": 2016,
+     "doi": "https://doi.org/10.5065/d6n58jr2",
+     "id": "https://openalex.org/W2474491608",
+     "citas": 40
+    },
+    {
+     "titulo": "The WRF-Solar Ensemble Prediction System to Provide Solar Irradiance Probabilistic Forecasts",
+     "anio": 2021,
+     "doi": "https://doi.org/10.1109/jphotov.2021.3117904",
+     "id": "https://openalex.org/W3212219927",
+     "citas": 35
+    },
+    {
+     "titulo": "Multi-stage algorithm for uncertainty analysis of solar power forecasting",
+     "anio": 2016,
+     "doi": "https://doi.org/10.1109/pesgm.2016.7741199",
+     "id": "https://openalex.org/W2550144538",
+     "citas": 24
+    },
+    {
+     "titulo": "Object-Based Analog Forecasts for Surface Wind Speed",
+     "anio": 2017,
+     "doi": "https://doi.org/10.1175/mwr-d-17-0012.1",
+     "id": "https://openalex.org/W2765574930",
+     "citas": 17
+    },
+    {
+     "titulo": "Machine Learning Weather Analogs for Renewable Forecasting",
+     "anio": 2022,
+     "doi": "https://doi.org/10.21203/rs.3.rs-2024020/v1",
+     "id": "https://openalex.org/W4297890772",
+     "citas": 1
+    },
+    {
+     "titulo": "Postprocessing of convection permitting precipitation forecast using UNets",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1016/j.ecoinf.2025.103255",
+     "id": "https://openalex.org/W4411449263",
+     "citas": 3
+    },
+    {
+     "titulo": "The WRF-Solar Ensemble Prediction System To Provide Solar Irradiance Probabilistic Forecasts",
+     "anio": 2021,
+     "doi": "https://doi.org/10.1109/pvsc43889.2021.9518554",
+     "id": "https://openalex.org/W3196721776",
+     "citas": 13
+    },
+    {
+     "titulo": "Post-Processing of CMAQ forecast for Improving Air Quality Predictions",
+     "anio": 2023,
+     "doi": "https://doi.org/10.5194/egusphere-egu23-5238",
+     "id": "https://openalex.org/W4321488973",
+     "citas": 0
+    }
+   ]
+  },
+  {
+   "cadena": "C6",
+   "base": "arXiv",
+   "consulta": "(abs:\"analog ensemble\" OR abs:\"analogue ensemble\") AND abs:forecast",
+   "resultados": 7,
+   "registros": [
+    {
+     "titulo": "A Scalable Solution for Running Ensemble Simulations for Photovoltaic Energy",
+     "anio": 2022,
+     "doi": "http://arxiv.org/abs/2201.06962v1"
+    },
+    {
+     "titulo": "Analog ensemble forecasts of solar wind parameters: Quantification of the predictability and time-domain spectral performance",
+     "anio": 2025,
+     "doi": "http://arxiv.org/abs/2504.14102v2"
+    },
+    {
+     "titulo": "Weather Analogs with a Machine Learning Similarity Metric for Renewable Resource Forecasting",
+     "anio": 2021,
+     "doi": "http://arxiv.org/abs/2103.04530v2"
+    },
+    {
+     "titulo": "AI-informed model-analogs for understanding subseasonal-to-seasonal jet stream and North American temperature predictability",
+     "anio": 2025,
+     "doi": "http://arxiv.org/abs/2506.14022v3"
+    },
+    {
+     "titulo": "Probabilistic Forecasting using Deep Generative Models",
+     "anio": 2019,
+     "doi": "http://arxiv.org/abs/1909.11865v1"
+    },
+    {
+     "titulo": "MASS-UMAP: Fast and accurate analog ensemble search in weather radar archive",
+     "anio": 2019,
+     "doi": "http://arxiv.org/abs/1910.01211v1"
+    },
+    {
+     "titulo": "Post-processing Probabilistic Forecasts of the Solar Wind by Data Mining Similar Scenarios",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2603.11284v1"
+    }
+   ]
+  },
+  {
+   "cadena": "C6",
+   "base": "Semantic Scholar",
+   "consulta": "(\"analog ensemble\" | \"analogue ensemble\") + forecast + (error | bias)",
+   "resultados": 58,
+   "registros": [
+    {
+     "titulo": "Prediction of tropical cyclone precipitation over China by the DSAEF_LTP model",
+     "anio": 2022,
+     "doi": "10.1002/qj.4301",
+     "id": "096dae0a63b9b6af41aeff19ddf290904ef7fc0b",
+     "citas": 2
+    },
+    {
+     "titulo": "Using the analog ensemble method as a proxy measurement for wind power predictability",
+     "anio": 2020,
+     "doi": "10.1016/j.renene.2019.06.132",
+     "id": "0cd949bcdb3f283f4a3645e256e9ac4eb36ba221",
+     "citas": 28
+    },
+    {
+     "titulo": "Enhancing 5-Day Particulate Matter (PM10) Forecasts in Morocco Using U-Net: A Deep Learning Approach",
+     "anio": 2025,
+     "doi": "10.1016/j.atmosres.2025.108439",
+     "id": "1e8e8e01fe262ce7e658a7714aac133d2056be7c",
+     "citas": 1
+    },
+    {
+     "titulo": "Optimizing Analog Ensembles for Sub-Daily Precipitation Forecasts",
+     "anio": 2022,
+     "doi": "10.3390/atmos13101662",
+     "id": "22800169804722cd756386ac40828a5007315535",
+     "citas": 9
+    },
+    {
+     "titulo": "Statistical-dynamical analog ensemble system for real time quantitative precipitation forecasts (QPFs) at local scale in the north-west Himalaya (NWH), India",
+     "anio": 2024,
+     "doi": "10.1007/s00703-024-01048-6",
+     "id": "25a9e92dbf5c7835f597978a1c1e3d725cda2ffb",
+     "citas": 0
+    },
+    {
+     "titulo": "Quality of Local Scale Surface Weather Analogs in Two Climatologically and Geographically Distinct Mountainous Regions",
+     "anio": 2022,
+     "doi": "10.1007/s00703-022-00861-1",
+     "id": "2a0fbf0f26c4dd3879eff16081dab25d2b37f41f",
+     "citas": 1
+    },
+    {
+     "titulo": "Deep generative model for probabilistic wind speed and wind power estimation at a wind farm",
+     "anio": 2022,
+     "doi": "10.1002/ese3.1086",
+     "id": "2cea0fae81e3f4cc90df15fc851387de30dfd8e3",
+     "citas": 15
+    },
+    {
+     "titulo": "A Short-Term Power Output Forecasting Based on Augmented Naïve Bayes Classifiers for High Wind Power Penetrations",
+     "anio": 2021,
+     "doi": "10.3390/su132212723",
+     "id": "2e4e1da28e2cc475713086f57e8799bfe5ae9ee1",
+     "citas": 3
+    },
+    {
+     "titulo": "Enhancing photovoltaic power forecasting accuracy via AnEn-corrected NWP data and seasonal CNN-LSTM models",
+     "anio": 2026,
+     "doi": "10.1080/15435075.2026.2642171",
+     "id": "2e9cfb208a6179d174a8f6cc8358549a944cc5a3",
+     "citas": 0
+    },
+    {
+     "titulo": "Developing a dynamic-statistical downscaling framework for wind speed prediction for the Beijing 2022 Winter olympics",
+     "anio": 2024,
+     "doi": "10.1007/s00382-024-07282-3",
+     "id": "2ec2cac3699c90aae7285d7a5571fa8e6c1131a6",
+     "citas": 9
+    },
+    {
+     "titulo": "Analog Ensemble Forecasting System for Low-Visibility Conditions over the Main Airports of Morocco",
+     "anio": 2022,
+     "doi": "10.3390/atmos13101704",
+     "id": "3310c18541842dea7f06a12533bf8ecc7a8c934e",
+     "citas": 14
+    },
+    {
+     "titulo": "Machine Learning Weather Analogs for Near-Surface Variables",
+     "anio": 2023,
+     "doi": "10.1007/s10546-022-00779-6",
+     "id": "339be011431de443db8a0c009529ccbea2fb89f3",
+     "citas": 10
+    },
+    {
+     "titulo": "Evaluation of the analog-based method for the operational implementation in Croatia",
+     "anio": 2020,
+     "doi": "10.5194/egusphere-egu2020-6811",
+     "id": "35ea261af63934f6f3ec7752cb6aef8bdc9459d7",
+     "citas": 0
+    },
+    {
+     "titulo": "Predicting Particulate Matter (PM10) Levels in Morocco: A 5-Day Forecast Using the Analog Ensemble Method",
+     "anio": 2024,
+     "doi": "10.21203/rs.3.rs-4619478/v1",
+     "id": "3e45273919f83d74a36c4d344b64924d50944daa",
+     "citas": 3
+    },
+    {
+     "titulo": "Analog Ensemble Methods for Improving Satellite-Based Intensity Estimates of Tropical Cyclones",
+     "anio": 2021,
+     "doi": "10.3390/atmos12070830",
+     "id": "4012d796cc59606fb72f26f9c11390323d659f7e",
+     "citas": 1
+    },
+    {
+     "titulo": "Configuration of Statistical Postprocessing Techniques for Improved Low-Level Wind Speed Forecasts in West Texas",
+     "anio": 2020,
+     "doi": "10.1175/waf-d-18-0186.1",
+     "id": "43b4289e02d3c090b9a70165d956d4ded82708ea",
+     "citas": 2
+    },
+    {
+     "titulo": "Experiment with the dynamical–statistical–analog ensemble forecast model for landfalling typhoon gale over South China",
+     "anio": 2022,
+     "doi": "10.3389/feart.2022.987001",
+     "id": "43be6839a782935ef356975a6156e811a03aa75e",
+     "citas": 0
+    },
+    {
+     "titulo": "Probabilistic short term wind power forecasts using deep neural networks with discrete target classes",
+     "anio": 2018,
+     "doi": "10.5194/ADGEO-45-13-2018",
+     "id": "44057169920abafd1e15160e1fc894a363ae1f9d",
+     "citas": 8
+    },
+    {
+     "titulo": "Air Quality Predictions with an Analog Ensemble",
+     "anio": 2018,
+     "doi": "10.5194/ACP-2017-1214",
+     "id": "4cb20efed59fd8210a663f01d4e40d1747e2a779",
+     "citas": 3
+    },
+    {
+     "titulo": "Refining the Selection of Historical Period in Analog Ensemble Technique",
+     "anio": 2023,
+     "doi": "10.3390/en16227630",
+     "id": "5126d82f11878292e90408feaae64f0e8a1420b7",
+     "citas": 2
+    },
+    {
+     "titulo": "A Solar Time Based Analog Ensemble Method for Regional Solar Power Forecasting",
+     "anio": 2019,
+     "doi": "10.1109/TSTE.2018.2832634",
+     "id": "59159f3b659bd7e33003b6ccbd0e41235514713b",
+     "citas": 190
+    },
+    {
+     "titulo": "Enhancing Probabilistic Solar PV Forecasting: Integrating the NB-DST Method with Deterministic Models",
+     "anio": 2024,
+     "doi": "10.3390/en17102392",
+     "id": "5c1132f45d9d770da0f15679b7c3b55e85d89378",
+     "citas": 10
+    },
+    {
+     "titulo": "A hybrid analog-ensemble, convolutional-neural-network method for post-processing precipitation forecasts",
+     "anio": 2022,
+     "doi": "10.1175/mwr-d-21-0154.1",
+     "id": "5f484e8713b6e9c8caaa909010fc2dad41683509",
+     "citas": 6
+    },
+    {
+     "titulo": "A Gridded Solar Irradiance Ensemble Prediction System Based on WRF-Solar EPS and the Analog Ensemble",
+     "anio": 2023,
+     "doi": "10.3390/atmos14030567",
+     "id": "63d282749fd3deafab41e2c5e069c23fff6c5df8",
+     "citas": 9
+    },
+    {
+     "titulo": "Observation-Based Analog Ensemble Solar Forecast in Coastal California",
+     "anio": 2019,
+     "doi": "10.1109/PVSC40753.2019.8980546",
+     "id": "6939c5c5e402370d7b0aff868d81968da93ae956",
+     "citas": 5
+    },
+    {
+     "titulo": "The WRF-Solar Ensemble Prediction System to Provide Solar Irradiance Probabilistic Forecasts",
+     "anio": 2022,
+     "doi": "10.1109/JPHOTOV.2021.3117904",
+     "id": "6b8c088c8a2f725673b82f9af2331f9214fd0b21",
+     "citas": 11
+    },
+    {
+     "titulo": "The WRF-Solar Ensemble Prediction System To Provide Solar Irradiance Probabilistic Forecasts",
+     "anio": 2021,
+     "doi": "10.1109/PVSC43889.2021.9518554",
+     "id": "6d1ae6f6b7405aebe9300f291aa50d5a084d87d8",
+     "citas": 20
+    },
+    {
+     "titulo": "Predicting particulate matter (PM10) levels in Morocco: a 5-day forecast using the analog ensemble method",
+     "anio": 2024,
+     "doi": "10.1007/s10661-024-13434-z",
+     "id": "6f8606be02299f684847020c53f664f41bdd1bff",
+     "citas": 3
+    },
+    {
+     "titulo": "Analog Ensemble for Short Term Temperature Forecasts in the Sierra Nevada with Effects on Snowmelt Streamflow and Water Storage",
+     "anio": 2025,
+     "doi": "10.71465/ajbd3438",
+     "id": "6fb445ec1eafbc13e56e95d08104523fb0f22802",
+     "citas": 0
+    },
+    {
+     "titulo": "Hourly probabilistic forecasting of solar power",
+     "anio": 2017,
+     "doi": "10.1109/NAPS.2017.8107270",
+     "id": "7f125b463e52e7151882802d53807c2b91b09e00",
+     "citas": 11
+    },
+    {
+     "titulo": "Improving Wind Forecasts in the Lower Stratosphere by Distilling an Analog Ensemble Into a Deep Neural Network",
+     "anio": 2020,
+     "doi": "10.1029/2020GL089098",
+     "id": "84e7a656471cb9af308a7da0bc9c641497116fd0",
+     "citas": 11
+    },
+    {
+     "titulo": "High-resolution PM2.5 forecasting using CAMS predictions, low-cost sensors and ensemble techniques",
+     "anio": 2021,
+     "doi": "10.5194/EGUSPHERE-EGU21-15960",
+     "id": "85c3ed3adbbbcee21b68321fb7872f5974acc03b",
+     "citas": 0
+    },
+    {
+     "titulo": "Sichuan Rainfall Prediction Using an Analog Ensemble",
+     "anio": 2023,
+     "doi": "10.3390/atmos14081223",
+     "id": "8ee149f439b0c31fb5ee27f24f20e31146ec2a8b",
+     "citas": 1
+    },
+    {
+     "titulo": "Quality of local scale surface weather analogs over the north-west Himalaya (NWH), India",
+     "anio": 2019,
+     "doi": "10.1007/s12040-019-1216-4",
+     "id": "8fb284ed2fabb71c1ca6b6c0ea0eedf3ad992a83",
+     "citas": 1
+    },
+    {
+     "titulo": "An Online Paleoclimate Data Assimilation With a Deep Learning‐Based Network",
+     "anio": 2025,
+     "doi": "10.1029/2024MS004675",
+     "id": "9010b86c2e6cd3e507eb62087e816fcb41eabd35",
+     "citas": 15
+    },
+    {
+     "titulo": "Improved Analog Ensemble Formulation for 3-hourly Precipitation Forecasts",
+     "anio": 2023,
+     "doi": "10.1175/waf-d-23-0018.1",
+     "id": "957c8fcfea1a182f62292a87d6e8e59430fc1905",
+     "citas": 3
+    },
+    {
+     "titulo": "Forecasting Particulate Pollution in an Urban Area: From Copernicus to Sub-Km Scale",
+     "anio": 2021,
+     "doi": "10.3390/ATMOS12070881",
+     "id": "a1c51a6b828a6811d6fd0542488a808921dcad90",
+     "citas": 28
+    },
+    {
+     "titulo": "Surface Weather Parameters Forecasting Using Analog Ensemble Method over the Main Airports of Morocco",
+     "anio": 2022,
+     "doi": "10.1007/s13351-022-2019-0",
+     "id": "a5fed90cd35cd38afdc38a86058543240f1b17a0",
+     "citas": 5
+    },
+    {
+     "titulo": "Designing a Revenue Forecast Scheme for Analog Ensemble Method Applied Solar PV Forecasting in South Korea",
+     "anio": 2025,
+     "doi": "10.1155/er/5529459",
+     "id": "ac59cefc40f1a0bb047830f75433cab030a79a97",
+     "citas": 3
+    },
+    {
+     "titulo": "Post‐Processing Probabilistic Forecasts of the Solar Wind by Data Mining Similar Scenarios",
+     "anio": 2026,
+     "doi": "10.1029/2025SW004859",
+     "id": "b1840c1f0fd1a13614d6bfe89427ca72e93f44b5",
+     "citas": 1
+    },
+    {
+     "titulo": "Weather Analogs with a Machine Learning Similarity Metric for Renewable Resource Forecasting",
+     "anio": 2021,
+     "doi": "10.48550/arXiv.2103.04530",
+     "id": "b20e72019e6ce8cb84a14d385addbbcd90050ecd",
+     "citas": 4
+    },
+    {
+     "titulo": "Improving the Analog Ensemble Wind Speed Forecasts for Rare Events",
+     "anio": 2019,
+     "doi": "10.1175/MWR-D-19-0006.1",
+     "id": "b3b4f82b40d8a2d4a92c75fa537d7e941c4b7aea",
+     "citas": 33
+    },
+    {
+     "titulo": "Analogue Ensemble Averaging Method for Bias Correction of 2-m Temperature of the Medium-Range Forecasts in China",
+     "anio": 2022,
+     "doi": "10.3390/atmos13122097",
+     "id": "c3d32ddc57aef83d1dbebdf54ef46173b5e5f3cd",
+     "citas": 1
+    },
+    {
+     "titulo": "Statistical methods to develop skillful probabilistic wind power forecasts",
+     "anio": 2015,
+     "doi": null,
+     "id": "c61a7a386e513fa70964f42408af89f35420e1ee",
+     "citas": 0
+    },
+    {
+     "titulo": "Improving NOAA NAQFC PM2.5 predictions with a bias correction approach",
+     "anio": 2017,
+     "doi": "10.1175/WAF-D-16-0118.1",
+     "id": "c8a017eb5e3645ba718f8c9ea1379cbbbd3dbe3c",
+     "citas": 59
+    },
+    {
+     "titulo": "Operational air quality forecast guidance for the United States",
+     "anio": 2016,
+     "doi": null,
+     "id": "c91b9772a5aa2af1abeb8bd88e50c627c0ef979a",
+     "citas": 0
+    },
+    {
+     "titulo": "An Analog Technique to Improve Storm Wind Speed Prediction Using a Dual NWP Model Approach",
+     "anio": 2018,
+     "doi": "10.1175/MWR-D-17-0198.1",
+     "id": "c9b6ed49f7549076e02157cec1eaf0ec4485d317",
+     "citas": 32
+    },
+    {
+     "titulo": "Improving Air Quality Predictions over the United States with an Analog Ensemble",
+     "anio": 2020,
+     "doi": "10.1175/waf-d-19-0148.1",
+     "id": "d1447798025f71a90197d2823fec274c7db0feea",
+     "citas": 28
+    },
+    {
+     "titulo": "Using machine learning techniques to generate analog ensembles for data assimilation",
+     "anio": 2021,
+     "doi": "10.5194/egusphere-egu21-6036",
+     "id": "d2bb8caf12401924cbeec9929a6be8559dd5e1b2",
+     "citas": 0
+    },
+    {
+     "titulo": "A Hybrid NWP–Analog Ensemble",
+     "anio": 2016,
+     "doi": "10.1175/MWR-D-15-0096.1",
+     "id": "d2cad3e54cc4658d33f0d7e6f0a00169ade4491a",
+     "citas": 34
+    }
+   ]
+  },
+  {
+   "cadena": "C7",
+   "base": "OpenAlex",
+   "consulta": "(\"retrieval-augmented\" OR \"retrieval augmented\") AND (\"time series forecasting\")",
+   "resultados": 79,
+   "registros": [
+    {
+     "titulo": "Retrieval Augmented Time Series Forecasting",
+     "anio": 2025,
+     "doi": "https://doi.org/10.48550/arxiv.2505.04163",
+     "id": "https://openalex.org/W4416012426",
+     "citas": 89
+    },
+    {
+     "titulo": "Retrieval Augmented Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2411.08249",
+     "id": "https://openalex.org/W4404407089",
+     "citas": 67
+    },
+    {
+     "titulo": "Retrieval-Augmented Diffusion Models for Time Series Forecasting",
+     "anio": 2024,
+     "doi": "https://doi.org/10.52202/079017-0091",
+     "id": "https://openalex.org/W4415799035",
+     "citas": 111
+    },
+    {
+     "titulo": "TimeRAG: Boosting LLM Time Series Forecasting via Retrieval-Augmented Generation",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1109/icassp49660.2025.10889933",
+     "id": "https://openalex.org/W4408353540",
+     "citas": 97
+    },
+    {
+     "titulo": "Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1145/3770855.3817813",
+     "id": "https://openalex.org/W7163702910",
+     "citas": 13
+    },
+    {
+     "titulo": "Spectral Retrieval-Augmented Time-Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2606.19412",
+     "id": "https://openalex.org/W7165370414",
+     "citas": 3
+    },
+    {
+     "titulo": "TimeRAF: Retrieval-Augmented Foundation Model for Zero-Shot Time Series Forecasting",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1109/tkde.2025.3579137",
+     "id": "https://openalex.org/W4411232126",
+     "citas": 67
+    },
+    {
+     "titulo": "Retrieval-augmented Large Language Models for Financial Time Series Forecasting",
+     "anio": 2025,
+     "doi": "https://doi.org/10.48550/arxiv.2502.05878",
+     "id": "https://openalex.org/W4407385968",
+     "citas": 42
+    },
+    {
+     "titulo": "Semantics-Enhanced Retrieval-Augmented Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2606.14941",
+     "id": "https://openalex.org/W7164927702",
+     "citas": 4
+    },
+    {
+     "titulo": "FoRSe: A Retrieval-Augmented Framework for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/icassp55912.2026.11463579",
+     "id": "https://openalex.org/W7155033865",
+     "citas": 0
+    },
+    {
+     "titulo": "RAMTime: Retrieval-Augmented Memory for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/icassp55912.2026.11462579",
+     "id": "https://openalex.org/W7155053624",
+     "citas": 0
+    },
+    {
+     "titulo": "Retrieval-Augmented Framework with Adaptive Gating for Time Series Forecasting",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1007/s12204-025-2847-z",
+     "id": "https://openalex.org/W4414029295",
+     "citas": 2
+    },
+    {
+     "titulo": "TS-RAG: Retrieval Augmented Generation for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2608.06223",
+     "id": "https://openalex.org/W7201885343",
+     "citas": 0
+    },
+    {
+     "titulo": "VRATF: Vision-based Retrieval-Augmented Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.21203/rs.3.rs-11111645/v1",
+     "id": "https://openalex.org/W7223552851",
+     "citas": 0
+    },
+    {
+     "titulo": "QuiZSF: A Retrieval-Augmented Framework for Zero-Shot Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1145/3774904.3792141",
+     "id": "https://openalex.org/W4416178479",
+     "citas": 5
+    },
+    {
+     "titulo": "Cross-city Time Series Forecasting with Retrieval-Augmented Large Language Models",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1145/3774904.3792074",
+     "id": "https://openalex.org/W7152477128",
+     "citas": 5
+    },
+    {
+     "titulo": "GNA: Granular Neighbor Assembly for Retrieval-Augmented Multivariate Time-Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2609.36281",
+     "id": "https://openalex.org/W7214924586",
+     "citas": 0
+    },
+    {
+     "titulo": "STRAF: A retrieval-augmented framework for time series forecasting with adaptive historical fusion",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1016/j.neucom.2026.135443",
+     "id": "https://openalex.org/W7223035541",
+     "citas": 0
+    },
+    {
+     "titulo": "Source data for Evidence Eligibility and Similarity in Retrieval-Augmented Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.5281/zenodo.24503935",
+     "id": "https://openalex.org/W7239423471",
+     "citas": 0
+    },
+    {
+     "titulo": "RATSF: Empowering Customer Service Volume Management through Retrieval-Augmented Time-Series Forecasting",
+     "anio": 2024,
+     "doi": "https://doi.org/10.48550/arxiv.2403.04180",
+     "id": "https://openalex.org/W4392616995",
+     "citas": 5
+    },
+    {
+     "titulo": "TimeMRA: LLM-Empowered Time Series Forecasting via Multi-Scale Retrieval-Augmented Representations",
+     "anio": 2026,
+     "doi": null,
+     "id": "https://openalex.org/W7238710002",
+     "citas": 0
+    },
+    {
+     "titulo": "A$^{2}$RA-NSMTSllm: Adversarially Aligning Retrieval-Augmented LLMs for Nonstationary Multivariate Time Series Forecasting",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1109/tii.2025.3631696",
+     "id": "https://openalex.org/W4416756170",
+     "citas": 3
+    },
+    {
+     "titulo": "Retrieval-Augmented Large-Language-Model-Based Time-Series Forecasting for Cross-Market Equity Analysis",
+     "anio": 2026,
+     "doi": "https://doi.org/10.21203/rs.3.rs-10178277/v1",
+     "id": "https://openalex.org/W7167918097",
+     "citas": 0
+    },
+    {
+     "titulo": "Model-Agnostic Retrieval-Augmented Extended Forecasting For Time Series",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/mlsp68619.2026.11772573",
+     "id": "https://openalex.org/W7203632917",
+     "citas": 0
+    },
+    {
+     "titulo": "TS-RAG: Retrieval-Augmented Generation based Time Series Foundation Models are Stronger Zero-Shot Forecaster",
+     "anio": 2025,
+     "doi": "https://doi.org/10.52202/085713-5448",
+     "id": "https://openalex.org/W4414565284",
+     "citas": 101
+    },
+    {
+     "titulo": "GlyRAG: Context-Aware Retrieval-Augmented Framework for Blood Glucose Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/jbhi.2026.3737468",
+     "id": "https://openalex.org/W7123301806",
+     "citas": 7
+    },
+    {
+     "titulo": "Pattern Recognition and Prediction in Time Series Data Through Retrieval-Augmented Techniques",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1109/iceect61758.2024.10738936",
+     "id": "https://openalex.org/W4404036199",
+     "citas": 2
+    },
+    {
+     "titulo": "A Multi-Scale Transformer Architecture for Cardano Price Forecasting with Retrieval-Augmented Context",
+     "anio": 2025,
+     "doi": null,
+     "id": "https://openalex.org/W7224690026",
+     "citas": 0
+    },
+    {
+     "titulo": "Retrieve the Right Signal: Decomposition-Guided Retrieval-Augmented Forecasting for Financial Markets",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1145/3799682.3841004",
+     "id": "https://openalex.org/W7225118802",
+     "citas": 0
+    },
+    {
+     "titulo": "Channel-Wise Retrieval for Multivariate Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/icassp55912.2026.11463178",
+     "id": "https://openalex.org/W7155101384",
+     "citas": 6
+    },
+    {
+     "titulo": "Time-VLM: Exploring Multimodal Vision-Language Models for Augmented Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1201/9781003616719-9",
+     "id": "https://openalex.org/W4407308611",
+     "citas": 108
+    },
+    {
+     "titulo": "DRAFT-LLM: Retrieval-augmented frequency alignment with frozen large language models for cross-domain air-quality forecasting in enclosed sheep barns",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1016/j.atech.2026.102124",
+     "id": "https://openalex.org/W7154693931",
+     "citas": 0
+    },
+    {
+     "titulo": "FreshCast: Timely and Complementary Retrieval for Frozen Time Series Forecasters",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2610.07834",
+     "id": "https://openalex.org/W7220973571",
+     "citas": 0
+    },
+    {
+     "titulo": "Cross-Channel Adaptation Workflow for Pretrained Time-Series Forecasting Backbones",
+     "anio": 2026,
+     "doi": "https://doi.org/10.2139/ssrn.7021489",
+     "id": "https://openalex.org/W7166591753",
+     "citas": 0
+    },
+    {
+     "titulo": "Time-VLM: Exploring Multimodal Vision-Language Models for Augmented Time Series Forecasting",
+     "anio": 2025,
+     "doi": null,
+     "id": "https://openalex.org/W7205388415",
+     "citas": 36
+    },
+    {
+     "titulo": "Analysis of the possibilities of applying VLM to time series forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.18127/j20700814-202601-04",
+     "id": "https://openalex.org/W7162118473",
+     "citas": 0
+    },
+    {
+     "titulo": "CAUSE-RAG reproducibility materials for causally audited time-series forecasting explanations",
+     "anio": 2026,
+     "doi": "https://doi.org/10.5281/zenodo.20757476",
+     "id": "https://openalex.org/W7165391925",
+     "citas": 0
+    },
+    {
+     "titulo": "Retrieval Mechanisms Surpass Long-Context Scaling in Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2605.08217",
+     "id": "https://openalex.org/W7160963815",
+     "citas": 3
+    },
+    {
+     "titulo": "SEER: Self-Evolving Event Reasoning and Retrieval for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2610.04109",
+     "id": "https://openalex.org/W7220703731",
+     "citas": 0
+    },
+    {
+     "titulo": "Large language model-driven time-series forecasting of financial network indicators",
+     "anio": 2026,
+     "doi": "https://doi.org/10.3389/frai.2026.1722121",
+     "id": "https://openalex.org/W7125899691",
+     "citas": 9
+    },
+    {
+     "titulo": "ROAR: Retrieval Opportunity-Aware Refinement for Zero-Shot Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2605.24911",
+     "id": "https://openalex.org/W7162416775",
+     "citas": 1
+    },
+    {
+     "titulo": "TFGformer: Multivariate Time Series Forecasting via Time-Frequency Graph Learning and Covariate Fusion",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2607.29459",
+     "id": "https://openalex.org/W7172331733",
+     "citas": 0
+    },
+    {
+     "titulo": "Beyond Similarity: Coverage-Aware Prompt Selection for Time Series Forecasting with LLMs",
+     "anio": 2026,
+     "doi": "https://doi.org/10.18653/2026.findings-emnlp.1491",
+     "id": "https://openalex.org/W7214045647",
+     "citas": 0
+    },
+    {
+     "titulo": "Not All Retrievals are Useful: Cross-Attention for Input-Aware RAG in Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2603.14709",
+     "id": "https://openalex.org/W7138416749",
+     "citas": 7
+    },
+    {
+     "titulo": "RATL: Learning from Retrieved Residuals for Robust Multivariate Time-Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2609.03937",
+     "id": "https://openalex.org/W7208708326",
+     "citas": 1
+    },
+    {
+     "titulo": "FCR: Multi-View Compositional Retrieval for Time Series Forecasting with Large Language Models",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/icassp55912.2026.11464622",
+     "id": "https://openalex.org/W7155045658",
+     "citas": 0
+    },
+    {
+     "titulo": "ReCast: Regime-aware Multi-scale Retrieval with Context--Evolution Coupling for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1145/3799682.3840828",
+     "id": "https://openalex.org/W7225113114",
+     "citas": 0
+    },
+    {
+     "titulo": "Which Histories Matter for Time Series Forecasting? Learning Predictive Relevance with Future Supervision",
+     "anio": 2026,
+     "doi": "https://doi.org/10.48550/arxiv.2608.23221",
+     "id": "https://openalex.org/W7204174706",
+     "citas": 0
+    },
+    {
+     "titulo": "Tracing the Evidence Behind Zero-Shot Time-Series Forecasting: A Source-First Taxonomy and Audit Framework",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1145/3806096.3844831",
+     "id": "https://openalex.org/W7213908022",
+     "citas": 0
+    },
+    {
+     "titulo": "KAN-LLM: Kolmogorov-Arnold Networks-Enhanced Large Language Models for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1109/icassp55912.2026.11462794",
+     "id": "https://openalex.org/W7155089422",
+     "citas": 0
+    }
+   ]
+  },
+  {
+   "cadena": "C7",
+   "base": "arXiv",
+   "consulta": "(abs:\"retrieval-augmented\" OR abs:\"retrieval augmented\") AND abs:\"time series forecasting\"",
+   "resultados": 27,
+   "registros": [
+    {
+     "titulo": "Model-agnostic Retrieval-Augmented Extended Forecasting for time series",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2608.14054v1"
+    },
+    {
+     "titulo": "TimeRAF: Retrieval-Augmented Foundation model for Zero-shot Time Series Forecasting",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2412.20810v1"
+    },
+    {
+     "titulo": "Retrieval Augmented Time Series Forecasting",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2411.08249v2"
+    },
+    {
+     "titulo": "TFGformer: Multivariate Time Series Forecasting via Time-Frequency Graph Learning and Covariate Fusion",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2607.29459v1"
+    },
+    {
+     "titulo": "Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2606.04135v1"
+    },
+    {
+     "titulo": "Channel-wise Retrieval for Multivariate Time Series Forecasting",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2604.05543v2"
+    },
+    {
+     "titulo": "TimeRAG: BOOSTING LLM Time Series Forecasting via Retrieval-Augmented Generation",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2412.16643v1"
+    },
+    {
+     "titulo": "RATSF: Empowering Customer Service Volume Management through Retrieval-Augmented Time-Series Forecasting",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2403.04180v2"
+    },
+    {
+     "titulo": "Retrieval Augmented Time Series Forecasting",
+     "anio": 2025,
+     "doi": "http://arxiv.org/abs/2505.04163v1"
+    },
+    {
+     "titulo": "Tracing the Evidence Behind Zero-Shot Time-Series Forecasting: A Source-First Taxonomy and Audit Framework",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2609.21425v1"
+    },
+    {
+     "titulo": "ROAR: Retrieval Opportunity-Aware Refinement for Zero-Shot Time Series Forecasting",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2605.24911v2"
+    },
+    {
+     "titulo": "TS-RAG: Retrieval Augmented Generation for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2608.06223v1"
+    },
+    {
+     "titulo": "Time-VLM: Exploring Multimodal Vision-Language Models for Augmented Time Series Forecasting",
+     "anio": 2025,
+     "doi": "http://arxiv.org/abs/2502.04395v2"
+    },
+    {
+     "titulo": "A Model-Agnostic Correction Framework for Short-Term Building Load Forecasting",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2610.31959v1"
+    },
+    {
+     "titulo": "Semantics-Enhanced Retrieval-Augmented Time Series Forecasting",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2606.14941v1"
+    },
+    {
+     "titulo": "TS-RAG: Retrieval-Augmented Generation based Time Series Foundation Models are Stronger Zero-Shot Forecaster",
+     "anio": 2025,
+     "doi": "http://arxiv.org/abs/2503.07649v4"
+    },
+    {
+     "titulo": "Beyond Similarity: Coverage-Aware Prompt Selection for Time Series Forecasting with LLMs",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2609.22977v1"
+    },
+    {
+     "titulo": "SEER: Self-Evolving Event Reasoning and Retrieval for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2610.04109v1"
+    },
+    {
+     "titulo": "Spectral Retrieval-Augmented Time-Series Forecasting",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2606.19412v1"
+    },
+    {
+     "titulo": "Which Histories Matter for Time Series Forecasting? Learning Predictive Relevance with Future Supervision",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2608.23221v3"
+    },
+    {
+     "titulo": "Decouple to Reuse: Fine-Grained Knowledge Augmentation for Time Series Foundation Models",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2611.05993v1"
+    },
+    {
+     "titulo": "MEMTS: Internalizing Domain Knowledge via Parameterized Memory for Retrieval-Free Domain Adaptation of Time Series Foundation Models",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2602.13783v1"
+    },
+    {
+     "titulo": "Harnessing the Power of LLMs, Informers and Decision Transformers for Intent-driven RAN Management in 6G",
+     "anio": 2025,
+     "doi": "http://arxiv.org/abs/2505.01841v1"
+    },
+    {
+     "titulo": "Retrieval-Corrected Conformal Prediction for Time Series",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2608.10553v1"
+    },
+    {
+     "titulo": "Retrieval-augmented Large Language Models for Financial Time Series Forecasting",
+     "anio": 2025,
+     "doi": "http://arxiv.org/abs/2502.05878v3"
+    },
+    {
+     "titulo": "RATL: Learning from Retrieved Residuals for Robust Multivariate Time-Series Forecasting",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2609.03937v1"
+    },
+    {
+     "titulo": "GlyRAG: Context-Aware Retrieval-Augmented Framework for Blood Glucose Forecasting",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2601.05353v3"
+    }
+   ]
+  },
+  {
+   "cadena": "C7",
+   "base": "Semantic Scholar",
+   "consulta": "(\"retrieval-augmented\" | \"retrieval augmented\") + \"time series forecasting\"",
+   "resultados": 54,
+   "registros": [
+    {
+     "titulo": "QuiZSF: A Retrieval-Augmented Framework for Zero-Shot Time Series Forecasting",
+     "anio": 2025,
+     "doi": "10.1145/3774904.3792141",
+     "id": "030a63f10520448da0a551efcfd43526913e50a3",
+     "citas": 3
+    },
+    {
+     "titulo": "DANet: A RAG-inspired Dual Attention Model for Few-shot Time Series Prediction",
+     "anio": 2025,
+     "doi": "10.1145/3746252.3761012",
+     "id": "03c60169b2b3d762bfc64468b1015589c29c82f7",
+     "citas": 1
+    },
+    {
+     "titulo": "RATSF: Empowering Customer Service Volume Management through Retrieval-Augmented Time-Series Forecasting",
+     "anio": 2024,
+     "doi": "10.48550/arXiv.2403.04180",
+     "id": "0653f72cb873f280aece9132ffbffb6c7188e3f3",
+     "citas": 2
+    },
+    {
+     "titulo": "ROAR: Retrieval Opportunity-Aware Refinement for Zero-Shot Time Series Forecasting",
+     "anio": 2026,
+     "doi": null,
+     "id": "0b2db50715da2b78fb94df1e2d978f56ce161da8",
+     "citas": 1
+    },
+    {
+     "titulo": "Harnessing the Power of LLMs, Informers and Decision Transformers for Intent-Driven RAN Management in 6G",
+     "anio": 2025,
+     "doi": "10.1109/TNSE.2025.3596028",
+     "id": "0bcaac9e06abb6c5945bceab4ec3fe5045d4b605",
+     "citas": 21
+    },
+    {
+     "titulo": "TimeRAG: Boosting LLM Time Series Forecasting via Retrieval-Augmented Generation",
+     "anio": 2024,
+     "doi": "10.1109/ICASSP49660.2025.10889933",
+     "id": "108a5a16e4e32a3f7cb4d2668e4c6bbee3feb692",
+     "citas": 48
+    },
+    {
+     "titulo": "A Model-Agnostic Correction Framework for Short-Term Building Load Forecasting",
+     "anio": 2026,
+     "doi": null,
+     "id": "13b35a527fe92959ac64746a92c98fb6703d2426",
+     "citas": 0
+    },
+    {
+     "titulo": "Retrieval-Corrected Conformal Prediction for Time Series",
+     "anio": 2026,
+     "doi": "10.1145/3799682.3840955",
+     "id": "13b3c8875bdcc7dcf4550a8c8796925ff6f579e7",
+     "citas": 2
+    },
+    {
+     "titulo": "Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+     "anio": 2026,
+     "doi": "10.1145/3770855.3817813",
+     "id": "1a3e6dbf859fafa4807c83b3e400086e71e30f0c",
+     "citas": 11
+    },
+    {
+     "titulo": "Cross-RAG: Zero-Shot Retrieval-Augmented Time Series Forecasting via Cross-Attention",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2603.14709",
+     "id": "1a8b7750ac48ae25ead76d68e7d51fc2ad7cf71f",
+     "citas": 2
+    },
+    {
+     "titulo": "RATL: Learning from Retrieved Residuals for Robust Multivariate Time-Series Forecasting",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2609.03937",
+     "id": "1e8f0b92ca37e388fe82589be824ce75e246819d",
+     "citas": 1
+    },
+    {
+     "titulo": "ReCast: Regime-aware Multi-scale Retrieval with Context--Evolution Coupling for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "10.1145/3799682.3840828",
+     "id": "1f2f7607615d30b70320a8ad021f90df8ba22120",
+     "citas": 0
+    },
+    {
+     "titulo": "A$^{2}$RA-NSMTSllm: Adversarially Aligning Retrieval-Augmented LLMs for Nonstationary Multivariate Time Series Forecasting",
+     "anio": 2026,
+     "doi": "10.1109/TII.2025.3631696",
+     "id": "26128a8de22a9cb71f6af3d2e71f8d4c3fe55b5d",
+     "citas": 3
+    },
+    {
+     "titulo": "A Semantic Risk-Aware Optimization Framework for Virtual Power Plant Dispatch Using Large Language Models",
+     "anio": 2026,
+     "doi": "10.3390/en19122820",
+     "id": "27de010d22a61d0e06dc1ff513133f103ce0fdb2",
+     "citas": 2
+    },
+    {
+     "titulo": "GeMeR-TS: Generative Memory-Based Retrieval and Mixture-of-Experts for Cross-Domain Time-Series Forecasting",
+     "anio": 2026,
+     "doi": "10.1109/TBDATA.2026.3689009",
+     "id": "2c728df03ee5febec2936aabb6e86cd563775c36",
+     "citas": 1
+    },
+    {
+     "titulo": "Analysis of the possibilities of applying VLM to time series forecasting",
+     "anio": 2026,
+     "doi": "10.18127/j20700814-202601-04",
+     "id": "2e3bbd073bd1ca36450737c42efbe854b65b4395",
+     "citas": 0
+    },
+    {
+     "titulo": "FoRSe: A Retrieval-Augmented Framework for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "10.1109/icassp55912.2026.11463579",
+     "id": "3b406fc1cec2f7af3fdb247839661e167eaaddf6",
+     "citas": 0
+    },
+    {
+     "titulo": "TimeRAF: Retrieval-Augmented Foundation model for Zero-shot Time Series Forecasting",
+     "anio": 2024,
+     "doi": "10.48550/arXiv.2412.20810",
+     "id": "3c47b2290c95b4021a453e7a1b281637debf03d2",
+     "citas": 37
+    },
+    {
+     "titulo": "Semantics-Enhanced Retrieval-Augmented Time Series Forecasting",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2606.14941",
+     "id": "4f1487e029e4a7991c43c541c842702e55d57c20",
+     "citas": 3
+    },
+    {
+     "titulo": "TS-RAG: Retrieval Augmented Generation for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2608.06223",
+     "id": "5448fb9676077bd1b34c8129a759e1f1643e0d56",
+     "citas": 1
+    },
+    {
+     "titulo": "Cross-city Time Series Forecasting with Retrieval-Augmented Large Language Models",
+     "anio": 2026,
+     "doi": "10.1145/3774904.3792074",
+     "id": "56a8671a89b767753bbee4baab25f71365682aba",
+     "citas": 3
+    },
+    {
+     "titulo": "TimeRAF: Retrieval-Augmented Foundation Model for Zero-Shot Time Series Forecasting",
+     "anio": 2025,
+     "doi": "10.1109/TKDE.2025.3579137",
+     "id": "57e4d9aba9d69acd5d05a2cc534b16abf43c88d1",
+     "citas": 7
+    },
+    {
+     "titulo": "Pattern Recognition and Prediction in Time Series Data Through Retrieval-Augmented Techniques",
+     "anio": 2024,
+     "doi": "10.1109/ICEECT61758.2024.10738936",
+     "id": "5954f53a8dcd55b04b52f9406c7f845777534db1",
+     "citas": 1
+    },
+    {
+     "titulo": "AgriVerse-AI: End-to-End Multilingual Intelligent Assistant for Farmers",
+     "anio": 2026,
+     "doi": "10.1109/ICISCN67954.2026.11566598",
+     "id": "5d69bac6fd96e9800ae387652487e90766930d1a",
+     "citas": 0
+    },
+    {
+     "titulo": "Model-Agnostic Retrieval-Augmented Extended Forecasting For Time Series",
+     "anio": 2026,
+     "doi": "10.1109/MLSP68619.2026.11772573",
+     "id": "5fd79ee9f1d7e4892fce3f988b59a65f93eb2253",
+     "citas": 0
+    },
+    {
+     "titulo": "Not All Retrievals are Useful: Cross-Attention for Input-Aware RAG in Time Series Forecasting",
+     "anio": 2026,
+     "doi": null,
+     "id": "70a11524a2cc0670e134029ea9d7312f4325da0f",
+     "citas": 4
+    },
+    {
+     "titulo": "Retrieval Mechanisms Surpass Long-Context Scaling in Time Series Forecasting",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2605.08217",
+     "id": "731f6bb137c14dc5d22097483f74803c72ed2e97",
+     "citas": 2
+    },
+    {
+     "titulo": "MEMTS: Internalizing Domain Knowledge via Parameterized Memory for Retrieval-Free Domain Adaptation of Time Series Foundation Models",
+     "anio": 2026,
+     "doi": "10.1145/3770855.3818032",
+     "id": "7c7222b74da19d1b7302aa6171e913652042cdbb",
+     "citas": 3
+    },
+    {
+     "titulo": "Indoor Climate Monitoring and Forecasting with Agentic-RAG-LLM",
+     "anio": 2025,
+     "doi": "10.1109/ICET66147.2025.11321427",
+     "id": "7c86ffcf0f0384f93f8465c553ab532b702003fe",
+     "citas": 0
+    },
+    {
+     "titulo": "Retrieval Augmented Time Series Forecasting",
+     "anio": 2025,
+     "doi": "10.48550/arXiv.2505.04163",
+     "id": "8096a5d8ecc369a9a4aa7afc3efa446fb0776dd0",
+     "citas": 1
+    },
+    {
+     "titulo": "Which Histories Matter for Time Series Forecasting? Learning Predictive Relevance with Future Supervision",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2608.23221",
+     "id": "813dbdcbf39abf0f328860c48769c82fced26da0",
+     "citas": 1
+    },
+    {
+     "titulo": "QuiZSF: An efficient data-model interaction framework for zero-shot time-series forecasting",
+     "anio": 2025,
+     "doi": "10.48550/arXiv.2508.06915",
+     "id": "8f3219302b14c16073af904fa46947de3b791698",
+     "citas": 0
+    },
+    {
+     "titulo": "Large Language Models Can be Few-Shot Server Anomaly Detector",
+     "anio": 2025,
+     "doi": "10.1109/MLISE66443.2025.11100205",
+     "id": "8fe236e217f6427b3deaf5fba850d8c25d7ce629",
+     "citas": 0
+    },
+    {
+     "titulo": "Enhancing Financial Time-Series Forecasting with Retrieval-Augmented Large Language Models",
+     "anio": 2025,
+     "doi": "10.48550/arXiv.2502.05878",
+     "id": "92f39edadae006cf1eaee6a6b83a61b21eae318a",
+     "citas": 9
+    },
+    {
+     "titulo": "TS-RAG: Retrieval-Augmented Generation based Time Series Foundation Models are Stronger Zero-Shot Forecaster",
+     "anio": 2025,
+     "doi": "10.48550/arXiv.2503.07649",
+     "id": "b442c46df7878a07190b22a482c65c038ee943d1",
+     "citas": 70
+    },
+    {
+     "titulo": "Retrieval-Augmented Framework with Adaptive Gating for Time Series Forecasting",
+     "anio": 2025,
+     "doi": "10.1007/s12204-025-2847-z",
+     "id": "b81046617c3e9a0091969a023f18922ae45f632c",
+     "citas": 1
+    },
+    {
+     "titulo": "Decouple to Reuse: Fine-Grained Knowledge Augmentation for Time Series Foundation Models",
+     "anio": 2026,
+     "doi": null,
+     "id": "c15e9dfae6dff78f1ce1571e566cdb5e7355c227",
+     "citas": 0
+    },
+    {
+     "titulo": "Tracing the Evidence Behind Zero-Shot Time-Series Forecasting: A Source-First Taxonomy and Audit Framework",
+     "anio": 2026,
+     "doi": "10.1145/3806096.3844831",
+     "id": "c5cafd8e3d5dd10b63a2c22ee5aae27fbcbdd729",
+     "citas": 0
+    },
+    {
+     "titulo": "RAMTime: Retrieval-Augmented Memory for Time Series Forecasting",
+     "anio": 2026,
+     "doi": "10.1109/icassp55912.2026.11462579",
+     "id": "c8b95d656edc5372811cc5ec818efa70cb7b19ba",
+     "citas": 0
+    },
+    {
+     "titulo": "Large language model-driven time-series forecasting of financial network indicators",
+     "anio": 2026,
+     "doi": "10.3389/frai.2026.1722121",
+     "id": "cc70f12544548688aad5b33c3c8b2b7ed5a90326",
+     "citas": 6
+    },
+    {
+     "titulo": "Retrieve the Right Signal: Decomposition-Guided Retrieval-Augmented Forecasting for Financial Markets",
+     "anio": 2026,
+     "doi": "10.1145/3799682.3841004",
+     "id": "cecfbd6717430ff2592290afced237d9c85e55c8",
+     "citas": 0
+    },
+    {
+     "titulo": "Retrieval-augmented Large Language Models for Financial Time Series Forecasting",
+     "anio": 2025,
+     "doi": null,
+     "id": "cf2a6493f7c1eb4632434c89fc659f37b13e7942",
+     "citas": 13
+    },
+    {
+     "titulo": "Retrieval-Augmented Diffusion Models for Time Series Forecasting",
+     "anio": 2024,
+     "doi": "10.48550/arXiv.2410.18712",
+     "id": "d697e6c99c1e7039cab212655757fcb9d1a34f53",
+     "citas": 76
+    },
+    {
+     "titulo": "Time-VLM: Exploring Multimodal Vision-Language Models for Augmented Time Series Forecasting",
+     "anio": 2025,
+     "doi": "10.48550/arXiv.2502.04395",
+     "id": "d9a69d44841044a12bc72df848cd94b78524ed84",
+     "citas": 103
+    },
+    {
+     "titulo": "Channel-wise Retrieval for Multivariate Time Series Forecasting",
+     "anio": 2026,
+     "doi": "10.1109/icassp55912.2026.11463178",
+     "id": "e2fb8c71ef03b84b23b36e6256d86e12a21e9f88",
+     "citas": 4
+    },
+    {
+     "titulo": "PRESAGE: Uncertainty-Aware Predictive Elastic Scheduling for Cloud Analytics and GenAI Inference",
+     "anio": 2026,
+     "doi": "10.1109/ACCESS.2026.3734498",
+     "id": "e35619e147e81d6068e3a2ec237b9b4701dc40eb",
+     "citas": 6
+    },
+    {
+     "titulo": "STRAF: A retrieval-augmented framework for time series forecasting with adaptive historical fusion",
+     "anio": 2026,
+     "doi": "10.1016/j.neucom.2026.135443",
+     "id": "ea0974155c3b147728e313384fa10f2dd781c3f8",
+     "citas": 0
+    },
+    {
+     "titulo": "SEER: Self-Evolving Event Reasoning and Retrieval for Time Series Forecasting",
+     "anio": 2026,
+     "doi": null,
+     "id": "ebeaab0790b64a56b1ab5e3fe15c1fc242815436",
+     "citas": 0
+    },
+    {
+     "titulo": "GNA: Granular Neighbor Assembly for Retrieval-Augmented Multivariate Time-Series Forecasting",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2609.36281",
+     "id": "ec3e021ceb8068b5edff1ea57465b0f9dcb2085a",
+     "citas": 0
+    },
+    {
+     "titulo": "GlyRAG: Context-Aware Retrieval-Augmented Framework for Blood Glucose Forecasting",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2601.05353",
+     "id": "f14264abd0782baccc9b834af1e2da1b2fee1b32",
+     "citas": 6
+    }
+   ]
+  },
+  {
+   "cadena": "C8",
+   "base": "OpenAlex",
+   "consulta": "(\"nearest neighbor language model\" OR \"kNN-LM\" OR \"retrieval-augmented language model\" OR \"memorizing transformer\")",
+   "resultados": 316,
+   "registros": [
+    {
+     "titulo": "Generalization through Memorization: Nearest Neighbor Language Models",
+     "anio": 2020,
+     "doi": "https://doi.org/10.48550/arxiv.1911.00172",
+     "id": "https://openalex.org/W2988841832",
+     "citas": 1331
+    },
+    {
+     "titulo": "Efficient Nearest Neighbor Language Models",
+     "anio": 2021,
+     "doi": "https://doi.org/10.18653/v1/2021.emnlp-main.461",
+     "id": "https://openalex.org/W3213851426",
+     "citas": 154
+    },
+    {
+     "titulo": "In-Context Retrieval-Augmented Language Models",
+     "anio": 2023,
+     "doi": "https://doi.org/10.1162/tacl_a_00605",
+     "id": "https://openalex.org/W4388778348",
+     "citas": 1467
+    },
+    {
+     "titulo": "Retrieval Augmented Language Model Pre-Training",
+     "anio": 2020,
+     "doi": null,
+     "id": "https://openalex.org/W3034671305",
+     "citas": 2586
+    },
+    {
+     "titulo": "Why do Nearest Neighbor Language Models Work?",
+     "anio": 2023,
+     "doi": "https://doi.org/10.48550/arxiv.2301.02828",
+     "id": "https://openalex.org/W4315588390",
+     "citas": 55
+    },
+    {
+     "titulo": "REALM: Retrieval-Augmented Language Model Pre-Training",
+     "anio": 2020,
+     "doi": "https://doi.org/10.48550/arxiv.2002.08909",
+     "id": "https://openalex.org/W3007672467",
+     "citas": 1668
+    },
+    {
+     "titulo": "LeanDojo: Theorem Proving with Retrieval-Augmented Language Models",
+     "anio": 2023,
+     "doi": "https://doi.org/10.52202/075280-0944",
+     "id": "https://openalex.org/W7133195287",
+     "citas": 792
+    },
+    {
+     "titulo": "Almanac — Retrieval-Augmented Language Models for Clinical Medicine",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1056/aioa2300068",
+     "id": "https://openalex.org/W4391221150",
+     "citas": 679
+    },
+    {
+     "titulo": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+     "anio": 2022,
+     "doi": "https://doi.org/10.48550/arxiv.2208.03299",
+     "id": "https://openalex.org/W4301243929",
+     "citas": 1467
+    },
+    {
+     "titulo": "Synthesizing scientific literature with retrieval-augmented language models",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1038/s41586-025-10072-4",
+     "id": "https://openalex.org/W7127589252",
+     "citas": 355
+    },
+    {
+     "titulo": "Making Retrieval-Augmented Language Models Robust to Irrelevant Context",
+     "anio": 2024,
+     "doi": "https://doi.org/10.48550/arxiv.2310.01558",
+     "id": "https://openalex.org/W4387355694",
+     "citas": 592
+    },
+    {
+     "titulo": "Memorizing Transformers",
+     "anio": 2022,
+     "doi": "https://doi.org/10.48550/arxiv.2203.08913",
+     "id": "https://openalex.org/W4225909425",
+     "citas": 260
+    },
+    {
+     "titulo": "Adaptation Approaches for Nearest Neighbor Language Models",
+     "anio": 2023,
+     "doi": "https://doi.org/10.18653/v1/2023.findings-acl.73",
+     "id": "https://openalex.org/W4385572666",
+     "citas": 14
+    },
+    {
+     "titulo": "Chain-of-Note: Enhancing Robustness in Retrieval-Augmented Language Models",
+     "anio": 2024,
+     "doi": "https://doi.org/10.18653/v1/2024.emnlp-main.813",
+     "id": "https://openalex.org/W4404782899",
+     "citas": 311
+    },
+    {
+     "titulo": "RAGTruth: A Hallucination Corpus for Developing Trustworthy Retrieval-Augmented Language Models",
+     "anio": 2024,
+     "doi": "https://doi.org/10.18653/v1/2024.acl-long.585",
+     "id": "https://openalex.org/W4402671555",
+     "citas": 653
+    },
+    {
+     "titulo": "Long-Tail Crisis in Nearest Neighbor Language Models",
+     "anio": 2025,
+     "doi": "https://doi.org/10.18653/v1/2025.findings-naacl.331",
+     "id": "https://openalex.org/W4411119935",
+     "citas": 5
+    },
+    {
+     "titulo": "Accelerating Retrieval-Augmented Language Model Serving with Speculation",
+     "anio": 2024,
+     "doi": "https://doi.org/10.48550/arxiv.2401.14021",
+     "id": "https://openalex.org/W4391272538",
+     "citas": 45
+    },
+    {
+     "titulo": "Almanac: Retrieval-Augmented Language Models for Clinical Medicine",
+     "anio": 2023,
+     "doi": "https://doi.org/10.48550/arxiv.2303.01229",
+     "id": "https://openalex.org/W4323076364",
+     "citas": 68
+    },
+    {
+     "titulo": "Improving Retrieval Augmented Language Model with Self-Reasoning",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1609/aaai.v39i24.34743",
+     "id": "https://openalex.org/W4409362682",
+     "citas": 66
+    },
+    {
+     "titulo": "Regularized Training of Nearest Neighbor Language Models",
+     "anio": 2021,
+     "doi": "https://doi.org/10.48550/arxiv.2109.08249",
+     "id": "https://openalex.org/W4287895798",
+     "citas": 1
+    },
+    {
+     "titulo": "Regularized Training of Nearest Neighbor Language Models",
+     "anio": 2022,
+     "doi": "https://doi.org/10.18653/v1/2022.naacl-srw.4",
+     "id": "https://openalex.org/W3199411760",
+     "citas": 1
+    },
+    {
+     "titulo": "Nearest Neighbor Language Models for Stylistic Controllable Generation",
+     "anio": 2022,
+     "doi": "https://doi.org/10.18653/v1/2022.gem-1.25",
+     "id": "https://openalex.org/W4385573278",
+     "citas": 8
+    },
+    {
+     "titulo": "Almanac: Retrieval-Augmented Language Models for Clinical Medicine",
+     "anio": 2023,
+     "doi": "https://doi.org/10.21203/rs.3.rs-2883198/v1",
+     "id": "https://openalex.org/W4367672504",
+     "citas": 51
+    },
+    {
+     "titulo": "Enhancing Noise Robustness of Retrieval-Augmented Language Models with Adaptive Adversarial Training",
+     "anio": 2024,
+     "doi": "https://doi.org/10.18653/v1/2024.acl-long.540",
+     "id": "https://openalex.org/W4402671700",
+     "citas": 178
+    },
+    {
+     "titulo": "Suffix Retrieval-Augmented Language Modeling",
+     "anio": 2023,
+     "doi": "https://doi.org/10.1109/icassp49357.2023.10096450",
+     "id": "https://openalex.org/W4372260446",
+     "citas": 4
+    },
+    {
+     "titulo": "Telco-RAG: Navigating the Challenges of Retrieval Augmented Language Models for Telecommunications",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1109/globecom52923.2024.10901158",
+     "id": "https://openalex.org/W4408325149",
+     "citas": 95
+    },
+    {
+     "titulo": "Long-Tail Crisis in Nearest Neighbor Language Models",
+     "anio": 2025,
+     "doi": "https://doi.org/10.5715/jnlp.32.1272",
+     "id": "https://openalex.org/W4417307625",
+     "citas": 1
+    },
+    {
+     "titulo": "Leveraging long context in retrieval augmented language models for medical question answering",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1038/s41746-025-01651-w",
+     "id": "https://openalex.org/W4410030662",
+     "citas": 132
+    },
+    {
+     "titulo": "RAG and RAU: A Survey on Retrieval-Augmented Language Model in Natural Language Processing",
+     "anio": 2024,
+     "doi": "https://doi.org/10.48550/arxiv.2404.19543",
+     "id": "https://openalex.org/W4396600777",
+     "citas": 125
+    },
+    {
+     "titulo": "Lightweight Retrieval-augmented language model",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1109/acsat68407.2025.11406960",
+     "id": "https://openalex.org/W7131870272",
+     "citas": 0
+    },
+    {
+     "titulo": "Chameleon: A Heterogeneous and Disaggregated Accelerator System for Retrieval-Augmented Language Models",
+     "anio": 2024,
+     "doi": "https://doi.org/10.14778/3696435.3696439",
+     "id": "https://openalex.org/W4407355496",
+     "citas": 66
+    },
+    {
+     "titulo": "C-RAG: Certified Generation Risks for Retrieval-Augmented Language Models",
+     "anio": 2024,
+     "doi": "https://doi.org/10.48550/arxiv.2402.03181",
+     "id": "https://openalex.org/W4391591446",
+     "citas": 65
+    },
+    {
+     "titulo": "Predicting Numerals in Text Using Nearest Neighbor Language Models",
+     "anio": 2023,
+     "doi": "https://doi.org/10.18653/v1/2023.findings-acl.295",
+     "id": "https://openalex.org/W4385893852",
+     "citas": 1
+    },
+    {
+     "titulo": "Reimagining Retrieval Augmented Language Models for Answering Queries",
+     "anio": 2023,
+     "doi": "https://doi.org/10.18653/v1/2023.findings-acl.382",
+     "id": "https://openalex.org/W4385572524",
+     "citas": 14
+    },
+    {
+     "titulo": "Building a Coding Assistant via the Retrieval-Augmented Language Model",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1145/3695868",
+     "id": "https://openalex.org/W4402817791",
+     "citas": 28
+    },
+    {
+     "titulo": "Tug-of-War between Knowledge: Exploring and Resolving Knowledge Conflicts in Retrieval-Augmented Language Models",
+     "anio": 2024,
+     "doi": "https://doi.org/10.63317/4fisde58hr4n",
+     "id": "https://openalex.org/W7131894374",
+     "citas": 165
+    },
+    {
+     "titulo": "It's About Time: Incorporating Temporality in Retrieval Augmented Language Models",
+     "anio": 2024,
+     "doi": "https://doi.org/10.48550/arxiv.2401.13222",
+     "id": "https://openalex.org/W4391272456",
+     "citas": 25
+    },
+    {
+     "titulo": "Advancing multimodal retrieval-augmented language modeling",
+     "anio": 2026,
+     "doi": "https://doi.org/10.32657/10356/219045",
+     "id": "https://openalex.org/W7196980356",
+     "citas": 0
+    },
+    {
+     "titulo": "Automated Evaluation of Retrieval-Augmented Language Models with Task-Specific Exam Generation",
+     "anio": 2024,
+     "doi": "https://doi.org/10.48550/arxiv.2405.13622",
+     "id": "https://openalex.org/W4398795761",
+     "citas": 62
+    },
+    {
+     "titulo": "Automatic Database Configuration Debugging using Retrieval-Augmented Language Models",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1145/3709663",
+     "id": "https://openalex.org/W4407357344",
+     "citas": 37
+    },
+    {
+     "titulo": "CIRAG: Retrieval-Augmented Language Model with Collective Intelligence",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1145/3726302.3729921",
+     "id": "https://openalex.org/W4412376913",
+     "citas": 8
+    },
+    {
+     "titulo": "A Data-Efficient Nearest-Neighbor Language Model via Lightweight Nets",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1007/978-981-96-2292-4_1",
+     "id": "https://openalex.org/W4407719230",
+     "citas": 0
+    },
+    {
+     "titulo": "It's About Time: Incorporating Temporality in Retrieval Augmented Language Models",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1109/cai64502.2025.00019",
+     "id": "https://openalex.org/W4412082260",
+     "citas": 19
+    },
+    {
+     "titulo": "ATLANTIC: Structure-Aware Retrieval-Augmented Language Model for Interdisciplinary Science",
+     "anio": 2023,
+     "doi": "https://doi.org/10.48550/arxiv.2311.12289",
+     "id": "https://openalex.org/W4388927720",
+     "citas": 30
+    },
+    {
+     "titulo": "Reimagining Retrieval Augmented Language Models for Answering Queries",
+     "anio": 2023,
+     "doi": "https://doi.org/10.48550/arxiv.2306.01061",
+     "id": "https://openalex.org/W4379467059",
+     "citas": 3
+    },
+    {
+     "titulo": "Retrieval-Augmented Language Models are Mimetic Theorem Provers",
+     "anio": 2025,
+     "doi": "https://doi.org/10.18653/v1/2025.findings-emnlp.1162",
+     "id": "https://openalex.org/W4416033914",
+     "citas": 2
+    },
+    {
+     "titulo": "RAGRouter: Learning to Route Queries to Multiple Retrieval-Augmented Language Models",
+     "anio": 2025,
+     "doi": "https://doi.org/10.52202/085713-0532",
+     "id": "https://openalex.org/W4415901329",
+     "citas": 26
+    },
+    {
+     "titulo": "Deeper understanding of In-Context Retrieval-Augmented Language Models",
+     "anio": 2024,
+     "doi": "https://doi.org/10.59350/shsq3-s2522",
+     "id": "https://openalex.org/W4392754399",
+     "citas": 0
+    },
+    {
+     "titulo": "Towards an FA ChatBot with Retrieval-Augmented Language Modeling",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1109/ipfa61654.2024.10691083",
+     "id": "https://openalex.org/W4403024052",
+     "citas": 1
+    },
+    {
+     "titulo": "Enhancing Robustness of Retrieval-Augmented Language Models with In-Context Learning",
+     "anio": 2024,
+     "doi": "https://doi.org/10.18653/v1/2024.knowledgenlp-1.7",
+     "id": "https://openalex.org/W4402683030",
+     "citas": 11
+    }
+   ]
+  },
+  {
+   "cadena": "C8",
+   "base": "arXiv",
+   "consulta": "(abs:\"nearest neighbor language model\" OR abs:\"kNN-LM\" OR abs:\"memorizing transformer\")",
+   "resultados": 24,
+   "registros": [
+    {
+     "titulo": "Why do Nearest Neighbor Language Models Work?",
+     "anio": 2023,
+     "doi": "http://arxiv.org/abs/2301.02828v2"
+    },
+    {
+     "titulo": "kNN-Prompt: Nearest Neighbor Zero-Shot Inference",
+     "anio": 2022,
+     "doi": "http://arxiv.org/abs/2205.13792v2"
+    },
+    {
+     "titulo": "Nearest Neighbor Speculative Decoding for LLM Generation and Attribution",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2405.19325v3"
+    },
+    {
+     "titulo": "KNN-LM Does Not Improve Open-ended Text Generation",
+     "anio": 2023,
+     "doi": "http://arxiv.org/abs/2305.14625v1"
+    },
+    {
+     "titulo": "Multi-Modal Retrieval For Large Language Model Based Speech Recognition",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2406.09618v1"
+    },
+    {
+     "titulo": "Long-Tail Crisis in Nearest Neighbor Language Models",
+     "anio": 2025,
+     "doi": "http://arxiv.org/abs/2503.22426v1"
+    },
+    {
+     "titulo": "Style Locality for Controllable Generation with kNN Language Models",
+     "anio": 2023,
+     "doi": "http://arxiv.org/abs/2311.00475v1"
+    },
+    {
+     "titulo": "Can Retriever-Augmented Language Models Reason? The Blame Game Between the Retriever and the Language Model",
+     "anio": 2022,
+     "doi": "http://arxiv.org/abs/2212.09146v3"
+    },
+    {
+     "titulo": "MELODI: Exploring Memory Compression for Long Contexts",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2410.03156v1"
+    },
+    {
+     "titulo": "Efficient Nearest Neighbor Language Models",
+     "anio": 2021,
+     "doi": "http://arxiv.org/abs/2109.04212v3"
+    },
+    {
+     "titulo": "On the Predictive Power of Representation Dispersion in Language Models",
+     "anio": 2025,
+     "doi": "http://arxiv.org/abs/2506.24106v2"
+    },
+    {
+     "titulo": "Nearest Neighbor Future Captioning: Generating Descriptions for Possible Collisions in Object Placement Tasks",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2407.13186v1"
+    },
+    {
+     "titulo": "UniMem: Towards a Unified View of Long-Context Large Language Models",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2402.03009v2"
+    },
+    {
+     "titulo": "Adaptation Approaches for Nearest Neighbor Language Models",
+     "anio": 2022,
+     "doi": "http://arxiv.org/abs/2211.07828v2"
+    },
+    {
+     "titulo": "Accelerating Retrieval-Augmented Language Model Serving with Speculation",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2401.14021v1"
+    },
+    {
+     "titulo": "Towards Compressive and Scalable Recurrent Memory",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2602.11212v1"
+    },
+    {
+     "titulo": "KOCO-BENCH: Can Large Language Models Leverage Domain Knowledge in Software Development?",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2601.13240v3"
+    },
+    {
+     "titulo": "Great Memory, Shallow Reasoning: Limits of $k$NN-LMs",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2408.11815v1"
+    },
+    {
+     "titulo": "Permissive Information-Flow Analysis for Large Language Models",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2410.03055v3"
+    },
+    {
+     "titulo": "OCRR: A Benchmark for Online Correction Recovery under Distribution Shift",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2605.03153v1"
+    },
+    {
+     "titulo": "Does Episodic Memory Help Close the Lexical Frequency Gap in Sensitivity to Syntactic Contrasts? A Test Using Retrieval-Augmented Language Models",
+     "anio": 2026,
+     "doi": "http://arxiv.org/abs/2608.23851v2"
+    },
+    {
+     "titulo": "Extended Mind Transformers",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2406.02332v1"
+    },
+    {
+     "titulo": "Memorizing SAM: 3D Medical Segment Anything Model with Memorizing Transformer",
+     "anio": 2024,
+     "doi": "http://arxiv.org/abs/2412.13908v1"
+    },
+    {
+     "titulo": "DAS: Densely-Anchored Sampling for Deep Metric Learning",
+     "anio": 2022,
+     "doi": "http://arxiv.org/abs/2208.00119v1"
+    }
+   ]
+  },
+  {
+   "cadena": "C8",
+   "base": "Semantic Scholar",
+   "consulta": "(\"nearest neighbor language model\" | \"kNN-LM\" | \"memorizing transformer\")",
+   "resultados": 34,
+   "registros": [
+    {
+     "titulo": "OCRR: A Benchmark for Online Correction Recovery under Distribution Shift",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2605.03153",
+     "id": "0405372c1620a038066afade3978de8a08a31692",
+     "citas": 0
+    },
+    {
+     "titulo": "MELODI: Exploring Memory Compression for Long Contexts",
+     "anio": 2024,
+     "doi": "10.48550/arXiv.2410.03156",
+     "id": "093cb478a40b94f49ff9eded5ca10961fc8bdf7b",
+     "citas": 11
+    },
+    {
+     "titulo": "Memorizing Transformers",
+     "anio": 2022,
+     "doi": "10.48550/arXiv.2203.08913",
+     "id": "0e802c0739771acf70e60d59c2df51cd7e8c50c0",
+     "citas": 299
+    },
+    {
+     "titulo": "Nearest Neighbor Speculative Decoding for LLM Generation and Attribution",
+     "anio": 2024,
+     "doi": "10.48550/arXiv.2405.19325",
+     "id": "197482f191ef8bbb9c73e5e18289e736af59f709",
+     "citas": 33
+    },
+    {
+     "titulo": "Multi-Modal Retrieval For Large Language Model Based Speech Recognition",
+     "anio": 2024,
+     "doi": "10.48550/arXiv.2406.09618",
+     "id": "1f0b272cc8f3d90c80d1e386a556c6dd8d1392b2",
+     "citas": 6
+    },
+    {
+     "titulo": "Nearest neighbor future captioning: generating descriptions for possible collisions in object placement tasks",
+     "anio": 2024,
+     "doi": "10.1080/01691864.2024.2388114",
+     "id": "23ea5e544889369b26219b6be7bd17dbfbd291b0",
+     "citas": 2
+    },
+    {
+     "titulo": "Memorizing SAM: 3D medical Segment Anything Model with memorizing transformer",
+     "anio": 2024,
+     "doi": "10.1117/12.3047046",
+     "id": "38151270c013d4a95cae021ca75b9d8d948a6e7c",
+     "citas": 1
+    },
+    {
+     "titulo": "On the Predictive Power of Representation Dispersion in Language Models",
+     "anio": 2025,
+     "doi": "10.48550/arXiv.2506.24106",
+     "id": "46ad0c77d2bb9d62f2fc31e3e63caa161342b6ba",
+     "citas": 9
+    },
+    {
+     "titulo": "Towards Compressive and Scalable Recurrent Memory",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2602.11212",
+     "id": "476b78794cc1f5bc2ef7c25d6eaffb71a7a62078",
+     "citas": 2
+    },
+    {
+     "titulo": "Nearest Neighbor Language Models for Stylistic Controllable Generation",
+     "anio": 2022,
+     "doi": "10.48550/arXiv.2210.15762",
+     "id": "54abaf3108b7ca92e829f6797d5e73264c2350c1",
+     "citas": 5
+    },
+    {
+     "titulo": "Nearest Neighbor Zero-Shot Inference",
+     "anio": 2022,
+     "doi": "10.48550/arXiv.2205.13792",
+     "id": "563a851106623b9f112d0e2a290d3950a871079c",
+     "citas": 42
+    },
+    {
+     "titulo": "KNN-LM Does Not Improve Open-ended Text Generation",
+     "anio": 2023,
+     "doi": "10.48550/arXiv.2305.14625",
+     "id": "69aef44e0e39f8823c12feb09cf0f0d7f7e143dc",
+     "citas": 15
+    },
+    {
+     "titulo": "Personal Tensor Memory",
+     "anio": 2025,
+     "doi": "10.54105/ijainn.e1100.05050825",
+     "id": "6aa3d6d70d41ea47787e84772d8d1a40c3f58885",
+     "citas": 0
+    },
+    {
+     "titulo": "Efficient Nearest Neighbor Language Models",
+     "anio": 2021,
+     "doi": "10.18653/v1/2021.emnlp-main.461",
+     "id": "708c056b67cabd34d5f6bc8675e30b417be48a3b",
+     "citas": 133
+    },
+    {
+     "titulo": "Generalization through Memorization: Nearest Neighbor Language Models",
+     "anio": 2019,
+     "doi": "10.48550/arXiv.1911.00172",
+     "id": "7be8c119dbe065c52125ee7716601751f3116844",
+     "citas": 1248
+    },
+    {
+     "titulo": "Permissive Information-Flow Analysis for Large Language Models",
+     "anio": 2024,
+     "doi": "10.48550/arXiv.2410.03055",
+     "id": "840877d326e00590fa9efd279fefff8fce944d12",
+     "citas": 30
+    },
+    {
+     "titulo": "Regularized Training of Nearest Neighbor Language Models",
+     "anio": 2021,
+     "doi": "10.48550/arXiv.2109.08249",
+     "id": "99069b52e9e264c73b80d70e85cc6bc4a9a31d4b",
+     "citas": 3
+    },
+    {
+     "titulo": "Great Memory, Shallow Reasoning: Limits of kNN-LMs",
+     "anio": 2024,
+     "doi": "10.48550/arXiv.2408.11815",
+     "id": "a02d446e4c302a084c2da95ef40b6f2a4e098b1b",
+     "citas": 10
+    },
+    {
+     "titulo": "Accelerating Retrieval-Augmented Language Model Serving with Speculation",
+     "anio": 2024,
+     "doi": "10.48550/arXiv.2401.14021",
+     "id": "a8b66565cdb2b8c90556bb98a7fc58ac679c2cec",
+     "citas": 30
+    },
+    {
+     "titulo": "Adaptation Approaches for Nearest Neighbor Language Models",
+     "anio": 2022,
+     "doi": "10.48550/arXiv.2211.07828",
+     "id": "a8b896d5dd327ac808bcbcf4e4ed324a4615c356",
+     "citas": 10
+    },
+    {
+     "titulo": "TotalCT-SAM: A Whole-Body CT Segment Anything Model with Memorizing Transformer",
+     "anio": 2024,
+     "doi": "10.1007/978-3-031-78198-8_15",
+     "id": "b12f01e3c528c4d914c27cd929fd8d5bd9b563c3",
+     "citas": 1
+    },
+    {
+     "titulo": "Enhancing Neural Machine Translation Through Target Language Data: A kNN-LM Approach for Domain Adaptation",
+     "anio": 2025,
+     "doi": "10.18653/v1/2025.acl-long.496",
+     "id": "b1f41d24484e5653aad07434673a1e0e7a5a0ebf",
+     "citas": 2
+    },
+    {
+     "titulo": "ParaMind: Parallelized Adaptive Memory Integration for Long-Context Large Language Models",
+     "anio": 2025,
+     "doi": "10.1109/ISED67359.2025.11405146",
+     "id": "bd1b8992f6f13e6afa3fce524b1102bf0c0c3a6b",
+     "citas": 0
+    },
+    {
+     "titulo": "Why do Nearest Neighbor Language Models Work?",
+     "anio": 2023,
+     "doi": "10.48550/arXiv.2301.02828",
+     "id": "c432aff446d55e72a28394a1508e760cc9a25c08",
+     "citas": 41
+    },
+    {
+     "titulo": "Predicting Numerals in Text Using Nearest Neighbor Language Models",
+     "anio": 2023,
+     "doi": "10.18653/v1/2023.findings-acl.295",
+     "id": "c77feebb06b530079a34f04c64de359ae28c0a32",
+     "citas": 1
+    },
+    {
+     "titulo": "UniMem: Towards a Unified View of Long-Context Large Language Models",
+     "anio": 2024,
+     "doi": "10.48550/arXiv.2402.03009",
+     "id": "c86b98d0b5fe07e46fd862f47f717271c45b96fe",
+     "citas": 5
+    },
+    {
+     "titulo": "Long-Tail Crisis in Nearest Neighbor Language Models",
+     "anio": 2025,
+     "doi": "10.48550/arXiv.2503.22426",
+     "id": "cdb8f316263335a846b47ce5e01858f4ac3c8c8a",
+     "citas": 2
+    },
+    {
+     "titulo": "KOCO-BENCH: Can Large Language Models Leverage Domain Knowledge in Software Development?",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2601.13240",
+     "id": "d80e59f8d1c9d8685a319ea488995b9434f6e8ba",
+     "citas": 9
+    },
+    {
+     "titulo": "Plug and Play Knowledge Distillation for kNN-LM with External Logits",
+     "anio": 2022,
+     "doi": "10.18653/v1/2022.aacl-short.57",
+     "id": "defa2a63f86cdc40a435aa6d963d863b1f8c0774",
+     "citas": 3
+    },
+    {
+     "titulo": "Does Episodic Memory Help Close the Lexical Frequency Gap in Sensitivity to Syntactic Contrasts? A Test Using Retrieval-Augmented Language Models",
+     "anio": 2026,
+     "doi": "10.48550/arXiv.2608.23851",
+     "id": "e459c2f25fb6029c90a77e2d685e1c7f7f53c702",
+     "citas": 0
+    },
+    {
+     "titulo": "You can't pick your neighbors, or can you? When and how to rely on retrieval in the kNN-LM",
+     "anio": 2022,
+     "doi": "10.48550/arXiv.2210.15859",
+     "id": "e832d22ca901346f50e8367afb99bd2bf6e29421",
+     "citas": 26
+    },
+    {
+     "titulo": "Style Locality for Controllable Generation with kNN Language Models",
+     "anio": 2023,
+     "doi": "10.48550/arXiv.2311.00475",
+     "id": "e8bd3bafa4b7a43ffa5d94e41b46cc672fc49f19",
+     "citas": 0
+    },
+    {
+     "titulo": "Extended Mind Transformers",
+     "anio": 2024,
+     "doi": "10.48550/arXiv.2406.02332",
+     "id": "ecdc3b00321dc6dea7ba9c15797dd5fed6280a43",
+     "citas": 0
+    },
+    {
+     "titulo": "Performance analysis of steel W18CR4V grinding using RSM, DNN-GA, KNN, LM, DT, SVM models, and optimization via desirability function and MOGWO",
+     "anio": 2025,
+     "doi": "10.1016/j.heliyon.2025.e42640",
+     "id": "ff0593be8f0b87db9c8c5ecaffdc9bedd6ccca25",
+     "citas": 23
+    }
+   ]
+  }
+ ]
+}

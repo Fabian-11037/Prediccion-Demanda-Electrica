@@ -1,0 +1,504 @@
+{
+  "date": "2026-11-26",
+  "prisma": {
+    "counts": {
+      "fecha": "2026-11-26",
+      "registros_reportados": 3176,
+      "fuera_periodo": 132,
+      "duplicados_reportados": 1134,
+      "bases_unicas": 1910,
+      "titulo_excluidos": 401,
+      "resumen_excluidos": 1261,
+      "candidatos_por_resumen": 248,
+      "adicional_texto_completo": 1,
+      "sintesis_exploratoria": 249,
+      "texto_completo_frecuencia_verificada": 5,
+      "exportaciones_25_noviembre_disponibles": false,
+      "regla_corregida_reaplicada": false,
+      "revision_humana_independiente": false,
+      "entrenamiento": false,
+      "publicacion": false
+    },
+    "frequencies": [
+      {
+        "group": "LSTM",
+        "records": 214,
+        "percent": 85.94377510040161
+      },
+      {
+        "group": "Redes densas y afines",
+        "records": 97,
+        "percent": 38.95582329317269
+      },
+      {
+        "group": "GRU",
+        "records": 86,
+        "percent": 34.53815261044177
+      },
+      {
+        "group": "CNN",
+        "records": 66,
+        "percent": 26.50602409638554
+      },
+      {
+        "group": "RNN",
+        "records": 55,
+        "percent": 22.08835341365462
+      },
+      {
+        "group": "Transformer",
+        "records": 51,
+        "percent": 20.481927710843372
+      },
+      {
+        "group": "TCN",
+        "records": 28,
+        "percent": 11.244979919678714
+      },
+      {
+        "group": "N-BEATS/N-HiTS",
+        "records": 7,
+        "percent": 2.8112449799196786
+      },
+      {
+        "group": "GNN",
+        "records": 3,
+        "percent": 1.2048192771084338
+      }
+    ],
+    "flow_image": "./figures/literatura/prisma_flujo.png",
+    "intro": "<p>La búsqueda complementaria declarada el 25 de noviembre de 2026 reúne 3.176 registros de Scopus, Web of Science e IEEE Xplore. El inventario permite conciliar las etapas de selección y examinar las menciones de familias neuronales en los resúmenes. Este análisis complementa la <a href=\"__BOOK__/08_literatura.html#frecuencia-comparadores\">extracción verificada en texto completo</a>, cuyo denominador se mantiene separado.</p>\n<p>El flujo sigue la estructura de identificación y selección de PRISMA 2020 <a href=\"https://www.bmj.com/content/372/bmj.n71\">Page et al. (2021)</a>. Se presentan las etapas realizadas; los candidatos seleccionados por resumen no se contabilizan como textos completos evaluados.</p>\n",
+    "strategy": "<p>El anexo declara consultas el mismo día con las siguientes cadenas: el término de demanda o carga en el título, una familia de aprendizaje profundo, el corto plazo y el lenguaje de comparación en título, resumen o palabras clave. El periodo es 2018–2026, dentro de la ventana de cinco a ocho años recomendada.</p>\n<table>\n<thead>\n<tr>\n<th>Base</th>\n<th>Fecha declarada</th>\n<th>Registros reportados</th>\n<th>Filtros</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Scopus</td>\n<td>2026-11-25</td>\n<td>1.619</td>\n<td>Artículos y ponencias; inglés y español; 2018–2026</td>\n</tr>\n<tr>\n<td>Web of Science Core Collection</td>\n<td>2026-11-25</td>\n<td>873</td>\n<td>2018–2026 en la cadena</td>\n</tr>\n<tr>\n<td>IEEE Xplore</td>\n<td>2026-11-25</td>\n<td>684</td>\n<td>Sin filtro de años en la exportación; se retiran 132 registros anteriores a 2018</td>\n</tr>\n<tr>\n<td>Otros métodos</td>\n<td>2026-11-07 y 2026-11-08</td>\n<td>6</td>\n<td>Búsqueda pública y textos completos ya revisados en este capítulo</td>\n</tr>\n</tbody>\n</table>\n<p><strong>Scopus (Advanced search)</strong></p>\n<pre><code class=\"language-text\">TITLE ( &quot;load forecasting&quot; OR &quot;load forecast&quot; OR &quot;electricity demand forecasting&quot; OR &quot;electricity demand forecast&quot; OR &quot;electric load forecasting&quot; OR &quot;power demand forecasting&quot; OR &quot;power load forecasting&quot; )\nAND TITLE-ABS-KEY ( &quot;deep learning&quot; OR &quot;neural network*&quot; OR lstm OR cnn OR &quot;convolutional&quot; OR transformer OR &quot;temporal convolutional&quot; OR mlp )\nAND TITLE-ABS-KEY ( &quot;short-term&quot; OR &quot;day-ahead&quot; OR &quot;day ahead&quot; OR hourly OR &quot;24-hour&quot; )\nAND TITLE-ABS-KEY ( comparison OR comparative OR benchmark OR &quot;compared with&quot; OR baseline* )\nAND PUBYEAR &gt; 2017 AND PUBYEAR &lt; 2027\nAND ( LIMIT-TO ( DOCTYPE , &quot;ar&quot; ) OR LIMIT-TO ( DOCTYPE , &quot;cp&quot; ) )\nAND ( LIMIT-TO ( LANGUAGE , &quot;English&quot; ) OR LIMIT-TO ( LANGUAGE , &quot;Spanish&quot; ) )\n</code></pre>\n<p><strong>Web of Science (Advanced search)</strong></p>\n<pre><code class=\"language-text\">TI=(&quot;load forecasting&quot; OR &quot;load forecast&quot; OR &quot;electricity demand forecasting&quot; OR &quot;electricity demand forecast&quot; OR &quot;electric load forecasting&quot; OR &quot;power demand forecasting&quot; OR &quot;power load forecasting&quot;)\nAND TS=(&quot;deep learning&quot; OR &quot;neural network*&quot; OR LSTM OR CNN OR convolutional OR transformer OR &quot;temporal convolutional&quot; OR MLP)\nAND TS=(&quot;short-term&quot; OR &quot;day-ahead&quot; OR &quot;day ahead&quot; OR hourly OR &quot;24-hour&quot;)\nAND TS=(comparison OR comparative OR benchmark OR &quot;compared with&quot; OR baseline*)\nAND PY=(2018-2026)\n</code></pre>\n<p><strong>IEEE Xplore (Command search)</strong></p>\n<pre><code class=\"language-text\">(&quot;Document Title&quot;:&quot;load forecasting&quot; OR &quot;Document Title&quot;:&quot;load forecast&quot; OR &quot;Document Title&quot;:&quot;electricity demand forecasting&quot; OR &quot;Document Title&quot;:&quot;power demand forecasting&quot;)\nAND (&quot;All Metadata&quot;:&quot;deep learning&quot; OR &quot;All Metadata&quot;:&quot;neural network&quot; OR &quot;All Metadata&quot;:LSTM OR &quot;All Metadata&quot;:CNN OR &quot;All Metadata&quot;:transformer)\nAND (&quot;All Metadata&quot;:&quot;short-term&quot; OR &quot;All Metadata&quot;:&quot;day-ahead&quot; OR &quot;All Metadata&quot;:hourly)\nAND (&quot;All Metadata&quot;:comparison OR &quot;All Metadata&quot;:benchmark OR &quot;All Metadata&quot;:comparative)\n</code></pre>\n<p>Scopus superó el umbral de 1.500 registros previsto en el protocolo para acotar la cadena; se conservó completa y la decisión quedó registrada. Se conservan 11 registros catalogados como 2027 que el anexo identifica como acceso anticipado de 2026; esa fecha editorial no se verifica con las exportaciones disponibles.</p>\n<p>Las cadenas de Scopus y Web of Science figuran «Por confirmar» en el registro original de ejecución. Las exportaciones del nuevo corpus no acompañan el anexo. Los archivos de la carpeta de resúmenes disponible pertenecen a las consultas de comienzos de noviembre y no se utilizan para acreditar esta ejecución. Se conserva la <a href=\"__BOOK__/_static/literature/prisma/PROTOCOLO_BUSQUEDA_20261125.md\">versión original del protocolo</a> y la <a href=\"__BOOK__/_static/literature/prisma/PROTOCOLO_BUSQUEDA.md\">enmienda de integración</a>.</p>\n",
+    "eligibility": "<table>\n<thead>\n<tr>\n<th>Código</th>\n<th>Criterio de inclusión</th>\n<th>Motivo de exclusión</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>I1 / E1</td>\n<td>El objetivo es demanda o carga eléctrica agregada (sistema, región, red de distribución)</td>\n<td>Otro dominio, otra variable o un único edificio, hogar, consumidor o instalación</td>\n</tr>\n<tr>\n<td>I2 / E2</td>\n<td>Horizonte de corto plazo, de hasta siete días</td>\n<td>Horizonte mediano o largo</td>\n</tr>\n<tr>\n<td>I3 / E3</td>\n<td>Al menos un modelo neuronal evaluado</td>\n<td>Sin modelo neuronal</td>\n</tr>\n<tr>\n<td>I4b / E4</td>\n<td>El cribado original detecta al menos dos grupos neuronales en frases comparativas y menciona resultados de error</td>\n<td>Sin comparación entre familias o sin métricas</td>\n</tr>\n<tr>\n<td>I5 / E5</td>\n<td>Estudio primario</td>\n<td>Revisión o estado del arte</td>\n</tr>\n<tr>\n<td>— / E7</td>\n<td>—</td>\n<td>Publicación retractada</td>\n</tr>\n</tbody>\n</table>\n<p>El extractor original agrupa MLP, ANN, DNN, BP, ELM y RBF; ese grupo se denomina aquí «Redes densas y afines». CNN no especifica dimensión, y N-BEATS y N-HiTS comparten grupo. La eliminación automática de nombres híbridos no distingue si corresponden al método propuesto o a un comparador. El criterio I4b se fijó por enmienda antes de cualquier lectura de texto completo, cuando la primera pasada dejó 1.509 registros; responde directamente a la pregunta de esta revisión: qué modelos neuronales se usan como referencia.</p>\n",
+    "selection": "<p>El anexo conserva un cribado asistido por IA en dos pasadas: título/tipo de documento y resumen. Las decisiones están identificadas por registro. El flujo reproduce esas decisiones originales y no las interpreta como un doble cribado humano independiente.</p>\n<p>La regla de resumen detecta familias en oraciones comparativas. Puede incluir la arquitectura propuesta y omitir comparadores híbridos o no mencionados en el resumen. Por ello, las frecuencias son señales de identificación, no una extracción confirmada de uso como baseline. El control interno declarado de 28 decisiones, con 24 consideradas correctas antes de modificar patrones, no dispone de una muestra aleatoria ni de adjudicaciones independientes documentadas.</p>\n<p>La <a href=\"__BOOK__/_static/literature/prisma/cribado_resumen_corregido.py\">regla corregida</a> identifica cláusulas que nombran referencias, conserva los comparadores híbridos sin descomponerlos y separa MLP, ANN/DNN, ELM, RBF, N-BEATS y N-HiTS. Los casos ambiguos quedan pendientes de revisión. Su reaplicación al corpus requiere las exportaciones con resúmenes; no se asignan nuevos conteos sin esos datos.</p>\n",
+    "flow_reading": "<p>El flujo concilia 3.176 registros reportados, 132 anteriores al periodo y 1.134 duplicados, hasta 1.910 registros únicos de las bases. Tras 401 exclusiones por título y 1.261 por resumen quedan 248 candidatos. Los otros métodos aportan un estudio adicional a la síntesis exploratoria. No se ha evaluado el texto completo de los 248 candidatos de las bases.</p>\n<p>En <em>News and Load</em>, la exclusión de esta síntesis se asocia a I4b/E4 —no acreditar dos familias neuronales como comparadores— y no a la ausencia de un modelo neuronal. El artículo permanece en la síntesis temática del capítulo 8 por su pertinencia para demanda y texto.</p>\n<p><strong>Decisión.</strong> Utilizar el flujo para documentar la búsqueda complementaria y orientar la revisión. <strong>Impacto.</strong> Amplía la trazabilidad por base y por registro. <strong>Riesgo.</strong> Las decisiones originales no acreditan por sí solas elegibilidad de texto completo ni roles de comparador.</p>\n",
+    "frequency_reading": "<p>La extracción original identifica LSTM en 214 registros, redes densas y afines en 97, GRU en 86 y CNN en 66. La agrupación amplia impide interpretar los 97 casos como frecuencia específica de MLP. Tampoco se atribuye dimensión 1D a las CNN identificadas solo por nombre.</p>\n<p>La selección de MLP, LSTM y CNN1D se fundamenta en los textos completos y en la diversidad de sus mecanismos, según 8.5–8.6. Esta ampliación permite localizar candidatos para verificar esa evidencia; no reconstruye una selección prospectiva anterior a los experimentos.</p>\n",
+    "quality": "<p>La valoración se aplica a los tres estudios de comparación neuronal leídos en texto completo (8.2). NR indica que el aspecto no se reportó en las secciones extraídas.</p>\n<table>\n<thead>\n<tr>\n<th>Estudio</th>\n<th>Protocolo experimental</th>\n<th>Riesgo de fuga</th>\n<th>Repeticiones</th>\n<th>Pruebas estadísticas</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><a href=\"https://doi.org/10.1016/j.segan.2023.101171\">Pelekis et al. (2023)</a></td>\n<td>Claro: entrenamiento 2013–2019, validación 2020, prueba 2021</td>\n<td>Medio: temperatura observada ex post, sin pronóstico meteorológico disponible al origen</td>\n<td>100 ensayos de búsqueda y ensamble mediano de 30 redes</td>\n<td>NR</td>\n</tr>\n<tr>\n<td><a href=\"https://doi.org/10.1049/tje2.12132\">Kathirgamanathan et al. (2022)</a></td>\n<td>Parcial: ajuste 2004–2007 y prueba 2009; la descripción de la CNN1D no coincide del todo con su tabla</td>\n<td>Partición temporal; ajuste del escalado NR</td>\n<td>NR</td>\n<td>NR</td>\n</tr>\n<tr>\n<td><a href=\"https://doi.org/10.3390/math11132912\">Laitsos et al. (2023)</a></td>\n<td>Claro: datos horarios 2017–2019, últimos tres meses de prueba</td>\n<td>Por verificar: no consta que el Min–Max se ajuste solo con entrenamiento</td>\n<td>20 iteraciones de optimización; sin varias semillas</td>\n<td>NR</td>\n</tr>\n</tbody>\n</table>\n<p>Las extracciones no registran pruebas de significancia entre modelos ni intervalos entre semillas en ninguno de los tres. Las repeticiones y la inferencia formal de este estudio cubren esa carencia.</p>\n",
+    "scope": "<p>El inventario público permite reconstruir las figuras y los conteos; las exportaciones originales son necesarias para reaplicar la regla corregida. La matriz de calidad cubre los tres estudios revisados en texto completo de esta sección, no los 249 registros de la síntesis exploratoria.</p>\n<p><a href=\"__BOOK__/_static/literature/prisma/PROTOCOLO_BUSQUEDA.md\">Protocolo y enmiendas</a> · <a href=\"__BOOK__/_static/literature/prisma/registros_cribado.csv\">Decisiones por registro</a> · <a href=\"__BOOK__/_static/literature/prisma/identificacion.json\">Conteos de identificación</a> · <a href=\"__BOOK__/_static/literature/prisma/otras_fuentes.csv\">Otros métodos</a>.</p>\n<p><a href=\"__BOOK__/_static/literature/prisma/cribado_ia.py\">Regla de título original</a> · <a href=\"__BOOK__/_static/literature/prisma/cribado_ia_manual.csv\">Decisiones leídas por el asistente</a> · <a href=\"__BOOK__/_static/literature/prisma/cribado_resumen.py\">Regla de resumen original</a> · <a href=\"__BOOK__/_static/literature/prisma/prisma.py\">Unión de exportaciones</a>.</p>\n<p>Las exportaciones con resúmenes se mantienen fuera de los recursos públicos. La lista de decisiones permite comprobar las cifras publicadas, pero no sustituye la documentación de los registros completos.</p>\n",
+    "book_section": "08_busqueda_sistematica.html#busqueda-prisma"
+  },
+  "novelty": {
+    "intro": "<p>M4ₙ se estudia como una integración de memoria residual fuera de muestra, combinación congelada de expertos y actualización causal para pronosticar las 24 horas de demanda del SIN. La recuperación de residuos y la actualización de memoria tienen antecedentes directos; la matriz contrasta la integración temporal con esos trabajos y delimita su alcance.</p>\n",
+    "mechanism": "<p>Los componentes de M4ₙ que se comparan con la literatura son los de la ficha de la arquitectura:</p>\n<table>\n<thead>\n<tr>\n<th>Código</th>\n<th>Componente</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>(a)</td>\n<td>Base congelada: combinación aprendida de PatchTST, el experto E y el experto periódico (M1)</td>\n</tr>\n<tr>\n<td>(b)</td>\n<td>Memoria de residuos normalizados de predicciones fuera de muestra, generadas con OOF temporal anidado por prefijos</td>\n</tr>\n<tr>\n<td>(c)</td>\n<td>Recuperación con proyecciones aprendidas de consulta y clave sobre un contexto de 912 componentes, 16 vecinos y máscara de disponibilidad de 2 a 365 días</td>\n</tr>\n<tr>\n<td>(d)</td>\n<td>Compuerta escalar que regula la corrección según semejanza, dispersión, respaldo y antigüedad de los vecinos</td>\n</tr>\n<tr>\n<td>(e)</td>\n<td>Banco que se actualiza durante la evaluación con residuos ya revelados, con los pesos congelados</td>\n</tr>\n<tr>\n<td>(f)</td>\n<td>Pérdida absoluta normalizada por q, comparable con MASE; demanda del SIN con 24 horas directas</td>\n</tr>\n</tbody>\n</table>\n",
+    "queries": "<p>Cinco cadenas combinan el mecanismo con el problema (C1–C5, una en español) y tres buscan el mecanismo en otras aplicaciones (C6–C8). La captura del 25 de noviembre consulta OpenAlex (título y resumen,2015–2026), arXiv (resumen, sin filtro anual explícito en la consulta original) y Semantic Scholar (búsqueda booleana,2015–2026). La actualización paginada del 26 de noviembre amplía las cinco consultas que devolvieron más registros que los recuperados inicialmente. La cadena C9 aplica el mecanismo dentro del inventario de 1.913 registros del anexo PRISMA (1.910 de bases y3 adicionales únicos) para la búsqueda sistemática del capítulo 8.</p>\n<table>\n<thead>\n<tr>\n<th>Cadena</th>\n<th>Términos (versión OpenAlex)</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>C1</td>\n<td>(&quot;load forecasting&quot; OR &quot;electricity demand forecasting&quot; OR &quot;power demand forecasting&quot;) AND (&quot;retrieval&quot; OR &quot;retrieval-augmented&quot; OR &quot;nearest neighbor&quot; OR &quot;nearest neighbour&quot;) AND (&quot;residual&quot; OR &quot;forecast error&quot; OR &quot;error correction&quot;)</td>\n</tr>\n<tr>\n<td>C2</td>\n<td>(&quot;load forecasting&quot; OR &quot;electricity demand forecasting&quot;) AND (&quot;analog ensemble&quot; OR &quot;analogue ensemble&quot; OR &quot;analog forecasting&quot; OR &quot;similar day&quot;) AND (&quot;error correction&quot; OR &quot;bias correction&quot; OR &quot;residual&quot;)</td>\n</tr>\n<tr>\n<td>C3</td>\n<td>(&quot;load forecasting&quot; OR &quot;electricity demand forecasting&quot;) AND (&quot;memory-augmented&quot; OR &quot;external memory&quot; OR &quot;memory bank&quot; OR &quot;episodic memory&quot;)</td>\n</tr>\n<tr>\n<td>C4</td>\n<td>(&quot;load forecasting&quot; OR &quot;electricity demand forecasting&quot;) AND (&quot;residual correction&quot; OR &quot;error correction&quot; OR &quot;error compensation&quot;) AND (&quot;attention&quot; OR &quot;gate&quot; OR &quot;gating&quot;)</td>\n</tr>\n<tr>\n<td>C5</td>\n<td>(&quot;pronóstico de demanda&quot; OR &quot;pronóstico de carga&quot; OR &quot;predicción de carga&quot; OR &quot;predicción de la demanda eléctrica&quot;) AND (&quot;corrección de errores&quot; OR &quot;residuos&quot; OR &quot;memoria&quot;)</td>\n</tr>\n<tr>\n<td>C6</td>\n<td>(&quot;analog ensemble&quot; OR &quot;analogue ensemble&quot;) AND (&quot;forecast&quot;) AND (&quot;error&quot; OR &quot;bias&quot;)</td>\n</tr>\n<tr>\n<td>C7</td>\n<td>(&quot;retrieval-augmented&quot; OR &quot;retrieval augmented&quot;) AND (&quot;time series forecasting&quot;)</td>\n</tr>\n<tr>\n<td>C8</td>\n<td>(&quot;nearest neighbor language model&quot; OR &quot;kNN-LM&quot; OR &quot;retrieval-augmented language model&quot; OR &quot;memorizing transformer&quot;)</td>\n</tr>\n<tr>\n<td>C9</td>\n<td>(retriev* OR &quot;nearest neighbo*&quot; OR kNN OR analog* OR &quot;similar day&quot; OR &quot;memory bank&quot; OR &quot;external memory&quot; OR episodic) AND (residual OR &quot;error correction&quot; OR &quot;error compensation&quot; OR &quot;forecast error&quot; OR &quot;bias correction&quot;), en título y resumen del corpus exportado</td>\n</tr>\n</tbody>\n</table>\n<p>Las versiones exactas para arXiv y Semantic Scholar, con su sintaxis, están en el script de búsqueda.</p>\n",
+    "coverage_reading": "<p>La tabla distingue el total informado por cada índice de los registros efectivamente recuperados. La captura inicial tenía un máximo de 50 por consulta. La ampliación agota la paginación de cinco consultas el 26 de noviembre; los totales pueden cambiar entre fechas por actualización del índice. La recuperación completa no equivale a revisión independiente de todos los textos.</p>\n<p>La ampliación incorpora <em>FreshCast</em>, ya revisado en texto completo en el estudio, y localiza <em>Decouple to Reuse</em>, con bancos residuales de representaciones. Este último se clasifica con alcance de resumen y no se equipara a una memoria de errores de pronóstico.</p>\n",
+    "snowball_reading": "<p>La búsqueda por citación añade antecedentes de análogos en energía solar y eólica y de corrección paramétrica de carga. La captura de citas recibidas depende de la fecha e indexación; en kNN-LM se examinan solo las primeras 200. Estos resultados acotan la revisión y no prueban ausencia universal de un método.</p>\n<p>El anexo identifica los repositorios <code>time-retriever</code> y SYNC Transformer. Este último declara recuperación episódica de residuos en ETT y no aporta un artículo asociado en la captura. Se considera evidencia de implementación pública con alcance de repositorio. Las consultas de Hugging Face no devolvieron resultados en esa captura.</p>\n",
+    "contribution": "<p>RATL establece el antecedente directo de recuperación de residuos de una base congelada; FreshCast establece el de memoria que incorpora observaciones reveladas. La contribución candidata de M4 se sitúa en la construcción OOF temporal anidada de los residuos de una combinación de expertos y su recuperación y actualización con disponibilidad definida para el origen diario del SIN.</p>\n<p>Las <a href=\"__BOOK__/10_evaluacion.html#complementos-m4\">ablaciones de M4</a> respaldan la utilidad de actualizar el banco frente a mantenerlo fijo. No acreditan beneficio de la compuerta y la recuperación por distancia numérica obtiene menor MASE que la aprendida. Por ello, ni la compuerta ni el aprendizaje de semejanza se presentan como mejoras necesarias. La construcción OOF es una propiedad del esquema; este contraste no aísla por sí solo su efecto.</p>\n<p>Los resultados sustentan conclusiones de desempeño dentro del benchmark. La originalidad requiere además contrastar mecanismo y entrenamiento con los antecedentes, y no se deriva únicamente del territorio de aplicación ni de superar a otros modelos.</p>\n",
+    "declaration": "<p>En los trabajos examinados no se identificó la misma integración de residuos OOF temporales de una combinación congelada de expertos, recuperación contextual y actualización causal para demanda nacional directa de24 horas. Esta conclusión se restringe a la evidencia y al alcance de las búsquedas documentadas; no afirma prioridad mundial del principio de recuperar residuos ni de actualizar memoria.</p>\n<p>La consulta C9 examina el inventario del anexo PRISMA, no búsquedas nativas del mecanismo en Scopus, Web of Science e IEEE. Las clasificaciones basadas únicamente en resumen se mantienen identificadas. La revisión no aporta un segundo evaluador humano independiente; la ampliación de registros no sustituye esa verificación.</p>\n<p><a href=\"__BOOK__/_static/literature/novedad/busqueda_novedad_20261125.json\">Captura inicial por base</a> · <a href=\"__BOOK__/_static/literature/novedad/paginacion_20261126.json\">Ampliación paginada</a> · <a href=\"__BOOK__/_static/literature/novedad/snowball_repos_20261125.json\">Citación y repositorios</a> · <a href=\"__BOOK__/_static/literature/novedad/c9_corpus_scopus_wos_ieee.csv\">Coincidencias C9</a>.</p>\n<p><a href=\"__BOOK__/_static/literature/novedad/buscar_novedad.py\">Consultas originales</a> · <a href=\"__BOOK__/_static/literature/novedad/snowball_repos.py\">Código de citación y repositorios</a>.</p>\n",
+    "papers": [
+      {
+        "id": "1",
+        "label": "RATL (2026)",
+        "url": "https://doi.org/10.48550/arxiv.2609.03937",
+        "cells": [
+          "<a href=\"https://doi.org/10.48550/arxiv.2609.03937\">RATL (2026)</a>",
+          "13 conjuntos de referencia, entre ellos ECL (consumo eléctrico de clientes); horizontes de 96 a 720",
+          "Residuos de un pronosticador congelado, con restricción causal y un enrutador aprendido por bloque y variable",
+          "Memoria específica de entrenamiento, fija durante la evaluación; M4ₙ usa residuos fuera de muestra con OOF anidado (b) y actualiza el banco durante la evaluación (e). Base de un solo modelo frente a combinación de expertos (a)",
+          "Mecanismo y entrenamiento, parcial: la idea central coincide; texto completo"
+        ],
+        "text": "[RATL (2026)](https://doi.org/10.48550/arxiv.2609.03937) 13 conjuntos de referencia, entre ellos ECL (consumo eléctrico de clientes); horizontes de 96 a 720 Residuos de un pronosticador congelado, con restricción causal y un enrutador aprendido por bloque y variable Memoria específica de entrenamiento, fija durante la evaluación; M4ₙ usa residuos fuera de muestra con OOF anidado (b) y actualiza el banco durante la evaluación (e). Base de un solo modelo frente a combinación de expertos (a) Mecanismo y entrenamiento, parcial: la idea central coincide; texto completo",
+        "evidence": "full_text"
+      },
+      {
+        "id": "2",
+        "label": "SYNC Transformer (2026)",
+        "url": "https://github.com/Unjuno/sync-transformer",
+        "cells": [
+          "<a href=\"https://github.com/Unjuno/sync-transformer\">SYNC Transformer (2026)</a>",
+          "ETT; repositorio sin artículo",
+          "Recuperación episódica de residuos con fusión y abstención",
+          "Otro fenómeno; detalles del mecanismo no publicados",
+          "Precedente del mismo mecanismo; repositorio"
+        ],
+        "text": "[SYNC Transformer (2026)](https://github.com/Unjuno/sync-transformer) ETT; repositorio sin artículo Recuperación episódica de residuos con fusión y abstención Otro fenómeno; detalles del mecanismo no publicados Precedente del mismo mecanismo; repositorio",
+        "evidence": "repository"
+      },
+      {
+        "id": "3",
+        "label": "RCCP (2026)",
+        "url": "https://arxiv.org/abs/2608.10553",
+        "cells": [
+          "<a href=\"https://arxiv.org/abs/2608.10553\">RCCP (2026)</a>",
+          "Series generales",
+          "Residuos similares para calibrar intervalos",
+          "Corrige la cobertura del intervalo, no el pronóstico puntual",
+          "Mecanismo; resumen del anexo"
+        ],
+        "text": "[RCCP (2026)](https://arxiv.org/abs/2608.10553) Series generales Residuos similares para calibrar intervalos Corrige la cobertura del intervalo, no el pronóstico puntual Mecanismo; resumen del anexo",
+        "evidence": "abstract"
+      },
+      {
+        "id": "4",
+        "label": "WeL-RAC (2026)",
+        "url": "https://arxiv.org/abs/2610.31959",
+        "cells": [
+          "<a href=\"https://arxiv.org/abs/2610.31959\">WeL-RAC (2026)</a>",
+          "31 edificios, horizontes de 1 a 18 h",
+          "Trayectorias futuras observadas de casos similares, sin entrenamiento",
+          "Recupera la demanda, no residuos; semejanza fija; sin compuerta aprendida (c, d)",
+          "Mecanismo; resumen del anexo"
+        ],
+        "text": "[WeL-RAC (2026)](https://arxiv.org/abs/2610.31959) 31 edificios, horizontes de 1 a 18 h Trayectorias futuras observadas de casos similares, sin entrenamiento Recupera la demanda, no residuos; semejanza fija; sin compuerta aprendida (c, d) Mecanismo; resumen del anexo",
+        "evidence": "abstract"
+      },
+      {
+        "id": "5",
+        "label": "RAFT (2025)",
+        "url": "https://doi.org/10.48550/arxiv.2505.04163",
+        "cells": [
+          "<a href=\"https://doi.org/10.48550/arxiv.2505.04163\">RAFT (2025)</a>",
+          "Diez conjuntos de referencia",
+          "Valores futuros de patrones similares, usados como entrada",
+          "No corrige un modelo base con sus errores (b)",
+          "Mecanismo; resumen del anexo"
+        ],
+        "text": "[RAFT (2025)](https://doi.org/10.48550/arxiv.2505.04163) Diez conjuntos de referencia Valores futuros de patrones similares, usados como entrada No corrige un modelo base con sus errores (b) Mecanismo; resumen del anexo",
+        "evidence": "abstract"
+      },
+      {
+        "id": "6",
+        "label": "kNN-LM (2020)",
+        "url": "https://doi.org/10.48550/arxiv.1911.00172",
+        "cells": [
+          "<a href=\"https://doi.org/10.48550/arxiv.1911.00172\">kNN-LM (2020)</a>",
+          "Modelado de lenguaje",
+          "Vecinos en el espacio de un modelo congelado, interpolados con peso fijo",
+          "Fuente del esquema de base congelada con memoria; M4ₙ recupera residuos y aprende la compuerta (d)",
+          "Mecanismo (fuente); resumen del anexo"
+        ],
+        "text": "[kNN-LM (2020)](https://doi.org/10.48550/arxiv.1911.00172) Modelado de lenguaje Vecinos en el espacio de un modelo congelado, interpolados con peso fijo Fuente del esquema de base congelada con memoria; M4ₙ recupera residuos y aprende la compuerta (d) Mecanismo (fuente); resumen del anexo",
+        "evidence": "abstract"
+      },
+      {
+        "id": "7",
+        "label": "Analog ensemble solar (2015)",
+        "url": "https://doi.org/10.1016/j.apenergy.2015.08.011",
+        "cells": [
+          "<a href=\"https://doi.org/10.1016/j.apenergy.2015.08.011\">Analog ensemble solar (2015)</a>",
+          "Potencia solar",
+          "Observaciones de pronósticos meteorológicos análogos",
+          "Fuente del principio de corrección por análogos; métrica de distancia fija",
+          "Mecanismo (fuente); resumen del anexo"
+        ],
+        "text": "[Analog ensemble solar (2015)](https://doi.org/10.1016/j.apenergy.2015.08.011) Potencia solar Observaciones de pronósticos meteorológicos análogos Fuente del principio de corrección por análogos; métrica de distancia fija Mecanismo (fuente); resumen del anexo",
+        "evidence": "abstract"
+      },
+      {
+        "id": "8",
+        "label": "Análogos con semejanza aprendida (2021)",
+        "url": "https://arxiv.org/abs/2103.04530",
+        "cells": [
+          "<a href=\"https://arxiv.org/abs/2103.04530\">Análogos con semejanza aprendida (2021)</a>",
+          "Recursos renovables",
+          "Análogos con una métrica de semejanza aprendida por redes",
+          "Recupera observaciones, no residuos de un base; sin actualización causal (b, e)",
+          "Mecanismo; resumen del anexo"
+        ],
+        "text": "[Análogos con semejanza aprendida (2021)](https://arxiv.org/abs/2103.04530) Recursos renovables Análogos con una métrica de semejanza aprendida por redes Recupera observaciones, no residuos de un base; sin actualización causal (b, e) Mecanismo; resumen del anexo",
+        "evidence": "abstract"
+      },
+      {
+        "id": "9",
+        "label": "CausalGraphMemoryNet (2026)",
+        "url": "https://doi.org/10.1109/3scea68071.2026.11603192",
+        "cells": [
+          "<a href=\"https://doi.org/10.1109/3scea68071.2026.11603192\">CausalGraphMemoryNet (2026)</a>",
+          "Pronóstico temporal; metadatos de índice",
+          "El título identifica aprendizaje conjunto de estructuras causales y patrones temporales",
+          "Los metadatos disponibles no permiten caracterizar el banco ni equipararlo a residuos de una base congelada",
+          "Candidato pendiente de descripción del mecanismo"
+        ],
+        "text": "[CausalGraphMemoryNet (2026)](https://doi.org/10.1109/3scea68071.2026.11603192) Pronóstico temporal; metadatos de índice El título identifica aprendizaje conjunto de estructuras causales y patrones temporales Los metadatos disponibles no permiten caracterizar el banco ni equipararlo a residuos de una base congelada Candidato pendiente de descripción del mecanismo",
+        "evidence": "metadata"
+      },
+      {
+        "id": "10",
+        "label": "TE-AG-GRU-RC (2026)",
+        "url": "https://doi.org/10.3389/frai.2026.1935983",
+        "cells": [
+          "<a href=\"https://doi.org/10.3389/frai.2026.1935983\">TE-AG-GRU-RC (2026)</a>",
+          "Demanda de corto plazo",
+          "Una GRU con atención modela el residuo del transformer",
+          "Corrección paramétrica, sin memoria de episodios (b, c)",
+          "Mecanismo; resumen del anexo"
+        ],
+        "text": "[TE-AG-GRU-RC (2026)](https://doi.org/10.3389/frai.2026.1935983) Demanda de corto plazo Una GRU con atención modela el residuo del transformer Corrección paramétrica, sin memoria de episodios (b, c) Mecanismo; resumen del anexo",
+        "evidence": "abstract"
+      },
+      {
+        "id": "11",
+        "label": "PatchTST con corrección por ventana (2026)",
+        "url": "https://doi.org/10.1117/12.3133541",
+        "cells": [
+          "<a href=\"https://doi.org/10.1117/12.3133541\">PatchTST con corrección por ventana (2026)</a>",
+          "Red de distribución de 10 kV, 15 minutos",
+          "Residuos recientes en ventana deslizante",
+          "Sin recuperación por semejanza (c)",
+          "Mecanismo; resumen del anexo"
+        ],
+        "text": "[PatchTST con corrección por ventana (2026)](https://doi.org/10.1117/12.3133541) Red de distribución de 10 kV, 15 minutos Residuos recientes en ventana deslizante Sin recuperación por semejanza (c) Mecanismo; resumen del anexo",
+        "evidence": "abstract"
+      },
+      {
+        "id": "12",
+        "label": "Pronóstico intradía multinivel (2026)",
+        "url": "https://doi.org/10.3390/en19040953",
+        "cells": [
+          "<a href=\"https://doi.org/10.3390/en19040953\">Pronóstico intradía multinivel (2026)</a>",
+          "Operador de red, intradía",
+          "Corrección delta con mediciones recientes del día; días similares eligen el método",
+          "Sin memoria de residuos por semejanza (b, c)",
+          "Mecanismo; resumen del anexo"
+        ],
+        "text": "[Pronóstico intradía multinivel (2026)](https://doi.org/10.3390/en19040953) Operador de red, intradía Corrección delta con mediciones recientes del día; días similares eligen el método Sin memoria de residuos por semejanza (b, c) Mecanismo; resumen del anexo",
+        "evidence": "abstract"
+      },
+      {
+        "id": "13",
+        "label": "Día similar y corrección XGBoost (2023)",
+        "url": "https://doi.org/10.1109/fes57669.2023.10183307",
+        "cells": [
+          "<a href=\"https://doi.org/10.1109/fes57669.2023.10183307\">Día similar y corrección XGBoost (2023)</a>",
+          "Demanda de corto plazo",
+          "Días similares como entrada y corrección paramétrica del error",
+          "Sin recuperación de residuos (b, c)",
+          "Mecanismo; resumen del anexo"
+        ],
+        "text": "[Día similar y corrección XGBoost (2023)](https://doi.org/10.1109/fes57669.2023.10183307) Demanda de corto plazo Días similares como entrada y corrección paramétrica del error Sin recuperación de residuos (b, c) Mecanismo; resumen del anexo",
+        "evidence": "abstract"
+      },
+      {
+        "id": "14",
+        "label": "kNN compuesto (2016)",
+        "url": "https://doi.org/10.1109/pesgm.2016.7741097",
+        "cells": [
+          "<a href=\"https://doi.org/10.1109/pesgm.2016.7741097\">kNN compuesto (2016)</a>",
+          "Mercado eléctrico australiano, día siguiente",
+          "Vecinos que pronostican la carga",
+          "Pronostica, no corrige un base (a, b)",
+          "Mecanismo; resumen del anexo"
+        ],
+        "text": "[kNN compuesto (2016)](https://doi.org/10.1109/pesgm.2016.7741097) Mercado eléctrico australiano, día siguiente Vecinos que pronostican la carga Pronostica, no corrige un base (a, b) Mecanismo; resumen del anexo",
+        "evidence": "abstract"
+      },
+      {
+        "id": "15",
+        "label": "FreshCast (2026)",
+        "url": "https://arxiv.org/html/2610.07834v3",
+        "cells": [
+          "<a href=\"https://arxiv.org/html/2610.07834v3\">FreshCast (2026)</a>",
+          "Series de servicios y Electricity; texto completo",
+          "Actualiza una memoria con observaciones reveladas y combina un pronóstico de memoria con la base congelada",
+          "La actualización causal tiene antecedente. M4 recupera errores OOF de M1, frente a continuaciones observadas y calibración cerrada",
+          "Mecanismo; texto completo"
+        ],
+        "text": "[FreshCast (2026)](https://arxiv.org/html/2610.07834v3) Series de servicios y Electricity; texto completo Actualiza una memoria con observaciones reveladas y combina un pronóstico de memoria con la base congelada La actualización causal tiene antecedente. M4 recupera errores OOF de M1, frente a continuaciones observadas y calibración cerrada Mecanismo; texto completo",
+        "evidence": "full_text"
+      },
+      {
+        "id": "16",
+        "label": "ResMem (2023)",
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/bf0857cb9a41c73639f028a80301cdf0-Abstract-Conference.html",
+        "cells": [
+          "<a href=\"https://proceedings.neurips.cc/paper_files/paper/2023/hash/bf0857cb9a41c73639f028a80301cdf0-Abstract-Conference.html\">ResMem (2023)</a>",
+          "Visión y lenguaje; texto completo",
+          "Regresión por vecinos sobre residuos de entrenamiento de una base neuronal",
+          "Antecedente de memorización residual; la formulación temporal de M4 añade construcción OOF y disponibilidad por origen",
+          "Mecanismo transversal"
+        ],
+        "text": "[ResMem (2023)](https://proceedings.neurips.cc/paper_files/paper/2023/hash/bf0857cb9a41c73639f028a80301cdf0-Abstract-Conference.html) Visión y lenguaje; texto completo Regresión por vecinos sobre residuos de entrenamiento de una base neuronal Antecedente de memorización residual; la formulación temporal de M4 añade construcción OOF y disponibilidad por origen Mecanismo transversal",
+        "evidence": "full_text"
+      },
+      {
+        "id": "17",
+        "label": "MMEMformer (2025)",
+        "url": "https://doi.org/10.1016/j.energy.2025.135762",
+        "cells": [
+          "<a href=\"https://doi.org/10.1016/j.energy.2025.135762\">MMEMformer (2025)</a>",
+          "Carga de sistemas energéticos integrados; resumen editorial",
+          "Banco de patrones históricos con atención multiescala",
+          "El resumen no acredita un banco externo de residuos de un pronosticador congelado; no se atribuyen detalles no verificados",
+          "Memoria de patrones; resumen"
+        ],
+        "text": "[MMEMformer (2025)](https://doi.org/10.1016/j.energy.2025.135762) Carga de sistemas energéticos integrados; resumen editorial Banco de patrones históricos con atención multiescala El resumen no acredita un banco externo de residuos de un pronosticador congelado; no se atribuyen detalles no verificados Memoria de patrones; resumen",
+        "evidence": "abstract"
+      },
+      {
+        "id": "18",
+        "label": "Vargas-Forero et al. (2025)",
+        "url": "https://doi.org/10.32479/ijeep.17528",
+        "cells": [
+          "<a href=\"https://doi.org/10.32479/ijeep.17528\">Vargas-Forero et al. (2025)</a>",
+          "Demanda nacional colombiana horaria del día siguiente; texto completo",
+          "Compara LSTM, ARIMA y Prophet",
+          "Antecedente del sistema y horizonte; no establece novedad del principio de corrección residual",
+          "Aplicación directa"
+        ],
+        "text": "[Vargas-Forero et al. (2025)](https://doi.org/10.32479/ijeep.17528) Demanda nacional colombiana horaria del día siguiente; texto completo Compara LSTM, ARIMA y Prophet Antecedente del sistema y horizonte; no establece novedad del principio de corrección residual Aplicación directa",
+        "evidence": "full_text"
+      },
+      {
+        "id": "19",
+        "label": "Decouple to Reuse (2026)",
+        "url": "https://arxiv.org/abs/2611.05993",
+        "cells": [
+          "<a href=\"https://arxiv.org/abs/2611.05993\">Decouple to Reuse (2026)</a>",
+          "Series de referencia y modelos fundacionales; resumen",
+          "Recupera códigos residuales de tendencia y estacionalidad en representaciones latentes",
+          "Los códigos residuales de representación no se identifican con trayectorias de error OOF de M1",
+          "Representaciones; resumen"
+        ],
+        "text": "[Decouple to Reuse (2026)](https://arxiv.org/abs/2611.05993) Series de referencia y modelos fundacionales; resumen Recupera códigos residuales de tendencia y estacionalidad en representaciones latentes Los códigos residuales de representación no se identifican con trayectorias de error OOF de M1 Representaciones; resumen",
+        "evidence": "abstract"
+      }
+    ],
+    "coverage": [
+      {
+        "chain": "C6",
+        "base": "OpenAlex",
+        "original_total": 85,
+        "original_retrieved": 50,
+        "current_total": 85,
+        "current_retrieved": 85,
+        "exhausted": true
+      },
+      {
+        "chain": "C6",
+        "base": "Semantic Scholar",
+        "original_total": 58,
+        "original_retrieved": 50,
+        "current_total": 58,
+        "current_retrieved": 58,
+        "exhausted": true
+      },
+      {
+        "chain": "C7",
+        "base": "OpenAlex",
+        "original_total": 79,
+        "original_retrieved": 50,
+        "current_total": 81,
+        "current_retrieved": 81,
+        "exhausted": true
+      },
+      {
+        "chain": "C7",
+        "base": "Semantic Scholar",
+        "original_total": 54,
+        "original_retrieved": 50,
+        "current_total": 54,
+        "current_retrieved": 54,
+        "exhausted": true
+      },
+      {
+        "chain": "C8",
+        "base": "OpenAlex",
+        "original_total": 316,
+        "original_retrieved": 50,
+        "current_total": 318,
+        "current_retrieved": 318,
+        "exhausted": true
+      }
+    ],
+    "citations": [
+      {
+        "seed": "RATL (2026)",
+        "references": 22,
+        "citations": 1,
+        "backward": "A Multi-Scale CNN-Transformer Network with Residual Correction for Ultra-Short-Term Photovoltaic Power Forecasting",
+        "forward": "—"
+      },
+      {
+        "seed": "WeL-RAC (2026)",
+        "references": 50,
+        "citations": 0,
+        "backward": "An analog ensemble for short-term probabilistic solar power forecast; Forecasting building energy consumption: Adaptive long-short term memory neural networks driven by genetic algorithm; A novel application of an analog ensemble for short-term wind power forecasting",
+        "forward": "—"
+      },
+      {
+        "seed": "RAFT (2025)",
+        "references": 31,
+        "citations": 88,
+        "backward": "—",
+        "forward": "Natural gas demand forecasting via latent pattern retrieval and expert specialization"
+      },
+      {
+        "seed": "TE-AG-GRU-RC (2026)",
+        "references": 36,
+        "citations": 0,
+        "backward": "Short-Term Load Forecasting With Deep Residual Networks; Residual LSTM based short-term load forecasting; Residual BiLSTM based hybrid model for short-term load forecasting in buildings; An adaptive hybrid ensemble with pattern similarity analysis and error correction for short-term load forecasting; A novel trilinear deep residual network with self-adaptive Dropout method for short-term load forecasting; Ensemble Residual Networks for Short-Term Load Forecasting; A short-term load forecasting method considering multiple feature factors based on long short-term memory and an improved temporal convolutional network; MMEMformer: A multi-scale memory-enhanced transformer framework for short-term load forecasting in integrated energy systems; Short-term load forecasting based on the improved bi-directional long short-term memory model; Research on a residual learning based neural-kernel framework with applications in short-term load forecasting",
+        "forward": "—"
+      },
+      {
+        "seed": "kNN-LM (2020)",
+        "references": 29,
+        "citations": 200,
+        "backward": "—",
+        "forward": "—"
+      }
+    ],
+    "book_section": "arquitecturas/m4_n_novedad.html#novedad-m4"
+  },
+  "downloads": [
+    {
+      "kind": "prisma",
+      "label": "PROTOCOLO_BUSQUEDA.md",
+      "file": "./downloads/literatura/prisma_PROTOCOLO_BUSQUEDA.md"
+    },
+    {
+      "kind": "prisma",
+      "label": "registros_cribado.csv",
+      "file": "./downloads/literatura/prisma_registros_cribado.csv"
+    },
+    {
+      "kind": "prisma",
+      "label": "identificacion.json",
+      "file": "./downloads/literatura/prisma_identificacion.json"
+    },
+    {
+      "kind": "prisma",
+      "label": "cribado_resumen_corregido.py",
+      "file": "./downloads/literatura/prisma_cribado_resumen_corregido.py"
+    },
+    {
+      "kind": "novedad",
+      "label": "busqueda_novedad_20261125.json",
+      "file": "./downloads/literatura/novedad_busqueda_novedad_20261125.json"
+    },
+    {
+      "kind": "novedad",
+      "label": "paginacion_20261126.json",
+      "file": "./downloads/literatura/novedad_paginacion_20261126.json"
+    },
+    {
+      "kind": "novedad",
+      "label": "snowball_repos_20261125.json",
+      "file": "./downloads/literatura/novedad_snowball_repos_20261125.json"
+    },
+    {
+      "kind": "novedad",
+      "label": "c9_corpus_scopus_wos_ieee.csv",
+      "file": "./downloads/literatura/novedad_c9_corpus_scopus_wos_ieee.csv"
+    },
+    {
+      "kind": "novedad",
+      "label": "completar_paginacion.py",
+      "file": "./downloads/literatura/novedad_completar_paginacion.py"
+    }
+  ],
+  "source_sha256": {
+    "book/08_busqueda_sistematica.ipynb": "942efd11ee4fdb8bad1aee024eae042b0821c5a697cc7f86846b7c545145d044",
+    "book/_static/literature/novedad/busqueda_novedad_20261125.json": "a0429ceae33d781c48261650a98ea9901427bb14c76dd7aabd93423c9fd2f09f",
+    "book/_static/literature/novedad/c9_corpus_scopus_wos_ieee.csv": "0194a02f06eaf03d7d439e6ff10cceb94e067d9d7eccc7bfa0a88ae980069d85",
+    "book/_static/literature/novedad/completar_paginacion.py": "c3a5cec06b6704386254670851b466b779d11e71b970f900f2394e21012af331",
+    "book/_static/literature/novedad/paginacion_20261126.json": "d815e00b95b59c83a115bc6e376fbd192451fef75750de46465f648dbf7b3de8",
+    "book/_static/literature/novedad/snowball_repos_20261125.json": "ce5aff5c67c15e36d1e71b46cdaf210eb0c14d3297307e6fa4a21d5210d873ec",
+    "book/_static/literature/prisma/cribado_resumen_corregido.py": "9af64b2b466a7c71e0110e6d6bfc7555fb2011ded2f1b717403f165320e69812",
+    "book/_static/literature/prisma/identificacion.json": "5116d6a0601bb4e7a99d55afa9e2a07556df1fbb053e2625609bc7fda77688f6",
+    "book/_static/literature/prisma/PROTOCOLO_BUSQUEDA.md": "d9a25d3bffc46c18325460e0c03bbb4a6690b639aeb96b6503eef8dd0a773099",
+    "book/_static/literature/prisma/registros_cribado.csv": "bff16efeb38d89144b3856d24e4a47586c00a6b2b64dc10e8d728fef776c2d1d",
+    "book/arquitecturas/m4_n_novedad.ipynb": "b9c9d2c17b34048cfce13ea66bd1683bcd738a5f2c55192f1fb67d14bd72744e",
+    "results/integracion_literatura_20261126/auditoria_prisma.json": "fd150503be45e562f1b695d8689328391c0a3a4c3546e45002092be8ac172cc1"
+  },
+  "training": false
+}

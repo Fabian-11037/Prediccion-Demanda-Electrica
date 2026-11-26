@@ -4,8 +4,8 @@ Fecha: 25 de noviembre de 2026. Alcance: fuentes del JBook, tablas, gráficas, e
 
 ## Inventario y correspondencia
 
-- 13 cuadernos; 80 figuras analíticas con interpretación contigua; 32 esquemas.
-- 60 tablas: 33 calculadas y 27 nativas.
+- 15 cuadernos; 82 figuras analíticas con interpretación contigua; 32 esquemas.
+- 66 tablas: 35 calculadas y 31 nativas.
 - 16 procedimientos aprendidos y 85 realizaciones; dos referencias ingenuas completan los 18 procedimientos integrados. El benchmark de referencia conserva 15 procedimientos y 75 realizaciones.
 - La incertidumbre común contiene 864 filas de cobertura y 17 comparadores de WIS. Calibración inicial: 2022; evaluación: 2023–2025.
 - 24 CSV del libro coinciden exactamente con los resultados de origen comprobados en esta revisión. Las métricas puntuales, intervalos y contrastes se verifican también mediante las pruebas del dashboard.
@@ -46,4 +46,4 @@ Se precisan los conjuntos de 15 y 18 procedimientos, se retiran dos tablas de m�
 3. Para una confirmación posterior, equiparar presupuestos y semillas, dimensionar potencia y evaluar tres conjuntos adicionales. Las ablaciones y el control de capacidad ya están ejecutados e integrados.
 4. Ampliar escalabilidad y estabilidad de explicaciones; completar medición GPU cuando exista hardware utilizable. Los intervalos en inferencia operativa ya están implementados. La robustez controlada, los diagnósticos de M4, la sensibilidad temporal y la incertidumbre común ya están incorporados.
 
-Evidencia: `results/auditoria_consistencia_20261125/`. Las hojas de contacto conservan las 80 figuras y los 32 esquemas revisados. El alcance de las verificaciones automáticas se registra en `verificacion.json`; la revisión no equivale a una reproducción independiente completa ni a una confirmación prospectiva.
+Evidencia: `results/auditoria_consistencia_20261125/`. Las hojas de contacto conservan las 82 figuras y los 32 esquemas revisados. El alcance de las verificaciones automáticas se registra en `verificacion.json`; la revisión no equivale a una reproducción independiente completa ni a una confirmación prospectiva.

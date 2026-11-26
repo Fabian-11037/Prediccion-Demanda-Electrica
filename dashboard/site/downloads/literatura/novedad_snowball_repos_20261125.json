@@ -1,0 +1,236 @@
+{
+ "fecha": "2026-11-25",
+ "snowballing": [
+  {
+   "semilla": "RATL (2026)",
+   "indexada": true,
+   "titulo_indexado": "RATL: Learning from Retrieved Residuals for Robust Multivariate Time-Series Forecasting",
+   "referencias": 22,
+   "citas": 1,
+   "relevantes_atras": [
+    {
+     "titulo": "A Multi-Scale CNN-Transformer Network with Residual Correction for Ultra-Short-Term Photovoltaic Power Forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.3390/pr14050759"
+    }
+   ],
+   "relevantes_adelante": []
+  },
+  {
+   "semilla": "WeL-RAC (2026)",
+   "indexada": true,
+   "titulo_indexado": "A Model-Agnostic Correction Framework for Short-Term Building Load Forecasting",
+   "referencias": 50,
+   "citas": 0,
+   "relevantes_atras": [
+    {
+     "titulo": "An analog ensemble for short-term probabilistic solar power forecast",
+     "anio": 2015,
+     "doi": "https://doi.org/10.1016/j.apenergy.2015.08.011"
+    },
+    {
+     "titulo": "Forecasting building energy consumption: Adaptive long-short term memory neural networks driven by genetic algorithm",
+     "anio": 2021,
+     "doi": "https://doi.org/10.1016/j.aei.2021.101357"
+    },
+    {
+     "titulo": "A novel application of an analog ensemble for short-term wind power forecasting",
+     "anio": 2014,
+     "doi": "https://doi.org/10.1016/j.renene.2014.11.061"
+    }
+   ],
+   "relevantes_adelante": []
+  },
+  {
+   "semilla": "RAFT (2025)",
+   "indexada": true,
+   "titulo_indexado": "Retrieval Augmented Time Series Forecasting",
+   "referencias": 31,
+   "citas": 88,
+   "relevantes_atras": [],
+   "relevantes_adelante": [
+    {
+     "titulo": "Natural gas demand forecasting via latent pattern retrieval and expert specialization",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1016/j.engappai.2026.114746"
+    }
+   ]
+  },
+  {
+   "semilla": "TE-AG-GRU-RC (2026)",
+   "indexada": true,
+   "titulo_indexado": "Two-stage transformer encoder and attention-guided GRU-based residual correction for short-term load forecasting",
+   "referencias": 36,
+   "citas": 0,
+   "relevantes_atras": [
+    {
+     "titulo": "Short-Term Load Forecasting With Deep Residual Networks",
+     "anio": 2018,
+     "doi": "https://doi.org/10.1109/tsg.2018.2844307"
+    },
+    {
+     "titulo": "Residual LSTM based short-term load forecasting",
+     "anio": 2023,
+     "doi": "https://doi.org/10.1016/j.asoc.2023.110461"
+    },
+    {
+     "titulo": "Residual BiLSTM based hybrid model for short-term load forecasting in buildings",
+     "anio": 2024,
+     "doi": "https://doi.org/10.1016/j.jobe.2024.111593"
+    },
+    {
+     "titulo": "An adaptive hybrid ensemble with pattern similarity analysis and error correction for short-term load forecasting",
+     "anio": 2022,
+     "doi": "https://doi.org/10.1016/j.apenergy.2022.119525"
+    },
+    {
+     "titulo": "A novel trilinear deep residual network with self-adaptive Dropout method for short-term load forecasting",
+     "anio": 2021,
+     "doi": "https://doi.org/10.1016/j.eswa.2021.115272"
+    },
+    {
+     "titulo": "Ensemble Residual Networks for Short-Term Load Forecasting",
+     "anio": 2020,
+     "doi": "https://doi.org/10.1109/access.2020.2984722"
+    },
+    {
+     "titulo": "A short-term load forecasting method considering multiple feature factors based on long short-term memory and an improved temporal convolutional network",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1016/j.engappai.2025.111649"
+    },
+    {
+     "titulo": "MMEMformer: A multi-scale memory-enhanced transformer framework for short-term load forecasting in integrated energy systems",
+     "anio": 2025,
+     "doi": "https://doi.org/10.1016/j.energy.2025.135762"
+    },
+    {
+     "titulo": "Short-term load forecasting based on the improved bi-directional long short-term memory model",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1016/j.ijepes.2026.111789"
+    },
+    {
+     "titulo": "Research on a residual learning based neural-kernel framework with applications in short-term load forecasting",
+     "anio": 2026,
+     "doi": "https://doi.org/10.1016/j.engappai.2026.113989"
+    }
+   ],
+   "relevantes_adelante": []
+  },
+  {
+   "semilla": "kNN-LM (2020)",
+   "indexada": true,
+   "titulo_indexado": "Generalization through Memorization: Nearest Neighbor Language Models",
+   "referencias": 29,
+   "citas": 200,
+   "relevantes_atras": [],
+   "relevantes_adelante": []
+  }
+ ],
+ "repositorios": [
+  {
+   "fuente": "GitHub",
+   "consulta": "residual retrieval forecasting",
+   "resultados": 3,
+   "primeros": [
+    {
+     "repo": "memanchorworld/MemAnchorWorld",
+     "descripcion": "Core implementation of memory-anchor retrieval and gated residual adaptation for sparse 4D semantic occupancy forecasting."
+    },
+    {
+     "repo": "Unjuno/sync-transformer",
+     "descripcion": "Reproducible research implementation of SYNC Transformer: conditional residual transport with episodic retrieval, fusion, and abstention for time-series forecas"
+    },
+    {
+     "repo": "Kablan-ASBN/sp500-arima-forecasting",
+     "descripcion": "Time-series analysis of S&P 500 log returns (2000–2023) in R using ARIMA. Includes data retrieval, preprocessing, stationarity testing, residual diagnostics, an"
+    }
+   ]
+  },
+  {
+   "fuente": "GitHub",
+   "consulta": "retrieval augmented load forecasting",
+   "resultados": 2,
+   "primeros": [
+    {
+     "repo": "leonardo-lin/time-retriever",
+     "descripcion": "Retrieval-Augmented Electricity Load Forecasting with Historical Load Records"
+    },
+    {
+     "repo": "jjalcantara1/EcoTree",
+     "descripcion": "AI-powered platform for optimizing solar energy consumption. Features predictive RNN models for energy forecasting, a smart load distribution engine, AI-driven "
+    }
+   ]
+  },
+  {
+   "fuente": "GitHub",
+   "consulta": "analog ensemble load forecasting",
+   "resultados": 0,
+   "primeros": []
+  },
+  {
+   "fuente": "GitHub",
+   "consulta": "residual memory forecasting",
+   "resultados": 4,
+   "primeros": [
+    {
+     "repo": "jddeguia/compare-forecast-models",
+     "descripcion": "Energy production of photovoltaic (PV) system is heavily influenced by solar irradiance. Accurate prediction of solar irradiance leads to optimal dispatching of"
+    },
+    {
+     "repo": "memanchorworld/MemAnchorWorld",
+     "descripcion": "Core implementation of memory-anchor retrieval and gated residual adaptation for sparse 4D semantic occupancy forecasting."
+    },
+    {
+     "repo": "infinitebhat/Pharma_Sales_Data_Analysis_Forecasting_Case_Study",
+     "descripcion": "The objective of the research behind the paper was to validate different methods and approaches related to sales time series data preparation, analysis and fore"
+    },
+    {
+     "repo": "DiarCode/michi",
+     "descripcion": "DTS-GSSF is a dual-timescale graph state-space forecasting framework for real-time passenger flow that combines long-memory spatio-temporal modeling with online"
+    }
+   ]
+  },
+  {
+   "fuente": "GitHub",
+   "consulta": "forecast error memory nearest neighbor",
+   "resultados": 0,
+   "primeros": []
+  },
+  {
+   "fuente": "Hugging Face (models)",
+   "consulta": "retrieval forecasting residual",
+   "resultados": 0,
+   "primeros": []
+  },
+  {
+   "fuente": "Hugging Face (datasets)",
+   "consulta": "retrieval forecasting residual",
+   "resultados": 0,
+   "primeros": []
+  },
+  {
+   "fuente": "Hugging Face (models)",
+   "consulta": "load forecasting retrieval",
+   "resultados": 0,
+   "primeros": []
+  },
+  {
+   "fuente": "Hugging Face (datasets)",
+   "consulta": "load forecasting retrieval",
+   "resultados": 0,
+   "primeros": []
+  },
+  {
+   "fuente": "Hugging Face (models)",
+   "consulta": "analog ensemble",
+   "resultados": 0,
+   "primeros": []
+  },
+  {
+   "fuente": "Hugging Face (datasets)",
+   "consulta": "analog ensemble",
+   "resultados": 0,
+   "primeros": []
+  }
+ ]
+}

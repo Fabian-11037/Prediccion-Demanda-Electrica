@@ -68,7 +68,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="10.17. Resultados y evaluación integrada" href="../10_evaluacion.html" />
+    <link rel="next" title="10.16.1. Antecedentes y originalidad de M4ₙ" href="m4_n_novedad.html" />
     <link rel="prev" title="10.15. TimesNet: variación temporal bidimensional" href="timesnet.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -228,7 +228,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06_covariables.html">6. Covariables y disponibilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../08_literatura.html">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08_literatura.html">8. Literatura y fundamento del diseño</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_busqueda_sistematica.html">8.10. Búsqueda sistemática y flujo PRISMA</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../09_diseno_ampliado.html">9.1. Datos, modelos y protocolo temporal</a></li>
 </ul>
@@ -249,7 +252,10 @@
 <li class="toctree-l2"><a class="reference internal" href="fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="m4_n_novedad.html">10.16.1. Antecedentes y originalidad de M4ₙ</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../10_evaluacion.html">10.17. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
@@ -628,7 +634,7 @@ P_{\mathrm{activo}}=2(32n+32+64)+(36\cdot64+64+64+1)=64n+2625.
 </section>
 <section id="fundamento-de-la-memoria-y-estabilidad-local">
 <h2>Fundamento de la memoria y estabilidad local<a class="headerlink" href="#fundamento-de-la-memoria-y-estabilidad-local" title="Link to this heading">#</a></h2>
-<p>La propuesta relaciona la <a class="reference external" href="https://arxiv.org/abs/2609.03937">recuperación de residuos de una base congelada</a> con la <a class="reference external" href="https://arxiv.org/abs/2610.07834">actualización de memoria mediante observaciones reveladas</a>. Su fundamento metodológico se concentra en la construcción OOF temporal anidada, la recuperación aprendida y la disponibilidad de los episodios. La originalidad de esa integración requiere contrastación bibliográfica y experimental.</p>
+<p>La recuperación residual y la actualización de memoria cuentan con antecedentes directos en RATL, ResMem y FreshCast. La <a class="reference internal" href="m4_n_novedad.html#novedad-m4"><span class="std std-ref">matriz de originalidad</span></a> delimita la contribución candidata de la construcción OOF temporal anidada de M1 y su integración causal. La interpretación de sus componentes se apoya en las ablaciones de la evaluación integrada.</p>
 <p>Puede estudiarse la estabilidad local de la corrección cuando el banco y los vecinos seleccionados permanecen fijos. Si cada residuo está acotado por R, la variación de la corrección entre dos consultas satisface:</p>
 <div class="math notranslate nohighlight" id="equation-eq-arquitecturas-m4-n-019">
 <span class="eqno">(45)<a class="headerlink" href="#equation-eq-arquitecturas-m4-n-019" title="Link to this equation">#</a></span>\[
@@ -1566,6 +1572,8 @@ P_{\mathrm{activo}}=2(32n+32+64)+(36\cdot64+64+64+1)=64n+2625.
 </div>
 <!-- m4-esquemas:fin -->
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1608,11 +1616,11 @@ P_{\mathrm{activo}}=2(32n+32+64)+(36\cdot64+64+64+1)=64n+2625.
       </div>
     </a>
     <a class="right-next"
-       href="../10_evaluacion.html"
+       href="m4_n_novedad.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">10.17. Resultados y evaluación integrada</p>
+        <p class="prev-next-title">10.16.1. Antecedentes y originalidad de M4ₙ</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

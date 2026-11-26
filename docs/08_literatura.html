@@ -68,7 +68,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="9. Diseño de evaluación" href="09_validacion.html" />
+    <link rel="next" title="8.10. Búsqueda sistemática y flujo PRISMA" href="08_busqueda_sistematica.html" />
     <link rel="prev" title="7. Corpus documental y procesamiento del texto" href="07_texto.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -228,7 +228,10 @@
 <li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_covariables.html">6. Covariables y disponibilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">8. Literatura y fundamento del diseño</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="08_busqueda_sistematica.html">8.10. Búsqueda sistemática y flujo PRISMA</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Datos, modelos y protocolo temporal</a></li>
 </ul>
@@ -249,7 +252,10 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arquitecturas/m4_n.html">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="arquitecturas/m4_n.html">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="arquitecturas/m4_n_novedad.html">10.16.1. Antecedentes y originalidad de M4ₙ</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.17. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
@@ -417,7 +423,7 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-evidencia-de-demanda">8.4. Matriz de evidencia de demanda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frecuencia-de-uso-como-comparador">8.5. Frecuencia de uso como comparador</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frecuencia-de-uso-como-comparador-verificada-en-texto-completo">8.5. Frecuencia de uso como comparador verificada en texto completo</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evidencia-directa-de-demanda">Evidencia directa de demanda</a></li>
 </ul>
 </li>
@@ -426,7 +432,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lstm-sobre-secuencias">8.6.2. LSTM sobre secuencias</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn1d-sobre-historia-temporal">8.6.3. CNN1D sobre historia temporal</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-critica-de-robustez-y-escalabilidad">8.6.4. Comparación crítica de robustez y escalabilidad</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-de-la-revision">Alcance de la revisión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-de-la-evidencia-de-comparadores">Alcance de la evidencia de comparadores</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extensiones-respaldadas-por-la-revision">Extensiones respaldadas por la revisión</a></li>
 </ul>
 </li>
@@ -438,12 +444,7 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-e-implicaciones-para-el-experimento">8.8. Síntesis e implicaciones para el experimento</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brecha-de-investigacion-y-pregunta-contrastable">Brecha de investigación y pregunta contrastable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">8.9. Memoria residual para el pronóstico de demanda</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antecedentes-y-relacion-con-m4">Antecedentes y relación con M4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismo-entrenamiento-y-pregunta-de-investigacion">Mecanismo, entrenamiento y pregunta de investigación</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-y-alcance-de-la-evidencia">Búsqueda y alcance de la evidencia</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">8.9. Memoria residual para el pronóstico de demanda</a></li>
 </ul>
             </nav>
         </div>
@@ -462,6 +463,7 @@
 <h2>8.1. Fuentes, selección y alcance<a class="headerlink" href="#fuentes-seleccion-y-alcance" title="Link to this heading">#</a></h2>
 <p>Se realizó una revisión dirigida de estudios de demanda eléctrica y métodos de pronóstico temporal y documental. Se consultaron exportaciones de Scopus, Web of Science e IEEE Xplore, complementadas con búsquedas públicas y recuperación de textos completos. La extracción distingue evidencia empírica de demanda, contribuciones metodológicas y resultados disponibles únicamente en resúmenes.</p>
 <p>Se priorizaron estudios con datos, horizonte, arquitectura y evaluación identificables. Los duplicados, avisos de retirada y aplicaciones sin relación metodológica con el problema se excluyeron de la síntesis empírica.</p>
+<p>La <a class="reference internal" href="08_busqueda_sistematica.html#busqueda-prisma"><span class="std std-ref">búsqueda sistemática complementaria</span></a> documenta el flujo PRISMA del inventario recibido el 26 de noviembre. Sus candidatos por resumen y las frecuencias verificadas en texto completo tienen denominadores distintos.</p>
 <section id="criterios-de-elegibilidad-y-busqueda">
 <h3>Criterios de elegibilidad y búsqueda<a class="headerlink" href="#criterios-de-elegibilidad-y-busqueda" title="Link to this heading">#</a></h3>
 <p>La búsqueda dirigida abarcó publicaciones de 2018 al 8 de noviembre de 2026. El recuento de comparadores requiere texto completo y evaluación explícita de la familia: se excluyen modelos propuestos, componentes, ablaciones y menciones. Las revisiones aportan contexto y los resúmenes permiten identificar candidatos.</p>
@@ -704,8 +706,8 @@
 </div>
 <p>La síntesis reúne cinco estudios empíricos de demanda y una revisión. Dos estudios empíricos integran información textual. Esta evidencia permite examinar mecanismos de integración, pero su presencia no demuestra una mejora generalizable entre sistemas eléctricos.</p>
 </section>
-<section id="frecuencia-de-uso-como-comparador">
-<h2>8.5. Frecuencia de uso como comparador<a class="headerlink" href="#frecuencia-de-uso-como-comparador" title="Link to this heading">#</a></h2>
+<section id="frecuencia-de-uso-como-comparador-verificada-en-texto-completo">
+<span id="frecuencia-comparadores"></span><h2>8.5. Frecuencia de uso como comparador verificada en texto completo<a class="headerlink" href="#frecuencia-de-uso-como-comparador-verificada-en-texto-completo" title="Link to this heading">#</a></h2>
 <p>La unidad de conteo es el par estudio–familia: varias configuraciones de una familia cuentan una vez. Se incluyen comparadores evaluados y comparadores de benchmarks, excluyendo modelos propuestos, componentes, ablaciones y menciones. MLP y DNN se agrupan; los híbridos conservan su nombre y no se descomponen en familias. Una CNN sin dimensión documentada no se etiqueta automáticamente como CNN1D.</p>
 <section id="evidencia-directa-de-demanda">
 <h3>Evidencia directa de demanda<a class="headerlink" href="#evidencia-directa-de-demanda" title="Link to this heading">#</a></h3>
@@ -800,9 +802,9 @@
 </div>
 <p>La robustez no puede ordenarse universalmente desde estudios con distintos datos, épocas y búsquedas. El corpus presenta resultados heterogéneos y reporte desigual de repeticiones; una media publicada sin dispersión limita la comparación. Los diagnósticos propios por año, hora, tipo de día, atípicos y permutación de demanda permiten contrastar mecanismos en el SIN, sin demostrar invariancia causal. Las complejidades teóricas tampoco sustituyen la latencia medida: la implementación, el dispositivo y el tamaño del lote condicionan el costo.</p>
 </section>
-<section id="alcance-de-la-revision">
-<h3>Alcance de la revisión<a class="headerlink" href="#alcance-de-la-revision" title="Link to this heading">#</a></h3>
-<p>El recuento de comparadores comprende cinco estudios empíricos de demanda revisados en texto completo; la revisión de Nti et al. y los trabajos consultados únicamente mediante resumen aportan contexto. La extracción fue realizada por un solo revisor. La falta de cadenas y fechas originales de Scopus y Web of Science, junto con la conciliación incompleta entre bases, limita la exhaustividad y reproducibilidad de la búsqueda.</p>
+<section id="alcance-de-la-evidencia-de-comparadores">
+<h3>Alcance de la evidencia de comparadores<a class="headerlink" href="#alcance-de-la-evidencia-de-comparadores" title="Link to this heading">#</a></h3>
+<p>Los cinco estudios empíricos revisados en texto completo mantienen el denominador de este apartado. La <a class="reference internal" href="08_busqueda_sistematica.html#busqueda-prisma"><span class="std std-ref">ampliación PRISMA</span></a> documenta un inventario mayor con decisiones por resumen; sus señales automáticas no se suman como extracciones verificadas. La confirmación de cadenas de Scopus/WoS y el control humano independiente se describen en el anexo.</p>
 </section>
 <section id="extensiones-respaldadas-por-la-revision">
 <h3>Extensiones respaldadas por la revisión<a class="headerlink" href="#extensiones-respaldadas-por-la-revision" title="Link to this heading">#</a></h3>
@@ -1120,81 +1122,11 @@ S_i=100\sum_{k\in\{C,R,D,I,F\}}0{,}20\,k_i.
 </section>
 <section id="memoria-residual-para-el-pronostico-de-demanda">
 <h2>8.9. Memoria residual para el pronóstico de demanda<a class="headerlink" href="#memoria-residual-para-el-pronostico-de-demanda" title="Link to this heading">#</a></h2>
-<p>La corrección residual separa la estimación del nivel de demanda de los errores que persisten después del pronóstico. M4<sub>N</sub> estudia si esos errores pueden transferirse entre episodios con contexto numérico comparable, manteniendo congelada la base. La recuperación de residuos y la actualización de memoria tienen antecedentes; la contribución investigada se concentra en su formulación temporal y en el aprendizaje de la recuperación.</p>
-<section id="antecedentes-y-relacion-con-m4">
-<h3>Antecedentes y relación con M4<a class="headerlink" href="#antecedentes-y-relacion-con-m4" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Estudio</p></th>
-<th class="head"><p>Mecanismo y evidencia consultada</p></th>
-<th class="head"><p>Relación con la propuesta</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/html/2609.03937v1">RATL, He et al. (2026)</a>, prepublicación; texto completo</p></td>
-<td><p>Base congelada, memoria de sus residuos y router por bloques y variables; incluye ECL.</p></td>
-<td><p>Es el trabajo más cercano: la recuperación residual no se presenta como invención de M4. RATL emplea claves de la base y supervisión de un profesor; M4 aprende consulta y claves de contexto y una compuerta por origen.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/html/2610.07834v3">FreshCast, He et al. (2026)</a>, prepublicación; texto completo</p></td>
-<td><p>Memoria actualizada con observaciones reveladas, regresión por kernel y peso calibrado; incluye Electricity.</p></td>
-<td><p>Sustenta la utilidad de referencias recientes sin reajustar el pronosticador. M4 recupera trayectorias de errores fuera de muestra y regula su aportación con una red condicionada al respaldo recuperado.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1016/j.energy.2025.135762">MMEMformer (2025)</a>; resumen editorial</p></td>
-<td><p>Atención sobre un banco de patrones históricos y fusión de representaciones para carga de sistemas energéticos integrados.</p></td>
-<td><p>La memoria de patrones ya tiene aplicación en carga; su comparación distingue valores y representaciones históricas de errores de un pronosticador específico. La evidencia pública consultada no permite acreditar la lectura integral.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.3389/frai.2026.1935983">Chandrasekaran y Paramasivan (2026)</a>; texto completo</p></td>
-<td><p>Transformer congelado y corrector residual GRU con atención, para demanda a 24 horas en Tamil Nadu y Panamá.</p></td>
-<td><p>Confirma antecedentes de corrección neuronal posterior al pronóstico. M4 conserva episodios recuperables en lugar de generar toda la corrección mediante un estado recurrente.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/bf0857cb9a41c73639f028a80301cdf0-Abstract-Conference.html">ResMem, Yang et al. (2023)</a>; texto completo</p></td>
-<td><p>Suma un regresor de residuos por vecinos a una base neuronal, con aplicaciones en visión y lenguaje.</p></td>
-<td><p>Antecedente transversal de memorización residual; la adaptación temporal requiere definir cuándo están disponibles las etiquetas y cómo se construyen los residuos.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.32479/ijeep.17528">Vargas-Forero et al. (2025)</a>; texto completo</p></td>
-<td><p>LSTM, ARIMA y Prophet para demanda nacional colombiana horaria del día siguiente.</p></td>
-<td><p>Antecedente directo del fenómeno, sistema y horizonte; contextualiza la evaluación del SIN sin equiparar métricas ni periodos entre artículos.</p></td>
-</tr>
-</tbody>
-</table>
+<p>M4 estudia la transferencia de errores entre episodios numéricos comparables sobre una combinación congelada de PatchTST, E y el experto periódico. RATL y ResMem aportan antecedentes de recuperación residual; FreshCast, de actualización de memoria con observaciones reveladas. La contribución candidata se delimita por la construcción OOF temporal anidada y la integración causal para demanda nacional a 24 horas.</p>
+<p>La <a class="reference internal" href="arquitecturas/m4_n_novedad.html#novedad-m4"><span class="std std-ref">matriz consolidada de antecedentes y originalidad</span></a> reúne las cadenas, la cobertura de recuperación, la búsqueda por citación y repositorios y las diferencias frente a los trabajos cercanos. La <a class="reference internal" href="arquitecturas/m4_n.html"><span class="std std-doc">ficha de M4</span></a> desarrolla el mecanismo, y la <a class="reference internal" href="10_evaluacion.html#complementos-m4"><span class="std std-ref">evaluación de componentes</span></a> contrasta sus aportaciones. Las matrices y los resultados se presentan en esas secciones para conservar una única exposición de cada evidencia.</p>
+</section>
+<div class="toctree-wrapper compound">
 </div>
-</section>
-<section id="mecanismo-entrenamiento-y-pregunta-de-investigacion">
-<h3>Mecanismo, entrenamiento y pregunta de investigación<a class="headerlink" href="#mecanismo-entrenamiento-y-pregunta-de-investigacion" title="Link to this heading">#</a></h3>
-<p>El diseño conserva una base M1 formada por PatchTST, E y el experto periódico. Sus residuos se obtienen mediante predicciones fuera del bloque de ajuste, con selección por prefijos y OOF temporal anidado. Dos proyecciones aprendidas representan el origen actual y los episodios históricos; la máscara de disponibilidad se aplica antes de recuperar vecinos. Una compuerta combina contexto, semejanza, dispersión, respaldo y antigüedad para regular la trayectoria residual de 24 horas.</p>
-<p>Frente a RATL, las diferencias se sitúan en la representación aprendida del contexto, el esquema de generación de residuos y la lectura escalar por origen. Frente a FreshCast, se recuperan errores de la base y se aprende una compuerta contextual, en lugar de combinar un pronóstico de memoria mediante calibración cerrada. Los umbrales de antigüedad y el número de vecinos son decisiones de configuración; no constituyen por sí solos una contribución metodológica.</p>
-<p>La pregunta contrastable es si esta integración reduce el error de demanda del SIN colombiano a 24 horas frente al Top 10 y los baselines del benchmark. La evaluación utiliza MASE, MAE y RMSE, una unidad diaria de 24 errores y contrastes temporales con multiplicidad controlada. La novedad investigada corresponde al mecanismo y al entrenamiento; su aplicación geográfica y el desempeño observado no bastan para demostrarla.</p>
-</section>
-<section id="busqueda-y-alcance-de-la-evidencia">
-<h3>Búsqueda y alcance de la evidencia<a class="headerlink" href="#busqueda-y-alcance-de-la-evidencia" title="Link to this heading">#</a></h3>
-<p>La búsqueda dirigida del 24 de noviembre de 2026 emplea tres estrategias: recuperación de residuos, demanda eléctrica colombiana y memoria con compuertas. Las consultas se ejecutan en Crossref, OpenAlex y arXiv, con recuperación de hasta 25 registros por estrategia, ordenados por relevancia. El registro conserva las cadenas, su traducción a cada índice, respuestas y huellas SHA-256.</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Índice</p></th>
-<th class="head text-right"><p>Estrategias</p></th>
-<th class="head text-right"><p>Registros recuperados antes de deduplicar</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Crossref</p></td>
-<td class="text-right"><p>3</p></td>
-<td class="text-right"><p>75</p></td>
-</tr>
-<tr class="row-odd"><td><p>OpenAlex</p></td>
-<td class="text-right"><p>3</p></td>
-<td class="text-right"><p>75</p></td>
-</tr>
-<tr class="row-even"><td><p>arXiv</p></td>
-<td class="text-right"><p>3</p></td>
-<td class="text-right"><p>32</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>La selección dirigida prioriza recuperación explícita, corrección residual y antecedentes del SIN. La integración de contexto numérico aprendido, residuos OOF de una combinación de expertos y compuerta por origen delimita la contribución candidata de M4. La recuperación de errores y la combinación con una base ya tienen antecedentes.</p>
-<p>La revisión tiene un extractor. Su alcance está limitado por la recuperación por relevancia y por la ausencia de exportaciones nativas de Scopus, Web of Science e IEEE Xplore. La evaluación independiente de novedad permanece abierta. <a class="reference download internal" download="" href="_downloads/696df9c5c00d410c493f71ccd9a8ebf9/m4_revision_ampliada.json"><span class="xref download myst">Estrategias, criterios y procedencia</span></a>.</p>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1237,11 +1169,11 @@ S_i=100\sum_{k\in\{C,R,D,I,F\}}0{,}20\,k_i.
       </div>
     </a>
     <a class="right-next"
-       href="09_validacion.html"
+       href="08_busqueda_sistematica.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">9. Diseño de evaluación</p>
+        <p class="prev-next-title">8.10. Búsqueda sistemática y flujo PRISMA</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1278,7 +1210,7 @@ S_i=100\sum_{k\in\{C,R,D,I,F\}}0{,}20\,k_i.
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-evidencia-de-demanda">8.4. Matriz de evidencia de demanda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frecuencia-de-uso-como-comparador">8.5. Frecuencia de uso como comparador</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frecuencia-de-uso-como-comparador-verificada-en-texto-completo">8.5. Frecuencia de uso como comparador verificada en texto completo</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evidencia-directa-de-demanda">Evidencia directa de demanda</a></li>
 </ul>
 </li>
@@ -1287,7 +1219,7 @@ S_i=100\sum_{k\in\{C,R,D,I,F\}}0{,}20\,k_i.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lstm-sobre-secuencias">8.6.2. LSTM sobre secuencias</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn1d-sobre-historia-temporal">8.6.3. CNN1D sobre historia temporal</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-critica-de-robustez-y-escalabilidad">8.6.4. Comparación crítica de robustez y escalabilidad</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-de-la-revision">Alcance de la revisión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-de-la-evidencia-de-comparadores">Alcance de la evidencia de comparadores</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extensiones-respaldadas-por-la-revision">Extensiones respaldadas por la revisión</a></li>
 </ul>
 </li>
@@ -1299,12 +1231,7 @@ S_i=100\sum_{k\in\{C,R,D,I,F\}}0{,}20\,k_i.
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-e-implicaciones-para-el-experimento">8.8. Síntesis e implicaciones para el experimento</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brecha-de-investigacion-y-pregunta-contrastable">Brecha de investigación y pregunta contrastable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">8.9. Memoria residual para el pronóstico de demanda</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antecedentes-y-relacion-con-m4">Antecedentes y relación con M4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismo-entrenamiento-y-pregunta-de-investigacion">Mecanismo, entrenamiento y pregunta de investigación</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-y-alcance-de-la-evidencia">Búsqueda y alcance de la evidencia</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memoria-residual-para-el-pronostico-de-demanda">8.9. Memoria residual para el pronóstico de demanda</a></li>
 </ul>
   </nav></div>
 

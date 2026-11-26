@@ -1,0 +1,3678 @@
+{
+  "fecha": "2026-11-26",
+  "fuente_historica": "busqueda_novedad_20261125.json",
+  "alcance": "Repetición paginada de cinco consultas truncadas; no modifica las exportaciones de Scopus/WoS/IEEE ni acredita revisión independiente",
+  "consultas": [
+    {
+      "cadena": "C6",
+      "base": "OpenAlex",
+      "consulta": "(\"analog ensemble\" OR \"analogue ensemble\") AND (\"forecast\") AND (\"error\" OR \"bias\")",
+      "total_indice": 85,
+      "recuperados": 85,
+      "paginacion_agotada": true,
+      "total_estimado": false,
+      "llamadas": [
+        {
+          "url": "https://api.openalex.org/works?filter=title_and_abstract.search%3A%28%22analog+ensemble%22+OR+%22analogue+ensemble%22%29+AND+%28%22forecast%22%29+AND+%28%22error%22+OR+%22bias%22%29%2Cpublication_year%3A2015-2026&per-page=200&cursor=%2A&sort=relevance_score%3Adesc&select=id%2Cdoi%2Cdisplay_name%2Cpublication_year%2Cabstract_inverted_index%2Ccited_by_count",
+          "recibidos": 85
+        }
+      ],
+      "registros": [
+        {
+          "id": "https://openalex.org/W1120922828",
+          "doi": "https://doi.org/10.1016/j.apenergy.2015.08.011",
+          "titulo": "An analog ensemble for short-term probabilistic solar power forecast",
+          "anio": 2015
+        },
+        {
+          "id": "https://openalex.org/W2801973365",
+          "doi": "https://doi.org/10.1109/tste.2018.2832634",
+          "titulo": "A Solar Time Based Analog Ensemble Method for Regional Solar Power Forecasting",
+          "anio": 2018
+        },
+        {
+          "id": "https://openalex.org/W2945035998",
+          "doi": "https://doi.org/10.1175/mwr-d-19-0006.1",
+          "titulo": "Improving the Analog Ensemble Wind Speed Forecasts for Rare Events",
+          "anio": 2019
+        },
+        {
+          "id": "https://openalex.org/W4304806917",
+          "doi": "https://doi.org/10.3390/atmos13101662",
+          "titulo": "Optimizing Analog Ensembles for Sub-Daily Precipitation Forecasts",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4311364431",
+          "doi": "https://doi.org/10.3390/atmos13122097",
+          "titulo": "Analogue Ensemble Averaging Method for Bias Correction of 2-m Temperature of the Medium-Range Forecasts in China",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4226164034",
+          "doi": "https://doi.org/10.1016/j.solener.2022.03.015",
+          "titulo": "Quantile mapping correction of analog ensemble forecast for solar irradiance",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W3005221326",
+          "doi": "https://doi.org/10.1109/pvsc40753.2019.8980546",
+          "titulo": "Observation-Based Analog Ensemble Solar Forecast in Coastal California",
+          "anio": 2019
+        },
+        {
+          "id": "https://openalex.org/W4381736486",
+          "doi": "https://doi.org/10.1175/waf-d-23-0018.1",
+          "titulo": "Improved Analog Ensemble Formulation for 3-Hourly Precipitation Forecasts",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W2189756375",
+          "doi": "https://doi.org/10.1175/mwr-d-15-0096.1",
+          "titulo": "A Hybrid NWP–Analog Ensemble",
+          "anio": 2016
+        },
+        {
+          "id": "https://openalex.org/W3198046156",
+          "doi": "https://doi.org/10.1002/essoar.10501903.1",
+          "titulo": "Analog Ensemble Probabilistic Forecasting using Deep Generative Models",
+          "anio": 2020
+        },
+        {
+          "id": "https://openalex.org/W4306652301",
+          "doi": "https://doi.org/10.3390/atmos13101704",
+          "titulo": "Analog Ensemble Forecasting System for Low-Visibility Conditions over the Main Airports of Morocco",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W3157421212",
+          "doi": "https://doi.org/10.1016/j.atmosenv.2021.118439",
+          "titulo": "Analog ensemble technique to post-process WRF-CAMx ozone and particulate matter forecasts",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W3044055657",
+          "doi": "https://doi.org/10.1029/2020gl089098",
+          "titulo": "Improving Wind Forecasts in the Lower Stratosphere by Distilling an Analog Ensemble Into a Deep Neural Network",
+          "anio": 2020
+        },
+        {
+          "id": "https://openalex.org/W4406871704",
+          "doi": "https://doi.org/10.1155/er/5529459",
+          "titulo": "Designing a Revenue Forecast Scheme for Analog Ensemble Method Applied Solar PV Forecasting in South Korea",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4225553680",
+          "doi": "https://doi.org/10.1175/mwr-d-21-0154.1",
+          "titulo": "A hybrid analog-ensemble, convolutional-neural-network method for post-processing precipitation forecasts",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4413435357",
+          "doi": "https://doi.org/10.1155/er/9872638",
+          "titulo": "Corrigendum to “Designing a Revenue Forecast Scheme for Analog Ensemble Method Applied Solar PV Forecasting in South Korea”",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4315488157",
+          "doi": "https://doi.org/10.1007/s13351-022-2019-0",
+          "titulo": "Surface Weather Parameters Forecasting Using Analog Ensemble Method over the Main Airports of Morocco",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W2796642430",
+          "doi": "https://doi.org/10.1175/mwr-d-17-0314.1",
+          "titulo": "Probabilistic Prediction of Tropical Cyclone Intensity with an Analog Ensemble",
+          "anio": 2018
+        },
+        {
+          "id": "https://openalex.org/W2801828426",
+          "doi": "https://doi.org/10.5194/acp-2017-1214",
+          "titulo": "Air Quality Predictions with an Analog Ensemble",
+          "anio": 2018
+        },
+        {
+          "id": "https://openalex.org/W4286963157",
+          "doi": null,
+          "titulo": "Probabilistic Day-Ahead Forecasting Using an Analog Ensemble Approach for Wind Farm Grid Services",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W4392965085",
+          "doi": "https://doi.org/10.1007/978-3-031-47079-0_36",
+          "titulo": "Space Analog’s Searching to Improve Deterministic Forecasting Using Analog Ensemble Method Over Morocco",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7118371089",
+          "doi": "https://doi.org/10.71465/ajbd3438",
+          "titulo": "Analog Ensemble for Short Term Temperature Forecasts in the Sierra Nevada with Effects on Snowmelt Streamflow and Water Storage",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4297229647",
+          "doi": "https://doi.org/10.3389/feart.2022.987001",
+          "titulo": "Experiment with the dynamical–statistical–analog ensemble forecast model for landfalling typhoon gale over South China",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4385399761",
+          "doi": "https://doi.org/10.3390/atmos14081223",
+          "titulo": "Sichuan Rainfall Prediction Using an Analog Ensemble",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W3012466862",
+          "doi": "https://doi.org/10.1175/waf-d-19-0148.1",
+          "titulo": "Improving Air Quality Predictions over the United States with an Analog Ensemble",
+          "anio": 2020
+        },
+        {
+          "id": "https://openalex.org/W4416062950",
+          "doi": "https://doi.org/10.20944/preprints202511.0622.v1",
+          "titulo": "Short Term Temperature Forecast Correction in the Sierra Nevada with Analog Ensemble Method for Snowmelt Streamflow and Water Storage Prediction",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W2965217691",
+          "doi": "https://doi.org/10.1016/j.renene.2019.06.132",
+          "titulo": "Using the analog ensemble method as a proxy measurement for wind power predictability",
+          "anio": 2019
+        },
+        {
+          "id": "https://openalex.org/W4388761470",
+          "doi": "https://doi.org/10.3390/en16227630",
+          "titulo": "Refining the Selection of Historical Period in Analog Ensemble Technique",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W3216572517",
+          "doi": "https://doi.org/10.1016/j.solener.2021.11.033",
+          "titulo": "Predicting rare events of solar power production with the analog ensemble",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W4404905086",
+          "doi": "https://doi.org/10.1007/s10661-024-13434-z",
+          "titulo": "Predicting particulate matter ($${{\\varvec{P}}{\\varvec{M}}}_{10}$$) levels in Morocco: a 5-day forecast using the analog ensemble method",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4411806463",
+          "doi": "https://doi.org/10.5194/ems2025-34",
+          "titulo": "Enhancing Weeks 1-2 Forecasts of 2-m Temperature in the Sierra Nevada, California through Analog Ensemble post-processing",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W3097637783",
+          "doi": "https://doi.org/10.1007/s00703-020-00763-0",
+          "titulo": "Analog ensemble (AE) systems for real time quantitative precipitation forecasts (QPFs) for different forecast lead times at local scale over the north-west Himalaya (NWH), India",
+          "anio": 2020
+        },
+        {
+          "id": "https://openalex.org/W3175416754",
+          "doi": "https://doi.org/10.3390/atmos12070830",
+          "titulo": "Analog Ensemble Methods for Improving Satellite-Based Intensity Estimates of Tropical Cyclones",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W4404347455",
+          "doi": "https://doi.org/10.1007/s00703-024-01048-6",
+          "titulo": "Statistical-dynamical analog ensemble system for real time quantitative precipitation forecasts (QPFs) at local scale in the north-west Himalaya (NWH), India",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W2993357746",
+          "doi": "https://doi.org/10.3390/rs11242922",
+          "titulo": "MASS-UMAP: Fast and Accurate Analog Ensemble Search in Weather Radar Archives",
+          "anio": 2019
+        },
+        {
+          "id": "https://openalex.org/W4220891874",
+          "doi": "https://doi.org/10.5194/egusphere-egu22-2450",
+          "titulo": "New AI based weighting strategy for 2m temperature and 10m wind speed forecasting over Moroccan airports using the analog ensemble method.",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4414596371",
+          "doi": "https://doi.org/10.1175/jhm-d-25-0012.1",
+          "titulo": "Improving Weeks 1–2 Temperature Forecasts in the Sierra Nevada Region Using Analog Ensemble Postprocessing with Implications for Better Prediction of Snowmelt, Water Storage, and Streamflow",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W3173993841",
+          "doi": "https://doi.org/10.5194/egusphere-egu21-6036",
+          "titulo": "Using machine learning techniques to generate analog ensembles for data assimilation",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W4400363758",
+          "doi": "https://doi.org/10.5194/ems2024-843",
+          "titulo": "Enhancing High Wind Speed Event Prediction through Adaptive Analog Ensemble Sizing",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4327741495",
+          "doi": "https://doi.org/10.3390/atmos14030567",
+          "titulo": "A Gridded Solar Irradiance Ensemble Prediction System Based on WRF-Solar EPS and the Analog Ensemble",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W2564173216",
+          "doi": "https://doi.org/10.1175/waf-d-16-0118.1",
+          "titulo": "Improving NOAA NAQFC PM2.5 Predictions with a Bias Correction Approach",
+          "anio": 2017
+        },
+        {
+          "id": "https://openalex.org/W2769304616",
+          "doi": "https://doi.org/10.1109/naps.2017.8107270",
+          "titulo": "Hourly probabilistic forecasting of solar power",
+          "anio": 2017
+        },
+        {
+          "id": "https://openalex.org/W2474491608",
+          "doi": "https://doi.org/10.5065/d6n58jr2",
+          "titulo": "The Sun4Cast® Solar Power Forecasting System: The Result of the Public-Private-Academic Partnership to Advance Solar Power Forecasting",
+          "anio": 2016
+        },
+        {
+          "id": "https://openalex.org/W3212219927",
+          "doi": "https://doi.org/10.1109/jphotov.2021.3117904",
+          "titulo": "The WRF-Solar Ensemble Prediction System to Provide Solar Irradiance Probabilistic Forecasts",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W2550144538",
+          "doi": "https://doi.org/10.1109/pesgm.2016.7741199",
+          "titulo": "Multi-stage algorithm for uncertainty analysis of solar power forecasting",
+          "anio": 2016
+        },
+        {
+          "id": "https://openalex.org/W2765574930",
+          "doi": "https://doi.org/10.1175/mwr-d-17-0012.1",
+          "titulo": "Object-Based Analog Forecasts for Surface Wind Speed",
+          "anio": 2017
+        },
+        {
+          "id": "https://openalex.org/W4297890772",
+          "doi": "https://doi.org/10.21203/rs.3.rs-2024020/v1",
+          "titulo": "Machine Learning Weather Analogs for Renewable Forecasting",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4411449263",
+          "doi": "https://doi.org/10.1016/j.ecoinf.2025.103255",
+          "titulo": "Postprocessing of convection permitting precipitation forecast using UNets",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W3196721776",
+          "doi": "https://doi.org/10.1109/pvsc43889.2021.9518554",
+          "titulo": "The WRF-Solar Ensemble Prediction System To Provide Solar Irradiance Probabilistic Forecasts",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W4321488973",
+          "doi": "https://doi.org/10.5194/egusphere-egu23-5238",
+          "titulo": "Post-Processing of CMAQ forecast for Improving Air Quality Predictions",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W3112597429",
+          "doi": "https://doi.org/10.1016/j.atmosenv.2020.118134",
+          "titulo": "Exploring analog-based schemes for aerosol optical depth forecasting with WRF-Chem",
+          "anio": 2020
+        },
+        {
+          "id": "https://openalex.org/W3180351267",
+          "doi": "https://doi.org/10.3390/atmos12070881",
+          "titulo": "Forecasting Particulate Pollution in an Urban Area: From Copernicus to Sub-Km Scale",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W4253704531",
+          "doi": "https://doi.org/10.1016/j.atmosenv.2015.05.057",
+          "titulo": "PM2.5 analog forecast and Kalman filter post-processing for the Community Multiscale Air Quality (CMAQ) model",
+          "anio": 2015
+        },
+        {
+          "id": "https://openalex.org/W3134913915",
+          "doi": "https://doi.org/10.48550/arxiv.2103.04530",
+          "titulo": "Weather Analogs with a Machine Learning Similarity Metric for Renewable Resource Forecasting",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W4396976671",
+          "doi": "https://doi.org/10.3390/en17102392",
+          "titulo": "Enhancing Probabilistic Solar PV Forecasting: Integrating the NB-DST Method with Deterministic Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4408487988",
+          "doi": "https://doi.org/10.5194/egusphere-egu25-9837",
+          "titulo": "Probabilistic Postprocessing of Hourly Precipitation Ensemble Forecasts Using UNet",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W2793383946",
+          "doi": null,
+          "titulo": "Development of Statistical Post-Processing Techniques for Improved Low-Level Wind Speed Forecasts in West Texas",
+          "anio": 2017
+        },
+        {
+          "id": "https://openalex.org/W7154859794",
+          "doi": "https://doi.org/10.1029/2025sw004859",
+          "titulo": "Post‐Processing Probabilistic Forecasts of the Solar Wind by Data Mining Similar Scenarios",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7135198824",
+          "doi": "https://doi.org/10.48550/arxiv.2603.11284",
+          "titulo": "Post-processing Probabilistic Forecasts of the Solar Wind by Data Mining Similar Scenarios",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7151397794",
+          "doi": "https://doi.org/10.13016/m2zsxg-slne",
+          "titulo": "Post-processing Probabilistic Forecasts of the Solar Wind by Data Mining Similar Scenarios",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4249967996",
+          "doi": "https://doi.org/10.2172/1408392",
+          "titulo": "A Public-Private-Acadmic Partnership to Advance Solar Power Forecasting",
+          "anio": 2016
+        },
+        {
+          "id": "https://openalex.org/W3170051412",
+          "doi": "https://doi.org/10.5194/egusphere-egu21-15960",
+          "titulo": "High-resolution PM2.5 forecasting using CAMS predictions, low-cost sensors and ensemble techniques",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W4400374608",
+          "doi": "https://doi.org/10.5194/ems2024-849",
+          "titulo": "Integrating Analog Methods with Other Machine Learning Techniques to Further Enhance Wind Speed Forecasting",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W2982051439",
+          "doi": "https://doi.org/10.1175/waf-d-18-0186.1",
+          "titulo": "Configuration of Statistical Postprocessing Techniques for Improved Low-Level Wind Speed Forecasts in West Texas",
+          "anio": 2020
+        },
+        {
+          "id": "https://openalex.org/W2883020093",
+          "doi": "https://doi.org/10.5194/adgeo-45-13-2018",
+          "titulo": "Probabilistic short term wind power forecasts using deep neural networks with discrete target classes",
+          "anio": 2018
+        },
+        {
+          "id": "https://openalex.org/W4413388973",
+          "doi": "https://doi.org/10.1016/j.atmosres.2025.108439",
+          "titulo": "Enhancing 5-Day Particulate Matter (Pm10) Forecasts in Morocco Using U-Net: A Deep Learning Approach",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7134833790",
+          "doi": "https://doi.org/10.1080/15435075.2026.2642171",
+          "titulo": "Enhancing photovoltaic power forecasting accuracy via AnEn-corrected NWP data and seasonal CNN-LSTM models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W3212934515",
+          "doi": "https://doi.org/10.3390/su132212723",
+          "titulo": "A Short-Term Power Output Forecasting Based on Augmented Naïve Bayes Classifiers for High Wind Power Penetrations",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W4388162408",
+          "doi": "https://doi.org/10.1016/j.atmosenv.2023.120165",
+          "titulo": "Enhancing Air Quality Forecasts Across the Contiguous United States (CONUS) During Wildfires Using Analog-Based Post-Processing Methods",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4321996380",
+          "doi": "https://doi.org/10.5194/egusphere-egu23-10607",
+          "titulo": "Enhancing air quality forecasts across the contiguous United States (CONUS) during wildfires using an Analog-based post-processing methods",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W7224335263",
+          "doi": "https://doi.org/10.1016/j.asr.2026.10.087",
+          "titulo": "Forecasting Solar Cycle 25 using scaled superposed-epoch analysis of solar and geomagnetic data from Solar Cycles 20 to 24",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W2897029086",
+          "doi": "https://doi.org/10.1175/mwr-d-17-0198.1",
+          "titulo": "An Analog Technique to Improve Storm Wind Speed Prediction Using a Dual NWP Model Approach",
+          "anio": 2018
+        },
+        {
+          "id": "https://openalex.org/W2887517686",
+          "doi": null,
+          "titulo": "Post-processing of ALADIN wind speed predictions with an analog-based method",
+          "anio": 2015
+        },
+        {
+          "id": "https://openalex.org/W4392584103",
+          "doi": "https://doi.org/10.1016/j.atmosenv.2026.122011",
+          "titulo": "Gridded post-processing of air quality predictions based on the Community Multi-scale Air Quality (CMAQ) model",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4210996527",
+          "doi": "https://doi.org/10.1002/ese3.1086",
+          "titulo": "Deep generative model for probabilistic wind speed and wind power estimation at a wind farm",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4399323175",
+          "doi": "https://doi.org/10.1007/s00382-024-07282-3",
+          "titulo": "Developing a dynamic-statistical downscaling framework for wind speed prediction for the Beijing 2022 Winter olympics",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4210860201",
+          "doi": "https://doi.org/10.1007/s00703-022-00861-1",
+          "titulo": "Quality of Local Scale Surface Weather Analogs in Two Climatologically and Geographically Distinct Mountainous Regions",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W3042110092",
+          "doi": "https://doi.org/10.5194/egusphere-egu2020-6811",
+          "titulo": "Evaluation of the analog-based method for the operational implementation in Croatia",
+          "anio": 2020
+        },
+        {
+          "id": "https://openalex.org/W4229000909",
+          "doi": "https://doi.org/10.1002/qj.4301",
+          "titulo": "Prediction of tropical cyclone precipitation over China by the DSAEF_LTP model",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W3045750639",
+          "doi": "https://doi.org/10.1002/qj.3882",
+          "titulo": "Introducing TC intensity into the DSAEF_LTP model and simulating precipitation of super‐typhoon Lekima (2019)",
+          "anio": 2020
+        },
+        {
+          "id": "https://openalex.org/W4410996379",
+          "doi": "https://doi.org/10.1029/2024ms004675",
+          "titulo": "An Online Paleoclimate Data Assimilation With a Deep Learning‐Based Network",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4408436297",
+          "doi": "https://doi.org/10.5194/egusphere-egu25-7521",
+          "titulo": "An Online Paleoclimate Data Assimilation with a Deep Learning-based Network",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4315651797",
+          "doi": "https://doi.org/10.1007/s10546-022-00779-6",
+          "titulo": "Machine Learning Weather Analogs for Near-Surface Variables",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W7224714327",
+          "doi": null,
+          "titulo": "Operating reserve in microgrids: an approach to deal with uncertainty",
+          "anio": 2018
+        },
+        {
+          "id": "https://openalex.org/W2964989333",
+          "doi": "https://doi.org/10.1007/s12040-019-1216-4",
+          "titulo": "Quality of local scale surface weather analogs over the north-west Himalaya (NWH), India",
+          "anio": 2019
+        }
+      ],
+      "fecha": "2026-11-26"
+    },
+    {
+      "cadena": "C6",
+      "base": "Semantic Scholar",
+      "consulta": "(\"analog ensemble\" | \"analogue ensemble\") + forecast + (error | bias)",
+      "total_indice": 58,
+      "recuperados": 58,
+      "paginacion_agotada": true,
+      "total_estimado": true,
+      "llamadas": [
+        {
+          "url": "https://api.semanticscholar.org/graph/v1/paper/search/bulk?query=%28%22analog+ensemble%22+%7C+%22analogue+ensemble%22%29+%2B+forecast+%2B+%28error+%7C+bias%29&fields=title%2Cyear%2CexternalIds%2Cabstract%2CcitationCount&year=2015-2026",
+          "recibidos": 58
+        }
+      ],
+      "registros": [
+        {
+          "id": "096dae0a63b9b6af41aeff19ddf290904ef7fc0b",
+          "doi": "10.1002/qj.4301",
+          "titulo": "Prediction of tropical cyclone precipitation over China by the DSAEF_LTP model",
+          "anio": 2022
+        },
+        {
+          "id": "0cd949bcdb3f283f4a3645e256e9ac4eb36ba221",
+          "doi": "10.1016/j.renene.2019.06.132",
+          "titulo": "Using the analog ensemble method as a proxy measurement for wind power predictability",
+          "anio": 2020
+        },
+        {
+          "id": "1e8e8e01fe262ce7e658a7714aac133d2056be7c",
+          "doi": "10.1016/j.atmosres.2025.108439",
+          "titulo": "Enhancing 5-Day Particulate Matter (PM10) Forecasts in Morocco Using U-Net: A Deep Learning Approach",
+          "anio": 2025
+        },
+        {
+          "id": "22800169804722cd756386ac40828a5007315535",
+          "doi": "10.3390/atmos13101662",
+          "titulo": "Optimizing Analog Ensembles for Sub-Daily Precipitation Forecasts",
+          "anio": 2022
+        },
+        {
+          "id": "25a9e92dbf5c7835f597978a1c1e3d725cda2ffb",
+          "doi": "10.1007/s00703-024-01048-6",
+          "titulo": "Statistical-dynamical analog ensemble system for real time quantitative precipitation forecasts (QPFs) at local scale in the north-west Himalaya (NWH), India",
+          "anio": 2024
+        },
+        {
+          "id": "2a0fbf0f26c4dd3879eff16081dab25d2b37f41f",
+          "doi": "10.1007/s00703-022-00861-1",
+          "titulo": "Quality of Local Scale Surface Weather Analogs in Two Climatologically and Geographically Distinct Mountainous Regions",
+          "anio": 2022
+        },
+        {
+          "id": "2cea0fae81e3f4cc90df15fc851387de30dfd8e3",
+          "doi": "10.1002/ese3.1086",
+          "titulo": "Deep generative model for probabilistic wind speed and wind power estimation at a wind farm",
+          "anio": 2022
+        },
+        {
+          "id": "2e4e1da28e2cc475713086f57e8799bfe5ae9ee1",
+          "doi": "10.3390/su132212723",
+          "titulo": "A Short-Term Power Output Forecasting Based on Augmented Naïve Bayes Classifiers for High Wind Power Penetrations",
+          "anio": 2021
+        },
+        {
+          "id": "2e9cfb208a6179d174a8f6cc8358549a944cc5a3",
+          "doi": "10.1080/15435075.2026.2642171",
+          "titulo": "Enhancing photovoltaic power forecasting accuracy via AnEn-corrected NWP data and seasonal CNN-LSTM models",
+          "anio": 2026
+        },
+        {
+          "id": "2ec2cac3699c90aae7285d7a5571fa8e6c1131a6",
+          "doi": "10.1007/s00382-024-07282-3",
+          "titulo": "Developing a dynamic-statistical downscaling framework for wind speed prediction for the Beijing 2022 Winter olympics",
+          "anio": 2024
+        },
+        {
+          "id": "3310c18541842dea7f06a12533bf8ecc7a8c934e",
+          "doi": "10.3390/atmos13101704",
+          "titulo": "Analog Ensemble Forecasting System for Low-Visibility Conditions over the Main Airports of Morocco",
+          "anio": 2022
+        },
+        {
+          "id": "339be011431de443db8a0c009529ccbea2fb89f3",
+          "doi": "10.1007/s10546-022-00779-6",
+          "titulo": "Machine Learning Weather Analogs for Near-Surface Variables",
+          "anio": 2023
+        },
+        {
+          "id": "35ea261af63934f6f3ec7752cb6aef8bdc9459d7",
+          "doi": "10.5194/egusphere-egu2020-6811",
+          "titulo": "Evaluation of the analog-based method for the operational implementation in Croatia",
+          "anio": 2020
+        },
+        {
+          "id": "3e45273919f83d74a36c4d344b64924d50944daa",
+          "doi": "10.21203/rs.3.rs-4619478/v1",
+          "titulo": "Predicting Particulate Matter (PM10) Levels in Morocco: A 5-Day Forecast Using the Analog Ensemble Method",
+          "anio": 2024
+        },
+        {
+          "id": "4012d796cc59606fb72f26f9c11390323d659f7e",
+          "doi": "10.3390/atmos12070830",
+          "titulo": "Analog Ensemble Methods for Improving Satellite-Based Intensity Estimates of Tropical Cyclones",
+          "anio": 2021
+        },
+        {
+          "id": "43b4289e02d3c090b9a70165d956d4ded82708ea",
+          "doi": "10.1175/waf-d-18-0186.1",
+          "titulo": "Configuration of Statistical Postprocessing Techniques for Improved Low-Level Wind Speed Forecasts in West Texas",
+          "anio": 2020
+        },
+        {
+          "id": "43be6839a782935ef356975a6156e811a03aa75e",
+          "doi": "10.3389/feart.2022.987001",
+          "titulo": "Experiment with the dynamical–statistical–analog ensemble forecast model for landfalling typhoon gale over South China",
+          "anio": 2022
+        },
+        {
+          "id": "44057169920abafd1e15160e1fc894a363ae1f9d",
+          "doi": "10.5194/ADGEO-45-13-2018",
+          "titulo": "Probabilistic short term wind power forecasts using deep neural networks with discrete target classes",
+          "anio": 2018
+        },
+        {
+          "id": "4cb20efed59fd8210a663f01d4e40d1747e2a779",
+          "doi": "10.5194/ACP-2017-1214",
+          "titulo": "Air Quality Predictions with an Analog Ensemble",
+          "anio": 2018
+        },
+        {
+          "id": "5126d82f11878292e90408feaae64f0e8a1420b7",
+          "doi": "10.3390/en16227630",
+          "titulo": "Refining the Selection of Historical Period in Analog Ensemble Technique",
+          "anio": 2023
+        },
+        {
+          "id": "59159f3b659bd7e33003b6ccbd0e41235514713b",
+          "doi": "10.1109/TSTE.2018.2832634",
+          "titulo": "A Solar Time Based Analog Ensemble Method for Regional Solar Power Forecasting",
+          "anio": 2019
+        },
+        {
+          "id": "5c1132f45d9d770da0f15679b7c3b55e85d89378",
+          "doi": "10.3390/en17102392",
+          "titulo": "Enhancing Probabilistic Solar PV Forecasting: Integrating the NB-DST Method with Deterministic Models",
+          "anio": 2024
+        },
+        {
+          "id": "5f484e8713b6e9c8caaa909010fc2dad41683509",
+          "doi": "10.1175/mwr-d-21-0154.1",
+          "titulo": "A hybrid analog-ensemble, convolutional-neural-network method for post-processing precipitation forecasts",
+          "anio": 2022
+        },
+        {
+          "id": "63d282749fd3deafab41e2c5e069c23fff6c5df8",
+          "doi": "10.3390/atmos14030567",
+          "titulo": "A Gridded Solar Irradiance Ensemble Prediction System Based on WRF-Solar EPS and the Analog Ensemble",
+          "anio": 2023
+        },
+        {
+          "id": "6939c5c5e402370d7b0aff868d81968da93ae956",
+          "doi": "10.1109/PVSC40753.2019.8980546",
+          "titulo": "Observation-Based Analog Ensemble Solar Forecast in Coastal California",
+          "anio": 2019
+        },
+        {
+          "id": "6b8c088c8a2f725673b82f9af2331f9214fd0b21",
+          "doi": "10.1109/JPHOTOV.2021.3117904",
+          "titulo": "The WRF-Solar Ensemble Prediction System to Provide Solar Irradiance Probabilistic Forecasts",
+          "anio": 2022
+        },
+        {
+          "id": "6d1ae6f6b7405aebe9300f291aa50d5a084d87d8",
+          "doi": "10.1109/PVSC43889.2021.9518554",
+          "titulo": "The WRF-Solar Ensemble Prediction System To Provide Solar Irradiance Probabilistic Forecasts",
+          "anio": 2021
+        },
+        {
+          "id": "6f8606be02299f684847020c53f664f41bdd1bff",
+          "doi": "10.1007/s10661-024-13434-z",
+          "titulo": "Predicting particulate matter (PM10) levels in Morocco: a 5-day forecast using the analog ensemble method",
+          "anio": 2024
+        },
+        {
+          "id": "6fb445ec1eafbc13e56e95d08104523fb0f22802",
+          "doi": "10.71465/ajbd3438",
+          "titulo": "Analog Ensemble for Short Term Temperature Forecasts in the Sierra Nevada with Effects on Snowmelt Streamflow and Water Storage",
+          "anio": 2025
+        },
+        {
+          "id": "7f125b463e52e7151882802d53807c2b91b09e00",
+          "doi": "10.1109/NAPS.2017.8107270",
+          "titulo": "Hourly probabilistic forecasting of solar power",
+          "anio": 2017
+        },
+        {
+          "id": "84e7a656471cb9af308a7da0bc9c641497116fd0",
+          "doi": "10.1029/2020GL089098",
+          "titulo": "Improving Wind Forecasts in the Lower Stratosphere by Distilling an Analog Ensemble Into a Deep Neural Network",
+          "anio": 2020
+        },
+        {
+          "id": "85c3ed3adbbbcee21b68321fb7872f5974acc03b",
+          "doi": "10.5194/EGUSPHERE-EGU21-15960",
+          "titulo": "High-resolution PM2.5 forecasting using CAMS predictions, low-cost sensors and ensemble techniques",
+          "anio": 2021
+        },
+        {
+          "id": "8ee149f439b0c31fb5ee27f24f20e31146ec2a8b",
+          "doi": "10.3390/atmos14081223",
+          "titulo": "Sichuan Rainfall Prediction Using an Analog Ensemble",
+          "anio": 2023
+        },
+        {
+          "id": "8fb284ed2fabb71c1ca6b6c0ea0eedf3ad992a83",
+          "doi": "10.1007/s12040-019-1216-4",
+          "titulo": "Quality of local scale surface weather analogs over the north-west Himalaya (NWH), India",
+          "anio": 2019
+        },
+        {
+          "id": "9010b86c2e6cd3e507eb62087e816fcb41eabd35",
+          "doi": "10.1029/2024MS004675",
+          "titulo": "An Online Paleoclimate Data Assimilation With a Deep Learning‐Based Network",
+          "anio": 2025
+        },
+        {
+          "id": "957c8fcfea1a182f62292a87d6e8e59430fc1905",
+          "doi": "10.1175/waf-d-23-0018.1",
+          "titulo": "Improved Analog Ensemble Formulation for 3-hourly Precipitation Forecasts",
+          "anio": 2023
+        },
+        {
+          "id": "a1c51a6b828a6811d6fd0542488a808921dcad90",
+          "doi": "10.3390/ATMOS12070881",
+          "titulo": "Forecasting Particulate Pollution in an Urban Area: From Copernicus to Sub-Km Scale",
+          "anio": 2021
+        },
+        {
+          "id": "a5fed90cd35cd38afdc38a86058543240f1b17a0",
+          "doi": "10.1007/s13351-022-2019-0",
+          "titulo": "Surface Weather Parameters Forecasting Using Analog Ensemble Method over the Main Airports of Morocco",
+          "anio": 2022
+        },
+        {
+          "id": "ac59cefc40f1a0bb047830f75433cab030a79a97",
+          "doi": "10.1155/er/5529459",
+          "titulo": "Designing a Revenue Forecast Scheme for Analog Ensemble Method Applied Solar PV Forecasting in South Korea",
+          "anio": 2025
+        },
+        {
+          "id": "b1840c1f0fd1a13614d6bfe89427ca72e93f44b5",
+          "doi": "10.1029/2025SW004859",
+          "titulo": "Post‐Processing Probabilistic Forecasts of the Solar Wind by Data Mining Similar Scenarios",
+          "anio": 2026
+        },
+        {
+          "id": "b20e72019e6ce8cb84a14d385addbbcd90050ecd",
+          "doi": "10.48550/arXiv.2103.04530",
+          "titulo": "Weather Analogs with a Machine Learning Similarity Metric for Renewable Resource Forecasting",
+          "anio": 2021
+        },
+        {
+          "id": "b3b4f82b40d8a2d4a92c75fa537d7e941c4b7aea",
+          "doi": "10.1175/MWR-D-19-0006.1",
+          "titulo": "Improving the Analog Ensemble Wind Speed Forecasts for Rare Events",
+          "anio": 2019
+        },
+        {
+          "id": "c3d32ddc57aef83d1dbebdf54ef46173b5e5f3cd",
+          "doi": "10.3390/atmos13122097",
+          "titulo": "Analogue Ensemble Averaging Method for Bias Correction of 2-m Temperature of the Medium-Range Forecasts in China",
+          "anio": 2022
+        },
+        {
+          "id": "c61a7a386e513fa70964f42408af89f35420e1ee",
+          "doi": null,
+          "titulo": "Statistical methods to develop skillful probabilistic wind power forecasts",
+          "anio": 2015
+        },
+        {
+          "id": "c8a017eb5e3645ba718f8c9ea1379cbbbd3dbe3c",
+          "doi": "10.1175/WAF-D-16-0118.1",
+          "titulo": "Improving NOAA NAQFC PM2.5 predictions with a bias correction approach",
+          "anio": 2017
+        },
+        {
+          "id": "c91b9772a5aa2af1abeb8bd88e50c627c0ef979a",
+          "doi": null,
+          "titulo": "Operational air quality forecast guidance for the United States",
+          "anio": 2016
+        },
+        {
+          "id": "c9b6ed49f7549076e02157cec1eaf0ec4485d317",
+          "doi": "10.1175/MWR-D-17-0198.1",
+          "titulo": "An Analog Technique to Improve Storm Wind Speed Prediction Using a Dual NWP Model Approach",
+          "anio": 2018
+        },
+        {
+          "id": "d1447798025f71a90197d2823fec274c7db0feea",
+          "doi": "10.1175/waf-d-19-0148.1",
+          "titulo": "Improving Air Quality Predictions over the United States with an Analog Ensemble",
+          "anio": 2020
+        },
+        {
+          "id": "d2bb8caf12401924cbeec9929a6be8559dd5e1b2",
+          "doi": "10.5194/egusphere-egu21-6036",
+          "titulo": "Using machine learning techniques to generate analog ensembles for data assimilation",
+          "anio": 2021
+        },
+        {
+          "id": "d2cad3e54cc4658d33f0d7e6f0a00169ade4491a",
+          "doi": "10.1175/MWR-D-15-0096.1",
+          "titulo": "A Hybrid NWP–Analog Ensemble",
+          "anio": 2016
+        },
+        {
+          "id": "d2cb622188ef7045c87a6b42cd0a42eb7a6c1430",
+          "doi": "10.1016/j.atmosenv.2020.118134",
+          "titulo": "Exploring analog-based schemes for aerosol optical depth forecasting with WRF-Chem",
+          "anio": 2020
+        },
+        {
+          "id": "db661cae3a12d9b5b73dcfdaa794dff2358167eb",
+          "doi": "10.1002/qj.3882",
+          "titulo": "Introducing TC intensity into the DSAEF_LTP model and simulating precipitation of super‐typhoon Lekima (2019)",
+          "anio": 2020
+        },
+        {
+          "id": "db682c6ca6e92ad943ee8d0698bd1cb581a20ffe",
+          "doi": "10.1016/J.APENERGY.2015.08.011",
+          "titulo": "An analog ensemble for short-term probabilistic solar power forecast",
+          "anio": 2015
+        },
+        {
+          "id": "df14e4c3c34588664656132bcdf07638df2a9949",
+          "doi": "10.1007/s00703-020-00763-0",
+          "titulo": "Analog ensemble (AE) systems for real time quantitative precipitation forecasts (QPFs) for different forecast lead times at local scale over the north-west Himalaya (NWH), India",
+          "anio": 2020
+        },
+        {
+          "id": "ebe63d5eb128321812be5269d2fb7608e32e0fa2",
+          "doi": "10.1016/J.ATMOSENV.2021.118439",
+          "titulo": "Analog ensemble technique to post-process WRF-CAMx ozone and particulate matter forecasts",
+          "anio": 2021
+        },
+        {
+          "id": "f928703acf71e1ad4bd0ccccac49227cf9d71c4e",
+          "doi": "10.1175/MWR-D-17-0314.1",
+          "titulo": "Probabilistic Prediction of Tropical Cyclone Intensity with an Analog Ensemble",
+          "anio": 2018
+        },
+        {
+          "id": "feafbc2bfaa9bbb00f85e623b0ffa4e5cab7dbb6",
+          "doi": "10.1109/PESGM.2016.7741199",
+          "titulo": "Multi-stage algorithm for uncertainty analysis of solar power forecasting",
+          "anio": 2016
+        },
+        {
+          "id": "ff1f355d5c257794aef529c2fb2fb3fba23b9883",
+          "doi": "10.48550/arXiv.1910.01211",
+          "titulo": "MASS-UMAP: Fast and accurate analog ensemble search in weather radar archive",
+          "anio": 2019
+        }
+      ],
+      "fecha": "2026-11-26"
+    },
+    {
+      "cadena": "C7",
+      "base": "OpenAlex",
+      "consulta": "(\"retrieval-augmented\" OR \"retrieval augmented\") AND (\"time series forecasting\")",
+      "total_indice": 81,
+      "recuperados": 81,
+      "paginacion_agotada": true,
+      "total_estimado": false,
+      "llamadas": [
+        {
+          "url": "https://api.openalex.org/works?filter=title_and_abstract.search%3A%28%22retrieval-augmented%22+OR+%22retrieval+augmented%22%29+AND+%28%22time+series+forecasting%22%29%2Cpublication_year%3A2015-2026&per-page=200&cursor=%2A&sort=relevance_score%3Adesc&select=id%2Cdoi%2Cdisplay_name%2Cpublication_year%2Cabstract_inverted_index%2Ccited_by_count",
+          "recibidos": 81
+        }
+      ],
+      "registros": [
+        {
+          "id": "https://openalex.org/W4416012426",
+          "doi": "https://doi.org/10.48550/arxiv.2505.04163",
+          "titulo": "Retrieval Augmented Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4404407089",
+          "doi": "https://doi.org/10.48550/arxiv.2411.08249",
+          "titulo": "Retrieval Augmented Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4415799035",
+          "doi": "https://doi.org/10.52202/079017-0091",
+          "titulo": "Retrieval-Augmented Diffusion Models for Time Series Forecasting",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4408353540",
+          "doi": "https://doi.org/10.1109/icassp49660.2025.10889933",
+          "titulo": "TimeRAG: Boosting LLM Time Series Forecasting via Retrieval-Augmented Generation",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7165370414",
+          "doi": "https://doi.org/10.48550/arxiv.2606.19412",
+          "titulo": "Spectral Retrieval-Augmented Time-Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7163702910",
+          "doi": "https://doi.org/10.1145/3770855.3817813",
+          "titulo": "Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4411232126",
+          "doi": "https://doi.org/10.1109/tkde.2025.3579137",
+          "titulo": "TimeRAF: Retrieval-Augmented Foundation Model for Zero-Shot Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4407385968",
+          "doi": "https://doi.org/10.48550/arxiv.2502.05878",
+          "titulo": "Retrieval-augmented Large Language Models for Financial Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7164927702",
+          "doi": "https://doi.org/10.48550/arxiv.2606.14941",
+          "titulo": "Semantics-Enhanced Retrieval-Augmented Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7155033865",
+          "doi": "https://doi.org/10.1109/icassp55912.2026.11463579",
+          "titulo": "FoRSe: A Retrieval-Augmented Framework for Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7155053624",
+          "doi": "https://doi.org/10.1109/icassp55912.2026.11462579",
+          "titulo": "RAMTime: Retrieval-Augmented Memory for Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4414029295",
+          "doi": "https://doi.org/10.1007/s12204-025-2847-z",
+          "titulo": "Retrieval-Augmented Framework with Adaptive Gating for Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7201885343",
+          "doi": "https://doi.org/10.48550/arxiv.2608.06223",
+          "titulo": "TS-RAG: Retrieval Augmented Generation for Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7223552851",
+          "doi": "https://doi.org/10.21203/rs.3.rs-11111645/v1",
+          "titulo": "VRATF: Vision-based Retrieval-Augmented Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4416178479",
+          "doi": "https://doi.org/10.1145/3774904.3792141",
+          "titulo": "QuiZSF: A Retrieval-Augmented Framework for Zero-Shot Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7152477128",
+          "doi": "https://doi.org/10.1145/3774904.3792074",
+          "titulo": "Cross-city Time Series Forecasting with Retrieval-Augmented Large Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7214924586",
+          "doi": "https://doi.org/10.48550/arxiv.2609.36281",
+          "titulo": "GNA: Granular Neighbor Assembly for Retrieval-Augmented Multivariate Time-Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7223035541",
+          "doi": "https://doi.org/10.1016/j.neucom.2026.135443",
+          "titulo": "STRAF: A retrieval-augmented framework for time series forecasting with adaptive historical fusion",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7239423471",
+          "doi": "https://doi.org/10.5281/zenodo.24503935",
+          "titulo": "Source data for Evidence Eligibility and Similarity in Retrieval-Augmented Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4392616995",
+          "doi": "https://doi.org/10.48550/arxiv.2403.04180",
+          "titulo": "RATSF: Empowering Customer Service Volume Management through Retrieval-Augmented Time-Series Forecasting",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7238710002",
+          "doi": null,
+          "titulo": "TimeMRA: LLM-Empowered Time Series Forecasting via Multi-Scale Retrieval-Augmented Representations",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4416756170",
+          "doi": "https://doi.org/10.1109/tii.2025.3631696",
+          "titulo": "A$^{2}$RA-NSMTSllm: Adversarially Aligning Retrieval-Augmented LLMs for Nonstationary Multivariate Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7167918097",
+          "doi": "https://doi.org/10.21203/rs.3.rs-10178277/v1",
+          "titulo": "Retrieval-Augmented Large-Language-Model-Based Time-Series Forecasting for Cross-Market Equity Analysis",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7203632917",
+          "doi": "https://doi.org/10.1109/mlsp68619.2026.11772573",
+          "titulo": "Model-Agnostic Retrieval-Augmented Extended Forecasting For Time Series",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4414565284",
+          "doi": "https://doi.org/10.52202/085713-5448",
+          "titulo": "TS-RAG: Retrieval-Augmented Generation based Time Series Foundation Models are Stronger Zero-Shot Forecaster",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7123301806",
+          "doi": "https://doi.org/10.1109/jbhi.2026.3737468",
+          "titulo": "GlyRAG: Context-Aware Retrieval-Augmented Framework for Blood Glucose Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7239805219",
+          "doi": "https://doi.org/10.1007/978-981-92-8134-3_8",
+          "titulo": "TCA-RAP: Temporal-Consistency-Aware Retrieval-Augmented Precipitation Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4404036199",
+          "doi": "https://doi.org/10.1109/iceect61758.2024.10738936",
+          "titulo": "Pattern Recognition and Prediction in Time Series Data Through Retrieval-Augmented Techniques",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7225118802",
+          "doi": "https://doi.org/10.1145/3799682.3841004",
+          "titulo": "Retrieve the Right Signal: Decomposition-Guided Retrieval-Augmented Forecasting for Financial Markets",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7224690026",
+          "doi": null,
+          "titulo": "A Multi-Scale Transformer Architecture for Cardano Price Forecasting with Retrieval-Augmented Context",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7155101384",
+          "doi": "https://doi.org/10.1109/icassp55912.2026.11463178",
+          "titulo": "Channel-Wise Retrieval for Multivariate Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4407308611",
+          "doi": "https://doi.org/10.1201/9781003616719-9",
+          "titulo": "Time-VLM: Exploring Multimodal Vision-Language Models for Augmented Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7154693931",
+          "doi": "https://doi.org/10.1016/j.atech.2026.102124",
+          "titulo": "DRAFT-LLM: Retrieval-augmented frequency alignment with frozen large language models for cross-domain air-quality forecasting in enclosed sheep barns",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7220973571",
+          "doi": "https://doi.org/10.48550/arxiv.2610.07834",
+          "titulo": "FreshCast: Timely and Complementary Retrieval for Frozen Time Series Forecasters",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7166591753",
+          "doi": "https://doi.org/10.2139/ssrn.7021489",
+          "titulo": "Cross-Channel Adaptation Workflow for Pretrained Time-Series Forecasting Backbones",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7205388415",
+          "doi": null,
+          "titulo": "Time-VLM: Exploring Multimodal Vision-Language Models for Augmented Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7162118473",
+          "doi": "https://doi.org/10.18127/j20700814-202601-04",
+          "titulo": "Analysis of the possibilities of applying VLM to time series forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7165391925",
+          "doi": "https://doi.org/10.5281/zenodo.20757476",
+          "titulo": "CAUSE-RAG reproducibility materials for causally audited time-series forecasting explanations",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7160963815",
+          "doi": "https://doi.org/10.48550/arxiv.2605.08217",
+          "titulo": "Retrieval Mechanisms Surpass Long-Context Scaling in Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7220703731",
+          "doi": "https://doi.org/10.48550/arxiv.2610.04109",
+          "titulo": "SEER: Self-Evolving Event Reasoning and Retrieval for Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7125899691",
+          "doi": "https://doi.org/10.3389/frai.2026.1722121",
+          "titulo": "Large language model-driven time-series forecasting of financial network indicators",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7162416775",
+          "doi": "https://doi.org/10.48550/arxiv.2605.24911",
+          "titulo": "ROAR: Retrieval Opportunity-Aware Refinement for Zero-Shot Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7172331733",
+          "doi": "https://doi.org/10.48550/arxiv.2607.29459",
+          "titulo": "TFGformer: Multivariate Time Series Forecasting via Time-Frequency Graph Learning and Covariate Fusion",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7138416749",
+          "doi": "https://doi.org/10.48550/arxiv.2603.14709",
+          "titulo": "Not All Retrievals are Useful: Cross-Attention for Input-Aware RAG in Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7214045647",
+          "doi": "https://doi.org/10.18653/2026.findings-emnlp.1491",
+          "titulo": "Beyond Similarity: Coverage-Aware Prompt Selection for Time Series Forecasting with LLMs",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7208708326",
+          "doi": "https://doi.org/10.48550/arxiv.2609.03937",
+          "titulo": "RATL: Learning from Retrieved Residuals for Robust Multivariate Time-Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7155045658",
+          "doi": "https://doi.org/10.1109/icassp55912.2026.11464622",
+          "titulo": "FCR: Multi-View Compositional Retrieval for Time Series Forecasting with Large Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225113114",
+          "doi": "https://doi.org/10.1145/3799682.3840828",
+          "titulo": "ReCast: Regime-aware Multi-scale Retrieval with Context--Evolution Coupling for Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7204174706",
+          "doi": "https://doi.org/10.48550/arxiv.2608.23221",
+          "titulo": "Which Histories Matter for Time Series Forecasting? Learning Predictive Relevance with Future Supervision",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7213908022",
+          "doi": "https://doi.org/10.1145/3806096.3844831",
+          "titulo": "Tracing the Evidence Behind Zero-Shot Time-Series Forecasting: A Source-First Taxonomy and Audit Framework",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7155089422",
+          "doi": "https://doi.org/10.1109/icassp55912.2026.11462794",
+          "titulo": "KAN-LLM: Kolmogorov-Arnold Networks-Enhanced Large Language Models for Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7165921431",
+          "doi": "https://doi.org/10.21203/rs.3.rs-9938847/v1",
+          "titulo": "Small Language Models for Time Series Prediction: Advances, Challenges, and Future Directions",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7125105854",
+          "doi": "https://doi.org/10.1007/978-3-032-13921-4_50",
+          "titulo": "Enhancing Capabilities of Forecasting Models Using LLMs and Agentic RAG",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4415591124",
+          "doi": "https://doi.org/10.1117/12.3086636",
+          "titulo": "Forecasting stocks using hybrid neural models by augmenting a RAG pipeline",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7223671831",
+          "doi": "https://doi.org/10.48550/arxiv.2610.31959",
+          "titulo": "A Model-Agnostic Correction Framework for Short-Term Building Load Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225585062",
+          "doi": "https://doi.org/10.5281/zenodo.24048472",
+          "titulo": "jeelpatel212530-cloud/financial-intelligence-dashboard: version_2.0",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4416034570",
+          "doi": "https://doi.org/10.18653/v1/2025.findings-emnlp.834",
+          "titulo": "FLAIRR-TS - Forecasting LLM-Agents with Iterative Refinement and Retrieval for Time Series",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7239696024",
+          "doi": null,
+          "titulo": "From Data Sources to User Screens: a Multimodal hEalth Data lakehouse for ITAly (MEDITA)",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4412984921",
+          "doi": "https://doi.org/10.1109/tnse.2025.3596028",
+          "titulo": "Harnessing the Power of LLMs, Informers and Decision Transformers for Intent-Driven RAN Management in 6G",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7125926104",
+          "doi": "https://doi.org/10.1016/j.autcon.2026.106797",
+          "titulo": "AI-driven decision support system for construction cost forecasting and consultation using optimized deep learning and language models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7139049681",
+          "doi": "https://doi.org/10.5281/zenodo.19116938",
+          "titulo": "Phi-Mamba: A Lightweight AI Framework for Real-Time Energy Optimization in Edge Infrastructure",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4416016966",
+          "doi": "https://doi.org/10.1145/3746252.3761012",
+          "titulo": "DANet: A RAG-inspired Dual Attention Model for Few-shot Time Series Prediction",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7164855978",
+          "doi": "https://doi.org/10.3390/en19122820",
+          "titulo": "A Semantic Risk-Aware Optimization Framework for Virtual Power Plant Dispatch Using Large Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4413256221",
+          "doi": "https://doi.org/10.1109/mlise66443.2025.11100205",
+          "titulo": "Large Language Models Can be Few-Shot Server Anomaly Detector",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7167611673",
+          "doi": "https://doi.org/10.5281/zenodo.21236961",
+          "titulo": "LLM-ENHANCED REAL-TIME FREIGHT RATE PREDICTION AND DYNAMIC PRICING FRAMEWORK FOR INTELLIGENT TRUCKING SYSTEMS",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225319130",
+          "doi": "https://doi.org/10.48550/arxiv.2611.05993",
+          "titulo": "Decouple to Reuse: Fine-Grained Knowledge Augmentation for Time Series Foundation Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7202294320",
+          "doi": "https://doi.org/10.1145/3799682.3840955",
+          "titulo": "Retrieval-Corrected Conformal Prediction for Time Series",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7123860127",
+          "doi": "https://doi.org/10.1109/icet66147.2025.11321427",
+          "titulo": "Indoor Climate Monitoring and Forecasting with Agentic-RAG-LLM",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7236500663",
+          "doi": "https://doi.org/10.5281/zenodo.24343410",
+          "titulo": "Intelligent Disease Outbreak Risk Assessment Using Generative AI and Collaborative Multi-Agent Systems",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7165676159",
+          "doi": "https://doi.org/10.1109/iciscn67954.2026.11566598",
+          "titulo": "AgriVerse-AI: End-to-End Multilingual Intelligent Assistant for Farmers",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7204932250",
+          "doi": "https://doi.org/10.2139/ssrn.7389861",
+          "titulo": "TimeCausal: Causal Reasoning for Interpretable Time Series Event Prediction",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7204126854",
+          "doi": "https://doi.org/10.2139/ssrn.7346450",
+          "titulo": "Cross-Domain Few-Shot Wind Power Forecasting via Physics-Guided Retrieval-Enhanced Dual-Branch Representation Learning",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7196979954",
+          "doi": "https://doi.org/10.1145/3770855.3818032",
+          "titulo": "MEMTS: Internalizing Domain Knowledge via Parameterized Memory for Retrieval-Free Domain Adaptation of Time Series Foundation Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7171716531",
+          "doi": "https://doi.org/10.2139/ssrn.6628518",
+          "titulo": "World Models: A Survey",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7220035521",
+          "doi": null,
+          "titulo": "Multimodal LLM Forecasting: Aligning News Semantics with Price Dynamics in Commodity Markets",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7214202140",
+          "doi": "https://doi.org/10.1109/access.2026.3734498",
+          "titulo": "PRESAGE: Uncertainty-Aware Predictive Elastic Scheduling for Cloud Analytics and GenAI Inference",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225907534",
+          "doi": "https://doi.org/10.5281/zenodo.24157845",
+          "titulo": "Beyond Bounded Rationality: A Dual-Engine (Quantitative–Qualitative) Hybrid Intelligence Framework for Strategic Enterprise Decision-Making",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7214056899",
+          "doi": "https://doi.org/10.5281/zenodo.22894164",
+          "titulo": "Data Intelligence: Mathematical Models, Machine Learning and Analytical Discovery",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7160407952",
+          "doi": "https://doi.org/10.5281/zenodo.20051012",
+          "titulo": "8th International Conference on Machine Learning & Applications (CMLA 2026)",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7212148124",
+          "doi": "https://doi.org/10.5281/zenodo.22689019",
+          "titulo": "AI in energy and water conservation",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7224297077",
+          "doi": "https://doi.org/10.5281/zenodo.23768096",
+          "titulo": "ZJU-o and Downstream Benchmark Datasets: Battery Operational Time Series and Semantic Reports for LLM O&M",
+          "anio": 2026
+        }
+      ],
+      "fecha": "2026-11-26"
+    },
+    {
+      "cadena": "C7",
+      "base": "Semantic Scholar",
+      "consulta": "(\"retrieval-augmented\" | \"retrieval augmented\") + \"time series forecasting\"",
+      "total_indice": 54,
+      "recuperados": 54,
+      "paginacion_agotada": true,
+      "total_estimado": true,
+      "llamadas": [
+        {
+          "url": "https://api.semanticscholar.org/graph/v1/paper/search/bulk?query=%28%22retrieval-augmented%22+%7C+%22retrieval+augmented%22%29+%2B+%22time+series+forecasting%22&fields=title%2Cyear%2CexternalIds%2Cabstract%2CcitationCount&year=2015-2026",
+          "recibidos": 54
+        }
+      ],
+      "registros": [
+        {
+          "id": "030a63f10520448da0a551efcfd43526913e50a3",
+          "doi": "10.1145/3774904.3792141",
+          "titulo": "QuiZSF: A Retrieval-Augmented Framework for Zero-Shot Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "03c60169b2b3d762bfc64468b1015589c29c82f7",
+          "doi": "10.1145/3746252.3761012",
+          "titulo": "DANet: A RAG-inspired Dual Attention Model for Few-shot Time Series Prediction",
+          "anio": 2025
+        },
+        {
+          "id": "0653f72cb873f280aece9132ffbffb6c7188e3f3",
+          "doi": "10.48550/arXiv.2403.04180",
+          "titulo": "RATSF: Empowering Customer Service Volume Management through Retrieval-Augmented Time-Series Forecasting",
+          "anio": 2024
+        },
+        {
+          "id": "0b2db50715da2b78fb94df1e2d978f56ce161da8",
+          "doi": null,
+          "titulo": "ROAR: Retrieval Opportunity-Aware Refinement for Zero-Shot Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "0bcaac9e06abb6c5945bceab4ec3fe5045d4b605",
+          "doi": "10.1109/TNSE.2025.3596028",
+          "titulo": "Harnessing the Power of LLMs, Informers and Decision Transformers for Intent-Driven RAN Management in 6G",
+          "anio": 2025
+        },
+        {
+          "id": "108a5a16e4e32a3f7cb4d2668e4c6bbee3feb692",
+          "doi": "10.1109/ICASSP49660.2025.10889933",
+          "titulo": "TimeRAG: Boosting LLM Time Series Forecasting via Retrieval-Augmented Generation",
+          "anio": 2024
+        },
+        {
+          "id": "13b35a527fe92959ac64746a92c98fb6703d2426",
+          "doi": null,
+          "titulo": "A Model-Agnostic Correction Framework for Short-Term Building Load Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "13b3c8875bdcc7dcf4550a8c8796925ff6f579e7",
+          "doi": "10.1145/3799682.3840955",
+          "titulo": "Retrieval-Corrected Conformal Prediction for Time Series",
+          "anio": 2026
+        },
+        {
+          "id": "1a3e6dbf859fafa4807c83b3e400086e71e30f0c",
+          "doi": "10.1145/3770855.3817813",
+          "titulo": "Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "1a8b7750ac48ae25ead76d68e7d51fc2ad7cf71f",
+          "doi": "10.48550/arXiv.2603.14709",
+          "titulo": "Cross-RAG: Zero-Shot Retrieval-Augmented Time Series Forecasting via Cross-Attention",
+          "anio": 2026
+        },
+        {
+          "id": "1e8f0b92ca37e388fe82589be824ce75e246819d",
+          "doi": "10.48550/arXiv.2609.03937",
+          "titulo": "RATL: Learning from Retrieved Residuals for Robust Multivariate Time-Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "1f2f7607615d30b70320a8ad021f90df8ba22120",
+          "doi": "10.1145/3799682.3840828",
+          "titulo": "ReCast: Regime-aware Multi-scale Retrieval with Context--Evolution Coupling for Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "26128a8de22a9cb71f6af3d2e71f8d4c3fe55b5d",
+          "doi": "10.1109/TII.2025.3631696",
+          "titulo": "A$^{2}$RA-NSMTSllm: Adversarially Aligning Retrieval-Augmented LLMs for Nonstationary Multivariate Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "27de010d22a61d0e06dc1ff513133f103ce0fdb2",
+          "doi": "10.3390/en19122820",
+          "titulo": "A Semantic Risk-Aware Optimization Framework for Virtual Power Plant Dispatch Using Large Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "2c728df03ee5febec2936aabb6e86cd563775c36",
+          "doi": "10.1109/TBDATA.2026.3689009",
+          "titulo": "GeMeR-TS: Generative Memory-Based Retrieval and Mixture-of-Experts for Cross-Domain Time-Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "2e3bbd073bd1ca36450737c42efbe854b65b4395",
+          "doi": "10.18127/j20700814-202601-04",
+          "titulo": "Analysis of the possibilities of applying VLM to time series forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "3b406fc1cec2f7af3fdb247839661e167eaaddf6",
+          "doi": "10.1109/icassp55912.2026.11463579",
+          "titulo": "FoRSe: A Retrieval-Augmented Framework for Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "3c47b2290c95b4021a453e7a1b281637debf03d2",
+          "doi": "10.48550/arXiv.2412.20810",
+          "titulo": "TimeRAF: Retrieval-Augmented Foundation model for Zero-shot Time Series Forecasting",
+          "anio": 2024
+        },
+        {
+          "id": "4f1487e029e4a7991c43c541c842702e55d57c20",
+          "doi": "10.48550/arXiv.2606.14941",
+          "titulo": "Semantics-Enhanced Retrieval-Augmented Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "5448fb9676077bd1b34c8129a759e1f1643e0d56",
+          "doi": "10.48550/arXiv.2608.06223",
+          "titulo": "TS-RAG: Retrieval Augmented Generation for Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "56a8671a89b767753bbee4baab25f71365682aba",
+          "doi": "10.1145/3774904.3792074",
+          "titulo": "Cross-city Time Series Forecasting with Retrieval-Augmented Large Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "57e4d9aba9d69acd5d05a2cc534b16abf43c88d1",
+          "doi": "10.1109/TKDE.2025.3579137",
+          "titulo": "TimeRAF: Retrieval-Augmented Foundation Model for Zero-Shot Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "5954f53a8dcd55b04b52f9406c7f845777534db1",
+          "doi": "10.1109/ICEECT61758.2024.10738936",
+          "titulo": "Pattern Recognition and Prediction in Time Series Data Through Retrieval-Augmented Techniques",
+          "anio": 2024
+        },
+        {
+          "id": "5d69bac6fd96e9800ae387652487e90766930d1a",
+          "doi": "10.1109/ICISCN67954.2026.11566598",
+          "titulo": "AgriVerse-AI: End-to-End Multilingual Intelligent Assistant for Farmers",
+          "anio": 2026
+        },
+        {
+          "id": "5fd79ee9f1d7e4892fce3f988b59a65f93eb2253",
+          "doi": "10.1109/MLSP68619.2026.11772573",
+          "titulo": "Model-Agnostic Retrieval-Augmented Extended Forecasting For Time Series",
+          "anio": 2026
+        },
+        {
+          "id": "70a11524a2cc0670e134029ea9d7312f4325da0f",
+          "doi": null,
+          "titulo": "Not All Retrievals are Useful: Cross-Attention for Input-Aware RAG in Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "731f6bb137c14dc5d22097483f74803c72ed2e97",
+          "doi": "10.48550/arXiv.2605.08217",
+          "titulo": "Retrieval Mechanisms Surpass Long-Context Scaling in Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "7c7222b74da19d1b7302aa6171e913652042cdbb",
+          "doi": "10.1145/3770855.3818032",
+          "titulo": "MEMTS: Internalizing Domain Knowledge via Parameterized Memory for Retrieval-Free Domain Adaptation of Time Series Foundation Models",
+          "anio": 2026
+        },
+        {
+          "id": "7c86ffcf0f0384f93f8465c553ab532b702003fe",
+          "doi": "10.1109/ICET66147.2025.11321427",
+          "titulo": "Indoor Climate Monitoring and Forecasting with Agentic-RAG-LLM",
+          "anio": 2025
+        },
+        {
+          "id": "8096a5d8ecc369a9a4aa7afc3efa446fb0776dd0",
+          "doi": "10.48550/arXiv.2505.04163",
+          "titulo": "Retrieval Augmented Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "813dbdcbf39abf0f328860c48769c82fced26da0",
+          "doi": "10.48550/arXiv.2608.23221",
+          "titulo": "Which Histories Matter for Time Series Forecasting? Learning Predictive Relevance with Future Supervision",
+          "anio": 2026
+        },
+        {
+          "id": "8f3219302b14c16073af904fa46947de3b791698",
+          "doi": "10.48550/arXiv.2508.06915",
+          "titulo": "QuiZSF: An efficient data-model interaction framework for zero-shot time-series forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "8fe236e217f6427b3deaf5fba850d8c25d7ce629",
+          "doi": "10.1109/MLISE66443.2025.11100205",
+          "titulo": "Large Language Models Can be Few-Shot Server Anomaly Detector",
+          "anio": 2025
+        },
+        {
+          "id": "92f39edadae006cf1eaee6a6b83a61b21eae318a",
+          "doi": "10.48550/arXiv.2502.05878",
+          "titulo": "Enhancing Financial Time-Series Forecasting with Retrieval-Augmented Large Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "b442c46df7878a07190b22a482c65c038ee943d1",
+          "doi": "10.48550/arXiv.2503.07649",
+          "titulo": "TS-RAG: Retrieval-Augmented Generation based Time Series Foundation Models are Stronger Zero-Shot Forecaster",
+          "anio": 2025
+        },
+        {
+          "id": "b81046617c3e9a0091969a023f18922ae45f632c",
+          "doi": "10.1007/s12204-025-2847-z",
+          "titulo": "Retrieval-Augmented Framework with Adaptive Gating for Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "c15e9dfae6dff78f1ce1571e566cdb5e7355c227",
+          "doi": null,
+          "titulo": "Decouple to Reuse: Fine-Grained Knowledge Augmentation for Time Series Foundation Models",
+          "anio": 2026
+        },
+        {
+          "id": "c5cafd8e3d5dd10b63a2c22ee5aae27fbcbdd729",
+          "doi": "10.1145/3806096.3844831",
+          "titulo": "Tracing the Evidence Behind Zero-Shot Time-Series Forecasting: A Source-First Taxonomy and Audit Framework",
+          "anio": 2026
+        },
+        {
+          "id": "c8b95d656edc5372811cc5ec818efa70cb7b19ba",
+          "doi": "10.1109/icassp55912.2026.11462579",
+          "titulo": "RAMTime: Retrieval-Augmented Memory for Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "cc70f12544548688aad5b33c3c8b2b7ed5a90326",
+          "doi": "10.3389/frai.2026.1722121",
+          "titulo": "Large language model-driven time-series forecasting of financial network indicators",
+          "anio": 2026
+        },
+        {
+          "id": "cecfbd6717430ff2592290afced237d9c85e55c8",
+          "doi": "10.1145/3799682.3841004",
+          "titulo": "Retrieve the Right Signal: Decomposition-Guided Retrieval-Augmented Forecasting for Financial Markets",
+          "anio": 2026
+        },
+        {
+          "id": "cf2a6493f7c1eb4632434c89fc659f37b13e7942",
+          "doi": null,
+          "titulo": "Retrieval-augmented Large Language Models for Financial Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "d697e6c99c1e7039cab212655757fcb9d1a34f53",
+          "doi": "10.48550/arXiv.2410.18712",
+          "titulo": "Retrieval-Augmented Diffusion Models for Time Series Forecasting",
+          "anio": 2024
+        },
+        {
+          "id": "d9a69d44841044a12bc72df848cd94b78524ed84",
+          "doi": "10.48550/arXiv.2502.04395",
+          "titulo": "Time-VLM: Exploring Multimodal Vision-Language Models for Augmented Time Series Forecasting",
+          "anio": 2025
+        },
+        {
+          "id": "e2fb8c71ef03b84b23b36e6256d86e12a21e9f88",
+          "doi": "10.1109/icassp55912.2026.11463178",
+          "titulo": "Channel-wise Retrieval for Multivariate Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "e35619e147e81d6068e3a2ec237b9b4701dc40eb",
+          "doi": "10.1109/ACCESS.2026.3734498",
+          "titulo": "PRESAGE: Uncertainty-Aware Predictive Elastic Scheduling for Cloud Analytics and GenAI Inference",
+          "anio": 2026
+        },
+        {
+          "id": "ea0974155c3b147728e313384fa10f2dd781c3f8",
+          "doi": "10.1016/j.neucom.2026.135443",
+          "titulo": "STRAF: A retrieval-augmented framework for time series forecasting with adaptive historical fusion",
+          "anio": 2026
+        },
+        {
+          "id": "ebeaab0790b64a56b1ab5e3fe15c1fc242815436",
+          "doi": null,
+          "titulo": "SEER: Self-Evolving Event Reasoning and Retrieval for Time Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "ec3e021ceb8068b5edff1ea57465b0f9dcb2085a",
+          "doi": "10.48550/arXiv.2609.36281",
+          "titulo": "GNA: Granular Neighbor Assembly for Retrieval-Augmented Multivariate Time-Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "f14264abd0782baccc9b834af1e2da1b2fee1b32",
+          "doi": "10.48550/arXiv.2601.05353",
+          "titulo": "GlyRAG: Context-Aware Retrieval-Augmented Framework for Blood Glucose Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "f4339dcdd306307b1301b10956d2d9442d2745a5",
+          "doi": "10.48550/arXiv.2606.19412",
+          "titulo": "Spectral Retrieval-Augmented Time-Series Forecasting",
+          "anio": 2026
+        },
+        {
+          "id": "f77064a08546924ef295438e19894c5634538694",
+          "doi": "10.48550/arXiv.2411.08249",
+          "titulo": "Retrieval Augmented Time Series Forecasting",
+          "anio": 2024
+        },
+        {
+          "id": "f8b2b50fa2a7eb3b04da4844943d5d625cee922d",
+          "doi": null,
+          "titulo": "Retrieval Is Not Enough: Refreshing Memory for Frozen Time-Series Forecasters",
+          "anio": 2026
+        },
+        {
+          "id": "fd9a3d4bcb24606339ca12fb6ee4215c8c6f949d",
+          "doi": "10.18653/2026.findings-emnlp.1491",
+          "titulo": "Beyond Similarity: Coverage-Aware Prompt Selection for Time Series Forecasting with LLMs",
+          "anio": 2026
+        }
+      ],
+      "fecha": "2026-11-26"
+    },
+    {
+      "cadena": "C8",
+      "base": "OpenAlex",
+      "consulta": "(\"nearest neighbor language model\" OR \"kNN-LM\" OR \"retrieval-augmented language model\" OR \"memorizing transformer\")",
+      "recuperados": 318,
+      "paginacion_agotada": true,
+      "llamadas": [
+        {
+          "url": "https://api.openalex.org/works?filter=title_and_abstract.search%3A%28%22nearest+neighbor+language+model%22+OR+%22kNN-LM%22+OR+%22retrieval-augmented+language+model%22+OR+%22memorizing+transformer%22%29%2Cpublication_year%3A2015-2026&per-page=200&cursor=%2A&sort=relevance_score%3Adesc&select=id%2Cdoi%2Cdisplay_name%2Cpublication_year%2Cabstract_inverted_index%2Ccited_by_count",
+          "recibidos": 200
+        },
+        {
+          "url": "https://api.openalex.org/works?filter=title_and_abstract.search%3A%28%22nearest+neighbor+language+model%22+OR+%22kNN-LM%22+OR+%22retrieval-augmented+language+model%22+OR+%22memorizing+transformer%22%29%2Cpublication_year%3A2015-2026&per-page=200&page=2&sort=relevance_score%3Adesc&select=id%2Cdoi%2Cdisplay_name%2Cpublication_year%2Cabstract_inverted_index%2Ccited_by_count",
+          "recibidos": 118,
+          "metodo": "paginacion_basica_publica"
+        }
+      ],
+      "registros": [
+        {
+          "id": "https://openalex.org/W2988841832",
+          "doi": "https://doi.org/10.48550/arxiv.1911.00172",
+          "titulo": "Generalization through Memorization: Nearest Neighbor Language Models",
+          "anio": 2020
+        },
+        {
+          "id": "https://openalex.org/W3213851426",
+          "doi": "https://doi.org/10.18653/v1/2021.emnlp-main.461",
+          "titulo": "Efficient Nearest Neighbor Language Models",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W4388778348",
+          "doi": "https://doi.org/10.1162/tacl_a_00605",
+          "titulo": "In-Context Retrieval-Augmented Language Models",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W3034671305",
+          "doi": null,
+          "titulo": "Retrieval Augmented Language Model Pre-Training",
+          "anio": 2020
+        },
+        {
+          "id": "https://openalex.org/W4315588390",
+          "doi": "https://doi.org/10.48550/arxiv.2301.02828",
+          "titulo": "Why do Nearest Neighbor Language Models Work?",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W3007672467",
+          "doi": "https://doi.org/10.48550/arxiv.2002.08909",
+          "titulo": "REALM: Retrieval-Augmented Language Model Pre-Training",
+          "anio": 2020
+        },
+        {
+          "id": "https://openalex.org/W7133195287",
+          "doi": "https://doi.org/10.52202/075280-0944",
+          "titulo": "LeanDojo: Theorem Proving with Retrieval-Augmented Language Models",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4391221150",
+          "doi": "https://doi.org/10.1056/aioa2300068",
+          "titulo": "Almanac — Retrieval-Augmented Language Models for Clinical Medicine",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4301243929",
+          "doi": "https://doi.org/10.48550/arxiv.2208.03299",
+          "titulo": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W7127589252",
+          "doi": "https://doi.org/10.1038/s41586-025-10072-4",
+          "titulo": "Synthesizing scientific literature with retrieval-augmented language models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4387355694",
+          "doi": "https://doi.org/10.48550/arxiv.2310.01558",
+          "titulo": "Making Retrieval-Augmented Language Models Robust to Irrelevant Context",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4225909425",
+          "doi": "https://doi.org/10.48550/arxiv.2203.08913",
+          "titulo": "Memorizing Transformers",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4385572666",
+          "doi": "https://doi.org/10.18653/v1/2023.findings-acl.73",
+          "titulo": "Adaptation Approaches for Nearest Neighbor Language Models",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4404782899",
+          "doi": "https://doi.org/10.18653/v1/2024.emnlp-main.813",
+          "titulo": "Chain-of-Note: Enhancing Robustness in Retrieval-Augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4402671555",
+          "doi": "https://doi.org/10.18653/v1/2024.acl-long.585",
+          "titulo": "RAGTruth: A Hallucination Corpus for Developing Trustworthy Retrieval-Augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4411119935",
+          "doi": "https://doi.org/10.18653/v1/2025.findings-naacl.331",
+          "titulo": "Long-Tail Crisis in Nearest Neighbor Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4391272538",
+          "doi": "https://doi.org/10.48550/arxiv.2401.14021",
+          "titulo": "Accelerating Retrieval-Augmented Language Model Serving with Speculation",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4323076364",
+          "doi": "https://doi.org/10.48550/arxiv.2303.01229",
+          "titulo": "Almanac: Retrieval-Augmented Language Models for Clinical Medicine",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4409362682",
+          "doi": "https://doi.org/10.1609/aaai.v39i24.34743",
+          "titulo": "Improving Retrieval Augmented Language Model with Self-Reasoning",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4287895798",
+          "doi": "https://doi.org/10.48550/arxiv.2109.08249",
+          "titulo": "Regularized Training of Nearest Neighbor Language Models",
+          "anio": 2021
+        },
+        {
+          "id": "https://openalex.org/W3199411760",
+          "doi": "https://doi.org/10.18653/v1/2022.naacl-srw.4",
+          "titulo": "Regularized Training of Nearest Neighbor Language Models",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4367672504",
+          "doi": "https://doi.org/10.21203/rs.3.rs-2883198/v1",
+          "titulo": "Almanac: Retrieval-Augmented Language Models for Clinical Medicine",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4385573278",
+          "doi": "https://doi.org/10.18653/v1/2022.gem-1.25",
+          "titulo": "Nearest Neighbor Language Models for Stylistic Controllable Generation",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4402671700",
+          "doi": "https://doi.org/10.18653/v1/2024.acl-long.540",
+          "titulo": "Enhancing Noise Robustness of Retrieval-Augmented Language Models with Adaptive Adversarial Training",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4417307625",
+          "doi": "https://doi.org/10.5715/jnlp.32.1272",
+          "titulo": "Long-Tail Crisis in Nearest Neighbor Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4408325149",
+          "doi": "https://doi.org/10.1109/globecom52923.2024.10901158",
+          "titulo": "Telco-RAG: Navigating the Challenges of Retrieval Augmented Language Models for Telecommunications",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4372260446",
+          "doi": "https://doi.org/10.1109/icassp49357.2023.10096450",
+          "titulo": "Suffix Retrieval-Augmented Language Modeling",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4396600777",
+          "doi": "https://doi.org/10.48550/arxiv.2404.19543",
+          "titulo": "RAG and RAU: A Survey on Retrieval-Augmented Language Model in Natural Language Processing",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4410030662",
+          "doi": "https://doi.org/10.1038/s41746-025-01651-w",
+          "titulo": "Leveraging long context in retrieval augmented language models for medical question answering",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7131870272",
+          "doi": "https://doi.org/10.1109/acsat68407.2025.11406960",
+          "titulo": "Lightweight Retrieval-augmented language model",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4391591446",
+          "doi": "https://doi.org/10.48550/arxiv.2402.03181",
+          "titulo": "C-RAG: Certified Generation Risks for Retrieval-Augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4385893852",
+          "doi": "https://doi.org/10.18653/v1/2023.findings-acl.295",
+          "titulo": "Predicting Numerals in Text Using Nearest Neighbor Language Models",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4407355496",
+          "doi": "https://doi.org/10.14778/3696435.3696439",
+          "titulo": "Chameleon: A Heterogeneous and Disaggregated Accelerator System for Retrieval-Augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4385572524",
+          "doi": "https://doi.org/10.18653/v1/2023.findings-acl.382",
+          "titulo": "Reimagining Retrieval Augmented Language Models for Answering Queries",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4402817791",
+          "doi": "https://doi.org/10.1145/3695868",
+          "titulo": "Building a Coding Assistant via the Retrieval-Augmented Language Model",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7131894374",
+          "doi": "https://doi.org/10.63317/4fisde58hr4n",
+          "titulo": "Tug-of-War between Knowledge: Exploring and Resolving Knowledge Conflicts in Retrieval-Augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4391272456",
+          "doi": "https://doi.org/10.48550/arxiv.2401.13222",
+          "titulo": "It's About Time: Incorporating Temporality in Retrieval Augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7196980356",
+          "doi": "https://doi.org/10.32657/10356/219045",
+          "titulo": "Advancing multimodal retrieval-augmented language modeling",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4398795761",
+          "doi": "https://doi.org/10.48550/arxiv.2405.13622",
+          "titulo": "Automated Evaluation of Retrieval-Augmented Language Models with Task-Specific Exam Generation",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4412376913",
+          "doi": "https://doi.org/10.1145/3726302.3729921",
+          "titulo": "CIRAG: Retrieval-Augmented Language Model with Collective Intelligence",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4407357344",
+          "doi": "https://doi.org/10.1145/3709663",
+          "titulo": "Automatic Database Configuration Debugging using Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4407719230",
+          "doi": "https://doi.org/10.1007/978-981-96-2292-4_1",
+          "titulo": "A Data-Efficient Nearest-Neighbor Language Model via Lightweight Nets",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4412082260",
+          "doi": "https://doi.org/10.1109/cai64502.2025.00019",
+          "titulo": "It's About Time: Incorporating Temporality in Retrieval Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4388927720",
+          "doi": "https://doi.org/10.48550/arxiv.2311.12289",
+          "titulo": "ATLANTIC: Structure-Aware Retrieval-Augmented Language Model for Interdisciplinary Science",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4416033914",
+          "doi": "https://doi.org/10.18653/v1/2025.findings-emnlp.1162",
+          "titulo": "Retrieval-Augmented Language Models are Mimetic Theorem Provers",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4379467059",
+          "doi": "https://doi.org/10.48550/arxiv.2306.01061",
+          "titulo": "Reimagining Retrieval Augmented Language Models for Answering Queries",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4415901329",
+          "doi": "https://doi.org/10.52202/085713-0532",
+          "titulo": "RAGRouter: Learning to Route Queries to Multiple Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4392754399",
+          "doi": "https://doi.org/10.59350/shsq3-s2522",
+          "titulo": "Deeper understanding of In-Context Retrieval-Augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4403024052",
+          "doi": "https://doi.org/10.1109/ipfa61654.2024.10691083",
+          "titulo": "Towards an FA ChatBot with Retrieval-Augmented Language Modeling",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4402683030",
+          "doi": "https://doi.org/10.18653/v1/2024.knowledgenlp-1.7",
+          "titulo": "Enhancing Robustness of Retrieval-Augmented Language Models with In-Context Learning",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7106851213",
+          "doi": "https://doi.org/10.48448/e60f-rt15",
+          "titulo": "Retrieval-Augmented Language Models are Mimetic Theorem Provers",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4389519368",
+          "doi": "https://doi.org/10.18653/v1/2023.emnlp-main.929",
+          "titulo": "kNN-LM Does Not Improve Open-ended Text Generation",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4401824528",
+          "doi": "https://doi.org/10.1007/978-3-031-63592-2_13",
+          "titulo": "Designing Retrieval-Augmented Language Models for Clinical Decision Support",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4396912861",
+          "doi": "https://doi.org/10.48550/arxiv.2405.06683",
+          "titulo": "ERAGent: Enhancing Retrieval-Augmented Language Models with Improved Accuracy, Efficiency, and Personalization",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4404782688",
+          "doi": "https://doi.org/10.18653/v1/2024.emnlp-main.943",
+          "titulo": "Deciphering the Interplay of Parametric and Non-parametric Memory in Retrieval-augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4409177605",
+          "doi": "https://doi.org/10.1007/978-981-96-2292-4_14",
+          "titulo": "Correction to: A Data-Efficient Nearest-Neighbor Language Model via Lightweight Nets",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4411112909",
+          "doi": "https://doi.org/10.18653/v1/2025.findings-naacl.148",
+          "titulo": "Supportiveness-based Knowledge Rewriting for Retrieval-augmented Language Modeling",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4416036852",
+          "doi": "https://doi.org/10.18653/v1/2025.emnlp-main.461",
+          "titulo": "Improving Multilingual Retrieval-Augmented Language Models through Dialectic Reasoning Argumentations",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4389524300",
+          "doi": "https://doi.org/10.18653/v1/2023.emnlp-demo.5",
+          "titulo": "VIST5: An Adaptive, Retrieval-Augmented Language Model for Visualization-oriented Dialog",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W7238673155",
+          "doi": null,
+          "titulo": "Retrieval-Augmented Language Model for Knowledge-aware Protein Encoding",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4385570085",
+          "doi": "https://doi.org/10.18653/v1/2023.acl-short.45",
+          "titulo": "Surface-Based Retrieval Reduces Perplexity of Retrieval-Augmented Language Models",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4388787533",
+          "doi": "https://doi.org/10.48550/arxiv.2311.09358",
+          "titulo": "Empirical evaluation of Uncertainty Quantification in Retrieval-Augmented Language Models for Science",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4412888967",
+          "doi": "https://doi.org/10.18653/v1/2025.findings-acl.33",
+          "titulo": "FlashBack: Efficient Retrieval-Augmented Language Modeling for Fast Inference",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4400881459",
+          "doi": "https://doi.org/10.2139/ssrn.4900122",
+          "titulo": "Rag and Rau: A Survey on Retrieval-Augmented Language Model in Natural Language Processing",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4385570974",
+          "doi": "https://doi.org/10.18653/v1/2023.findings-acl.104",
+          "titulo": "LMCap: Few-shot Multilingual Image Captioning by Retrieval Augmented Language Model Prompting",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W7114897859",
+          "doi": "https://doi.org/10.48550/arxiv.2512.08943",
+          "titulo": "Noise-Robust Abstractive Compression in Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7217637596",
+          "doi": null,
+          "titulo": "Evaluation of In-Context Retrieval Augmented Language Models for Factual Consistency",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7160720596",
+          "doi": "https://doi.org/10.1007/s00270-026-04455-x",
+          "titulo": "Improving Periprocedural Anticoagulation Management with Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4414117248",
+          "doi": "https://doi.org/10.20944/preprints202509.0928.v1",
+          "titulo": "Abductive Inference in Retrieval‑Augmented Language Models: Generating and Validating Missing Premises",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7138918905",
+          "doi": "https://doi.org/10.1609/aaai.v40i41.40822",
+          "titulo": "Do Retrieval Augmented Language Models Know When They Don’t Know?",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4387322926",
+          "doi": "https://doi.org/10.48550/arxiv.2310.01329",
+          "titulo": "BTR: Binary Token Representations for Efficient Retrieval Augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4415710204",
+          "doi": "https://doi.org/10.1007/978-3-032-06691-6_8",
+          "titulo": "Structured Relevance Assessment for Robust Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4401726216",
+          "doi": "https://doi.org/10.1371/journal.pdig.0000568",
+          "titulo": "Improving accuracy of GPT-3/4 results on biomedical data using a retrieval-augmented language model",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4404229815",
+          "doi": "https://doi.org/10.2139/ssrn.5015182",
+          "titulo": "Rag and Rau: A Survey on Retrieval-Augmented Language Model in Natural Language Processing",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4416251005",
+          "doi": "https://doi.org/10.1109/ijcnn64981.2025.11228443",
+          "titulo": "ACoRN: Noise-Robust Abstractive Compression in Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4406612292",
+          "doi": "https://doi.org/10.1109/smc54092.2024.10832057",
+          "titulo": "Medical Multi-Choice Question Answering with Retrieval Augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4416149811",
+          "doi": "https://doi.org/10.48550/arxiv.2502.19779",
+          "titulo": "Do Retrieval-Augmented Language Models Adapt to Varying User Needs?",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4405738694",
+          "doi": "https://doi.org/10.1162/tacl_a_00724",
+          "titulo": "Toward Robust RALMs: Revealing the Impact of Imperfect Retrieval on Retrieval-Augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7168423530",
+          "doi": "https://doi.org/10.1007/978-981-92-2885-0_22",
+          "titulo": "Graph Retrieval-Augmented Language Model for Question Answering of Vietnamese Law",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7162251750",
+          "doi": "https://doi.org/10.65109/fuhd9537",
+          "titulo": "G-RAGent: Dynamic Reasoning on Hypergraphs for Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7213298314",
+          "doi": "https://doi.org/10.55640/ijmcsit-v03i09-06",
+          "titulo": "A Survey of Retrieval-Augmented Language Models for Knowledge-Intensive Text Applications",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7165544031",
+          "doi": "https://doi.org/10.1109/aiiot68874.2026.11569530",
+          "titulo": "Automated Digitization of Scientific Graphs for Retrieval-Augmented Language Model Analysis",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7163653361",
+          "doi": "https://doi.org/10.66238/ijcbs78",
+          "titulo": "Search Leakage and Attention Sink Mitigation in Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7139062483",
+          "doi": "https://doi.org/10.1117/12.3107492",
+          "titulo": "An implicit de-biasing framework for personalized retrieval-augmented language models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7128702409",
+          "doi": "https://doi.org/10.48448/mw9g-4z41",
+          "titulo": "Do Retrieval Augmented Language Models Know When They Don’t Know?",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4409363861",
+          "doi": "https://doi.org/10.1609/aaai.v39i24.34783",
+          "titulo": "KnowPO: Knowledge-Aware Preference Optimization for Controllable Knowledge Selection in Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7131125890",
+          "doi": "https://doi.org/10.1016/j.jobe.2026.115683",
+          "titulo": "Co-LLM: A retrieval-augmented language model framework for chiller optimization control",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7147608021",
+          "doi": "https://doi.org/10.1007/s00270-026-04428-0",
+          "titulo": "Retrieval-Augmented Language Models for Patient-Centered Periprocedural Anticoagulation in Interventional Radiology",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4412945395",
+          "doi": "https://doi.org/10.18653/v1/2025.acl-long.571",
+          "titulo": "Parenting: Optimizing Knowledge Selection of Retrieval-Augmented Language Models with Parameter Decoupling and Tailored Tuning",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4417509992",
+          "doi": "https://doi.org/10.1109/icncis67521.2025.11296031",
+          "titulo": "Abductive Inference in Retrieval-Augmented Language Models: Generating and Validating Missing Premises",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4416037243",
+          "doi": "https://doi.org/10.18653/v1/2025.emnlp-main.33",
+          "titulo": "Training a Utility-based Retriever Through Shared Context Attribution for Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7152574156",
+          "doi": "https://doi.org/10.1007/978-3-032-45476-8_6",
+          "titulo": "Illocutionary Explanation Planning for Source-Faithful Explanations in Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4402757681",
+          "doi": "https://doi.org/10.1016/j.annemergmed.2024.08.139",
+          "titulo": "Emergency Department Admitting Service Triage Using Retrieval-Augmented Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7225303136",
+          "doi": "https://doi.org/10.1007/978-981-92-7741-4_10",
+          "titulo": "Knowledge Graph Completion with Iterative Self-reflection of Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7203767757",
+          "doi": "https://doi.org/10.1145/3834756.3834759",
+          "titulo": "Interview with Akari Asai - Beyond Scaling: Frontiers of Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7221836534",
+          "doi": null,
+          "titulo": "Retrieval-Augmented Language Models for Automated Legal Document Analysis and Clause Classification",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7223784253",
+          "doi": "https://doi.org/10.1109/access.2026.3747787",
+          "titulo": "Seamless: Self-Maintaining Knowledge Graph Memory for Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7163906823",
+          "doi": "https://doi.org/10.1109/epts67931.2025.11547634",
+          "titulo": "A Graph-Based Framework for Enhancing Retrieval-Augmented Language Models in Industrial Environments",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7166884909",
+          "doi": "https://doi.org/10.18653/v1/2026.acl-long.1545",
+          "titulo": "Quantifying and Improving the Robustness of Retrieval-Augmented Language Models Against Spurious Features in Grounding Data",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7214164341",
+          "doi": "https://doi.org/10.5281/zenodo.22927459",
+          "titulo": "Calibrated Selective Answering for Retrieval-Augmented Language Models Under Domain Shift",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7152460810",
+          "doi": "https://doi.org/10.1109/icecet63943.2025.11472215",
+          "titulo": "A Scalable Two-Phase Method for Low-Overhead Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7162404599",
+          "doi": "https://doi.org/10.51847/fzeuaxeluk",
+          "titulo": "Retrieval-Augmented Language Models for Checking Safety Consistency in Pharmaceutical Product Labels",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7126074302",
+          "doi": "https://doi.org/10.1021/acs.analchem.5c05301",
+          "titulo": "Retrieval-Augmented Language Models Enable Scalable Chemical Source Classification in Metabolomics Workflows",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4416035703",
+          "doi": "https://doi.org/10.18653/v1/2025.emnlp-main.1363",
+          "titulo": "Studying the Role of Input-Neighbor Overlap in Retrieval-Augmented Language Models Training Efficiency",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7204748151",
+          "doi": "https://doi.org/10.18653/2026.emnlp-main.477",
+          "titulo": "CamoDocs: A Poisoning Attack Against Retrieval-Augmented Language Models Using Camouflaged Documents",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4396648537",
+          "doi": "https://doi.org/10.48550/arxiv.2404.19232",
+          "titulo": "GRAMMAR: Grounded and Modular Methodology for Assessment of Closed-Domain Retrieval-Augmented Language Model",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4398230224",
+          "doi": "https://doi.org/10.48550/arxiv.2405.12656",
+          "titulo": "Retrieval-Augmented Language Model for Extreme Multi-Label Knowledge Graph Link Prediction",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4404627655",
+          "doi": "https://doi.org/10.47749/t/unicamp.2024.1404237",
+          "titulo": "Toxicity mitigation with retrieval-augmented language models applied to english and portuguese text generation",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7238790760",
+          "doi": "https://doi.org/10.5281/zenodo.24460680",
+          "titulo": "Coexistential Constitutional AI: Ontologically Grounding the Ethical Behaviour of Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225792391",
+          "doi": "https://doi.org/10.48550/arxiv.2611.14355",
+          "titulo": "CLADE: Category-Level Answering from Deficient Evidence in Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7154832556",
+          "doi": "https://doi.org/10.2139/ssrn.6479819",
+          "titulo": "What Text Helps Forecast Inflation? Evidence from Retrieval-augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7148724651",
+          "doi": "https://doi.org/10.18653/2026.emnlp-main.2083",
+          "titulo": "Where Does Robustness Live? Neuron-Guided Adaptation for Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7106825733",
+          "doi": "https://doi.org/10.48448/k86m-d366",
+          "titulo": "Studying the Role of Input-Neighbor Overlap in Retrieval-Augmented Language Models Training Efficiency",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4415237737",
+          "doi": "https://doi.org/10.48550/arxiv.2504.05846",
+          "titulo": "PathGPT: Reframing Path Recommendation as a Natural Language Generation Task with Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4403241883",
+          "doi": "https://doi.org/10.1016/j.ifacol.2024.09.157",
+          "titulo": "Development of Fine-Tuned Retrieval Augmented Language Model specialized to manual books on machine tools",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7204126145",
+          "doi": "https://doi.org/10.1093/bioadv/vbag247",
+          "titulo": "ViTax-RAG: a retrieval-augmented language modeling tool for viral contig taxonomic classification",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7163671855",
+          "doi": "https://doi.org/10.1007/s10875-026-02035-9",
+          "titulo": "Retrieval-Augmented Language Models for Clinical Decision Support in the Classification of Inborn Errors of Immunity",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4404784160",
+          "doi": "https://doi.org/10.18653/v1/2022.aacl-short.57",
+          "titulo": "Plug and Play Knowledge Distillation for kNN-LM with External Logits",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4401208054",
+          "doi": "https://doi.org/10.1007/978-981-97-5666-7_20",
+          "titulo": "An Efficient Query System for Coal Mine Safety Information Based on Retrieval-Augmented Language Model",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7125501777",
+          "doi": "https://doi.org/10.1109/cars67163.2025.11337648",
+          "titulo": "Edge-Based Collaborative Log Anomaly Detection Using Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4413411955",
+          "doi": "https://doi.org/10.1145/3721145.3725757",
+          "titulo": "ORA: Job Runtime Prediction for High-Performance Computing Platforms Using the Online Retrieval-Augmented Language Model",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7129070625",
+          "doi": "https://doi.org/10.1145/3773966.3777947",
+          "titulo": "Leveraging Retrieval-Augmented Language Models for Accurate Item/Feature Selection in Conversational Recommender Systems",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4411144203",
+          "doi": "https://doi.org/10.1109/icaace65325.2025.11019854",
+          "titulo": "Cloud-Base Retrieval Augmented Language Models in Multi-Hop QA Task: A Meta-Analysis",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7106805617",
+          "doi": "https://doi.org/10.48448/xbw5-hd75",
+          "titulo": "Training a Utility-based Retriever Through Shared Context Attribution for Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7220954445",
+          "doi": "https://doi.org/10.48550/arxiv.2610.09493",
+          "titulo": "The Attribution Blind Spot: Layerwise Trajectory Diagnostics for Source Reliance in Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7118018510",
+          "doi": "https://doi.org/10.1007/978-3-032-10400-7_37",
+          "titulo": "Unsupervised vs. Supervised RAG: A Comparative Study of Retrieval-Augmented Language Models and Their Output Variability",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7223802564",
+          "doi": "https://doi.org/10.48550/arxiv.2610.33776",
+          "titulo": "TriageRAG: Failure-Aware Self-Training for Adapting Retrieval-Augmented Language Models to Specialized Domains",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4414463562",
+          "doi": "https://doi.org/10.1109/imsa65733.2025.11166690",
+          "titulo": "Empathetic AI for Mental Health: A Comparative Study of Retrieval-Augmented Language Models in CBT Applications",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7238733703",
+          "doi": "https://doi.org/10.21203/rs.3.rs-11793294/v1",
+          "titulo": "Diagnostic specificity of a retrieval augmented language model on complex clinical cases: a retrospective benchmark study",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4412739501",
+          "doi": "https://doi.org/10.1016/j.compbiomed.2025.110745",
+          "titulo": "CDE-Mapper: Using retrieval-augmented language models for linking clinical data elements to controlled vocabularies",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7168814455",
+          "doi": "https://doi.org/10.48448/kmse-ms43",
+          "titulo": "Quantifying and Improving the Robustness of Retrieval-Augmented Language Models Against Spurious Features in Grounding Data",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225858806",
+          "doi": "https://doi.org/10.1145/3830454.3846434",
+          "titulo": "POSTER: Evaluating Mitigation Strategies Against Prompt Injection Attacks in Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7212123633",
+          "doi": "https://doi.org/10.3389/fnut.2026.1815038",
+          "titulo": "Toward an integrated animal–human nutrition intelligence via agentic retrieval-augmented language models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7214775865",
+          "doi": "https://doi.org/10.1109/icsist70215.2026.11706042",
+          "titulo": "XTrust-LM: An Explanation-Guided Reliability Assessment Framework for Multilingual Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7237628062",
+          "doi": "https://doi.org/10.5281/zenodo.24416328",
+          "titulo": "Data and code for: Surgeon and Automated Evaluation of Retrieval-Augmented Language Models for Spine Surgery Evidence",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7140090240",
+          "doi": "https://doi.org/10.1016/j.jvir.2026.108447",
+          "titulo": "Abstract No. 539 Retrieval-Augmented Language Models for Patient-Centered Periprocedural Anticoagulation in Interventional Radiology",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7140809300",
+          "doi": "https://doi.org/10.21203/rs.3.rs-9071682/v1",
+          "titulo": "Transforming Indigenous Malaria Knowledge into Digital Health Intelligence Using Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7140217467",
+          "doi": "https://doi.org/10.48550/arxiv.2603.21460",
+          "titulo": "When Documents Disagree: Measuring Institutional Variation in Transplant Guidance with Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7214350022",
+          "doi": "https://doi.org/10.1016/j.ijrobp.2026.06.1247",
+          "titulo": "Automated Clinical Phenotyping from Oncology Notes Using Local Retrieval-Augmented Language Model",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7125240109",
+          "doi": "https://doi.org/10.1109/tsg.2026.3656697",
+          "titulo": "A Unified Variational Imputation Framework for Electric Vehicle Charging Data Using Retrieval-Augmented Language Model",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7120284681",
+          "doi": null,
+          "titulo": "Memorizing transformers: implementation and testing on different datasets",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7163923373",
+          "doi": "https://doi.org/10.48550/arxiv.2606.06758",
+          "titulo": "Diagnosing Evidence Utilization in Long-Context and Retrieval-Augmented Language Models under Matched Evidence Conditions",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4412888302",
+          "doi": "https://doi.org/10.18653/v1/2025.findings-acl.588",
+          "titulo": "All That Glitters is Not Gold: Improving Robust Retrieval-Augmented Language Models with Fact-Centric Preference Alignment",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7171656061",
+          "doi": "https://doi.org/10.2139/ssrn.6755278",
+          "titulo": "Institutional Knowledge Assistant (IKA): A Domain-specific Retrieval-Augmented Language Model for Technical Documentation Assistance",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7164574448",
+          "doi": "https://doi.org/10.1109/access.2026.3703193",
+          "titulo": "Knowledge-Grounded Nut Inspection and Report Generation via Two-Stage Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4396717825",
+          "doi": "https://doi.org/10.48550/arxiv.2405.02732",
+          "titulo": "Recall Them All: Retrieval-Augmented Language Models for Long Object List Extraction from Long Documents",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4416035522",
+          "doi": "https://doi.org/10.18653/v1/2025.emnlp-main.1500",
+          "titulo": "StepER: Step-wise Knowledge Distillation for Enhancing Reasoning Ability in Multi-Step Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7106805984",
+          "doi": "https://doi.org/10.48448/4tec-9124",
+          "titulo": "StepER: Step-wise Knowledge Distillation for Enhancing Reasoning Ability in Multi-Step Retrieval-Augmented Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4385574174",
+          "doi": "https://doi.org/10.18653/v1/2022.findings-emnlp.218",
+          "titulo": "You can’t pick your neighbors, or can you? When and How to Rely on Retrieval in the kNN-LM",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W7204152750",
+          "doi": "https://doi.org/10.48550/arxiv.2608.23851",
+          "titulo": "Does Episodic Memory Help Close the Lexical Frequency Gap in Sensitivity to Syntactic Contrasts? A Test Using Retrieval-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7222374878",
+          "doi": null,
+          "titulo": "AI - enabled retrieval - augmented language model framework for early cost overrun risk identification in educational building projects",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225638464",
+          "doi": "https://doi.org/10.5281/zenodo.24091884",
+          "titulo": "AI-Based Interview Systems Using Speech Recognition, Speech Synthesis, and Retrieval-Augmented Language Models: A Focused Review",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7222883869",
+          "doi": "https://doi.org/10.5281/zenodo.23451075",
+          "titulo": "EyeCorpus v1 and EyeCorpus-MCQ: an openly licensed ophthalmology knowledge corpus and curated question benchmark for retrieval-augmented language models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4409357617",
+          "doi": "https://doi.org/10.1117/12.3047046",
+          "titulo": "Memorizing SAM: 3D medical Segment Anything Model with memorizing transformer",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4412945418",
+          "doi": "https://doi.org/10.18653/v1/2025.acl-long.496",
+          "titulo": "Enhancing Neural Machine Translation Through Target Language Data: A kNN-LM Approach for Domain Adaptation",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4401572786",
+          "doi": "https://doi.org/10.58530/2023/2997",
+          "titulo": "Memorizing Transformer for Small-scale Multi-parametric MRI Brain Tumor Diagnosis",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4404974286",
+          "doi": "https://doi.org/10.1007/978-3-031-78198-8_15",
+          "titulo": "TotalCT-SAM: A Whole-Body CT Segment Anything Model with Memorizing Transformer",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7220686162",
+          "doi": "https://doi.org/10.5281/zenodo.23192796",
+          "titulo": "AgriViT-LLM: A Dual-Head Vision Transformer Coupled with a GRPO-Trained Retrieval-Augmented Language Model for Crop Disease Diagnosis and Integrated Pest Management",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4407603042",
+          "doi": "https://doi.org/10.1016/j.heliyon.2025.e42640",
+          "titulo": "Performance analysis of steel W18CR4V grinding using RSM, DNN-GA, KNN, LM, DT, SVM models, and optimization via desirability function and MOGWO",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4281629162",
+          "doi": "https://doi.org/10.18653/v1/2022.emnlp-main.214",
+          "titulo": "Nearest Neighbor Zero-Shot Inference",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4308164555",
+          "doi": "https://doi.org/10.48550/arxiv.2205.13792",
+          "titulo": "kNN-Prompt: Nearest Neighbor Zero-Shot Inference",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4401009866",
+          "doi": "https://doi.org/10.1145/3654522.3654555",
+          "titulo": "Direct Backpropagation Realization for A Neural Network including a Database",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4401042773",
+          "doi": "https://doi.org/10.18653/v1/2024.naacl-long.463",
+          "titulo": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4391463108",
+          "doi": "https://doi.org/10.48550/arxiv.2401.18059",
+          "titulo": "RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4393661176",
+          "doi": "https://doi.org/10.5281/zenodo.8016385",
+          "titulo": "LeanDojo Benchmark",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4393664757",
+          "doi": "https://doi.org/10.5281/zenodo.8040109",
+          "titulo": "LeanDojo Benchmark 4",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W7126186294",
+          "doi": "https://doi.org/10.5281/zenodo.18436868",
+          "titulo": "ITEK Vault",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4404261361",
+          "doi": "https://doi.org/10.48550/arxiv.2410.16843",
+          "titulo": "Trustworthy Alignment of Retrieval-Augmented Large Language Models via Reinforcement Learning",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4403578737",
+          "doi": "https://doi.org/10.48550/arxiv.2410.12837",
+          "titulo": "A Comprehensive Survey of Retrieval-Augmented Generation (RAG): Evolution, Current Landscape and Future Directions",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4401248152",
+          "doi": "https://doi.org/10.1007/978-981-97-5669-8_42",
+          "titulo": "Enhancing Retrieval-Augmented LMs with a Two-Stage Consistency Learning Compressor",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4389519977",
+          "doi": "https://doi.org/10.18653/v1/2023.findings-emnlp.164",
+          "titulo": "RegaVAE: A Retrieval-Augmented Gaussian Mixture Variational Auto-Encoder for Language Modeling",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4404783040",
+          "doi": "https://doi.org/10.18653/v1/2024.emnlp-main.845",
+          "titulo": "Dense X Retrieval: What Retrieval Granularity Should We Use?",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7131900503",
+          "doi": "https://doi.org/10.63317/2muhqi7owwae",
+          "titulo": "RADCoT: Retrieval-Augmented Distillation to Specialization Models for Generating Chain-of-Thoughts in Query Expansion",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4402245094",
+          "doi": "https://doi.org/10.2196/60695",
+          "titulo": "Performance of Retrieval-Augmented Large Language Models to Recommend Head and Neck Cancer Clinical Trials",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7171963403",
+          "doi": "https://doi.org/10.26434/chemrxiv.15006851/v1",
+          "titulo": "A Retrieval-Augmented LLM Framework for Automated Small-Angle Scattering Data Analysis",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4302305884",
+          "doi": "https://doi.org/10.48550/arxiv.2210.01296",
+          "titulo": "Recitation-Augmented Language Models",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4394742621",
+          "doi": "https://doi.org/10.1162/tacl_a_00649",
+          "titulo": "JustiLM: Few-shot Justification Generation for Explainable Fact-Checking of Real-world Claims",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4389524473",
+          "doi": "https://doi.org/10.18653/v1/2023.emnlp-main.232",
+          "titulo": "Adapting Language Models to Compress Contexts",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4415796639",
+          "doi": "https://doi.org/10.52202/079017-2574",
+          "titulo": "Nearest Neighbor Speculative Decoding for LLM Generation and Attribution",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4404782768",
+          "doi": "https://doi.org/10.18653/v1/2024.emnlp-main.505",
+          "titulo": "AssistantBench: Can Web Agents Solve Realistic and Time-Consuming Tasks?",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4387322982",
+          "doi": "https://doi.org/10.48550/arxiv.2310.01352",
+          "titulo": "RA-DIT: Retrieval-Augmented Dual Instruction Tuning",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4287888293",
+          "doi": "https://doi.org/10.1007/978-3-031-11647-6_66",
+          "titulo": "Automatic Riddle Generation for Learning Resources",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4385570209",
+          "doi": "https://doi.org/10.18653/v1/2023.findings-acl.732",
+          "titulo": "FiDO: Fusion-in-Decoder optimized for stronger performance and faster inference",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4389524239",
+          "doi": "https://doi.org/10.18653/v1/2023.emnlp-main.93",
+          "titulo": "Optimizing Retrieval-augmented Reader Models via Token Elimination",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W7204117523",
+          "doi": "https://doi.org/10.5281/zenodo.22079015",
+          "titulo": "Sillage: Surprise-Gated Amplitude Memory for Frozen Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7169992644",
+          "doi": null,
+          "titulo": "강건한 검색증강 언어모델",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4401042483",
+          "doi": "https://doi.org/10.18653/v1/2024.naacl-short.26",
+          "titulo": "More room for language: Investigating the effect of retrieval on language models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4402671803",
+          "doi": "https://doi.org/10.18653/v1/2024.acl-long.403",
+          "titulo": "What Evidence Do Language Models Find Convincing?",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4388276081",
+          "doi": "https://doi.org/10.48550/arxiv.2311.00475",
+          "titulo": "Style Locality for Controllable Generation with kNN Language Models",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4399428791",
+          "doi": "https://doi.org/10.1145/3665601.3669849",
+          "titulo": "On Integrating the Data-Science and Machine-Learning Pipelines for Responsible AI",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4401042418",
+          "doi": "https://doi.org/10.18653/v1/2024.findings-naacl.159",
+          "titulo": "Why So Gullible? Enhancing the Robustness of Retrieval-Augmented Models against Counterfactual Noise",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4414888095",
+          "doi": "https://doi.org/10.48550/arxiv.2506.00054",
+          "titulo": "Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4402671824",
+          "doi": "https://doi.org/10.18653/v1/2024.acl-long.181",
+          "titulo": "GrowOVER: How Can LLMs Adapt to Growing Real-World Knowledge?",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4392910591",
+          "doi": "https://doi.org/10.1109/icassp48485.2024.10447075",
+          "titulo": "KNN-CTC: Enhancing ASR via Retrieval of CTC Pseudo Labels",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4401042517",
+          "doi": "https://doi.org/10.18653/v1/2024.naacl-short.65",
+          "titulo": "Unveiling the Magic: Investigating Attention Distillation in Retrieval-Augmented Generation",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4320166805",
+          "doi": "https://doi.org/10.48550/arxiv.2301.10448",
+          "titulo": "Pre-computed memory or on-the-fly encoding? A hybrid approach to retrieval augmentation makes the most of your compute",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W7145544401",
+          "doi": null,
+          "titulo": "Nearest Neighbor Future Captioning : 物体配置タスクにおける衝突リスクに関する説明文生成",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4403885558",
+          "doi": "https://doi.org/10.48550/arxiv.2410.03055",
+          "titulo": "Permissive Information-Flow Analysis for Large Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4403051479",
+          "doi": "https://doi.org/10.1162/tacl_a_00693",
+          "titulo": "Retrieval-Pretrained Transformer: Long-range Language Modeling with Self-retrieval",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4321593827",
+          "doi": "https://doi.org/10.48550/arxiv.2302.10879",
+          "titulo": "$k$NN-Adapter: Efficient Domain Adaptation for Black-Box Language Models",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4386566476",
+          "doi": "https://doi.org/10.18653/v1/2023.findings-eacl.109",
+          "titulo": "On the Generalization Ability of Retrieval-Enhanced Transformers",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W7131846656",
+          "doi": "https://doi.org/10.63317/3835ecq28kn5",
+          "titulo": "Reinforcement Retrieval Leveraging Fine-grained Feedback for Fact Checking News Claims with Black-Box LLM",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4404782968",
+          "doi": "https://doi.org/10.18653/v1/2024.emnlp-main.527",
+          "titulo": "Synchronous Faithfulness Monitoring for Trustworthy Retrieval-Augmented Generation",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4411119138",
+          "doi": "https://doi.org/10.18653/v1/2025.naacl-short.40",
+          "titulo": "Great Memory, Shallow Reasoning: Limits of kNN-LMs",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4396243737",
+          "doi": "https://doi.org/10.48550/arxiv.2404.17283",
+          "titulo": "Reinforcement Retrieval Leveraging Fine-grained Feedback for Fact Checking News Claims with Black-Box LLM",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4380551121",
+          "doi": "https://doi.org/10.48550/arxiv.2306.06156",
+          "titulo": "PoET: A generative model of protein families as sequences-of-sequences",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4412888077",
+          "doi": "https://doi.org/10.18653/v1/2025.findings-acl.877",
+          "titulo": "RAG-RewardBench: Benchmarking Reward Models in Retrieval Augmented Generation for Preference Alignment",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4366562915",
+          "doi": "https://doi.org/10.48550/arxiv.2304.09649",
+          "titulo": "BRENT: Bidirectional Retrieval Enhanced Norwegian Transformer",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4387892188",
+          "doi": "https://doi.org/10.48550/arxiv.2310.13566",
+          "titulo": "Retrieval-Augmented Neural Response Generation Using Logical Reasoning and Relevance Scoring",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4416076398",
+          "doi": "https://doi.org/10.48550/arxiv.2506.04583",
+          "titulo": "SUCEA: Reasoning-Intensive Retrieval for Adversarial Fact-checking through Claim Decomposition and Editing",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7204898464",
+          "doi": "https://doi.org/10.18653/2026.groundlm-1.28",
+          "titulo": "E-SENS: Exclusion-Sensitive Penalization for Negative-Constraint Retrieval",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4409784734",
+          "doi": "https://doi.org/10.1117/12.3062366",
+          "titulo": "Research on active retrieval enhancement for large language models based on multi-model integration",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4389519513",
+          "doi": "https://doi.org/10.18653/v1/2023.emnlp-main.114",
+          "titulo": "DUnE: Dataset for Unified Editing",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4401450744",
+          "doi": "https://doi.org/10.1080/01691864.2024.2388114",
+          "titulo": "Nearest neighbor future captioning: generating descriptions for possible collisions in object placement tasks",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4405418989",
+          "doi": "https://doi.org/10.48550/arxiv.2408.11815",
+          "titulo": "Great Memory, Shallow Reasoning: Limits of $k$NN-LMs",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7140199032",
+          "doi": "https://doi.org/10.48550/arxiv.2603.20673",
+          "titulo": "PAVE: Premise-Aware Validation and Editing for Retrieval-Augmented LLMs",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4416035761",
+          "doi": "https://doi.org/10.18653/v1/2025.emnlp-main.1203",
+          "titulo": "Connecting the Knowledge Dots: Retrieval-augmented Knowledge Connection for Commonsense Reasoning",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7170133122",
+          "doi": "https://doi.org/10.48550/arxiv.2607.19398",
+          "titulo": "HyGRL: Adaptive Hybrid Graph Reasoning for Multi-Entity Questions",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225816720",
+          "doi": "https://doi.org/10.48550/arxiv.2611.13127",
+          "titulo": "Activation-Guided Graph Retrieval for Cognitive Memory Reconstruction in Language Model Systems",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7106819642",
+          "doi": "https://doi.org/10.48448/k9k2-1n11",
+          "titulo": "Connecting the Knowledge Dots: Retrieval-augmented Knowledge Connection for Commonsense Reasoning",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4404088378",
+          "doi": "https://doi.org/10.48550/arxiv.2410.15116",
+          "titulo": "Coarse-to-Fine Highlighting: Reducing Knowledge Hallucination in Large Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7133194265",
+          "doi": "https://doi.org/10.52202/075280-3540",
+          "titulo": "American Stories: A Large-Scale Structured Text Dataset of Historical U.S. Newspapers",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4409361316",
+          "doi": "https://doi.org/10.1609/aaai.v39i28.35379",
+          "titulo": "Incident Diagnosing and Reporting System Based on Retrieval Augmented Large Language Model",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4399810434",
+          "doi": "https://doi.org/10.1002/ohn.864",
+          "titulo": "ChatENT: Augmented Large Language Model for Expert Knowledge Retrieval in Otolaryngology–Head and Neck Surgery",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4412944336",
+          "doi": "https://doi.org/10.18653/v1/2025.knowllm-1.4",
+          "titulo": "Knowledge-Grounded Detection of Cryptocurrency Scams with Retrieval-Augmented LMs",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7214347013",
+          "doi": "https://doi.org/10.1016/j.ijrobp.2026.06.1159",
+          "titulo": "Agentic AI with Automated Self-Evaluation for Radiation Oncology Physics Procedure Retrieval and Guidance",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7199611397",
+          "doi": null,
+          "titulo": "BENIGN OVERFITTING WITH RETRIEVAL AUGMENTED MODELS",
+          "anio": 2022
+        },
+        {
+          "id": "https://openalex.org/W4388483497",
+          "doi": "https://doi.org/10.1109/ase56229.2023.00076",
+          "titulo": "Domain Adaptive Code Completion via Language Models and Decoupled Domain Databases",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W4389524581",
+          "doi": "https://doi.org/10.18653/v1/2023.findings-emnlp.1036",
+          "titulo": "Can Retriever-Augmented Language Models Reason? The Blame Game Between the Retriever and the Language Model",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W7215133735",
+          "doi": "https://doi.org/10.18653/2026.findings-emnlp.2356",
+          "titulo": "Sieve and Sage: Efficient Distraction Filtering for Reliable RALM Abstention",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7163186923",
+          "doi": "https://doi.org/10.1109/icmi68585.2026.11539932",
+          "titulo": "Tutor-Aware Automated Essay Scoring with Knowledge Graph Interpretability",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7207571717",
+          "doi": "https://doi.org/10.48550/arxiv.2609.02664",
+          "titulo": "Query Rewriting for Complex Object Segmentation in 4D Gaussian Representations",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4402670461",
+          "doi": "https://doi.org/10.18653/v1/2024.findings-acl.262",
+          "titulo": "Multi-Modal Retrieval For Large Language Model Based Speech Recognition",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4416460036",
+          "doi": "https://doi.org/10.1038/s41598-025-25160-8",
+          "titulo": "Pomegranate disease diagnosis with severity estimation and treatment remedies using deep learning and RAG-based LLM",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4398887175",
+          "doi": "https://doi.org/10.52202/079017-2879",
+          "titulo": "A Textbook Remedy for Domain Shifts: Knowledge Priors for Medical Image Analysis",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4412888748",
+          "doi": "https://doi.org/10.18653/v1/2025.findings-acl.188",
+          "titulo": "Making RALM Robust to Irrelevant Contexts via Layer Knowledge Guided Attention",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4403798928",
+          "doi": "https://doi.org/10.48550/arxiv.2409.18575",
+          "titulo": "Corpus-informed Retrieval Augmented Generation of Clarifying Questions",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4404341511",
+          "doi": "https://doi.org/10.48550/arxiv.2410.21970",
+          "titulo": "Not All Languages are Equal: Insights into Multilingual Retrieval-Augmented Generation",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4416150599",
+          "doi": "https://doi.org/10.48550/arxiv.2502.20245",
+          "titulo": "From Retrieval to Generation: Comparing Different Approaches",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7239634964",
+          "doi": null,
+          "titulo": "ZHAW at Touché: Advertisement Detection in RAG Responses Using Query-Aware Transformers and Neutral Reference Embeddings",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7224235699",
+          "doi": "https://doi.org/10.18653/2026.findings-emnlp.1242",
+          "titulo": "Observation-Aware Stabilization of Reinforcement Learning for Retrieval-Augmented Generation",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4403517696",
+          "doi": "https://doi.org/10.48550/arxiv.2409.01890",
+          "titulo": "A Fresh Take on Stale Embeddings: Improving Dense Retriever Training with Corrector Networks",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4414198840",
+          "doi": "https://doi.org/10.1109/dac63849.2025.11132497",
+          "titulo": "Move Less, Retrieve Fast: A Retrieval-in-Memory Architecture for Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7239380405",
+          "doi": "https://doi.org/10.48550/arxiv.2611.28638",
+          "titulo": "Make Position Uninformative: Exchangeable Self-Distillation Flattens the Lost-in-the-Middle Curve",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7204094127",
+          "doi": "https://doi.org/10.5281/zenodo.22079443",
+          "titulo": "Route the Scores, Not the Keys: Gradient-Free Semantic Memory for Frozen Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7155560611",
+          "doi": "https://doi.org/10.1145/3799830.3799874",
+          "titulo": "T-Ret: Retrieval of Temporally Relevant Documents",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7226005150",
+          "doi": "https://doi.org/10.21203/rs.3.rs-10028465/v1",
+          "titulo": "Operational Identification of Purchase Intention in Retail Media Networks with Theory-Coherent Hidden Semi-Markov Dynamic",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7135089117",
+          "doi": "https://doi.org/10.21203/rs.3.rs-9093774/v1",
+          "titulo": "A Trust-Weighted Hybrid Federated Fine-Tuning Architecture for Retrieval-Augmented Large Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4390682079",
+          "doi": "https://doi.org/10.26615/978-954-452-092-2_124",
+          "titulo": "AutoQIR: Auto-Encoding Questions with Retrieval Augmented Decoding for Unsupervised Passage Retrieval and Zero-shot Question Generation",
+          "anio": 2023
+        },
+        {
+          "id": "https://openalex.org/W7155084735",
+          "doi": "https://doi.org/10.2139/ssrn.6331419",
+          "titulo": "A Trust-Weighted Hybrid Federated Fine-Tuning Architecture for Retrieval-Augmented Large Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7224191345",
+          "doi": "https://doi.org/10.18653/2026.emnlp-main.1820",
+          "titulo": "Auditing RAG Necessity: A Conformal Test for Source-Independent Answers",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7152314834",
+          "doi": "https://doi.org/10.2139/ssrn.6257018",
+          "titulo": "A Trust-Weighted Hybrid Federated Fine-Tuning Architecture for Retrieval-Augmented Large Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7214945477",
+          "doi": "https://doi.org/10.48550/arxiv.2609.37491",
+          "titulo": "Regime Boundary Alignment for Evidence-Gated Question Answering",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7106788182",
+          "doi": "https://doi.org/10.48448/akbe-d580",
+          "titulo": "ChronoBias: A Benchmark for Evaluating Temporal Group Bias in the Time-sensitive Knowledge of Large Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7160235431",
+          "doi": "https://doi.org/10.48550/arxiv.2605.02491",
+          "titulo": "From Experimental Limits to Physical Insight: A Retrieval-Augmented Multi-Agent Framework for Interpreting Searches Beyond the Standard Model",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4414052603",
+          "doi": "https://doi.org/10.2139/ssrn.5403836",
+          "titulo": "The Word: Towards a Christian-Aligned Moral Compass for Large Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4403885735",
+          "doi": "https://doi.org/10.48550/arxiv.2410.03156",
+          "titulo": "MELODI: Exploring Memory Compression for Long Contexts",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7203686166",
+          "doi": "https://doi.org/10.48550/arxiv.2608.15574",
+          "titulo": "Catching Hallucinated Citations in Video-LLM Question Answering: A Self-Verification Pipeline and Verifier Ablation Study",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7204108569",
+          "doi": "https://doi.org/10.5281/zenodo.22079470",
+          "titulo": "One Signal, Three Tiers: A Routed Memory Hierarchy with Surprise-Gated Consolidation for Frozen Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4413526134",
+          "doi": "https://doi.org/10.54105/ijainn.e1100.05050825",
+          "titulo": "Personal Tensor Memory",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7204160280",
+          "doi": "https://doi.org/10.1109/metrolivenv70468.2026.11659871",
+          "titulo": "Metrologically Grounded Graph-Augmented Multimodal AI for Surgical Video Documentation in Smart Healthcare Environments",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225095264",
+          "doi": "https://doi.org/10.1145/3799682.3840201",
+          "titulo": "RV-FLS: A Resource for Retrospective Verification of Forward-Looking Statements",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7156050673",
+          "doi": "https://doi.org/10.1109/smartindustrycon68821.2026.11492790",
+          "titulo": "Models and Algorithms for Building AI-Powered Assistants: A Case Study of PetTech Platform Vetsy.ru",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7224497914",
+          "doi": "https://doi.org/10.18653/2026.findings-emnlp.143",
+          "titulo": "VRR: Verification-Guided Retrieval Revision for Multi-Step QA",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7223558035",
+          "doi": "https://doi.org/10.17605/osf.io/s54g9",
+          "titulo": "Common knowledge, common errors: does a shared retrieval corpus correlate supervisory errors? A controlled experiment.",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7223071919",
+          "doi": "https://doi.org/10.48550/arxiv.2610.25575",
+          "titulo": "Benchmark for Structured Retrieval-Augmented Generation in Perovskite Photovoltaics",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7162761660",
+          "doi": "https://doi.org/10.48550/arxiv.2605.28828",
+          "titulo": "Micro-Macro Retrieval: Reducing Long-Form Hallucination in Large Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7237350047",
+          "doi": "https://doi.org/10.1145/3856604.3856644",
+          "titulo": "A Deep Learning–Based Historical Error Analysis and Adaptive Question Generation System for Emergency Management Education",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4399421020",
+          "doi": "https://doi.org/10.48550/arxiv.2406.02332",
+          "titulo": "Extended Mind Transformers",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4412362431",
+          "doi": "https://doi.org/10.1007/978-981-96-2700-4_31",
+          "titulo": "Retrieval-Augmented LLMs for Culturally Sensitive Learning Content in Refugee Education",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7168238247",
+          "doi": "https://doi.org/10.5281/zenodo.21357561",
+          "titulo": "Governance Before Generation: An empirical N=100 A/B measurement of answer-entitlement and context governance on Gemma 4 12B",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4415035625",
+          "doi": "https://doi.org/10.48550/arxiv.2505.20285",
+          "titulo": "MaskSearch: A Universal Pre-Training Framework to Enhance Agentic Search Capability",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W4416524687",
+          "doi": "https://doi.org/10.48550/arxiv.2506.24106",
+          "titulo": "On the Predictive Power of Representation Dispersion in Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4391623517",
+          "doi": "https://doi.org/10.48550/arxiv.2402.03009",
+          "titulo": "UniMem: Towards a Unified View of Long-Context Large Language Models",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7165136845",
+          "doi": "https://doi.org/10.3390/pr14121982",
+          "titulo": "Prediction and Interpretation of the Volumetric Mass Transfer Coefficient in Bioreactors Using a No-Code Platform for Autonomous Machine Learning Model Selection",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7124430796",
+          "doi": "https://doi.org/10.48550/arxiv.2601.09727",
+          "titulo": "SciNets: Graph-Constrained Multi-Hop Reasoning for Scientific Literature Synthesis",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7220853061",
+          "doi": "https://doi.org/10.14207/ejsd.2026.v15n4p845",
+          "titulo": "FarmCarbon AI: An AI-Based Framework for Carbon Mitigation and Financing in Central European Dairy Farms",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7202119791",
+          "doi": "https://doi.org/10.21203/rs.3.rs-10077930/v1",
+          "titulo": "Liability in Motion: A retrieval-augmented LLM application in road traffic liability apportionment",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7223284328",
+          "doi": "https://doi.org/10.1109/access.2026.3745984",
+          "titulo": "Explainable Deep Learning for Satellite Telemetry Anomaly Detection: A Systematic Literature Review",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4403785829",
+          "doi": "https://doi.org/10.48550/arxiv.2409.15364",
+          "titulo": "VERA: Validation and Enhancement for Retrieval Augmented systems",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W4407683927",
+          "doi": "https://doi.org/10.48550/arxiv.2502.10615",
+          "titulo": "Retrieval-augmented Encoders for Extreme Multi-label Text Classification",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7160425174",
+          "doi": "https://doi.org/10.18154/rwth-2026-03194",
+          "titulo": "Ontology-based harmonization of disparate datasets for early-phase building life cycle assessment",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7222995680",
+          "doi": "https://doi.org/10.5281/zenodo.23495602",
+          "titulo": "Proceedings of the 3rd Conference on AI in and for Space (SPAICE 2026)",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7223383353",
+          "doi": "https://doi.org/10.1109/icaita71179.2026.11737058",
+          "titulo": "FireLLM-DSS: A Retrieval-Augmented Large Language Model Framework for Real-Time Fire Rescue Decision Support",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7152035786",
+          "doi": "https://doi.org/10.2139/ssrn.6546797",
+          "titulo": "ACW-RC: Adaptive Confidence-Weighted Retrieval Correction for Robust Augmented Generation",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7131884702",
+          "doi": "https://doi.org/10.1109/ised67359.2025.11405146",
+          "titulo": "ParaMind: Parallelized Adaptive Memory Integration for Long-Context Large Language Models",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7165757798",
+          "doi": "https://doi.org/10.2139/ssrn.6989769",
+          "titulo": "CauSAIL: Causal Graph-Grounded Multimodal LLMs for Maritime Supply Chain Disruption Detection",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7214521970",
+          "doi": "https://doi.org/10.1007/s44163-026-02373-y",
+          "titulo": "A Survey of conversational AI from rule based to generative and retrieval augmented generation chatbots",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7224813493",
+          "doi": "https://doi.org/10.5281/zenodo.23824399",
+          "titulo": "SecKB-Bench and PROVE Reference Implementation: Benchmark Generator, Reference Code and Measurement Artifacts for Provenance-Gated Retrieval and Egress Containment in LLM Knowledge Systems",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7223017975",
+          "doi": "https://doi.org/10.48550/arxiv.2610.24854",
+          "titulo": "Learning to Program Retrievals: Composing Search Primitives via Reinforcement Learning",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7171456485",
+          "doi": "https://doi.org/10.1109/tnsm.2026.3717489",
+          "titulo": "A Collaborative Edge Intelligence Framework for SFC Provisioning via Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7127635070",
+          "doi": "https://doi.org/10.1093/eurheartj/ehaf784.4517",
+          "titulo": "Immersive interactive intelligent patient educational system for venous thromboembolism",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7147166298",
+          "doi": "https://doi.org/10.21203/rs.3.rs-9287246/v1",
+          "titulo": "Knowledge Grounded Conversational Access to Heterogeneous Institutional Documents via OCR Enabled Hybrid RAG",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7239854389",
+          "doi": "https://doi.org/10.48550/arxiv.2611.31269",
+          "titulo": "Reliability of Language-Model Judges for Quantitative Scientific Question Answering: Evidence from Perovskite Photovoltaics",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7128788773",
+          "doi": "https://doi.org/10.48550/arxiv.2602.11212",
+          "titulo": "Towards Compressive and Scalable Recurrent Memory",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7204464313",
+          "doi": "https://doi.org/10.2139/ssrn.7357178",
+          "titulo": "Retrieval-Augmented Generation and Knowledge-Grounded Large Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7169872576",
+          "doi": "https://doi.org/10.32604/jimh.2026.084876",
+          "titulo": "Knowledge–Rule–Decision: A Loosely-Coupled Architecture for Auditable High-Stakes Clinical Decision Support",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7166816656",
+          "doi": "https://doi.org/10.18653/v1/2026.acl-long.1311",
+          "titulo": "KoCo-Bench: Can Large Language Models Leverage Domain Knowledge in Software Development?",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7224110393",
+          "doi": "https://doi.org/10.48550/arxiv.2610.36169",
+          "titulo": "Don't Pick a Winner: Knowledge Conflicts Need a Prior, Not a Rule",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7169031437",
+          "doi": "https://doi.org/10.48448/1zwg-mn72",
+          "titulo": "KoCo-Bench: Can Large Language Models Leverage Domain Knowledge in Software Development?",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7163039299",
+          "doi": "https://doi.org/10.5281/zenodo.20483674",
+          "titulo": "Counterfactual Ablation for Memory-Utility Evaluation: A Pre-Registered Case Study in Specialist Re-ranking",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225254998",
+          "doi": "https://doi.org/10.53941/bci.2026.100016",
+          "titulo": "Scope, Challenges, and Future of Agentic AI in Geotechnical and Earthquake Engineering: A Critical Review",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7214191077",
+          "doi": "https://doi.org/10.36680/j.itcon.2026.046",
+          "titulo": "Performance-driven clause prioritization and smart contract synthesis for construction contract governance: A proof-of-concept framework and preliminary evaluation",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225809765",
+          "doi": "https://doi.org/10.7490/f1000research.1120704.1",
+          "titulo": "Knowledge-grounded multimodal decision support under incomplete context: Periodontal assessment with transfer to industrial quality compliance",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7155065973",
+          "doi": "https://doi.org/10.2139/ssrn.6625178",
+          "titulo": "Retrieval-Augmented Contract Intelligence for Performance-Driven Construction Governance and Smart Contract Synthesis",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7160381429",
+          "doi": "https://doi.org/10.48550/arxiv.2605.03153",
+          "titulo": "OCRR: A Benchmark for Online Correction Recovery under Distribution Shift",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7165796218",
+          "doi": "https://doi.org/10.26190/unsworks/32426",
+          "titulo": "Discrepancy-Aware Graph–Language Modelling for Cross-Repository Vulnerability Intelligence Alignment and Automated Repair",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7204886693",
+          "doi": "https://doi.org/10.2139/ssrn.7389290",
+          "titulo": "Industrial-Instruction: A source-grounded question answering dataset from industrial technical reports for training and evaluating large language models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225817050",
+          "doi": "https://doi.org/10.67440/ahj.vi.3164",
+          "titulo": "Evaluating Adversarial Robustness of Knowledge-Level RAG For Vulnerability Detection With Open-Weight Llms",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7225047211",
+          "doi": "https://doi.org/10.2118/235482-ms",
+          "titulo": "Autonomous Refinery Intelligence Architecture",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7207620108",
+          "doi": "https://doi.org/10.15083/0002013264",
+          "titulo": "Dynamic Adaptation of Pre-trained Language Models by Retrieving Textual Knowledge",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7140307025",
+          "doi": "https://doi.org/10.5281/zenodo.19217428",
+          "titulo": "Structural Analysis of Sparse Model Architectures: Hidden Gaps, Recurring Patterns, and Five Open Paradigm Candidates for Next-Generation LLMs",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7217365827",
+          "doi": null,
+          "titulo": "Augmenting Data Quality and Model Reliability in Large-Scale Language and Code Models: A Hybrid Framework for Evaluation, Pretraining, and Retrieval-Augmented Techniques",
+          "anio": 2025
+        },
+        {
+          "id": "https://openalex.org/W7204492990",
+          "doi": "https://doi.org/10.5281/zenodo.22127783",
+          "titulo": "FedBioGuard: A Privacy-Preserving and Uncertainty-Aware Multimodal Federated Framework for Explainable Antimicrobial Resistance Prediction",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7162095946",
+          "doi": "https://doi.org/10.5281/zenodo.20337400",
+          "titulo": "FreshState: An Endpoint-Validated, Age-Matched Benchmark for Stale Evidence in Web-Augmented Language Models",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W4401518664",
+          "doi": "https://doi.org/10.46690/elder.2024.02.03",
+          "titulo": "Heuristic question sequence generation based on retrieval augmentation",
+          "anio": 2024
+        },
+        {
+          "id": "https://openalex.org/W7237339490",
+          "doi": "https://doi.org/10.5281/zenodo.24413719",
+          "titulo": "Data for \"Societal citations undermine the function of the science reward system\"",
+          "anio": 2026
+        },
+        {
+          "id": "https://openalex.org/W7216536839",
+          "doi": "https://doi.org/10.63544/xgvmne24",
+          "titulo": "Enhancing Large Language Model Reasoning via Retrieval-Augmented Generation and Self-Verification Mechanisms",
+          "anio": 2026
+        }
+      ],
+      "fecha": "2026-11-26",
+      "total_indice": 318,
+      "incidencia_cursor": "HTTP Error 401: Unauthorized"
+    }
+  ]
+}

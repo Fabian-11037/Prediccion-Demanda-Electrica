@@ -1,0 +1,1200 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10.16.1. Antecedentes y originalidad de M4ₙ &#8212; Pronóstico de la demanda eléctrica del SIN colombiano</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/estilo_academico.css?v=b05080bc" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'arquitecturas/m4_n_novedad';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="10.17. Resultados y evaluación integrada" href="../10_evaluacion.html" />
+    <link rel="prev" title="10.16. M4N: memoria numérica de errores para el pronóstico de demanda" href="m4_n.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Pronóstico de la demanda eléctrica del SIN colombiano</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Pronóstico de la demanda eléctrica del SIN colombiano
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_datos.html">1. Problema y datos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../diccionario.html">Diccionario de datos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_calidad.html">2. Calidad e integridad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_demanda.html">3. Distribución y evolución de la demanda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_estacionalidad.html">4. Calendario y estacionalidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_covariables.html">6. Covariables y disponibilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08_literatura.html">8. Literatura y fundamento del diseño</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_busqueda_sistematica.html">8.10. Búsqueda sistemática y flujo PRISMA</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09_diseno_ampliado.html">9.1. Datos, modelos y protocolo temporal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../10_modelos.html">10. Modelos, arquitecturas y evaluación</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="fundamentos.html">10.1. Fundamentos y preprocesamiento compartido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arx.html">10.2. ARX lineal regularizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mlp.html">10.3. MLP: perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lstm.html">10.4. LSTM: memoria recurrente con compuertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cnn1d.html">10.5. CNN1D: filtros locales sobre la historia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patchtst.html">10.6. PatchTST numérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nhits.html">10.7. N-HiTS: interpolación jerárquica residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tft.html">10.8. TFT: selección de variables y atención interpretable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcn.html">10.9. TCN: convoluciones causales dilatadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="itransformer.html">10.10. iTransformer: atención entre variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tats.html">10.11. TaTS: texto como variables temporales auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tgforecaster.html">10.12. TGForecaster: consultas del horizonte guiadas por texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="m4_n.html">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">10.16.1. Antecedentes y originalidad de M4ₙ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_evaluacion.html">10.17. Resultados y evaluación integrada</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_sintesis.html">11. Conclusiones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_reproducibilidad.html">12. Reproducibilidad y procedencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13_inferencia.html">13. Inferencia en vivo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuentes.html">Fuentes y fundamento metodológico</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/arquitecturas/m4_n_novedad.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>10.16.1. Antecedentes y originalidad de M4ₙ</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismo-que-se-contrasta">Mecanismo que se contrasta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cadenas-de-busqueda">Cadenas de búsqueda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-por-citacion-y-repositorios">Búsqueda por citación y repositorios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-consolidada-de-antecedentes">Matriz consolidada de antecedentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribucion-delimitada-y-contraste-experimental">Contribución delimitada y contraste experimental</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaracion-y-alcance-de-originalidad">Declaración y alcance de originalidad</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="antecedentes-y-originalidad-de-m4n">
+<span id="novedad-m4"></span><h1>10.16.1. Antecedentes y originalidad de M4ₙ<a class="headerlink" href="#antecedentes-y-originalidad-de-m4n" title="Link to this heading">#</a></h1>
+<p>M4ₙ se estudia como una integración de memoria residual fuera de muestra, combinación congelada de expertos y actualización causal para pronosticar las 24 horas de demanda del SIN. La recuperación de residuos y la actualización de memoria tienen antecedentes directos; la matriz contrasta la integración temporal con esos trabajos y delimita su alcance.</p>
+<section id="mecanismo-que-se-contrasta">
+<h2>Mecanismo que se contrasta<a class="headerlink" href="#mecanismo-que-se-contrasta" title="Link to this heading">#</a></h2>
+<p>Los componentes de M4ₙ que se comparan con la literatura son los de la ficha de la arquitectura:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Código</p></th>
+<th class="head"><p>Componente</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(a)</p></td>
+<td><p>Base congelada: combinación aprendida de PatchTST, el experto E y el experto periódico (M1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>(b)</p></td>
+<td><p>Memoria de residuos normalizados de predicciones fuera de muestra, generadas con OOF temporal anidado por prefijos</p></td>
+</tr>
+<tr class="row-even"><td><p>(c)</p></td>
+<td><p>Recuperación con proyecciones aprendidas de consulta y clave sobre un contexto de 912 componentes, 16 vecinos y máscara de disponibilidad de 2 a 365 días</p></td>
+</tr>
+<tr class="row-odd"><td><p>(d)</p></td>
+<td><p>Compuerta escalar que regula la corrección según semejanza, dispersión, respaldo y antigüedad de los vecinos</p></td>
+</tr>
+<tr class="row-even"><td><p>(e)</p></td>
+<td><p>Banco que se actualiza durante la evaluación con residuos ya revelados, con los pesos congelados</p></td>
+</tr>
+<tr class="row-odd"><td><p>(f)</p></td>
+<td><p>Pérdida absoluta normalizada por q, comparable con MASE; demanda del SIN con 24 horas directas</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="cadenas-de-busqueda">
+<h2>Cadenas de búsqueda<a class="headerlink" href="#cadenas-de-busqueda" title="Link to this heading">#</a></h2>
+<p>Cinco cadenas combinan el mecanismo con el problema (C1–C5, una en español) y tres buscan el mecanismo en otras aplicaciones (C6–C8). La captura del 25 de noviembre consulta OpenAlex (título y resumen,2015–2026), arXiv (resumen, sin filtro anual explícito en la consulta original) y Semantic Scholar (búsqueda booleana,2015–2026). La actualización paginada del 26 de noviembre amplía las cinco consultas que devolvieron más registros que los recuperados inicialmente. La cadena C9 aplica el mecanismo dentro del inventario de 1.913 registros del anexo PRISMA (1.910 de bases y3 adicionales únicos) para la búsqueda sistemática del capítulo 8.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Cadena</p></th>
+<th class="head"><p>Términos (versión OpenAlex)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C1</p></td>
+<td><p>(«load forecasting» OR «electricity demand forecasting» OR «power demand forecasting») AND («retrieval» OR «retrieval-augmented» OR «nearest neighbor» OR «nearest neighbour») AND («residual» OR «forecast error» OR «error correction»)</p></td>
+</tr>
+<tr class="row-odd"><td><p>C2</p></td>
+<td><p>(«load forecasting» OR «electricity demand forecasting») AND («analog ensemble» OR «analogue ensemble» OR «analog forecasting» OR «similar day») AND («error correction» OR «bias correction» OR «residual»)</p></td>
+</tr>
+<tr class="row-even"><td><p>C3</p></td>
+<td><p>(«load forecasting» OR «electricity demand forecasting») AND («memory-augmented» OR «external memory» OR «memory bank» OR «episodic memory»)</p></td>
+</tr>
+<tr class="row-odd"><td><p>C4</p></td>
+<td><p>(«load forecasting» OR «electricity demand forecasting») AND («residual correction» OR «error correction» OR «error compensation») AND («attention» OR «gate» OR «gating»)</p></td>
+</tr>
+<tr class="row-even"><td><p>C5</p></td>
+<td><p>(«pronóstico de demanda» OR «pronóstico de carga» OR «predicción de carga» OR «predicción de la demanda eléctrica») AND («corrección de errores» OR «residuos» OR «memoria»)</p></td>
+</tr>
+<tr class="row-odd"><td><p>C6</p></td>
+<td><p>(«analog ensemble» OR «analogue ensemble») AND («forecast») AND («error» OR «bias»)</p></td>
+</tr>
+<tr class="row-even"><td><p>C7</p></td>
+<td><p>(«retrieval-augmented» OR «retrieval augmented») AND («time series forecasting»)</p></td>
+</tr>
+<tr class="row-odd"><td><p>C8</p></td>
+<td><p>(«nearest neighbor language model» OR «kNN-LM» OR «retrieval-augmented language model» OR «memorizing transformer»)</p></td>
+</tr>
+<tr class="row-even"><td><p>C9</p></td>
+<td><p>(retriev* OR «nearest neighbo*» OR kNN OR analog* OR «similar day» OR «memory bank» OR «external memory» OR episodic) AND (residual OR «error correction» OR «error compensation» OR «forecast error» OR «bias correction»), en título y resumen del corpus exportado</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Las versiones exactas para arXiv y Semantic Scholar, con su sintaxis, están en el script de búsqueda.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+<span class="n">D</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="o">*</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">parents</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">(</span><span class="n">p</span><span class="o">/</span><span class="s1">'_static/literature/novedad'</span><span class="p">,</span> <span class="n">p</span><span class="o">/</span><span class="s1">'book/_static/literature/novedad'</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+<span class="n">bus</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">D</span><span class="o">/</span><span class="s1">'busqueda_novedad_20261125.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
+<span class="n">actualizacion</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">D</span><span class="o">/</span><span class="s1">'paginacion_20261126.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
+<span class="n">sno</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">D</span><span class="o">/</span><span class="s1">'snowball_repos_20261125.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">))</span>
+<span class="n">c9</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">D</span><span class="o">/</span><span class="s1">'c9_corpus_scopus_wos_ieee.csv'</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">ampliadas</span> <span class="o">=</span> <span class="p">{(</span><span class="n">q</span><span class="p">[</span><span class="s1">'base'</span><span class="p">],</span><span class="n">q</span><span class="p">[</span><span class="s1">'cadena'</span><span class="p">]):</span><span class="n">q</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">actualizacion</span><span class="p">[</span><span class="s1">'consultas'</span><span class="p">]}</span>
+<span class="n">filas</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">bus</span><span class="p">[</span><span class="s1">'consultas'</span><span class="p">]:</span>
+    <span class="n">nuevo</span><span class="o">=</span><span class="n">ampliadas</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="n">q</span><span class="p">[</span><span class="s1">'base'</span><span class="p">],</span><span class="n">q</span><span class="p">[</span><span class="s1">'cadena'</span><span class="p">]))</span>
+    <span class="n">filas</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'Base'</span><span class="p">:</span><span class="n">q</span><span class="p">[</span><span class="s1">'base'</span><span class="p">],</span><span class="s1">'Cadena'</span><span class="p">:</span><span class="n">q</span><span class="p">[</span><span class="s1">'cadena'</span><span class="p">],</span><span class="s1">'Total índice · 25nov'</span><span class="p">:</span><span class="n">q</span><span class="p">[</span><span class="s1">'resultados'</span><span class="p">],</span><span class="s1">'Recuperados · 25nov'</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="s1">'registros'</span><span class="p">]),</span><span class="s1">'Total índice · 26nov'</span><span class="p">:</span><span class="n">nuevo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'total_indice'</span><span class="p">)</span> <span class="k">if</span> <span class="n">nuevo</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span><span class="s1">'Recuperados · 26nov'</span><span class="p">:</span><span class="n">nuevo</span><span class="p">[</span><span class="s1">'recuperados'</span><span class="p">]</span> <span class="k">if</span> <span class="n">nuevo</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span><span class="s1">'Paginación adicional'</span><span class="p">:(</span><span class="s1">'agotada'</span> <span class="k">if</span> <span class="n">nuevo</span><span class="p">[</span><span class="s1">'paginacion_agotada'</span><span class="p">]</span> <span class="k">else</span> <span class="s1">'parcial'</span><span class="p">)</span> <span class="k">if</span> <span class="n">nuevo</span> <span class="k">else</span> <span class="s1">'sin ampliación'</span><span class="p">})</span>
+<span class="n">inventario</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">filas</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">inventario</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">ampliadas</span><span class="p">)</span><span class="o">==</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Base</th>
+      <th>Cadena</th>
+      <th>Total índice · 25nov</th>
+      <th>Recuperados · 25nov</th>
+      <th>Total índice · 26nov</th>
+      <th>Recuperados · 26nov</th>
+      <th>Paginación adicional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>OpenAlex</td>
+      <td>C1</td>
+      <td>15</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>arXiv</td>
+      <td>C1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Semantic Scholar</td>
+      <td>C1</td>
+      <td>10</td>
+      <td>10</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>OpenAlex</td>
+      <td>C2</td>
+      <td>8</td>
+      <td>8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>arXiv</td>
+      <td>C2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Semantic Scholar</td>
+      <td>C2</td>
+      <td>6</td>
+      <td>6</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>OpenAlex</td>
+      <td>C3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>arXiv</td>
+      <td>C3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Semantic Scholar</td>
+      <td>C3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>OpenAlex</td>
+      <td>C4</td>
+      <td>49</td>
+      <td>49</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>arXiv</td>
+      <td>C4</td>
+      <td>2</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Semantic Scholar</td>
+      <td>C4</td>
+      <td>31</td>
+      <td>31</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>OpenAlex</td>
+      <td>C5</td>
+      <td>14</td>
+      <td>14</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Semantic Scholar</td>
+      <td>C5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>OpenAlex</td>
+      <td>C6</td>
+      <td>85</td>
+      <td>50</td>
+      <td>85.0</td>
+      <td>85.0</td>
+      <td>agotada</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>arXiv</td>
+      <td>C6</td>
+      <td>7</td>
+      <td>7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Semantic Scholar</td>
+      <td>C6</td>
+      <td>58</td>
+      <td>50</td>
+      <td>58.0</td>
+      <td>58.0</td>
+      <td>agotada</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>OpenAlex</td>
+      <td>C7</td>
+      <td>79</td>
+      <td>50</td>
+      <td>81.0</td>
+      <td>81.0</td>
+      <td>agotada</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>arXiv</td>
+      <td>C7</td>
+      <td>27</td>
+      <td>27</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Semantic Scholar</td>
+      <td>C7</td>
+      <td>54</td>
+      <td>50</td>
+      <td>54.0</td>
+      <td>54.0</td>
+      <td>agotada</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>OpenAlex</td>
+      <td>C8</td>
+      <td>316</td>
+      <td>50</td>
+      <td>318.0</td>
+      <td>318.0</td>
+      <td>agotada</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>arXiv</td>
+      <td>C8</td>
+      <td>24</td>
+      <td>24</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Semantic Scholar</td>
+      <td>C8</td>
+      <td>34</td>
+      <td>34</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sin ampliación</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>La tabla distingue el total informado por cada índice de los registros efectivamente recuperados. La captura inicial tenía un máximo de 50 por consulta. La ampliación agota la paginación de cinco consultas el 26 de noviembre; los totales pueden cambiar entre fechas por actualización del índice. La recuperación completa no equivale a revisión independiente de todos los textos.</p>
+<p>La ampliación incorpora <em>FreshCast</em>, ya revisado en texto completo en el estudio, y localiza <em>Decouple to Reuse</em>, con bancos residuales de representaciones. Este último se clasifica con alcance de resumen y no se equipara a una memoria de errores de pronóstico.</p>
+</section>
+<section id="busqueda-por-citacion-y-repositorios">
+<h2>Búsqueda por citación y repositorios<a class="headerlink" href="#busqueda-por-citacion-y-repositorios" title="Link to this heading">#</a></h2>
+<p>Se siguieron las referencias y las citas recibidas de cinco trabajos cercanos en OpenAlex (para kNN-LM, las 200 primeras citas), conservando los títulos que combinan el mecanismo con un problema de energía.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">'Semilla'</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s1">'semilla'</span><span class="p">],</span> <span class="s1">'Referencias'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'referencias'</span><span class="p">),</span> <span class="s1">'Citas revisadas'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'citas'</span><span class="p">),</span> <span class="s1">'Relevantes hacia atrás'</span><span class="p">:</span> <span class="s1">'; '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">'titulo'</span><span class="p">][:</span><span class="mi">70</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">'anio'</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'relevantes_atras'</span><span class="p">,</span> <span class="p">[])[:</span><span class="mi">4</span><span class="p">])</span> <span class="ow">or</span> <span class="s1">'—'</span><span class="p">,</span> <span class="s1">'Relevantes hacia adelante'</span><span class="p">:</span> <span class="s1">'; '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">'titulo'</span><span class="p">][:</span><span class="mi">70</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">'anio'</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'relevantes_adelante'</span><span class="p">,</span> <span class="p">[]))</span> <span class="ow">or</span> <span class="s1">'—'</span><span class="p">}</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sno</span><span class="p">[</span><span class="s1">'snowballing'</span><span class="p">]])</span>  <span class="c1"># Resumen de la búsqueda por citación</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sb</span><span class="p">)</span>  <span class="c1"># Muestra la tabla</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Semilla</th>
+      <th>Referencias</th>
+      <th>Citas revisadas</th>
+      <th>Relevantes hacia atrás</th>
+      <th>Relevantes hacia adelante</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RATL (2026)</td>
+      <td>22</td>
+      <td>1</td>
+      <td>A Multi-Scale CNN-Transformer Network with Res...</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>WeL-RAC (2026)</td>
+      <td>50</td>
+      <td>0</td>
+      <td>An analog ensemble for short-term probabilisti...</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RAFT (2025)</td>
+      <td>31</td>
+      <td>88</td>
+      <td>—</td>
+      <td>Natural gas demand forecasting via latent patt...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>TE-AG-GRU-RC (2026)</td>
+      <td>36</td>
+      <td>0</td>
+      <td>Short-Term Load Forecasting With Deep Residual...</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>kNN-LM (2020)</td>
+      <td>29</td>
+      <td>200</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>La búsqueda por citación añade antecedentes de análogos en energía solar y eólica y de corrección paramétrica de carga. La captura de citas recibidas depende de la fecha e indexación; en kNN-LM se examinan solo las primeras 200. Estos resultados acotan la revisión y no prueban ausencia universal de un método.</p>
+<p>El anexo identifica los repositorios <code class="docutils literal notranslate"><span class="pre">time-retriever</span></code> y SYNC Transformer. Este último declara recuperación episódica de residuos en ETT y no aporta un artículo asociado en la captura. Se considera evidencia de implementación pública con alcance de repositorio. Las consultas de Hugging Face no devolvieron resultados en esa captura.</p>
+</section>
+<section id="matriz-consolidada-de-antecedentes">
+<h2>Matriz consolidada de antecedentes<a class="headerlink" href="#matriz-consolidada-de-antecedentes" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Trabajo</p></th>
+<th class="head"><p>Problema y datos</p></th>
+<th class="head"><p>Qué recupera o corrige</p></th>
+<th class="head"><p>Diferencia con M4ₙ</p></th>
+<th class="head"><p>Relación y evidencia</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.48550/arxiv.2609.03937">RATL (2026)</a></p></td>
+<td><p>13 conjuntos de referencia, entre ellos ECL (consumo eléctrico de clientes); horizontes de 96 a 720</p></td>
+<td><p>Residuos de un pronosticador congelado, con restricción causal y un enrutador aprendido por bloque y variable</p></td>
+<td><p>Memoria específica de entrenamiento, fija durante la evaluación; M4ₙ usa residuos fuera de muestra con OOF anidado (b) y actualiza el banco durante la evaluación (e). Base de un solo modelo frente a combinación de expertos (a)</p></td>
+<td><p>Mecanismo y entrenamiento, parcial: la idea central coincide; texto completo</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/Unjuno/sync-transformer">SYNC Transformer (2026)</a></p></td>
+<td><p>ETT; repositorio sin artículo</p></td>
+<td><p>Recuperación episódica de residuos con fusión y abstención</p></td>
+<td><p>Otro fenómeno; detalles del mecanismo no publicados</p></td>
+<td><p>Precedente del mismo mecanismo; repositorio</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/abs/2608.10553">RCCP (2026)</a></p></td>
+<td><p>Series generales</p></td>
+<td><p>Residuos similares para calibrar intervalos</p></td>
+<td><p>Corrige la cobertura del intervalo, no el pronóstico puntual</p></td>
+<td><p>Mecanismo; resumen del anexo</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/abs/2610.31959">WeL-RAC (2026)</a></p></td>
+<td><p>31 edificios, horizontes de 1 a 18 h</p></td>
+<td><p>Trayectorias futuras observadas de casos similares, sin entrenamiento</p></td>
+<td><p>Recupera la demanda, no residuos; semejanza fija; sin compuerta aprendida (c, d)</p></td>
+<td><p>Mecanismo; resumen del anexo</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.48550/arxiv.2505.04163">RAFT (2025)</a></p></td>
+<td><p>Diez conjuntos de referencia</p></td>
+<td><p>Valores futuros de patrones similares, usados como entrada</p></td>
+<td><p>No corrige un modelo base con sus errores (b)</p></td>
+<td><p>Mecanismo; resumen del anexo</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.48550/arxiv.1911.00172">kNN-LM (2020)</a></p></td>
+<td><p>Modelado de lenguaje</p></td>
+<td><p>Vecinos en el espacio de un modelo congelado, interpolados con peso fijo</p></td>
+<td><p>Fuente del esquema de base congelada con memoria; M4ₙ recupera residuos y aprende la compuerta (d)</p></td>
+<td><p>Mecanismo (fuente); resumen del anexo</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1016/j.apenergy.2015.08.011">Analog ensemble solar (2015)</a></p></td>
+<td><p>Potencia solar</p></td>
+<td><p>Observaciones de pronósticos meteorológicos análogos</p></td>
+<td><p>Fuente del principio de corrección por análogos; métrica de distancia fija</p></td>
+<td><p>Mecanismo (fuente); resumen del anexo</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/abs/2103.04530">Análogos con semejanza aprendida (2021)</a></p></td>
+<td><p>Recursos renovables</p></td>
+<td><p>Análogos con una métrica de semejanza aprendida por redes</p></td>
+<td><p>Recupera observaciones, no residuos de un base; sin actualización causal (b, e)</p></td>
+<td><p>Mecanismo; resumen del anexo</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1109/3scea68071.2026.11603192">CausalGraphMemoryNet (2026)</a></p></td>
+<td><p>Pronóstico temporal; metadatos de índice</p></td>
+<td><p>El título identifica aprendizaje conjunto de estructuras causales y patrones temporales</p></td>
+<td><p>Los metadatos disponibles no permiten caracterizar el banco ni equipararlo a residuos de una base congelada</p></td>
+<td><p>Candidato pendiente de descripción del mecanismo</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.3389/frai.2026.1935983">TE-AG-GRU-RC (2026)</a></p></td>
+<td><p>Demanda de corto plazo</p></td>
+<td><p>Una GRU con atención modela el residuo del transformer</p></td>
+<td><p>Corrección paramétrica, sin memoria de episodios (b, c)</p></td>
+<td><p>Mecanismo; resumen del anexo</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1117/12.3133541">PatchTST con corrección por ventana (2026)</a></p></td>
+<td><p>Red de distribución de 10 kV, 15 minutos</p></td>
+<td><p>Residuos recientes en ventana deslizante</p></td>
+<td><p>Sin recuperación por semejanza (c)</p></td>
+<td><p>Mecanismo; resumen del anexo</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.3390/en19040953">Pronóstico intradía multinivel (2026)</a></p></td>
+<td><p>Operador de red, intradía</p></td>
+<td><p>Corrección delta con mediciones recientes del día; días similares eligen el método</p></td>
+<td><p>Sin memoria de residuos por semejanza (b, c)</p></td>
+<td><p>Mecanismo; resumen del anexo</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1109/fes57669.2023.10183307">Día similar y corrección XGBoost (2023)</a></p></td>
+<td><p>Demanda de corto plazo</p></td>
+<td><p>Días similares como entrada y corrección paramétrica del error</p></td>
+<td><p>Sin recuperación de residuos (b, c)</p></td>
+<td><p>Mecanismo; resumen del anexo</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.1109/pesgm.2016.7741097">kNN compuesto (2016)</a></p></td>
+<td><p>Mercado eléctrico australiano, día siguiente</p></td>
+<td><p>Vecinos que pronostican la carga</p></td>
+<td><p>Pronostica, no corrige un base (a, b)</p></td>
+<td><p>Mecanismo; resumen del anexo</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/html/2610.07834v3">FreshCast (2026)</a></p></td>
+<td><p>Series de servicios y Electricity; texto completo</p></td>
+<td><p>Actualiza una memoria con observaciones reveladas y combina un pronóstico de memoria con la base congelada</p></td>
+<td><p>La actualización causal tiene antecedente. M4 recupera errores OOF de M1, frente a continuaciones observadas y calibración cerrada</p></td>
+<td><p>Mecanismo; texto completo</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/bf0857cb9a41c73639f028a80301cdf0-Abstract-Conference.html">ResMem (2023)</a></p></td>
+<td><p>Visión y lenguaje; texto completo</p></td>
+<td><p>Regresión por vecinos sobre residuos de entrenamiento de una base neuronal</p></td>
+<td><p>Antecedente de memorización residual; la formulación temporal de M4 añade construcción OOF y disponibilidad por origen</p></td>
+<td><p>Mecanismo transversal</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://doi.org/10.1016/j.energy.2025.135762">MMEMformer (2025)</a></p></td>
+<td><p>Carga de sistemas energéticos integrados; resumen editorial</p></td>
+<td><p>Banco de patrones históricos con atención multiescala</p></td>
+<td><p>El resumen no acredita un banco externo de residuos de un pronosticador congelado; no se atribuyen detalles no verificados</p></td>
+<td><p>Memoria de patrones; resumen</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://doi.org/10.32479/ijeep.17528">Vargas-Forero et al. (2025)</a></p></td>
+<td><p>Demanda nacional colombiana horaria del día siguiente; texto completo</p></td>
+<td><p>Compara LSTM, ARIMA y Prophet</p></td>
+<td><p>Antecedente del sistema y horizonte; no establece novedad del principio de corrección residual</p></td>
+<td><p>Aplicación directa</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/abs/2611.05993">Decouple to Reuse (2026)</a></p></td>
+<td><p>Series de referencia y modelos fundacionales; resumen</p></td>
+<td><p>Recupera códigos residuales de tendencia y estacionalidad en representaciones latentes</p></td>
+<td><p>Los códigos residuales de representación no se identifican con trayectorias de error OOF de M1</p></td>
+<td><p>Representaciones; resumen</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La clasificación declara el nivel de evidencia utilizado. La matriz reúne los antecedentes de la búsqueda dirigida y de la ampliación; no asigna novedad a un componente por omisión en un resumen.</p>
+</section>
+<section id="contribucion-delimitada-y-contraste-experimental">
+<h2>Contribución delimitada y contraste experimental<a class="headerlink" href="#contribucion-delimitada-y-contraste-experimental" title="Link to this heading">#</a></h2>
+<p>RATL establece el antecedente directo de recuperación de residuos de una base congelada; FreshCast establece el de memoria que incorpora observaciones reveladas. La contribución candidata de M4 se sitúa en la construcción OOF temporal anidada de los residuos de una combinación de expertos y su recuperación y actualización con disponibilidad definida para el origen diario del SIN.</p>
+<p>Las <a class="reference internal" href="../10_evaluacion.html#complementos-m4"><span class="std std-ref">ablaciones de M4</span></a> respaldan la utilidad de actualizar el banco frente a mantenerlo fijo. No acreditan beneficio de la compuerta y la recuperación por distancia numérica obtiene menor MASE que la aprendida. Por ello, ni la compuerta ni el aprendizaje de semejanza se presentan como mejoras necesarias. La construcción OOF es una propiedad del esquema; este contraste no aísla por sí solo su efecto.</p>
+<p>Los resultados sustentan conclusiones de desempeño dentro del benchmark. La originalidad requiere además contrastar mecanismo y entrenamiento con los antecedentes, y no se deriva únicamente del territorio de aplicación ni de superar a otros modelos.</p>
+</section>
+<section id="declaracion-y-alcance-de-originalidad">
+<h2>Declaración y alcance de originalidad<a class="headerlink" href="#declaracion-y-alcance-de-originalidad" title="Link to this heading">#</a></h2>
+<p>En los trabajos examinados no se identificó la misma integración de residuos OOF temporales de una combinación congelada de expertos, recuperación contextual y actualización causal para demanda nacional directa de24 horas. Esta conclusión se restringe a la evidencia y al alcance de las búsquedas documentadas; no afirma prioridad mundial del principio de recuperar residuos ni de actualizar memoria.</p>
+<p>La consulta C9 examina el inventario del anexo PRISMA, no búsquedas nativas del mecanismo en Scopus, Web of Science e IEEE. Las clasificaciones basadas únicamente en resumen se mantienen identificadas. La revisión no aporta un segundo evaluador humano independiente; la ampliación de registros no sustituye esa verificación.</p>
+<p><a class="reference download internal" download="" href="../_downloads/0ce001ae5ccaa25e28aa8cb8a67dcb7a/busqueda_novedad_20261125.json"><span class="xref download myst">Captura inicial por base</span></a> · <a class="reference download internal" download="" href="../_downloads/66e7325d9f5e300f433cf52880d7fb02/paginacion_20261126.json"><span class="xref download myst">Ampliación paginada</span></a> · <a class="reference download internal" download="" href="../_downloads/b2de9249e563130e516025fac1516b27/snowball_repos_20261125.json"><span class="xref download myst">Citación y repositorios</span></a> · <a class="reference download internal" download="" href="../_downloads/adc2511e8e2fdc1d55f8ff4ea03ba06e/c9_corpus_scopus_wos_ieee.csv"><span class="xref download myst">Coincidencias C9</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""Completa las consultas truncadas del anexo sin alterar la captura histórica."""</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="o">,</span><span class="nn">datetime</span><span class="o">,</span><span class="nn">json</span><span class="o">,</span><span class="nn">time</span><span class="o">,</span><span class="nn">urllib.parse</span><span class="o">,</span><span class="nn">urllib.request</span>
+<span class="n">ROOT</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">SOURCE</span><span class="o">=</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'book/_static/literature/novedad/busqueda_novedad_20261125.json'</span>
+<span class="n">OUT</span><span class="o">=</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'literature/novedad/paginacion_20261126.json'</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+ <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+  <span class="k">try</span><span class="p">:</span>
+   <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'User-Agent'</span><span class="p">:</span><span class="s1">'SIN-demand-literature-audit/1.0'</span><span class="p">}),</span><span class="n">timeout</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span><span class="k">as</span> <span class="n">r</span><span class="p">:</span><span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+  <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+   <span class="k">if</span> <span class="n">attempt</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span><span class="k">raise</span>
+   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">attempt</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">complete</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+ <span class="n">records</span><span class="o">=</span><span class="p">[];</span><span class="n">calls</span><span class="o">=</span><span class="p">[];</span><span class="n">seen</span><span class="o">=</span><span class="nb">set</span><span class="p">();</span><span class="n">cursor</span><span class="o">=</span><span class="s1">'*'</span><span class="p">;</span><span class="n">page</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">total</span><span class="o">=</span><span class="kc">None</span>
+ <span class="k">try</span><span class="p">:</span>
+  <span class="k">while</span> <span class="n">cursor</span><span class="p">:</span>
+   <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'base'</span><span class="p">]</span><span class="o">==</span><span class="s1">'OpenAlex'</span><span class="p">:</span>
+    <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">'filter'</span><span class="p">:</span><span class="sa">f</span><span class="s2">"title_and_abstract.search:</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'consulta'</span><span class="p">]</span><span class="si">}</span><span class="s2">,publication_year:2015-2026"</span><span class="p">,</span><span class="s1">'per-page'</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="s1">'page'</span><span class="p">:</span><span class="n">page</span><span class="p">,</span><span class="s1">'sort'</span><span class="p">:</span><span class="s1">'relevance_score:desc'</span><span class="p">,</span><span class="s1">'select'</span><span class="p">:</span><span class="s1">'id,doi,display_name,publication_year,abstract_inverted_index,cited_by_count'</span><span class="p">};</span><span class="n">url</span><span class="o">=</span><span class="s1">'https://api.openalex.org/works?'</span><span class="o">+</span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+    <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">'query'</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">'consulta'</span><span class="p">],</span><span class="s1">'fields'</span><span class="p">:</span><span class="s1">'title,year,externalIds,abstract,citationCount'</span><span class="p">,</span><span class="s1">'year'</span><span class="p">:</span><span class="s1">'2015-2026'</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">cursor</span><span class="o">!=</span><span class="s1">'*'</span><span class="p">:</span><span class="n">params</span><span class="p">[</span><span class="s1">'token'</span><span class="p">]</span><span class="o">=</span><span class="n">cursor</span>
+    <span class="n">url</span><span class="o">=</span><span class="s1">'https://api.semanticscholar.org/graph/v1/paper/search/bulk?'</span><span class="o">+</span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+   <span class="n">d</span><span class="o">=</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">);</span><span class="n">calls</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'url'</span><span class="p">:</span><span class="n">url</span><span class="p">,</span><span class="s1">'recibidos'</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'results'</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,[])))})</span>
+   <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'base'</span><span class="p">]</span><span class="o">==</span><span class="s1">'OpenAlex'</span><span class="p">:</span>
+    <span class="n">total</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="s1">'meta'</span><span class="p">][</span><span class="s1">'count'</span><span class="p">];</span><span class="n">batch</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="s1">'results'</span><span class="p">];</span><span class="n">next_cursor</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="k">if</span> <span class="n">batch</span> <span class="ow">and</span> <span class="n">page</span><span class="o">*</span><span class="mi">200</span><span class="o">&lt;</span><span class="n">total</span> <span class="k">else</span> <span class="kc">None</span><span class="p">;</span><span class="n">page</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+     <span class="n">inv</span><span class="o">=</span><span class="n">w</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'abstract_inverted_index'</span><span class="p">)</span><span class="ow">or</span><span class="p">{};</span><span class="n">abstract</span><span class="o">=</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">t</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span><span class="n">t</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">positions</span> <span class="ow">in</span> <span class="n">inv</span><span class="o">.</span><span class="n">items</span><span class="p">()</span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">positions</span><span class="p">))</span>
+     <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'id'</span><span class="p">:</span><span class="n">w</span><span class="p">[</span><span class="s1">'id'</span><span class="p">],</span><span class="s1">'doi'</span><span class="p">:</span><span class="n">w</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'doi'</span><span class="p">),</span><span class="s1">'titulo'</span><span class="p">:</span><span class="n">w</span><span class="p">[</span><span class="s1">'display_name'</span><span class="p">],</span><span class="s1">'anio'</span><span class="p">:</span><span class="n">w</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'publication_year'</span><span class="p">),</span><span class="s1">'resumen'</span><span class="p">:</span><span class="n">abstract</span><span class="p">})</span>
+   <span class="k">else</span><span class="p">:</span>
+    <span class="n">total</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'total'</span><span class="p">);</span><span class="n">next_cursor</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'token'</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,[]):</span><span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'id'</span><span class="p">:</span><span class="n">w</span><span class="p">[</span><span class="s1">'paperId'</span><span class="p">],</span><span class="s1">'doi'</span><span class="p">:(</span><span class="n">w</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'externalIds'</span><span class="p">)</span><span class="ow">or</span><span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'DOI'</span><span class="p">),</span><span class="s1">'titulo'</span><span class="p">:</span><span class="n">w</span><span class="p">[</span><span class="s1">'title'</span><span class="p">],</span><span class="s1">'anio'</span><span class="p">:</span><span class="n">w</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'year'</span><span class="p">),</span><span class="s1">'resumen'</span><span class="p">:</span><span class="n">w</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'abstract'</span><span class="p">)</span><span class="ow">or</span><span class="s1">''</span><span class="p">})</span>
+   <span class="k">if</span> <span class="ow">not</span> <span class="n">next_cursor</span><span class="p">:</span><span class="k">break</span>
+   <span class="k">if</span> <span class="n">next_cursor</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Cursor repetido'</span><span class="p">)</span>
+   <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cursor</span><span class="p">);</span><span class="n">cursor</span><span class="o">=</span><span class="n">next_cursor</span>
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">calls</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">100</span><span class="p">:</span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Límite operativo; consulta incompleta declarada'</span><span class="p">)</span>
+   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">unique</span><span class="o">=</span><span class="p">{</span><span class="n">w</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]:</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">records</span><span class="p">}</span>
+  <span class="k">return</span> <span class="p">{</span><span class="s1">'cadena'</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">'cadena'</span><span class="p">],</span><span class="s1">'base'</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">'base'</span><span class="p">],</span><span class="s1">'consulta'</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">'consulta'</span><span class="p">],</span><span class="s1">'total_indice'</span><span class="p">:</span><span class="n">total</span><span class="p">,</span><span class="s1">'recuperados'</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">unique</span><span class="p">),</span><span class="s1">'paginacion_agotada'</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s1">'total_estimado'</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">'base'</span><span class="p">]</span><span class="o">==</span><span class="s1">'Semantic Scholar'</span><span class="p">,</span><span class="s1">'llamadas'</span><span class="p">:</span><span class="n">calls</span><span class="p">,</span><span class="s1">'registros'</span><span class="p">:</span><span class="nb">list</span><span class="p">(</span><span class="n">unique</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span><span class="s1">'fecha'</span><span class="p">:</span><span class="s1">'2026-11-26'</span><span class="p">}</span>
+ <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span><span class="k">return</span> <span class="p">{</span><span class="s1">'cadena'</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">'cadena'</span><span class="p">],</span><span class="s1">'base'</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">'base'</span><span class="p">],</span><span class="s1">'consulta'</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">'consulta'</span><span class="p">],</span><span class="s1">'error'</span><span class="p">:</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="s1">'recuperados'</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">),</span><span class="s1">'paginacion_agotada'</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s1">'llamadas'</span><span class="p">:</span><span class="n">calls</span><span class="p">,</span><span class="s1">'registros'</span><span class="p">:</span><span class="n">records</span><span class="p">,</span><span class="s1">'fecha'</span><span class="p">:</span><span class="s1">'2026-11-26'</span><span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+ <span class="n">source</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">SOURCE</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">));</span><span class="n">todo</span><span class="o">=</span><span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">source</span><span class="p">[</span><span class="s1">'consultas'</span><span class="p">]</span><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'resultados'</span><span class="p">),</span><span class="nb">int</span><span class="p">)</span><span class="ow">and</span> <span class="n">r</span><span class="p">[</span><span class="s1">'resultados'</span><span class="p">]</span><span class="o">&gt;</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'registros'</span><span class="p">,[]))]</span>
+ <span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="k">as</span> <span class="n">pool</span><span class="p">:</span><span class="n">results</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">complete</span><span class="p">,</span><span class="n">todo</span><span class="p">))</span>
+ <span class="n">OUT</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s1">'fecha'</span><span class="p">:</span><span class="s1">'2026-11-26'</span><span class="p">,</span><span class="s1">'fuente_historica'</span><span class="p">:</span><span class="n">SOURCE</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s1">'alcance'</span><span class="p">:</span><span class="s1">'Repetición paginada de cinco consultas truncadas; no modifica las exportaciones de Scopus/WoS/IEEE ni acredita revisión independiente'</span><span class="p">,</span><span class="s1">'consultas'</span><span class="p">:</span><span class="n">results</span><span class="p">},</span><span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
+ <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span><span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'cadena'</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">'base'</span><span class="p">],</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'total_indice'</span><span class="p">),</span><span class="n">row</span><span class="p">[</span><span class="s1">'recuperados'</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">'paginacion_agotada'</span><span class="p">],</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span><span class="s1">''</span><span class="p">),</span><span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">'__main__'</span><span class="p">:</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../_downloads/145ab40e510d901d8c4a2f743108ce40/buscar_novedad.py"><span class="xref download myst">Consultas originales</span></a> · <a class="reference download internal" download="" href="../_downloads/3b29b0ac70df2a14aa320a60428046fb/snowball_repos.py"><span class="xref download myst">Código de citación y repositorios</span></a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./arquitecturas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="m4_n.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../10_evaluacion.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">10.17. Resultados y evaluación integrada</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismo-que-se-contrasta">Mecanismo que se contrasta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cadenas-de-busqueda">Cadenas de búsqueda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-por-citacion-y-repositorios">Búsqueda por citación y repositorios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-consolidada-de-antecedentes">Matriz consolidada de antecedentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribucion-delimitada-y-contraste-experimental">Contribución delimitada y contraste experimental</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaracion-y-alcance-de-originalidad">Declaración y alcance de originalidad</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Fabian José Manrique Morelos y Gloria Bastidas Rodriguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Maestría en Estadística Aplicada · Universidad del Norte
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

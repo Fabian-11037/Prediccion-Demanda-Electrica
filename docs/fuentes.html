@@ -225,7 +225,10 @@
 <li class="toctree-l1"><a class="reference internal" href="05_dependencia.html">5. Dependencia temporal y estacionariedad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_covariables.html">6. Covariables y disponibilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_texto.html">7. Corpus documental y procesamiento del texto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="08_literatura.html">8. Literatura y fundamento del diseño</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="08_busqueda_sistematica.html">8.10. Búsqueda sistemática y flujo PRISMA</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="09_validacion.html">9. Diseño de evaluación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="09_diseno_ampliado.html">9.1. Datos, modelos y protocolo temporal</a></li>
 </ul>
@@ -246,7 +249,10 @@
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/fusion.html">10.13. Fusión tardía de pronósticos numéricos y textuales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/nbeats.html">10.14. N-BEATS: reconstrucción y pronóstico residual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arquitecturas/timesnet.html">10.15. TimesNet: variación temporal bidimensional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arquitecturas/m4_n.html">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="arquitecturas/m4_n.html">10.16. M4<sub>N</sub>: memoria numérica de errores para el pronóstico de demanda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="arquitecturas/m4_n_novedad.html">10.16.1. Antecedentes y originalidad de M4ₙ</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="10_evaluacion.html">10.17. Resultados y evaluación integrada</a></li>
 </ul>
 </details></li>
@@ -444,7 +450,7 @@
 </tbody>
 </table>
 </div>
-<p><a class="reference external" href="https://otexts.com/fpp3/toolbox.html">Hyndman y Athanasopoulos, <em>Forecasting: Principles and Practice</em>, capítulo 5</a> <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id40" title="Rob J. Hyndman and George Athanasopoulos. Forecasting: principles and practice. URL: https://otexts.com/fpp3/.">14</a>]</span> fundamentan las referencias estacionales, los errores escalados y la validación temporal. MASE divide el error absoluto del pronóstico por la escala de una referencia estacional calculada en entrenamiento. La comparación entre particiones requiere considerar el cambio del nivel de demanda. La validación temporal evalúa observaciones posteriores a la historia de ajuste.</p>
+<p><a class="reference external" href="https://otexts.com/fpp3/toolbox.html">Hyndman y Athanasopoulos, <em>Forecasting: Principles and Practice</em>, capítulo 5</a> <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id40" title="Rob J. Hyndman and George Athanasopoulos. Forecasting: principles and practice. URL: https://otexts.com/fpp3/.">17</a>]</span> fundamentan las referencias estacionales, los errores escalados y la validación temporal. MASE divide el error absoluto del pronóstico por la escala de una referencia estacional calculada en entrenamiento. La comparación entre particiones requiere considerar el cambio del nivel de demanda. La validación temporal evalúa observaciones posteriores a la historia de ajuste.</p>
 <p>La síntesis de textos completos sobre demanda y noticias se presenta en el capítulo de literatura. Los enlaces identifican las versiones consultadas; las cifras reproducidas se atribuyen a sus tablas originales.</p>
 <section id="referencias-bibliograficas">
 <h2>Referencias bibliográficas<a class="headerlink" href="#referencias-bibliograficas" title="Link to this heading">#</a></h2>
@@ -458,149 +464,201 @@
 <span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
 <p>N. A, N. P. SS, R. R, and K. G. R. Bi-lstm model based real-time rainfall prediction. 2023. URL: <a class="reference external" href="https://doi.org/10.1109/ICAISS58487.2023.10250469">https://doi.org/10.1109/ICAISS58487.2023.10250469</a>, <a class="reference external" href="https://doi.org/10.1109/ICAISS58487.2023.10250469">doi:10.1109/ICAISS58487.2023.10250469</a>.</p>
 </div>
-<div class="citation" id="id15" role="doc-biblioentry">
+<div class="citation" id="id42" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<p>S. Alessandrini, L. Delle Monache, S. Sperati, and G. Cervone. An analog ensemble for short-term probabilistic solar power forecast. 2015. URL: <a class="reference external" href="https://doi.org/10.1016/j.apenergy.2015.08.011">https://doi.org/10.1016/j.apenergy.2015.08.011</a>, <a class="reference external" href="https://doi.org/10.1016/j.apenergy.2015.08.011">doi:10.1016/j.apenergy.2015.08.011</a>.</p>
+</div>
+<div class="citation" id="id15" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
 <p>Bai, Camal, and Michiorri. Electricity demand forecasting through natural language processing with long short-term memory networks. 2023. URL: <a class="reference external" href="https://arxiv.org/html/2309.06793">https://arxiv.org/html/2309.06793</a>.</p>
 </div>
 <div class="citation" id="id14" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></span>
 <p>Bai, Camal, and Michiorri. News and load: a quantitative exploration of natural language processing applications for forecasting day-ahead electricity system demand. 2024. URL: <a class="reference external" href="https://arxiv.org/html/2301.07535">https://arxiv.org/html/2301.07535</a>.</p>
 </div>
 <div class="citation" id="id5" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></span>
 <p>Shaojie Bai, J. Zico Kolter, and Vladlen Koltun. An empirical evaluation of generic convolutional and recurrent networks for sequence modeling. 2018. URL: <a class="reference external" href="https://arxiv.org/abs/1803.01271v2">https://arxiv.org/abs/1803.01271v2</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.1803.01271">doi:10.48550/arXiv.1803.01271</a>.</p>
 </div>
 <div class="citation" id="id3" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></span>
 <p>Cristian Challú, Kin G. Olivares, Boris N. Oreshkin, Federico Garza Ramírez, Max Mergenthaler, and Artur W. Dubrawski. Nhits: neural hierarchical interpolation for time series forecasting. 2022. URL: <a class="reference external" href="https://arxiv.org/abs/2201.12886v6">https://arxiv.org/abs/2201.12886v6</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.2201.12886">doi:10.48550/arXiv.2201.12886</a>.</p>
 </div>
 <div class="citation" id="id38" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></span>
 <p>Radhika Chandrasekaran and Senthil Kumar Paramasivan. Two-stage transformer encoder and attention-guided gru-based residual correction for short-term load forecasting. 2026. URL: <a class="reference external" href="https://doi.org/10.3389/frai.2026.1935983">https://doi.org/10.3389/frai.2026.1935983</a>, <a class="reference external" href="https://doi.org/10.3389/frai.2026.1935983">doi:10.3389/frai.2026.1935983</a>.</p>
 </div>
 <div class="citation" id="id23" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></span>
 <p>L. Dalal, R. Verma, and R. Chahar. Beyond words: adapting nlp methodologies for time series forecasting challenges. 2024. URL: <a class="reference external" href="https://doi.org/10.1109/CONIT61985.2024.10627058">https://doi.org/10.1109/CONIT61985.2024.10627058</a>, <a class="reference external" href="https://doi.org/10.1109/CONIT61985.2024.10627058">doi:10.1109/CONIT61985.2024.10627058</a>.</p>
 </div>
 <div class="citation" id="id32" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></span>
 <p>G. Egharevba, A. Dankers, and H. Zareipour. Improving transmission loss forecasting using large language models. 2024. URL: <a class="reference external" href="https://doi.org/10.1109/GTDLA61236.2024.10913949">https://doi.org/10.1109/GTDLA61236.2024.10913949</a>, <a class="reference external" href="https://doi.org/10.1109/GTDLA61236.2024.10913949">doi:10.1109/GTDLA61236.2024.10913949</a>.</p>
 </div>
 <div class="citation" id="id33" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></span>
 <p>G. Egharevba, A. Dankers, and H. Zareipour. Forecasting transmission line loss using a cluster-based refinement framework and scheduled outage data. 2025. URL: <a class="reference external" href="https://doi.org/10.1109/ACCESS.2025.3591059">https://doi.org/10.1109/ACCESS.2025.3591059</a>, <a class="reference external" href="https://doi.org/10.1109/ACCESS.2025.3591059">doi:10.1109/ACCESS.2025.3591059</a>.</p>
 </div>
 <div class="citation" id="id16" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></span>
 <p>Pelekis et al. A comparative assessment of deep learning models for day-ahead load forecasting: investigating key accuracy drivers. 2023. URL: <a class="reference external" href="https://arxiv.org/html/2302.12168">https://arxiv.org/html/2302.12168</a>.</p>
 </div>
+<div class="citation" id="id50" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></span>
+<p>Sungwon Han, Seungeon Lee, Meeyoung Cha, Sercan O Arik, and Jinsung Yoon. Retrieval augmented time series forecasting. 2025. URL: <a class="reference external" href="https://doi.org/10.48550/arxiv.2505.04163">https://doi.org/10.48550/arxiv.2505.04163</a>, <a class="reference external" href="https://doi.org/10.48550/arxiv.2505.04163">doi:10.48550/arxiv.2505.04163</a>.</p>
+</div>
 <div class="citation" id="id35" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></span>
 <p>Chao He, Jianyu Xu, Xinyi Guo, Ruiqi Liu, Haobin Ding, Ruiqi He, Yuntong Xie, and Dongqing Song. Freshcast: timely and complementary retrieval for frozen time series forecasters. 2026. URL: <a class="reference external" href="https://arxiv.org/html/2610.07834v3">https://arxiv.org/html/2610.07834v3</a>.</p>
 </div>
 <div class="citation" id="id34" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>15<span class="fn-bracket">]</span></span>
 <p>Yuchen He, Yueyang Cang, Zhiyuan Ning, Ningyu Wang, and Li Shi. Ratl: learning from retrieved residuals for robust multivariate time-series forecasting. 2026. URL: <a class="reference external" href="https://arxiv.org/html/2609.03937v1">https://arxiv.org/html/2609.03937v1</a>.</p>
 </div>
+<div class="citation" id="id49" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></span>
+<p>Weiming Hu, Guido Cervone, George Young, and Luca Delle Monache. Weather analogs with a machine learning similarity metric for renewable resource forecasting. 2021. URL: <a class="reference external" href="https://doi.org/10.48550/arxiv.2103.04530">https://doi.org/10.48550/arxiv.2103.04530</a>, <a class="reference external" href="https://doi.org/10.48550/arxiv.2103.04530">doi:10.48550/arxiv.2103.04530</a>.</p>
+</div>
 <div class="citation" id="id40" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">14</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">17</a><span class="fn-bracket">]</span></span>
 <p>Rob J. Hyndman and George Athanasopoulos. Forecasting: principles and practice. URL: <a class="reference external" href="https://otexts.com/fpp3/">https://otexts.com/fpp3/</a>.</p>
 </div>
+<div class="citation" id="id51" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>18<span class="fn-bracket">]</span></span>
+<p>Sangjin Jin, Kangmin Kim, Junhyeong Lee, and Yongjae Lee. Retrieval-corrected conformal prediction for time series. 2026. URL: <a class="reference external" href="https://doi.org/10.48550/arxiv.2608.10553">https://doi.org/10.48550/arxiv.2608.10553</a>, <a class="reference external" href="https://doi.org/10.48550/arxiv.2608.10553">doi:10.48550/arxiv.2608.10553</a>.</p>
+</div>
 <div class="citation" id="id17" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>15<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>19<span class="fn-bracket">]</span></span>
 <p>Kathirgamanathan, Patel, Khwaja, Venkatesh, and Anpalagan. Performance comparison of single and ensemble cnn, lstm and traditional ann models for short-term electricity load forecasting. 2022. URL: <a class="reference external" href="https://doi.org/10.1049/tje2.12132">https://doi.org/10.1049/tje2.12132</a>, <a class="reference external" href="https://doi.org/10.1049/tje2.12132">doi:10.1049/tje2.12132</a>.</p>
 </div>
 <div class="citation" id="id21" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>20<span class="fn-bracket">]</span></span>
 <p>S. Kawano and T. Kawahara. Ddformer: decomposition and dimension transformer for multivariate time series forecasting. 2024. URL: <a class="reference external" href="https://doi.org/10.1109/iSAI-NLP64410.2024.10799493">https://doi.org/10.1109/iSAI-NLP64410.2024.10799493</a>, <a class="reference external" href="https://doi.org/10.1109/iSAI-NLP64410.2024.10799493">doi:10.1109/iSAI-NLP64410.2024.10799493</a>.</p>
 </div>
+<div class="citation" id="id48" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>21<span class="fn-bracket">]</span></span>
+<p>Urvashi Khandelwal, Omer Levy, Dan Jurafsky, Luke Zettlemoyer, and Mike Lewis. Generalization through memorization: nearest neighbor language models. 2019. URL: <a class="reference external" href="https://doi.org/10.48550/arxiv.1911.00172">https://doi.org/10.48550/arxiv.1911.00172</a>, <a class="reference external" href="https://doi.org/10.48550/arxiv.1911.00172">doi:10.48550/arxiv.1911.00172</a>.</p>
+</div>
 <div class="citation" id="id18" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>17<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>22<span class="fn-bracket">]</span></span>
 <p>Laitsos, Vontzos, Bargiotas, Daskalopulu, and Tsoukalas. Enhanced automated deep learning application for short-term load forecasting. 2023. URL: <a class="reference external" href="https://doi.org/10.3390/math11132912">https://doi.org/10.3390/math11132912</a>, <a class="reference external" href="https://doi.org/10.3390/math11132912">doi:10.3390/math11132912</a>.</p>
 </div>
+<div class="citation" id="id44" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>23<span class="fn-bracket">]</span></span>
+<p>Shuya Lei, Xiao Liang, Xuwei Xia, Haonan Dai, Chenhao Zhang, Xinxin Ge, and Fei Wang. A two-stage short-term load forecasting method based on comprehensive similarity day selection and ceemdan-xgboost error correction. 2023. URL: <a class="reference external" href="https://doi.org/10.1109/fes57669.2023.10183307">https://doi.org/10.1109/fes57669.2023.10183307</a>, <a class="reference external" href="https://doi.org/10.1109/fes57669.2023.10183307">doi:10.1109/fes57669.2023.10183307</a>.</p>
+</div>
 <div class="citation" id="id22" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>18<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>24<span class="fn-bracket">]</span></span>
 <p>Z. Li, X. Li, Z. Rao, L. Pan, and Z. Xu. Mts-mixers: multivariate time series forecasting via factorized temporal and channel mixing. 2025. URL: <a class="reference external" href="https://doi.org/10.1109/IJCNN64981.2025.11229402">https://doi.org/10.1109/IJCNN64981.2025.11229402</a>, <a class="reference external" href="https://doi.org/10.1109/IJCNN64981.2025.11229402">doi:10.1109/IJCNN64981.2025.11229402</a>.</p>
 </div>
 <div class="citation" id="id8" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>19<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>25<span class="fn-bracket">]</span></span>
 <p>Zihao Li, Xiao Lin, Zhining Liu, Jiaru Zou, Ziwei Wu, Lecheng Zheng, Dongqi Fu, Yada Zhu, Hendrik Hamann, Hanghang Tong, and Jingrui He. Language in the flow of time: time-series-paired texts weaved into a unified temporal narrative. 2025. URL: <a class="reference external" href="https://arxiv.org/abs/2502.08942v3">https://arxiv.org/abs/2502.08942v3</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.2502.08942">doi:10.48550/arXiv.2502.08942</a>.</p>
 </div>
 <div class="citation" id="id4" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>20<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>26<span class="fn-bracket">]</span></span>
 <p>Bryan Y. Lim, Sercan Ö. Arık, Nicolas Loeff, and Tomas Pfister. Temporal fusion transformers for interpretable multi-horizon time series forecasting. 2019. URL: <a class="reference external" href="https://arxiv.org/abs/1912.09363v3">https://arxiv.org/abs/1912.09363v3</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.1912.09363">doi:10.48550/arXiv.1912.09363</a>.</p>
 </div>
 <div class="citation" id="id20" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>21<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>27<span class="fn-bracket">]</span></span>
 <p>C. Liu, K. Li, J. Liu, and C. Chen. Lhcnn: a novel efficient multivariate time series prediction framework utilizing convolutional neural networks. 2019. URL: <a class="reference external" href="https://doi.org/10.1109/HPCC/SmartCity/DSS.2019.00323">https://doi.org/10.1109/HPCC/SmartCity/DSS.2019.00323</a>, <a class="reference external" href="https://doi.org/10.1109/HPCC/SmartCity/DSS.2019.00323">doi:10.1109/HPCC/SmartCity/DSS.2019.00323</a>.</p>
 </div>
 <div class="citation" id="id12" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>22<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>28<span class="fn-bracket">]</span></span>
 <p>Haoxin Liu, Shangqing Xu, Zhiyuan Zhao, Lingkai Kong, Harshavardhan Kamarthi, Aditya B. Sasanur, Megha Sharma, Jiaming Cui, Qingsong Wen, Chao Zhang, and B. Aditya Prakash. Time-mmd: multi-domain multimodal dataset for time series analysis. 2024. URL: <a class="reference external" href="https://arxiv.org/abs/2406.08627v4">https://arxiv.org/abs/2406.08627v4</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.2406.08627">doi:10.48550/arXiv.2406.08627</a>.</p>
 </div>
 <div class="citation" id="id6" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>23<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>29<span class="fn-bracket">]</span></span>
 <p>Yong Liu, Tengge Hu, Haoran Zhang, Haixu Wu, Shiyu Wang, Lintao Ma, and Mingsheng Long. Itransformer: inverted transformers are effective for time series forecasting. 2023. URL: <a class="reference external" href="https://arxiv.org/abs/2310.06625v4">https://arxiv.org/abs/2310.06625v4</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.2310.06625">doi:10.48550/arXiv.2310.06625</a>.</p>
 </div>
 <div class="citation" id="id7" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>24<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>30<span class="fn-bracket">]</span></span>
 <p>Yuqi Nie, Nam H. Nguyen, Phanwadee Sinthong, and Jayant Kalagnanam. A time series is worth 64 words: long-term forecasting with transformers. 2022. URL: <a class="reference external" href="https://arxiv.org/abs/2211.14730v2">https://arxiv.org/abs/2211.14730v2</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.2211.14730">doi:10.48550/arXiv.2211.14730</a>.</p>
 </div>
 <div class="citation" id="id13" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>25<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>31<span class="fn-bracket">]</span></span>
 <p>Nti, Teimeh, Nyarko-Boateng, and Adekoya. Electricity load forecasting: a systematic review. 2020. URL: <a class="reference external" href="https://link.springer.com/article/10.1186/s43067-020-00021-8">https://link.springer.com/article/10.1186/s43067-020-00021-8</a>, <a class="reference external" href="https://doi.org/10.1186/s43067-020-00021-8">doi:10.1186/s43067-020-00021-8</a>.</p>
 </div>
 <div class="citation" id="id10" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>26<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>32<span class="fn-bracket">]</span></span>
 <p>Boris N. Oreshkin, Dmitri Carpov, Nicolas Chapados, and Yoshua Bengio. N-beats: neural basis expansion analysis for interpretable time series forecasting. 2019. URL: <a class="reference external" href="https://arxiv.org/abs/1905.10437v4">https://arxiv.org/abs/1905.10437v4</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.1905.10437">doi:10.48550/arXiv.1905.10437</a>.</p>
 </div>
+<div class="citation" id="id41" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>33<span class="fn-bracket">]</span></span>
+<p>Matthew J. Page, Joanne E. McKenzie, Patrick M. Bossuyt, and others. The prisma 2020 statement: an updated guideline for reporting systematic reviews. <em>BMJ</em>, 372:n71, 2021. URL: <a class="reference external" href="https://www.bmj.com/content/372/bmj.n71">https://www.bmj.com/content/372/bmj.n71</a>, <a class="reference external" href="https://doi.org/10.1136/bmj.n71">doi:10.1136/bmj.n71</a>.</p>
+</div>
 <div class="citation" id="id29" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>27<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>34<span class="fn-bracket">]</span></span>
 <p>K. Qu, G. Si, Z. Shan, Q. Wang, X. Liu, and C. Yang. Forwardformer: efficient transformer with multi-scale forward self-attention for day-ahead load forecasting. 2023. URL: <a class="reference external" href="https://doi.org/10.1109/TPWRS.2023.3266369">https://doi.org/10.1109/TPWRS.2023.3266369</a>, <a class="reference external" href="https://doi.org/10.1109/TPWRS.2023.3266369">doi:10.1109/TPWRS.2023.3266369</a>.</p>
 </div>
+<div class="citation" id="id47" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>35<span class="fn-bracket">]</span></span>
+<p>Aleksandar Selakov, Zoran Janković, Aleksandar Bošković, Slađana Turudić, Zoran Pajić, and Srđan Vukmirović. Adaptive multi-tiered intraday load forecasting strategy with real-time error correction. 2026. URL: <a class="reference external" href="https://doi.org/10.3390/en19040953">https://doi.org/10.3390/en19040953</a>, <a class="reference external" href="https://doi.org/10.3390/en19040953">doi:10.3390/en19040953</a>.</p>
+</div>
 <div class="citation" id="id27" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>28<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>36<span class="fn-bracket">]</span></span>
 <p>K. E. Setiawan, G. N. Elwirehardja, and B. Pardamean. Sequence to sequence deep learning architecture for forecasting temperature and humidity inside closed space. 2022. URL: <a class="reference external" href="https://doi.org/10.1109/CITSM56380.2022.9936008">https://doi.org/10.1109/CITSM56380.2022.9936008</a>, <a class="reference external" href="https://doi.org/10.1109/CITSM56380.2022.9936008">doi:10.1109/CITSM56380.2022.9936008</a>.</p>
 </div>
 <div class="citation" id="id28" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>29<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>37<span class="fn-bracket">]</span></span>
 <p>S. Sharda, M. Singh, and K. Sharma. Rsam: robust self-attention based multi-horizon model for solar irradiance forecasting. 2020. URL: <a class="reference external" href="https://doi.org/10.1109/TSTE.2020.3046098">https://doi.org/10.1109/TSTE.2020.3046098</a>, <a class="reference external" href="https://doi.org/10.1109/TSTE.2020.3046098">doi:10.1109/TSTE.2020.3046098</a>.</p>
 </div>
+<div class="citation" id="id43" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>38<span class="fn-bracket">]</span></span>
+<p>Ahmed Sleem, Nihal Ahmed Adly, Gamila S. Elfayoumi, and Ahmed B. Zaky. Causalgraphmemorynet: jointly learning causal structures and temporal patterns for time series forecasting. 2026. URL: <a class="reference external" href="https://doi.org/10.1109/3scea68071.2026.11603192">https://doi.org/10.1109/3scea68071.2026.11603192</a>, <a class="reference external" href="https://doi.org/10.1109/3scea68071.2026.11603192">doi:10.1109/3scea68071.2026.11603192</a>.</p>
+</div>
 <div class="citation" id="id25" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>30<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>39<span class="fn-bracket">]</span></span>
 <p>P. Tang and X. Zhang. Mtsmae: masked autoencoders for multivariate time-series forecasting. 2022. URL: <a class="reference external" href="https://doi.org/10.1109/ICTAI56018.2022.00150">https://doi.org/10.1109/ICTAI56018.2022.00150</a>, <a class="reference external" href="https://doi.org/10.1109/ICTAI56018.2022.00150">doi:10.1109/ICTAI56018.2022.00150</a>.</p>
 </div>
 <div class="citation" id="id39" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>31<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>40<span class="fn-bracket">]</span></span>
 <p>Victor Manuel Vargas-Forero, Diego Fernando Manotas-Duque, and Leonardo Trujillo. Comparative study of forecasting methods to predict the energy demand for the market of colombia. 2025. URL: <a class="reference external" href="https://doi.org/10.32479/ijeep.17528">https://doi.org/10.32479/ijeep.17528</a>, <a class="reference external" href="https://doi.org/10.32479/ijeep.17528">doi:10.32479/ijeep.17528</a>.</p>
 </div>
 <div class="citation" id="id31" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>32<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>41<span class="fn-bracket">]</span></span>
 <p>A. -G. Văduva, M. Munteanu, S. -V. Oprea, A. Bâra, and A. -M. Niculae. Understanding climate change and air quality over the last decade: evidence from news and weather data processing. 2023. URL: <a class="reference external" href="https://doi.org/10.1109/ACCESS.2023.3345466">https://doi.org/10.1109/ACCESS.2023.3345466</a>, <a class="reference external" href="https://doi.org/10.1109/ACCESS.2023.3345466">doi:10.1109/ACCESS.2023.3345466</a>.</p>
 </div>
 <div class="citation" id="id11" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>33<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>42<span class="fn-bracket">]</span></span>
 <p>Haixu Wu, Tengge Hu, Yong Liu, Hang Zhou, Jianmin Wang, and Mingsheng Long. Timesnet: temporal 2d-variation modeling for general time series analysis. 2022. URL: <a class="reference external" href="https://arxiv.org/abs/2210.02186v3">https://arxiv.org/abs/2210.02186v3</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.2210.02186">doi:10.48550/arXiv.2210.02186</a>.</p>
 </div>
+<div class="citation" id="id53" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>43<span class="fn-bracket">]</span></span>
+<p>Yuqian Wu, Qingxiang Liu, Yuxin Guo, Weifeng Su, Jian Li, Pengfei Xu, Xi Chen, Yutao Yue, and Yuxuan Liang. Decouple to reuse: fine-grained knowledge augmentation for time series foundation models. 2026. URL: <a class="reference external" href="https://doi.org/10.48550/arxiv.2611.05993">https://doi.org/10.48550/arxiv.2611.05993</a>, <a class="reference external" href="https://doi.org/10.48550/arxiv.2611.05993">doi:10.48550/arxiv.2611.05993</a>.</p>
+</div>
 <div class="citation" id="id9" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>34<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>44<span class="fn-bracket">]</span></span>
 <p>Zhijian Xu, Yuxuan Bian, Jianyuan Zhong, Xiangyu Wen, and Qiang Xu. Beyond trend and periodicity: guiding time series forecasting with textual cues. 2024. URL: <a class="reference external" href="https://arxiv.org/abs/2405.13522v2">https://arxiv.org/abs/2405.13522v2</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.2405.13522">doi:10.48550/arXiv.2405.13522</a>.</p>
 </div>
 <div class="citation" id="id36" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>35<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>45<span class="fn-bracket">]</span></span>
 <p>Zitong Yang, Michal Lukasik, Vaishnavh Nagarajan, Zonglin Li, Ankit Singh Rawat, Manzil Zaheer, Aditya Krishna Menon, and Sanjiv Kumar. Resmem: learn what you can and memorize the rest. 2023. URL: <a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/bf0857cb9a41c73639f028a80301cdf0-Abstract-Conference.html">https://proceedings.neurips.cc/paper_files/paper/2023/hash/bf0857cb9a41c73639f028a80301cdf0-Abstract-Conference.html</a>.</p>
 </div>
 <div class="citation" id="id26" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>36<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>46<span class="fn-bracket">]</span></span>
 <p>X. Ye, S. Du, H. Shi, J. Hu, Y. Yang, and T. Li. Ts-ptlm: enhancing general time series analysis with pre-trained language models. 2024. URL: <a class="reference external" href="https://doi.org/10.1109/ICCC62609.2024.10942078">https://doi.org/10.1109/ICCC62609.2024.10942078</a>, <a class="reference external" href="https://doi.org/10.1109/ICCC62609.2024.10942078">doi:10.1109/ICCC62609.2024.10942078</a>.</p>
 </div>
 <div class="citation" id="id24" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>37<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>47<span class="fn-bracket">]</span></span>
 <p>Y. Zhai, Y. Li, and W. Luo. Modeling frequency correlation to achieve better long-term series forecasting. 2025. URL: <a class="reference external" href="https://doi.org/10.1109/BigData66926.2025.11401830">https://doi.org/10.1109/BigData66926.2025.11401830</a>, <a class="reference external" href="https://doi.org/10.1109/BigData66926.2025.11401830">doi:10.1109/BigData66926.2025.11401830</a>.</p>
 </div>
+<div class="citation" id="id45" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>48<span class="fn-bracket">]</span></span>
+<p>Rui Zhang, Yan Xu, Zhao Yang Dong, Weicong Kong, and Kit Po Wong. A composite k-nearest neighbor model for day-ahead load forecasting with limited temperature forecasts. 2016. URL: <a class="reference external" href="https://doi.org/10.1109/pesgm.2016.7741097">https://doi.org/10.1109/pesgm.2016.7741097</a>, <a class="reference external" href="https://doi.org/10.1109/pesgm.2016.7741097">doi:10.1109/pesgm.2016.7741097</a>.</p>
+</div>
 <div class="citation" id="id19" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>38<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>49<span class="fn-bracket">]</span></span>
 <p>C. Zheng. Compute kv first: scaling up time series model with cross-retention-only transformer. 2025. URL: <a class="reference external" href="https://doi.org/10.1109/ISCAIT64916.2025.11010571">https://doi.org/10.1109/ISCAIT64916.2025.11010571</a>, <a class="reference external" href="https://doi.org/10.1109/ISCAIT64916.2025.11010571">doi:10.1109/ISCAIT64916.2025.11010571</a>.</p>
+</div>
+<div class="citation" id="id52" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>50<span class="fn-bracket">]</span></span>
+<p>Shiqiao Zhou, Huanbo Lyu, Holger Schöner, Zipeng Wu, Jessica Deuschel, Freya Wentzel, IAG Wilson, and Shuo Wang. A model-agnostic correction framework for short-term building load forecasting. 2026. URL: <a class="reference external" href="https://doi.org/10.48550/arxiv.2610.31959">https://doi.org/10.48550/arxiv.2610.31959</a>, <a class="reference external" href="https://doi.org/10.48550/arxiv.2610.31959">doi:10.48550/arxiv.2610.31959</a>.</p>
+</div>
+<div class="citation" id="id46" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>51<span class="fn-bracket">]</span></span>
+<p>Yuelin Zou. Patchtst-based short-term load forecasting with sliding-window residual correction for distribution networks. 2026. URL: <a class="reference external" href="https://doi.org/10.1117/12.3133541">https://doi.org/10.1117/12.3133541</a>, <a class="reference external" href="https://doi.org/10.1117/12.3133541">doi:10.1117/12.3133541</a>.</p>
 </div>
 </div>
 </div>

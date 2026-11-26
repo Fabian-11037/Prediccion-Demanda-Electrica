@@ -1,11 +1,11 @@
 {
   "fecha": "2026-11-25",
-  "cuadernos": 13,
+  "cuadernos": 15,
   "inventario": {
-    "figura": 80,
-    "tabla_calculada": 33,
+    "figura": 82,
+    "tabla_calculada": 35,
     "esquema": 32,
-    "tabla_markdown": 27
+    "tabla_markdown": 31
   },
   "procedimientos_integrados": 18,
   "arquitecturas_top10": 10,

@@ -214,7 +214,7 @@ Para M episodios, proyectar claves requiere trabajo proporcional a M·n·32. Una
 
 ## Fundamento de la memoria y estabilidad local
 
-La propuesta relaciona la [recuperación de residuos de una base congelada](https://arxiv.org/abs/2609.03937) con la [actualización de memoria mediante observaciones reveladas](https://arxiv.org/abs/2610.07834). Su fundamento metodológico se concentra en la construcción OOF temporal anidada, la recuperación aprendida y la disponibilidad de los episodios. La originalidad de esa integración requiere contrastación bibliográfica y experimental.
+La recuperación residual y la actualización de memoria cuentan con antecedentes directos en RATL, ResMem y FreshCast. La {ref}`matriz de originalidad <novedad-m4>` delimita la contribución candidata de la construcción OOF temporal anidada de M1 y su integración causal. La interpretación de sus componentes se apoya en las ablaciones de la evaluación integrada.
 
 Puede estudiarse la estabilidad local de la corrección cuando el banco y los vecinos seleccionados permanecen fijos. Si cada residuo está acotado por R, la variación de la corrección entre dos consultas satisface:
 

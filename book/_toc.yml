@@ -11,6 +11,8 @@ chapters:
 - file: 06_covariables
 - file: 07_texto
 - file: 08_literatura
+  sections:
+  - file: 08_busqueda_sistematica
 - file: 09_validacion
   sections:
   - file: 09_diseno_ampliado
@@ -32,6 +34,8 @@ chapters:
   - file: arquitecturas/nbeats
   - file: arquitecturas/timesnet
   - file: arquitecturas/m4_n
+    sections:
+    - file: arquitecturas/m4_n_novedad
   - file: 10_evaluacion
 - file: 11_sintesis
 - file: 12_reproducibilidad
