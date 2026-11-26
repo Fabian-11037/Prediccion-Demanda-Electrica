@@ -212,26 +212,11 @@ Con n=912 hay 60.993 parámetros activos del corrector. La base M1 y el banco de
 
 Para M episodios, proyectar claves requiere trabajo proporcional a M·n·32. Una consulta compara su vector de 32 coordenadas con M claves, selecciona vecinos y agrega hasta 16 trayectorias de 24 valores. Las claves pueden calcularse una vez por episodio con pesos congelados; se debe conservar esa misma política al medir latencia. El coste total comprende la base, el almacenamiento de episodios y la búsqueda de vecinos, además de los parámetros activos del corrector.
 
-## Fundamento de la memoria y estabilidad local
+## Fundamento de la memoria
 
 La recuperación residual y la actualización de memoria cuentan con antecedentes directos en RATL, ResMem y FreshCast. La {ref}`matriz de originalidad <novedad-m4>` delimita la contribución candidata de la construcción OOF temporal anidada de M1 y su integración causal. La interpretación de sus componentes se apoya en las ablaciones de la evaluación integrada.
 
-Puede estudiarse la estabilidad local de la corrección cuando el banco y los vecinos seleccionados permanecen fijos. Si cada residuo está acotado por R, la variación de la corrección entre dos consultas satisface:
-
-$$
-\|\Delta(x)-\Delta(x')\|_\infty\leq qR\left(|g(x)-g(x')|+\|\alpha(x)-\alpha(x')\|_1\right).
-$$ (eq-arquitecturas-m4-n-019)
-
-Para justificarla, se fija un mismo conjunto de residuos y se supone que su norma máxima es R. La atención pertenece al simplex y la compuerta toma valores entre cero y uno. Al sumar y restar la corrección que usa la compuerta de la segunda consulta y la atención de la primera, se obtiene:
-
-$$
-\Delta(x)-\Delta(x')=q\,(g(x)-g(x'))\sum_i\alpha_i(x)r_i+q\,g(x')\sum_i(\alpha_i(x)-\alpha_i(x'))r_i.
-$$ (eq-arquitecturas-m4-n-020)
-
-La primera suma tiene norma máxima acotada por R, por ser una combinación convexa. La segunda está acotada por R multiplicado por la distancia L1 entre las atenciones. Aplicar la desigualdad triangular y la cota de la compuerta produce el resultado. La propiedad vincula la variación de la corrección con la de sus pesos; no establece una constante global respecto de las entradas. El cambio de vecinos en top-k o la incorporación de un episodio modifica los supuestos de banco y vecindario fijos.
-
-
-
+Las propiedades siguientes precisan la disponibilidad causal, la amplitud de la corrección y la estabilidad del pronóstico. Sus garantías se condicionan al banco admisible y a las operaciones documentadas.
 
 <!-- cierre-math-inicio -->
 
@@ -253,17 +238,134 @@ $$ (eq-arquitecturas-m4-n-022)
 
 Para $g=\sigma(f)$, $\partial g/\partial f=g(1-g)$. El producto interno transmite los gradientes de los puntajes a consulta y claves; LayerNorm y las proyecciones completan la regla de la cadena. El gradiente de pertenencia al top-k no se define como una operación continua: la diferenciación se realiza dentro del conjunto seleccionado. Los expertos y M1 permanecen congelados. AdamW aplica el paso adaptativo y el decaimiento de pesos únicamente a los parámetros activos de la memoria; la evaluación no ejecuta esos pasos.
 
-Como la atención forma una combinación convexa y $0\leq g\leq1$, para cada hora se obtiene:
-
-$$
-|\widehat{y}_h-b_h|\leq qg\sum_i\alpha_i|r_{i,h}|\leq qg\max_i|r_{i,h}|.
-$$ (eq-arquitecturas-m4-n-023)
-
-Esta cota limita la corrección respecto de los residuos recuperados. Con atención y compuerta fijas, una perturbación de los valores satisface $|\Delta\widehat{y}_h|\leq qg\max_i|\Delta r_{i,h}|$. Si varían las claves, la consulta o la compuerta, intervienen términos adicionales. Para la proyección numérica seguida de LayerNorm, una cota global de su constante de Lipschitz es $\|W\|_2\|\gamma\|_\infty/\sqrt{\epsilon}$. No se extiende esta propiedad local al cambio discreto del vecindario ni se deduce una reducción garantizada del error.
+La corrección acotada, la estabilidad y sus supuestos se formalizan en las proposiciones siguientes.
 
 Se comprueban 10 condiciones del núcleo y la cota en 128 consultas: violación máxima 0,0 kWh. Las normas espectrales de las proyecciones numéricas son 1,051 y 0,993. Los gradientes locales se contrastan con diferencias finitas, sin actualizar parámetros. La evaluación ampliada conserva código, resultados y supuestos.
 
 <!-- cierre-math-fin -->
+
+<!-- m4-propiedades-formales-inicio -->
+
+(propiedades-formales-m4)=
+## Propiedades formales de la memoria residual
+
+La formulación considera el pronóstico de 24 horas de M1, $\mathbf{b}_t$, la escala histórica fija $q>0$ en kWh y los residuos normalizados $\mathbf{r}_i=(\mathbf{y}_i-\mathbf{b}_i)/q$. Cada episodio conserva el pronóstico que se emitió con su base correspondiente; no se sustituye por una predicción ajustada sobre sus propias etiquetas. Durante evaluación, los expertos, M1, la memoria y las transformaciones permanecen congelados. La actualización incorpora episodios observados, sin modificar parámetros.
+
+### Proposición 1. Disponibilidad causal por origen
+
+**Supuestos.** Sea $\mathcal{F}_t$ la información disponible estrictamente antes del origen $t$, junto con el calendario conocido de su horizonte. Los parámetros y escaladores se fijaron antes del periodo evaluado. Para cada episodio, $\tau_i$ es la disponibilidad de todos los datos necesarios para calcular su residuo de 24 horas, incluida la trayectoria observada completa. Las entradas, máscaras y contextos admitidos son funciones de $\mathcal{F}_t$. El banco y los vecinos satisfacen:
+
+$$
+B_t=\{i:2\leq t-i\leq365,\ \tau_i<t\},\qquad A_t\subseteq B_t.
+$$ (eq-m4-formal-disponibilidad)
+
+Aquí $t-i$ se mide en días. El filtro de edad debe acompañarse del supuesto de disponibilidad: una observación publicada con retraso no se vuelve admisible solo por su antigüedad. Se fija una regla de desempate que no consulta etiquetas futuras.
+
+**Enunciado.** El pronóstico es una función de la información admisible:
+
+$$
+\widehat{\mathbf{y}}_t=\mathbf{b}_t+qg_t\sum_{i\in A_t}\alpha_{t,i}\mathbf{r}_i.
+$$ (eq-m4-formal-pronostico)
+
+Dos historias idénticas en $\mathcal{F}_t$ producen el mismo pronóstico en $t$, aunque difieran después del origen.
+
+**Demostración.** La historia numérica y el calendario determinan $\mathbf{b}_t$ y la consulta mediante funciones congeladas. Cada residuo admitido y su contexto pertenecen a $\mathcal{F}_t$ por la condición $\tau_i<t$. La máscara, los puntajes, la selección de vecinos, la atención y la compuerta son composiciones de funciones de esa misma información. Su combinación también es función de $\mathcal{F}_t$. Al avanzar al siguiente origen, solo se añaden episodios cuya disponibilidad ya se alcanzó; por inducción se conserva la propiedad en toda la evaluación.
+
+**Interpretación.** La construcción OOF temporal evita utilizar un pronóstico de base ajustado o seleccionado con sus propias etiquetas. La causalidad durante evaluación requiere además que el banco respete la disponibilidad completa. La proposición es condicional al contrato de información, no una certificación independiente de las fechas de cada fuente.
+
+### Proposición 2. Corrección acotada y retorno a M1
+
+**Supuestos.** El conjunto $A_t$ es finito y no vacío, los residuos son finitos, $\alpha_{t,i}\geq0$, $\sum_i\alpha_{t,i}=1$ y $0\leq g_t\leq1$. Para cada hora $h$, sean $L_{t,h}=\min_{i\in A_t}r_{i,h}$ y $U_{t,h}=\max_{i\in A_t}r_{i,h}$.
+
+**Enunciado.** El residuo recuperado pertenece al intervalo de los episodios seleccionados:
+
+$$
+L_{t,h}\leq\bar r_{t,h}=\sum_i\alpha_{t,i}r_{i,h}\leq U_{t,h}.
+$$ (eq-m4-formal-convexidad)
+
+La salida satisface:
+
+$$
+b_{t,h}+qg_tL_{t,h}\leq\widehat y_{t,h}\leq b_{t,h}+qg_tU_{t,h},\qquad
+|\widehat y_{t,h}-b_{t,h}|\leq qg_t\max_i|r_{i,h}|.
+$$ (eq-m4-formal-cota)
+
+**Demostración.** Multiplicar $L_{t,h}\leq r_{i,h}\leq U_{t,h}$ por pesos no negativos y sumarlos conserva las desigualdades. La suma de los pesos es uno. La multiplicación por $qg_t\geq0$ y la adición de la base dan el primer intervalo; la desigualdad triangular da la cota absoluta.
+
+Si el banco contiene menos de 16 episodios admisibles, la combinación se normaliza sobre los disponibles y se conserva el argumento. Si $A_t$ es vacío, la implementación anula la corrección; por definición, $\widehat{\mathbf{y}}_t=\mathbf{b}_t$. Un único vecino produce su propia trayectoria residual, modulada por la compuerta.
+
+**Interpretación.** La corrección se limita por los residuos seleccionados y puede contener valores positivos o negativos. La cota no impone un límite absoluto uniforme cuando los residuos históricos son arbitrariamente grandes, ni asegura una reducción del error frente a M1.
+
+### Proposición 3. Estabilidad local y conservación de vecinos
+
+**Supuestos.** Se comparan dos contextos en el mismo origen, con la misma escala $q$, el mismo conjunto admisible y los mismos identificadores de vecinos. Las cantidades perturbadas se denotan con prima. Sea $M=\max_{i,h}|r_{i,h}|$, $D_R=\max_{i,h}|r'_{i,h}-r_{i,h}|$ y $\Delta\mathbf{b}=\mathbf{b}'-\mathbf{b}$. Las atenciones de ambos contextos son distribuciones y ambas compuertas pertenecen a $[0,1]$.
+
+**Enunciado.** El cambio del pronóstico cumple:
+
+$$
+\|\widehat{\mathbf{y}}'-\widehat{\mathbf{y}}\|_\infty
+\leq\|\Delta\mathbf{b}\|_\infty
++q\left(M|g'-g|+g'M\|\boldsymbol{\alpha}'-\boldsymbol{\alpha}\|_1+g'D_R\right).
+$$ (eq-m4-formal-estabilidad)
+
+**Demostración.** La diferencia entre las correcciones puede descomponerse exactamente en:
+
+$$
+g'\sum_i\alpha'_i\mathbf{r}'_i-g\sum_i\alpha_i\mathbf{r}_i
+=(g'-g)\sum_i\alpha_i\mathbf{r}_i
++g'\sum_i(\alpha'_i-\alpha_i)\mathbf{r}_i
++g'\sum_i\alpha'_i(\mathbf{r}'_i-\mathbf{r}_i).
+$$ (eq-m4-formal-descomposicion)
+
+Las normas de los tres términos están acotadas por $M|g'-g|$, $g'M\|\boldsymbol{\alpha}'-\boldsymbol{\alpha}\|_1$ y $g'D_R$, respectivamente. Aplicar la desigualdad triangular, multiplicar por $q$ y añadir el cambio de la base demuestra el resultado. En el caso de atención y compuerta fijas, se recupera la cota $\|\Delta\widehat{\mathbf{y}}\|_\infty\leq\|\Delta\mathbf{b}\|_\infty+qgD_R$.
+
+**Conservación de vecinos.** Sean $s_{(k)}$ y $s_{(k+1)}$ los puntajes ordenados de mayor a menor en el conjunto admisible y $\varepsilon_s=\max_i|s'_i-s_i|$. Cuando existen al menos $k+1$ candidatos:
+
+$$
+s_{(k)}-s_{(k+1)}>2\varepsilon_s
+\quad\Longrightarrow\quad A'_t=A_t.
+$$ (eq-m4-formal-margen-topk)
+
+En efecto, el menor puntaje seleccionado cae como máximo $\varepsilon_s$ y el mayor excluido sube como máximo esa misma cantidad. La separación sigue siendo positiva. Si todos los candidatos admisibles están seleccionados, la pertenencia se conserva mientras no cambie la máscara de disponibilidad. La condición no asegura conservar el orden interno, que no altera la suma ponderada.
+
+Dentro de un vecindario estable, las proyecciones, LayerNorm con $\epsilon>0$, softmax y la compuerta son continuas. Para una proyección lineal seguida de LayerNorm, una cota de Lipschitz es:
+
+$$
+L_{\mathrm{LN}\circ W}\leq\frac{\|W\|_2\|\gamma\|_\infty}{\sqrt{\epsilon}}.
+$$ (eq-m4-formal-layernorm)
+
+El centrado de LayerNorm es una proyección ortogonal. Si $a$ es la raíz de la varianza más $\epsilon$, el jacobiano de la normalización tiene norma espectral a lo sumo $1/a\leq1/\sqrt{\epsilon}$. El escalado por $\gamma$ multiplica esa cota por $\|\gamma\|_\infty$ y la composición con la proyección lineal, por $\|W\|_2$; los sesgos no afectan la constante. Así se obtiene la cota indicada.
+
+**Interpretación.** La perturbación puede afectar la base, los pesos de atención, la confianza y los valores recuperados; la cota separa sus contribuciones. Si desaparece la separación entre vecinos o cambia el banco admisible, esta demostración local no proporciona una garantía de continuidad de la selección top-k. La continuidad local tampoco implica una cota numéricamente pequeña.
+
+### Proposición 4. Condición para no aumentar el error absoluto
+
+**Definiciones.** Para una hora, sean $e_h=y_h-b_h$ el error firmado de M1 en kWh y $c_h=\widehat y_h-b_h=qg\bar r_h$ la corrección. El nuevo error es $e_h-c_h$.
+
+**Enunciado.** Para $e_h\neq0$:
+
+$$
+|e_h-c_h|\leq|e_h|
+\quad\Longleftrightarrow\quad
+0\leq\frac{c_h}{e_h}\leq2.
+$$ (eq-m4-formal-error-absoluto)
+
+**Demostración.** Dividir por $|e_h|>0$ transforma la desigualdad en $|1-c_h/e_h|\leq1$, equivalente al intervalo indicado. La mejora es estricta cuando $0<c_h/e_h<2$. Para $e_h=0$, no aumentar el error exige $c_h=0$.
+
+Si estas condiciones se cumplen en todas las horas y orígenes evaluados, la suma de errores absolutos tampoco aumenta. Al utilizar la misma escala positiva $q$, se obtiene:
+
+$$
+\operatorname{MAE}_{\mathrm{M4}}\leq\operatorname{MAE}_{\mathrm{M1}},\qquad
+\operatorname{MASE}_{\mathrm{M4}}\leq\operatorname{MASE}_{\mathrm{M1}}.
+$$ (eq-m4-formal-mae-mase)
+
+**Interpretación.** La corrección debe apuntar hacia el error y no exceder el doble de su magnitud. La condición por hora es suficiente para la mejora agregada, pero no necesaria: algunas horas pueden empeorar mientras el promedio mejora. Los errores reales se conocen después del horizonte, por lo que esta condición sirve para interpretar las correcciones observadas y no como una regla de decisión disponible al emitir el pronóstico. No se supone que el aprendizaje garantice su cumplimiento.
+
+### Alcance de la demostración y de la verificación numérica
+
+Las proposiciones se derivan de los supuestos y operaciones indicados, con aritmética exacta. Su implementación en coma flotante admite tolerancias numéricas. Las 128 consultas y diez comprobaciones ya documentadas respaldan la implementación de la cota y los gradientes en los casos examinados; no constituyen una verificación exhaustiva de todas las proposiciones. La superioridad predictiva se determina con los contrastes temporales de la evaluación integrada, mientras estas propiedades caracterizan la disponibilidad y la respuesta de la arquitectura.
+
+<!-- m4-propiedades-formales-fin -->
 
 ## Algoritmo temporal
 

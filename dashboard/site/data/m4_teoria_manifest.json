@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-23",
+  "fecha": "2026-11-26",
   "modelo": "M4_N",
   "alcance": "teoria y codigo; sin nuevos resultados",
   "propuesta": "retrospectiva",
@@ -9,95 +9,123 @@
   "formulas": [
     {
       "file": "m4_n_formula_01.svg",
-      "latex": "\\delta_{E,t,h}=\\rho\\,\\mathrm{sigmoid}(g_E(u_{E,t})_h)\\,\\tanh(v_E(u_{E,t})_h),\\qquad\\rho=0.02."
+      "latex": "\n\\delta_{E,t,h}=\\rho\\,\\mathrm{sigmoid}(g_E(u_{E,t})_h)\\,\\tanh(v_E(u_{E,t})_h),\\qquad\\rho=0.02.\n"
     },
     {
       "file": "m4_n_formula_02.svg",
-      "latex": "p^{(E)}_{t,h}=\\ell_t\\left(o_{E,0,t,h}+\\eta_t\\delta_{E,t,h}\\right)."
+      "latex": "\np^{(E)}_{t,h}=\\ell_t\\left(o_{E,0,t,h}+\\eta_t\\delta_{E,t,h}\\right).\n"
     },
     {
       "file": "m4_n_formula_03.svg",
-      "latex": "Z_0=\\mathrm{Conv}_{1\\times1}(U),\\qquad U\\in\\mathbb{R}^{56\\times7\\times24},\\quad Z_0\\in\\mathbb{R}^{32\\times7\\times24}."
+      "latex": "\nZ_0=\\mathrm{Conv}_{1\\times1}(U),\\qquad U\\in\\mathbb{R}^{56\\times7\\times24},\\quad Z_0\\in\\mathbb{R}^{32\\times7\\times24}.\n"
     },
     {
       "file": "m4_n_formula_04.svg",
-      "latex": "Z_{b+1}=\\mathrm{GroupNorm}\\left(Z_b+\\mathrm{Conv}_{1\\times5}\\left(D_{0.1}\\left(\\mathrm{GELU}(\\mathrm{Conv}_{3\\times3}(Z_b))\\right)\\right)\\right)."
+      "latex": "\nZ_{b+1}=\\mathrm{GroupNorm}\\left(Z_b+\\mathrm{Conv}_{1\\times5}\\left(D_{0.1}\\left(\\mathrm{GELU}(\\mathrm{Conv}_{3\\times3}(Z_b))\\right)\\right)\\right).\n"
     },
     {
       "file": "m4_n_formula_05.svg",
-      "latex": "p^{(P)}_{t,h}=\\ell_t\\left(1+\\mathrm{MLP}\\left([Z_{B,\\mathrm{ultimo},h};\\overline{Z}_{B,h};c_{t,h}]\\right)\\right)."
+      "latex": "\np^{(P)}_{t,h}=\\ell_t\\left(1+\\mathrm{MLP}\\left([Z_{B,\\mathrm{ultimo},h};\\overline{Z}_{B,h};c_{t,h}]\\right)\\right).\n"
     },
     {
       "file": "m4_n_formula_06.svg",
-      "latex": "b_{t,h}=\\sum_{j=1}^{3}w_{t,h,j}\\,p^{(j)}_{t,h},\\qquad w_{t,h,j}\\geq0,\\quad\\sum_{j=1}^{3}w_{t,h,j}=1."
+      "latex": "\nb_{t,h}=\\sum_{j=1}^{3}w_{t,h,j}\\,p^{(j)}_{t,h},\\qquad w_{t,h,j}\\geq0,\\quad\\sum_{j=1}^{3}w_{t,h,j}=1.\n"
     },
     {
       "file": "m4_n_formula_07.svg",
-      "latex": "r_{i,h}=\\frac{y_{i,h}-b_{i,h}}{q},\\qquad h=1,\\ldots,24."
+      "latex": "\nr_{i,h}=\\frac{y_{i,h}-b_{i,h}}{q},\\qquad h=1,\\ldots,24.\n"
     },
     {
       "file": "m4_n_formula_08.svg",
-      "latex": "z_{t,j}=\\frac{u_{t,j}-\\mu_j}{s_j}."
+      "latex": "\nz_{t,j}=\\frac{u_{t,j}-\\mu_j}{s_j}.\n"
     },
     {
       "file": "m4_n_formula_09.svg",
-      "latex": "a_t=\\mathrm{LN}(W_Qz_t+c_Q),\\qquad k_i=\\mathrm{LN}(W_Kz_i+c_K)."
+      "latex": "\na_t=\\mathrm{LN}(W_Qz_t+c_Q),\\qquad k_i=\\mathrm{LN}(W_Kz_i+c_K).\n"
     },
     {
       "file": "m4_n_formula_10.svg",
-      "latex": "s_{t,i}=\\frac{a_t^\\mathsf{T}k_i}{\\sqrt{32}}."
+      "latex": "\ns_{t,i}=\\frac{a_t^\\mathsf{T}k_i}{\\sqrt{32}}.\n"
     },
     {
       "file": "m4_n_formula_11.svg",
-      "latex": "2\\leq t-i\\leq365\\ \\mathrm{dias}."
+      "latex": "\n2\\leq t-i\\leq365\\ \\mathrm{dias}.\n"
     },
     {
       "file": "m4_n_formula_12.svg",
-      "latex": "\\alpha_{t,i}=\\frac{\\exp(s_{t,i})}{\\sum_{j\\in A_t}\\exp(s_{t,j})},\\qquad i\\in A_t."
+      "latex": "\n\\alpha_{t,i}=\\frac{\\exp(s_{t,i})}{\\sum_{j\\in A_t}\\exp(s_{t,j})},\\qquad i\\in A_t.\n"
     },
     {
       "file": "m4_n_formula_13.svg",
-      "latex": "m_{t,h}=\\sum_{i\\in A_t}\\alpha_{t,i}r_{i,h}."
+      "latex": "\nm_{t,h}=\\sum_{i\\in A_t}\\alpha_{t,i}r_{i,h}.\n"
     },
     {
       "file": "m4_n_formula_14.svg",
-      "latex": "d_t=\\sqrt{\\max\\left(10^{-12},\\frac{1}{24}\\sum_{h=1}^{24}\\sum_{i\\in A_t}\\alpha_{t,i}(r_{i,h}-m_{t,h})^2\\right)}."
+      "latex": "\nd_t=\\sqrt{\\max\\left(10^{-12},\\frac{1}{24}\\sum_{h=1}^{24}\\sum_{i\\in A_t}\\alpha_{t,i}(r_{i,h}-m_{t,h})^2\\right)}.\n"
     },
     {
       "file": "m4_n_formula_15.svg",
-      "latex": "v_t=\\mathrm{GELU}(W_1c_t+b_1),\\qquad g_t=\\mathrm{sigmoid}(W_2D_{0.1}(v_t)+b_2)."
+      "latex": "\nv_t=\\mathrm{GELU}(W_1c_t+b_1),\\qquad g_t=\\mathrm{sigmoid}(W_2D_{0.1}(v_t)+b_2).\n"
     },
     {
       "file": "m4_n_formula_16.svg",
-      "latex": "\\widehat y_{t,h}=b_{t,h}+q\\,g_t\\,m_{t,h}."
+      "latex": "\n\\widehat y_{t,h}=b_{t,h}+q\\,g_t\\,m_{t,h}.\n"
     },
     {
       "file": "m4_n_formula_17.svg",
-      "latex": "\\mathcal{L}=\\frac{1}{24|B|}\\sum_{t\\in B}\\sum_{h=1}^{24}\\frac{|y_{t,h}-\\widehat y_{t,h}|}{q}."
+      "latex": "\n\\mathcal{L}=\\frac{1}{24|B|}\\sum_{t\\in B}\\sum_{h=1}^{24}\\frac{|y_{t,h}-\\widehat y_{t,h}|}{q}.\n"
     },
     {
       "file": "m4_n_formula_18.svg",
-      "latex": "P_{\\mathrm{activo}}=2(32n+32+64)+(36\\cdot64+64+64+1)=64n+2625."
+      "latex": "\nP_{\\mathrm{activo}}=2(32n+32+64)+(36\\cdot64+64+64+1)=64n+2625.\n"
     },
     {
       "file": "m4_n_formula_19.svg",
-      "latex": "\\|\\Delta(x)-\\Delta(x')\\|_\\infty\\leq qR\\left(|g(x)-g(x')|+\\|\\alpha(x)-\\alpha(x')\\|_1\\right)."
+      "latex": "\n\\frac{\\partial\\mathcal{L}}{\\partial g}=q\\sum_hv_h\\bar{r}_h,\\qquad\n\\frac{\\partial\\bar{r}_h}{\\partial s_i}=\\alpha_i(r_{i,h}-\\bar{r}_h).\n"
     },
     {
       "file": "m4_n_formula_20.svg",
-      "latex": "\\Delta(x)-\\Delta(x')=q\\,(g(x)-g(x'))\\sum_i\\alpha_i(x)r_i+q\\,g(x')\\sum_i(\\alpha_i(x)-\\alpha_i(x'))r_i."
+      "latex": "\n\\frac{\\partial\\mathcal{L}}{\\partial s_i}\n=q\\sum_hv_h\\left[g\\alpha_i(r_{i,h}-\\bar{r}_h)+\\bar{r}_h\\frac{\\partial g}{\\partial s_i}\\right].\n"
     },
     {
       "file": "m4_n_formula_21.svg",
-      "latex": "\\frac{\\partial\\mathcal{L}}{\\partial g}=q\\sum_hv_h\\bar{r}_h,\\qquad\n\\frac{\\partial\\bar{r}_h}{\\partial s_i}=\\alpha_i(r_{i,h}-\\bar{r}_h)."
+      "latex": "\nB_t=\\{i:2\\leq t-i\\leq365,\\ \\tau_i<t\\},\\qquad A_t\\subseteq B_t.\n"
     },
     {
       "file": "m4_n_formula_22.svg",
-      "latex": "\\frac{\\partial\\mathcal{L}}{\\partial s_i}\n=q\\sum_hv_h\\left[g\\alpha_i(r_{i,h}-\\bar{r}_h)+\\bar{r}_h\\frac{\\partial g}{\\partial s_i}\\right]."
+      "latex": "\n\\widehat{\\mathbf{y}}_t=\\mathbf{b}_t+qg_t\\sum_{i\\in A_t}\\alpha_{t,i}\\mathbf{r}_i.\n"
     },
     {
       "file": "m4_n_formula_23.svg",
-      "latex": "|\\widehat{y}_h-b_h|\\leq qg\\sum_i\\alpha_i|r_{i,h}|\\leq qg\\max_i|r_{i,h}|."
+      "latex": "\nL_{t,h}\\leq\\bar r_{t,h}=\\sum_i\\alpha_{t,i}r_{i,h}\\leq U_{t,h}.\n"
+    },
+    {
+      "file": "m4_n_formula_24.svg",
+      "latex": "\nb_{t,h}+qg_tL_{t,h}\\leq\\widehat y_{t,h}\\leq b_{t,h}+qg_tU_{t,h},\\qquad\n|\\widehat y_{t,h}-b_{t,h}|\\leq qg_t\\max_i|r_{i,h}|.\n"
+    },
+    {
+      "file": "m4_n_formula_25.svg",
+      "latex": "\n\\|\\widehat{\\mathbf{y}}'-\\widehat{\\mathbf{y}}\\|_\\infty\n\\leq\\|\\Delta\\mathbf{b}\\|_\\infty\n+q\\left(M|g'-g|+g'M\\|\\boldsymbol{\\alpha}'-\\boldsymbol{\\alpha}\\|_1+g'D_R\\right).\n"
+    },
+    {
+      "file": "m4_n_formula_26.svg",
+      "latex": "\ng'\\sum_i\\alpha'_i\\mathbf{r}'_i-g\\sum_i\\alpha_i\\mathbf{r}_i\n=(g'-g)\\sum_i\\alpha_i\\mathbf{r}_i\n+g'\\sum_i(\\alpha'_i-\\alpha_i)\\mathbf{r}_i\n+g'\\sum_i\\alpha'_i(\\mathbf{r}'_i-\\mathbf{r}_i).\n"
+    },
+    {
+      "file": "m4_n_formula_27.svg",
+      "latex": "\ns_{(k)}-s_{(k+1)}>2\\varepsilon_s\n\\quad\\Longrightarrow\\quad A'_t=A_t.\n"
+    },
+    {
+      "file": "m4_n_formula_28.svg",
+      "latex": "\nL_{\\mathrm{LN}\\circ W}\\leq\\frac{\\|W\\|_2\\|\\gamma\\|_\\infty}{\\sqrt{\\epsilon}}.\n"
+    },
+    {
+      "file": "m4_n_formula_29.svg",
+      "latex": "\n|e_h-c_h|\\leq|e_h|\n\\quad\\Longleftrightarrow\\quad\n0\\leq\\frac{c_h}{e_h}\\leq2.\n"
+    },
+    {
+      "file": "m4_n_formula_30.svg",
+      "latex": "\n\\operatorname{MAE}_{\\mathrm{M4}}\\leq\\operatorname{MAE}_{\\mathrm{M1}},\\qquad\n\\operatorname{MASE}_{\\mathrm{M4}}\\leq\\operatorname{MASE}_{\\mathrm{M1}}.\n"
     }
   ],
   "formulas_en_linea": [
@@ -195,20 +223,237 @@
     },
     {
       "file": "m4_n_inline_024.svg",
-      "latex": "0\\leq g\\leq1"
+      "latex": "\\mathbf{b}_t"
     },
     {
       "file": "m4_n_inline_025.svg",
-      "latex": "|\\Delta\\widehat{y}_h|\\leq qg\\max_i|\\Delta r_{i,h}|"
+      "latex": "q>0"
     },
     {
       "file": "m4_n_inline_026.svg",
-      "latex": "\\|W\\|_2\\|\\gamma\\|_\\infty/\\sqrt{\\epsilon}"
+      "latex": "\\mathbf{r}_i=(\\mathbf{y}_i-\\mathbf{b}_i)/q"
+    },
+    {
+      "file": "m4_n_inline_027.svg",
+      "latex": "\\mathcal{F}_t"
+    },
+    {
+      "file": "m4_n_inline_028.svg",
+      "latex": "t"
+    },
+    {
+      "file": "m4_n_inline_029.svg",
+      "latex": "\\tau_i"
+    },
+    {
+      "file": "m4_n_inline_030.svg",
+      "latex": "\\mathcal{F}_t"
+    },
+    {
+      "file": "m4_n_inline_031.svg",
+      "latex": "t-i"
+    },
+    {
+      "file": "m4_n_inline_032.svg",
+      "latex": "\\mathcal{F}_t"
+    },
+    {
+      "file": "m4_n_inline_033.svg",
+      "latex": "t"
+    },
+    {
+      "file": "m4_n_inline_034.svg",
+      "latex": "\\mathbf{b}_t"
+    },
+    {
+      "file": "m4_n_inline_035.svg",
+      "latex": "\\mathcal{F}_t"
+    },
+    {
+      "file": "m4_n_inline_036.svg",
+      "latex": "\\tau_i<t"
+    },
+    {
+      "file": "m4_n_inline_037.svg",
+      "latex": "\\mathcal{F}_t"
+    },
+    {
+      "file": "m4_n_inline_038.svg",
+      "latex": "A_t"
+    },
+    {
+      "file": "m4_n_inline_039.svg",
+      "latex": "\\alpha_{t,i}\\geq0"
+    },
+    {
+      "file": "m4_n_inline_040.svg",
+      "latex": "\\sum_i\\alpha_{t,i}=1"
+    },
+    {
+      "file": "m4_n_inline_041.svg",
+      "latex": "0\\leq g_t\\leq1"
+    },
+    {
+      "file": "m4_n_inline_042.svg",
+      "latex": "h"
+    },
+    {
+      "file": "m4_n_inline_043.svg",
+      "latex": "L_{t,h}=\\min_{i\\in A_t}r_{i,h}"
+    },
+    {
+      "file": "m4_n_inline_044.svg",
+      "latex": "U_{t,h}=\\max_{i\\in A_t}r_{i,h}"
+    },
+    {
+      "file": "m4_n_inline_045.svg",
+      "latex": "L_{t,h}\\leq r_{i,h}\\leq U_{t,h}"
+    },
+    {
+      "file": "m4_n_inline_046.svg",
+      "latex": "qg_t\\geq0"
+    },
+    {
+      "file": "m4_n_inline_047.svg",
+      "latex": "A_t"
+    },
+    {
+      "file": "m4_n_inline_048.svg",
+      "latex": "\\widehat{\\mathbf{y}}_t=\\mathbf{b}_t"
+    },
+    {
+      "file": "m4_n_inline_049.svg",
+      "latex": "q"
+    },
+    {
+      "file": "m4_n_inline_050.svg",
+      "latex": "M=\\max_{i,h}|r_{i,h}|"
+    },
+    {
+      "file": "m4_n_inline_051.svg",
+      "latex": "D_R=\\max_{i,h}|r'_{i,h}-r_{i,h}|"
+    },
+    {
+      "file": "m4_n_inline_052.svg",
+      "latex": "\\Delta\\mathbf{b}=\\mathbf{b}'-\\mathbf{b}"
+    },
+    {
+      "file": "m4_n_inline_053.svg",
+      "latex": "[0,1]"
+    },
+    {
+      "file": "m4_n_inline_054.svg",
+      "latex": "M|g'-g|"
+    },
+    {
+      "file": "m4_n_inline_055.svg",
+      "latex": "g'M\\|\\boldsymbol{\\alpha}'-\\boldsymbol{\\alpha}\\|_1"
+    },
+    {
+      "file": "m4_n_inline_056.svg",
+      "latex": "g'D_R"
+    },
+    {
+      "file": "m4_n_inline_057.svg",
+      "latex": "q"
+    },
+    {
+      "file": "m4_n_inline_058.svg",
+      "latex": "\\|\\Delta\\widehat{\\mathbf{y}}\\|_\\infty\\leq\\|\\Delta\\mathbf{b}\\|_\\infty+qgD_R"
+    },
+    {
+      "file": "m4_n_inline_059.svg",
+      "latex": "s_{(k)}"
+    },
+    {
+      "file": "m4_n_inline_060.svg",
+      "latex": "s_{(k+1)}"
+    },
+    {
+      "file": "m4_n_inline_061.svg",
+      "latex": "\\varepsilon_s=\\max_i|s'_i-s_i|"
+    },
+    {
+      "file": "m4_n_inline_062.svg",
+      "latex": "k+1"
+    },
+    {
+      "file": "m4_n_inline_063.svg",
+      "latex": "\\varepsilon_s"
+    },
+    {
+      "file": "m4_n_inline_064.svg",
+      "latex": "\\epsilon>0"
+    },
+    {
+      "file": "m4_n_inline_065.svg",
+      "latex": "a"
+    },
+    {
+      "file": "m4_n_inline_066.svg",
+      "latex": "\\epsilon"
+    },
+    {
+      "file": "m4_n_inline_067.svg",
+      "latex": "1/a\\leq1/\\sqrt{\\epsilon}"
+    },
+    {
+      "file": "m4_n_inline_068.svg",
+      "latex": "\\gamma"
+    },
+    {
+      "file": "m4_n_inline_069.svg",
+      "latex": "\\|\\gamma\\|_\\infty"
+    },
+    {
+      "file": "m4_n_inline_070.svg",
+      "latex": "\\|W\\|_2"
+    },
+    {
+      "file": "m4_n_inline_071.svg",
+      "latex": "e_h=y_h-b_h"
+    },
+    {
+      "file": "m4_n_inline_072.svg",
+      "latex": "c_h=\\widehat y_h-b_h=qg\\bar r_h"
+    },
+    {
+      "file": "m4_n_inline_073.svg",
+      "latex": "e_h-c_h"
+    },
+    {
+      "file": "m4_n_inline_074.svg",
+      "latex": "e_h\\neq0"
+    },
+    {
+      "file": "m4_n_inline_075.svg",
+      "latex": "|e_h|>0"
+    },
+    {
+      "file": "m4_n_inline_076.svg",
+      "latex": "|1-c_h/e_h|\\leq1"
+    },
+    {
+      "file": "m4_n_inline_077.svg",
+      "latex": "0<c_h/e_h<2"
+    },
+    {
+      "file": "m4_n_inline_078.svg",
+      "latex": "e_h=0"
+    },
+    {
+      "file": "m4_n_inline_079.svg",
+      "latex": "c_h=0"
+    },
+    {
+      "file": "m4_n_inline_080.svg",
+      "latex": "q"
     }
   ],
   "sha256_fuentes": {
-    "book/arquitecturas/m4_n.md": "f0dcb6f434cb0ab43c5e63eb208d5188d087318464cf47bf81f7ba174a18bcfd",
-    "book/_toc.yml": "d9e7b27cb8293890c85f3e443d62d5787cb334854ff88b0fc5427c86f8b7f0e9",
+    "scripts/documentacion_m4/propiedades_formales.md": "200494803afa4c1d121cabd8b274b3480d71bcd7338dc0502fda9e5db46dbe1d",
+    "book/arquitecturas/m4_n.md": "f04f4a03a3626024d1b879fdb66d9e17026159e9cd085d23d9de050d814ef658",
+    "book/_toc.yml": "2df5990a4ffb7dd9dc94f6fa2de28055ade4d7a8e367e84f5e59318d8fca243b",
     "book/_static/codigo_e3/m4/e3_gpu_comun.py": "96d061911af2c612b5c77b44a24b227685dd6477591f7afc31d8a7515a1cc3a1",
     "book/_static/codigo_e3/m4/e3_modelo1.py": "69bf2675f3f44ce36274ef12f644eae05443cc931c8af5b31694b97ab8a5b74c",
     "book/_static/codigo_e3/m4/e3_modelo3.py": "b25f2c28496e35f38dc3c98dbe7c638620a6415f6382c104fd4ec7d850e1be16",
@@ -216,7 +461,7 @@
     "book/_static/codigo_e3/m4/esquemas_m4_n.py": "1eef0a804523d11647a99ece3f170bdeed309e7e8da413280f1915138aa7e278",
     "book/_static/codigo_e3/m4/experto_e.py": "89fcf7793497ec50913a52bc6dca6c4df051f71aef123d0ec597b19cb0f0dea9",
     "book/_static/codigo_e3/m4/experto_periodico.py": "2312d5e5ac1f6b138083030cb43c44490397d10401b6050f275abce66560db46",
-    "book/_static/codigo_e3/m4/integrar_m4_resultados.py": "630c988e64e1beca5c49f67617c15336ea0b839c5b87fb6145e1b2d309d05a45",
+    "book/_static/codigo_e3/m4/integrar_m4_resultados.py": "0acf8b3f6bc801e509811e9b6269efe575ef25596aac5ecafae31d06cbce70d4",
     "book/_static/codigo_e3/m4/motor_m4_n.py": "4ed9719f035187923f89b65a9045a340d4cb8cda78201f076ca1cf1e57178505",
     "book/_static/codigo_e3/m4/pipeline_m4_n.py": "083c8d2ab6506e9752cf20c92ad225ae1a9c35d44386cc42558b303c2bbe3255",
     "book/_static/codigo_e3/m4/test_m4_gpu.py": "032910ad48e1386d1aea4ce21a85df48d17c481bcec7f73af1cc681207bd9b9c",
@@ -224,5 +469,10 @@
     "book/_static/arquitecturas_presentacion/m4_n_detalle.png": "d339e3f775edb8d382b1dc2d26689d67784b080af7b4e69c972d054d3e0014c0",
     "book/_static/arquitecturas_presentacion/m4_n_experto_e.png": "72c57540f8677e58c20af080e27d154d1d5e9c685ded1f8a6190ae96620c1bbc",
     "book/_static/arquitecturas_presentacion/m4_n_experto_periodico.png": "0c67e64d01e510910056a3bca92b22b144da72d83195eee99b2326070ed4e7c6"
+  },
+  "sha256_salidas": {
+    "theory/m4_n.fragment.html": "93162dd96389db326bd5f24543fcd5be363e4c19698a27965b0e05bffe953251",
+    "theory/m4_n.html": "cc89d4993177f2dce0de20dd0565100abd9bd524228d2df50b9c9d21711414c1",
+    "downloads/fichas/m4_n.md": "7511044978c105367b0a598419e98bea6742b8c6e553ae39eeea08bd62104c22"
   }
 }

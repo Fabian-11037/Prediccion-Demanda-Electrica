@@ -1,0 +1,142 @@
+{
+  "fecha": "2026-11-26",
+  "inventario": {
+    "figura": 82,
+    "tabla_calculada": 35,
+    "esquema": 32,
+    "tabla_markdown": 31
+  },
+  "contratos_numericos": {
+    "procedimientos": 15,
+    "realizaciones": 75,
+    "referencias": 2,
+    "parejas_temporales": 136,
+    "parejas_semillas": 105,
+    "contrastes_texto": 3,
+    "horizontes_texto": 72,
+    "tablas_recalculadas_desde_artefactos": true,
+    "entrenamiento": false,
+    "publicacion": false
+  },
+  "completitud": {
+    "controles": [
+      {
+        "control": "Semillas y arquitecturas",
+        "correcto": true,
+        "detalle": "15 procedimientos; 75 realizaciones"
+      },
+      {
+        "control": "Comparaciones completas",
+        "correcto": true,
+        "detalle": "136 parejas temporales y105 entre semillas"
+      },
+      {
+        "control": "curvas_aprendizaje",
+        "correcto": true,
+        "detalle": "15 procedimientos"
+      },
+      {
+        "control": "resultados_horizonte",
+        "correcto": true,
+        "detalle": "15 procedimientos"
+      },
+      {
+        "control": "diseno_seleccion",
+        "correcto": true,
+        "detalle": "15 procedimientos"
+      },
+      {
+        "control": "Residuos y calibración",
+        "correcto": true,
+        "detalle": "Una fila por procedimiento; corrección Holm por columna"
+      },
+      {
+        "control": "Gráficas e interpretaciones",
+        "correcto": true,
+        "detalle": "82 gráficas con interpretación contigua"
+      },
+      {
+        "control": "Grupos de error por horizonte",
+        "correcto": true,
+        "detalle": "Todas las configuraciones pertenecen a los grupos graficados"
+      },
+      {
+        "control": "Descargas del benchmark",
+        "correcto": true,
+        "detalle": "25 CSV idénticos a los resultados"
+      },
+      {
+        "control": "Selector del dashboard",
+        "correcto": true,
+        "detalle": "15 procedimientos disponibles"
+      },
+      {
+        "control": "Métricas del dashboard",
+        "correcto": true,
+        "detalle": "17 filas incluyendo referencias, sin diferencias numéricas"
+      },
+      {
+        "control": "Pipelines seleccionados",
+        "correcto": true,
+        "detalle": "Fábricas seleccionadas y configuraciones del benchmark"
+      },
+      {
+        "control": "Evidencia funcional conservada",
+        "correcto": true,
+        "detalle": "Se revisan comprobaciones existentes; no se ejecuta ajuste"
+      },
+      {
+        "control": "Resultados conservados",
+        "correcto": true,
+        "detalle": "28 archivos numéricos sin cambios"
+      }
+    ],
+    "inventario": {
+      "figura": 82,
+      "tabla_calculada": 35,
+      "esquema": 32,
+      "tabla_markdown": 31
+    },
+    "procedimientos": 15,
+    "realizaciones": 75,
+    "referencias": 2,
+    "entrenamiento": false,
+    "inferencia_redes": false,
+    "publicacion": false
+  },
+  "entrenamiento": false,
+  "inferencia_redes": false,
+  "publicacion": false,
+  "validacion_construccion": "correcta; warningiserror",
+  "pruebas": {
+    "python": {
+      "aprobadas": 165,
+      "omitidas_dependencias_opcionales": 6
+    },
+    "dashboard": {
+      "aprobadas": 44,
+      "fallidas": 0
+    }
+  },
+  "enlaces": {
+    "paginas": 39,
+    "referencias": 3295,
+    "rotos": 0
+  },
+  "vista_dashboard": {
+    "referencia_originalidad_resuelta": true,
+    "proposiciones_visibles": 4,
+    "imagenes_rotas": 0
+  },
+  "editorial_idempotente": true,
+  "huellas_protegidas": {
+    "sin_cambios": 17,
+    "cambio_solo_prosa": {
+      "book/10_evaluacion.ipynb": {
+        "antes": "368a7c24574de4aa77ff7abae91e1d5fd34a5bb9a078fba972f9a9f55a179ff6",
+        "despues": "34e9c6e6b2a3259efd30f8838d16b239b13cd0f9a33ab615ab6eca3e4e97f390"
+      }
+    },
+    "codigo_y_salidas_evaluacion_identicos": true
+  }
+}

@@ -539,7 +539,7 @@
 <span id="evaluacion-e2"></span><h1>10.17. Resultados y evaluación integrada<a class="headerlink" href="#resultados-y-evaluacion-integrada" title="Link to this heading">#</a></h1>
 <p>La evaluación comprende M4ₙ, con diez semillas, quince procedimientos de referencia, con cinco semillas cada uno, y dos referencias deterministas. Se comparten 1.461 orígenes diarios de 2022–2025 y 24 horizontes. Para un procedimiento con S_m realizaciones, la pérdida diaria individual media es:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-001">
-<span class="eqno">(50)<a class="headerlink" href="#equation-eq-10-evaluacion-001" title="Link to this equation">#</a></span>\[
+<span class="eqno">(57)<a class="headerlink" href="#equation-eq-10-evaluacion-001" title="Link to this equation">#</a></span>\[
 L_{m,t}=\frac{1}{S_m\,24\,q_{168}}\sum_{s=1}^{S_m}\sum_{h=1}^{24}|y_{t,h}-\widehat y_{m,s,t,h}|.
 \]</div>
 <p>La escala común es q₁₆₈=215.617,90361589 kWh. La comparación de M4ₙ se presenta primero; los apartados posteriores desarrollan la selección y los diagnósticos del benchmark de referencia.</p>
@@ -1017,7 +1017,7 @@ L_{m,t}=\frac{1}{S_m\,24\,q_{168}}\sum_{s=1}^{S_m}\sum_{h=1}^{24}|y_{t,h}-\wideh
   </tbody>
 </table></div></div>
 </div>
-<p>M4 conserva el menor MASE de prueba (0,5770), con una reducción de 10,25 % frente a TimesNet. Su pipeline requiere una mediana de 12,98 ms por origen, frente a 34,84 ms de TimesNet, bajo las mismas condiciones de medición. M4 almacena 963,490 parámetros en el pipeline completo; los 60.993 parámetros activos del corrector representan solo una parte de ese conjunto. ARX presenta la menor latencia entre los procedimientos aprendidos. La precisión y la rapidez permiten valorar compromisos diferentes; el orden de latencia depende del equipo y del contrato de entrada.</p>
+<p>M4 conserva el menor MASE de prueba (0,5770), con una reducción de 10,25 % frente a TimesNet. Su pipeline requiere una mediana de 12,98 ms por origen, frente a 34,84 ms de TimesNet, bajo las mismas condiciones de medición. M4 almacena 963.490 parámetros en el pipeline completo; los 60.993 parámetros activos del corrector representan solo una parte de ese conjunto. ARX presenta la menor latencia entre los procedimientos aprendidos. La precisión y la rapidez permiten valorar compromisos diferentes; el orden de latencia depende del equipo y del contrato de entrada.</p>
 <p><a class="reference download internal" download="" href="_downloads/8945ab461b0d9399fdabb9930f2f58ef/tabla_maestra.csv"><span class="xref download myst">Tabla completa CSV</span></a> · <a class="reference download internal" download="" href="_downloads/5b2a4a2106d3e6b9233bf1aaa248abbe/coste_por_origen.csv"><span class="xref download myst">Mediciones por fecha</span></a> · <a class="reference download internal" download="" href="_downloads/929537d7ed3856e71ba8095d64d4268f/tiempos_inferencia.csv"><span class="xref download myst">5.400 tiempos individuales</span></a> · <a class="reference download internal" download="" href="_downloads/e66e04f505a63c95e3071bacdd97c60c/protocolo.json"><span class="xref download myst">Protocolo</span></a> · <a class="reference download internal" download="" href="_downloads/583789ea06bd4de3c72c8906f2d83493/trazabilidad.csv"><span class="xref download myst">Trazabilidad</span></a>.</p>
 <section id="codigo-reproducible-de-medicion-y-consolidacion">
 <h3>Código reproducible de medición y consolidación<a class="headerlink" href="#codigo-reproducible-de-medicion-y-consolidacion" title="Link to this heading">#</a></h3>
@@ -1478,7 +1478,7 @@ L_{m,t}=\frac{1}{S_m\,24\,q_{168}}\sum_{s=1}^{S_m}\sum_{h=1}^{24}|y_{t,h}-\wideh
 <p>La propuesta numérica conserva la configuración 6 y se evalúa con diez inicializaciones (101–110), sobre 1.461 orígenes diarios de 2022–2025 y 24 horas por origen. El ajuste de la memoria utiliza 2013–2020 y la reserva interna de 2021 determina el checkpoint restaurado. La base y los pesos de la memoria permanecen congelados durante prueba; el banco solo incorpora residuos completos admitidos por el retraso de dos días.</p>
 <p>La pérdida diaria del procedimiento promedia primero los errores individuales de sus semillas:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-002">
-<span class="eqno">(51)<a class="headerlink" href="#equation-eq-10-evaluacion-002" title="Link to this equation">#</a></span>\[
+<span class="eqno">(58)<a class="headerlink" href="#equation-eq-10-evaluacion-002" title="Link to this equation">#</a></span>\[
 L_{m,t}=\frac{1}{S_m\,24\,q_{168}}\sum_{s=1}^{S_m}\sum_{h=1}^{24}|y_{t,h}-\widehat y_{m,s,t,h}|.
 \]</div>
 <p>M4ₙ utiliza diez semillas; el Top 10 y los baselines aprendidos conservan cinco. No se emparejan semillas por su identificador: la comparación temporal utiliza los mismos días y promedia las pérdidas entre inicializaciones. La evaluación es retrospectiva. Los resultados de la propuesta se distinguen de los diagnósticos del benchmark de referencia presentados después.</p>
@@ -2649,7 +2649,7 @@ L_{m,t}=\frac{1}{S_m\,24\,q_{168}}\sum_{s=1}^{S_m}\sum_{h=1}^{24}|y_{t,h}-\wideh
 <span id="diagnosticos-m4"></span><h2>Dispersión entre semillas y diagnóstico propio de M4<a class="headerlink" href="#dispersion-entre-semillas-y-diagnostico-propio-de-m4" title="Link to this heading">#</a></h2>
 <p>Se analizan las diez predicciones conservadas de M4 para cada uno de los 1.461 orígenes diarios de 2022–2025 y sus 24 horizontes. La dispersión mide cuánto cambia la salida al variar la inicialización. Para cada origen <span class="math notranslate nohighlight">\(t\)</span> y horizonte <span class="math notranslate nohighlight">\(h\)</span> se calculan la predicción media, la desviación entre semillas y su coeficiente de variación:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-003">
-<span class="eqno">(52)<a class="headerlink" href="#equation-eq-10-evaluacion-003" title="Link to this equation">#</a></span>\[
+<span class="eqno">(59)<a class="headerlink" href="#equation-eq-10-evaluacion-003" title="Link to this equation">#</a></span>\[
 \bar y_{t,h}=\frac{1}{S}\sum_s\widehat y_{s,t,h},\quad
 \sigma_{t,h}=\sqrt{\frac{1}{S-1}\sum_s(\widehat y_{s,t,h}-\bar y_{t,h})^2},\quad
 CV_{t,h}=100\frac{\sigma_{t,h}}{|\bar y_{t,h}|},\qquad S=10.
@@ -2730,7 +2730,7 @@ CV_{t,h}=100\frac{\sigma_{t,h}}{|\bar y_{t,h}|},\qquad S=10.
 <p>La banda p10–p90 entre semillas contiene solo el <strong>30,02 %</strong> de los valores observados, con ancho medio de 0,1088 GWh. Describe inicializaciones, no un intervalo predictivo nominal del 80 %. La incertidumbre sobre observaciones futuras requiere los intervalos temporales evaluados por separado.</p>
 <p>La identidad del error cuadrático separa la pérdida de la media y el desacuerdo:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-004">
-<span class="eqno">(53)<a class="headerlink" href="#equation-eq-10-evaluacion-004" title="Link to this equation">#</a></span>\[
+<span class="eqno">(60)<a class="headerlink" href="#equation-eq-10-evaluacion-004" title="Link to this equation">#</a></span>\[
 \frac1S\sum_s(y-\widehat y_s)^2=(y-\bar y)^2+\frac1S\sum_s(\widehat y_s-\bar y)^2.
 \]</div>
 <p>Al promediar todos los orígenes y horizontes, el segundo término representa el 10,40 % del MSE individual. El resto corresponde al error de la trayectoria media y no se interpreta como ruido irreducible. La métrica primaria del benchmark permanece en MASE 0,5770.</p>
@@ -3201,7 +3201,7 @@ CV_{t,h}=100\frac{\sigma_{t,h}}{|\bar y_{t,h}|},\qquad S=10.
 <p>El bootstrap estacionario pareado utiliza bloques de longitud media de 14, 28 y 56 días, con 49.999 réplicas por configuración. DM–HLN y Giacomini–White utilizan covarianzas HAC de Bartlett con 13, 27 y 55 rezagos, respectivamente. El horizonte efectivo de la corrección HLN permanece en un origen diario; la longitud de bloque no se sustituye por un nuevo horizonte de predicción.</p>
 <p>Para el margen <span class="math notranslate nohighlight">\(m\)</span>, el diferencial es:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-005">
-<span class="eqno">(54)<a class="headerlink" href="#equation-eq-10-evaluacion-005" title="Link to this equation">#</a></span>\[
+<span class="eqno">(61)<a class="headerlink" href="#equation-eq-10-evaluacion-005" title="Link to this equation">#</a></span>\[
 d_t^{(m)}=(1-m)L_{\mathrm{ref},t}-L_{\mathrm{M4},t}.
 \]</div>
 <p>Un diferencial medio positivo favorece una reducción superior al margen. Bootstrap y DM–HLN contrastan unilateralmente <span class="math notranslate nohighlight">\(E[d_t^{(m)}]\leq0\)</span>. GW contrasta bilateralmente <span class="math notranslate nohighlight">\(E[z_t d_t^{(m)}]=0\)</span>, con instrumentos constante y diferencial observable de dos días antes. GW no identifica por sí solo la dirección de la ventaja.</p>
@@ -3536,7 +3536,7 @@ d_t^{(m)}=(1-m)L_{\mathrm{ref},t}-L_{\mathrm{M4},t}.
 <h3>Construcción y significado de las bandas<a class="headerlink" href="#construccion-y-significado-de-las-bandas" title="Link to this heading">#</a></h3>
 <p>Para el horizonte <span class="math notranslate nohighlight">\(h\)</span>, el error de calibración es <span class="math notranslate nohighlight">\(s_{t,h}=|y_{t,h}-\widehat y_{t,h}|\)</span>. El cuantil se obtiene mediante el estadístico de orden <span class="math notranslate nohighlight">\(k=\lceil(n+1)(1-\alpha)\rceil\)</span>. El intervalo marginal es:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-006">
-<span class="eqno">(55)<a class="headerlink" href="#equation-eq-10-evaluacion-006" title="Link to this equation">#</a></span>\[
+<span class="eqno">(62)<a class="headerlink" href="#equation-eq-10-evaluacion-006" title="Link to this equation">#</a></span>\[
 [\widehat y_{t,h}-q_{h,1-\alpha},\;\widehat y_{t,h}+q_{h,1-\alpha}].
 \]</div>
 <p>Para cubrir la trayectoria completa se calibra el máximo diario <span class="math notranslate nohighlight">\(s_t^{\max}=\max_h s_{t,h}/a_h\)</span>, donde <span class="math notranslate nohighlight">\(a_h\)</span> es la mediana del error absoluto de ese horizonte en la reserva inicial, congelada con un piso de <span class="math notranslate nohighlight">\(10^{-6}\)</span> GWh. La banda conjunta tiene radio <span class="math notranslate nohighlight">\(q^{\max}_{1-\alpha}a_h\)</span>. Su cobertura exige que las 24 observaciones del día queden dentro de la banda. Una cobertura marginal del 90 % no implica cobertura conjunta del 90 %.</p>
@@ -3584,12 +3584,12 @@ d_t^{(m)}=(1-m)L_{\mathrm{ref},t}-L_{\mathrm{M4},t}.
 <h3>Amplitud y calidad de los intervalos<a class="headerlink" href="#amplitud-y-calidad-de-los-intervalos" title="Link to this heading">#</a></h3>
 <p>La puntuación de intervalo penaliza tanto amplitud como observaciones fuera de la banda:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-007">
-<span class="eqno">(56)<a class="headerlink" href="#equation-eq-10-evaluacion-007" title="Link to this equation">#</a></span>\[
+<span class="eqno">(63)<a class="headerlink" href="#equation-eq-10-evaluacion-007" title="Link to this equation">#</a></span>\[
 IS_\alpha=(u-l)+\frac{2}{\alpha}(l-y)\mathbf{1}(y&lt;l)+\frac{2}{\alpha}(y-u)\mathbf{1}(y&gt;u).
 \]</div>
 <p>Para los tres niveles marginales 80 %, 90 % y 95 %, se agrega:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-008">
-<span class="eqno">(57)<a class="headerlink" href="#equation-eq-10-evaluacion-008" title="Link to this equation">#</a></span>\[
+<span class="eqno">(64)<a class="headerlink" href="#equation-eq-10-evaluacion-008" title="Link to this equation">#</a></span>\[
 WIS=\frac{0.5|y-c|+\sum_{k=1}^{3}\frac{\alpha_k}{2}IS_{\alpha_k}}{3+0.5},
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(c\)</span> es el centro de los intervalos simétricos. Un WIS menor indica un mejor compromiso entre precisión y amplitud. Se puntúa primero cada hora y se promedian las 24 horas de cada origen. El WIS se utiliza para intervalos marginales; las bandas conjuntas se evalúan por cobertura de trayectoria y amplitud. La definición sigue a <a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1008618">Bracher et al.</a>.</p>
@@ -4234,7 +4234,7 @@ WIS=\frac{0.5|y-c|+\sum_{k=1}^{3}\frac{\alpha_k}{2}IS_{\alpha_k}}{3+0.5},
 <span id="sensibilidad-metrica-semillas-m4"></span><h2>Tamaño del efecto y sensibilidad a métrica e inicialización<a class="headerlink" href="#tamano-del-efecto-y-sensibilidad-a-metrica-e-inicializacion" title="Link to this heading">#</a></h2>
 <p>El tamaño del efecto utiliza el diferencial diario, después de promediar las pérdidas individuales de las realizaciones:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-009">
-<span class="eqno">(58)<a class="headerlink" href="#equation-eq-10-evaluacion-009" title="Link to this equation">#</a></span>\[
+<span class="eqno">(65)<a class="headerlink" href="#equation-eq-10-evaluacion-009" title="Link to this equation">#</a></span>\[
 d_{z,j}=\frac{\overline{D_j}}{s(D_j)},\qquad D_{j,t}=L_{j,t}-L_{\mathrm{M4},t}.
 \]</div>
 <p>Un valor positivo favorece a M4. El IC95 % remuestrea bloques de 56 días y recalcula media y DE; no trata los días como independientes ni empareja identificadores de semillas entre modelos. La referencia |d|=0,2 de magnitud se distingue del margen relativo del 3 %.</p>
@@ -4363,7 +4363,7 @@ d_{z,j}=\frac{\overline{D_j}}{s(D_j)},\qquad D_{j,t}=L_{j,t}-L_{\mathrm{M4},t}.
 <span id="brecha-checkpoint-m4"></span><h2>Brecha ajuste–parada del checkpoint restaurado<a class="headerlink" href="#brecha-ajusteparada-del-checkpoint-restaurado" title="Link to this heading">#</a></h2>
 <p>Se restauran las diez semillas y se evalúan ambos periodos con <code class="docutils literal notranslate"><span class="pre">eval()</span></code>, dropout desactivado, escalas congeladas y la misma pérdida MAE/q. Ajuste comprende 2013-01-01 a 2020-12-30 (2.921 días); parada, 2021 (365 días), con purga del 31 de diciembre de 2020. La memoria conserva la elegibilidad causal d−2…d−365 para cada origen. No se actualizan parámetros ni se utiliza la prueba en este cálculo.</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-010">
-<span class="eqno">(59)<a class="headerlink" href="#equation-eq-10-evaluacion-010" title="Link to this equation">#</a></span>\[
+<span class="eqno">(66)<a class="headerlink" href="#equation-eq-10-evaluacion-010" title="Link to this equation">#</a></span>\[
 G=100\left(\frac{\overline L_{\mathrm{parada}}}{\overline L_{\mathrm{ajuste}}}-1\right).
 \]</div>
 <p>El IC remuestrea por separado los días de cada periodo mediante bootstrap estacionario de 56 días y 9.999 réplicas, manteniendo fijas las diez realizaciones. Las pérdidas históricas por época combinan pesos que cambian durante la optimización y dropout activo; por ello no sustituyen la evaluación del checkpoint restaurado.</p>
@@ -5280,7 +5280,7 @@ G=100\left(\frac{\overline L_{\mathrm{parada}}}{\overline L_{\mathrm{ajuste}}}-1
 <p>MLP presenta el menor MASE medio del piloto externo (0,542); N-HiTS registra 0,827. PatchTST utiliza la precisión de parada interna, presentada por separado. La dispersión entre semillas no sigue necesariamente ese orden; un error medio mayor puede ser estable entre inicializaciones.</p>
 <p>Para expresar las diferencias en una escala relativa común se conserva como referencia la media piloto de MLP, obtenida exclusivamente de validación. Con <span class="math notranslate nohighlight">\(d_s=(M_{A,s}-M_{B,s})/\overline M_{\mathrm{MLP,piloto}}\)</span>, margen <span class="math notranslate nohighlight">\(\delta=0,03\)</span>, <span class="math notranslate nohighlight">\(\alpha=0,05\)</span> y potencia objetivo <span class="math notranslate nohighlight">\(0,80\)</span>, se calcula</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-011">
-<span class="eqno">(60)<a class="headerlink" href="#equation-eq-10-evaluacion-011" title="Link to this equation">#</a></span>\[
+<span class="eqno">(67)<a class="headerlink" href="#equation-eq-10-evaluacion-011" title="Link to this equation">#</a></span>\[
 R\approx\left\lceil\left[\frac{(z_{1-\alpha/2}+z_{0,80})\widehat\sigma_d}{\delta}\right]^2\right\rceil,\qquad
 \mathrm{MDD}_5=(z_{1-\alpha/2}+z_{0,80})\frac{\widehat\sigma_d}{\sqrt5}.
 \]</div>
@@ -8514,20 +8514,20 @@ Levene centrado en mediana: p=0.000548
 <span id="techo-empirico"></span><h2>Techo empírico de desempeño y distancia γ<a class="headerlink" href="#techo-empirico-de-desempeno-y-distancia" title="Link to this heading">#</a></h2>
 <p>La complementariedad entre procedimientos permite construir una referencia optimista para los 1.461 orígenes diarios de 2022–2025. Se incluyen las diez semillas de M4, las cinco de cada uno de los quince comparadores aprendidos y las dos referencias estacionales. La pérdida de cada procedimiento se calcula primero por semilla y día; después se promedian las semillas. Se conserva el horizonte de 24 horas y la escala semanal de entrenamiento <span class="math notranslate nohighlight">\(Q=215.617,90\)</span> kWh:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-012">
-<span class="eqno">(61)<a class="headerlink" href="#equation-eq-10-evaluacion-012" title="Link to this equation">#</a></span>\[
+<span class="eqno">(68)<a class="headerlink" href="#equation-eq-10-evaluacion-012" title="Link to this equation">#</a></span>\[
 L_{m,t}=\frac{1}{S_m}\sum_{s=1}^{S_m}\frac{1}{24Q}\sum_{h=1}^{24}|y_{t,h}-\widehat y_{m,s,t,h}|,
 \qquad E_m=\frac{1}{T}\sum_{t=1}^{T}L_{m,t}.
 \]</div>
 <p>La referencia selecciona la menor pérdida entre los 18 procedimientos para cada origen, después de observar los errores:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-013">
-<span class="eqno">(62)<a class="headerlink" href="#equation-eq-10-evaluacion-013" title="Link to this equation">#</a></span>\[
+<span class="eqno">(69)<a class="headerlink" href="#equation-eq-10-evaluacion-013" title="Link to this equation">#</a></span>\[
 L_{\mathrm{ref},t}=\min_{m\in\mathcal M} L_{m,t},\qquad
 E_{\mathrm{ref}}=\frac{1}{T}\sum_t L_{\mathrm{ref},t}.
 \]</div>
 <p>Este selector retrospectivo delimita el margen dentro del conjunto evaluado; no constituye un pronosticador disponible en el origen ni una estimación del error irreducible. El mínimo se toma sobre las pérdidas promedio de semillas, sin seleccionar la mejor semilla ni combinar predicciones con información futura.</p>
 <p>La distancia normalizada utiliza como base el ingenuo semanal. Dado que el MASE se minimiza, la expresión en términos de error es:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-014">
-<span class="eqno">(63)<a class="headerlink" href="#equation-eq-10-evaluacion-014" title="Link to this equation">#</a></span>\[
+<span class="eqno">(70)<a class="headerlink" href="#equation-eq-10-evaluacion-014" title="Link to this equation">#</a></span>\[
 \gamma_m=\frac{E_m-E_{\mathrm{ref}}}{E_{\mathrm{semanal}}-E_{\mathrm{ref}}}.
 \]</div>
 <p>Un valor de cero coincide con la referencia empírica y uno coincide con el ingenuo semanal. Los valores superiores a uno indican mayor error que esa base. <span class="math notranslate nohighlight">\(1-\gamma_m\)</span> expresa la proporción de la brecha cerrada desde la base. Los IC95 % puntuales proceden de 9.999 réplicas de bootstrap estacionario pareado, con longitud media de bloque de 14 días. Cada réplica comparte fechas entre los 18 procedimientos y su mínimo diario. Los intervalos están condicionados a los pesos y semillas conservados.</p>
@@ -9437,7 +9437,7 @@ E_{\mathrm{ref}}=\frac{1}{T}\sum_t L_{\mathrm{ref},t}.
 <p>La <a class="reference external" href="https://scikit-learn.org/stable/modules/permutation_importance.html">importancia por permutación</a> describe la dependencia de un modelo ajustado respecto de sus entradas. Aquí se adapta a ventanas temporales: se trasladan circularmente orígenes completos dentro de cada año, con diez desplazamientos reproducibles y una separación circular mínima de 28 días. Se conserva el orden de las horas dentro de cada bloque y se utilizan los mismos donantes para familias, semillas y grupos. Las etiquetas permanecen en sus fechas originales. Esta perturbación es un diagnóstico retrospectivo, no un pronóstico operativo ni una estimación causal.</p>
 <p>La importancia se expresa como diferencia de MASE:</p>
 <div class="math notranslate nohighlight" id="equation-eq-10-evaluacion-015">
-<span class="eqno">(64)<a class="headerlink" href="#equation-eq-10-evaluacion-015" title="Link to this equation">#</a></span>\[
+<span class="eqno">(71)<a class="headerlink" href="#equation-eq-10-evaluacion-015" title="Link to this equation">#</a></span>\[
 I_g=\frac{1}{50}\sum_{s=1}^{5}\sum_{r=1}^{10}
 \frac{\operatorname{MAE}_{s,r,g}-\operatorname{MAE}_{s}}{q_{168}}.
 \]</div>

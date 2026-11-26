@@ -6,7 +6,7 @@ import {describeChart} from './interpretaciones_graficas.js?v=interpretaciones-2
 import {renderCeiling} from './ceiling_views.js?v=techo-20261124';
 import {renderRobustness} from './robustness_views.js?v=robustez-20261124';
 import {prioritizationHTML} from './literature_views.js?v=priorizacion-20261124';
-import {createM4Views} from './m4_views.js?v=bibliografia-20261126';
+import {createM4Views} from './m4_views.js?v=propiedades-20261126';
 import {mean,windowMetrics,spearman,calendarProfile,pairRecord,temporalVerdict,validationTestRows,m4AdjustedP,escapeHTML as e} from './core.js?v=revision-editorial-20261124';
 const $=id=>document.getElementById(id),C={teal:'#126c70',blue:'#3b789b',ink:'#24383e',muted:'#65767d',coral:'#af5846',gray:'#96a4ab'};
 const cache=new Map();let S,M4,series,corpus,observed,prioritization,robustness,ceiling,masterTable,uncertainty,modelTheory,efficiency,literatureAnnexes;

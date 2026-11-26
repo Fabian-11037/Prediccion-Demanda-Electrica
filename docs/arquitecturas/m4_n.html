@@ -431,8 +431,16 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detalle-de-las-operaciones">Detalle de las operaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-objetivo-y-entrenamiento-temporal">Función objetivo y entrenamiento temporal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capacidad-y-coste-computacional">Capacidad y coste computacional</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-de-la-memoria-y-estabilidad-local">Fundamento de la memoria y estabilidad local</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-de-la-memoria">Fundamento de la memoria</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradientes-de-la-memoria-y-verificacion-de-la-propiedad">Gradientes de la memoria y verificación de la propiedad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-formales-de-la-memoria-residual">Propiedades formales de la memoria residual</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposicion-1-disponibilidad-causal-por-origen">Proposición 1. Disponibilidad causal por origen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposicion-2-correccion-acotada-y-retorno-a-m1">Proposición 2. Corrección acotada y retorno a M1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposicion-3-estabilidad-local-y-conservacion-de-vecinos">Proposición 3. Estabilidad local y conservación de vecinos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposicion-4-condicion-para-no-aumentar-el-error-absoluto">Proposición 4. Condición para no aumentar el error absoluto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-de-la-demostracion-y-de-la-verificacion-numerica">Alcance de la demostración y de la verificación numérica</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmo-temporal">Algoritmo temporal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-los-expertos-seleccionados">Código de los expertos seleccionados</a><ul class="nav section-nav flex-column">
@@ -632,45 +640,128 @@ P_{\mathrm{activo}}=2(32n+32+64)+(36\cdot64+64+64+1)=64n+2625.
 <p>Con n=912 hay 60.993 parámetros activos del corrector. La base M1 y el banco de episodios se contabilizan aparte: la cantidad de parámetros no incluye el almacenamiento ni el coste de buscar vecinos.</p>
 <p>Para M episodios, proyectar claves requiere trabajo proporcional a M·n·32. Una consulta compara su vector de 32 coordenadas con M claves, selecciona vecinos y agrega hasta 16 trayectorias de 24 valores. Las claves pueden calcularse una vez por episodio con pesos congelados; se debe conservar esa misma política al medir latencia. El coste total comprende la base, el almacenamiento de episodios y la búsqueda de vecinos, además de los parámetros activos del corrector.</p>
 </section>
-<section id="fundamento-de-la-memoria-y-estabilidad-local">
-<h2>Fundamento de la memoria y estabilidad local<a class="headerlink" href="#fundamento-de-la-memoria-y-estabilidad-local" title="Link to this heading">#</a></h2>
+<section id="fundamento-de-la-memoria">
+<h2>Fundamento de la memoria<a class="headerlink" href="#fundamento-de-la-memoria" title="Link to this heading">#</a></h2>
 <p>La recuperación residual y la actualización de memoria cuentan con antecedentes directos en RATL, ResMem y FreshCast. La <a class="reference internal" href="m4_n_novedad.html#novedad-m4"><span class="std std-ref">matriz de originalidad</span></a> delimita la contribución candidata de la construcción OOF temporal anidada de M1 y su integración causal. La interpretación de sus componentes se apoya en las ablaciones de la evaluación integrada.</p>
-<p>Puede estudiarse la estabilidad local de la corrección cuando el banco y los vecinos seleccionados permanecen fijos. Si cada residuo está acotado por R, la variación de la corrección entre dos consultas satisface:</p>
-<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-m4-n-019">
-<span class="eqno">(45)<a class="headerlink" href="#equation-eq-arquitecturas-m4-n-019" title="Link to this equation">#</a></span>\[
-\|\Delta(x)-\Delta(x')\|_\infty\leq qR\left(|g(x)-g(x')|+\|\alpha(x)-\alpha(x')\|_1\right).
-\]</div>
-<p>Para justificarla, se fija un mismo conjunto de residuos y se supone que su norma máxima es R. La atención pertenece al simplex y la compuerta toma valores entre cero y uno. Al sumar y restar la corrección que usa la compuerta de la segunda consulta y la atención de la primera, se obtiene:</p>
-<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-m4-n-020">
-<span class="eqno">(46)<a class="headerlink" href="#equation-eq-arquitecturas-m4-n-020" title="Link to this equation">#</a></span>\[
-\Delta(x)-\Delta(x')=q\,(g(x)-g(x'))\sum_i\alpha_i(x)r_i+q\,g(x')\sum_i(\alpha_i(x)-\alpha_i(x'))r_i.
-\]</div>
-<p>La primera suma tiene norma máxima acotada por R, por ser una combinación convexa. La segunda está acotada por R multiplicado por la distancia L1 entre las atenciones. Aplicar la desigualdad triangular y la cota de la compuerta produce el resultado. La propiedad vincula la variación de la corrección con la de sus pesos; no establece una constante global respecto de las entradas. El cambio de vecinos en top-k o la incorporación de un episodio modifica los supuestos de banco y vecindario fijos.</p>
+<p>Las propiedades siguientes precisan la disponibilidad causal, la amplitud de la corrección y la estabilidad del pronóstico. Sus garantías se condicionan al banco admisible y a las operaciones documentadas.</p>
 <!-- cierre-math-inicio -->
 </section>
 <section id="gradientes-de-la-memoria-y-verificacion-de-la-propiedad">
 <h2>Gradientes de la memoria y verificación de la propiedad<a class="headerlink" href="#gradientes-de-la-memoria-y-verificacion-de-la-propiedad" title="Link to this heading">#</a></h2>
 <p>Para un origen, sea <span class="math notranslate nohighlight">\(v_h=\mathrm{sign}(\widehat{y}_h-y_h)/(24q)\)</span> y <span class="math notranslate nohighlight">\(\bar{r}_h=\sum_i\alpha_i r_{i,h}\)</span>. En error cero se utiliza la subderivada cero. La salida <span class="math notranslate nohighlight">\(\widehat{y}_h=b_h+qg\bar{r}_h\)</span> transmite dos señales: cambiar el residuo recuperado y cambiar cuánto se confía en él. Manteniendo el conjunto de vecinos fijo:</p>
 <div class="math notranslate nohighlight" id="equation-eq-arquitecturas-m4-n-021">
-<span class="eqno">(47)<a class="headerlink" href="#equation-eq-arquitecturas-m4-n-021" title="Link to this equation">#</a></span>\[
+<span class="eqno">(45)<a class="headerlink" href="#equation-eq-arquitecturas-m4-n-021" title="Link to this equation">#</a></span>\[
 \frac{\partial\mathcal{L}}{\partial g}=q\sum_hv_h\bar{r}_h,\qquad
 \frac{\partial\bar{r}_h}{\partial s_i}=\alpha_i(r_{i,h}-\bar{r}_h).
 \]</div>
 <p>La compuerta depende también de la dispersión y de la semejanza recuperadas. Por eso el gradiente completo del puntaje incluye ambas rutas:</p>
 <div class="math notranslate nohighlight" id="equation-eq-arquitecturas-m4-n-022">
-<span class="eqno">(48)<a class="headerlink" href="#equation-eq-arquitecturas-m4-n-022" title="Link to this equation">#</a></span>\[
+<span class="eqno">(46)<a class="headerlink" href="#equation-eq-arquitecturas-m4-n-022" title="Link to this equation">#</a></span>\[
 \frac{\partial\mathcal{L}}{\partial s_i}
 =q\sum_hv_h\left[g\alpha_i(r_{i,h}-\bar{r}_h)+\bar{r}_h\frac{\partial g}{\partial s_i}\right].
 \]</div>
 <p>Para <span class="math notranslate nohighlight">\(g=\sigma(f)\)</span>, <span class="math notranslate nohighlight">\(\partial g/\partial f=g(1-g)\)</span>. El producto interno transmite los gradientes de los puntajes a consulta y claves; LayerNorm y las proyecciones completan la regla de la cadena. El gradiente de pertenencia al top-k no se define como una operación continua: la diferenciación se realiza dentro del conjunto seleccionado. Los expertos y M1 permanecen congelados. AdamW aplica el paso adaptativo y el decaimiento de pesos únicamente a los parámetros activos de la memoria; la evaluación no ejecuta esos pasos.</p>
-<p>Como la atención forma una combinación convexa y <span class="math notranslate nohighlight">\(0\leq g\leq1\)</span>, para cada hora se obtiene:</p>
-<div class="math notranslate nohighlight" id="equation-eq-arquitecturas-m4-n-023">
-<span class="eqno">(49)<a class="headerlink" href="#equation-eq-arquitecturas-m4-n-023" title="Link to this equation">#</a></span>\[
-|\widehat{y}_h-b_h|\leq qg\sum_i\alpha_i|r_{i,h}|\leq qg\max_i|r_{i,h}|.
-\]</div>
-<p>Esta cota limita la corrección respecto de los residuos recuperados. Con atención y compuerta fijas, una perturbación de los valores satisface <span class="math notranslate nohighlight">\(|\Delta\widehat{y}_h|\leq qg\max_i|\Delta r_{i,h}|\)</span>. Si varían las claves, la consulta o la compuerta, intervienen términos adicionales. Para la proyección numérica seguida de LayerNorm, una cota global de su constante de Lipschitz es <span class="math notranslate nohighlight">\(\|W\|_2\|\gamma\|_\infty/\sqrt{\epsilon}\)</span>. No se extiende esta propiedad local al cambio discreto del vecindario ni se deduce una reducción garantizada del error.</p>
+<p>La corrección acotada, la estabilidad y sus supuestos se formalizan en las proposiciones siguientes.</p>
 <p>Se comprueban 10 condiciones del núcleo y la cota en 128 consultas: violación máxima 0,0 kWh. Las normas espectrales de las proyecciones numéricas son 1,051 y 0,993. Los gradientes locales se contrastan con diferencias finitas, sin actualizar parámetros. La evaluación ampliada conserva código, resultados y supuestos.</p>
 <!-- cierre-math-fin -->
+<!-- m4-propiedades-formales-inicio -->
+</section>
+<section id="propiedades-formales-de-la-memoria-residual">
+<span id="propiedades-formales-m4"></span><h2>Propiedades formales de la memoria residual<a class="headerlink" href="#propiedades-formales-de-la-memoria-residual" title="Link to this heading">#</a></h2>
+<p>La formulación considera el pronóstico de 24 horas de M1, <span class="math notranslate nohighlight">\(\mathbf{b}_t\)</span>, la escala histórica fija <span class="math notranslate nohighlight">\(q&gt;0\)</span> en kWh y los residuos normalizados <span class="math notranslate nohighlight">\(\mathbf{r}_i=(\mathbf{y}_i-\mathbf{b}_i)/q\)</span>. Cada episodio conserva el pronóstico que se emitió con su base correspondiente; no se sustituye por una predicción ajustada sobre sus propias etiquetas. Durante evaluación, los expertos, M1, la memoria y las transformaciones permanecen congelados. La actualización incorpora episodios observados, sin modificar parámetros.</p>
+<section id="proposicion-1-disponibilidad-causal-por-origen">
+<h3>Proposición 1. Disponibilidad causal por origen<a class="headerlink" href="#proposicion-1-disponibilidad-causal-por-origen" title="Link to this heading">#</a></h3>
+<p><strong>Supuestos.</strong> Sea <span class="math notranslate nohighlight">\(\mathcal{F}_t\)</span> la información disponible estrictamente antes del origen <span class="math notranslate nohighlight">\(t\)</span>, junto con el calendario conocido de su horizonte. Los parámetros y escaladores se fijaron antes del periodo evaluado. Para cada episodio, <span class="math notranslate nohighlight">\(\tau_i\)</span> es la disponibilidad de todos los datos necesarios para calcular su residuo de 24 horas, incluida la trayectoria observada completa. Las entradas, máscaras y contextos admitidos son funciones de <span class="math notranslate nohighlight">\(\mathcal{F}_t\)</span>. El banco y los vecinos satisfacen:</p>
+<div class="math notranslate nohighlight" id="equation-eq-m4-formal-disponibilidad">
+<span class="eqno">(47)<a class="headerlink" href="#equation-eq-m4-formal-disponibilidad" title="Link to this equation">#</a></span>\[
+B_t=\{i:2\leq t-i\leq365,\ \tau_i&lt;t\},\qquad A_t\subseteq B_t.
+\]</div>
+<p>Aquí <span class="math notranslate nohighlight">\(t-i\)</span> se mide en días. El filtro de edad debe acompañarse del supuesto de disponibilidad: una observación publicada con retraso no se vuelve admisible solo por su antigüedad. Se fija una regla de desempate que no consulta etiquetas futuras.</p>
+<p><strong>Enunciado.</strong> El pronóstico es una función de la información admisible:</p>
+<div class="math notranslate nohighlight" id="equation-eq-m4-formal-pronostico">
+<span class="eqno">(48)<a class="headerlink" href="#equation-eq-m4-formal-pronostico" title="Link to this equation">#</a></span>\[
+\widehat{\mathbf{y}}_t=\mathbf{b}_t+qg_t\sum_{i\in A_t}\alpha_{t,i}\mathbf{r}_i.
+\]</div>
+<p>Dos historias idénticas en <span class="math notranslate nohighlight">\(\mathcal{F}_t\)</span> producen el mismo pronóstico en <span class="math notranslate nohighlight">\(t\)</span>, aunque difieran después del origen.</p>
+<p><strong>Demostración.</strong> La historia numérica y el calendario determinan <span class="math notranslate nohighlight">\(\mathbf{b}_t\)</span> y la consulta mediante funciones congeladas. Cada residuo admitido y su contexto pertenecen a <span class="math notranslate nohighlight">\(\mathcal{F}_t\)</span> por la condición <span class="math notranslate nohighlight">\(\tau_i&lt;t\)</span>. La máscara, los puntajes, la selección de vecinos, la atención y la compuerta son composiciones de funciones de esa misma información. Su combinación también es función de <span class="math notranslate nohighlight">\(\mathcal{F}_t\)</span>. Al avanzar al siguiente origen, solo se añaden episodios cuya disponibilidad ya se alcanzó; por inducción se conserva la propiedad en toda la evaluación.</p>
+<p><strong>Interpretación.</strong> La construcción OOF temporal evita utilizar un pronóstico de base ajustado o seleccionado con sus propias etiquetas. La causalidad durante evaluación requiere además que el banco respete la disponibilidad completa. La proposición es condicional al contrato de información, no una certificación independiente de las fechas de cada fuente.</p>
+</section>
+<section id="proposicion-2-correccion-acotada-y-retorno-a-m1">
+<h3>Proposición 2. Corrección acotada y retorno a M1<a class="headerlink" href="#proposicion-2-correccion-acotada-y-retorno-a-m1" title="Link to this heading">#</a></h3>
+<p><strong>Supuestos.</strong> El conjunto <span class="math notranslate nohighlight">\(A_t\)</span> es finito y no vacío, los residuos son finitos, <span class="math notranslate nohighlight">\(\alpha_{t,i}\geq0\)</span>, <span class="math notranslate nohighlight">\(\sum_i\alpha_{t,i}=1\)</span> y <span class="math notranslate nohighlight">\(0\leq g_t\leq1\)</span>. Para cada hora <span class="math notranslate nohighlight">\(h\)</span>, sean <span class="math notranslate nohighlight">\(L_{t,h}=\min_{i\in A_t}r_{i,h}\)</span> y <span class="math notranslate nohighlight">\(U_{t,h}=\max_{i\in A_t}r_{i,h}\)</span>.</p>
+<p><strong>Enunciado.</strong> El residuo recuperado pertenece al intervalo de los episodios seleccionados:</p>
+<div class="math notranslate nohighlight" id="equation-eq-m4-formal-convexidad">
+<span class="eqno">(49)<a class="headerlink" href="#equation-eq-m4-formal-convexidad" title="Link to this equation">#</a></span>\[
+L_{t,h}\leq\bar r_{t,h}=\sum_i\alpha_{t,i}r_{i,h}\leq U_{t,h}.
+\]</div>
+<p>La salida satisface:</p>
+<div class="math notranslate nohighlight" id="equation-eq-m4-formal-cota">
+<span class="eqno">(50)<a class="headerlink" href="#equation-eq-m4-formal-cota" title="Link to this equation">#</a></span>\[
+b_{t,h}+qg_tL_{t,h}\leq\widehat y_{t,h}\leq b_{t,h}+qg_tU_{t,h},\qquad
+|\widehat y_{t,h}-b_{t,h}|\leq qg_t\max_i|r_{i,h}|.
+\]</div>
+<p><strong>Demostración.</strong> Multiplicar <span class="math notranslate nohighlight">\(L_{t,h}\leq r_{i,h}\leq U_{t,h}\)</span> por pesos no negativos y sumarlos conserva las desigualdades. La suma de los pesos es uno. La multiplicación por <span class="math notranslate nohighlight">\(qg_t\geq0\)</span> y la adición de la base dan el primer intervalo; la desigualdad triangular da la cota absoluta.</p>
+<p>Si el banco contiene menos de 16 episodios admisibles, la combinación se normaliza sobre los disponibles y se conserva el argumento. Si <span class="math notranslate nohighlight">\(A_t\)</span> es vacío, la implementación anula la corrección; por definición, <span class="math notranslate nohighlight">\(\widehat{\mathbf{y}}_t=\mathbf{b}_t\)</span>. Un único vecino produce su propia trayectoria residual, modulada por la compuerta.</p>
+<p><strong>Interpretación.</strong> La corrección se limita por los residuos seleccionados y puede contener valores positivos o negativos. La cota no impone un límite absoluto uniforme cuando los residuos históricos son arbitrariamente grandes, ni asegura una reducción del error frente a M1.</p>
+</section>
+<section id="proposicion-3-estabilidad-local-y-conservacion-de-vecinos">
+<h3>Proposición 3. Estabilidad local y conservación de vecinos<a class="headerlink" href="#proposicion-3-estabilidad-local-y-conservacion-de-vecinos" title="Link to this heading">#</a></h3>
+<p><strong>Supuestos.</strong> Se comparan dos contextos en el mismo origen, con la misma escala <span class="math notranslate nohighlight">\(q\)</span>, el mismo conjunto admisible y los mismos identificadores de vecinos. Las cantidades perturbadas se denotan con prima. Sea <span class="math notranslate nohighlight">\(M=\max_{i,h}|r_{i,h}|\)</span>, <span class="math notranslate nohighlight">\(D_R=\max_{i,h}|r'_{i,h}-r_{i,h}|\)</span> y <span class="math notranslate nohighlight">\(\Delta\mathbf{b}=\mathbf{b}'-\mathbf{b}\)</span>. Las atenciones de ambos contextos son distribuciones y ambas compuertas pertenecen a <span class="math notranslate nohighlight">\([0,1]\)</span>.</p>
+<p><strong>Enunciado.</strong> El cambio del pronóstico cumple:</p>
+<div class="math notranslate nohighlight" id="equation-eq-m4-formal-estabilidad">
+<span class="eqno">(51)<a class="headerlink" href="#equation-eq-m4-formal-estabilidad" title="Link to this equation">#</a></span>\[
+\|\widehat{\mathbf{y}}'-\widehat{\mathbf{y}}\|_\infty
+\leq\|\Delta\mathbf{b}\|_\infty
++q\left(M|g'-g|+g'M\|\boldsymbol{\alpha}'-\boldsymbol{\alpha}\|_1+g'D_R\right).
+\]</div>
+<p><strong>Demostración.</strong> La diferencia entre las correcciones puede descomponerse exactamente en:</p>
+<div class="math notranslate nohighlight" id="equation-eq-m4-formal-descomposicion">
+<span class="eqno">(52)<a class="headerlink" href="#equation-eq-m4-formal-descomposicion" title="Link to this equation">#</a></span>\[
+g'\sum_i\alpha'_i\mathbf{r}'_i-g\sum_i\alpha_i\mathbf{r}_i
+=(g'-g)\sum_i\alpha_i\mathbf{r}_i
++g'\sum_i(\alpha'_i-\alpha_i)\mathbf{r}_i
++g'\sum_i\alpha'_i(\mathbf{r}'_i-\mathbf{r}_i).
+\]</div>
+<p>Las normas de los tres términos están acotadas por <span class="math notranslate nohighlight">\(M|g'-g|\)</span>, <span class="math notranslate nohighlight">\(g'M\|\boldsymbol{\alpha}'-\boldsymbol{\alpha}\|_1\)</span> y <span class="math notranslate nohighlight">\(g'D_R\)</span>, respectivamente. Aplicar la desigualdad triangular, multiplicar por <span class="math notranslate nohighlight">\(q\)</span> y añadir el cambio de la base demuestra el resultado. En el caso de atención y compuerta fijas, se recupera la cota <span class="math notranslate nohighlight">\(\|\Delta\widehat{\mathbf{y}}\|_\infty\leq\|\Delta\mathbf{b}\|_\infty+qgD_R\)</span>.</p>
+<p><strong>Conservación de vecinos.</strong> Sean <span class="math notranslate nohighlight">\(s_{(k)}\)</span> y <span class="math notranslate nohighlight">\(s_{(k+1)}\)</span> los puntajes ordenados de mayor a menor en el conjunto admisible y <span class="math notranslate nohighlight">\(\varepsilon_s=\max_i|s'_i-s_i|\)</span>. Cuando existen al menos <span class="math notranslate nohighlight">\(k+1\)</span> candidatos:</p>
+<div class="math notranslate nohighlight" id="equation-eq-m4-formal-margen-topk">
+<span class="eqno">(53)<a class="headerlink" href="#equation-eq-m4-formal-margen-topk" title="Link to this equation">#</a></span>\[
+s_{(k)}-s_{(k+1)}&gt;2\varepsilon_s
+\quad\Longrightarrow\quad A'_t=A_t.
+\]</div>
+<p>En efecto, el menor puntaje seleccionado cae como máximo <span class="math notranslate nohighlight">\(\varepsilon_s\)</span> y el mayor excluido sube como máximo esa misma cantidad. La separación sigue siendo positiva. Si todos los candidatos admisibles están seleccionados, la pertenencia se conserva mientras no cambie la máscara de disponibilidad. La condición no asegura conservar el orden interno, que no altera la suma ponderada.</p>
+<p>Dentro de un vecindario estable, las proyecciones, LayerNorm con <span class="math notranslate nohighlight">\(\epsilon&gt;0\)</span>, softmax y la compuerta son continuas. Para una proyección lineal seguida de LayerNorm, una cota de Lipschitz es:</p>
+<div class="math notranslate nohighlight" id="equation-eq-m4-formal-layernorm">
+<span class="eqno">(54)<a class="headerlink" href="#equation-eq-m4-formal-layernorm" title="Link to this equation">#</a></span>\[
+L_{\mathrm{LN}\circ W}\leq\frac{\|W\|_2\|\gamma\|_\infty}{\sqrt{\epsilon}}.
+\]</div>
+<p>El centrado de LayerNorm es una proyección ortogonal. Si <span class="math notranslate nohighlight">\(a\)</span> es la raíz de la varianza más <span class="math notranslate nohighlight">\(\epsilon\)</span>, el jacobiano de la normalización tiene norma espectral a lo sumo <span class="math notranslate nohighlight">\(1/a\leq1/\sqrt{\epsilon}\)</span>. El escalado por <span class="math notranslate nohighlight">\(\gamma\)</span> multiplica esa cota por <span class="math notranslate nohighlight">\(\|\gamma\|_\infty\)</span> y la composición con la proyección lineal, por <span class="math notranslate nohighlight">\(\|W\|_2\)</span>; los sesgos no afectan la constante. Así se obtiene la cota indicada.</p>
+<p><strong>Interpretación.</strong> La perturbación puede afectar la base, los pesos de atención, la confianza y los valores recuperados; la cota separa sus contribuciones. Si desaparece la separación entre vecinos o cambia el banco admisible, esta demostración local no proporciona una garantía de continuidad de la selección top-k. La continuidad local tampoco implica una cota numéricamente pequeña.</p>
+</section>
+<section id="proposicion-4-condicion-para-no-aumentar-el-error-absoluto">
+<h3>Proposición 4. Condición para no aumentar el error absoluto<a class="headerlink" href="#proposicion-4-condicion-para-no-aumentar-el-error-absoluto" title="Link to this heading">#</a></h3>
+<p><strong>Definiciones.</strong> Para una hora, sean <span class="math notranslate nohighlight">\(e_h=y_h-b_h\)</span> el error firmado de M1 en kWh y <span class="math notranslate nohighlight">\(c_h=\widehat y_h-b_h=qg\bar r_h\)</span> la corrección. El nuevo error es <span class="math notranslate nohighlight">\(e_h-c_h\)</span>.</p>
+<p><strong>Enunciado.</strong> Para <span class="math notranslate nohighlight">\(e_h\neq0\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-m4-formal-error-absoluto">
+<span class="eqno">(55)<a class="headerlink" href="#equation-eq-m4-formal-error-absoluto" title="Link to this equation">#</a></span>\[
+|e_h-c_h|\leq|e_h|
+\quad\Longleftrightarrow\quad
+0\leq\frac{c_h}{e_h}\leq2.
+\]</div>
+<p><strong>Demostración.</strong> Dividir por <span class="math notranslate nohighlight">\(|e_h|&gt;0\)</span> transforma la desigualdad en <span class="math notranslate nohighlight">\(|1-c_h/e_h|\leq1\)</span>, equivalente al intervalo indicado. La mejora es estricta cuando <span class="math notranslate nohighlight">\(0&lt;c_h/e_h&lt;2\)</span>. Para <span class="math notranslate nohighlight">\(e_h=0\)</span>, no aumentar el error exige <span class="math notranslate nohighlight">\(c_h=0\)</span>.</p>
+<p>Si estas condiciones se cumplen en todas las horas y orígenes evaluados, la suma de errores absolutos tampoco aumenta. Al utilizar la misma escala positiva <span class="math notranslate nohighlight">\(q\)</span>, se obtiene:</p>
+<div class="math notranslate nohighlight" id="equation-eq-m4-formal-mae-mase">
+<span class="eqno">(56)<a class="headerlink" href="#equation-eq-m4-formal-mae-mase" title="Link to this equation">#</a></span>\[
+\operatorname{MAE}_{\mathrm{M4}}\leq\operatorname{MAE}_{\mathrm{M1}},\qquad
+\operatorname{MASE}_{\mathrm{M4}}\leq\operatorname{MASE}_{\mathrm{M1}}.
+\]</div>
+<p><strong>Interpretación.</strong> La corrección debe apuntar hacia el error y no exceder el doble de su magnitud. La condición por hora es suficiente para la mejora agregada, pero no necesaria: algunas horas pueden empeorar mientras el promedio mejora. Los errores reales se conocen después del horizonte, por lo que esta condición sirve para interpretar las correcciones observadas y no como una regla de decisión disponible al emitir el pronóstico. No se supone que el aprendizaje garantice su cumplimiento.</p>
+</section>
+<section id="alcance-de-la-demostracion-y-de-la-verificacion-numerica">
+<h3>Alcance de la demostración y de la verificación numérica<a class="headerlink" href="#alcance-de-la-demostracion-y-de-la-verificacion-numerica" title="Link to this heading">#</a></h3>
+<p>Las proposiciones se derivan de los supuestos y operaciones indicados, con aritmética exacta. Su implementación en coma flotante admite tolerancias numéricas. Las 128 consultas y diez comprobaciones ya documentadas respaldan la implementación de la cota y los gradientes en los casos examinados; no constituyen una verificación exhaustiva de todas las proposiciones. La superioridad predictiva se determina con los contrastes temporales de la evaluación integrada, mientras estas propiedades caracterizan la disponibilidad y la respuesta de la arquitectura.</p>
+<!-- m4-propiedades-formales-fin -->
+</section>
 </section>
 <section id="algoritmo-temporal">
 <h2>Algoritmo temporal<a class="headerlink" href="#algoritmo-temporal" title="Link to this heading">#</a></h2>
@@ -1665,8 +1756,16 @@ P_{\mathrm{activo}}=2(32n+32+64)+(36\cdot64+64+64+1)=64n+2625.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detalle-de-las-operaciones">Detalle de las operaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-objetivo-y-entrenamiento-temporal">Función objetivo y entrenamiento temporal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capacidad-y-coste-computacional">Capacidad y coste computacional</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-de-la-memoria-y-estabilidad-local">Fundamento de la memoria y estabilidad local</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-de-la-memoria">Fundamento de la memoria</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradientes-de-la-memoria-y-verificacion-de-la-propiedad">Gradientes de la memoria y verificación de la propiedad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-formales-de-la-memoria-residual">Propiedades formales de la memoria residual</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposicion-1-disponibilidad-causal-por-origen">Proposición 1. Disponibilidad causal por origen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposicion-2-correccion-acotada-y-retorno-a-m1">Proposición 2. Corrección acotada y retorno a M1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposicion-3-estabilidad-local-y-conservacion-de-vecinos">Proposición 3. Estabilidad local y conservación de vecinos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposicion-4-condicion-para-no-aumentar-el-error-absoluto">Proposición 4. Condición para no aumentar el error absoluto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-de-la-demostracion-y-de-la-verificacion-numerica">Alcance de la demostración y de la verificación numérica</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmo-temporal">Algoritmo temporal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-los-expertos-seleccionados">Código de los expertos seleccionados</a><ul class="nav section-nav flex-column">

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.96pt" height="17.44pt" viewBox="0 0 12.96 17.44" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.48pt" height="17.44pt" viewBox="0 0 16.48 17.44" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-24T10:26:47.721584</dc:date>
+    <dc:date>2026-11-26T12:18:00.608307</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -22,8 +22,8 @@
  <g id="figure_1">
   <g id="patch_1">
    <path d="M 0 17.44 
-L 12.96 17.44 
-L 12.96 0 
+L 16.48 17.44 
+L 16.48 0 
 L 0 0 
 L 0 17.44 
 z
@@ -31,11 +31,55 @@ z
   </g>
   <g id="text_1">
    <!-- $\eta_t$ -->
-   <g style="fill: #24383e" transform="translate(0.72 12.72)">
-    <text>
-     <tspan x="0" y="-0.9375" style="font-style: italic; font-size: 16px; font-family: 'STIXGeneral'; fill: #24383e">η</tspan>
-     <tspan x="7.584015" y="1.4625" style="font-style: italic; font-size: 11.2px; font-family: 'STIXGeneral'; fill: #24383e">t</tspan>
-    </text>
+   <g style="fill: #24383e" transform="translate(0.72 12.87625) scale(0.16 -0.16)">
+    <defs>
+     <path id="DejaVuSans-Oblique-34b" d="M 3703 2113 
+L 3034 -1331 
+L 2459 -1331 
+L 3125 2094 
+Q 3222 2591 3075 2838 
+Q 2931 3084 2544 3084 
+Q 2078 3084 1750 2788 
+Q 1425 2491 1325 1978 
+L 941 0 
+L 363 0 
+L 1044 3500 
+L 1622 3500 
+L 1516 2956 
+Q 1781 3272 2094 3428 
+Q 2403 3584 2769 3584 
+Q 3372 3584 3609 3213 
+Q 3844 2838 3703 2113 
+z
+" transform="scale(0.015625)"/>
+     <path id="DejaVuSans-Oblique-57" d="M 2706 3500 
+L 2619 3053 
+L 1472 3053 
+L 1100 1153 
+Q 1081 1047 1072 975 
+Q 1063 903 1063 863 
+Q 1063 663 1183 572 
+Q 1303 481 1569 481 
+L 2150 481 
+L 2053 0 
+L 1503 0 
+Q 991 0 739 200 
+Q 488 400 488 806 
+Q 488 878 497 964 
+Q 506 1050 525 1153 
+L 897 3053 
+L 409 3053 
+L 500 3500 
+L 978 3500 
+L 1172 4494 
+L 1747 4494 
+L 1556 3500 
+L 2706 3500 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#DejaVuSans-Oblique-34b"/>
+    <use xlink:href="#DejaVuSans-Oblique-57" transform="translate(63.378906 -14.999951) scale(0.7)"/>
    </g>
   </g>
  </g>

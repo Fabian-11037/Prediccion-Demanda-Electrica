@@ -42,7 +42,7 @@ export function createM4Views(api){
  function architecture(){
   $('model-content').innerHTML=`<div class="actions"><a class="button" href="./downloads/fichas/m4_n.md" download>Descargar ficha y código</a><a class="button" href="./downloads/m4_n_fuentes.zip" download>Descargar fuentes Python</a></div><p><button class="button" data-action="novelty">Consultar antecedentes y originalidad de M4</button></p><div id="m4-theory-content" role="status">Cargando arquitectura…</div>`;
   const version=st.version;
-  fetch('./theory/m4_n.fragment.html'+new URL(import.meta.url).search).then(r=>{if(!r.ok)throw Error('No se pudo cargar la arquitectura');return r.text();}).then(html=>{if(version===st.version)$('m4-theory-content').innerHTML=html;}).catch(error=>{if(version===st.version)$('m4-theory-content').textContent=error.message;});
+  fetch('./theory/m4_n.fragment.html'+new URL(import.meta.url).search).then(r=>{if(!r.ok)throw Error('No se pudo cargar la arquitectura');return r.text();}).then(html=>{if(version===st.version)$('m4-theory-content').innerHTML=html.replaceAll('https://fabian-11037.github.io/Prediccion-Demanda-Electrica/',S.book);}).catch(error=>{if(version===st.version)$('m4-theory-content').textContent=error.message;});
  }
  return {benchmark,diagnostics,architecture};
 }

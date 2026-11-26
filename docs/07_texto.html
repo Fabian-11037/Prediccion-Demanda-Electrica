@@ -423,7 +423,6 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparabilidad-de-las-entradas-textuales">Comparabilidad de las entradas textuales</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entradas-comunes-del-diseno-predictivo">Entradas comunes del diseño predictivo</a></li>
 </ul>
             </nav>
         </div>
@@ -465,7 +464,7 @@
 </table>
 </div>
 <p>El escenario <strong>declarado</strong> se aplica a ambos canales y a todas las particiones. La fecha declarada determina la disponibilidad, con las reglas conservadoras correspondientes a su precisión; los registros sin fecha utilizable o en cuarentena se excluyen. Una fecha diaria sin hora habilita el texto desde las 00:00 del día siguiente en Colombia. Se conserva la advertencia de versión histórica no verificada. El escenario estricto se reserva para sensibilidad y auditoría de disponibilidad; su escasez de texto histórico limita una comparación predictiva equivalente.</p>
-<p>Las variantes comparten el horizonte de 24 horas, los orígenes diarios y la partición vigente: entrenamiento de referencia 2000–2017, validación externa por encadenamiento hacia adelante en 2018–2021 y prueba 2022–2025. Cada pliegue ajusta las transformaciones y la relevancia con su historia permitida y su reserva interna de parada. El diseño conserva MASE y margen relativo del 3 %; los presupuestos efectivamente ejecutados se detallan en el capítulo de modelos y no son iguales entre todos los procedimientos. Se reportarán las diferencias apareadas por origen y la cobertura de cada canal, sin eliminar fechas por ausencia de texto.</p>
+<p>Las variantes comparten el horizonte de 24 horas, los orígenes diarios y la partición vigente: entrenamiento de referencia 2000–2017, validación externa por encadenamiento hacia adelante en 2018–2021 y prueba 2022–2025. Cada pliegue ajusta las transformaciones y la relevancia con su historia permitida y su reserva interna de parada. El diseño conserva MASE y margen relativo del 3 %; los presupuestos efectivamente ejecutados se detallan en el capítulo de modelos y no son iguales entre todos los procedimientos. La evaluación reporta diferencias apareadas por origen y conserva los días sin documentos.</p>
 <section id="canales-y-relevancia-aprendida">
 <h3>Canales y relevancia aprendida<a class="headerlink" href="#canales-y-relevancia-aprendida" title="Link to this heading">#</a></h3>
 <p>Los documentos oficiales y la prensa producen representaciones agregadas independientes, <span class="math notranslate nohighlight">\(z_{\mathrm{oficial},t}\)</span> y <span class="math notranslate nohighlight">\(z_{\mathrm{prensa},t}\)</span>, con un indicador de ausencia para cada canal. La representación vacía se fija en cero y su indicador permite distinguirla de un embedding observado. La ausencia describe el corpus recuperado, sin implicar que no ocurrieran eventos.</p>
@@ -800,7 +799,7 @@ z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
 <img alt="_images/f265f7618d4a427b4292c9a9447959ca2ad243040a03c3a2e7ac4d9bbbc1d1c0.png" src="_images/f265f7618d4a427b4292c9a9447959ca2ad243040a03c3a2e7ac4d9bbbc1d1c0.png" />
 </div>
 </div>
-<p>Se analizan 484,289 titulares, con mediana de 8 palabras. Hay 49 meses sin registros recuperados en ninguna fuente; no equivalen a meses sin publicaciones. El histograma muestra hasta 50 palabras y deja fuera 1 encabezados más extensos. La matriz distingue vacíos del archivo de aumentos de volumen asociados a nuevas fuentes.</p>
+<p>Se analizan 484,289 titulares, con mediana de 8 palabras. Hay 49 meses sin registros recuperados en ninguna fuente; no equivalen a meses sin publicaciones. El histograma muestra hasta 50 palabras y deja fuera un encabezado más extenso. La matriz distingue vacíos del archivo de aumentos de volumen asociados a nuevas fuentes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">repeticion</span><span class="o">=</span><span class="n">texto</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'source'</span><span class="p">)[[</span><span class="s1">'repetido_exacto'</span><span class="p">,</span><span class="s1">'repetido_normalizado'</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span>
@@ -1072,10 +1071,6 @@ z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
 <p>La comparación N frente a N+O utiliza los mismos orígenes diarios y conserva los días sin documentos mediante indicadores de ausencia. La cobertura por fuente, el volumen disponible y la longitud de los documentos permiten interpretar las diferencias entre particiones. La relevancia documental se aprende dentro del modelo; las agrupaciones léxicas del EDA describen el corpus y no se incorporan como etiquetas de entrenamiento.</p>
 </section>
 </section>
-<section id="entradas-comunes-del-diseno-predictivo">
-<h2>Entradas comunes del diseño predictivo<a class="headerlink" href="#entradas-comunes-del-diseno-predictivo" title="Link to this heading">#</a></h2>
-<p>La comparación con texto empleará el mismo conjunto numérico en todas sus variantes: demanda, calendario, clima de ocho ciudades, hidrología y precio. La especificación de disponibilidad, las máscaras y el presupuesto se presentan en el <a class="reference internal" href="09_diseno_ampliado.html#diseno-ampliado"><span class="std std-ref">diseño de entrenamiento ampliado</span></a>. La información realizada durante el horizonte queda excluida de las entradas.</p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1159,7 +1154,6 @@ z_{c,t}=\sum_{j\in D_{c,t}}\alpha_{c,t,j}e_{c,j},\qquad
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparabilidad-de-las-entradas-textuales">Comparabilidad de las entradas textuales</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entradas-comunes-del-diseno-predictivo">Entradas comunes del diseño predictivo</a></li>
 </ul>
   </nav></div>
 
