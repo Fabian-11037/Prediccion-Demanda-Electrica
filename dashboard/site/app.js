@@ -1,4 +1,4 @@
-import {methodologyHTML,trainingDesignHTML} from './training_design_views.js?v=diseno-20261127';
+import {methodologyHTML,trainingDesignHTML} from './training_design_views.js?v=particion-20261127';
 import {annexView} from './literature_annex_views.js?v=anexos-20261126';
 import {efficiencyView} from './efficiency_views.js?v=eficiencia-20261125';
 import {uncertaintyView} from './incertidumbre_views.js?v=incertidumbre-20261125';
