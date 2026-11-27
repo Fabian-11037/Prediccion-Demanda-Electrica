@@ -414,6 +414,15 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-la-arquitectura">Código de la arquitectura</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-entrenamiento-y-prueba">Diseño de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-en-validacion">Selección en validación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-conservada">Configuración conservada</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-del-entrenamiento-y-prueba">Etapas del entrenamiento y prueba</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuraciones-evaluadas-en-desarrollo">Configuraciones evaluadas en desarrollo</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-de-entrenamiento-y-evaluacion">Comandos de entrenamiento y evaluación</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escalado-por-pliegue-y-optimizacion">Escalado por pliegue y optimización</a></li>
@@ -537,6 +546,239 @@ h^{(j)}=D_{p}\!\left[\max(0,W_jh^{(j-1)}+b_j)\right],\quad j=1,2,
 <span class="linenos">76</span>        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">red</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">entrada</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">cf</span><span class="p">))</span>
 </pre></div>
 </div>
+<!-- diseno-entrenamiento:inicio -->
+</section>
+</section>
+<section id="diseno-de-entrenamiento-y-prueba">
+<h2>Diseño de entrenamiento y prueba<a class="headerlink" href="#diseno-de-entrenamiento-y-prueba" title="Link to this heading">#</a></h2>
+<section id="seleccion-en-validacion">
+<span id="diseno-entrenamiento-mlp"></span><h3>Selección en validación<a class="headerlink" href="#seleccion-en-validacion" title="Link to this heading">#</a></h3>
+<p>Se evaluaron <strong>20 configuraciones</strong> y 3 llegaron a la comparación de selección. La <strong>configuración mlp_11</strong> obtuvo el menor MASE de validación (0,5335) sobre 2018–2021. La configuración fijada para prueba es <strong>mlp_11</strong>, con 5 semillas.</p>
+<section id="configuracion-conservada">
+<h4>Configuración conservada<a class="headerlink" href="#configuracion-conservada" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parámetro</p></th>
+<th class="head"><p>Valor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Capas</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Unidades</p></td>
+<td><p>128</p></td>
+</tr>
+<tr class="row-even"><td><p>Dropout</p></td>
+<td><p>0,00354591</p></td>
+</tr>
+<tr class="row-odd"><td><p>Decaimiento de pesos</p></td>
+<td><p>0,000382722</p></td>
+</tr>
+<tr class="row-even"><td><p>Lote de ajuste</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tasa de aprendizaje</p></td>
+<td><p>0,00468963</p></td>
+</tr>
+<tr class="row-even"><td><p>Plan de tasa</p></td>
+<td><p>plateau</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pérdida</p></td>
+<td><p>huber</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="etapas-del-entrenamiento-y-prueba">
+<h4>Etapas del entrenamiento y prueba<a class="headerlink" href="#etapas-del-entrenamiento-y-prueba" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Etapa</p></th>
+<th class="head"><p>Especificación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Filtro inicial</p></td>
+<td><p>20 configuraciones; semilla 42; validación 2019; máximo 30 épocas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Confirmación y criterio</p></td>
+<td><p>3 finalistas; semillas 43 y 44; años 2018–2021; máximo 60 épocas. Menor MASE medio de validación; cada año tiene el mismo peso.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ajuste final</p></td>
+<td><p>2000–2021, excluida la reserva interna de parada</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parada interna final</p></td>
+<td><p>Último 10 % de orígenes anteriores a 2022; purga de 24 horas</p></td>
+</tr>
+<tr class="row-even"><td><p>Prueba</p></td>
+<td><p>2022-01-01 a 2025-12-31; 1.461 orígenes diarios</p></td>
+</tr>
+<tr class="row-odd"><td><p>Semillas finales</p></td>
+<td><p>1000, 1001, 1002, 1003, 1004</p></td>
+</tr>
+<tr class="row-even"><td><p>Historia y horizonte</p></td>
+<td><p>168 y 24 horas, respectivamente</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pérdida y optimizador</p></td>
+<td><p>Huber normalizada; transición 0,05; AdamW</p></td>
+</tr>
+<tr class="row-even"><td><p>Épocas y parada</p></td>
+<td><p>Máximo 60; mínimo 10; paciencia efectiva 6; restauración del menor valor interno</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tasa de aprendizaje</p></td>
+<td><p>ReduceLROnPlateau: factor 0,5; paciencia 2</p></td>
+</tr>
+<tr class="row-even"><td><p>Lotes</p></td>
+<td><p>Ajuste: 64; evaluación de prueba: hasta 4096 orígenes por lote</p></td>
+</tr>
+<tr class="row-odd"><td><p>Épocas ejecutadas</p></td>
+<td><p>19–26; épocas de los checkpoints: 24, 24, 20, 13, 20</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="configuraciones-evaluadas-en-desarrollo">
+<h4>Configuraciones evaluadas en desarrollo<a class="headerlink" href="#configuraciones-evaluadas-en-desarrollo" title="Link to this heading">#</a></h4>
+<p>El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Hiperparámetros</p></th>
+<th class="head text-right"><p>MASE del filtro</p></th>
+<th class="head text-right"><p>MASE de validación</p></th>
+<th class="head"><p>Estado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>mlp_11</strong></p></td>
+<td><p>Capas: 2; Unidades: 128; Dropout: 0,00354591; Decaimiento de pesos: 0,000382722; Lote de ajuste: 64; Tasa de aprendizaje: 0,00468963; Plan de tasa: plateau; Pérdida: huber</p></td>
+<td class="text-right"><p>0,4538</p></td>
+<td class="text-right"><p>0,5335</p></td>
+<td><p><strong>Seleccionada para prueba</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>mlp_15</p></td>
+<td><p>Capas: 3; Unidades: 512; Dropout: 0,031359; Decaimiento de pesos: 0,00200425; Lote de ajuste: 64; Tasa de aprendizaje: 0,000562722; Plan de tasa: none; Pérdida: huber</p></td>
+<td class="text-right"><p>0,5437</p></td>
+<td class="text-right"><p>0,6960</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-even"><td><p>mlp_08</p></td>
+<td><p>Capas: 1; Unidades: 256; Dropout: 0,130049; Decaimiento de pesos: 0,00228837; Lote de ajuste: 128; Tasa de aprendizaje: 0,00105142; Plan de tasa: cosine; Pérdida: huber</p></td>
+<td class="text-right"><p>0,5584</p></td>
+<td class="text-right"><p>0,7593</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-odd"><td><p>mlp_18</p></td>
+<td><p>Capas: 3; Unidades: 512; Dropout: 0,316068; Decaimiento de pesos: 0,0017422; Lote de ajuste: 64; Tasa de aprendizaje: 0,00122275; Plan de tasa: cosine; Pérdida: huber</p></td>
+<td class="text-right"><p>0,6135</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>mlp_02</p></td>
+<td><p>Capas: 1; Unidades: 512; Dropout: 0,2046; Decaimiento de pesos: 0,000157897; Lote de ajuste: 32; Tasa de aprendizaje: 0,00321385; Plan de tasa: none; Pérdida: huber</p></td>
+<td class="text-right"><p>0,6785</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>mlp_04</p></td>
+<td><p>Capas: 3; Unidades: 64; Dropout: 0,131157; Decaimiento de pesos: 0,00100336; Lote de ajuste: 32; Tasa de aprendizaje: 0,000934075; Plan de tasa: none; Pérdida: mse</p></td>
+<td class="text-right"><p>0,7089</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>mlp_10</p></td>
+<td><p>Capas: 2; Unidades: 64; Dropout: 0,0407763; Decaimiento de pesos: 0,00263577; Lote de ajuste: 128; Tasa de aprendizaje: 0,00566336; Plan de tasa: plateau; Pérdida: mse</p></td>
+<td class="text-right"><p>0,7370</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>mlp_19</p></td>
+<td><p>Capas: 3; Unidades: 512; Dropout: 0,121608; Decaimiento de pesos: 1,06529e-05; Lote de ajuste: 64; Tasa de aprendizaje: 0,000327798; Plan de tasa: none; Pérdida: huber</p></td>
+<td class="text-right"><p>0,7744</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>mlp_06</p></td>
+<td><p>Capas: 2; Unidades: 256; Dropout: 0,0579328; Decaimiento de pesos: 0,00031186; Lote de ajuste: 64; Tasa de aprendizaje: 0,0016827; Plan de tasa: plateau; Pérdida: huber</p></td>
+<td class="text-right"><p>0,8200</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>mlp_16</p></td>
+<td><p>Capas: 1; Unidades: 256; Dropout: 0,0892859; Decaimiento de pesos: 3,84614e-05; Lote de ajuste: 128; Tasa de aprendizaje: 0,000334957; Plan de tasa: none; Pérdida: mae</p></td>
+<td class="text-right"><p>0,9424</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>mlp_20</p></td>
+<td><p>Capas: 1; Unidades: 256; Dropout: 0,0643366; Decaimiento de pesos: 3,19856e-05; Lote de ajuste: 32; Tasa de aprendizaje: 0,00213781; Plan de tasa: cosine; Pérdida: mae</p></td>
+<td class="text-right"><p>0,9508</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>mlp_07</p></td>
+<td><p>Capas: 2; Unidades: 64; Dropout: 0,264295; Decaimiento de pesos: 6,87612e-05; Lote de ajuste: 64; Tasa de aprendizaje: 0,00191715; Plan de tasa: none; Pérdida: huber</p></td>
+<td class="text-right"><p>1,0136</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>mlp_17</p></td>
+<td><p>Capas: 2; Unidades: 64; Dropout: 0,31658; Decaimiento de pesos: 3,32428e-05; Lote de ajuste: 32; Tasa de aprendizaje: 0,0020311; Plan de tasa: plateau; Pérdida: mse</p></td>
+<td class="text-right"><p>1,1431</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>mlp_13</p></td>
+<td><p>Capas: 2; Unidades: 512; Dropout: 0,211358; Decaimiento de pesos: 0,000228039; Lote de ajuste: 256; Tasa de aprendizaje: 0,0022229; Plan de tasa: none; Pérdida: mae</p></td>
+<td class="text-right"><p>1,4103</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>mlp_14</p></td>
+<td><p>Capas: 3; Unidades: 512; Dropout: 0,44276; Decaimiento de pesos: 0,000437947; Lote de ajuste: 64; Tasa de aprendizaje: 0,00344377; Plan de tasa: none; Pérdida: huber</p></td>
+<td class="text-right"><p>1,4901</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>mlp_03</p></td>
+<td><p>Capas: 3; Unidades: 128; Dropout: 0,394214; Decaimiento de pesos: 1,63222e-05; Lote de ajuste: 32; Tasa de aprendizaje: 0,000185389; Plan de tasa: cosine; Pérdida: mae</p></td>
+<td class="text-right"><p>1,7031</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>mlp_09</p></td>
+<td><p>Capas: 1; Unidades: 64; Dropout: 0,409813; Decaimiento de pesos: 0,000540938; Lote de ajuste: 256; Tasa de aprendizaje: 0,000241675; Plan de tasa: plateau; Pérdida: mae</p></td>
+<td class="text-right"><p>1,7155</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>mlp_05</p></td>
+<td><p>Capas: 3; Unidades: 512; Dropout: 0,362395; Decaimiento de pesos: 0,000146187; Lote de ajuste: 256; Tasa de aprendizaje: 0,000209558; Plan de tasa: none; Pérdida: mse</p></td>
+<td class="text-right"><p>2,5418</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>mlp_01</p></td>
+<td><p>Capas: 2; Unidades: 256; Dropout: 0,475232; Decaimiento de pesos: 3,77258e-06; Lote de ajuste: 256; Tasa de aprendizaje: 0,0004204; Plan de tasa: plateau; Pérdida: huber</p></td>
+<td class="text-right"><p>2,5686</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>mlp_12</p></td>
+<td><p>Capas: 2; Unidades: 64; Dropout: 0,319666; Decaimiento de pesos: 0,00166043; Lote de ajuste: 256; Tasa de aprendizaje: 0,000200009; Plan de tasa: plateau; Pérdida: mse</p></td>
+<td class="text-right"><p>2,5792</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="reference download internal" download="" href="../_downloads/62af64cfe773e207266b25bf9e8acd1c/mlp.csv"><span class="xref download myst">Resultados de desarrollo por año y semilla</span></a> · <a class="reference download internal" download="" href="../_downloads/2f908823335dd66dcbc7bc594e19e1e3/mlp_configuraciones.csv"><span class="xref download myst">Configuraciones completas</span></a>.</p>
+<!-- diseno-entrenamiento:fin -->
+</section>
 </section>
 </section>
 <section id="pipeline-de-entrenamiento-y-prueba">
@@ -823,6 +1065,15 @@ h^{(j)}=D_{p}\!\left[\max(0,W_jh^{(j-1)}+b_j)\right],\quad j=1,2,
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esquema-global">Esquema global</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detalle-de-las-operaciones">Detalle de las operaciones</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-la-arquitectura">Código de la arquitectura</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-entrenamiento-y-prueba">Diseño de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-en-validacion">Selección en validación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-conservada">Configuración conservada</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-del-entrenamiento-y-prueba">Etapas del entrenamiento y prueba</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuraciones-evaluadas-en-desarrollo">Configuraciones evaluadas en desarrollo</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">

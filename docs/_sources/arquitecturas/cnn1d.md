@@ -37,6 +37,82 @@ El {ref}`código de exportación de los esquemas <exportacion-esquemas>` forma p
 :linenos:
 ```
 
+<!-- diseno-entrenamiento:inicio -->
+
+## Diseño de entrenamiento y prueba
+
+(diseno-entrenamiento-cnn1d)=
+
+### Selección en validación
+
+Se evaluaron **26 configuraciones** y 6 llegaron a la comparación de selección. La **configuración cnn1d_17** obtuvo el menor MASE de validación (0,6591) sobre 2018–2021. La configuración fijada para prueba es **cnn1d_17**, con 5 semillas.
+
+#### Configuración conservada
+| Parámetro | Valor |
+|---|---|
+| Capas | 1 |
+| Dropout | 0,1 |
+| Decaimiento de pesos | 0,0001 |
+| Lote de ajuste | 256 |
+| Tasa de aprendizaje | 0,0003 |
+| Plan de tasa | plateau |
+| Pérdida | huber |
+| filtros | 16 |
+| Núcleo convolucional | 5 |
+
+#### Etapas del entrenamiento y prueba
+
+| Etapa | Especificación |
+|---|---|
+| Filtro inicial | 26 configuraciones; semilla 42; validación 2019; máximo 30 épocas |
+| Confirmación y criterio | 6 finalistas; semillas 43 y 44; años 2018–2021; máximo 60 épocas. Menor MASE medio de validación; cada año tiene el mismo peso. |
+| Ajuste final | 2000–2021, excluida la reserva interna de parada |
+| Parada interna final | Último 10 % de orígenes anteriores a 2022; purga de 24 horas |
+| Prueba | 2022-01-01 a 2025-12-31; 1.461 orígenes diarios |
+| Semillas finales | 1000, 1001, 1002, 1003, 1004 |
+| Historia y horizonte | 168 y 24 horas, respectivamente |
+| Pérdida y optimizador | Huber normalizada; transición 0,05; AdamW |
+| Épocas y parada | Máximo 60; mínimo 10; paciencia efectiva 6; restauración del menor valor interno |
+| Tasa de aprendizaje | ReduceLROnPlateau: factor 0,5; paciencia 2 |
+| Lotes | Ajuste: 256; evaluación de prueba: hasta 4096 orígenes por lote |
+| Épocas ejecutadas | 34–46; épocas de los checkpoints: 33, 31, 28, 28, 40 |
+
+
+#### Configuraciones evaluadas en desarrollo
+El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.
+| Configuración | Hiperparámetros | MASE del filtro | MASE de validación | Estado |
+|---|---|---:|---:|---|
+| **cnn1d_17** | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; filtros: 16; Núcleo convolucional: 5 | 0,6215 | 0,6591 | **Seleccionada para prueba** |
+| cnn1d_18 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 16; Núcleo convolucional: 3 | 0,5969 | 0,6763 | Finalista |
+| cnn1d_v4_01 | Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Plan de tasa: plateau; Pérdida: huber; Capas: 2; filtros: 16; Núcleo convolucional: 3; Dilataciones: 1 × 1; Tasa de aprendizaje: 0,0003 | 0,6769 | 0,7069 | Finalista |
+| cnn1d_v4_03 | Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Plan de tasa: plateau; Pérdida: huber; Capas: 2; filtros: 32; Núcleo convolucional: 3; Dilataciones: 1 × 1; Tasa de aprendizaje: 0,0003 | 0,7045 | 0,7104 | Finalista |
+| cnn1d_06 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 8; Núcleo convolucional: 3 | 0,6289 | 0,7107 | Finalista |
+| cnn1d_v4_02 | Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Plan de tasa: plateau; Pérdida: huber; Capas: 2; filtros: 16; Núcleo convolucional: 5; Dilataciones: 1 × 1; Tasa de aprendizaje: 0,0003 | 0,7090 | 0,7734 | Finalista |
+| cnn1d_20 | Capas: 1; Dropout: 0,3; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 16; Núcleo convolucional: 3 | 0,6360 | — | Filtro inicial |
+| cnn1d_16 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 16; Núcleo convolucional: 3 | 0,6390 | — | Filtro inicial |
+| cnn1d_08 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 8; Núcleo convolucional: 3 | 0,6445 | — | Filtro inicial |
+| cnn1d_07 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; filtros: 8; Núcleo convolucional: 5 | 0,6587 | — | Filtro inicial |
+| cnn1d_11 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 16; Núcleo convolucional: 3 | 0,6616 | — | Filtro inicial |
+| cnn1d_19 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; filtros: 16; Núcleo convolucional: 5 | 0,6616 | — | Filtro inicial |
+| cnn1d_13 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 16; Núcleo convolucional: 3 | 0,6701 | — | Filtro inicial |
+| cnn1d_01 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 8; Núcleo convolucional: 3 | 0,6831 | — | Filtro inicial |
+| cnn1d_12 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; filtros: 16; Núcleo convolucional: 5 | 0,6912 | — | Filtro inicial |
+| cnn1d_09 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; filtros: 8; Núcleo convolucional: 5 | 0,6955 | — | Filtro inicial |
+| cnn1d_10 | Capas: 1; Dropout: 0,3; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 8; Núcleo convolucional: 3 | 0,7032 | — | Filtro inicial |
+| cnn1d_v4_04 | Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Plan de tasa: plateau; Pérdida: huber; Capas: 2; filtros: 32; Núcleo convolucional: 5; Dilataciones: 1 × 1; Tasa de aprendizaje: 0,0003 | 0,7238 | — | Filtro inicial |
+| cnn1d_14 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; filtros: 16; Núcleo convolucional: 5 | 0,7401 | — | Filtro inicial |
+| cnn1d_15 | Capas: 1; Dropout: 0,3; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 16; Núcleo convolucional: 3 | 0,7460 | — | Filtro inicial |
+| cnn1d_02 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; filtros: 8; Núcleo convolucional: 5 | 0,7478 | — | Filtro inicial |
+| cnn1d_03 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 8; Núcleo convolucional: 3 | 0,7838 | — | Filtro inicial |
+| cnn1d_v4_06 | Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Plan de tasa: plateau; Pérdida: huber; Capas: 2; filtros: 16; Núcleo convolucional: 5; Dilataciones: 1 × 2; Tasa de aprendizaje: 0,0003 | 0,7878 | — | Filtro inicial |
+| cnn1d_v4_05 | Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Plan de tasa: plateau; Pérdida: huber; Capas: 2; filtros: 16; Núcleo convolucional: 3; Dilataciones: 1 × 2; Tasa de aprendizaje: 0,0003 | 0,7923 | — | Filtro inicial |
+| cnn1d_05 | Capas: 1; Dropout: 0,3; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; filtros: 8; Núcleo convolucional: 3 | 0,8010 | — | Filtro inicial |
+| cnn1d_04 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; filtros: 8; Núcleo convolucional: 5 | 0,8414 | — | Filtro inicial |
+
+[Resultados de desarrollo por año y semilla](../_static/resultados/diseno_entrenamiento/cnn1d.csv) · [Configuraciones completas](../_static/resultados/diseno_entrenamiento/cnn1d_configuraciones.csv).
+
+<!-- diseno-entrenamiento:fin -->
+
 ## Pipeline de entrenamiento y prueba
 
 <!-- entrenamiento-portable:inicio -->

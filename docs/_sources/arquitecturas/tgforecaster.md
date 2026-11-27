@@ -41,6 +41,139 @@ El {ref}`código de exportación de los esquemas <exportacion-esquemas>` forma p
 :linenos:
 ```
 
+<!-- diseno-entrenamiento:inicio -->
+
+## Diseño de entrenamiento y prueba
+
+(diseno-entrenamiento-tgforecaster-n)=
+
+### TGForecaster · N
+
+Se evaluaron **20 configuraciones** y 5 llegaron a la comparación de selección. La **configuración 19** obtuvo el menor MASE de validación (0,7047) sobre 2018–2021. La configuración fijada para prueba es **19**, con 5 semillas.
+
+#### Configuración conservada
+| Parámetro | Valor |
+|---|---|
+| Dimensión interna | 256 |
+| Capas | 3 |
+| Capas de mezcla | 2 |
+| Cabezas | 8 |
+| Dropout | 0,1 |
+| Tasa de aprendizaje | 0,0001 |
+| Decaimiento de pesos | 0,0001 |
+| Lote de ajuste | 32 |
+
+#### Etapas del entrenamiento y prueba
+
+| Etapa | Especificación |
+|---|---|
+| Filtro inicial | 20 configuraciones; semilla 43; validación 2018 |
+| Confirmación y criterio | Cinco finalistas; semilla 43; evaluación adicional 2019–2021; media de los cuatro años 2018–2021. Menor MASE medio de validación; cada año tiene el mismo peso. |
+| Ajuste final | 2000-01-09 00:00:00-05:00 a 2019-10-20 00:00:00-05:00 |
+| Parada interna final | 2019-10-21 00:00:00-05:00 a 2021-12-31 00:00:00-05:00 |
+| Prueba | 2022-01-01 a 2025-12-31; 1.461 orígenes diarios |
+| Semillas finales | 1000, 1001, 1002, 1003, 1004 |
+| Historia y horizonte | 168 y 24 horas, respectivamente |
+| Pérdida y optimizador | MAE de demanda dividida por el nivel histórico; AdamW |
+| Épocas y parada | Máximo 200; mínimo 10; paciencia efectiva 6; restauración del menor valor interno |
+| Tasa de aprendizaje | ReduceLROnPlateau: factor 0,5; paciencia 2 |
+| Lotes | Ajuste: 32; evaluación de prueba: hasta 256 orígenes por lote |
+| Épocas ejecutadas | 36–48; épocas de los checkpoints: 40, 30, 41, 36, 42 |
+
+
+#### Configuraciones evaluadas en desarrollo
+El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.
+| Configuración | Hiperparámetros | MASE del filtro | MASE de validación | Estado |
+|---|---|---:|---:|---|
+| **19** | Dimensión interna: 256; Capas: 3; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32 | 0,4628 | 0,7047 | **Seleccionada para prueba** |
+| 1 | Dimensión interna: 64; Capas: 2; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,5293 | 0,7261 | Finalista |
+| 12 | Dimensión interna: 128; Capas: 3; Capas de mezcla: 3; Cabezas: 8; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,01; Lote de ajuste: 128 | 0,7403 | 0,9152 | Finalista |
+| 15 | Dimensión interna: 32; Capas: 3; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,7349 | 0,9257 | Finalista |
+| 7 | Dimensión interna: 128; Capas: 2; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,6672 | 0,9331 | Finalista |
+| 2 | Dimensión interna: 64; Capas: 2; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,7680 | — | Filtro inicial |
+| 10 | Dimensión interna: 128; Capas: 3; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32 | 0,8162 | — | Filtro inicial |
+| 5 | Dimensión interna: 64; Capas: 3; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128 | 0,8367 | — | Filtro inicial |
+| 9 | Dimensión interna: 128; Capas: 3; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128 | 0,8498 | — | Filtro inicial |
+| 16 | Dimensión interna: 32; Capas: 3; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 64 | 0,8522 | — | Filtro inicial |
+| 6 | Dimensión interna: 64; Capas: 2; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32 | 0,8524 | — | Filtro inicial |
+| 11 | Dimensión interna: 128; Capas: 3; Capas de mezcla: 3; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,001; Lote de ajuste: 64 | 0,8664 | — | Filtro inicial |
+| 18 | Dimensión interna: 256; Capas: 2; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,001; Lote de ajuste: 32 | 0,9454 | — | Filtro inicial |
+| 8 | Dimensión interna: 128; Capas: 2; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,9699 | — | Filtro inicial |
+| 4 | Dimensión interna: 64; Capas: 3; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,001; Lote de ajuste: 128 | 1,0103 | — | Filtro inicial |
+| 20 | Dimensión interna: 256; Capas: 2; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,01; Lote de ajuste: 128 | 1,2870 | — | Filtro inicial |
+| 13 | Dimensión interna: 128; Capas: 2; Capas de mezcla: 3; Cabezas: 16; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 128 | 1,5243 | — | Filtro inicial |
+| 3 | Dimensión interna: 64; Capas: 3; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 1,5583 | — | Filtro inicial |
+| 14 | Dimensión interna: 128; Capas: 3; Capas de mezcla: 2; Cabezas: 16; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 1,6427 | — | Filtro inicial |
+| 17 | Dimensión interna: 32; Capas: 2; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 128 | 1,6490 | — | Filtro inicial |
+
+[Resultados de desarrollo por año y semilla](../_static/resultados/diseno_entrenamiento/adj_modelo7_20261114_0430__N.csv) · [Configuraciones completas](../_static/resultados/diseno_entrenamiento/adj_modelo7_20261114_0430__N_configuraciones.csv).
+
+
+(diseno-entrenamiento-tgforecaster-no)=
+
+### TGForecaster · N+O
+
+Se evaluaron **20 configuraciones** y 5 llegaron a la comparación de selección. La **configuración 1** obtuvo el menor MASE de validación (0,9126) sobre 2018–2021. La configuración fijada para prueba es **1**, con 5 semillas.
+
+#### Configuración conservada
+| Parámetro | Valor |
+|---|---|
+| Dimensión interna | 64 |
+| Capas | 2 |
+| Capas de mezcla | 1 |
+| Cabezas | 4 |
+| Dropout | 0,1 |
+| Tasa de aprendizaje | 0,001 |
+| Decaimiento de pesos | 0,0001 |
+| Lote de ajuste | 64 |
+
+#### Etapas del entrenamiento y prueba
+
+| Etapa | Especificación |
+|---|---|
+| Filtro inicial | 20 configuraciones; semilla 43; validación 2018 |
+| Confirmación y criterio | Cinco finalistas; semilla 43; evaluación adicional 2019–2021; media de los cuatro años 2018–2021. Menor MASE medio de validación; cada año tiene el mismo peso. |
+| Ajuste final | 2000-01-09 00:00:00-05:00 a 2019-10-20 00:00:00-05:00 |
+| Parada interna final | 2019-10-21 00:00:00-05:00 a 2021-12-31 00:00:00-05:00 |
+| Prueba | 2022-01-01 a 2025-12-31; 1.461 orígenes diarios |
+| Semillas finales | 1000, 1001, 1002, 1003, 1004 |
+| Historia y horizonte | 168 y 24 horas, respectivamente |
+| Pérdida y optimizador | MAE de demanda dividida por el nivel histórico; AdamW |
+| Épocas y parada | Máximo 200; mínimo 10; paciencia efectiva 6; restauración del menor valor interno |
+| Tasa de aprendizaje | ReduceLROnPlateau: factor 0,5; paciencia 2 |
+| Lotes | Ajuste: 64; evaluación de prueba: hasta 256 orígenes por lote |
+| Épocas ejecutadas | 23–45; épocas de los checkpoints: 29, 20, 25, 39, 17 |
+
+
+#### Configuraciones evaluadas en desarrollo
+El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.
+| Configuración | Hiperparámetros | MASE del filtro | MASE de validación | Estado |
+|---|---|---:|---:|---|
+| **1** | Dimensión interna: 64; Capas: 2; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,7176 | 0,9126 | **Seleccionada para prueba** |
+| 19 | Dimensión interna: 256; Capas: 3; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32 | 0,7240 | 0,9179 | Finalista |
+| 12 | Dimensión interna: 128; Capas: 3; Capas de mezcla: 3; Cabezas: 8; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,01; Lote de ajuste: 128 | 0,7703 | 1,0030 | Finalista |
+| 2 | Dimensión interna: 64; Capas: 2; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,7562 | 1,0456 | Finalista |
+| 4 | Dimensión interna: 64; Capas: 3; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,001; Lote de ajuste: 128 | 0,7652 | 1,0566 | Finalista |
+| 10 | Dimensión interna: 128; Capas: 3; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32 | 0,7753 | — | Filtro inicial |
+| 6 | Dimensión interna: 64; Capas: 2; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32 | 0,7833 | — | Filtro inicial |
+| 7 | Dimensión interna: 128; Capas: 2; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,7873 | — | Filtro inicial |
+| 11 | Dimensión interna: 128; Capas: 3; Capas de mezcla: 3; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,001; Lote de ajuste: 64 | 0,8069 | — | Filtro inicial |
+| 15 | Dimensión interna: 32; Capas: 3; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,8106 | — | Filtro inicial |
+| 16 | Dimensión interna: 32; Capas: 3; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 64 | 0,8597 | — | Filtro inicial |
+| 8 | Dimensión interna: 128; Capas: 2; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,8765 | — | Filtro inicial |
+| 9 | Dimensión interna: 128; Capas: 3; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128 | 0,8978 | — | Filtro inicial |
+| 18 | Dimensión interna: 256; Capas: 2; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,001; Lote de ajuste: 32 | 0,9014 | — | Filtro inicial |
+| 3 | Dimensión interna: 64; Capas: 3; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,9160 | — | Filtro inicial |
+| 5 | Dimensión interna: 64; Capas: 3; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128 | 1,0757 | — | Filtro inicial |
+| 14 | Dimensión interna: 128; Capas: 3; Capas de mezcla: 2; Cabezas: 16; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 1,0889 | — | Filtro inicial |
+| 13 | Dimensión interna: 128; Capas: 2; Capas de mezcla: 3; Cabezas: 16; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 128 | 1,2778 | — | Filtro inicial |
+| 17 | Dimensión interna: 32; Capas: 2; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 128 | 1,4525 | — | Filtro inicial |
+| 20 | Dimensión interna: 256; Capas: 2; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,01; Lote de ajuste: 128 | 1,4644 | — | Filtro inicial |
+
+[Resultados de desarrollo por año y semilla](../_static/resultados/diseno_entrenamiento/adj_modelo7_20261114_0430__N+O.csv) · [Configuraciones completas](../_static/resultados/diseno_entrenamiento/adj_modelo7_20261114_0430__N+O_configuraciones.csv).
+
+<!-- diseno-entrenamiento:fin -->
+
 ## Pipeline de entrenamiento y prueba
 
 <!-- entrenamiento-portable:inicio -->

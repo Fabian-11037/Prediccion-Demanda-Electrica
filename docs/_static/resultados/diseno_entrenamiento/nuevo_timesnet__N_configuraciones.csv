@@ -1,0 +1,21 @@
+configuracion,hiperparametros,MASE_filtro,MASE_seleccion,anios_seleccion,semillas_seleccion,ajustes_seleccion,seleccionada_prueba
+19,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 16, ""d_ff"": 16, ""dropout"": 0.1, ""lr"": 0.000534428, ""weight_decay"": 0.0, ""lote"": 64}",0.42811473817545914,0.5244010334846698,"2018,2019,2020,2021",43,4,True
+15,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 16, ""d_ff"": 32, ""dropout"": 0.1, ""lr"": 0.000237974, ""weight_decay"": 0.0, ""lote"": 32}",0.42083801891239553,0.5303515781042578,"2018,2019,2020,2021",43,4,False
+11,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 16, ""d_ff"": 16, ""dropout"": 0.1, ""lr"": 0.000208311, ""weight_decay"": 0.0, ""lote"": 32}",0.42869273056906804,0.5377624427346377,"2018,2019,2020,2021",43,4,False
+10,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 64, ""d_ff"": 64, ""dropout"": 0.1, ""lr"": 0.000199641, ""weight_decay"": 0.0, ""lote"": 64}",0.42593925575070585,0.5473187729997617,"2018,2019,2020,2021",43,4,False
+18,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 64, ""d_ff"": 64, ""dropout"": 0.1, ""lr"": 0.000168177, ""weight_decay"": 0.0001, ""lote"": 64}",0.42679532136321335,0.5504526870135192,"2018,2019,2020,2021",43,4,False
+9,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 32, ""d_ff"": 32, ""dropout"": 0.1, ""lr"": 0.000176993, ""weight_decay"": 0.0, ""lote"": 16}",0.4367839047258612,,,,0,False
+5,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 32, ""d_ff"": 64, ""dropout"": 0.1, ""lr"": 0.000186205, ""weight_decay"": 0.0001, ""lote"": 16}",0.437632856200149,,,,0,False
+3,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 64, ""d_ff"": 128, ""dropout"": 0.1, ""lr"": 0.000138106, ""weight_decay"": 0.0001, ""lote"": 32}",0.4391703300218531,,,,0,False
+4,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 64, ""d_ff"": 128, ""dropout"": 0.1, ""lr"": 0.000106289, ""weight_decay"": 0.0, ""lote"": 64}",0.4398474233645031,,,,0,False
+8,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 64, ""d_ff"": 128, ""dropout"": 0.1, ""lr"": 0.000151512, ""weight_decay"": 0.0, ""lote"": 64}",0.44019763863696904,,,,0,False
+6,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 64, ""d_ff"": 128, ""dropout"": 0.1, ""lr"": 0.000229693, ""weight_decay"": 0.0, ""lote"": 64}",0.44330848325772537,,,,0,False
+13,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 16, ""d_ff"": 16, ""dropout"": 0.1, ""lr"": 0.000348605, ""weight_decay"": 0.0001, ""lote"": 64}",0.4466330585543503,,,,0,False
+14,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 16, ""d_ff"": 32, ""dropout"": 0.1, ""lr"": 0.000226818, ""weight_decay"": 0.0001, ""lote"": 32}",0.4484967772758203,,,,0,False
+2,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 32, ""d_ff"": 32, ""dropout"": 0.1, ""lr"": 0.000691839, ""weight_decay"": 0.0, ""lote"": 16}",0.4507402203991355,,,,0,False
+12,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 32, ""d_ff"": 32, ""dropout"": 0.1, ""lr"": 0.000359806, ""weight_decay"": 0.0001, ""lote"": 16}",0.45162385922216625,,,,0,False
+17,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 32, ""d_ff"": 64, ""dropout"": 0.1, ""lr"": 0.000763592, ""weight_decay"": 0.0, ""lote"": 32}",0.451736610438656,,,,0,False
+20,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 32, ""d_ff"": 64, ""dropout"": 0.1, ""lr"": 0.000326529, ""weight_decay"": 0.0, ""lote"": 16}",0.4625477636539686,,,,0,False
+16,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 32, ""d_ff"": 64, ""dropout"": 0.1, ""lr"": 0.000300281, ""weight_decay"": 0.0001, ""lote"": 16}",0.4629094557976363,,,,0,False
+7,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 64, ""d_ff"": 64, ""dropout"": 0.1, ""lr"": 0.00088832, ""weight_decay"": 0.0, ""lote"": 32}",0.4709008540844913,,,,0,False
+1,"{""e_layers"": 2, ""top_k"": 5, ""num_kernels"": 6, ""d_model"": 64, ""d_ff"": 128, ""dropout"": 0.1, ""lr"": 0.000886804, ""weight_decay"": 0.0001, ""lote"": 64}",0.47397133594951546,,,,0,False

@@ -5,7 +5,7 @@ Fecha: 25 de noviembre de 2026. Alcance: fuentes del JBook, tablas, gráficas, e
 ## Inventario y correspondencia
 
 - 15 cuadernos; 82 figuras analíticas con interpretación contigua; 32 esquemas.
-- 66 tablas: 35 calculadas y 31 nativas.
+- 114 tablas: 35 calculadas y 79 nativas.
 - 16 procedimientos aprendidos y 85 realizaciones; dos referencias ingenuas completan los 18 procedimientos integrados. El benchmark de referencia conserva 15 procedimientos y 75 realizaciones.
 - La incertidumbre común contiene 864 filas de cobertura y 17 comparadores de WIS. Calibración inicial: 2022; evaluación: 2023–2025.
 - 24 CSV del libro coinciden exactamente con los resultados de origen comprobados en esta revisión. Las métricas puntuales, intervalos y contrastes se verifican también mediante las pruebas del dashboard.

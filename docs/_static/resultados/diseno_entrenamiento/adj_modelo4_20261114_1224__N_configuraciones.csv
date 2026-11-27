@@ -1,0 +1,21 @@
+configuracion,hiperparametros,MASE_filtro,MASE_seleccion,anios_seleccion,semillas_seleccion,ajustes_seleccion,seleccionada_prueba
+7,"{""kernel"": 5, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.001, ""weight_decay"": 0.01, ""lote"": 64}",0.4407493018968496,0.6353642022183013,"2018,2019,2020,2021",43,4,True
+19,"{""kernel"": 7, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.001, ""weight_decay"": 0.0, ""lote"": 32}",0.45037339731704895,0.6395649249746799,"2018,2019,2020,2021",43,4,False
+9,"{""kernel"": 5, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.001, ""weight_decay"": 0.0, ""lote"": 32}",0.45247281774118814,0.6466937303557939,"2018,2019,2020,2021",43,4,False
+17,"{""kernel"": 7, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.001, ""weight_decay"": 0.01, ""lote"": 64}",0.4539080220672042,0.6619573497809473,"2018,2019,2020,2021",43,4,False
+12,"{""kernel"": 7, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.0003, ""weight_decay"": 0.0001, ""lote"": 64}",0.45061286819471963,0.6718420282845171,"2018,2019,2020,2021",43,4,False
+6,"{""kernel"": 5, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.0003, ""weight_decay"": 0.001, ""lote"": 32}",0.4598740566964123,,,,0,False
+18,"{""kernel"": 7, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.0003, ""weight_decay"": 0.0, ""lote"": 64}",0.4651369567841737,,,,0,False
+2,"{""kernel"": 5, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.0003, ""weight_decay"": 0.0001, ""lote"": 64}",0.4673465289785959,,,,0,False
+11,"{""kernel"": 7, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.001, ""weight_decay"": 0.0001, ""lote"": 64}",0.46742257074075927,,,,0,False
+8,"{""kernel"": 5, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.0003, ""weight_decay"": 0.0, ""lote"": 64}",0.4714229801373946,,,,0,False
+16,"{""kernel"": 7, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.0003, ""weight_decay"": 0.001, ""lote"": 32}",0.47615617022793383,,,,0,False
+4,"{""kernel"": 5, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.003, ""weight_decay"": 0.0001, ""lote"": 128}",0.4787685069423453,,,,0,False
+1,"{""kernel"": 5, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.001, ""weight_decay"": 0.0001, ""lote"": 64}",0.4827516004966363,,,,0,False
+5,"{""kernel"": 5, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.001, ""weight_decay"": 0.001, ""lote"": 128}",0.4868239009953859,,,,0,False
+20,"{""kernel"": 7, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.0001, ""weight_decay"": 0.001, ""lote"": 64}",0.5037359598697798,,,,0,False
+15,"{""kernel"": 7, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.001, ""weight_decay"": 0.001, ""lote"": 128}",0.5046945103659083,,,,0,False
+14,"{""kernel"": 7, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.003, ""weight_decay"": 0.0001, ""lote"": 128}",0.5093522073059645,,,,0,False
+13,"{""kernel"": 7, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.0001, ""weight_decay"": 0.0001, ""lote"": 32}",0.5167540484047521,,,,0,False
+10,"{""kernel"": 5, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.0001, ""weight_decay"": 0.001, ""lote"": 64}",0.52133541812037,,,,0,False
+3,"{""kernel"": 5, ""anchos"": ""[64, 64, 64]"", ""patron_dropout"": ""[0, 1, 0]"", ""dropout"": 0.2, ""lr"": 0.0001, ""weight_decay"": 0.0001, ""lote"": 32}",0.5263595998618201,,,,0,False

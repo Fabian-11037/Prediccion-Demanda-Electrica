@@ -379,6 +379,64 @@ Las proposiciones se derivan de los supuestos y operaciones indicados, con aritm
 6. Durante ajuste, minimizar MAE/q con AdamW y detener según la reserva interna, con paciencia diez y máximo cien épocas. Restaurar el estado de menor pérdida interna.
 7. Durante prueba, conservar pesos y escalas. Incorporar únicamente episodios que hayan alcanzado su fecha de disponibilidad y emitir cada trayectoria desde su origen.
 
+<!-- diseno-entrenamiento:inicio -->
+
+## Diseño de entrenamiento y prueba
+
+(diseno-entrenamiento-m4-n)=
+
+### Selección en validación
+
+Se evaluaron **8 configuraciones** y 8 llegaron a la comparación de selección. La **configuración 6** obtuvo el menor MASE de selección de memoria (0,4573) sobre 2018–2021. La configuración fijada para prueba es **6**, con 10 semillas.
+
+#### Configuración conservada
+| Parámetro | Valor |
+|---|---|
+| Vecinos | 16 |
+| Edad máxima, días | 365 |
+| Ancho de compuerta | 64 |
+| Dimensión de proyección | 32 |
+| Tasa de aprendizaje | 0,001 |
+| Decaimiento de pesos | 0,0001 |
+| Dropout | 0,1 |
+
+#### Etapas del entrenamiento y prueba
+
+| Etapa | Especificación |
+|---|---|
+| Filtro inicial | Rejilla de ocho configuraciones de memoria; sin filtro independiente |
+| Confirmación y criterio | Cuatro años externos 2018–2021 y cinco semillas 101–105 por configuración. Menor MASE medio de validación; cada año tiene el mismo peso. |
+| Ajuste final | 2013-01-01 a 2020-12-30 |
+| Parada interna final | 2021-01-01 a 2021-12-31 |
+| Prueba | 2022-01-01 a 2025-12-31; 1.461 orígenes diarios |
+| Semillas finales | 101, 102, 103, 104, 105, 106, 107, 108, 109, 110 |
+| Historia y horizonte | 168 y 24 horas, respectivamente |
+| Pérdida y optimizador | MAE de las 24 horas dividido por q168; AdamW |
+| Épocas y parada | Máximo 100; mínimo 10; paciencia efectiva 10; restauración del menor valor interno |
+| Tasa de aprendizaje | Tasa constante; recorte de norma de gradiente en uno |
+| Lotes | Ajuste: 64; evaluación de prueba: hasta 128 orígenes por lote |
+| Épocas ejecutadas | 11–17; épocas de los checkpoints: 2, 4, 4, 4, 7, 1, 7, 3, 2, 2 |
+
+La configuración se hereda de la selección registrada de la memoria; la tabla describe esa selección compartida, no una búsqueda independiente de su especialización numérica.
+Los tres expertos y M1 permanecen congelados al ajustar la memoria. El banco admite residuos completos con retraso de dos días, hasta 365 días de antigüedad.
+
+#### Configuraciones evaluadas en desarrollo
+El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.
+| Configuración | Hiperparámetros | MASE del filtro | MASE de selección de memoria | Estado |
+|---|---|---:|---:|---|
+| **6** | Vecinos: 16; Edad máxima, días: 365; Ancho de compuerta: 64 | — | 0,4573 | **Seleccionada para prueba** |
+| 5 | Vecinos: 16; Edad máxima, días: 365; Ancho de compuerta: 32 | — | 0,4582 | Finalista |
+| 7 | Vecinos: 16; Edad máxima, días: 730; Ancho de compuerta: 32 | — | 0,4624 | Finalista |
+| 1 | Vecinos: 8; Edad máxima, días: 365; Ancho de compuerta: 32 | — | 0,4653 | Finalista |
+| 8 | Vecinos: 16; Edad máxima, días: 730; Ancho de compuerta: 64 | — | 0,4655 | Finalista |
+| 3 | Vecinos: 8; Edad máxima, días: 730; Ancho de compuerta: 32 | — | 0,4663 | Finalista |
+| 4 | Vecinos: 8; Edad máxima, días: 730; Ancho de compuerta: 64 | — | 0,4673 | Finalista |
+| 2 | Vecinos: 8; Edad máxima, días: 365; Ancho de compuerta: 64 | — | 0,4690 | Finalista |
+
+[Resultados de desarrollo por año y semilla](../_static/resultados/diseno_entrenamiento/m4_n.csv) · [Configuraciones completas](../_static/resultados/diseno_entrenamiento/m4_n_configuraciones.csv).
+
+<!-- diseno-entrenamiento:fin -->
+
 ## Pipeline de entrenamiento y prueba
 
 El pipeline desarrolla la preparación temporal de M1, la memoria numérica, el ajuste con parada interna y la evaluación con configuración 6. La clase conserva las dimensiones serializadas y fija en cero las 64 posiciones inactivas de las proyecciones, de acuerdo con los checkpoints utilizados.

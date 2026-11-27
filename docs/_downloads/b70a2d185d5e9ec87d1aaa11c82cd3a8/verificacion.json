@@ -107,6 +107,36 @@
   "entrenamiento": false,
   "inferencia_redes": false,
   "publicacion": false,
-  "validacion_construccion": "pendiente",
-  "pruebas": "pendiente"
+  "validacion_construccion": "correcta; warningiserror",
+  "pruebas": {
+    "python": {
+      "aprobadas": 165,
+      "omitidas_dependencias_opcionales": 6
+    },
+    "dashboard": {
+      "aprobadas": 44,
+      "fallidas": 0
+    }
+  },
+  "enlaces": {
+    "paginas": 39,
+    "referencias": 3295,
+    "rotos": 0
+  },
+  "vista_dashboard": {
+    "referencia_originalidad_resuelta": true,
+    "proposiciones_visibles": 4,
+    "imagenes_rotas": 0
+  },
+  "editorial_idempotente": true,
+  "huellas_protegidas": {
+    "sin_cambios": 17,
+    "cambio_solo_prosa": {
+      "book/10_evaluacion.ipynb": {
+        "antes": "368a7c24574de4aa77ff7abae91e1d5fd34a5bb9a078fba972f9a9f55a179ff6",
+        "despues": "34e9c6e6b2a3259efd30f8838d16b239b13cd0f9a33ab615ab6eca3e4e97f390"
+      }
+    },
+    "codigo_y_salidas_evaluacion_identicos": true
+  }
 }

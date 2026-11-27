@@ -1,0 +1,9 @@
+configuracion,hiperparametros,MASE_filtro,MASE_seleccion,anios_seleccion,semillas_seleccion,ajustes_seleccion,seleccionada_prueba
+6,"{""k_vecinos"": 16, ""edad_maxima_dias"": 365, ""ancho_compuerta"": 64}",,0.4573326703729508,"2018,2019,2020,2021","101,102,103,104,105",20,True
+5,"{""k_vecinos"": 16, ""edad_maxima_dias"": 365, ""ancho_compuerta"": 32}",,0.4582152443219375,"2018,2019,2020,2021","101,102,103,104,105",20,False
+7,"{""k_vecinos"": 16, ""edad_maxima_dias"": 730, ""ancho_compuerta"": 32}",,0.4623516744954482,"2018,2019,2020,2021","101,102,103,104,105",20,False
+1,"{""k_vecinos"": 8, ""edad_maxima_dias"": 365, ""ancho_compuerta"": 32}",,0.46526058339865156,"2018,2019,2020,2021","101,102,103,104,105",20,False
+8,"{""k_vecinos"": 16, ""edad_maxima_dias"": 730, ""ancho_compuerta"": 64}",,0.46549237124370946,"2018,2019,2020,2021","101,102,103,104,105",20,False
+3,"{""k_vecinos"": 8, ""edad_maxima_dias"": 730, ""ancho_compuerta"": 32}",,0.46632750275440127,"2018,2019,2020,2021","101,102,103,104,105",20,False
+4,"{""k_vecinos"": 8, ""edad_maxima_dias"": 730, ""ancho_compuerta"": 64}",,0.46728911085904623,"2018,2019,2020,2021","101,102,103,104,105",20,False
+2,"{""k_vecinos"": 8, ""edad_maxima_dias"": 365, ""ancho_compuerta"": 64}",,0.46904380309089605,"2018,2019,2020,2021","101,102,103,104,105",20,False

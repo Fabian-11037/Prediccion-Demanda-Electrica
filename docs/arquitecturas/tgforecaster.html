@@ -414,6 +414,21 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-la-arquitectura">Código de la arquitectura</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-entrenamiento-y-prueba">Diseño de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tgforecaster-n">TGForecaster · N</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-conservada">Configuración conservada</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-del-entrenamiento-y-prueba">Etapas del entrenamiento y prueba</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuraciones-evaluadas-en-desarrollo">Configuraciones evaluadas en desarrollo</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tgforecaster-n-o">TGForecaster · N+O</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Configuración conservada</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Etapas del entrenamiento y prueba</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Configuraciones evaluadas en desarrollo</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-de-entrenamiento-y-evaluacion">Comandos de entrenamiento y evaluación</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-referencias-y-escaladores-por-pliegue">Datos, referencias y escaladores por pliegue</a></li>
@@ -629,6 +644,467 @@ H=\operatorname{softmax}\!\left(\frac{QK_M^\top}{\sqrt{d_k}}\right)V_M.
 <span class="linenos">163</span>        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
 </pre></div>
 </div>
+<!-- diseno-entrenamiento:inicio -->
+</section>
+</section>
+<section id="diseno-de-entrenamiento-y-prueba">
+<h2>Diseño de entrenamiento y prueba<a class="headerlink" href="#diseno-de-entrenamiento-y-prueba" title="Link to this heading">#</a></h2>
+<section id="tgforecaster-n">
+<span id="diseno-entrenamiento-tgforecaster-n"></span><h3>TGForecaster · N<a class="headerlink" href="#tgforecaster-n" title="Link to this heading">#</a></h3>
+<p>Se evaluaron <strong>20 configuraciones</strong> y 5 llegaron a la comparación de selección. La <strong>configuración 19</strong> obtuvo el menor MASE de validación (0,7047) sobre 2018–2021. La configuración fijada para prueba es <strong>19</strong>, con 5 semillas.</p>
+<section id="configuracion-conservada">
+<h4>Configuración conservada<a class="headerlink" href="#configuracion-conservada" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parámetro</p></th>
+<th class="head"><p>Valor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dimensión interna</p></td>
+<td><p>256</p></td>
+</tr>
+<tr class="row-odd"><td><p>Capas</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>Capas de mezcla</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cabezas</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>Dropout</p></td>
+<td><p>0,1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tasa de aprendizaje</p></td>
+<td><p>0,0001</p></td>
+</tr>
+<tr class="row-even"><td><p>Decaimiento de pesos</p></td>
+<td><p>0,0001</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lote de ajuste</p></td>
+<td><p>32</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="etapas-del-entrenamiento-y-prueba">
+<h4>Etapas del entrenamiento y prueba<a class="headerlink" href="#etapas-del-entrenamiento-y-prueba" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Etapa</p></th>
+<th class="head"><p>Especificación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Filtro inicial</p></td>
+<td><p>20 configuraciones; semilla 43; validación 2018</p></td>
+</tr>
+<tr class="row-odd"><td><p>Confirmación y criterio</p></td>
+<td><p>Cinco finalistas; semilla 43; evaluación adicional 2019–2021; media de los cuatro años 2018–2021. Menor MASE medio de validación; cada año tiene el mismo peso.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ajuste final</p></td>
+<td><p>2000-01-09 00:00:00-05:00 a 2019-10-20 00:00:00-05:00</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parada interna final</p></td>
+<td><p>2019-10-21 00:00:00-05:00 a 2021-12-31 00:00:00-05:00</p></td>
+</tr>
+<tr class="row-even"><td><p>Prueba</p></td>
+<td><p>2022-01-01 a 2025-12-31; 1.461 orígenes diarios</p></td>
+</tr>
+<tr class="row-odd"><td><p>Semillas finales</p></td>
+<td><p>1000, 1001, 1002, 1003, 1004</p></td>
+</tr>
+<tr class="row-even"><td><p>Historia y horizonte</p></td>
+<td><p>168 y 24 horas, respectivamente</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pérdida y optimizador</p></td>
+<td><p>MAE de demanda dividida por el nivel histórico; AdamW</p></td>
+</tr>
+<tr class="row-even"><td><p>Épocas y parada</p></td>
+<td><p>Máximo 200; mínimo 10; paciencia efectiva 6; restauración del menor valor interno</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tasa de aprendizaje</p></td>
+<td><p>ReduceLROnPlateau: factor 0,5; paciencia 2</p></td>
+</tr>
+<tr class="row-even"><td><p>Lotes</p></td>
+<td><p>Ajuste: 32; evaluación de prueba: hasta 256 orígenes por lote</p></td>
+</tr>
+<tr class="row-odd"><td><p>Épocas ejecutadas</p></td>
+<td><p>36–48; épocas de los checkpoints: 40, 30, 41, 36, 42</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="configuraciones-evaluadas-en-desarrollo">
+<h4>Configuraciones evaluadas en desarrollo<a class="headerlink" href="#configuraciones-evaluadas-en-desarrollo" title="Link to this heading">#</a></h4>
+<p>El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Hiperparámetros</p></th>
+<th class="head text-right"><p>MASE del filtro</p></th>
+<th class="head text-right"><p>MASE de validación</p></th>
+<th class="head"><p>Estado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>19</strong></p></td>
+<td><p>Dimensión interna: 256; Capas: 3; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,4628</p></td>
+<td class="text-right"><p>0,7047</p></td>
+<td><p><strong>Seleccionada para prueba</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Dimensión interna: 64; Capas: 2; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,5293</p></td>
+<td class="text-right"><p>0,7261</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>Dimensión interna: 128; Capas: 3; Capas de mezcla: 3; Cabezas: 8; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,01; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>0,7403</p></td>
+<td class="text-right"><p>0,9152</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>Dimensión interna: 32; Capas: 3; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,7349</p></td>
+<td class="text-right"><p>0,9257</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Dimensión interna: 128; Capas: 2; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,6672</p></td>
+<td class="text-right"><p>0,9331</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Dimensión interna: 64; Capas: 2; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,7680</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Dimensión interna: 128; Capas: 3; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,8162</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Dimensión interna: 64; Capas: 3; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>0,8367</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Dimensión interna: 128; Capas: 3; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>0,8498</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Dimensión interna: 32; Capas: 3; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,8522</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Dimensión interna: 64; Capas: 2; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,8524</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>Dimensión interna: 128; Capas: 3; Capas de mezcla: 3; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,8664</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>Dimensión interna: 256; Capas: 2; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,001; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,9454</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Dimensión interna: 128; Capas: 2; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,9699</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Dimensión interna: 64; Capas: 3; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,001; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>1,0103</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Dimensión interna: 256; Capas: 2; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,01; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>1,2870</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Dimensión interna: 128; Capas: 2; Capas de mezcla: 3; Cabezas: 16; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>1,5243</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Dimensión interna: 64; Capas: 3; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>1,5583</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>Dimensión interna: 128; Capas: 3; Capas de mezcla: 2; Cabezas: 16; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>1,6427</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>Dimensión interna: 32; Capas: 2; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>1,6490</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="reference download internal" download="" href="../_downloads/4a5ba906c013794a861b13bc3dc89bdd/adj_modelo7_20261114_0430__N.csv"><span class="xref download myst">Resultados de desarrollo por año y semilla</span></a> · <a class="reference download internal" download="" href="../_downloads/6e01a53d07a848a4ebcd8cab7a07033b/adj_modelo7_20261114_0430__N_configuraciones.csv"><span class="xref download myst">Configuraciones completas</span></a>.</p>
+</section>
+</section>
+<section id="tgforecaster-n-o">
+<span id="diseno-entrenamiento-tgforecaster-no"></span><h3>TGForecaster · N+O<a class="headerlink" href="#tgforecaster-n-o" title="Link to this heading">#</a></h3>
+<p>Se evaluaron <strong>20 configuraciones</strong> y 5 llegaron a la comparación de selección. La <strong>configuración 1</strong> obtuvo el menor MASE de validación (0,9126) sobre 2018–2021. La configuración fijada para prueba es <strong>1</strong>, con 5 semillas.</p>
+<section id="id1">
+<h4>Configuración conservada<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parámetro</p></th>
+<th class="head"><p>Valor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dimensión interna</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>Capas</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>Capas de mezcla</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cabezas</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>Dropout</p></td>
+<td><p>0,1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tasa de aprendizaje</p></td>
+<td><p>0,001</p></td>
+</tr>
+<tr class="row-even"><td><p>Decaimiento de pesos</p></td>
+<td><p>0,0001</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lote de ajuste</p></td>
+<td><p>64</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id2">
+<h4>Etapas del entrenamiento y prueba<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Etapa</p></th>
+<th class="head"><p>Especificación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Filtro inicial</p></td>
+<td><p>20 configuraciones; semilla 43; validación 2018</p></td>
+</tr>
+<tr class="row-odd"><td><p>Confirmación y criterio</p></td>
+<td><p>Cinco finalistas; semilla 43; evaluación adicional 2019–2021; media de los cuatro años 2018–2021. Menor MASE medio de validación; cada año tiene el mismo peso.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ajuste final</p></td>
+<td><p>2000-01-09 00:00:00-05:00 a 2019-10-20 00:00:00-05:00</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parada interna final</p></td>
+<td><p>2019-10-21 00:00:00-05:00 a 2021-12-31 00:00:00-05:00</p></td>
+</tr>
+<tr class="row-even"><td><p>Prueba</p></td>
+<td><p>2022-01-01 a 2025-12-31; 1.461 orígenes diarios</p></td>
+</tr>
+<tr class="row-odd"><td><p>Semillas finales</p></td>
+<td><p>1000, 1001, 1002, 1003, 1004</p></td>
+</tr>
+<tr class="row-even"><td><p>Historia y horizonte</p></td>
+<td><p>168 y 24 horas, respectivamente</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pérdida y optimizador</p></td>
+<td><p>MAE de demanda dividida por el nivel histórico; AdamW</p></td>
+</tr>
+<tr class="row-even"><td><p>Épocas y parada</p></td>
+<td><p>Máximo 200; mínimo 10; paciencia efectiva 6; restauración del menor valor interno</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tasa de aprendizaje</p></td>
+<td><p>ReduceLROnPlateau: factor 0,5; paciencia 2</p></td>
+</tr>
+<tr class="row-even"><td><p>Lotes</p></td>
+<td><p>Ajuste: 64; evaluación de prueba: hasta 256 orígenes por lote</p></td>
+</tr>
+<tr class="row-odd"><td><p>Épocas ejecutadas</p></td>
+<td><p>23–45; épocas de los checkpoints: 29, 20, 25, 39, 17</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id3">
+<h4>Configuraciones evaluadas en desarrollo<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Hiperparámetros</p></th>
+<th class="head text-right"><p>MASE del filtro</p></th>
+<th class="head text-right"><p>MASE de validación</p></th>
+<th class="head"><p>Estado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>Dimensión interna: 64; Capas: 2; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,7176</p></td>
+<td class="text-right"><p>0,9126</p></td>
+<td><p><strong>Seleccionada para prueba</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p>Dimensión interna: 256; Capas: 3; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,7240</p></td>
+<td class="text-right"><p>0,9179</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>Dimensión interna: 128; Capas: 3; Capas de mezcla: 3; Cabezas: 8; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,01; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>0,7703</p></td>
+<td class="text-right"><p>1,0030</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Dimensión interna: 64; Capas: 2; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,7562</p></td>
+<td class="text-right"><p>1,0456</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Dimensión interna: 64; Capas: 3; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,001; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>0,7652</p></td>
+<td class="text-right"><p>1,0566</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Dimensión interna: 128; Capas: 3; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,7753</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Dimensión interna: 64; Capas: 2; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,7833</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Dimensión interna: 128; Capas: 2; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,7873</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Dimensión interna: 128; Capas: 3; Capas de mezcla: 3; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,8069</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>Dimensión interna: 32; Capas: 3; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,8106</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>Dimensión interna: 32; Capas: 3; Capas de mezcla: 2; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,8597</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Dimensión interna: 128; Capas: 2; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,8765</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Dimensión interna: 128; Capas: 3; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>0,8978</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>Dimensión interna: 256; Capas: 2; Capas de mezcla: 1; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,001; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,9014</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Dimensión interna: 64; Capas: 3; Capas de mezcla: 1; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,9160</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Dimensión interna: 64; Capas: 3; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>1,0757</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>Dimensión interna: 128; Capas: 3; Capas de mezcla: 2; Cabezas: 16; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>1,0889</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>Dimensión interna: 128; Capas: 2; Capas de mezcla: 3; Cabezas: 16; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>1,2778</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>Dimensión interna: 32; Capas: 2; Capas de mezcla: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>1,4525</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Dimensión interna: 256; Capas: 2; Capas de mezcla: 2; Cabezas: 8; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,01; Lote de ajuste: 128</p></td>
+<td class="text-right"><p>1,4644</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="reference download internal" download="" href="../_downloads/e35fb3607520f2c1637ac92e0123f12a/adj_modelo7_20261114_0430__N%2BO.csv"><span class="xref download myst">Resultados de desarrollo por año y semilla</span></a> · <a class="reference download internal" download="" href="../_downloads/116aa12112eaaa7bbcfdf313dd32a29a/adj_modelo7_20261114_0430__N%2BO_configuraciones.csv"><span class="xref download myst">Configuraciones completas</span></a>.</p>
+<!-- diseno-entrenamiento:fin -->
+</section>
 </section>
 </section>
 <section id="pipeline-de-entrenamiento-y-prueba">
@@ -1934,6 +2410,21 @@ H=\operatorname{softmax}\!\left(\frac{QK_M^\top}{\sqrt{d_k}}\right)V_M.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esquema-global">Esquema global</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detalle-de-las-operaciones">Detalle de las operaciones</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-la-arquitectura">Código de la arquitectura</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-entrenamiento-y-prueba">Diseño de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tgforecaster-n">TGForecaster · N</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-conservada">Configuración conservada</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-del-entrenamiento-y-prueba">Etapas del entrenamiento y prueba</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuraciones-evaluadas-en-desarrollo">Configuraciones evaluadas en desarrollo</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tgforecaster-n-o">TGForecaster · N+O</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Configuración conservada</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Etapas del entrenamiento y prueba</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Configuraciones evaluadas en desarrollo</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">

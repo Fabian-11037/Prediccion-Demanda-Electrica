@@ -452,7 +452,7 @@
   ],
   "sha256_fuentes": {
     "scripts/documentacion_m4/propiedades_formales.md": "200494803afa4c1d121cabd8b274b3480d71bcd7338dc0502fda9e5db46dbe1d",
-    "book/arquitecturas/m4_n.md": "f04f4a03a3626024d1b879fdb66d9e17026159e9cd085d23d9de050d814ef658",
+    "book/arquitecturas/m4_n.md": "216f5323069cb9d4281e34d8ec6134c419640592dc1a9273126c0e4a267a4bb1",
     "book/_toc.yml": "2df5990a4ffb7dd9dc94f6fa2de28055ade4d7a8e367e84f5e59318d8fca243b",
     "book/_static/codigo_e3/m4/e3_gpu_comun.py": "96d061911af2c612b5c77b44a24b227685dd6477591f7afc31d8a7515a1cc3a1",
     "book/_static/codigo_e3/m4/e3_modelo1.py": "69bf2675f3f44ce36274ef12f644eae05443cc931c8af5b31694b97ab8a5b74c",
@@ -473,6 +473,6 @@
   "sha256_salidas": {
     "theory/m4_n.fragment.html": "93162dd96389db326bd5f24543fcd5be363e4c19698a27965b0e05bffe953251",
     "theory/m4_n.html": "cc89d4993177f2dce0de20dd0565100abd9bd524228d2df50b9c9d21711414c1",
-    "downloads/fichas/m4_n.md": "7511044978c105367b0a598419e98bea6742b8c6e553ae39eeea08bd62104c22"
+    "downloads/fichas/m4_n.md": "799f79653b8cf675a9f43c3b3887da6156c6cd746bcc971680adc0ea312b1a23"
   }
 }

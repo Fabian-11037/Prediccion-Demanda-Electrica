@@ -414,6 +414,15 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-la-arquitectura">Código de la arquitectura</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-entrenamiento-y-prueba">Diseño de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-en-validacion">Selección en validación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-conservada">Configuración conservada</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-del-entrenamiento-y-prueba">Etapas del entrenamiento y prueba</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuraciones-evaluadas-en-desarrollo">Configuraciones evaluadas en desarrollo</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-de-entrenamiento-y-evaluacion">Comandos de entrenamiento y evaluación</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escalado-por-pliegue-y-optimizacion">Escalado por pliegue y optimización</a></li>
@@ -536,6 +545,236 @@ z_j=\frac{u_j-\mu_j}{s_j},\qquad \widehat{\mathbf r}=Wz+b,\qquad \widehat{\mathb
 <span class="linenos">77</span>        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">lam</span> <span class="o">*</span> <span class="p">((</span><span class="n">w</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">pen</span> <span class="o">==</span> <span class="s2">"ridge"</span> <span class="k">else</span> <span class="n">w</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
+<!-- diseno-entrenamiento:inicio -->
+</section>
+</section>
+<section id="diseno-de-entrenamiento-y-prueba">
+<h2>Diseño de entrenamiento y prueba<a class="headerlink" href="#diseno-de-entrenamiento-y-prueba" title="Link to this heading">#</a></h2>
+<section id="seleccion-en-validacion">
+<span id="diseno-entrenamiento-arx"></span><h3>Selección en validación<a class="headerlink" href="#seleccion-en-validacion" title="Link to this heading">#</a></h3>
+<p>Se evaluaron <strong>20 configuraciones</strong> y 3 llegaron a la comparación de selección. La <strong>configuración arx_lineal_02</strong> obtuvo el menor MASE de validación (0,6838) sobre 2018–2021. La configuración fijada para prueba es <strong>arx_lineal_02</strong>, con 5 semillas.</p>
+<section id="configuracion-conservada">
+<h4>Configuración conservada<a class="headerlink" href="#configuracion-conservada" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parámetro</p></th>
+<th class="head"><p>Valor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Penalización</p></td>
+<td><p>lasso</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rezagos directos</p></td>
+<td><p>48</p></td>
+</tr>
+<tr class="row-even"><td><p>Lote de ajuste</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tasa de aprendizaje</p></td>
+<td><p>0,000658261</p></td>
+</tr>
+<tr class="row-even"><td><p>Plan de tasa</p></td>
+<td><p>plateau</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pérdida</p></td>
+<td><p>mae</p></td>
+</tr>
+<tr class="row-even"><td><p>Intensidad de penalización</p></td>
+<td><p>1,3734e-07</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="etapas-del-entrenamiento-y-prueba">
+<h4>Etapas del entrenamiento y prueba<a class="headerlink" href="#etapas-del-entrenamiento-y-prueba" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Etapa</p></th>
+<th class="head"><p>Especificación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Filtro inicial</p></td>
+<td><p>20 configuraciones; semilla 42; validación 2019; máximo 30 épocas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Confirmación y criterio</p></td>
+<td><p>3 finalistas; semillas 43 y 44; años 2018–2021; máximo 60 épocas. Menor MASE medio de validación; cada año tiene el mismo peso.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ajuste final</p></td>
+<td><p>2000–2021, excluida la reserva interna de parada</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parada interna final</p></td>
+<td><p>Último 10 % de orígenes anteriores a 2022; purga de 24 horas</p></td>
+</tr>
+<tr class="row-even"><td><p>Prueba</p></td>
+<td><p>2022-01-01 a 2025-12-31; 1.461 orígenes diarios</p></td>
+</tr>
+<tr class="row-odd"><td><p>Semillas finales</p></td>
+<td><p>1000, 1001, 1002, 1003, 1004</p></td>
+</tr>
+<tr class="row-even"><td><p>Historia y horizonte</p></td>
+<td><p>168 y 24 horas, respectivamente</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pérdida y optimizador</p></td>
+<td><p>MAE normalizado más penalización L1; AdamW</p></td>
+</tr>
+<tr class="row-even"><td><p>Épocas y parada</p></td>
+<td><p>Máximo 60; mínimo 10; paciencia efectiva 6; restauración del menor valor interno</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tasa de aprendizaje</p></td>
+<td><p>ReduceLROnPlateau: factor 0,5; paciencia 2</p></td>
+</tr>
+<tr class="row-even"><td><p>Lotes</p></td>
+<td><p>Ajuste: 64; evaluación de prueba: hasta 4096 orígenes por lote</p></td>
+</tr>
+<tr class="row-odd"><td><p>Épocas ejecutadas</p></td>
+<td><p>27–41; épocas de los checkpoints: 21, 35, 29, 25, 24</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="configuraciones-evaluadas-en-desarrollo">
+<h4>Configuraciones evaluadas en desarrollo<a class="headerlink" href="#configuraciones-evaluadas-en-desarrollo" title="Link to this heading">#</a></h4>
+<p>El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Hiperparámetros</p></th>
+<th class="head text-right"><p>MASE del filtro</p></th>
+<th class="head text-right"><p>MASE de validación</p></th>
+<th class="head"><p>Estado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>arx_lineal_02</strong></p></td>
+<td><p>Penalización: lasso; Rezagos directos: 48; Lote de ajuste: 64; Tasa de aprendizaje: 0,000658261; Plan de tasa: plateau; Pérdida: mae; Intensidad de penalización: 1,3734e-07</p></td>
+<td class="text-right"><p>0,6418</p></td>
+<td class="text-right"><p>0,6838</p></td>
+<td><p><strong>Seleccionada para prueba</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>arx_lineal_03</p></td>
+<td><p>Penalización: lasso; Rezagos directos: 168; Lote de ajuste: 256; Tasa de aprendizaje: 0,000456524; Plan de tasa: cosine; Pérdida: mae; Intensidad de penalización: 3,28076e-06</p></td>
+<td class="text-right"><p>0,6349</p></td>
+<td class="text-right"><p>0,6931</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-even"><td><p>arx_lineal_01</p></td>
+<td><p>Penalización: ridge; Rezagos directos: 96; Lote de ajuste: 256; Tasa de aprendizaje: 0,000194231; Plan de tasa: plateau; Pérdida: huber; Intensidad de penalización: 3,62374e-05</p></td>
+<td class="text-right"><p>0,6392</p></td>
+<td class="text-right"><p>0,7263</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-odd"><td><p>arx_lineal_11</p></td>
+<td><p>Penalización: ridge; Rezagos directos: 96; Lote de ajuste: 256; Tasa de aprendizaje: 0,000241675; Plan de tasa: plateau; Pérdida: mae; Intensidad de penalización: 9,0494e-06</p></td>
+<td class="text-right"><p>0,6582</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>arx_lineal_18</p></td>
+<td><p>Penalización: ridge; Rezagos directos: 24; Lote de ajuste: 256; Tasa de aprendizaje: 0,000213312; Plan de tasa: plateau; Pérdida: mse; Intensidad de penalización: 3,83434e-05</p></td>
+<td class="text-right"><p>0,6631</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>arx_lineal_09</p></td>
+<td><p>Penalización: ridge; Rezagos directos: 96; Lote de ajuste: 256; Tasa de aprendizaje: 0,0015342; Plan de tasa: plateau; Pérdida: huber; Intensidad de penalización: 0,0158273</p></td>
+<td class="text-right"><p>0,6839</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>arx_lineal_04</p></td>
+<td><p>Penalización: ridge; Rezagos directos: 48; Lote de ajuste: 256; Tasa de aprendizaje: 0,000640068; Plan de tasa: none; Pérdida: huber; Intensidad de penalización: 2,04912e-05</p></td>
+<td class="text-right"><p>0,7074</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>arx_lineal_19</p></td>
+<td><p>Penalización: ridge; Rezagos directos: 96; Lote de ajuste: 128; Tasa de aprendizaje: 0,000620172; Plan de tasa: none; Pérdida: mae; Intensidad de penalización: 2,0534e-05</p></td>
+<td class="text-right"><p>0,7686</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>arx_lineal_06</p></td>
+<td><p>Penalización: ridge; Rezagos directos: 96; Lote de ajuste: 64; Tasa de aprendizaje: 0,000357917; Plan de tasa: cosine; Pérdida: huber; Intensidad de penalización: 0,0707338</p></td>
+<td class="text-right"><p>0,8002</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>arx_lineal_12</p></td>
+<td><p>Penalización: ridge; Rezagos directos: 24; Lote de ajuste: 32; Tasa de aprendizaje: 0,00527919; Plan de tasa: plateau; Pérdida: huber; Intensidad de penalización: 0,000228849</p></td>
+<td class="text-right"><p>0,8714</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>arx_lineal_20</p></td>
+<td><p>Penalización: lasso; Rezagos directos: 48; Lote de ajuste: 128; Tasa de aprendizaje: 0,00184637; Plan de tasa: none; Pérdida: huber; Intensidad de penalización: 0,000423126</p></td>
+<td class="text-right"><p>0,9950</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>arx_lineal_05</p></td>
+<td><p>Penalización: ridge; Rezagos directos: 168; Lote de ajuste: 32; Tasa de aprendizaje: 0,000934075; Plan de tasa: none; Pérdida: mse; Intensidad de penalización: 0,0643111</p></td>
+<td class="text-right"><p>1,0964</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>arx_lineal_10</p></td>
+<td><p>Penalización: lasso; Rezagos directos: 96; Lote de ajuste: 128; Tasa de aprendizaje: 0,00320672; Plan de tasa: cosine; Pérdida: mse; Intensidad de penalización: 0,00125353</p></td>
+<td class="text-right"><p>1,1091</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>arx_lineal_13</p></td>
+<td><p>Penalización: lasso; Rezagos directos: 48; Lote de ajuste: 256; Tasa de aprendizaje: 0,00195633; Plan de tasa: none; Pérdida: mse; Intensidad de penalización: 0,00150607</p></td>
+<td class="text-right"><p>1,1771</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>arx_lineal_08</p></td>
+<td><p>Penalización: lasso; Rezagos directos: 168; Lote de ajuste: 64; Tasa de aprendizaje: 0,00114072; Plan de tasa: none; Pérdida: huber; Intensidad de penalización: 2,04997e-07</p></td>
+<td class="text-right"><p>1,2424</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>arx_lineal_16</p></td>
+<td><p>Penalización: lasso; Rezagos directos: 24; Lote de ajuste: 64; Tasa de aprendizaje: 0,00688933; Plan de tasa: plateau; Pérdida: huber; Intensidad de penalización: 0,00267671</p></td>
+<td class="text-right"><p>1,6745</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>arx_lineal_07</p></td>
+<td><p>Penalización: ridge; Rezagos directos: 96; Lote de ajuste: 64; Tasa de aprendizaje: 0,00176595; Plan de tasa: none; Pérdida: mae; Intensidad de penalización: 0,00116149</p></td>
+<td class="text-right"><p>1,9139</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>arx_lineal_14</p></td>
+<td><p>Penalización: lasso; Rezagos directos: 48; Lote de ajuste: 64; Tasa de aprendizaje: 0,0018996; Plan de tasa: none; Pérdida: huber; Intensidad de penalización: 0,00658195</p></td>
+<td class="text-right"><p>2,0878</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>arx_lineal_17</p></td>
+<td><p>Penalización: ridge; Rezagos directos: 96; Lote de ajuste: 64; Tasa de aprendizaje: 0,00344377; Plan de tasa: none; Pérdida: huber; Intensidad de penalización: 0,0143342</p></td>
+<td class="text-right"><p>2,6418</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>arx_lineal_15</p></td>
+<td><p>Penalización: lasso; Rezagos directos: 24; Lote de ajuste: 32; Tasa de aprendizaje: 0,00615789; Plan de tasa: cosine; Pérdida: huber; Intensidad de penalización: 8,86156e-05</p></td>
+<td class="text-right"><p>4,8562</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="reference download internal" download="" href="../_downloads/cdb0333b5cfde62e71c5ebfcad5e9e4d/arx_lineal.csv"><span class="xref download myst">Resultados de desarrollo por año y semilla</span></a> · <a class="reference download internal" download="" href="../_downloads/0d7f87ce0f21f446e434faa888150130/arx_lineal_configuraciones.csv"><span class="xref download myst">Configuraciones completas</span></a>.</p>
+<!-- diseno-entrenamiento:fin -->
+</section>
 </section>
 </section>
 <section id="pipeline-de-entrenamiento-y-prueba">
@@ -821,6 +1060,15 @@ z_j=\frac{u_j-\mu_j}{s_j},\qquad \widehat{\mathbf r}=Wz+b,\qquad \widehat{\mathb
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esquema-global">Esquema global</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detalle-de-las-operaciones">Detalle de las operaciones</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-la-arquitectura">Código de la arquitectura</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-entrenamiento-y-prueba">Diseño de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-en-validacion">Selección en validación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-conservada">Configuración conservada</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-del-entrenamiento-y-prueba">Etapas del entrenamiento y prueba</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuraciones-evaluadas-en-desarrollo">Configuraciones evaluadas en desarrollo</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">

@@ -8,23 +8,25 @@ Una LSTM recorre la historia hora por hora y conserva un estado de memoria. Sus 
 
 La implementación seleccionada recibe 168 pasos con 24 variables por paso: demanda normalizada y 23 variables de calendario pasado. Tiene una capa recurrente de 48 unidades. El estado oculto final se concatena con los 552 atributos de calendario futuro y una capa lineal de 24 salidas aprende desviaciones respecto de uno. Hay 28.632 parámetros.
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 f_s&=\sigma(W_f x_s+U_fh_{s-1}+b_f),&i_s&=\sigma(W_i x_s+U_ih_{s-1}+b_i),\\
 \tilde c_s&=\tanh(W_c x_s+U_ch_{s-1}+b_c),&c_s&=f_s\odot c_{s-1}+i_s\odot\tilde c_s,\\
 o_s&=\sigma(W_o x_s+U_oh_{s-1}+b_o),&h_s&=o_s\odot\tanh(c_s).
-\end{aligned}$$
+\end{aligned}
+$$ (eq-arquitecturas-lstm-001)
 
 La memoria $c_s$ y la salida $h_s$ son distintas; $\odot$ representa producto componente a componente. El decodificador usado es directo: $\widehat{\mathbf y}=\ell_t[\mathbf1+W_o'[D(h_{168});\operatorname{vec}(F)]+b_o']$. No realimenta una predicción para obtener la siguiente. El dropout de 0,1 se aplica al estado antes de la salida; no hay dropout entre capas recurrentes porque solo existe una. El entrenamiento utiliza Huber, AdamW y parada interna.
 
 ### Esquema global
 
-[![Arquitectura global de lstm](https://demanda-electrica-dashboard.onrender.com/architectures/lstm_global.png)](https://demanda-electrica-dashboard.onrender.com/architectures/lstm_global.png)
+[![Arquitectura global de lstm](../_static/arquitecturas_presentacion/lstm_global.png)](../_static/arquitecturas_presentacion/lstm_global.png)
 
 Una misma celda recurrente procesa las 168 horas. El estado oculto final de 48 componentes se concatena con el calendario del horizonte para generar las 24 salidas.
 
 ### Detalle de las operaciones
 
-[![Detalle de la arquitectura de lstm](https://demanda-electrica-dashboard.onrender.com/architectures/lstm_detalle.png)](https://demanda-electrica-dashboard.onrender.com/architectures/lstm_detalle.png)
+[![Detalle de la arquitectura de lstm](../_static/arquitecturas_presentacion/lstm_detalle.png)](../_static/arquitecturas_presentacion/lstm_detalle.png)
 
 Las compuertas de olvido, entrada y salida regulan la memoria y el estado oculto. La demanda se expresa respecto del nivel y de la dispersión de ajuste; la lectura utiliza el estado final y el calendario conocido.
 
@@ -58,6 +60,78 @@ class Secuencial(nn.Module):
     def penalizacion(self):return 0.
 ```
 
+<!-- diseno-entrenamiento:inicio -->
+
+## Diseño de entrenamiento y prueba
+
+
+### Selección en validación
+
+Se evaluaron **24 configuraciones** y 6 llegaron a la comparación de selección. La **configuración lstm_v4_01** obtuvo el menor MASE de validación (0,7273) sobre 2018–2021. La configuración fijada para prueba es **lstm_v4_01**, con 5 semillas.
+
+#### Configuración conservada
+| Parámetro | Valor |
+|---|---|
+| Dropout | 0,1 |
+| Decaimiento de pesos | 0,0001 |
+| Lote de ajuste | 256 |
+| Plan de tasa | plateau |
+| Pérdida | huber |
+| Capas | 1 |
+| Unidades | 48 |
+| Tasa de aprendizaje | 0,001 |
+
+#### Etapas del entrenamiento y prueba
+
+| Etapa | Especificación |
+|---|---|
+| Filtro inicial | 24 configuraciones; semilla 42; validación 2019; máximo 30 épocas |
+| Confirmación y criterio | 6 finalistas; semillas 43 y 44; años 2018–2021; máximo 60 épocas. Menor MASE medio de validación; cada año tiene el mismo peso. |
+| Ajuste final | 2000–2021, excluida la reserva interna de parada |
+| Parada interna final | Último 10 % de orígenes anteriores a 2022; purga de 24 horas |
+| Prueba | 2022-01-01 a 2025-12-31; 1.461 orígenes diarios |
+| Semillas finales | 1000, 1001, 1002, 1003, 1004 |
+| Historia y horizonte | 168 y 24 horas, respectivamente |
+| Pérdida y optimizador | Huber normalizada; transición 0,05; AdamW |
+| Épocas y parada | Máximo 60; mínimo 10; paciencia efectiva 6; restauración del menor valor interno |
+| Tasa de aprendizaje | ReduceLROnPlateau: factor 0,5; paciencia 2 |
+| Lotes | Ajuste: 256; evaluación de prueba: hasta 4096 orígenes por lote |
+| Épocas ejecutadas | 36–48; épocas de los checkpoints: 30, 42, 36, 40, 37 |
+
+
+#### Configuraciones evaluadas en desarrollo
+El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.
+| Configuración | Hiperparámetros | MASE del filtro | MASE de validación | Estado |
+|---|---|---:|---:|---|
+| **lstm_v4_01** | Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Plan de tasa: plateau; Pérdida: huber; Capas: 1; Unidades: 48; Tasa de aprendizaje: 0,001 | 0,6938 | 0,7273 | **Seleccionada para prueba** |
+| lstm_v4_02 | Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Plan de tasa: plateau; Pérdida: huber; Capas: 1; Unidades: 64; Tasa de aprendizaje: 0,001 | 0,6573 | 0,7416 | Finalista |
+| lstm_16 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 32 | 0,7666 | 0,7945 | Finalista |
+| lstm_18 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 32 | 0,7903 | 0,8278 | Finalista |
+| lstm_20 | Capas: 1; Dropout: 0,3; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 32 | 0,8136 | 0,8645 | Finalista |
+| lstm_v4_04 | Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Plan de tasa: plateau; Pérdida: huber; Capas: 2; Unidades: 32; Tasa de aprendizaje: 0,001 | 1,6600 | 1,6072 | Finalista |
+| lstm_06 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 16 | 0,8268 | — | Filtro inicial |
+| lstm_11 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 32 | 0,8362 | — | Filtro inicial |
+| lstm_13 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 32 | 0,8733 | — | Filtro inicial |
+| lstm_15 | Capas: 1; Dropout: 0,3; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 32 | 0,8957 | — | Filtro inicial |
+| lstm_01 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 16 | 0,9629 | — | Filtro inicial |
+| lstm_12 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; Unidades: 32 | 0,9909 | — | Filtro inicial |
+| lstm_03 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 16 | 1,0132 | — | Filtro inicial |
+| lstm_14 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; Unidades: 32 | 1,0444 | — | Filtro inicial |
+| lstm_05 | Capas: 1; Dropout: 0,3; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 16 | 1,0728 | — | Filtro inicial |
+| lstm_08 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 16 | 1,6273 | — | Filtro inicial |
+| lstm_10 | Capas: 1; Dropout: 0,3; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,001; Plan de tasa: plateau; Pérdida: huber; Unidades: 16 | 1,6340 | — | Filtro inicial |
+| lstm_17 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; Unidades: 32 | 1,6369 | — | Filtro inicial |
+| lstm_19 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; Unidades: 32 | 1,6408 | — | Filtro inicial |
+| lstm_02 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; Unidades: 16 | 1,6454 | — | Filtro inicial |
+| lstm_04 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; Unidades: 16 | 1,6552 | — | Filtro inicial |
+| lstm_07 | Capas: 1; Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; Unidades: 16 | 1,6573 | — | Filtro inicial |
+| lstm_v4_03 | Dropout: 0,1; Decaimiento de pesos: 0,0001; Lote de ajuste: 256; Plan de tasa: plateau; Pérdida: huber; Capas: 2; Unidades: 16; Tasa de aprendizaje: 0,001 | 1,6649 | — | Filtro inicial |
+| lstm_09 | Capas: 1; Dropout: 0,2; Decaimiento de pesos: 0,001; Lote de ajuste: 256; Tasa de aprendizaje: 0,0003; Plan de tasa: plateau; Pérdida: huber; Unidades: 16 | 1,6650 | — | Filtro inicial |
+
+[Resultados de desarrollo por año y semilla](../_static/resultados/diseno_entrenamiento/lstm.csv) · [Configuraciones completas](../_static/resultados/diseno_entrenamiento/lstm_configuraciones.csv).
+
+<!-- diseno-entrenamiento:fin -->
+
 ## Pipeline de entrenamiento y prueba
 
 <!-- entrenamiento-portable:inicio -->
@@ -75,7 +149,7 @@ Comprobación funcional breve:
 python scripts/entrenar_arquitectura.py --modelo lstm --smoke --dispositivo cpu --salida salidas/lstm_funcional
 ```
 
-Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+Evaluación final, con ajuste y parada anteriores a 2022:
 
 ```bash
 python scripts/entrenar_arquitectura.py --modelo lstm --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/lstm_prueba_1000

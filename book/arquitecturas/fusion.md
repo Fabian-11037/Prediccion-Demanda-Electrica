@@ -39,6 +39,76 @@ El {ref}`código de exportación de los esquemas <exportacion-esquemas>` forma p
 :linenos:
 ```
 
+<!-- diseno-entrenamiento:inicio -->
+
+## Diseño de entrenamiento y prueba
+
+(diseno-entrenamiento-fusion)=
+
+### Selección en validación
+
+Se evaluaron **20 configuraciones** y 5 llegaron a la comparación de selección. La **configuración 18** obtuvo el menor MASE de validación (0,5250) sobre 2018–2021. La configuración fijada para prueba es **18**, con 5 semillas.
+
+#### Configuración conservada
+| Parámetro | Valor |
+|---|---|
+| Núcleo | patchtst |
+| Dimensión interna | 64 |
+| Capas | 2 |
+| Cabezas | 4 |
+| Dropout | 0,1 |
+| Tasa de aprendizaje | 0,001 |
+| Decaimiento de pesos | 0,0001 |
+| Lote de ajuste | 32 |
+| Ancho de fusión | 128 |
+
+#### Etapas del entrenamiento y prueba
+
+| Etapa | Especificación |
+|---|---|
+| Filtro inicial | 20 configuraciones; semilla 43; validación 2018 |
+| Confirmación y criterio | Cinco finalistas; semilla 43; evaluación adicional 2019–2021; media de los cuatro años 2018–2021. Menor MASE medio de validación; cada año tiene el mismo peso. |
+| Ajuste final | 2000-01-09 00:00:00-05:00 a 2019-10-20 00:00:00-05:00 |
+| Parada interna final | 2019-10-21 00:00:00-05:00 a 2021-12-31 00:00:00-05:00 |
+| Prueba | 2022-01-01 a 2025-12-31; 1.461 orígenes diarios |
+| Semillas finales | 1000, 1001, 1002, 1003, 1004 |
+| Historia y horizonte | 168 y 24 horas, respectivamente |
+| Pérdida y optimizador | MAE de demanda dividida por el nivel histórico; AdamW |
+| Épocas y parada | Máximo 200; mínimo 10; paciencia efectiva 6; restauración del menor valor interno |
+| Tasa de aprendizaje | ReduceLROnPlateau: factor 0,5; paciencia 2 |
+| Lotes | Ajuste: 32; evaluación de prueba: hasta 256 orígenes por lote |
+| Épocas ejecutadas | 13–31; épocas de los checkpoints: 20, 20, 25, 22, 7 |
+
+
+#### Configuraciones evaluadas en desarrollo
+El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.
+| Configuración | Hiperparámetros | MASE del filtro | MASE de validación | Estado |
+|---|---|---:|---:|---|
+| **18** | Núcleo: patchtst; Dimensión interna: 64; Capas: 2; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32; Ancho de fusión: 128 | 0,4215 | 0,5250 | **Seleccionada para prueba** |
+| 19 | Núcleo: patchtst; Dimensión interna: 128; Capas: 3; Cabezas: 16; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,01; Lote de ajuste: 32; Ancho de fusión: 32 | 0,4368 | 0,5538 | Finalista |
+| 12 | Núcleo: patchtst; Dimensión interna: 128; Capas: 3; Cabezas: 16; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Ancho de fusión: 64 | 0,4362 | 0,5554 | Finalista |
+| 15 | Núcleo: patchtst; Dimensión interna: 64; Capas: 3; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Ancho de fusión: 64 | 0,4528 | 0,5758 | Finalista |
+| 14 | Núcleo: patchtst; Dimensión interna: 128; Capas: 2; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Ancho de fusión: 128 | 0,4413 | 0,5838 | Finalista |
+| 1 | Núcleo: itransformer; Dimensión interna: 128; Capas: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Ancho de fusión: 64 | 0,4678 | — | Filtro inicial |
+| 13 | Núcleo: patchtst; Dimensión interna: 128; Capas: 3; Cabezas: 16; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128; Ancho de fusión: 32 | 0,4811 | — | Filtro inicial |
+| 16 | Núcleo: patchtst; Dimensión interna: 64; Capas: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,001; Lote de ajuste: 128; Ancho de fusión: 64 | 0,4982 | — | Filtro inicial |
+| 20 | Núcleo: patchtst; Dimensión interna: 16; Capas: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 64; Ancho de fusión: 64 | 0,5064 | — | Filtro inicial |
+| 11 | Núcleo: patchtst; Dimensión interna: 128; Capas: 3; Cabezas: 16; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 128; Ancho de fusión: 64 | 0,5077 | — | Filtro inicial |
+| 10 | Núcleo: itransformer; Dimensión interna: 64; Capas: 2; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Ancho de fusión: 64 | 0,5448 | — | Filtro inicial |
+| 6 | Núcleo: itransformer; Dimensión interna: 256; Capas: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Ancho de fusión: 64 | 0,5469 | — | Filtro inicial |
+| 3 | Núcleo: itransformer; Dimensión interna: 128; Capas: 2; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128; Ancho de fusión: 32 | 0,5864 | — | Filtro inicial |
+| 17 | Núcleo: patchtst; Dimensión interna: 16; Capas: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 128; Ancho de fusión: 64 | 0,5905 | — | Filtro inicial |
+| 5 | Núcleo: itransformer; Dimensión interna: 128; Capas: 3; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128; Ancho de fusión: 64 | 0,6010 | — | Filtro inicial |
+| 8 | Núcleo: itransformer; Dimensión interna: 256; Capas: 3; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32; Ancho de fusión: 64 | 0,6051 | — | Filtro inicial |
+| 2 | Núcleo: itransformer; Dimensión interna: 128; Capas: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Ancho de fusión: 64 | 0,6179 | — | Filtro inicial |
+| 7 | Núcleo: itransformer; Dimensión interna: 256; Capas: 2; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,001; Lote de ajuste: 32; Ancho de fusión: 128 | 0,6235 | — | Filtro inicial |
+| 9 | Núcleo: itransformer; Dimensión interna: 256; Capas: 3; Cabezas: 8; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,01; Lote de ajuste: 128; Ancho de fusión: 32 | 0,6395 | — | Filtro inicial |
+| 4 | Núcleo: itransformer; Dimensión interna: 128; Capas: 3; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Ancho de fusión: 128 | 0,6456 | — | Filtro inicial |
+
+[Resultados de desarrollo por año y semilla](../_static/resultados/diseno_entrenamiento/adj_fusion_tardia_20261113_1728__N+O.csv) · [Configuraciones completas](../_static/resultados/diseno_entrenamiento/adj_fusion_tardia_20261113_1728__N+O_configuraciones.csv).
+
+<!-- diseno-entrenamiento:fin -->
+
 ## Pipeline de entrenamiento y prueba
 
 <!-- entrenamiento-portable:inicio -->

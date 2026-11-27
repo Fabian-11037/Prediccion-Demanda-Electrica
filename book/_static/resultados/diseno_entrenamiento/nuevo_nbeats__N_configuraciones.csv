@@ -1,0 +1,21 @@
+configuracion,hiperparametros,MASE_filtro,MASE_seleccion,anios_seleccion,semillas_seleccion,ajustes_seleccion,seleccionada_prueba
+16,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.1, ""lr"": 0.000357243, ""weight_decay"": 0.0, ""lote"": 64}",0.48912867469164095,0.6908256229587274,"2018,2019,2020,2021",43,4,True
+9,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.0, ""lr"": 0.000167913, ""weight_decay"": 0.0001, ""lote"": 64}",0.5254744194401334,0.6933097838989,"2018,2019,2020,2021",43,4,False
+10,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.1, ""lr"": 0.000570889, ""weight_decay"": 0.0001, ""lote"": 128}",0.4951148571758899,0.7019423206360814,"2018,2019,2020,2021",43,4,False
+6,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.1, ""lr"": 0.000554015, ""weight_decay"": 0.0, ""lote"": 64}",0.4998889973893663,0.7068759961845238,"2018,2019,2020,2021",43,4,False
+18,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.1, ""lr"": 0.000240778, ""weight_decay"": 0.0, ""lote"": 128}",0.5123553838999136,0.7186630219946164,"2018,2019,2020,2021",43,4,False
+3,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.1, ""lr"": 0.000264241, ""weight_decay"": 0.0, ""lote"": 128}",0.5259276580227402,,,,0,False
+11,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.1, ""lr"": 0.000439967, ""weight_decay"": 1e-05, ""lote"": 64}",0.5273060897517451,,,,0,False
+19,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.0, ""lr"": 0.000408621, ""weight_decay"": 0.0, ""lote"": 64}",0.5294178878241281,,,,0,False
+5,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.0, ""lr"": 0.000263148, ""weight_decay"": 0.0, ""lote"": 64}",0.5348113212469477,,,,0,False
+15,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.0, ""lr"": 0.000393724, ""weight_decay"": 0.0, ""lote"": 128}",0.5437612811919521,,,,0,False
+14,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.1, ""lr"": 0.00036962, ""weight_decay"": 0.0, ""lote"": 256}",0.5450284760260081,,,,0,False
+17,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.1, ""lr"": 0.000105918, ""weight_decay"": 1e-05, ""lote"": 128}",0.5462063147603288,,,,0,False
+1,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.1, ""lr"": 0.000613748, ""weight_decay"": 0.0001, ""lote"": 256}",0.548313572713249,,,,0,False
+20,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.1, ""lr"": 0.000242018, ""weight_decay"": 0.0001, ""lote"": 256}",0.5514000243121141,,,,0,False
+8,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.0, ""lr"": 0.000194616, ""weight_decay"": 0.0, ""lote"": 128}",0.5543784812952656,,,,0,False
+4,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.0, ""lr"": 0.000191509, ""weight_decay"": 0.0001, ""lote"": 128}",0.5606585838126077,,,,0,False
+7,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.1, ""lr"": 0.000109654, ""weight_decay"": 1e-05, ""lote"": 256}",0.5647826246439429,,,,0,False
+13,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.0, ""lr"": 0.000154096, ""weight_decay"": 0.0001, ""lote"": 128}",0.5660454821774371,,,,0,False
+12,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.0, ""lr"": 0.000299397, ""weight_decay"": 0.0, ""lote"": 256}",0.57041469191183,,,,0,False
+2,"{""pilas"": 30, ""bloques_por_pila"": 1, ""capas_fc"": 4, ""ancho"": 512, ""dropout"": 0.0, ""lr"": 0.000144134, ""weight_decay"": 0.0001, ""lote"": 256}",0.6193693558811549,,,,0,False

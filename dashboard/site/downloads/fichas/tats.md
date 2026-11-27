@@ -8,8 +8,10 @@ TaTS convierte el texto en canales adicionales de una serie. En lugar de modific
 
 Para cada uno de los siete cierres diarios de la historia se reúnen documentos oficiales disponibles en las 72 horas anteriores, hasta 64. La consulta $q_t$ se obtiene de los promedios numéricos de las últimas 24 y 168 horas. Cada embedding E5 $e_j\in\mathbb R^{768}$ recibe un peso:
 
-$$\alpha_{d,j}=\operatorname{softmax}_j\!\left(\frac{q_t^TK e_{d,j}}{\sqrt{64}}\right),\quad
-z_d=\operatorname{MLP}_{64\rightarrow64\rightarrow32\rightarrow12}\!\left(\sum_j\alpha_{d,j}Ve_{d,j}\right).$$
+$$
+\alpha_{d,j}=\operatorname{softmax}_j\!\left(\frac{q_t^TK e_{d,j}}{\sqrt{64}}\right),\quad
+z_d=\operatorname{MLP}_{64\rightarrow64\rightarrow32\rightarrow12}\!\left(\sum_j\alpha_{d,j}Ve_{d,j}\right).
+$$ (eq-arquitecturas-tats-001)
 
 La representación diaria y su indicador de presencia se repiten en las 24 horas del bloque y se concatenan a las entradas históricas. Sin documentos, ambos quedan en cero. Se conservan únicamente documentos habilitados al cierre correspondiente; la ventana textual no lee artículos futuros.
 
@@ -19,13 +21,13 @@ La configuración numérica seleccionada usa un núcleo más pequeño: dimensió
 
 ### Esquema global
 
-[![Arquitectura global de tats](https://demanda-electrica-dashboard.onrender.com/architectures/tats_global.png)](https://demanda-electrica-dashboard.onrender.com/architectures/tats_global.png)
+[![Arquitectura global de tats](../_static/arquitecturas_presentacion/tats_global.png)](../_static/arquitecturas_presentacion/tats_global.png)
 
 El texto oficial se resume mediante relevancia aprendida en siete cierres diarios. Doce atributos y un indicador de presencia por día se repiten sobre las horas correspondientes y se añaden a los 33 canales numéricos. PatchTST procesa los 46 canales y combina la lectura de demanda con una lectura de contexto.
 
 ### Detalle de las operaciones
 
-[![Detalle de la arquitectura de tats](https://demanda-electrica-dashboard.onrender.com/architectures/tats_detalle.png)](https://demanda-electrica-dashboard.onrender.com/architectures/tats_detalle.png)
+[![Detalle de la arquitectura de tats](../_static/arquitecturas_presentacion/tats_detalle.png)](../_static/arquitecturas_presentacion/tats_detalle.png)
 
 Los embeddings E5 permanecen congelados; las proyecciones de consulta, clave y valor aprenden a ponderar documentos disponibles. Las dos lecturas producen 24 correcciones: una utiliza el canal de demanda y otra reúne los demás canales con el calendario. Sin documentos, los canales textuales son cero.
 
@@ -179,6 +181,75 @@ class Modelo6(nn.Module):
         return sum(v.numel() for v in self.parameters() if v.requires_grad)
 ```
 
+<!-- diseno-entrenamiento:inicio -->
+
+## Diseño de entrenamiento y prueba
+
+
+### Selección en validación
+
+Se evaluaron **20 configuraciones** y 5 llegaron a la comparación de selección. La **configuración 12** obtuvo el menor MASE de validación (0,5157) sobre 2018–2021. La configuración fijada para prueba es **12**, con 5 semillas.
+
+#### Configuración conservada
+| Parámetro | Valor |
+|---|---|
+| Núcleo | patchtst |
+| Dimensión interna | 128 |
+| Capas | 3 |
+| Cabezas | 16 |
+| Dropout | 0,2 |
+| Tasa de aprendizaje | 0,0003 |
+| Decaimiento de pesos | 0,0001 |
+| Lote de ajuste | 64 |
+| Dimensión textual | 12 |
+
+#### Etapas del entrenamiento y prueba
+
+| Etapa | Especificación |
+|---|---|
+| Filtro inicial | 20 configuraciones; semilla 43; validación 2018 |
+| Confirmación y criterio | Cinco finalistas; semilla 43; evaluación adicional 2019–2021; media de los cuatro años 2018–2021. Menor MASE medio de validación; cada año tiene el mismo peso. Selección independiente del canal numérico y documental. |
+| Ajuste final | 2000-01-09 00:00:00-05:00 a 2019-10-20 00:00:00-05:00 |
+| Parada interna final | 2019-10-21 00:00:00-05:00 a 2021-12-31 00:00:00-05:00 |
+| Prueba | 2022-01-01 a 2025-12-31; 1.461 orígenes diarios |
+| Semillas finales | 1000, 1001, 1002, 1003, 1004 |
+| Historia y horizonte | 168 y 24 horas, respectivamente |
+| Pérdida y optimizador | MAE de demanda dividida por el nivel histórico; AdamW |
+| Épocas y parada | Máximo 200; mínimo 10; paciencia efectiva 6; restauración del menor valor interno |
+| Tasa de aprendizaje | ReduceLROnPlateau: factor 0,5; paciencia 2 |
+| Lotes | Ajuste: 64; evaluación de prueba: hasta 256 orígenes por lote |
+| Épocas ejecutadas | 23–47; épocas de los checkpoints: 32, 41, 27, 35, 17 |
+
+
+#### Configuraciones evaluadas en desarrollo
+El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.
+| Configuración | Hiperparámetros | MASE del filtro | MASE de validación | Estado |
+|---|---|---:|---:|---|
+| **12** | Núcleo: patchtst; Dimensión interna: 128; Capas: 3; Cabezas: 16; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Dimensión textual: 12 | 0,4561 | 0,5157 | **Seleccionada para prueba** |
+| 14 | Núcleo: patchtst; Dimensión interna: 128; Capas: 2; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Dimensión textual: 24 | 0,4142 | 0,5200 | Finalista |
+| 19 | Núcleo: patchtst; Dimensión interna: 128; Capas: 3; Cabezas: 16; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,01; Lote de ajuste: 32; Dimensión textual: 6 | 0,4098 | 0,5235 | Finalista |
+| 18 | Núcleo: patchtst; Dimensión interna: 64; Capas: 2; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32; Dimensión textual: 24 | 0,4600 | 0,5281 | Finalista |
+| 13 | Núcleo: patchtst; Dimensión interna: 128; Capas: 3; Cabezas: 16; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128; Dimensión textual: 6 | 0,4359 | 0,5392 | Finalista |
+| 1 | Núcleo: itransformer; Dimensión interna: 128; Capas: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Dimensión textual: 12 | 0,4623 | — | Filtro inicial |
+| 6 | Núcleo: itransformer; Dimensión interna: 256; Capas: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Dimensión textual: 12 | 0,4773 | — | Filtro inicial |
+| 3 | Núcleo: itransformer; Dimensión interna: 128; Capas: 2; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128; Dimensión textual: 6 | 0,4806 | — | Filtro inicial |
+| 11 | Núcleo: patchtst; Dimensión interna: 128; Capas: 3; Cabezas: 16; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 128; Dimensión textual: 12 | 0,4847 | — | Filtro inicial |
+| 10 | Núcleo: itransformer; Dimensión interna: 64; Capas: 2; Cabezas: 4; Dropout: 0,1; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Dimensión textual: 12 | 0,5050 | — | Filtro inicial |
+| 5 | Núcleo: itransformer; Dimensión interna: 128; Capas: 3; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 128; Dimensión textual: 12 | 0,5269 | — | Filtro inicial |
+| 16 | Núcleo: patchtst; Dimensión interna: 64; Capas: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,001; Lote de ajuste: 128; Dimensión textual: 12 | 0,5317 | — | Filtro inicial |
+| 8 | Núcleo: itransformer; Dimensión interna: 256; Capas: 3; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 32; Dimensión textual: 12 | 0,5413 | — | Filtro inicial |
+| 4 | Núcleo: itransformer; Dimensión interna: 128; Capas: 3; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Dimensión textual: 24 | 0,5419 | — | Filtro inicial |
+| 20 | Núcleo: patchtst; Dimensión interna: 16; Capas: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,001; Lote de ajuste: 64; Dimensión textual: 12 | 0,5420 | — | Filtro inicial |
+| 2 | Núcleo: itransformer; Dimensión interna: 128; Capas: 2; Cabezas: 8; Dropout: 0,1; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Dimensión textual: 12 | 0,5566 | — | Filtro inicial |
+| 7 | Núcleo: itransformer; Dimensión interna: 256; Capas: 2; Cabezas: 8; Dropout: 0,2; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,001; Lote de ajuste: 32; Dimensión textual: 24 | 0,5606 | — | Filtro inicial |
+| 15 | Núcleo: patchtst; Dimensión interna: 64; Capas: 3; Cabezas: 4; Dropout: 0,2; Tasa de aprendizaje: 0,001; Decaimiento de pesos: 0,0001; Lote de ajuste: 64; Dimensión textual: 12 | 0,6007 | — | Filtro inicial |
+| 9 | Núcleo: itransformer; Dimensión interna: 256; Capas: 3; Cabezas: 8; Dropout: 0,3; Tasa de aprendizaje: 0,0003; Decaimiento de pesos: 0,01; Lote de ajuste: 128; Dimensión textual: 6 | 0,6466 | — | Filtro inicial |
+| 17 | Núcleo: patchtst; Dimensión interna: 16; Capas: 3; Cabezas: 4; Dropout: 0,3; Tasa de aprendizaje: 0,0001; Decaimiento de pesos: 0,0001; Lote de ajuste: 128; Dimensión textual: 12 | 0,7235 | — | Filtro inicial |
+
+[Resultados de desarrollo por año y semilla](../_static/resultados/diseno_entrenamiento/adj_modelo6_20261112_1035__N+O.csv) · [Configuraciones completas](../_static/resultados/diseno_entrenamiento/adj_modelo6_20261112_1035__N+O_configuraciones.csv).
+
+<!-- diseno-entrenamiento:fin -->
+
 ## Pipeline de entrenamiento y prueba
 
 <!-- entrenamiento-portable:inicio -->
@@ -196,7 +267,7 @@ Comprobación funcional breve:
 python scripts/entrenar_arquitectura.py --modelo tats --smoke --dispositivo cpu --salida salidas/tats_funcional
 ```
 
-Evaluación final autorizada, con ajuste y parada anteriores a 2022:
+Evaluación final, con ajuste y parada anteriores a 2022:
 
 ```bash
 python scripts/entrenar_arquitectura.py --modelo tats --fase prueba --allow-test --semilla 1000 --dispositivo auto --salida salidas/tats_prueba_1000

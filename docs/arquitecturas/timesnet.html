@@ -415,6 +415,15 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bloque-periodico-y-convolucion-de-multiples-escalas">Bloque periódico y convolución de múltiples escalas</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-entrenamiento-y-prueba">Diseño de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-en-validacion">Selección en validación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-conservada">Configuración conservada</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-del-entrenamiento-y-prueba">Etapas del entrenamiento y prueba</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuraciones-evaluadas-en-desarrollo">Configuraciones evaluadas en desarrollo</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-de-entrenamiento-y-evaluacion">Comandos de entrenamiento y evaluación</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-datos">Preparación de datos</a></li>
@@ -623,6 +632,243 @@ w=\operatorname{softmax}(A).
 <span class="linenos">26</span>        <span class="k">return</span> <span class="n">res</span>
 </pre></div>
 </div>
+<!-- diseno-entrenamiento:inicio -->
+</section>
+</section>
+<section id="diseno-de-entrenamiento-y-prueba">
+<h2>Diseño de entrenamiento y prueba<a class="headerlink" href="#diseno-de-entrenamiento-y-prueba" title="Link to this heading">#</a></h2>
+<section id="seleccion-en-validacion">
+<span id="diseno-entrenamiento-timesnet"></span><h3>Selección en validación<a class="headerlink" href="#seleccion-en-validacion" title="Link to this heading">#</a></h3>
+<p>Se evaluaron <strong>20 configuraciones</strong> y 5 llegaron a la comparación de selección. La <strong>configuración 19</strong> obtuvo el menor MASE de validación (0,5244) sobre 2018–2021. La configuración fijada para prueba es <strong>19</strong>, con 5 semillas.</p>
+<section id="configuracion-conservada">
+<h4>Configuración conservada<a class="headerlink" href="#configuracion-conservada" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parámetro</p></th>
+<th class="head"><p>Valor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bloques TimesNet</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Periodos FFT</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>Núcleos Inception</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dimensión interna</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td><p>Dimensión convolucional</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dropout</p></td>
+<td><p>0,1</p></td>
+</tr>
+<tr class="row-even"><td><p>Tasa de aprendizaje</p></td>
+<td><p>0,000534428</p></td>
+</tr>
+<tr class="row-odd"><td><p>Decaimiento de pesos</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Lote de ajuste</p></td>
+<td><p>64</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="etapas-del-entrenamiento-y-prueba">
+<h4>Etapas del entrenamiento y prueba<a class="headerlink" href="#etapas-del-entrenamiento-y-prueba" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Etapa</p></th>
+<th class="head"><p>Especificación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Filtro inicial</p></td>
+<td><p>20 configuraciones; semilla 43; validación 2018</p></td>
+</tr>
+<tr class="row-odd"><td><p>Confirmación y criterio</p></td>
+<td><p>Cinco finalistas; semilla 43; evaluación adicional 2019–2021; media de los cuatro años 2018–2021. Menor MASE medio de validación; cada año tiene el mismo peso.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ajuste final</p></td>
+<td><p>2000-01-09 00:00:00-05:00 a 2019-10-20 00:00:00-05:00</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parada interna final</p></td>
+<td><p>2019-10-21 00:00:00-05:00 a 2021-12-31 00:00:00-05:00</p></td>
+</tr>
+<tr class="row-even"><td><p>Prueba</p></td>
+<td><p>2022-01-01 a 2025-12-31; 1.461 orígenes diarios</p></td>
+</tr>
+<tr class="row-odd"><td><p>Semillas finales</p></td>
+<td><p>1000, 1001, 1002, 1003, 1004</p></td>
+</tr>
+<tr class="row-even"><td><p>Historia y horizonte</p></td>
+<td><p>168 y 24 horas, respectivamente</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pérdida y optimizador</p></td>
+<td><p>MAE de demanda dividida por el nivel histórico; AdamW</p></td>
+</tr>
+<tr class="row-even"><td><p>Épocas y parada</p></td>
+<td><p>Máximo 200; mínimo 10; paciencia efectiva 6; restauración del menor valor interno</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tasa de aprendizaje</p></td>
+<td><p>ReduceLROnPlateau: factor 0,5; paciencia 2</p></td>
+</tr>
+<tr class="row-even"><td><p>Lotes</p></td>
+<td><p>Ajuste: 64; evaluación de prueba: hasta 1 orígenes por lote</p></td>
+</tr>
+<tr class="row-odd"><td><p>Épocas ejecutadas</p></td>
+<td><p>27–47; épocas de los checkpoints: 32, 41, 41, 39, 21</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La selección de hiperparámetros utiliza evaluación con lote 256. La prueba utiliza lote uno: los periodos FFT se determinan por origen, con los mismos pesos y configuración seleccionada.</p>
+</section>
+<section id="configuraciones-evaluadas-en-desarrollo">
+<h4>Configuraciones evaluadas en desarrollo<a class="headerlink" href="#configuraciones-evaluadas-en-desarrollo" title="Link to this heading">#</a></h4>
+<p>El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Hiperparámetros</p></th>
+<th class="head text-right"><p>MASE del filtro</p></th>
+<th class="head text-right"><p>MASE de validación</p></th>
+<th class="head"><p>Estado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>19</strong></p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 16; Dimensión convolucional: 16; Dropout: 0,1; Tasa de aprendizaje: 0,000534428; Decaimiento de pesos: 0; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,4281</p></td>
+<td class="text-right"><p>0,5244</p></td>
+<td><p><strong>Seleccionada para prueba</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 16; Dimensión convolucional: 32; Dropout: 0,1; Tasa de aprendizaje: 0,000237974; Decaimiento de pesos: 0; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,4208</p></td>
+<td class="text-right"><p>0,5304</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 16; Dimensión convolucional: 16; Dropout: 0,1; Tasa de aprendizaje: 0,000208311; Decaimiento de pesos: 0; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,4287</p></td>
+<td class="text-right"><p>0,5378</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 64; Dimensión convolucional: 64; Dropout: 0,1; Tasa de aprendizaje: 0,000199641; Decaimiento de pesos: 0; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,4259</p></td>
+<td class="text-right"><p>0,5473</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 64; Dimensión convolucional: 64; Dropout: 0,1; Tasa de aprendizaje: 0,000168177; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,4268</p></td>
+<td class="text-right"><p>0,5505</p></td>
+<td><p>Finalista</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 32; Dimensión convolucional: 32; Dropout: 0,1; Tasa de aprendizaje: 0,000176993; Decaimiento de pesos: 0; Lote de ajuste: 16</p></td>
+<td class="text-right"><p>0,4368</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 32; Dimensión convolucional: 64; Dropout: 0,1; Tasa de aprendizaje: 0,000186205; Decaimiento de pesos: 0,0001; Lote de ajuste: 16</p></td>
+<td class="text-right"><p>0,4376</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 64; Dimensión convolucional: 128; Dropout: 0,1; Tasa de aprendizaje: 0,000138106; Decaimiento de pesos: 0,0001; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,4392</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 64; Dimensión convolucional: 128; Dropout: 0,1; Tasa de aprendizaje: 0,000106289; Decaimiento de pesos: 0; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,4398</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 64; Dimensión convolucional: 128; Dropout: 0,1; Tasa de aprendizaje: 0,000151512; Decaimiento de pesos: 0; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,4402</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 64; Dimensión convolucional: 128; Dropout: 0,1; Tasa de aprendizaje: 0,000229693; Decaimiento de pesos: 0; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,4433</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 16; Dimensión convolucional: 16; Dropout: 0,1; Tasa de aprendizaje: 0,000348605; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,4466</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 16; Dimensión convolucional: 32; Dropout: 0,1; Tasa de aprendizaje: 0,000226818; Decaimiento de pesos: 0,0001; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,4485</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 32; Dimensión convolucional: 32; Dropout: 0,1; Tasa de aprendizaje: 0,000691839; Decaimiento de pesos: 0; Lote de ajuste: 16</p></td>
+<td class="text-right"><p>0,4507</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 32; Dimensión convolucional: 32; Dropout: 0,1; Tasa de aprendizaje: 0,000359806; Decaimiento de pesos: 0,0001; Lote de ajuste: 16</p></td>
+<td class="text-right"><p>0,4516</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 32; Dimensión convolucional: 64; Dropout: 0,1; Tasa de aprendizaje: 0,000763592; Decaimiento de pesos: 0; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,4517</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 32; Dimensión convolucional: 64; Dropout: 0,1; Tasa de aprendizaje: 0,000326529; Decaimiento de pesos: 0; Lote de ajuste: 16</p></td>
+<td class="text-right"><p>0,4625</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 32; Dimensión convolucional: 64; Dropout: 0,1; Tasa de aprendizaje: 0,000300281; Decaimiento de pesos: 0,0001; Lote de ajuste: 16</p></td>
+<td class="text-right"><p>0,4629</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 64; Dimensión convolucional: 64; Dropout: 0,1; Tasa de aprendizaje: 0,00088832; Decaimiento de pesos: 0; Lote de ajuste: 32</p></td>
+<td class="text-right"><p>0,4709</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Bloques TimesNet: 2; Periodos FFT: 5; Núcleos Inception: 6; Dimensión interna: 64; Dimensión convolucional: 128; Dropout: 0,1; Tasa de aprendizaje: 0,000886804; Decaimiento de pesos: 0,0001; Lote de ajuste: 64</p></td>
+<td class="text-right"><p>0,4740</p></td>
+<td class="text-right"><p>—</p></td>
+<td><p>Filtro inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="reference download internal" download="" href="../_downloads/0156f24a133c9f26485c3674c6c7c84c/nuevo_timesnet__N.csv"><span class="xref download myst">Resultados de desarrollo por año y semilla</span></a> · <a class="reference download internal" download="" href="../_downloads/c0f180b41c2199ed065fc97d404c9aa2/nuevo_timesnet__N_configuraciones.csv"><span class="xref download myst">Configuraciones completas</span></a>.</p>
+<!-- diseno-entrenamiento:fin -->
+</section>
 </section>
 </section>
 <section id="pipeline-de-entrenamiento-y-prueba">
@@ -1075,6 +1321,15 @@ w=\operatorname{softmax}(A).
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detalle-de-las-operaciones">Detalle de las operaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-la-arquitectura">Código de la arquitectura</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bloque-periodico-y-convolucion-de-multiples-escalas">Bloque periódico y convolución de múltiples escalas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-entrenamiento-y-prueba">Diseño de entrenamiento y prueba</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-en-validacion">Selección en validación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-conservada">Configuración conservada</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#etapas-del-entrenamiento-y-prueba">Etapas del entrenamiento y prueba</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuraciones-evaluadas-en-desarrollo">Configuraciones evaluadas en desarrollo</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-de-entrenamiento-y-prueba">Pipeline de entrenamiento y prueba</a><ul class="nav section-nav flex-column">

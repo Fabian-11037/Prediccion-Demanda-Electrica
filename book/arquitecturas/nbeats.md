@@ -42,6 +42,75 @@ El {ref}`código de generación de estos esquemas <esquemas-top10-detallados>` c
 :linenos:
 ```
 
+<!-- diseno-entrenamiento:inicio -->
+
+## Diseño de entrenamiento y prueba
+
+(diseno-entrenamiento-nbeats)=
+
+### Selección en validación
+
+Se evaluaron **20 configuraciones** y 5 llegaron a la comparación de selección. La **configuración 16** obtuvo el menor MASE de validación (0,6908) sobre 2018–2021. La configuración fijada para prueba es **16**, con 5 semillas.
+
+#### Configuración conservada
+| Parámetro | Valor |
+|---|---|
+| Pilas | 30 |
+| Bloques por pila | 1 |
+| Capas densas por bloque | 4 |
+| Ancho | 512 |
+| Dropout | 0,1 |
+| Tasa de aprendizaje | 0,000357243 |
+| Decaimiento de pesos | 0 |
+| Lote de ajuste | 64 |
+
+#### Etapas del entrenamiento y prueba
+
+| Etapa | Especificación |
+|---|---|
+| Filtro inicial | 20 configuraciones; semilla 43; validación 2018 |
+| Confirmación y criterio | Cinco finalistas; semilla 43; evaluación adicional 2019–2021; media de los cuatro años 2018–2021. Menor MASE medio de validación; cada año tiene el mismo peso. |
+| Ajuste final | 2000-01-09 00:00:00-05:00 a 2019-10-20 00:00:00-05:00 |
+| Parada interna final | 2019-10-21 00:00:00-05:00 a 2021-12-31 00:00:00-05:00 |
+| Prueba | 2022-01-01 a 2025-12-31; 1.461 orígenes diarios |
+| Semillas finales | 1000, 1001, 1002, 1003, 1004 |
+| Historia y horizonte | 168 y 24 horas, respectivamente |
+| Pérdida y optimizador | MAE de demanda dividida por el nivel histórico; AdamW |
+| Épocas y parada | Máximo 200; mínimo 10; paciencia efectiva 6; restauración del menor valor interno |
+| Tasa de aprendizaje | ReduceLROnPlateau: factor 0,5; paciencia 2 |
+| Lotes | Ajuste: 64; evaluación de prueba: hasta 256 orígenes por lote |
+| Épocas ejecutadas | 17–25; épocas de los checkpoints: 14, 13, 17, 11, 19 |
+
+
+#### Configuraciones evaluadas en desarrollo
+El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.
+| Configuración | Hiperparámetros | MASE del filtro | MASE de validación | Estado |
+|---|---|---:|---:|---|
+| **16** | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0,1; Tasa de aprendizaje: 0,000357243; Decaimiento de pesos: 0; Lote de ajuste: 64 | 0,4891 | 0,6908 | **Seleccionada para prueba** |
+| 9 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0; Tasa de aprendizaje: 0,000167913; Decaimiento de pesos: 0,0001; Lote de ajuste: 64 | 0,5255 | 0,6933 | Finalista |
+| 10 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0,1; Tasa de aprendizaje: 0,000570889; Decaimiento de pesos: 0,0001; Lote de ajuste: 128 | 0,4951 | 0,7019 | Finalista |
+| 6 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0,1; Tasa de aprendizaje: 0,000554015; Decaimiento de pesos: 0; Lote de ajuste: 64 | 0,4999 | 0,7069 | Finalista |
+| 18 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0,1; Tasa de aprendizaje: 0,000240778; Decaimiento de pesos: 0; Lote de ajuste: 128 | 0,5124 | 0,7187 | Finalista |
+| 3 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0,1; Tasa de aprendizaje: 0,000264241; Decaimiento de pesos: 0; Lote de ajuste: 128 | 0,5259 | — | Filtro inicial |
+| 11 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0,1; Tasa de aprendizaje: 0,000439967; Decaimiento de pesos: 1e-05; Lote de ajuste: 64 | 0,5273 | — | Filtro inicial |
+| 19 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0; Tasa de aprendizaje: 0,000408621; Decaimiento de pesos: 0; Lote de ajuste: 64 | 0,5294 | — | Filtro inicial |
+| 5 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0; Tasa de aprendizaje: 0,000263148; Decaimiento de pesos: 0; Lote de ajuste: 64 | 0,5348 | — | Filtro inicial |
+| 15 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0; Tasa de aprendizaje: 0,000393724; Decaimiento de pesos: 0; Lote de ajuste: 128 | 0,5438 | — | Filtro inicial |
+| 14 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0,1; Tasa de aprendizaje: 0,00036962; Decaimiento de pesos: 0; Lote de ajuste: 256 | 0,5450 | — | Filtro inicial |
+| 17 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0,1; Tasa de aprendizaje: 0,000105918; Decaimiento de pesos: 1e-05; Lote de ajuste: 128 | 0,5462 | — | Filtro inicial |
+| 1 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0,1; Tasa de aprendizaje: 0,000613748; Decaimiento de pesos: 0,0001; Lote de ajuste: 256 | 0,5483 | — | Filtro inicial |
+| 20 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0,1; Tasa de aprendizaje: 0,000242018; Decaimiento de pesos: 0,0001; Lote de ajuste: 256 | 0,5514 | — | Filtro inicial |
+| 8 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0; Tasa de aprendizaje: 0,000194616; Decaimiento de pesos: 0; Lote de ajuste: 128 | 0,5544 | — | Filtro inicial |
+| 4 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0; Tasa de aprendizaje: 0,000191509; Decaimiento de pesos: 0,0001; Lote de ajuste: 128 | 0,5607 | — | Filtro inicial |
+| 7 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0,1; Tasa de aprendizaje: 0,000109654; Decaimiento de pesos: 1e-05; Lote de ajuste: 256 | 0,5648 | — | Filtro inicial |
+| 13 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0; Tasa de aprendizaje: 0,000154096; Decaimiento de pesos: 0,0001; Lote de ajuste: 128 | 0,5660 | — | Filtro inicial |
+| 12 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0; Tasa de aprendizaje: 0,000299397; Decaimiento de pesos: 0; Lote de ajuste: 256 | 0,5704 | — | Filtro inicial |
+| 2 | Pilas: 30; Bloques por pila: 1; Capas densas por bloque: 4; Ancho: 512; Dropout: 0; Tasa de aprendizaje: 0,000144134; Decaimiento de pesos: 0,0001; Lote de ajuste: 256 | 0,6194 | — | Filtro inicial |
+
+[Resultados de desarrollo por año y semilla](../_static/resultados/diseno_entrenamiento/nuevo_nbeats__N.csv) · [Configuraciones completas](../_static/resultados/diseno_entrenamiento/nuevo_nbeats__N_configuraciones.csv).
+
+<!-- diseno-entrenamiento:fin -->
+
 ## Pipeline de entrenamiento y prueba
 
 <!-- entrenamiento-portable:inicio -->

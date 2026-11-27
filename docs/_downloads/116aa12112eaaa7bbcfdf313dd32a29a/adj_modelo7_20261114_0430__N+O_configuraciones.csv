@@ -1,0 +1,21 @@
+configuracion,hiperparametros,MASE_filtro,MASE_seleccion,anios_seleccion,semillas_seleccion,ajustes_seleccion,seleccionada_prueba
+1,"{""d_model"": 64, ""capas"": 2, ""capas_mezcla"": 1, ""cabezas"": 4, ""dropout"": 0.1, ""lr"": 0.001, ""weight_decay"": 0.0001, ""lote"": 64}",0.7176051128783264,0.9126277835917244,"2018,2019,2020,2021",43,4,True
+19,"{""d_model"": 256, ""capas"": 3, ""capas_mezcla"": 2, ""cabezas"": 8, ""dropout"": 0.1, ""lr"": 0.0001, ""weight_decay"": 0.0001, ""lote"": 32}",0.7239895526231189,0.9179139453189442,"2018,2019,2020,2021",43,4,False
+12,"{""d_model"": 128, ""capas"": 3, ""capas_mezcla"": 3, ""cabezas"": 8, ""dropout"": 0.3, ""lr"": 0.001, ""weight_decay"": 0.01, ""lote"": 128}",0.7702887619520723,1.003001124865944,"2018,2019,2020,2021",43,4,False
+2,"{""d_model"": 64, ""capas"": 2, ""capas_mezcla"": 2, ""cabezas"": 4, ""dropout"": 0.2, ""lr"": 0.001, ""weight_decay"": 0.0001, ""lote"": 64}",0.7561680526818039,1.0455589058735308,"2018,2019,2020,2021",43,4,False
+4,"{""d_model"": 64, ""capas"": 3, ""capas_mezcla"": 2, ""cabezas"": 4, ""dropout"": 0.1, ""lr"": 0.0003, ""weight_decay"": 0.001, ""lote"": 128}",0.7652386784260408,1.0566040597969326,"2018,2019,2020,2021",43,4,False
+10,"{""d_model"": 128, ""capas"": 3, ""capas_mezcla"": 2, ""cabezas"": 8, ""dropout"": 0.1, ""lr"": 0.0001, ""weight_decay"": 0.0001, ""lote"": 32}",0.7753126360465732,,,,0,False
+6,"{""d_model"": 64, ""capas"": 2, ""capas_mezcla"": 3, ""cabezas"": 4, ""dropout"": 0.1, ""lr"": 0.0001, ""weight_decay"": 0.0001, ""lote"": 32}",0.783274680459552,,,,0,False
+7,"{""d_model"": 128, ""capas"": 2, ""capas_mezcla"": 1, ""cabezas"": 8, ""dropout"": 0.1, ""lr"": 0.0003, ""weight_decay"": 0.0001, ""lote"": 64}",0.787336820513266,,,,0,False
+11,"{""d_model"": 128, ""capas"": 3, ""capas_mezcla"": 3, ""cabezas"": 8, ""dropout"": 0.2, ""lr"": 0.0003, ""weight_decay"": 0.001, ""lote"": 64}",0.8068636005444043,,,,0,False
+15,"{""d_model"": 32, ""capas"": 3, ""capas_mezcla"": 1, ""cabezas"": 4, ""dropout"": 0.1, ""lr"": 0.001, ""weight_decay"": 0.0001, ""lote"": 64}",0.8105783480411985,,,,0,False
+16,"{""d_model"": 32, ""capas"": 3, ""capas_mezcla"": 2, ""cabezas"": 4, ""dropout"": 0.2, ""lr"": 0.001, ""weight_decay"": 0.001, ""lote"": 64}",0.8597099752969619,,,,0,False
+8,"{""d_model"": 128, ""capas"": 2, ""capas_mezcla"": 2, ""cabezas"": 8, ""dropout"": 0.2, ""lr"": 0.0003, ""weight_decay"": 0.0001, ""lote"": 64}",0.876534119935961,,,,0,False
+9,"{""d_model"": 128, ""capas"": 3, ""capas_mezcla"": 1, ""cabezas"": 8, ""dropout"": 0.2, ""lr"": 0.001, ""weight_decay"": 0.001, ""lote"": 128}",0.8978249903752694,,,,0,False
+18,"{""d_model"": 256, ""capas"": 2, ""capas_mezcla"": 1, ""cabezas"": 8, ""dropout"": 0.2, ""lr"": 0.0001, ""weight_decay"": 0.001, ""lote"": 32}",0.9013659616134554,,,,0,False
+3,"{""d_model"": 64, ""capas"": 3, ""capas_mezcla"": 1, ""cabezas"": 4, ""dropout"": 0.2, ""lr"": 0.0003, ""weight_decay"": 0.0001, ""lote"": 64}",0.9160444121256001,,,,0,False
+5,"{""d_model"": 64, ""capas"": 3, ""capas_mezcla"": 3, ""cabezas"": 4, ""dropout"": 0.3, ""lr"": 0.001, ""weight_decay"": 0.001, ""lote"": 128}",1.0756815918562583,,,,0,False
+14,"{""d_model"": 128, ""capas"": 3, ""capas_mezcla"": 2, ""cabezas"": 16, ""dropout"": 0.3, ""lr"": 0.0003, ""weight_decay"": 0.0001, ""lote"": 64}",1.0888969827045016,,,,0,False
+13,"{""d_model"": 128, ""capas"": 2, ""capas_mezcla"": 3, ""cabezas"": 16, ""dropout"": 0.2, ""lr"": 0.0001, ""weight_decay"": 0.0001, ""lote"": 128}",1.2778455880306887,,,,0,False
+17,"{""d_model"": 32, ""capas"": 2, ""capas_mezcla"": 3, ""cabezas"": 4, ""dropout"": 0.3, ""lr"": 0.0003, ""weight_decay"": 0.0001, ""lote"": 128}",1.452478917576826,,,,0,False
+20,"{""d_model"": 256, ""capas"": 2, ""capas_mezcla"": 2, ""cabezas"": 8, ""dropout"": 0.3, ""lr"": 0.0003, ""weight_decay"": 0.01, ""lote"": 128}",1.4643653199347446,,,,0,False

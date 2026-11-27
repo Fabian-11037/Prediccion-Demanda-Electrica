@@ -40,6 +40,71 @@ El {ref}`código de exportación de los esquemas <exportacion-esquemas>` forma p
 :linenos:
 ```
 
+<!-- diseno-entrenamiento:inicio -->
+
+## Diseño de entrenamiento y prueba
+
+(diseno-entrenamiento-nhits)=
+
+### Selección en validación
+
+Se evaluaron **20 configuraciones** y 5 llegaron a la comparación de selección. La **configuración N14** obtuvo el menor MASE de validación (0,9304) sobre 2019–2021. La configuración fijada para prueba es **N14**, con 5 semillas.
+
+#### Configuración conservada
+| Parámetro | Valor |
+|---|---|
+| Tasa de aprendizaje | 0,00010336 |
+| Lote de ajuste | 64 |
+| Dropout | 0,195608 |
+| Decaimiento de pesos | 1,44162e-06 |
+
+#### Etapas del entrenamiento y prueba
+
+| Etapa | Especificación |
+|---|---|
+| Filtro inicial | 20 configuraciones; tres semillas; validación 2018 |
+| Confirmación y criterio | Cinco finalistas; tres semillas; años 2019–2021; la puntuación de selección excluye el filtro de 2018. Menor MASE medio de validación; cada año tiene el mismo peso. |
+| Ajuste final | 2000–2021, excluida la reserva interna de parada |
+| Parada interna final | Último 10 % de orígenes anteriores a 2022; purga de 24 horas |
+| Prueba | 2022-01-01 a 2025-12-31; 1.461 orígenes diarios |
+| Semillas finales | 1000, 1001, 1002, 1003, 1004 |
+| Historia y horizonte | 168 y 24 horas, respectivamente |
+| Pérdida y optimizador | MAE de demanda dividida por el nivel histórico; AdamW |
+| Épocas y parada | Máximo 200; mínimo 10; paciencia efectiva 10; restauración del menor valor interno |
+| Tasa de aprendizaje | ReduceLROnPlateau: factor 0,5; paciencia 2 |
+| Lotes | Ajuste: 64; evaluación de prueba: hasta 64 orígenes por lote |
+| Épocas ejecutadas | 15–21; épocas de los checkpoints: 11, 6, 5, 5, 10 |
+
+
+#### Configuraciones evaluadas en desarrollo
+El filtro y la selección corresponden a periodos y cantidades de repeticiones distintos. El guion identifica las configuraciones que no avanzaron a confirmación; no representa un resultado nulo.
+| Configuración | Hiperparámetros | MASE del filtro | MASE de validación | Estado |
+|---|---|---:|---:|---|
+| **N14** | Tasa de aprendizaje: 0,00010336; Lote de ajuste: 64; Dropout: 0,195608; Decaimiento de pesos: 1,44162e-06 | 0,6269 | 0,9304 | **Seleccionada para prueba** |
+| N04 | Tasa de aprendizaje: 0,000103774; Lote de ajuste: 64; Dropout: 0,127354; Decaimiento de pesos: 3,94617e-06 | 0,6421 | 0,9332 | Finalista |
+| N15 | Tasa de aprendizaje: 0,000263174; Lote de ajuste: 32; Dropout: 0,167637; Decaimiento de pesos: 0,000269924 | 0,6394 | 0,9541 | Finalista |
+| N06 | Tasa de aprendizaje: 0,000100643; Lote de ajuste: 32; Dropout: 0,0786891; Decaimiento de pesos: 0,000922368 | 0,6548 | 0,9570 | Finalista |
+| N13 | Tasa de aprendizaje: 0,000421486; Lote de ajuste: 32; Dropout: 0,116508; Decaimiento de pesos: 6,80881e-06 | 0,6605 | 0,9625 | Finalista |
+| N11 | Tasa de aprendizaje: 0,000248237; Lote de ajuste: 64; Dropout: 0,0884637; Decaimiento de pesos: 5,74229e-06 | 0,6690 | — | Filtro inicial |
+| N07 | Tasa de aprendizaje: 0,000197065; Lote de ajuste: 64; Dropout: 0,259409; Decaimiento de pesos: 4,70571e-05 | 0,6780 | — | Filtro inicial |
+| N16 | Tasa de aprendizaje: 0,000964873; Lote de ajuste: 64; Dropout: 0,171782; Decaimiento de pesos: 2,72872e-06 | 0,7099 | — | Filtro inicial |
+| N18 | Tasa de aprendizaje: 0,000459035; Lote de ajuste: 32; Dropout: 0,249701; Decaimiento de pesos: 7,78391e-06 | 0,7179 | — | Filtro inicial |
+| N08 | Tasa de aprendizaje: 0,000400238; Lote de ajuste: 32; Dropout: 0,231424; Decaimiento de pesos: 8,06178e-05 | 0,7240 | — | Filtro inicial |
+| N12 | Tasa de aprendizaje: 0,000179581; Lote de ajuste: 32; Dropout: 0,291245; Decaimiento de pesos: 8,83417e-06 | 0,7245 | — | Filtro inicial |
+| N10 | Tasa de aprendizaje: 0,000758298; Lote de ajuste: 16; Dropout: 0,17722; Decaimiento de pesos: 1,28959e-06 | 0,7634 | — | Filtro inicial |
+| N20 | Tasa de aprendizaje: 0,000878968; Lote de ajuste: 32; Dropout: 0,202249; Decaimiento de pesos: 2,63526e-06 | 0,7653 | — | Filtro inicial |
+| N01 | Tasa de aprendizaje: 0,001; Lote de ajuste: 32; Dropout: 0,1; Decaimiento de pesos: 0,0001 | 0,7676 | — | Filtro inicial |
+| N05 | Tasa de aprendizaje: 0,00196812; Lote de ajuste: 64; Dropout: 0,164915; Decaimiento de pesos: 2,14238e-05 | 0,8659 | — | Filtro inicial |
+| N02 | Tasa de aprendizaje: 0,00252957; Lote de ajuste: 64; Dropout: 0,14839; Decaimiento de pesos: 6,08571e-06 | 0,8736 | — | Filtro inicial |
+| N09 | Tasa de aprendizaje: 0,00230437; Lote de ajuste: 64; Dropout: 0,14619; Decaimiento de pesos: 0,000452441 | 0,8963 | — | Filtro inicial |
+| N03 | Tasa de aprendizaje: 0,00122413; Lote de ajuste: 16; Dropout: 0,284497; Decaimiento de pesos: 0,00477104 | 1,0270 | — | Filtro inicial |
+| N17 | Tasa de aprendizaje: 0,00226148; Lote de ajuste: 16; Dropout: 0,231026; Decaimiento de pesos: 1,16432e-06 | 1,4560 | — | Filtro inicial |
+| N19 | Tasa de aprendizaje: 0,00230194; Lote de ajuste: 16; Dropout: 0,245892; Decaimiento de pesos: 4,57105e-06 | 1,7964 | — | Filtro inicial |
+
+[Resultados de desarrollo por año y semilla](../_static/resultados/diseno_entrenamiento/repo_nhits_numerico_r1__N.csv) · [Configuraciones completas](../_static/resultados/diseno_entrenamiento/repo_nhits_numerico_r1__N_configuraciones.csv).
+
+<!-- diseno-entrenamiento:fin -->
+
 ## Pipeline de entrenamiento y prueba
 
 <!-- entrenamiento-portable:inicio -->
