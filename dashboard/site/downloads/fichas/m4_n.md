@@ -389,6 +389,14 @@ Las proposiciones se derivan de los supuestos y operaciones indicados, con aritm
 
 Se evaluaron **8 configuraciones** y 8 llegaron a la comparación de selección. La **configuración 6** obtuvo el menor MASE de selección de memoria (0,4573) sobre 2018–2021. La configuración fijada para prueba es **6**, con 10 semillas.
 
+#### Fundamento de la partición
+
+M4 aprende una corrección a partir de los errores de pronósticos fuera de muestra de M1. La base se construye con bloques temporales anidados para 2013–2021. La memoria usa una reserva anual de parada interna: para validar 2018 optimiza con 2013–2016 y elige checkpoint con 2017; las reservas avanzan un año en cada pliegue hasta validar 2021. El ajuste final de memoria utiliza 2013–2020 y parada en 2021, con los expertos y M1 congelados. El inicio en 2013 corresponde a la construcción de la base OOF, no a una restricción de la arquitectura ni a una fecha optimizada mediante comparación de ventanas.
+
+Los tres expertos de M1 (PatchTST, E y periódico) utilizan, en su ajuste final, orígenes de 2000-01-09 a 2019-10-20 y parada interna de 2019-10-21 a 2021-12-31. El combinador M1 se ajusta con pronósticos históricos de esos expertos desde 2011-01-01 hasta 2020-12-30 y reserva 2021 para parada interna. La memoria de M4 se ajusta desde 2013-01-01 hasta 2020-12-30 y también reserva 2021.
+
+Fuera de muestra (OOF) significa que cada bloque histórico se pronostica con pesos entrenados usando datos anteriores a ese bloque y congelados al pronosticarlo. Las configuraciones de los expertos se conservan al reajustar sus pesos por bloque; la configuración del combinador M1 se elige por prefijos, usando resultados de años anteriores al año pronosticado. No se aplica el modelo final hacia atrás sobre su propia historia de entrenamiento. Para 2022–2025 se utilizan las versiones finales congeladas de los expertos, M1 y la memoria.
+
 #### Configuración conservada
 | Parámetro | Valor |
 |---|---|

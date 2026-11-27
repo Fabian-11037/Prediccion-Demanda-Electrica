@@ -1,0 +1,286 @@
+{
+  "general": [
+    {
+      "etapa": "Validación 2018",
+      "tipo": "validacion",
+      "ajuste": [
+        "2000-01-09",
+        "2016-03-14"
+      ],
+      "parada": [
+        "2016-03-15",
+        "2017-12-31"
+      ],
+      "evaluacion": [
+        "2018-01-01",
+        "2018-12-31"
+      ],
+      "conteos": {
+        "ajuste": 5910,
+        "parada": 657,
+        "evaluacion": 365
+      }
+    },
+    {
+      "etapa": "Validación 2019",
+      "tipo": "validacion",
+      "ajuste": [
+        "2000-01-09",
+        "2017-02-06"
+      ],
+      "parada": [
+        "2017-02-07",
+        "2018-12-31"
+      ],
+      "evaluacion": [
+        "2019-01-01",
+        "2019-12-31"
+      ],
+      "conteos": {
+        "ajuste": 6239,
+        "parada": 693,
+        "evaluacion": 365
+      }
+    },
+    {
+      "etapa": "Validación 2020",
+      "tipo": "validacion",
+      "ajuste": [
+        "2000-01-09",
+        "2017-12-31"
+      ],
+      "parada": [
+        "2018-01-01",
+        "2019-12-31"
+      ],
+      "evaluacion": [
+        "2020-01-01",
+        "2020-12-31"
+      ],
+      "conteos": {
+        "ajuste": 6567,
+        "parada": 730,
+        "evaluacion": 366
+      }
+    },
+    {
+      "etapa": "Validación 2021",
+      "tipo": "validacion",
+      "ajuste": [
+        "2000-01-09",
+        "2018-11-26"
+      ],
+      "parada": [
+        "2018-11-27",
+        "2020-12-31"
+      ],
+      "evaluacion": [
+        "2021-01-01",
+        "2021-12-31"
+      ],
+      "conteos": {
+        "ajuste": 6897,
+        "parada": 766,
+        "evaluacion": 365
+      }
+    },
+    {
+      "etapa": "Ajuste final · referencia TFT",
+      "tipo": "final",
+      "ajuste": [
+        "2000-01-09",
+        "2019-10-20"
+      ],
+      "parada": [
+        "2019-10-21",
+        "2021-12-31"
+      ],
+      "evaluacion": [
+        "2022-01-01",
+        "2025-12-31"
+      ]
+    }
+  ],
+  "m4": [
+    {
+      "etapa": "Memoria · validación 2018",
+      "tipo": "validacion",
+      "ajuste": [
+        "2013-01-01",
+        "2016-12-30"
+      ],
+      "parada": [
+        "2017-01-01",
+        "2017-12-31"
+      ],
+      "evaluacion": [
+        "2018-01-01",
+        "2018-12-31"
+      ]
+    },
+    {
+      "etapa": "Memoria · validación 2019",
+      "tipo": "validacion",
+      "ajuste": [
+        "2013-01-01",
+        "2017-12-30"
+      ],
+      "parada": [
+        "2018-01-01",
+        "2018-12-31"
+      ],
+      "evaluacion": [
+        "2019-01-01",
+        "2019-12-31"
+      ]
+    },
+    {
+      "etapa": "Memoria · validación 2020",
+      "tipo": "validacion",
+      "ajuste": [
+        "2013-01-01",
+        "2018-12-30"
+      ],
+      "parada": [
+        "2019-01-01",
+        "2019-12-31"
+      ],
+      "evaluacion": [
+        "2020-01-01",
+        "2020-12-31"
+      ]
+    },
+    {
+      "etapa": "Memoria · validación 2021",
+      "tipo": "validacion",
+      "ajuste": [
+        "2013-01-01",
+        "2019-12-30"
+      ],
+      "parada": [
+        "2020-01-01",
+        "2020-12-31"
+      ],
+      "evaluacion": [
+        "2021-01-01",
+        "2021-12-31"
+      ]
+    },
+    {
+      "etapa": "Ajuste final · combinador M1",
+      "tipo": "final",
+      "ajuste": [
+        "2011-01-01",
+        "2020-12-30"
+      ],
+      "parada": [
+        "2021-01-01",
+        "2021-12-31"
+      ],
+      "evaluacion": [
+        "2022-01-01",
+        "2025-12-31"
+      ]
+    },
+    {
+      "etapa": "Ajuste final · memoria M4ₙ",
+      "tipo": "final",
+      "ajuste": [
+        "2013-01-01",
+        "2020-12-30"
+      ],
+      "parada": [
+        "2021-01-01",
+        "2021-12-31"
+      ],
+      "evaluacion": [
+        "2022-01-01",
+        "2025-12-31"
+      ]
+    }
+  ],
+  "expertos_finales": [
+    {
+      "experto": "patchtst",
+      "ajuste": [
+        "2000-01-09",
+        "2019-10-20"
+      ],
+      "parada": [
+        "2019-10-21",
+        "2021-12-31"
+      ]
+    },
+    {
+      "experto": "E",
+      "ajuste": [
+        "2000-01-09",
+        "2019-10-20"
+      ],
+      "parada": [
+        "2019-10-21",
+        "2021-12-31"
+      ]
+    },
+    {
+      "experto": "periodica",
+      "ajuste": [
+        "2000-01-09",
+        "2019-10-20"
+      ],
+      "parada": [
+        "2019-10-21",
+        "2021-12-31"
+      ]
+    }
+  ],
+  "prueba": [
+    "2022-01-01",
+    "2025-12-31"
+  ],
+  "source_sha256": {
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2021\\cfg_01\\resultado.json": "7dba5d441a7aac7082d70262b6961ae4714eb08ef6c1681a5d86c5799d25c596",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2021\\cfg_02\\resultado.json": "cf0023f482059373b8c4411548a0e1b7b68ff0e90d7e16bb335f40c2563fd950",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2021\\cfg_03\\resultado.json": "4a609ac5c25f073b98a762b5a45bfc80611db639777ce1638be23f8bbf66d018",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2021\\cfg_16\\resultado.json": "e1697f594a18eeabb474fd02f182eacaa88c7487d45f9c58ccf4c566f60cd0dc",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2021\\cfg_17\\resultado.json": "2184884a19abd251a428863c6f3d320a9a645d2caa73d024a9b72a6ef2e7433c",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2020\\cfg_01\\resultado.json": "1ea0d6da42c6f35a5afbffd84080f386ed2b362e333647b195653a1232f12fef",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2020\\cfg_02\\resultado.json": "060967f8e0f37f3fe70bfe0010a153ee5357f51e1cfbb7983f0b79dd965fc5d4",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2020\\cfg_03\\resultado.json": "093c2a819247a481f18c2b6b639a81450dfc88f0e22c9555b963134c99e5b134",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2020\\cfg_16\\resultado.json": "2ba8968a1106149ce88dbdc7f8a5094a4e36d6f0a4a2721555a7780cc729a39d",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2020\\cfg_17\\resultado.json": "2bdd0d26e2a8cf6dd104087ba23ee0cab6900155a6d67305f00266a85e32c71a",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2019\\cfg_01\\resultado.json": "dc07f11f51222a00f2b4574efe2911df43d734089a172035ef0d03ea4c6e5b38",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2019\\cfg_02\\resultado.json": "01d9e0888667b4a707a029a1dd7d940303bff470f2a0204fd6a8956aadc19239",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2019\\cfg_03\\resultado.json": "cadee38e35d616e439f98d4090add10bb6339b9a45031cca49c61c953892ef9f",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2019\\cfg_16\\resultado.json": "27c39971d0f28f1445b474f5729beae88ec6d7c0eac0fa9019527e5069b4799d",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2019\\cfg_17\\resultado.json": "71c7a7adb86dc3c02c5c902e0a1465f02d4937776fe76dcebcea5c2bc93dfca7",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_01\\resultado.json": "6f9f936a41de9e546fa3ef196356985d6eeb05a89ab832bd8da6013e3f19d2a6",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_02\\resultado.json": "11991d60f71be5df1d4063859ca013eec58bb17042edfcc291b09c48f2f7d073",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_03\\resultado.json": "d36f65284bb6a28a84e8ac35d9f3046ea74ca66b898af20fcde2b2220534c78f",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_04\\resultado.json": "5642fdd3ca2752a43699987f0e6805a8ce5ce240ccb2e31a333a3a2c983580c8",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_05\\resultado.json": "33452d0c5337a9dd8b58800797e7199d18610a62d2f0777cf3e59f5a425be2b0",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_06\\resultado.json": "77b6ed67b60b015c92585b4bd81771106ae83d1fd2dcf2e446ff26274288650b",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_07\\resultado.json": "022c648394edbe6dca3ecb3337549db486d6671026a49b50bdd763f4ebf5f9f4",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_08\\resultado.json": "0fbff9cf677c797f6126056599cb14664235f6c2ad9caf7343fca5ada225fae8",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_09\\resultado.json": "009c4ceae689bb8fac69cf8b12cd4d1d9e9201635238aa58735c805d2b370519",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_10\\resultado.json": "feaf3cdfb63d73fdcef3e00c452655c9176dbd464d927fb40c6aefdd690ea7bb",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_11\\resultado.json": "98b355b2175e129cae360ee1491fafde38c805628b470dfe63180576ead62d5b",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_12\\resultado.json": "8538064962f879c514762691f742e2394237f1d2a518abc12e055123594c0713",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_13\\resultado.json": "ee91e8cb9a3cfa58fbffbdfcd85473d65f856f2e3a465c91ec93bbe3fa769461",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_14\\resultado.json": "1a724deb98eaceb79749c2f8450b4a7bdf5883a63b3fbf1f9463e088ff75b291",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_15\\resultado.json": "771e86ec871ede236cabc8ea7a4fb78b0303f39904c073f6db53c63d0bee38fd",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_16\\resultado.json": "81bc13bbcf8e1bb5045338aae2d2a6269fe956475fa42864b95df36f60b40ee4",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_17\\resultado.json": "8a40b05074eac871dc533592f3bdd3cf9b182d384de7d8da15232d7083ecda01",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_18\\resultado.json": "a1b2269feacd6fb8d691824750ac2b47fdc054e1acde139106fdb605cf6e0011",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_19\\resultado.json": "ccf65a74a504ccc15cf50f75056b40dc2dffe91bf1cc020524ddf5699bdbac0c",
+    "fuentes/Consolidado-Entrenamientos-20261115\\fuentes\\adjuntos\\modelo3_20261115_0419\\resultados_modelo3\\busqueda\\N\\pliegue_2018\\cfg_20\\resultado.json": "7f3835b1feb46b2cae276ffa652880f03b4b3cd8355d030a899159444c31911c",
+    "results\\corrector_final_y_m1_gpu_20261122_150345\\M1\\expertos_finales\\patchtst\\semilla_101\\TERMINADO.json": "b09667a092abd53ca5a9eb1df93d25f0deb8023201c4758ad65ae5dfadf7c18a",
+    "results\\corrector_final_y_m1_gpu_20261122_150345\\M1\\expertos_finales\\E\\semilla_101\\TERMINADO.json": "12489e5d9d409090796d65deffcf02564ecba2197ce70a05105b29e594768cee",
+    "results\\corrector_final_y_m1_gpu_20261122_150345\\M1\\expertos_finales\\periodica\\semilla_101\\TERMINADO.json": "8efc248a08abbe72f8bc8868b6355a9fb08711af9c7c468cf542c5407a2bc6ee",
+    "results\\m4_gpu_20261122_194500\\busqueda\\cfg_6\\anio_2018\\semilla_101\\TERMINADO.json": "12ebff1983cfc7e9d8a8acd448ccb371f62485122788b9331f7983409107c64a",
+    "results\\m4_gpu_20261122_194500\\busqueda\\cfg_6\\anio_2019\\semilla_101\\TERMINADO.json": "997426f0233fa09bc96437405cd3f7eba1bae86fb555af4130821ee55d540ca5",
+    "results\\m4_gpu_20261122_194500\\busqueda\\cfg_6\\anio_2020\\semilla_101\\TERMINADO.json": "9a00515e9dbcac60c373c167e9408aaf04872861b7a8e69a5fa4f42987e6b21b",
+    "results\\m4_gpu_20261122_194500\\busqueda\\cfg_6\\anio_2021\\semilla_101\\TERMINADO.json": "1cdee080977d4b99f9e5b00a4cfb5f17a74ef00516831bd4e1ebd23d66d337a7",
+    "results\\corrector_final_y_m1_gpu_20261122_150345\\M1\\final\\semilla_101\\TERMINADO.json": "802eb80ca04e4e4daee5a21b557290f8c19d42974ce09ec1feafc6ebc6ec9f4f"
+  }
+}
